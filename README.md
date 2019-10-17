@@ -1,5 +1,5 @@
 This repository belongs to BLOOM TEAM, I have just provided my knowledge into github 
-usage with permission to publish his project here, so we can have also a mutual
+usage with permission to publish the project here, so we can have also a mutual
 workflow together (and possibly invite other people to contribute).
 
 A thread has been opened on ZDoom Forums recently, check it out and give us feedbacks!
@@ -17,6 +17,7 @@ This mod wouldn't have been possible without ZBlood and ZBloodX, so thanks a lot
 IvanDobrovski/Cruduxy and Marinelol
 
 ZBlood: https://www.wad-archive.com/wad/ZBlooD
+
 ZBloodX: https://forum.zdoom.org/viewtopic.php?f=19&t=46729
 
 
