@@ -8,14 +8,17 @@ A thread has been opened on ZDoom Forums recently, check it out and give us feed
 
 You need GZDoom 3.7.2 or Zandronum 2.8+ to run this mod, within any Doom IWAD files though.
 
-Check DOCS & CREDITS folders for a complete and exhaustive list of materials used on this mod,
-plus a long detailed story about its development.
+Check SOURCE folder for a complete and exhaustive list of materials used on this mod,
+plus a long detailed story background and Bible.
 
 All borrowed resources present in this repo belong ONLY to respective owners/creators.
 
-This mod wouldn't have been possible without ZBlood, so thanks a lot again to
+This mod wouldn't have been possible without ZBlood and ZBloodX, so thanks a lot again to
+IvanDobrovski/Cruduxy and Marinelol
 
-- ADD THREAD
+ZBlood: https://www.wad-archive.com/wad/ZBlooD
+ZBloodX: https://forum.zdoom.org/viewtopic.php?f=19&t=46729
+
 
 # EDITORS USED:
 - 7Zip : https://www.7-zip.org
