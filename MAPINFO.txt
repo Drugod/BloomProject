@@ -1,0 +1,1345 @@
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////BLOOM////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+episode BLM01
+{
+   name = "The way of doomed flesh"
+   key = "t"
+}
+
+map TITLEMAP lookup "Wellcome to BLOOM(Demo)"
+{
+   levelnum = 5
+   sky1 = "YTEXTH63", 0.05
+   par = 120
+   cluster = 1   
+   sucktime = 1
+   music = "d_dm2ttl"
+   NoIntermission
+   LIGHTNING
+}
+
+map BLM01 lookup "Entryway to Grave"
+{
+   levelnum = 1
+   next = BLM02
+   sky1 = "YTEXTH63", 0.05
+   par = 120
+   sucktime = 5
+   music = "d_dead"
+   LIGHTNING   
+}
+
+map BLM02 lookup "The wrong side of the Hangar"
+{
+   levelnum = 2
+   next = BLM03
+   sky1 = "YTEXTH63", 0.05
+   par = 120
+   sucktime = 5
+   music = "d_in_cit"
+}
+
+map BLM03 lookup "UAC PHANTOM 666"
+{
+   levelnum = 3
+   next = BLM04 //endsequence, BloomDemoEnd   
+   sky1 = "YTEXTH63", 0.05
+   sky2 = "YTEXTH63", 0.05   
+   par = 120
+   sucktime = 10
+   music = "d_countd"
+}
+
+map BLM04 lookup "Ghost Downtown"
+{
+   levelnum = 4
+   next = INT00
+   sky1 = "YTEXTH63", 0.05
+   sky2 = "YTEXTH63", 0.05   
+   par = 120
+   sucktime = 10
+   music = "d_ddtblu"
+   NoIntermission   
+}
+
+map INT00 lookup "Thanks for playing BLOOM"
+{
+   levelnum = 0
+   sky1 = "YTEXTH63", 0.05
+   par = 120
+   cluster = 1   
+   sucktime = 1
+   music = "d_dm2ttl"
+   NoIntermission
+   LIGHTNING
+}
+
+map TESTMAP lookup "Testmap for BlooM"
+{
+   levelnum = 99
+   sky1 = "YTEXTH63", 0.05
+}
+
+cluster 1
+{
+   flat = "XTEX0118"
+   exittext = "10 years after the incident,",
+	"in the UAC facility on Mars.",
+	"Cabal Co, heirs of the ancient cult the Cabala,",
+	"combined the result of investigations" ,
+	"Betruger and arcane knowledge",
+	"with the sole purpose of re-opening the gates to hell",
+	"and can thus bring back Tchernobog.",
+	" ",
+	"During the opening process something went wrong,",
+	"causing not only the portal opened,",
+	" but collapsed hell with the dimension",
+	" that had trapped the Tchernobog.",
+	" Bringing back not only him but all the demons",
+	" banished in the incidents of Mars.",
+	" ",
+	"Many members of the Cabala died",
+	" trying to subdue the demons.",
+	" Demons, and in particular the icon of sin,",
+	" only respond to his instincts of... ", 
+	" Chaos, death and destruction."
+}
+
+Intermission "BloomDemoEnd"
+{
+	TextScreen 
+	{
+		Background = "XTEX0118",1		
+		TextDelay = 3
+		Time = 5	
+		Text = " ",
+		"               				        Conglaturations !!!",
+		" ",
+		"		                			    You have completed ",
+		"       		         		           BLOOM Demo!",
+		" ",                         
+		"				                    Now return to your coffin ",
+		"	              and await the complete version!"
+		
+	}
+	Wiper 
+	{
+		WipeType = Crossfade	
+	}
+	Link = BloomCast
+}
+
+Intermission "BloomCast" //Demo cast
+{
+
+Image
+    {
+    Background = "INTERPIC"
+    Time = -1
+    Music = "d_read_m"
+	}
+
+Cast
+    {
+    CastClass = "BloodZombie_Cast"
+    CastName = "ZOMBIE"
+    AttackSound = "Missile", 1, "misc/chat"
+    }
+
+Cast
+   {
+   CastClass = "Zombieman"
+   CastName = "$CC_ZOMBIE"
+   AttackSound = "Missile",1,"grunt/attack"
+   }
+
+Cast
+    {
+    CastClass = "BrownCultist_Cast"
+    CastName = "CVLTIST"
+    AttackSound = "Missile", 1, "CultistShotgun"
+    }
+
+Cast
+   {
+      CastClass = "ShotgunGuy"
+      CastName = "$CC_SHOTGUN"
+      AttackSound = "Missile",1,"shotguy/attack"
+   }
+
+Cast
+    {
+	CastClass = "GreyCultist_Cast"
+	CastName = "FANATIC"
+	AttackSound = "Missile",1,"chainguy/attack"
+	AttackSound = "Missile",2,"chainguy/attack"
+	AttackSound = "Missile",3,"chainguy/attack"
+    }
+
+Cast
+   {
+	CastClass = "ChaingunGuy"
+	CastName = "$CC_HEAVY"
+	AttackSound = "Missile",1,"chainguy/attack"
+	AttackSound = "Missile",2,"chainguy/attack"
+	AttackSound = "Missile",3,"chainguy/attack"
+   }
+
+Cast
+    {
+	CastClass = "BloatedButcher_Cast"
+	CastName = "BUTCHER"
+    AttackSound = "Missile", 1, "ButcherVomit"
+    }
+
+Cast
+	{
+	CastClass = "DoomImp"
+	CastName = "$CC_IMP"
+	AttackSound = "Missile",2,"imp/attack"
+	}
+
+Cast
+    {
+    CastClass = "BloodGargoyle_Cast"
+    CastName = "GARGOYLE"
+    AttackSound = "Melee", 1, "GargoyleMelee"
+    }
+
+Cast
+	{
+	CastClass = "Demon"
+	CastName = "$CC_DEMON"
+	AttackSound = "Melee",1,"demon/melee"
+	}
+
+Cast
+    {
+    CastClass = "ChokingHand_Cast"
+    CastName = "THE HAND"
+    AttackSound = "Jump", 1, "Hand/Spot"
+    }
+
+Cast
+	{
+    CastClass = "LostSoul"
+    CastName = "$CC_LOST"
+    AttackSound = "Melee",1,"skull/melee"
+	}
+	
+Cast
+	{
+    CastClass = "Cacodemon"
+    CastName = "$CC_CACO"
+    AttackSound = "Missile",1,"caco/attack"
+	}
+
+Cast
+    {
+    CastClass = "HellHound_Cast"
+    CastName = "HELL HOUND"
+    AttackSound = "Melee", 1, "HellHound/Bite"
+    }
+
+Cast
+	{
+    CastClass = "HellKnight"
+	CastName = "$CC_HELL"
+	AttackSound = "Missile",1,"baron/attack"
+	}
+
+Cast
+    {
+    CastClass = "GillBeast_Cast"
+    CastName = "GILLBEAST"
+    AttackSound = "Melee", 1, "dsdolstb"
+    }
+
+Cast
+	{
+	CastClass = "BaronOfHell"
+	CastName = "$CC_BARON"
+	AttackSound = "Missile",1,"baron/attack"
+	}
+
+Cast
+    {
+    CastClass = "GreenCultist_Cast"
+    CastName = "ACOLYTE"
+    AttackSound = "Missile", 1, ""
+    }
+
+Cast
+    {
+    CastClass = "RedCultist_Cast"
+    CastName = "PRIEST"
+    AttackSound = "Missile", 1, "CultistShotgun"
+    }
+
+Cast
+	{
+	CastClass = "Revenant"
+	CastName = "$CC_REVEN"
+	AttackSound = "Missile",1,"skeleton/attack"
+	AttackSound = "Melee",1,"skeleton/swing"
+	AttackSound = "Melee",3,"skeleton/melee"
+	}
+
+Cast
+    {
+    CastClass = "BloodBeast_Cast"
+    CastName = "BEAST"
+    AttackSound = "Melee", 1, "BeastSlash"
+	AttackSound = "Missile", 36, "BeastStomp"
+    }
+
+Cast
+    {
+    CastClass = "ChrysalidPod_Cast"
+    CastName = "CHRYSALID POD"
+    AttackSound = "Melee", 1, "PodSpit"	
+    AttackSound = "Missile", 1, ""
+    }
+
+Cast
+    {
+    CastClass = "BloodRat_Cast"
+    CastName = "RAT"
+    AttackSound = "Melee", 1, "RatBite"
+    }
+
+Cast
+    {
+    CastClass = "Caleb_Cast"
+    CastName = "CALEB"
+    AttackSound = "Missile", 1, "weapons/sshotf"
+    }
+	
+Cast
+    {
+    CastClass = "DoomDude"
+    CastName = "DOOMGUY"
+    AttackSound = "Missile", 1, "weapons/sshotf"
+    }
+	
+Link = BloomCast
+}
+
+Gameinfo
+{
+	NoRandomPlayerClass = true
+	drawreadthis = true
+	infopage  = "HELP01", "HELP02", "HELP03", "HELP04", "HELP05", "HELP06", "HELP07", "HELP08", "HELP09", "HELP10", "HELP11", "HELP12", "HELP13", "HELP14", "HELP15"
+}
+
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////ULTIMATE DOOM ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+episode e1m1
+{
+	name = "Knee-Deep in the Dead"
+	key = "k"
+	optional
+}
+
+episode e2m1
+{
+	name = "The Shores of Hell"
+	key = "t"
+	optional
+}
+
+episode e3m1
+{
+	name = "Inferno"
+	key = "i"
+	optional
+}
+
+episode e4m1
+{
+	name = "Thy Flesh Consumed"
+	key = "T"
+	optional
+}
+
+episode e5m1
+{
+	name = "Sigil"
+	key = "s"
+	optional
+}
+
+map E1M1 "Hangar"
+{
+	levelnum = 1
+	next = E1M2
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 30
+	music = D_E1M1
+}
+
+map E1M2 "Nuclear Plant"
+{
+	levelnum = 2
+	next = E1M3
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 75
+	music = D_E1M2
+}
+
+map E1M3 "Toxin Refinery"
+{
+	levelnum = 3
+	next = E1M4
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 120
+	music = D_E1M3
+}
+
+map E1M4 "Command Control"
+{
+	levelnum = 4
+	next = E1M5
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 90
+	music = D_E1M4
+}
+
+map E1M5 "Phobos Lab"
+{
+	levelnum = 5
+	next = E1M6
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 165
+	music = D_E1M5
+}
+
+map E1M6 "Central Processing"
+{
+	levelnum = 6
+	next = E1M7
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 180
+	music = D_E1M6
+}
+
+map E1M7 "Computer Station"
+{
+	levelnum = 7
+	next = E1M8
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 180
+	music = D_E1M7
+}
+
+map E1M8 "Phobos Anomaly"
+{
+	levelnum = 8
+	next = EndGame1
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 30
+	nointermission 
+	nosoundclipping 
+	baronspecial 
+	specialaction_lowerfloor 
+	SPECIALACTION = "BaronOfHell_", "Floor_LowerToLowest", 666, 8
+	SPECIALACTION = "BaronofHellHybrid", "Floor_LowerToLowest", 666, 8
+	music = D_E1M8
+}
+
+map E1M9 "Military Base"
+{
+	levelnum = 9
+	next = E1M4
+	secretnext = E1M4
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 165
+	music = D_E1M9
+// Registered/Retail Episode 2
+
+}
+
+map E2M1 "Deimos Anomaly"
+{
+	levelnum = 11
+	next = E2M2
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 90
+	music = D_E2M1
+}
+
+map E2M2 "Containment Area"
+{
+	levelnum = 12
+	next = E2M3
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 90
+	music = D_E2M2
+}
+
+map E2M3 "Refinery"
+{
+	levelnum = 13
+	next = E2M4
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 90
+	music = D_E2M3
+}
+
+map E2M4 "Deimos Lab"
+{
+	levelnum = 14
+	next = E2M5
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 120
+	music = D_E2M4
+}
+
+map E2M5 "Command Center"
+{
+	levelnum = 15
+	next = E2M6
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 90
+	music = D_E2M5
+}
+
+map E2M6 "Halls of the Damned"
+{
+	levelnum = 16
+	next = E2M7
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 360
+	music = D_E2M6
+}
+
+map E2M7 "Spawning Vats"
+{
+	levelnum = 17
+	next = E2M8
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 240
+	music = D_E2M7
+}
+
+map E2M8 "Tower of Babel"
+{
+	levelnum = 18
+	next = EndGame2
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 30
+	nointermission 
+	nosoundclipping 
+	cyberdemonspecial 
+	specialaction_exitlevel 
+	music = D_E2M8
+}
+
+map E2M9 "Fortress of Mystery"
+{
+	levelnum = 19
+	next = E2M6
+	secretnext = E2M6
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 170
+	music = D_E2M9
+// Registered/Retail Episode 3
+
+}
+
+map E3M1 "Hell Keep"
+{
+	levelnum = 21
+	next = E3M2
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 90
+	music = D_E3M1
+}
+
+map E3M2 "Slough of Despair"
+{
+	levelnum = 22
+	next = E3M3
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 45
+	music = D_E3M2
+}
+
+map E3M3 "Pandemonium"
+{
+	levelnum = 23
+	next = E3M4
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 90
+	music = D_E3M3
+}
+
+map E3M4 "House of Pain"
+{
+	levelnum = 24
+	next = E3M5
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 150
+	music = D_E3M4
+}
+
+map E3M5 "Unholy Cathedral"
+{
+	levelnum = 25
+	next = E3M6
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 90
+	music = D_E3M5
+}
+
+map E3M6 "Mt. Erebus"
+{
+	levelnum = 26
+	next = E3M7
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 90
+	music = D_E3M6
+}
+
+map E3M7 "Limbo"
+{
+	levelnum = 27
+	next = E3M8
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 165
+	music = D_E3M7
+}
+
+map E3M8 "Dis"
+{
+	levelnum = 28
+	next = endbunny
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 30
+	nointermission 
+	nosoundclipping 
+	spidermastermindspecial 
+	specialaction_exitlevel 
+	music = D_E3M8
+}
+
+map E3M9 "Warrens"
+{
+	levelnum = 29
+	next = E3M7
+	secretnext = E3M7
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 135
+	music = D_E3M9
+// Retail Episode 4
+}
+
+map E4M1 "Hell Beneath"
+{
+	levelnum = 31
+	next = E4M2
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E3M4
+}
+
+map E4M2 "Perfect Hatred"
+{
+	levelnum = 32
+	next = E4M3
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E3M2
+}
+
+map E4M3 "Sever the Wicked"
+{
+	levelnum = 33
+	next = E4M4
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E3M3
+}
+
+map E4M4 "Unruly Evil"
+{
+	levelnum = 34
+	next = E4M5
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E1M5
+}
+
+map E4M5 "They Will Repent"
+{
+	levelnum = 35
+	next = E4M6
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E2M7
+}
+
+map E4M6 "Against Thee Wickedly"
+{
+	levelnum = 36
+	next = E4M7
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	cyberdemonspecial 
+	specialaction_opendoor 
+	music = D_E2M4
+}
+
+map E4M7 "And Hell Followed"
+{
+	levelnum = 37
+	next = E4M8
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E2M6
+}
+
+map E4M8 "Unto the Cruel"
+{
+	levelnum = 38
+	next = EndGame4
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	nointermission 
+	nosoundclipping 
+	spidermastermindspecial 
+	specialaction_lowerfloor 
+	music = D_E2M5
+}
+
+map E4M9 "Fear"
+{
+	levelnum = 39
+	next = E4M3
+	secretnext = E4M3
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E1M9
+// Clusters (correspond with same-numbered episode)
+
+}
+
+cluster 1
+{
+	flat = FLOOR4_8
+	music = D_VICTOR
+	exittext = "Once you beat the big badasses and",
+		"clean out the moon base you're supposed",
+		"to win, aren't you? Aren't you? Where's",
+		"your fat reward and ticket home? What",
+		"the hell is this? It's not supposed to",
+		"end this way!",
+		"",
+		"It stinks like rotten meat, but looks",
+		"like the lost Deimos base.  Looks like",
+		"you're stuck on The Shores of Hell.",
+		"The only way out is through.",
+		"",
+		"To continue the DOOM experience, play",
+		"The Shores of Hell and its amazing",
+		"sequel, Inferno!"
+}
+
+cluster 2
+{
+	flat = SFLR6_1
+	music = D_VICTOR
+	exittext = "You've done it! The hideous cyber-",
+		"demon lord that ruled the lost Deimos",
+		"moon base has been slain and you",
+		"are triumphant! But ... where are",
+		"you? You clamber to the edge of the",
+		"moon and look down to see the awful",
+		"truth.",
+		"",
+		"Deimos floats above Hell itself!",
+		"You've never heard of anyone escaping",
+		"from Hell, but you'll make the bastards",
+		"sorry they ever heard of you! Quickly,",
+		"you rappel down to  the surface of",
+		"Hell.",
+		"",
+		"Now, it's on to the final chapter of",
+		"DOOM! -- Inferno."
+}
+
+cluster 3
+{
+	flat = MFLR8_4
+	music = D_VICTOR
+	exittext = "The loathsome spiderdemon that",
+		"masterminded the invasion of the moon",
+		"bases and caused so much death has had",
+		"its ass kicked for all time.",
+		"",
+		"A hidden doorway opens and you enter.",
+		"You've proven too tough for Hell to",
+		"contain, and now Hell at last plays",
+		"fair -- for you emerge from the door",
+		"to see the green fields of Earth!",
+		"Home at last.",
+		"",
+		"You wonder what's been happening on",
+		"Earth while you were battling evil",
+		"unleashed. It's good that no Hell-",
+		"spawn could have come through that",
+		"door with you ..."
+}
+
+cluster 4
+{
+	flat = MFLR8_3
+	music = D_VICTOR
+	exittext = "the spider mastermind must have sent forth",
+		"its legions of hellspawn before your",
+		"final confrontation with that terrible",
+		"beast from hell.  but you stepped forward",
+		"and brought forth eternal damnation and",
+		"suffering upon the horde as a true hero",
+		"would in the face of something so evil.",
+		"",
+		"besides, someone was gonna pay for what",
+		"happened to daisy, your pet rabbit.",
+		"",
+		"but now, you see spread before you more",
+		"potential pain and gibbitude as a nation",
+		"of demons run amok among our cities.",
+		"",
+		"next stop, hell on earth!"
+}
+
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////DOOM II//////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+map MAP01 lookup "entryway"
+{
+	next = "MAP02"
+	secretnext = "MAP02"
+	sky1 = "SKY1"
+	cluster = 5
+	par = 30
+	music = "$MUSIC_RUNNIN"
+}
+
+map MAP02 lookup "underhalls"
+{
+	next = "MAP03"
+	secretnext = "MAP03"
+	sky1 = "SKY1"
+	cluster = 5
+	par = 90
+	music = "$MUSIC_STALKS"
+}
+
+map MAP03 lookup "the gantlet"
+{
+	next = "MAP04"
+	secretnext = "MAP04"
+	sky1 = "SKY1"
+	cluster = 5
+	par = 120
+	music = "$MUSIC_COUNTD"
+}
+
+map MAP04 lookup "the focus"
+{
+	next = "MAP05"
+	secretnext = "MAP05"
+	sky1 = "SKY1"
+	cluster = 5
+	par = 120
+	music = "$MUSIC_BETWEE"
+}
+
+map MAP05 lookup "the waste tunnels"
+{
+	next = "MAP06"
+	secretnext = "MAP06"
+	sky1 = "SKY1"
+	cluster = 5
+	par = 90
+	music = "$MUSIC_DOOM"
+}
+
+map MAP06 lookup "the crusher"
+{
+	next = "MAP07"
+	secretnext = "MAP07"
+	sky1 = "SKY1"
+	cluster = 5
+	par = 150
+	sucktime = 1
+	music = "$MUSIC_THE_DA"
+}
+
+map MAP07 lookup "dead simple"
+{
+	next = "MAP08"
+	secretnext = "MAP08"
+	sky1 = "SKY1"
+	cluster = 6
+	par = 120
+	map07special
+	SPECIALACTION = "OriginalFishMancubus","Floor_LowerToLowest",666,8 	
+	SPECIALACTION = "HybridFishMancubus","Floor_LowerToLowest",666,8 	
+	SPECIALACTION = "Arachnoidhybrid","Floor_RaiseByTexture",667,8 	
+	SPECIALACTION = "Arachnoidnormal","Floor_RaiseByTexture",667,8 	
+	music = "$MUSIC_SHAWN"
+}
+
+map MAP08 lookup "tricks and traps"
+{
+	next = "MAP09"
+	secretnext = "MAP09"
+	sky1 = "SKY1"
+	cluster = 6
+	par = 120
+	music = "$MUSIC_DDTBLU"
+}
+
+map MAP09 lookup "the pit"
+{
+	next = "MAP10"
+	secretnext = "MAP10"
+	sky1 = "SKY1"
+	cluster = 6
+	par = 270
+	music = "$MUSIC_IN_CIT"
+}
+
+map MAP10 lookup "refueling base"
+{
+	next = "MAP11"
+	secretnext = "MAP11"
+	sky1 = "SKY1"
+	cluster = 6
+	par = 90
+	music = "$MUSIC_DEAD"
+}
+
+map MAP11 lookup "'o' of destruction!"
+{
+	next = "MAP12"
+	secretnext = "MAP12"
+	sky1 = "SKY1"
+	cluster = 6
+	par = 210
+	music = "$MUSIC_STLKS2"
+}
+
+map MAP12 lookup "the factory"
+{
+	next = "MAP13"
+	secretnext = "MAP13"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 150
+	music = "$MUSIC_THEDA2"
+}
+
+map MAP13 lookup "downtown"
+{
+	next = "MAP14"
+	secretnext = "MAP14"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 150
+	music = "$MUSIC_DOOM2"
+}
+
+map MAP14 lookup "the inmost dens"
+{
+	next = "MAP15"
+	secretnext = "MAP15"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 150
+	music = "$MUSIC_DDTBL2"
+}
+
+map MAP15 lookup "industrial zone"
+{
+	next = "MAP16"
+	secretnext = "MAP31"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 210
+	music = "$MUSIC_RUNNI2"
+}
+
+map MAP16 lookup "suburbs"
+{
+	next = "MAP17"
+	secretnext = "MAP17"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 150
+	music = "$MUSIC_DEAD2"
+}
+
+map MAP17 lookup "tenements"
+{
+	next = "MAP18"
+	secretnext = "MAP18"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 420
+	music = "$MUSIC_STLKS3"
+}
+
+map MAP18 lookup "the courtyard"
+{
+	next = "MAP19"
+	secretnext = "MAP19"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 150
+	music = "$MUSIC_ROMERO"
+}
+
+map MAP19 lookup "the citadel"
+{
+	next = "MAP20"
+	secretnext = "MAP20"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 210
+	music = "$MUSIC_SHAWN2"
+}
+
+map MAP20 lookup "gotcha!"
+{
+	next = "MAP21"
+	secretnext = "MAP21"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 150
+	music = "$MUSIC_MESSAG"
+}
+
+map MAP21 lookup "nirvana"
+{
+	next = "MAP22"
+	secretnext = "MAP22"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 240
+	music = "$MUSIC_COUNT2"
+}
+
+map MAP22 lookup "the catacombs"
+{
+	next = "MAP23"
+	secretnext = "MAP23"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 150
+	music = "$MUSIC_DDTBL3"
+}
+
+map MAP23 lookup "barrels o' fun"
+{
+	next = "MAP24"
+	secretnext = "MAP24"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 180
+	music = "$MUSIC_AMPIE"
+}
+
+map MAP24 lookup "the chasm"
+{
+	next = "MAP25"
+	secretnext = "MAP25"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 150
+	music = "$MUSIC_THEDA3"
+}
+
+map MAP25 lookup "bloodfalls"
+{
+	next = "MAP26"
+	secretnext = "MAP26"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 150
+	music = "$MUSIC_ADRIAN"
+}
+
+map MAP26 lookup "the abandoned mines"
+{
+	next = "MAP27"
+	secretnext = "MAP27"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 300
+	music = "$MUSIC_MESSG2"
+}
+
+map MAP27 lookup "monster condo"
+{
+	next = "MAP28"
+	secretnext = "MAP28"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 330
+	music = "$MUSIC_ROMER2"
+}
+
+map MAP28 lookup "the spirit world"
+{
+	next = "MAP29"
+	secretnext = "MAP29"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 420
+	music = "$MUSIC_TENSE"
+}
+
+map MAP29 lookup "the living end"
+{
+	next = "MAP30"
+	secretnext = "MAP30"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 300
+	music = "$MUSIC_SHAWN3"
+}
+
+map MAP30 lookup "icon of sin"
+{
+	next = "EndGameC"
+	secretnext = "EndGameC"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 180
+	allowmonstertelefrags
+	music = "$MUSIC_OPENIN"
+}
+
+map MAP31 lookup "wolfenstein"
+{
+	next = "MAP16"
+	secretnext = "MAP32"
+	sky1 = "SKY3"
+	cluster = 9
+	par = 120
+	music = "$MUSIC_EVIL"
+}
+
+map MAP32 lookup "grosse"
+{
+	next = "MAP16"
+	secretnext = "MAP16"
+	sky1 = "SKY3"
+	cluster = 10
+	par = 30
+	music = "$MUSIC_ULTIMA"
+}
+
+// DOOM II first cluster (up thru level 6)
+
+cluster 5
+{
+	flat = "$BGFLAT06"
+	music = "$MUSIC_READ_M"
+	exittext = lookup, "C1TEXT"
+
+}
+
+// DOOM II second cluster (up thru level 11)
+
+cluster 6
+{
+	flat = "$BGFLAT11"
+	music = "$MUSIC_READ_M"
+	exittext = lookup, "C2TEXT"
+
+}
+
+// DOOM II third cluster (up thru level 20)
+
+cluster 7
+{
+	flat = "$BGFLAT20"
+	music = "$MUSIC_READ_M"
+	exittext = lookup, "C3TEXT"
+}
+
+// DOOM II fourth cluster (up thru level 30)
+
+cluster 8
+{
+	flat = "$BGFLAT30"
+	music = "$MUSIC_READ_M"
+	exittext = lookup, "C4TEXT"
+}
+
+// DOOM II fifth cluster (level 31)
+
+cluster 9
+{
+	flat = "$BGFLAT15"
+	music = "$MUSIC_READ_M"
+	entertext = lookup, "C5TEXT"
+}
+
+// DOOM II sixth cluster (level 32)
+
+cluster 10
+{
+	flat = "$BGFLAT31"
+	music = "$MUSIC_READ_M"
+	entertext = lookup, "C6TEXT"
+}
+
+clearskills
+// ================================================
+// Skill level: Easy 
+// Still too young to die
+// ================================================
+skill ZB_Easy
+{			
+name = "Still too young to die"
+textcolor = black
+acsreturn = 0		
+spawnfilter = "Easy"
+damagefactor = 0.3
+aggressiveness = 0.5
+ammofactor = 1.4
+doubleammofactor = 1
+easybossbrain
+}
+
+// ================================================
+// Skill level: Moderate
+// Hey, too pink
+// ================================================
+skill ZB_Moderate
+{
+name = "Hey, too pink"
+textcolor = black
+acsreturn = 1
+spawnfilter = "Easy"
+damagefactor = 0.5
+aggressiveness = 0.9
+ammofactor = 1.0
+doubleammofactor = 1
+}
+
+// ================================================
+// Skill level: Recommended
+// Plenty broiled
+// ================================================
+skill ZB_Normal
+{
+name = "Plenty broiled"
+textcolor = black
+acsreturn = 2
+spawnfilter = "Normal"
+damagefactor = 0.75
+aggressiveness = 1
+ammofactor = 1.0
+doubleammofactor = 1
+}
+
+// ================================================
+// Skill level: Difficult
+// Ultra-crispy
+// ================================================
+skill ZB_Difficult
+{
+name = "Ultra-crispy"
+textcolor = black
+acsreturn = 3
+spawnfilter = "Hard"
+damagefactor = 1
+aggressiveness = 1.1
+ammofactor = 1
+doubleammofactor = 1
+DefaultSkill
+}
+
+// ================================================
+// Skill level: Extreme
+// Caleb's nightmare!
+// ================================================
+skill ZB_Extreme
+{
+name = "Caleb's nightmare!"
+textcolor = black
+acsreturn = 4
+spawnfilter = "Hard"
+damagefactor = 1.25
+aggressiveness = 2
+ammofactor = 1
+doubleammofactor = 1
+MustConfirm = "Are you sure?"
+}

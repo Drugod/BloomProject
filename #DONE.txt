@@ -1,0 +1,109 @@
+==> 03/10/2019
+OZY:
+- #DMGTYPES.txt is a comprehensive list of damagetypes present in BlooM
+- Added BulletAmmo2 to GreyCultists: their wrong "dropitem BulletAmmo" def was simply ignored on Zandronum so this why we had warnings on GZDoom only
+- Added VOXELDEF defs for RocketAmmo_ and Pistol_ actors (PISTA is a new voxel from reikall)
+- Added dummy code (no proper attacks yet) for IceTrap1 and FleshTrap1 actors, as well MODELDEF entries
+- Cheogh had FLOORCLIP flag defined 2 times, fixed
+- Fixed caps for thousand lines here and there among all decorate related lumps
+- Fixed title name for Mini-Gasoline Can and polished inheritances (Blood_Ammo.txt)
+- Updated TESTMAP with Bloom Corpses
+- Work on polishing Blood_Monsters.txt lump (caps, indentations, inheritances...)
+
+==> 04/10/2019
+OZY:
+- #DMGTYPES.txt now also have a list of Species present in BlooM
+- Added a BuriedZombie for tests inside TESTMAP (watch your right side!)
+- BloodZombie had GibHealth defined two times, 30 and -10, removed -10 obviously
+- Fixed caps/casing for lump names (NAME.extension)
+- Moved 2 unused voxels inside Source/voxels
+- Moved sounds/Originals folder inside Source/sounds folder so they don't clash with existent ones
+- Renamed SP0SA0 frame as SBSSA0, then fixed the sprite: lol the original was HUUUUGE, something like 370x97 XD (a voxel screenshot)
+- Work on polishing Blood_Monsters.txt lump (caps, indentations, inheritances...)
+
+==> 05/10/2019
+OZY:
+- Added BaseBramble for HellroseBramble related projectiles
+- Added on main.acs library needed codes for spiders checks, SpiderMother was causing a bunch of acs errors - this enemy needs to be tweaked
+- Attempt to improve SpiderMother behavior, still a long way though
+- Had to convert all textures from Y#######.lmp to get rid of warnings for ZTEX0343.png which was happening before: there were some textures with a bad header, which means that some maybe were already PNGs but recognized as Doom Format somehow (bad conversion probably)
+- Moved AcidPool2 actor from Blood_Monsters.txt to Objects.txt (below AcidPool)
+- Reimplemented the poisonus player effect codewise but... I think we'll get rid of it. Doesn't work on Zandronum, but doesn't cause any problems
+- SpiderMother had DROPOFF, THRUSPECIES and MISSILEEVENMORE defined 2 times, fixed
+- SpiderMother (and some other spiders) had its Death.Fire state without an end, just a fall through which may cause (maybe) crashes, fixed adding Stop
+- Updated #TODO with some new lines
+- Work on polishing Blood_Monsters.txt lump (caps, indentations, inheritances...)
+
+==> 06/10/2019
+OZY:
+- #DMGTYPES.txt renamed as #DOCUMENT.txt, which will contain useful info for mappers and coders
+- Added ARGs tips for Modeltrain related actors
+- Decreased highly AcidPool and FlyingAcidDrop duration: if we had to fight lots of ChrysalidPods, this actor will probably have cause lots of slowdowns
+- Finished polishing Blood_Monsters.txt lump somehow (caps, indentations, inheritances...)
+- Fixed a clipping on Base02.md3
+- List of added sounds (or moved/renamed from Source/Sounds): RINGT, TRAIN2, TRAINS ,TRANN, trainmove, DSHEDBON, CalebSpeech5, ButcherBurn
+- List of missing sounds (* are just engine related):  DoomDude *death, DoomDude *grunt, DoomDude *jump, DoomDude *pain100, DoomDude *xdeath,  dsblank, weapons/grbnce, weapons/grenlf, weapons/grenlx, napalm/exp2, pstone, tentacleswipe
+- Reduced minimally vertices and faces amount for several models
+- Reduced significantly vertices and faces amount for Contenedor1-2 models, also fixed a clipping on Contenedor1
+- Reduced slightly vertices and faces amount for Buildings/Rolls/Base## related models
+- Reduced slightly vertices and faces amount for Buildings/Rolls/Lampblood## related models
+- Reduced slightly vertices and faces amount for Cars related models
+
+==> 07/10/2019
+OZY:
+- Added new AltFire for Pitchfork, slow attack for slighty more damage
+- Fixed a sound entry for Spraycan under DeselectNoAmmo state ( it was "Lighter/Close	ZIPCLOSE" instead if "Lighter/Close" only )
+- Fixed broken palette colors for WOOD## XR23## XR33## sprites, inside sprites/props
+- Fixed crash happening while Spraycan goes to Deselect state ( https://forum.zdoom.org/viewtopic.php?f=122&t=66053 )
+- Fixed transparency for FGR4A0.png sprite for Zandronum
+- Work on polishing Blood_Weapons.txt and ThrownStuff.txt touchups (caps, indentations, inheritances...)
+
+==> 08/10/2019
+OZY:
+- Added AerialBase actor for remote bombs actors in ThrownStuff.txt to improve inheritances
+- Added primary fire mode for Lifeleech weapon, may need some anim improvements
+- Improved LifeLeechTrail related inheritances on Blood_Weapons.txt (added BRIGHT flag and removed it from states)
+- Improved FlareKaboom related inheritances on Blood_Weapons.txt
+- Finished polishing Blood_Weapons.txt and ThrownStuff.txt touchups (caps, indentations, inheritances...)
+
+==> 10/10/2019
+OZY:
+- Added Rolls models/skins for wallbrok5, lapida5 and skullcross
+- Included frozen frames done by Rolls for Blood enemies (not coded yet, frames are crushed and offset'd)
+- Menudef entry using aliases and safecommand to switch between Sprites/Models/Voxels only, with distinct blm_voxmod cvar defined
+- Models overhaul for Doom_Ammo.txt, started with Doom_Weapons.txt too
+- Polished Items.txt and Keys.txt somehow
+- Removed double frames from lavapod folder since it had also pod ones
+- Updated TESTMAP
+
+==> 11/10/2019 - part one
+OZY:
+- Added a base document that's important to publish the mod on Doomworld (CREDITS_DoomWorld.txt) - It still needs to be filled
+- Added a proper Fist weapon for DoomDude class: now it spawn a proper puff and use also a custompunch with custompuff plus behavior fixed with berserk (need to find a fitting sound yet, maybe from Batman Doom)
+- Added a secondary attack for DoomDude's Fist, a funny kick that does +2 damage compared to fists but slower (frames imported from Gore)
+- Fixed a crash happening with VoodooDoll attack, had to do the same like with SprayCan
+- Models overhaul for Doom_Weapons.txt finished, only Pistol_ left
+- Uncommented timefreeze control from menudef, not useful I guess
+
+==> 11/10/2019 - part two
+OZY:
+- Added NCultistShotgun sounds needed for NeoCvltists related attacks and then fixed pitchshiftrange (value only feasible from 0 to 7, it was -4)
+- Added a 3d model for HandGrenades weapon
+- Improved slightly lapida5.jpg skin
+- Removed kick attack from Fist_ not in line with Doom/Blood playism
+- Simplified inheritances for Bloom_Monsters.txt between Cvltists atm
+
+==> 12/10/2019 - part two
+OZY:
+- Added Rolls Gargodemon sprites inside Sprites/Monsters/Hybrid, with frames crushed and offset'd
+- Removed a couple of models not useful for BlooM from Models/Doom (techlamps and headonastick)
+
+==> 13/10/2019
+OZY:
+- Applied necessary flags/mass to Statue spawners in Mosters_Selector.txt in order to not make them fly when shoot with rockets
+- Fixed LivingGargovileStatue / TheGargolLivingStatue / TheGargolsStatueNormal / LivingGargStatue behavior: statues now have DROPPED and FIXMAPTHINGPOS flags applied, as well as infinite mass to not disappear while they doesn't find space to spawn
+
+==> 16/10/2019
+OZY:
+- Imported Antuan changes for Bloom_Monsters.txt , Models.txt, MAPINFO and Monsters_Selector.txt, also added his updated BLM04 map
+- Updated CALTX1.png with fixed version done bt Rolls

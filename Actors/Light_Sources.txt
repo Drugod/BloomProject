@@ -1,0 +1,373 @@
+/*
+========== Light Sources ==========
+*/
+
+ACTOR ClassicCellLamp : SwitchableDecoration 3201
+{
+  //$Category "BlooM Light Sources"
+   +SOLID
+   +USESPECIAL   
+   +SPAWNCEILING   
+   +NODAMAGE
+   +NOBLOOD
+   +NOGRAVITY
+   Activation THINGSPEC_Activate
+   Scale 0.8
+   Height 100
+   Radius 20
+   States
+   {
+   Spawn:
+      XLAP A 1
+      Loop
+   Active:
+      XLAP BCD 4
+      Wait
+   Inactive:
+      XLAP A 1
+      XLAP A 1
+	  Wait
+   }
+}
+
+ACTOR FloorLamp : SwitchableDecoration 3276
+{ 
+  //$Category "BlooM Light Sources"
+   +SOLID
+   +USESPECIAL   
+   +NODAMAGE
+   +NOBLOOD
+   +CANPASS
+   +NOGRAVITY
+   Activation THINGSPEC_Switch
+   Scale 0.8
+   Height 20
+   Radius 8
+   States
+   {
+   Spawn:
+       JILM A 1
+      Loop
+        Active:
+         JILM B 1
+         JILM B 1
+         Wait
+         Inactive:
+         JILM A 1
+         JILM A 1
+         Wait
+   }
+}
+
+ACTOR CeilLamp : SwitchableDecoration 3277
+{ 
+  //$Category "BlooM Light Sources"
+   +SOLID
+   +USESPECIAL   
+   +SPAWNCEILING
+   +NODAMAGE
+   +NOBLOOD
+   +CANPASS
+   +NOGRAVITY
+   Activation THINGSPEC_Switch
+   Scale 0.8
+   Height 20
+   Radius 8
+   States
+   {
+   Spawn:
+       HILM A 1
+      Loop
+        Active:
+         HILM B 1
+         HILM B 1
+         Wait
+         Inactive:
+         HILM A 1
+         HILM A 1
+         Wait
+   }
+}
+
+ACTOR CeilLampSimple : SwitchableDecoration 3202
+{ 
+  //$Category "BlooM Light Sources"
+   +SOLID
+   +USESPECIAL   
+   +SPAWNCEILING
+   +NODAMAGE
+   +NOBLOOD
+   +CANPASS
+   +NOGRAVITY
+   Activation THINGSPEC_Switch
+   Scale 0.8
+   Height 40
+   Radius 8
+   States
+   {
+   Spawn:
+       KILM A 1
+      Loop
+        Active:
+         KILM B 1
+         KILM B 1
+         Wait
+         Inactive:
+         KILM A 1
+         KILM A 1
+         Wait
+   }
+}
+
+ACTOR FlameCult 3236
+{
+  //$Category "BlooM Light Sources"
+  Radius 16
+  Height 54
+  Speed 12
+  Scale 0.8
+  Alpha 0.8
+  RenderStyle Translucent
+  Obituary "%o burned by cult fire!"
+  Damage (random(10,20))
+  Projectile
+  +CANNOTPUSH
+  +NODAMAGETHRUST
+  +RIPPER
+  +BLOODLESSIMPACT
+  DamageType "Fire"
+  States
+  {
+  Spawn:
+	TNT1 A 0 A_JUMP (50,"SPAWN1")
+	TNT1 A 0 A_JUMP (50,"SPAWN2")
+	TNT1 A 0 A_JUMP (50,"SPAWN3")
+	TNT1 A 0 A_JUMP (50,"SPAWN4")
+	TNT1 A 0 A_JUMP (50,"SPAWN5")
+  Loop
+  Spawn1:
+		CVLT ABCDEFGHIJKLMN 4 BRIGHT
+		TNT1  A 0 A_Playsound("CVLTFIR")
+		goto spawn
+  Spawn2:
+		CVLT FGHIJKLMNABCDE 4 BRIGHT
+		TNT1  A 0 A_Playsound("CVLTFIR")		
+		goto spawn
+  Spawn3:
+		CVLT JKLMNABCDEFGHI 4 BRIGHT
+		TNT1  A 0 A_Playsound("CVLTFIR")		
+		goto spawn
+  Spawn4:
+		CVLT LMNABCDEFGHIJK 4 BRIGHT
+		TNT1  A 0 A_Playsound("CVLTFIR")		
+		goto spawn		
+  Spawn5:
+		CVLT EFGHIABCDJKLMN 4 BRIGHT
+		TNT1  A 0 A_Playsound("CVLTFIR")		
+		goto spawn
+  Death:
+	TNT1 A 0 A_JUMP (50,"SPAWN1")
+	TNT1 A 0 A_JUMP (50,"SPAWN2")
+	TNT1 A 0 A_JUMP (50,"SPAWN3")
+	TNT1 A 0 A_JUMP (50,"SPAWN4")
+	TNT1 A 0 A_JUMP (50,"SPAWN5")
+  Stop
+  }
+}
+
+ACTOR CaveTorch 3263
+{
+  //$Category "BlooM Light Sources"
+  Radius 8
+  Height 35
+  Scale 0.8
+  +SOLID
+  +SPAWNCEILING  
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+   torc ABCD 4 BRIGHT
+   Loop
+  }
+}
+
+ACTOR FireLamp 3214
+{
+  //$Category "BlooM Light Sources"
+  Radius 16
+  Height 90
+  Scale 0.8  
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+   DECO ABCDEF 4 BRIGHT
+   Loop
+  }
+}
+
+ACTOR Farol 3215
+{
+  //$Category "BlooM Light Sources"
+  +SOLID
+  Height 30
+  Scale 0.8   
+  States
+  {
+  Spawn:
+   FARO A -1 BRIGHT
+    Stop
+  }
+}
+
+ACTOR CeilFarol 3278
+{
+  //$Category "BlooM Light Sources"
+  Radius 8
+  Height 50
+  Scale 0.8
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+   MILM A 4
+   Loop
+  }
+}
+
+
+ACTOR LittleLamp 3210
+{
+  //$Category "BlooM Light Sources"
+  +SOLID
+  Height 10
+  Scale 0.6
+  States
+  {
+  Spawn:
+   WLLA A 5 BRIGHT
+    Loop
+  }
+}
+
+ACTOR TheDeath 3212
+{
+  //$Category "BlooM Light Sources"
+  +SOLID
+  Height 80
+  Scale 0.6
+  States
+  {
+  Spawn:
+   WDEA A 5 BRIGHT
+    Loop
+  }
+}
+
+ACTOR SkullCandle 3172
+{
+  //$Category "BlooM Light Sources"
+  Scale 0.3
+  Radius 16
+  Height 16
+  States
+  {
+  Spawn:
+    SKLC ABC 3
+    Loop
+  }
+}
+
+ACTOR SingleCandle 3279
+{
+  //$Category "BlooM Light Sources"
+  Scale 0.3
+  //Health 1
+  Radius 4
+  Height 4
+  States
+  {
+  Spawn:
+    NILM BCDE 4
+	Loop
+  /*Death:
+	NILM A -1
+	Stop*/
+  }
+}
+
+ACTOR ClassicCellCandle 3280
+{
+  //$Category "BlooM Light Sources"
+   +SOLID
+   +USESPECIAL   
+   +SPAWNCEILING   
+   +NODAMAGE
+   +NOBLOOD
+   +NOGRAVITY
+   Scale 0.8
+   Height 100
+   Radius 20
+   States
+   {
+   Spawn:
+      OILM AB 1
+      Loop
+   }
+}
+
+ACTOR CandleOff 3281
+{
+  //$Category "BlooM Light Sources"
+   +SOLID
+   Scale 0.8
+   Radius 4
+   Height 4
+   States
+   {
+   Spawn:
+      PILM A -1
+      Stop
+   }
+}
+
+ACTOR BloodCandelabra : Candelabra 3288//replaces Candelabra
+{
+  //$Category "BlooM Light Sources"
+	States
+	{
+		Spawn:
+			XBRA ABCD 4 BRIGHT
+		Loop
+	}
+}
+		
+ACTOR BloodCandlestick :  Candlestick 3289//replaces Candlestick
+{
+  //$Category "BlooM Light Sources"
+	+SOLID
+	States
+	{
+		Spawn:
+			XAND ABCD 4 BRIGHT
+		Loop
+	}
+}
+
+ACTOR LampPost : Techlamp2  3290//replaces TechLamp2
+{
+  //$Category "BlooM Light Sources"
+	States
+	{
+		Spawn:
+			XLP2 A -1 BRIGHT
+		Stop
+	}
+}
+
+//----------------------------------------------------------------------------//

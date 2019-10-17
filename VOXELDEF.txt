@@ -1,0 +1,278 @@
+//==========================================
+//--------------BLOOD-----------------------
+//==========================================
+//--------------------WEAPONS---------------
+
+FGRNA="FLAREGUN" {
+	Spin = 50
+}
+
+SOSPA="SHOTGUN" {
+	Spin = 50
+}
+
+TOMPA="TOMMYGUN" {
+	Spin = 50
+}
+
+NLAGA="DARKGUN" {
+	Spin = 50
+}
+
+REMOA="REMOTE" {
+	Spin = 50
+}
+
+TNTFA="TNTBUNDL" {
+	Spin = 50
+}
+
+LLSPA="HELLSTAF" {
+	Spin = 50
+	angleoffset = 270
+}
+
+TSPIA="SPEARGUN" {
+	Spin = 50
+}
+
+VDLFA="VOODOO" {
+	Spin = 50
+}
+
+SBSSA="LUPARA"{
+	Spin = 50
+}
+
+//--------------------ARMOR----------------
+BARMA="ARMOR0" {
+	Spin = 50
+}
+
+ARMFA="ARMOR1" {
+	Spin = 50
+}
+
+XRM1A="ARMOR2" {
+	Spin = 50
+}
+
+SARMA="ARMOR3" {
+	Spin = 50
+}
+
+XRM2A="ARMOR4" {
+	Spin = 50
+}
+
+SPRYA="SPRAYCAN" {
+	Spin = 50
+}
+
+//--------------------AMMO------------------
+FGR2A="FLARES" {
+	
+}
+
+FGRDA="FLARESB" {
+	
+}
+
+FGR3A="FLARES" {
+	
+}
+
+GASOA="GASCAN" {
+	
+}
+
+REPKA="REMOTE" {
+	
+}
+
+SBEXA="SHELLBOX" {
+	
+}
+
+TBOXA="TNTBOX" {
+	
+}
+
+TBNDA="TNTBUNDL" {
+	
+}
+
+PROXA="TNTPROX" {
+	
+}
+
+LMBOA="TOMYDRUM" {
+	
+}
+
+TMBOA="BULLETS" {
+	
+}
+
+//--------------------DECORATIONS-----------
+//GRAVES
+YCRSA="TOMBSTN1" {}
+YCRWA="TOMBSTN2" {}
+YLPWA="TOMBSTN3" {}
+YLPSA="TOMBSTN4" {}
+YLPBA="TOMBSTN5" {}
+YLPDA="TOMBSTN6" {}
+YLDDA="TOMBSTN7" {}
+YCSSA="TOMBSTN8" {}
+
+CHA2A="CHAIR1" {}
+
+SPIKA="SLICER" {
+SPIN = 400
+}
+SPIKB="SLICER" {
+SPIN = 400
+}
+SPIKC="SLICER" {
+SPIN = 400
+}
+SPIKD="SLICER" {
+SPIN = 400
+}
+SPIKE="SLICER" {
+SPIN = 400
+}
+SPIKF="SLICER" {
+SPIN = 400
+}
+SPIKG="SLICER" {
+SPIN = 400
+}
+SPIKH="SLICER" {
+SPIN = 400
+}
+
+
+//==========================================
+//--------------Vanilla Doom----------------
+//==========================================
+//--------------------WEAPONS---------------
+
+//Chainsaw
+csawa = "csawa"
+{
+	Scale = 0.9
+	Spin = 50	
+}
+
+//Pistol - model by reikall
+PISTA = "PISTA"
+{
+	Spin = 50	
+}
+
+//Shotgun
+shota = "shtca"
+{
+	Scale = 0.5
+	Spin = 50	
+}
+
+//Super Shotgun
+sgn2a = "sgn2a"
+{
+	Scale = 0.5
+	Spin = 50	
+}
+
+//Minigun
+mguna = "mguna"
+{
+	Scale = 0.6
+	Spin = 50	
+}
+
+//Plasma Gun
+plasa = "plas2"
+{
+	Scale = 0.45
+	Spin = 50	
+}
+
+//Rocket Laucher
+LAUNA = "LAUNA"
+{
+	Spin = 50	
+}
+
+//BFG 9000
+BFUGA = "BFUGA"
+{
+	Spin = 50	
+}
+
+//--------------------AMMO------------------
+
+//Ammo Box
+ammoa = "ammoa"
+{
+	Scale = 0.35
+	droppedspin = 25
+}
+
+//Rocket Box
+broka = "broka"
+{
+	droppedspin = 25
+}
+
+//Rocket Ammo - model by reikall
+rocka = "rocka"
+{
+	droppedspin = 25
+}
+
+//Backpack
+bpaka = "bpaka"
+{
+	droppedspin = 25
+	placedspin = 25
+}
+
+//Energy Cell
+cella = "cella"
+{
+	droppedspin = 25
+}
+
+//Big Energy Cell
+celpa = "celpa"
+{
+	droppedspin = 25
+}
+
+//Ammo Clip
+clipa = "clipa"
+{
+	droppedspin = 25
+}
+
+//Box of Shells
+sboxa = "sboxa"
+{
+	droppedspin = 25
+}
+
+//4 Shotgun shells
+shela = "shela"
+{
+	Scale = 0.19
+	droppedspin = 25
+}
+
+//2 Shotgun shells
+shelb = "shelb"
+{
+	Scale = 0.19
+	droppedspin = 25
+}

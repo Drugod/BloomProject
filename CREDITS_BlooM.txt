@@ -1,0 +1,17 @@
+Mod concept by Drugod & Rolls
+Acs/Decorate/Maps by Drugod
+Acs/Decorate/Tweaks by Ozymandias81
+Sprites (Hybrid monsters) and 3Dmodels by Rolls
+Music by Buio Mondo & Drugod
+
+Bloom is based en Zblood/ZbloodX Addon by IvanDobrovski/Cruduxy.
+
+Colt and single barrel Shotgun taken from Blood weapon mod
+Doom Models mainly from TheMacGyverArchiver
+Doom Voxels by Doom Voxel Project team
+Flats,animdefs and gldefs by SgtMarkIV
+Grenades/Playerclasses by SgtMarkIV, modified by Drugod
+Grenades/Snow/Rain/Steam/Fog effects by Tormentor667/Ghastly_dragon, modified by Drugod
+Resources organization by Ozymandias81
+
+Thanks to Zdoom forum, Zandronum and Realm667 for their infinite knowledgement and support.

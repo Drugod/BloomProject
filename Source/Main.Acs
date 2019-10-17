@@ -1,0 +1,671 @@
+#library "Main"
+#include "zcommon.acs"
+
+#libdefine PLAYER_TAG_OFFSET 1000
+
+global int 0: PlayerHealths[];
+global int 1: JumpBootsAmount[];
+global int 2: DivingSuitAmount[];
+global int 3: BeastVisionAmount[];
+global int 4: DoctorBagAmount[];
+global int 5: BroodSpiders;
+global int 6: MotherSpiders;
+
+int playerID;
+
+int lifeLeechPlayer[32];
+int armortype[3]    = {"BodyArmor", "FireArmor", "SpiritArmor" };
+int CalebTaunt[10]  = {"CalebTaunt0", "CalebTaunt1", "CalebTaunt2", "CalebTaunt3", "CalebTaunt4",
+					   "CalebTaunt5", "CalebTaunt6", "CalebTaunt7", "CalebTaunt8", "CalebTaunt9"};
+int Caleburn[2]     = {"CalebTaunt0", "CalebTaunt1"};					   
+str CalebSpeech[25] = {"CalebSpeech1", "CalebSpeech2", "CalebSpeech3", "CalebSpeech4",
+					   "CalebSpeech5", "CalebSpeech6", "CalebSpeech7", "CalebSpeech8",
+					   "CalebSpeech9", "CalebSpeech10", "CalebSpeech11", "CalebSpeech12",
+					   "CalebSpeech13", "CalebSpeech14", "CalebSpeech15", "CalebSpeech16", "CalebSpeech17", 
+					   "CalebSpeech18", "CalebSpeech19", "CalebSpeech20", "CalebSpeech21", "CalebSpeech22", 
+					   "CalebSpeech23", "CalebSpeech24", "CalebSpeech25"};
+str MapSpeech[16]   = {"Caleb/Everlove", "Caleb/Sing", "Caleb/Strange", "Caleb/Home",
+				  	   "Caleb/Busines", "Caleb/Goba", "Caleb/Robbers",  "Caleb/Smellba", 
+					   "Caleb/Paintre", "Caleb/Donateb", "Caleb/Longwat", "Caleb/Asshole",
+					   "Caleb/Rowboat", "Caleb/Sunwill", "Caleb/Alldead", "Caleb/Promises"};
+str FloorTextures[19]= {"XTEX0264", "XTEX017",  "XTEX0265", "XTEX0272",
+				  	    "XTEX0353", "XTEX0354", "XTEX0396", "XTEX043", 
+					    "XTEX0441", "XTEX0641", "XTEX0745", 
+					    "YTEX9T20", "RROCK16",  "FLAT5_6",  "RROCK09", 
+					    "RROCK17",  "RROCK18",  "RROCK19",  "RROCK20"};					   
+					   
+function int degsin(int x){
+	int result;
+	if (x>=0)
+	{
+		result=sin(FixedMul(x<<16,0.0111111111)/4);
+	}
+	else 
+	{
+		result=-sin(FixedMul(-x<<16,0.0111111111)/4);
+	}
+	return result;
+}
+
+function int degcos(int x){
+	return cos(FixedMul(x<<16,0.0111111111)/4);
+}
+
+function int sqrt_x3(int number){
+	if(number <= 3){
+		if(number > 0){
+			return 1;
+		}
+		return 0;
+	}
+	int oldAns = number >> 1,
+	newAns = (oldAns + number / oldAns) >> 1;
+	while(newAns < oldAns){
+		oldAns = newAns;
+		newAns = (oldAns + number / oldAns) >> 1;
+	}
+	return oldAns;
+}
+
+function int abs(int x){
+    if (x < 0) return -x;
+    return x;
+}
+
+function int sqrt_x(int x){
+	int r;
+	x = x + 1 >> 1;
+	while (x > r) x-=r++;
+	return r;
+}
+
+function int dist (int tid1, int tid2){
+	int x, y, z, d;
+	x = GetActorX(tid1) - GetActorX(tid2) >> 16; 
+	y = GetActorY(tid1) - GetActorY(tid2) >> 16;
+	z = GetActorZ(tid1) - GetActorZ(tid2) >> 16;
+	d = sqrt_x( x*x + y*y + z*z );
+	return d;
+}
+
+Script "EnterTheGame" Enter //Start Script
+{
+	PlayerID = PLAYER_TAG_OFFSET + PlayerNumber();
+	Thing_ChangeTID(0, PlayerID);
+	//Thing_ChangeTID(0, 1000 + PlayerNumber());
+	PlayerHealths[PlayerID] = GetActorProperty(0, APROP_HEALTH);
+	GiveInventory("DoctorBag", DoctorBagAmount[PlayerID] - 1);
+	GiveInventory("JumpingBoots", JumpBootsAmount[PlayerID] - 1);
+	GiveInventory("DivingSuit", DivingSuitAmount[PlayerID] - 1);
+	GiveInventory("BeastVision", BeastVisionAmount[PlayerID] - 1); 	
+    str class = GetActorClass(0);
+	int y = random(0,16);
+	if(class == "Caleb")
+	{
+		if (GameType () != GAME_TITLE_MAP)
+		{
+			int mapnm = GetLevelInfo (LEVELINFO_LEVELNUM);	
+			switch(mapnm)
+			{
+				case 1:	 LocalAmbientSound("Caleb/Again", 127); break;
+				case 5:  LocalAmbientSound("Caleb/Feeling", 127); break;
+				default: LocalAmbientSound(MapSpeech[y],127); break;
+			}
+		}
+	}
+}
+
+Script "CheckThrowPower" Enter{
+	while(TRUE){
+		if ((CheckWeapon("Dynamite") == FALSE) && (CheckWeapon("Spraycan") == FALSE) && (CheckWeapon("RemoteDynamite") == FALSE) && (CheckWeapon("ProximityDynamite") == FALSE)){
+			TakeInventory("ThrowPower", 255);
+		}
+	delay(1);	
+}}
+
+Script "CheckItemVision" Enter{
+	if (GetCvar("interclasses") == TRUE) { }
+}
+
+Script "TheDeath" Death{
+	Thing_ChangeTID(PlayerNumber()+1000, 0);
+	PlayerHealths[PlayerNumber()+1000] = 0;
+	Delay(15);
+	if(CheckInventory("TNTAmmo") == 0) TakeInventory("Dynamite", 1);	
+	if(CheckInventory("SprayCanister") == 0) TakeInventory("SprayCan", 1);
+}
+
+Script "TheRespawn" Respawn{
+	Thing_ChangeTid(0, PlayerNumber() + 1000);
+	PlayerHealths[PlayerNumber() + 1000] = GetActorProperty(PlayerNumber() + 1000, APROP_HEALTH);
+}
+
+Script "TheUnloading" Unloading{// Saves inventory items
+	for(int i; i<=31; i++){
+		if(CheckActorInventory(1000+i, "BeastVision") > 0) BeastVisionAmount[i+1000] = CheckActorInventory(1000+i, "BeastVision");
+		if(CheckActorInventory(1000+i, "JumpingBoots") > 0) JumpBootsAmount[i+1000] = CheckActorInventory(1000+i, "JumpingBoots");
+		if(CheckActorInventory(1000+i, "DivingSuit") > 0) DivingSuitAmount[i+1000] = CheckActorInventory(1000+i, "DivingSuit");
+		if(CheckActorInventory(1000+i, "DoctorBag") > 0) DoctorBagAmount[i+1000] = CheckActorInventory(1000+i, "DoctorBag");	
+}}
+
+Script "CalebSpeech" (int type){//Caleb's Speechs
+    str class = GetActorClass(0);
+	if(class == "Caleb"){		
+		switch (type){
+		case 0:
+			if(CheckInventory("LaughDelay")) Terminate;
+			int u = random(0, 25);
+			LocalAmbientSound(CalebSpeech[u], 127);
+			GiveInventory("LaughDelay", 1);
+			break;
+		case 1:
+			if(CheckInventory("LaughDelay")) Terminate;		
+			LocalAmbientSound("Caleb/GoodDoggy", 127);
+			GiveInventory("LaughDelay", 1);
+			break;
+		case 2:
+			int y = random(0, 10);
+			LocalAmbientSound(CalebTaunt[y], 127);
+			GiveInventory("LaughDelay", 1);
+			break;
+		case 3:
+			if(CheckInventory("LaughDelay")) Terminate;		
+			LocalAmbientSound("Caleb/Ratburger", 127);
+			GiveInventory("LaughDelay", 1);			
+			break;
+}}}
+
+Script "PlSndDamageMelee" (int type){
+    str class = GetActorClass(0);
+	if(class == "Caleb"){
+		switch (type){
+		case 21:
+			LocalAmbientSound("Caleb/CalebPain3",127);
+			break;
+		case 90:
+			if (random(1,2) == 1){ LocalAmbientSound("Caleb/CalebPain1",127); }
+			else { LocalAmbientSound("Caleb/CalebPain1",127); }
+			break;			
+		default: break;
+}}}
+
+Script "GiveGrenade" (VOID) NET{
+	GiveInventory("TossGrenade", 1);
+}
+
+Script 501 (void){
+	Print(f:GetActorX(0));
+	SetResultValue(GetActorX(0));
+}
+
+Script 514 (int tid){
+	int k=activatorTID();
+	int subheight;
+	int grenangle;
+	int distancepro,d,i;
+	SetActivatorToTarget(0);
+	int distance=dist(0,k);
+	subheight=(GetActorZ(0)>>16)-(GetActorZ(k)>>16);
+	for (i=-89;i<=89;++i){
+		distancepro=sqrt_x3(distance*distance-abs((subheight>>16)*(subheight>>16)));
+		d=((FixedMul(distancepro<<16,FixedDiv(degsin(i),degcos(i))))>>16)-(((FixedMul(1.4,distancepro<<16))>>16)*distancepro)/((FixedMul(4050.0,FixedMul(degcos(i),degcos(i))))>>16);
+		if (d>subheight){
+			grenangle=i * 0.85;
+			break;
+		}
+	}
+	SetActivator(k);
+	SetResultValue(i);
+}
+
+Script 599 (void){
+	int u = ActivatorTID();
+	SetActivatorToTarget(0);
+	Thing_ChangeTID(u, CheckInventory("Voodoo")/2+1);
+}
+
+Script 601 (int rand){
+	if(rand) TakeInventory("Voodoo", random(1,2));
+}
+
+Script 602 (void){
+	if(CheckInventory("TeslaCounterX") > 7){
+		TakeInventory("TeslaCounterX", 24);
+}}
+
+Script 603 (void){
+	int LifeLeechAmmo = CheckInventory("EssencePower");
+	if(CheckWeapon("LifeLeech")){
+		if(LifeLeechAmmo >= 1){
+			TakeInventory("EssencePower", 1);
+		}
+		if(LifeLeechAmmo == 0){
+			if(CheckInventory("SpiritArmor") > 0)
+				TakeInventory("SpiritArmor", 1);
+			else
+			    Thing_Damage2(0, 1, "Disintegrate");
+}}}
+
+Script 604 (int control){
+	if(control == 0){
+		int LifeLeechAmmo = CheckInventory("EssencePower");
+		if(LifeLeechAmmo <= 23){
+			SetResultValue(1);
+		}else{
+			TakeInventory("EssencePower", 24);
+			SetResultValue(0);
+		}
+	} else
+	if(control == 1)
+		SetActorProperty(0, APROP_Alpha, 0.9);
+}
+
+Script 609 (void){
+	int buttonPress = GetPlayerInput (-1, INPUT_BUTTONS); // Checks what keys the player is pressing
+	if (buttonPress & BT_Attack){
+		SetResultValue (1);
+	}else{
+		SetResultValue (0);
+}}		
+
+Script 996 (int angle, int type){
+	int tid = ActivatorTID();
+	int num = CheckInventory("ThrowPower");
+	printbold(d:num);
+	if (type ==  0){
+		SpawnProjectile(tid, "PlayerTNT", angle*256/360, num*3.2+120, 0, 2, 1500+PlayerNumber());
+		ThrustThingZ(1500+PlayerNumber(), num*2.0+32, 0, 1);
+		Delay(1);
+		Thing_ChangeTID(1500+PlayerNumber(), 0);
+	}else{
+		SpawnProjectile(tid, "PlayerTNT1", angle*256/360, num*3.2+120, 0, 1, 1500+PlayerNumber());
+		ThrustThingZ(1500+PlayerNumber(), num*2.0+32, 0, 1);
+		Delay(1);
+		Thing_ChangeTID(1500+PlayerNumber(), 0);		
+}}
+
+Script 997 (void){
+	if(CheckInventory("BodyArmor") < 200 | CheckInventory("FireArmor") < 200 | CheckInventory("SpiritArmor") < 200)	SetResultValue(1);
+	else SetResultValue(0);
+}
+
+Script 998 (int angle){
+	SetActorAngle(0, angle);
+}
+
+Script 999 (void){
+   SetActorProperty(0, APROP_Speed, 2.75);
+}
+
+Script "FloorTextureCheck" (void){//Checking if zombimp must be buried or not
+	for(int i; i<=19; i++){		
+		if (CheckActorFloorTexture(0, FloorTextures[i]))
+		{
+			SetActorState(0,"GroundSpawner",true);
+			i = 666;
+		}
+	}
+	if (i != 666) { SetActorState(0,"NoGroundSpawner",true);}
+}
+
+Script "Jokes" (int type){//Script for jokes
+	STR Class = GetActorClass(0);
+	if(Class == "Caleb"){		
+		switch (type){
+		case 0:
+			if(CheckInventory("LaughDelay"))
+			Terminate;		
+			int y = Random(0, 2);
+			LocalAmbientSound(Caleburn[y], 127);
+			GiveInventory("Laughdelay", 1);
+		case 1:
+			if(CheckInventory("LaughDelay"))
+			Terminate;		
+		    LocalAmbientSound("JACKED", 127);
+			GiveInventory("Laughdelay", 1);		
+		break;
+}}}
+
+Script "CheckAlphaTrain" (void){//Script for enemy selection.
+	if (GetActorProperty (0, APROP_Alpha) >= 1.0){SetActorState(0,"Lighter",TRUE); }
+}
+
+Script "hybrid_selection" (void){//Script for enemy selection.
+	if (GetCvar("hybridmonster") == TRUE) { SetActorState(0,"HybridSpawner",TRUE); }
+	if (GetCvar("hybridmonster") == FALSE) { SetActorState(0,"NormalSpawner",TRUE); }		
+}
+
+Script "checkheight" (void){//Script for checking the height of the monster
+	if ((GetActorCeilingZ(0) - GetActorZ(0)) > 80.0) { SetActorState(0,"RandomHybrid",TRUE); }
+	else { SetActorState(0,"lowz",TRUE); }			
+}
+
+Script "blood_selection" (void){//Script for enemy selection.
+	for(int i = 0; i < 8; i++){
+	if (PlayerInGame(i)){
+		if (GetUserCVar(i,"bloodremain") ==  0){ SetActorState(0,"Death0",TRUE); }
+		if (GetUserCVar(i,"bloodremain") ==  1){ SetActorState(0,"Death1",TRUE); }
+		if (GetUserCVar(i,"bloodremain") ==  2){ SetActorState(0,"Death2",TRUE); }
+		if (GetUserCVar(i,"bloodremain") ==  3){ SetActorState(0,"Death3",TRUE); }
+		if (GetUserCVar(i,"bloodremain") ==  4){ SetActorState(0,"Death4",TRUE); }	
+}}}
+
+Script "blood_pool_sel" (void){//Script for enemy selection.
+	for(int i = 0; i < 8; i++){
+	if (PlayerInGame(i)){
+		if (GetUserCVar(i,"bloodremain") ==  0){ SetActorState(0,"Death0",TRUE); }
+		if (GetUserCVar(i,"bloodremain") ==  1){ SetActorState(0,"Death1",TRUE); }
+		if (GetUserCVar(i,"bloodremain") ==  2){ SetActorState(0,"Death2",TRUE); }
+		if (GetUserCVar(i,"bloodremain") ==  3){ SetActorState(0,"Death3",TRUE); }
+		if (GetUserCVar(i,"bloodremain") ==  4){ SetActorState(0,"Death4",TRUE); }	
+}}}
+
+Script "AcsPowerupTimerBeast" (void){
+	do{	TakeInventory("BeastVision",1);
+		delay(35);
+	}while(CheckInventory("BeastVision") > 0);	
+	if ( CheckInventory("BeastVision") == 0 ){//Removing the powerup once the time is over
+		TakeInventory("PowerLightAmp",1);}
+}
+
+Script "CheckProx" (void){
+	if (CheckProximity(0, "Caleb", 48.0, 1)){ SetActorState(0,"Death", TRUE); }
+	if (CheckProximity(0, "FloorKaboom", 48.0, 1)){ SetActorState(0,"Death", TRUE); }
+	if (CheckProximity(0, "VBlower", 48.0, 1)){ SetActorState(0,"Death", TRUE); }
+	if (CheckProximity(0, "VBlower2", 48.0, 1)){ SetActorState(0,"Death", TRUE); }	
+	if (CheckProximity(0, "ZBBulletPuff", 48.0, 1)){ SetActorState(0,"Death", TRUE); }		
+	if (CheckProximity(0, "ZBulletPuffT", 48.0, 1)){ SetActorState(0,"Death", TRUE); }			
+}
+
+Script "AcsPowerupTimerBoots" (void){
+	do{	TakeInventory("JumpingBoots",1); SetAirControl(1.0);
+		delay(35);
+	}while(CheckInventory("JumpingBoots") > 0);	
+	if ( CheckInventory("JumpingBoots") == 0 ){//Removing the powerup once the time is over
+		TakeInventory("PowerHighJump",1); SetAirControl(0.0);}
+}
+
+Script "AcsPowerupDisableBoots" (void){
+	SetAirControl(0.0);
+}
+
+Script "AcsPowerupTimerDiving" (void){
+	int i = 0;
+	do{	TakeInventory("DivingSuit",1);
+		if ( GetActorProperty(0,APROP_Waterlevel) < 3) { i = 1;}
+		delay(35);
+	}until( CheckInventory("DivingSuit") == 0  || i > 0 );	
+	TakeInventory("PowerAir",1);
+}
+
+//Code needed for spiders - ozy81
+Script 611 (void) //Annoying spiders!! ADDITIVE
+{
+int k = CheckInventory("PoisonIntensity");
+	If(CheckInventory("PoisonIntensity")!=0)
+		{
+		GiveInventory("PoisonIntensity",60);
+//		Print(s:"The poison got worse");
+//			Print(d:CheckInventory("PoisonIntenity"));
+		Terminate;
+		}
+//	Print(s:"You Feel Dizzy");
+		GiveInventory("PoisonIntensity",60);
+	//Print(d:CheckInventory("PoisonIntenity"));
+int Direction = 1; // How many seconds poison lasts, ADD 36 While poison is fading
+While ((CheckInventory("PoisonIntensity"))>0)
+{
+If((CheckInventory("PoisonIntensity"))<170)
+{
+	SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(6);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(6);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(6);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(6);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(6);
+}
+Else
+{
+	SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+}
+	If(random(1,2)==1)
+	Direction = Direction*-1;
+	TakeInventory("PoisonIntensity",45);
+	If(CheckInventory("StrongPoison")<1)
+	SetActorState(0,"Dill",TRUE);
+}
+//	Print(s:"PoisoningOver");
+SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(3);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(3);
+SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(3);
+SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(3);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(3);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(6);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(6);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(6);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(6);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(8);
+}
+
+Script 613 (void) //This script limits spammed spiders to 200
+{
+	BroodSpiders = BroodSpiders+1;
+	Terminate;
+}
+
+Script 614 (void) //This script allows mother spammers to spam some more
+{
+	BroodSpiders = BroodSpiders-1;
+	If (BroodSpiders<0)
+		BroodSpiders=0;
+		Terminate;
+}
+
+Script 615 (void) // Called by spider spawners, if they return 1 the spawner will summon stuff
+{
+	SetResultValue(BroodSpiders );
+	Terminate;
+}
+
+/* //unused code yet - ozy81
+Script 503 Enter{
+    Thing_ChangeTID(0, 1000 + PlayerNumber());
+}
+
+Script 504 Enter{//CVAR inter_classes
+    int valuevar = getcvar("inter_classes");
+	Thing_ChangeTID(0, 9000 + PlayerNumber()); // This assigns the TID
+	if (valuevar == 0){
+		if(PlayerClass(Playernumber()) == 1){//caleb
+			UnMorphActor(9000, 1);
+			MorphActor(9000,"caleb2","",999999, 0, "", "");
+			UnMorphActor(9001, 1);			
+			MorphActor(9001,"caleb2","",999999, 0, "", "");				
+		}
+		if(PlayerClass(Playernumber()) == 0){//doomguy
+			UnMorphActor(9000, 1);			
+			MorphActor(9000,"doomguy2","",999999, 0, "", "");			
+			UnMorphActor(9001, 1);			
+			MorphActor(9001,"doomguy2","",999999, 0, "", "");							
+		}			
+	}
+}
+
+Script 600 (int mode, int firemode){
+
+	int u = GetActorPitch(0);
+	if(firemode == 0)
+	{
+		if(mode == 0)
+			SetActorPitch(0, u - 200);
+		else
+			SetActorPitch(0, u + 20);	
+	}
+	else
+	{
+		if(mode == 0)
+			SetActorPitch(0, u - 400);
+		else
+			SetActorPitch(0, u + 40);
+	}
+}
+
+Script 605 Enter{
+	//Thing_ChangeTid(0, PlayerNumber() + 1000);
+	PlayerHealths[PlayerNumber() + 1000] = GetActorProperty(0, APROP_HEALTH);
+	GiveInventory("DoctorBag", DoctorBagAmount[PlayerNumber()+1000] - 1);
+	GiveInventory("JumpingBoots", JumpBootsAmount[PlayerNumber()+1000] - 1);
+	GiveInventory("DivingSuit", DivingSuitAmount[PlayerNumber()+1000] - 1);
+	GiveInventory("BeastVision", BeastVisionAmount[PlayerNumber()+1000] - 1); 
+}
+
+Script 608 OPEN{ // Damage Tracker
+	int i = 0;
+	int dmg,type,am,pt;
+	while (i<=31){
+		int phpn = GetActorProperty(1000+i,APROP_Health);
+		if(phpn > 0){
+		dmg = PlayerHealths[i+1000] - phpn;
+		if (dmg>0){
+			type = CheckActorInventory(1000+i,"ArmorPicker");	//enum: body, fire, spirit
+			am = CheckActorInventory(1000+i,armortype[type]);	//AMount of armor
+			// SavePercent = 25+(ArmorAmount*3/8)
+			pt = dmg * (25 + (am*3/8)) / 100;
+			if (am<pt) pt=am;
+			thing_damage(1000+i, -pt);
+			thing_damage(1000+i, -1); // To forcefully update your health
+     		thing_damage(1000+i, 1);
+			TakeActorInventory(1000+i,armortype[type],pt);
+			TakeActorInventory(1000+i,"ArmorPicker",411);
+		}
+			PlayerHealths[i+1000] = phpn;
+		}			
+		i++;
+	}
+	Delay(1);
+	Restart;
+}
+
+Script 610 (int angle, int type){
+	int tid = ActivatorTID();
+	int num = CheckInventory("ThrowPower");
+	printbold(d:num);
+	if (type ==  0){
+		SpawnProjectile(tid, "PlayerTNT", angle*256/360, num*3.2+120, 0, 2, 1500+PlayerNumber());
+		ThrustThingZ(1500+PlayerNumber(), num*2.0+32, 0, 1);
+		Delay(1);
+		Thing_ChangeTID(1500+PlayerNumber(), 0);
+	}else{
+		SpawnProjectile(tid, "PlayerTNT1", angle*256/360, num*3.2+120, 0, 1, 1500+PlayerNumber());
+		ThrustThingZ(1500+PlayerNumber(), num*2.0+32, 0, 1);
+		Delay(1);
+		Thing_ChangeTID(1500+PlayerNumber(), 0);		
+}}
+
+*/

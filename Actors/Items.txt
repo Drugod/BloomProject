@@ -1,0 +1,176 @@
+ACTOR -------BEASTVISION---------- {}
+ACTOR BeastVision : CustomInventory 3153
+{
+	//$Category "BlooM Items"
+	//$Title Beast Vision
+	Inventory.Icon "INBEAST"
+	Inventory.PickupSound "misc/i_pkup"
+	Inventory.UseSound "misc/p_pkup"
+	Inventory.PickupMessage "Picked up Beast Vision"
+	Inventory.Amount 100
+	Inventory.MaxAmount 100
+	+COUNTITEM
+	+DONTSPLASH  
+	+INVENTORY.INVBAR
+	-INVENTORY.INTERHUBSTRIP
+	Scale 0.5
+	States
+	{
+	Spawn:
+		INFR A -1 BRIGHT
+	Stop
+	Use:
+		TNT1 A 0 A_JumpIfInventory("PowerLightAmp", 1, "Disable")//Check if the Powerup was activated before.
+		TNT1 A 0 A_GiveInventory("BeastVisionEffect", 1)//Activating the Powerup.
+		TNT1 A 0 ACS_NamedExecute("AcsPowerupTimerBeast", 0)
+		Stop
+	Disable:
+		TNT1 A 0 A_TakeInventory("PowerLightAmp",1)//Removing the Powerup.
+		TNT1 A 0 ACS_NamedSuspend("AcsPowerupTimerBeast", 0)//Suspend the Timechecker.
+		Stop	
+	}
+}
+
+ACTOR BeastVisionEffect : PowerupGiver
+{
+	Powerup.Duration 0x7FFFFFFD
+	Powerup.Type "LightAmp"
+	+DONTSPLASH
+	+INVENTORY.ALWAYSPICKUP
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.QUIET
+	-INVENTORY.INVBAR
+}
+
+ACTOR -------JUMPINGBOOTS---------- {}
+ACTOR JumpingBoots : CustomInventory 3154
+{
+	//$Category "BlooM Items"
+	//$Title Jumping Boots
+	Inventory.PickupMessage "Picked up Jumping Boots"
+	Inventory.PickupSound "misc/p_pkup"
+	Inventory.Amount 100
+	Inventory.MaxAmount 100
+	Inventory.Icon "INBOOTS" 
+	Inventory.UseSound "misc/p_pkup" 
+	+COUNTITEM  
+	+DONTSPLASH 
+	+INVENTORY.ALWAYSPICKUP
+	+INVENTORY.FANCYPICKUPSOUND
+	+INVENTORY.INVBAR
+	-INVENTORY.INTERHUBSTRIP
+	Scale 0.8
+	States
+	{
+	Spawn:
+		XUIT A -1
+		Stop
+	Use:
+		TNT1 A 0 A_JumpIfInventory("PowerHighJump", 1, "Disable")//Check if the Powerup was activated before.
+		TNT1 A 0 A_GiveInventory("JumpBootsEffect", 1)//Activating the Powerup.
+		TNT1 A 0 ACS_NamedExecute("AcsPowerupTimerBoots", 0)		
+		Fail
+	Disable:
+		TNT1 A 0 A_TakeInventory("PowerHighJump",1)//Removing the Powerup.
+		TNT1 A 0 ACS_NamedExecute("AcsPowerupDisableBoots",0)
+		TNT1 A 0 ACS_NamedSuspend("AcsPowerupTimerBoots", 0)//Suspend the Timechecker.
+		Fail
+	}
+}
+
+ACTOR JumpBootsEffect : PowerupGiver
+{
+	Powerup.Duration 0x7FFFFFFD
+	Powerup.Type "HighJump"
+	+DONTSPLASH
+	+INVENTORY.ALWAYSPICKUP
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.QUIET
+	-INVENTORY.INVBAR
+}
+
+ACTOR -------DIVING-SUIT---------- {}
+ACTOR DivingSuit : CustomInventory 6246
+{
+	//$Category "BlooM Items"
+	//$Title Diving Suit
+	Inventory.PickupMessage "Picked up Diving Suit"
+	Inventory.PickupSound "misc/p_pkup"
+	Inventory.Amount 100
+	Inventory.MaxAmount 100
+	Inventory.UseSound "misc/p_pkup"
+	Inventory.Icon "INSUIT" 
+	+COUNTITEM
+	+DONTSPLASH
+	+INVENTORY.FANCYPICKUPSOUND
+	+INVENTORY.INVBAR
+	-INVENTORY.INTERHUBSTRIP 
+	Scale 0.75
+	States
+	{
+	Spawn:
+		DSUI A -1
+		Stop
+	Use:
+		TNT1 A 0 A_JumpIF(waterlevel < 2, "Failure")
+		TNT1 A 0 A_JumpIfInventory("PowerAir",1,"Disable")//Check if the Powerup was activated before.
+		TNT1 A 0 A_GiveInventory("DivingSuitEffect", 1)//Activating the Powerup.
+		TNT1 A 0 ACS_NamedExecute("AcsPowerupTimerDiving", 0)			
+		Fail
+	Failure:	
+	Disable:
+		TNT1 A 0 A_TakeInventory("PowerAir",1)
+		TNT1 A 0 ACS_NamedSuspend("AcsPowerupTimerDiving", 0)//Suspend the Timechecker.
+		Fail
+	}
+}
+
+ACTOR DivingSuitEffect : PowerupGiver
+{
+	Powerup.Color lightblue 0.05
+	Powerup.Duration 0x7FFFFFFD //this way it fills the color
+	Powerup.Type Air
+	+DONTSPLASH
+	+INVENTORY.ALWAYSPICKUP
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.QUIET
+	-INVENTORY.INVBAR
+}
+
+ACTOR PowerAir : PowerProtection { DamageFactor "Drowning", 0 }
+
+ACTOR -------DOCTORBAG---------- {}
+ACTOR DoctorBag : CustomInventory 20100
+{
+	//$Category "BlooM Items"
+	//$Title Doctor Bag
+	Health 1
+	Inventory.MaxAmount 100
+	Inventory.Amount 100
+	Inventory.Icon "INDOCB"
+	Inventory.PickupMessage "Stole the Doctor's Bag"	
+	+DONTSPLASH
+	+FLOORCLIP
+	+INVENTORY.INVBAR
+	-INVENTORY.INTERHUBSTRIP
+	States
+	{
+	Spawn:
+		DBAG A -1
+		Stop
+	Use:
+	aLoop:
+		MEDI A 0 A_JumpIfInventory("DoctorBag",1,"TryHeal")
+		Fail
+	TryHeal:
+		MEDI A 0 A_JumpIfHealthLower(100,"Heal")
+		Goto End
+	Heal:
+		MEDI A 0 A_TakeInventory("DoctorBag",1)
+		MEDI A 0 HealThing(1)
+		Goto aLoop
+	End:
+		MEDI A 0
+		Fail
+	}
+}

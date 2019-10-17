@@ -1,0 +1,940 @@
+ACTOR ---------CARS---------{}
+ACTOR Modelcars : RandomSpawner 18172
+{
+	//$Category BlooM Models
+	//$Title Random Junkcars
+	//$Color 4
+	DropItem "Modelcar1"
+	DropItem "Modelcar2"
+	DropItem "Modelcar3"
+	DropItem "Modelcar4"
+	DropItem "Modelcar5"
+}
+
+ACTOR Modelcar1
+{
+	Radius 52
+    Height 52
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Modelcar2: Modelcar1{}
+ACTOR Modelcar3: Modelcar1{}
+ACTOR Modelcar4: Modelcar1{}
+ACTOR Modelcar5: Modelcar1{}
+
+ACTOR ---------BUILDINGS-FIX--------{}
+ACTOR Building1 18072
+{
+	//$Category BlooM Models
+	//$Title Building 1
+	//$Color 4
+	Radius 128
+	Height 128
+	Scale 1.0
+	Mass 100000
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Building2 : Building1 18073 { //$Title Building 2
+}
+ACTOR Building3 : Building1 18074 { //$Title Building 3
+}
+
+ACTOR ---------FLOORS-BASES--------{}
+ACTOR Buildingbase1 18275
+{
+	//$Category BlooM Models
+	//$Title Building base 1
+	//$Color 4
+	Radius 48
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Buildingbase2: Buildingbase1 18293 { //$Title Building base 2
+}
+ACTOR Buildingbase3: Buildingbase1 18294 { //$Title Building base 3
+}
+ACTOR Buildingbase4: Buildingbase1 18295 { //$Title Building base 4
+}
+ACTOR Buildingbase5: Buildingbase1 18296 { //$Title Building base 5
+}
+ACTOR Buildingbase6: Buildingbase1 18297 { //$Title Building base 6
+}
+
+ACTOR Floorbase1 18298
+{
+	//$Category BlooM Models
+	//$Title Floor base 1
+	//$Color 4
+	Radius 48
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Floorbase2: Floorbase1 18299 { //$Title Floor base 2
+}
+
+ACTOR ---------BUILDINGS--------{}
+ACTOR Buildingpiece1 18278
+{
+	//$Category BlooM Models
+	//$Title Building piece 1
+	//$Color 4
+	Radius 48
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+NOBLOCKMAP
+	-SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Buildingpiece2: Buildingpiece1 18279 { //$Title Building piece 2
+}
+ACTOR Buildingpiece3: Buildingpiece1 18280 { //$Title Building piece 3
+}
+ACTOR Buildingpiece3b: Buildingpiece1 18281 { //$Title Building piece 3b
+}
+ACTOR Buildingpiece4: Buildingpiece1 18282 { //$Title Building piece 4
+}
+ACTOR Buildingpiece5: Buildingpiece1 18300 { //$Title Building piece 5
+}
+
+ACTOR ---------LAMPS---------{}
+ACTOR RandomLamps : RandomSpawner 18288
+{
+	//$Category BlooM Models
+	//$Title Random lamps
+	//$Color 4
+	DropItem "lamp1"
+	DropItem "lamp2"
+	DropItem "lamp3"
+	DropItem "lamp4"
+	DropItem "lamp5"
+}
+
+ACTOR lamp1 18283
+{
+	//$Category BlooM Models
+	//$Title Lamp1
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR lamp2: lamp1 18284 { //$Title Lamp2
+}
+ACTOR lamp3: lamp1 18285 { //$Title Lamp3
+}
+ACTOR lamp4: lamp1 18286 { //$Title Lamp4
+}
+ACTOR lamp5: lamp1 18287 { //$Title Lamp5
+}
+
+ACTOR RandomBloodLamps : RandomSpawner 18318
+{
+	//$Category BlooM Models
+	//$Title Random Bloodlamps
+	//$Color 4
+	DropItem "Bloodlamp1"
+	DropItem "Bloodlamp2"
+	DropItem "Bloodlamp3"
+	DropItem "Bloodlamp4"
+	DropItem "Bloodlamp5"
+}
+
+ACTOR Bloodlamp1 18313
+{
+	//$Category BlooM Models
+	//$Title Bloodlamp1
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Bloodlamp2: Bloodlamp1 18314 { //$Title Bloodlamp2
+}
+ACTOR Bloodlamp3: Bloodlamp1 18315 { //$Title Bloodlamp3
+}
+ACTOR Bloodlamp4: Bloodlamp1 18316 { //$Title Bloodlamp4
+}
+ACTOR Bloodlamp5: Bloodlamp1 18317 { //$Title Bloodlamp5
+}
+
+ACTOR Room1 18325
+{
+	//$Category BlooM Models
+	//$Title Room1
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Room2a 18326
+{
+	//$Category BlooM Models
+	//$Title Room2a
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Room2b 18327
+{
+	//$Category BlooM Models
+	//$Title Room2b
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Bed 18328
+{
+	//$Category BlooM Models
+	//$Title bed
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR ---------CONTAINERS---------{}
+ACTOR RandomContainers : RandomSpawner 18290
+{
+	//$Category BlooM Models
+	//$Title Random Containers
+	//$Color 4
+	DropItem "Contenedor1"
+	DropItem "Contenedor2"
+}
+
+ACTOR Contenedor1 18291
+{
+	//$Category BlooM Models
+	//$Title Contenedor1
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Contenedor2: Contenedor1 18292 { //$Title Contenedor2
+}
+
+ACTOR ---------SQUARES---------{}
+ACTOR CylinderSquare1 18301
+{
+	//$Category BlooM Models
+	//$Title Cylinder Square 1
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOBLOCKMAP
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR CylinderSquare2: CylinderSquare1 18302 { //$Title Cylinder Square 2
+}
+
+ACTOR ---------OTHERS---------{}
+ACTOR Sataniccube 18303
+{
+	//$Category BlooM Models
+	//$Title Satanic Cube
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	+FLOATBOB
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Bricks 18304
+{
+	//$Category BlooM Models
+	//$Title Bricks
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Corner1 18305
+{
+	//$Category BlooM Models
+	//$Title Corner1
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Corner2: Corner1 18306 { //$Title Corner2
+}
+ACTOR Corner3: Corner1 18307 { //$Title Corner3
+}
+
+ACTOR Squares01 18308
+{
+	//$Category BlooM Models
+	//$Title Squares01
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Squares02: Squares01 18309 { //$Title Squares02
+}
+ACTOR Squares03: Squares01 18310 { //$Title Squares03
+}
+ACTOR Squares04: Squares01 18311 { //$Title Squares04
+}
+ACTOR Squares05: Squares01 18312 { //$Title Squares05
+}
+
+ACTOR ---------TRAINS---------{}
+ACTOR Modeltrains : RandomSpawner 18319
+{
+	//$Category BlooM Models
+	//$Title Random trains
+	//$Color 4
+	DropItem "Modeltrain"
+	DropItem "Modeltrain2"
+	DropItem "Modeltrain3"
+}
+
+ACTOR Modeltrain 18171
+{
+	//$Category BlooM Models
+	//$Title Train
+	//$Color 4
+	//$Arg0 "StopAnim"
+	//$Arg0Tooltip "Set 1 or higher to stop animation"
+	Radius 76
+    Height 56
+	-SOLID
+	+MOVEWITHSECTOR
+	+WINDTHRUST
+	RenderStyle "Translucent"
+	Alpha 0
+	Mass 100
+	States
+	{
+	Spawn:
+		UNKN A 0 NODELAY A_SetTranslucent(1.0, 0)
+		UNKN A 4 A_FadeIn(0.1)
+		TNT1 A 1 A_JumpIf(Args[0]>0, "StopTrain")
+		TNT1 A 0 A_Playsound("TRAINMOVE",2,1.0,TRUE)		
+		TNT1 A 0 ACS_NamedExecuteAlways("CheckAlphaTrain",0,0,0,0)
+		Loop
+	Lighter:
+		UNKN A 0 A_SpawnItemEx ("TrainLight",125.0, 0.0, 300.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",225.0, 0.0, 200.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",325.0, 0.0, 100.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",425.0, 0.0, 50.0)
+		UNKN A 3 A_SpawnItemEx ("TrainLight",525.0, 0.0, 25.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",125.0, 0.0, 300.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",225.0, 0.0, 200.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",325.0, 0.0, 100.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",425.0, 0.0, 50.0)
+		UNKN B 3 A_SpawnItemEx ("TrainLight",525.0, 0.0, 25.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",125.0, 0.0, 300.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",225.0, 0.0, 200.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",325.0, 0.0, 100.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",425.0, 0.0, 50.0)
+		UNKN C 3 A_SpawnItemEx ("TrainLight",525.0, 0.0, 25.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",125.0, 0.0, 300.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",225.0, 0.0, 200.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",325.0, 0.0, 100.0)
+		UNKN A 0 A_SpawnItemEx ("TrainLight",425.0, 0.0, 50.0)
+		UNKN D 3 A_SpawnItemEx ("TrainLight",525.0, 0.0, 25.0)
+		Loop
+	StopTrain:
+		TNT1 A 0 A_SetTranslucent(1.0, 0)
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Modeltrain2: Modeltrain 18320 { //$Title Techtrain
+}
+ACTOR Modeltrain3: Modeltrain 18321 { //$Title Bloodytrain
+}
+ACTOR Modeltrain4: Modeltrain 18324 { //$Title Bloodytrain2
+}
+
+ACTOR TrainLight
+{
+	Radius 8
+	Height 8
+    Scale 1.0
+    Mass 5000
+    RenderStyle Add
+    alpha 0.25
+    +NOGRAVITY
+	+DONTSPLASH
+    +NOTIMEFREEZE
+	+NOBLOOD
+	+ALWAYSPUFF
+	+PUFFONActorS
+	+BLOODLESSIMPACT
+	+NOTRIGGER
+	States
+	{
+	Spawn:
+        TNT1 A 0
+		TNT1 A 1 BRIGHT
+		Goto Death
+	Death:
+        TNT1 A 1 BRIGHT
+		Stop
+	}
+}
+
+ACTOR ---------HOSPITAL_ROOMS---------{}
+ACTOR armario1 18329
+{
+	//$Category BlooM Models
+	//$Title armario1
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+	Stop
+	}
+}
+
+ACTOR armario2: armario1 18330 { //$Title armario2
+}
+ACTOR armario3: armario1 18331 { //$Title armario3
+}
+ACTOR armario4: armario1 18332 { //$Title armario4
+}
+ACTOR armario5: armario1 18333 { //$Title armario5
+}
+
+ACTOR brokewin1 18334
+{
+	//$Category BlooM Models
+	//$Title brokewin1
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+	Stop
+	}
+}
+
+ACTOR brokewin2: brokewin1 18335 { //$Title brokewin2
+}
+
+ACTOR machin 18336
+{
+	//$Category BlooM Models
+	//$Title machin
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+	Stop
+	}
+}
+
+ACTOR mesa 18337
+{
+	//$Category BlooM Models
+	//$Title mesa
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+	Stop
+	}
+}
+
+ACTOR wallbrok1 18338
+{
+	//$Category BlooM Models
+	//$Title wallbrok1
+	//$Color 4
+	Radius 16
+	Height 56
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR wallbrok2: wallbrok1 18339 { //$Title wallbrok2
+}
+ACTOR wallbrok3: wallbrok1 18340 { //$Title wallbrok3
+}
+ACTOR wallbrok4: wallbrok1 18341 { //$Title wallbrok4
+}
+ACTOR wallbrok5: wallbrok1 18342 { //$Title wallbrok5
+}
+
+ACTOR ---------TRAPS---------{}
+ACTOR Firetrap1 18343
+{
+	//$Category BlooM Models
+	//$Title Fire Trap
+	//$Color 4
+	Radius 4
+	Height 32
+	Mass 9999
+	-SOLID
+	+SHOOTABLE
+	-PUSHABLE
+	+NOBLOOD
+	+RANDOMIZE
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		UNKN ABCDEF 5
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN FEDCBA 5
+		Loop
+	}
+}
+
+ACTOR Icetrap1 : Firetrap1 18344 //placeholder code - ozy81
+{
+	//$Title Ice Trap
+	States
+	{
+	Spawn:
+		UNKN ABCDEF 5
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN FEDCBA 5
+		Loop
+	}
+}
+
+ACTOR Fleshtrap1 : Firetrap1 18345 //placeholder code - ozy81
+{
+	//$Title Flesh Trap
+	States
+	{
+	Spawn:
+		UNKN ABCDEF 5
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN FEDCBA 5
+		Loop
+	}
+}
+
+ACTOR ---------SIGNS---------{}
+ACTOR BigSignSpawner 18400
+{
+	//$Category BlooM Models
+	//$Title Big Sign Spawner
+	//$Color 3
+	Radius 16
+	Height 56
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_Jump(256,1,2,3)
+		UNKN A -1
+		UNKN B -1
+		UNKN C -1
+		Stop
+	}
+}
+
+ACTOR ---------CEILING_FLOOR_DECALS---------{}
+ACTOR Painter
+{
+	Radius 16
+	Height 64
+	-SOLID
+	-SHOOTABLE
+	+NOBLOOD
+	+RANDOMIZE
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 0 A_Jump(256, "Painter1", "Painter2", "Painter3", "Painterx")
+		Stop
+	Painterx:
+		TNT1 A 0 A_CustomMissile("PainterMissile1",256, 0.0, 0,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",256, 0.0, 45,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",256, 0.0, 90,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",256, 0.0, 135,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",256, 0.0, 180,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",256, 0.0, 225,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",256, 0.0, 270,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",256, 0.0, 315,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",256, 0.0, 360,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",256, 0.0, 0,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",256, 0.0, 45,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",256, 0.0, 90,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",256, 0.0, 135,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",256, 0.0, 180,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",256, 0.0, 225,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",256, 0.0, 270,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",256, 0.0, 315,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",256, 0.0, 360,2,0)
+		Stop
+	Painter1:
+		TNT1 A 0 A_CustomMissile("PainterMissile1",512, 0.0, 0,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",512, 0.0, 45,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",512, 0.0, 90,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",512, 0.0, 135,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",512, 0.0, 180,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",512, 0.0, 225,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",512, 0.0, 270,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",512, 0.0, 315,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile1",512, 0.0, 360,2, 0)
+		Stop
+	Painter2:
+		TNT1 A 0 A_CustomMissile("PainterMissile2",512, 0.0, 0,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",512, 0.0, 45,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",512, 0.0, 90,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",512, 0.0, 135,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",512, 0.0, 180,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",512, 0.0, 225,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",512, 0.0, 270,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",512, 0.0, 315,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile2",512, 0.0, 360,2, 0)
+		Stop
+	Painter3:
+		TNT1 A 0 A_CustomMissile("PainterMissile3",128, 0.0, 0,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile3",128, 0.0, 45,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile3",128, 0.0, 90,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile3",128, 0.0, 135,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile3",128, 0.0, 180,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile3",128, 0.0, 225,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile3",128, 0.0, 270,2, 0)
+		TNT1 A 0 A_CustomMissile("PainterMissile3",128, 0.0, 315,2,0)
+		TNT1 A 0 A_CustomMissile("PainterMissile3",128, 0.0, 360,2, 0)
+		Stop
+	}
+}
+
+ACTOR PainterMissile1 : FastProjectile
+{
+	game Doom
+	radius 2
+	height 2
+	speed 100
+	damage 0
+	PROJECTILE
+	+RANDOMIZE
+	SeeSound "Null"
+	DeathSound "Null"
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Loop
+	Death:
+		TNT1 A 0 //SpawnDecal(DecalTech)
+		Stop
+	}
+}
+
+ACTOR PainterMissile2 : FastProjectile
+{
+	game Doom
+	radius 2
+	height 2
+	speed 100
+	damage 0
+	PROJECTILE
+	+RANDOMIZE
+	SeeSound "Null"
+	DeathSound "Null"
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Loop
+	Death:
+		TNT1 A 0// SpawnDecal(0,"DecalNature")
+		Stop
+	}
+}
+
+ACTOR PainterMissile3 : FastProjectile
+{
+	game Doom
+	radius 2
+	height 2
+	speed 100
+	damage 0
+	PROJECTILE
+	+RANDOMIZE
+	SeeSound "Null"
+	DeathSound "Null"
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Loop
+	Death:
+		TNT1 A 0// SpawnDecal(0,"DecalNature")
+		Stop
+	}
+}
+
+ACTOR Decal_CeilFloor1
+{
+	Radius 32
+	Height 64
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	-NOGRAVITY
+	-SOLID
+	//+FLATSPRITE
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		Goto Summon
+	Summon:
+		DECF A 2
+		Loop
+	}
+}
+
+ACTOR Decal_CeilFloor2: Decal_CeilFloor1
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		Goto Summon
+	Summon:
+		DECF B 2
+		Loop
+	}
+}
+
+ACTOR Decal_CeilFloor3: Decal_CeilFloor1
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		Goto Summon
+	Summon:
+		DECF C 2
+		Loop
+	}
+}

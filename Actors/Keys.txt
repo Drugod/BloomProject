@@ -1,0 +1,78 @@
+//========== KEYS ==========//
+ACTOR Key1 : BlueCard replaces BlueCard
+{
+	Scale 0.5
+	Inventory.PickupSound "PICKKEY"
+	Inventory.PickupMessage "You got the Dagger Key."
+	States
+	{
+	Spawn:
+		DKEY A -1
+		Stop
+	}
+}
+
+ACTOR Key2 : YellowCard replaces YellowCard
+{
+	Scale 0.5
+	Inventory.PickupSound "PICKKEY"
+	Inventory.PickupMessage "You got the Moon Key."
+	States
+	{
+	Spawn:
+		MKEY A -1
+		Stop
+	}
+}
+
+ACTOR Key3 : RedCard replaces RedCard
+{
+	Scale 0.5
+	Inventory.PickupSound "PICKKEY"
+	Inventory.PickupMessage "You got the Eye Key."
+	States
+	{
+	Spawn:
+		EKEY A -1
+		Stop
+	}
+}
+
+ACTOR Key4 : Blueskull replaces Blueskull
+{
+	Scale 0.5
+	Inventory.PickupSound "PICKKEY"
+	Inventory.PickupMessage "You got the Skull Key."
+	States
+	{
+	Spawn:
+		SSKU A -1
+		Stop
+	}
+}
+
+ACTOR Key5 : RedSkull replaces RedSkull
+{
+	Scale 0.5
+	Inventory.PickupSound "PICKKEY"
+	Inventory.PickupMessage "You got the Fire Key."
+	States
+	{
+	Spawn:
+		FSKU B -1
+		Stop
+	}
+}
+
+ACTOR Key6 : YellowSkull replaces YellowSkull
+{
+	Scale 0.5
+	Inventory.PickupSound "PICKKEY"
+	Inventory.PickupMessage "You got the Spider Key."
+	States
+	{
+	Spawn:
+		ASKU B -1
+		Stop
+	}
+}

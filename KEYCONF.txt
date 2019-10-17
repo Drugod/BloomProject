@@ -1,0 +1,40 @@
+clearplayerclasses
+addplayerclass Doomdude
+addplayerclass Caleb
+
+alias bunz "give backpack;give weapons;give gunsakimbo;give ammo;echo You've got full ammo;echo You've got Guns Akimbo"
+alias keymaster "give BlueCard;give RedCard;give YellowCard;echo Full keys"
+alias EVA GALLI "no clip;echo No clipping"
+alias GOONIES "give Allmap;echo The Map"
+alias KEVORKIAN "kill;echo Die!"
+alias I WANNA BE LIKE KEVIN "god"
+alias I WANNA BE LIKE JEFF "god"
+alias I WANNA BE LIKE JOE "god"
+alias MPKFA "god"
+alias NOCAPINMYASS "god"
+alias VOORHEES "god"
+alias CAPINMYASS "god"
+alias IDAHO "give weapons;echo Full Weapons"
+alias MONTANA "give backpack;give weapons;give ammo;echo You've got full ammo"
+alias LARA CROFT "give backpack;give weapons;give ammo;echo You've got full ammo"
+alias SATCHEL "give backpack;echo Full Items"
+alias GRISWOLD "give BlueArmor;echo Full Armor "
+alias SPORK "give Megasphere;echo Full Health"
+alias COUSTEAU "give RadSuit;echo Suit"
+alias MARIO ";echo "
+alias CALGON ";echo "
+alias ONERING ";echo "
+alias RATE ";echo "
+alias FUNKY SHOES ";echo "
+alias MCGEE ";echo "
+alias KRUEGER ";echo "
+alias JOJO ";echo "
+
+alias vox_off-mod_off "set r_drawvoxels 0; set blm_voxmod 0;"
+alias vox_off-mod_on "set r_drawvoxels 0; set blm_voxmod 1;"
+alias vox_on-mod_off "set r_drawvoxels 1; set blm_voxmod 0;"
+
+alias grenadetoss "pukename GiveGrenade"
+alias timerfreeze "freeze"
+defaultbind G grenadetoss
+defaultbind Y timerfreeze

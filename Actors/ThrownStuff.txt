@@ -1,0 +1,1555 @@
+ACTOR -----------INHERITANCES------------{}
+ACTOR AerialBase
+{
+	Speed 0
+	Scale 0.5
+	Damage 0
+	BounceFactor 0.5
+	BounceCount 2
+	PROJECTILE
+	+CANNOTPUSH
+	+DONTGIB
+	+DONTSPLASH
+	+DOOMBOUNCE
+	+EXTREMEDEATH
+	+NOBOUNCESOUND
+	+PUSHABLE
+	+RANDOMIZE
+	+THRUGHOST
+	-NOGRAVITY
+	PainSound "Proximity/Arm"
+	ActiveSound "Proximity/Arm"
+}
+
+ACTOR -----------REMOTE-BEHAVIOUR------------{}
+ACTOR RemoteAerial : AerialBase
+{
+	Radius 10
+	Height 6
+	DamageType "Dynamite"
+	Gravity 0.6
+	+SOLID
+	States
+	{
+	Spawn:
+		RAIR ABCDEFGH 2 A_JumpIfInTargetInventory("BOOMBABY",1,"MidairDet")
+	See:
+		RAIR ABCDEFGH 2 A_JumpIfInTargetInventory("BOOMBABY",1,"MidairDet")
+		Loop
+	Cont:
+		RAIR ABCDEFGH 2 A_JumpIfInTargetInventory("BOOMBABY",1,"MidairDet")
+		Loop
+	Death:
+		RTNT A 0 A_Recoil(-14) //Le classic slide
+		RTNT AAA 1 A_JumpIfInTargetInventory("BOOMBABY",1,"MidairDet")
+		RTNT A 0 A_Playsound("Proximity/Arm")
+		RTNT A 0 A_CustomMissile("RemoteFloor",1,0,0,CMF_TRACKOWNER)
+		Stop
+	MidairDet:
+		PTNT I 0 A_Stop
+		PTNT I 0 A_NoGravity
+		PTNT I 0 BRIGHT A_Explode (128,160)//A_Explode
+		MISL B 1 BRIGHT A_Pain
+		PTNT A 0 A_CustomMissile("FloorKaboom",0,0,0,CMF_TRACKOWNER)
+		TNT1 A 0 A_SpawnItemEx("VBlower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("VBlower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+	Blowers:
+		TNT1 A 0 A_FadeOut(0.65)
+		MISL A 0 A_AlertMonsters
+		TNT1 A 1
+		MISL A 0 A_Explode(96,160,1)
+		TNT1 A 1 A_Explode(96,140,1)
+		TNT1 A 1 A_Explode(96,96,1)
+		MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
+	Damage:
+		MISL A 1 A_Explode(2,768*alpha*2,1)//Both blowers at once
+		MISL A 0 A_FadeOut(.01)
+		Goto Damage
+	}
+}
+
+ACTOR RemoteAerial1 : RemoteAerial {Speed 5}
+ACTOR RemoteAerial2 : RemoteAerial {Speed 6}
+ACTOR RemoteAerial3 : RemoteAerial {Speed 7}
+ACTOR RemoteAerial4 : RemoteAerial {Speed 8}
+ACTOR RemoteAerial5 : RemoteAerial {Speed 9}
+ACTOR RemoteAerial6 : RemoteAerial {Speed 10}
+ACTOR RemoteAerial7 : RemoteAerial {Speed 11}
+ACTOR RemoteAerial8 : RemoteAerial {Speed 12}
+ACTOR RemoteAerial9 : RemoteAerial {Speed 13}
+ACTOR RemoteAerial10 : RemoteAerial {Speed 14}
+ACTOR RemoteAerial11 : RemoteAerial {Speed 15}
+ACTOR RemoteAerial12 : RemoteAerial {Speed 18}
+ACTOR RemoteAerial13 : RemoteAerial {Speed 22}
+ACTOR RemoteAerial14 : RemoteAerial {Speed 26}
+ACTOR RemoteAerial15 : RemoteAerial {Speed 30}
+
+ACTOR RemoteFloor
+{
+	Health 1
+	Height 10
+	Radius 6
+	Speed 0
+	Scale 0.5
+	Mass 9001
+	DamageType "Dynamite"
+	DamageFactor "Normal",0.5
+	DamageFactor "Dynamite", 60
+	DamageFactor "Napalm",60
+	DamageFactor "TripWire",100
+	Species "Trap"
+	+ACTIVATEIMPACT
+	+NOBLOOD
+	+SHOOTABLE
+	+THRUSPECIES
+	-NOGRAVITY
+	-SOLID
+	DeathSound "LargeExplosions"
+	PainSound "Proximity/Arm"
+	ActiveSound "Proximity/Arm"
+	States
+	{
+	Spawn:
+		RTNT A 8 A_JumpIfInTargetInventory("BOOMBABY",1,"Death")
+		Loop
+	Death:
+		PTNT I 0 A_Playsound("Proximity/Arm")
+		PTNT I 0 BRIGHT A_Explode (128,160)//A_Explode
+		MISL B 1 BRIGHT A_Pain
+		TNT1 A 0 A_Scream
+		PTNT A 0 A_CustomMissile("FloorKaboom",0,0,0,CMF_TRACKOWNER)
+		TNT1 A 0 A_SpawnItemEx("VBlower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("VBlower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+	Blowers:
+		TNT1 A 0 A_FadeOut(0.65)
+		MISL A 0 A_AlertMonsters
+		TNT1 A 1
+		MISL A 0 A_Explode(96,160,1)
+		TNT1 A 1 A_Explode(96,140,1)
+		TNT1 A 1 A_Explode(96,96,1)
+		MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
+	Damage:
+		MISL A 1 A_Explode(2,768*alpha*2,1)//Both blowers at once
+		MISL A 0 A_FadeOut(.01)
+		Goto Damage
+		Stop
+	}
+}
+
+ACTOR -----------PROXIMITY-BEHAVIOUR------------{}
+ACTOR ProximityAerial : AerialBase
+{
+	Radius 15
+	Height 12
+	-SOLID
+	States
+	{
+	Spawn:
+		TTNT FGHIJKLM 2
+	See:
+		TTNT FGHIJKLM 2
+		Loop
+	Cont:
+		TTNT FGHIJKLM 2
+		Loop
+	Death:
+		TTNT A 0 A_Recoil(-14)
+		TTNT ABCDE 4
+		TTNT A 45 A_Stop
+		TTNT A 0 A_Playsound("Proximity/Arm")
+		TTNT A 0 A_SpawnItem("ProximityLandMine",0,0,0)
+		Stop
+	}
+}
+
+ACTOR ProximityAerial1 : ProximityAerial { Speed 5 }
+ACTOR ProximityAerial2 : ProximityAerial { Speed 7 }
+ACTOR ProximityAerial3 : ProximityAerial { Speed 9 }
+ACTOR ProximityAerial4 : ProximityAerial { Speed 12 }
+ACTOR ProximityAerial5 : ProximityAerial { Speed 14 }
+ACTOR ProximityAerial6 : ProximityAerial { Speed 16 }
+ACTOR ProximityAerial7 : ProximityAerial { Speed 18 }
+ACTOR ProximityAerial8 : ProximityAerial { Speed 20 }
+ACTOR ProximityAerial9 : ProximityAerial { Speed 22 }
+ACTOR ProximityAerial10 : ProximityAerial { Speed 24 }
+ACTOR ProximityAerial11 : ProximityAerial { Speed 26 }
+ACTOR ProximityAerial12 : ProximityAerial { Speed 28 }
+ACTOR ProximityAerial13 : ProximityAerial { Speed 30 }
+ACTOR ProximityAerial14 : ProximityAerial { Speed 32 }
+ACTOR ProximityAerial15 : ProximityAerial { Speed 34 }
+
+ACTOR DeleteTrip
+{
+	Height 1
+	Radius 1
+	+SHOOTABLE
+	+SOLID
+	States
+	{
+	Spawn:
+		TNT1 AAA 2
+		Stop
+	}
+}
+
+ACTOR ProximityLandMine
+{
+	Radius 8
+	Height 5
+	Health 1
+	Speed 0
+	Scale 0.5
+	Mass 1000000
+	Damage 1
+	DamageType "Dynamite"
+	+DEHEXPLOSION
+	+FORCERADIUSDMG
+	+MISSILE
+	+NOBLOOD
+	+VULNERABLE
+	-SHOOTABLE
+	-SOLID
+	DeathSound "LargeExplosions"
+	PainSound "Proximity/Arm"
+	ActiveSound "Proximity/Arm"
+	States
+	{
+	Spawn:
+		TTNT ABCDE 4 ACS_NamedExecuteAlways("CheckProx",0)
+		Loop
+	Death:
+		PTNT I 0 BRIGHT A_Explode (128,160)
+		MISL B 1 BRIGHT A_Pain
+		TNT1 A 0 A_Scream
+		PTNT A 0 A_CustomMissile("FloorKaboom",0,0,0,CMF_TRACKOWNER)
+		TNT1 A 0 A_SpawnItemEx("VBlower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("VBlower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR -----------TNT-BEHAVIOUR------------{}
+ACTOR PlayerTNT
+{
+	Decal Scorch
+	Radius 6
+	Height 4
+	Speed 15
+	Scale 0.5
+	Gravity 0.7
+	Health 1
+	GibHealth 0
+	Reactiontime 49
+	Damage (random(100,260))
+	DamageType "Dynamite"
+	PROJECTILE
+	+DONTGIB
+	+DONTSPLASH
+	+NOBOUNCESOUND
+	+PUSHABLE
+	+RANDOMIZE
+	+SHOOTABLE
+	+THRUGHOST
+	-NOGRAVITY
+	-SOLID
+	DeathSound "LargeExplosions"
+	ActiveSound "TNTFUSE"
+	SeeSound "TNTFUSE"
+	States
+	{
+	XDeath:
+		Goto Death
+	Spawn:
+		PTNT E 0 A_LoopActiveSound
+		Goto See
+	See:
+		PTNT E 1 A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 A_Countdown
+		PTNT E 1 A_LoopActiveSound
+		PTNT E 0 A_CheckFloor("Cont")
+		Loop
+	Cont:
+		TNT1 A 0 A_Playsound("TNTFUSE",6,1.0,TRUE)
+		PTNT F 1 A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 A_Countdown
+		PTNT F 1 A_LoopActiveSound
+		PTNT G 1 A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 A_Countdown
+		PTNT G 1 A_LoopActiveSound
+		PTNT H 1 A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 A_Countdown
+		PTNT H 1 A_LoopActiveSound
+		PTNT A 1 A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 A_Countdown
+		PTNT A 1 A_LoopActiveSound
+		PTNT B 1 A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 A_Countdown
+		PTNT B 1 A_LoopActiveSound
+		PTNT C 1 A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 A_Countdown
+		PTNT C 1 A_LoopActiveSound
+		PTNT D 1 A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 A_Countdown
+		PTNT D 1 A_LoopActiveSound
+		Loop
+	Death:
+		MISL B 1 BRIGHT A_Explode(32, 172)
+		TNT1 A 0 A_Playsound("DSEXPBRL",6)
+		MISL B 0 A_SpawnItem("FloorKaboom",-16)
+		MISL B 1 BRIGHT A_Scream
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		Stop
+	XDeath:
+		MISL B 1 BRIGHT A_Explode(192, 160)
+		TNT1 A 0 A_Playsound("DSEXPBRL",6)
+		MISL B 0 A_SpawnItem("Kaboom",-16,-15+random(-2,2))
+		MISL B 1 BRIGHT A_Scream
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR PlayerTNT_1 : PlayerTNT
+{
+	Speed 16
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 1, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_2 : PlayerTNT
+{
+	Speed 16
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 3, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_3 : PlayerTNT
+{
+	Speed 16
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 4, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_4 : PlayerTNT
+{
+	Speed 16
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 5, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_5 : PlayerTNT
+{
+	Speed 17
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 5, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_6 : PlayerTNT
+{
+	Speed 17
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 9, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_7 : PlayerTNT
+{
+	Speed 17
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 9, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_8 : PlayerTNT
+{
+	Speed 17
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 11, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_9 : PlayerTNT
+{
+	Speed 17
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 12, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_10 : PlayerTNT
+{
+	Speed 20
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 13, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_11 : PlayerTNT
+{
+	Speed 21
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 14, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_12 : PlayerTNT
+{
+	Speed 20
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 15, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_13 : PlayerTNT
+{
+	Speed 21
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 16, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_14 : PlayerTNT
+{
+	Speed 23
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 18, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_15 : PlayerTNT
+{
+	Speed 23
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 20, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_16 : PlayerTNT
+{
+	Speed 25
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 22, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_17 : PlayerTNT
+{
+	Speed 26
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 23, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_18 : PlayerTNT
+{
+	Speed 26
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 24, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_19 : PlayerTNT
+{
+	Speed 28
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 25, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_20 : PlayerTNT
+{
+	Speed 29
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 25, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_21 : PlayerTNT
+{
+	Speed 30
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 25, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_22 : PlayerTNT
+{
+	Speed 32
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 25, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_23 : PlayerTNT
+{
+	Speed 33
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 25, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_24 : PlayerTNT
+{
+	Speed 35
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0,25, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_25 : PlayerTNT
+{
+	Speed 35
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 27, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_26 : PlayerTNT
+{
+	Speed 36
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 27, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_27 : PlayerTNT
+{
+	Speed 36
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 29, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_28 : PlayerTNT
+{
+	Speed 36
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 31, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_29 : PlayerTNT
+{
+	Speed 36
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 32, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_30 : PlayerTNT
+{
+	Speed 36
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 34, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_31 : PlayerTNT
+{
+	Speed 36
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 35, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_32 : PlayerTNT
+{
+	Speed 36
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 36, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_33 : PlayerTNT
+{
+	Speed 36
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 38, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_34 : PlayerTNT
+{
+	Speed 36
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 40, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_35 : PlayerTNT
+{
+	Speed 36
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 42, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT1
+{
+	Radius 6
+	Height 4
+	Speed 0
+	Scale 0.5
+	Reactiontime 49
+	DamageType "Dynamite"
+	BounceFactor 0.5
+	BounceCount 2
+	PROJECTILE
+	+DONTGIB
+	+DONTSPLASH
+	+DOOMBOUNCE
+	+EXTREMEDEATH
+	+NOBOUNCESOUND
+	+PUSHABLE
+	+RANDOMIZE
+	+THRUGHOST
+	-NOGRAVITY
+	-SOLID
+	ActiveSound "TNTFUSE"
+	SeeSound "TNTFUSE"
+	States
+	{
+	Spawn:
+		PTNT E 0 BRIGHT A_Countdown
+		TNT1 A 0 A_Playsound("TNTFUSE",0,1.0,TRUE)
+		PTNT E 0 BRIGHT A_LoopActiveSound
+	Goto See
+	See:
+		TNT1 A 0 A_Playsound("TNTFUSE",0,1.0,TRUE)
+		PTNT E 1  A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT E 1  A_LoopActiveSound
+	Cont:
+		PTNT F 1  A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT F 1  A_LoopActiveSound
+		PTNT G 1  A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT G 1  A_LoopActiveSound
+		PTNT H 1  A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT H 1  A_LoopActiveSound
+		PTNT A 1  A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT A 1  A_LoopActiveSound
+		PTNT B 1  A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT B 1  A_LoopActiveSound
+		PTNT C 1  A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT C 1  A_LoopActiveSound
+		PTNT D 1  A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT D 1  A_LoopActiveSound
+		Loop
+			//XDeath: Turns this into an op as shit attack lol
+			//PTNT I 0 BRIGHT A_Explode (128,160)//A_Explode
+			//MISL B 1 BRIGHT A_Pain
+			//MISL B 0 A_SpawnItem("FloorKaboom",-16)
+			//TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+			//TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+			//Stop
+	Death:
+		PTNT A 0 BRIGHT A_Recoil(-14) //Le classic slide
+		PTNT AAA 1 BRIGHT
+		PTNT A 1 BRIGHT A_Stop
+		PTNT A 0 A_CustomMissile("ClassicoTNT",0,0,0,CMF_TRACKOWNER)
+		TNT1 A 0 A_Stopsound(0)
+			//PTNT A 0 a_SpawnItemex("ClassicoTNT")
+			/*PTNT A 0 BRIGHT A_LoopActiveSound
+			PTNT EIJK 4 BRIGHT
+			PTNT A 0 BRIGHT A_LoopActiveSound
+			PTNT IJK 4
+			PTNT A 0 BRIGHT A_LoopActiveSound
+			PTNT IJK 4
+			PTNT A 0 BRIGHT A_LoopActiveSound
+			PTNT IJK 4
+			PTNT A 0 BRIGHT A_LoopActiveSound
+			PTNT IJK 4
+			PTNT A 0 BRIGHT A_LoopActiveSound
+			PTNT IJK 4
+			PTNT A 0 BRIGHT A_LoopActiveSound
+			PTNT IJK 4
+			PTNT A 0 BRIGHT A_LoopActiveSound
+			PTNT IJK 4
+			PTNT A 0 BRIGHT A_LoopActiveSound
+			PTNT IJK 4
+			PTNT A 0 BRIGHT A_LoopActiveSound
+			PTNT IJK 4
+			PTNT A 0 BRIGHT A_LoopActiveSound
+			PTNT IJK 4
+			PTNT A 0 BRIGHT A_LoopActiveSound
+			PTNT IJK 4
+			PTNT I 0 BRIGHT A_Explode (128,160)//A_Explode
+			MISL B 1 BRIGHT A_Pain
+			MISL B 0 A_SpawnItem("FloorKaboom",-16)
+			TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+			TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+			Stop*/
+		Stop
+	}
+}
+
+ACTOR ClassicoTNT
+{
+	Health 60
+	Height 1
+	Radius 1
+	Mass 9001
+	Scale 0.5
+	DamageType "Dynamite"
+	DamageFactor "Normal",0
+	DamageFactor "Dynamite", 60
+	DamageFactor "Napalm",60
+	+SHOOTABLE
+	-SOLID
+	-NOGRAVITY
+		//PainSound "ActiveSound"
+    DeathSound "LargeExplosions"
+	ActiveSound "TNTFUSE"
+	SeeSound "TNTFUSE"
+	States
+	{
+	Spawn:
+		PTNT EIJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+	Death:
+		PTNT I 0 BRIGHT A_Explode (128,160)
+		MISL B 1 BRIGHT A_Pain
+		PTNT A 0 A_CustomMissile("FloorKaboom",0,0,0,CMF_TRACKOWNER)
+		TNT1 A 0 A_Scream
+			//TNT1 A 0 A_Playsound("LargeExplosions",6,1.0,FALSE)
+		TNT1 A 0 A_SpawnItemEx("VBlower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("VBlower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+	Blowers:
+		TNT1 A 0 A_Playsound("TNTFUSE",0,1.0,TRUE)
+		TNT1 A 0 A_FadeOut(0.65)
+		MISL A 0 A_AlertMonsters
+		TNT1 A 1
+		MISL A 0 A_Explode(96,160,1)
+		TNT1 A 1 A_Explode(96,140,1)
+		TNT1 A 1 A_Explode(96,96,1)
+		MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
+	Damage:
+		TNT1 A 0 A_Playsound("TNTFUSE",0,1.0,TRUE)
+		MISL A 1 A_Explode(2,768*alpha*2,1)//Both blowers at once
+		MISL A 0 A_FadeOut(.01)
+		Goto Damage
+		Stop
+	}
+}
+
+ACTOR PlayerTNT_1X : PlayerTNT1
+{
+	Speed 16
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 1, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_2X : PlayerTNT1
+{
+	Speed 17
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 2, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_3X : PlayerTNT1
+{
+	Speed 18
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 3, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_4X : PlayerTNT1
+{
+	Speed 19
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 4, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_5X : PlayerTNT1
+{
+	Speed 20
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 5, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_6X : PlayerTNT1
+{
+	Speed 21
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 6, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_7X : PlayerTNT1
+{
+	Speed 22
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 7, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_8X : PlayerTNT1
+{
+	Speed 23
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 8, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_9X : PlayerTNT1
+{
+	Speed 24
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 9, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_10X : PlayerTNT1
+{
+	Speed 25
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 10, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_11X : PlayerTNT1
+{
+	Speed 26
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 11, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_12X : PlayerTNT1
+{
+	Speed 27
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 12, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_13X : PlayerTNT1
+{
+	Speed 28
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 13, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_14X : PlayerTNT1
+{
+	Speed 29
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 14, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_15X : PlayerTNT1
+{
+	Speed 30
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 15, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR ClassicoTNT2 : ClassicoTNT
+{
+	//TNT for half the duration.. All the next ones should use it except the mad skills final TNT
+	States
+	{
+	Spawn:
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 4
+	Death:
+		PTNT I 0 BRIGHT A_Explode (128,160)//A_Explode
+		MISL B 1 BRIGHT A_Pain
+		MISL B 0 A_SpawnItem("FloorKaboom",-16)
+		TNT1 A 0 A_SpawnItemEx("VBlower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("VBlower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+    Blowers:
+		TNT1 A 0 A_FadeOut(0.65)
+		MISL A 0 A_AlertMonsters
+		TNT1 A 1
+		MISL A 0 A_Explode(96,160,1)
+		TNT1 A 1 A_Explode(96,140,1)
+		TNT1 A 1 A_Explode(96,96,1)
+		MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
+	Damage:
+		MISL A 1 A_Explode(2,768*alpha*2,1)//Both blowers at once
+		MISL A 0 A_FadeOut(.01)
+		Goto Damage
+		Stop
+	}
+}
+
+ACTOR PlayerTNT_16X : PlayerTNT1
+{
+	Speed 31
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 16, 0, 1)
+		Goto Cont
+	Death:
+		PTNT A 0 BRIGHT A_Recoil(-14) //Le classic slide
+		PTNT AAA 1 BRIGHT
+		PTNT A 1 BRIGHT A_Stop
+		PTNT A 0 a_SpawnItemex("ClassicoTNT2")
+		Stop
+	}
+}
+
+ACTOR PlayerTNT_17X : PlayerTNT_16X
+{
+	Speed 32
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 17, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_18X : PlayerTNT_16X
+{
+	Speed 33
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 18, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_19X : PlayerTNT_16X
+{
+	Speed 34
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 19, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_20X : PlayerTNT_16X
+{
+	Speed 35
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 20, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_21X : PlayerTNT_16X
+{
+	Speed 36
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 21, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_22X : PlayerTNT_16X
+{
+	Speed 37
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 22, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_23X : PlayerTNT_16X
+{
+	Speed 38
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 23, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_24X : PlayerTNT_16X
+{
+	Speed 39
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 24, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_25X : PlayerTNT_16X
+{
+	Speed 40
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 25, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_26X : PlayerTNT_16X
+{
+	Speed 41
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 26, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_27X : PlayerTNT_16X
+{
+	Speed 42
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 27, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_28X : PlayerTNT_16X
+{
+	Speed 43
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 28, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_29X : PlayerTNT_16X
+{
+	Speed 44
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 29, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_30X : PlayerTNT_16X
+{
+	Speed 45
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 30, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_31X : PlayerTNT_16X
+{
+	Speed 46
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 31, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_32X : PlayerTNT_16X
+{
+	Speed 47
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 32, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_33X : PlayerTNT_16X
+{
+	Speed 48
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 33, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_34X : PlayerTNT_16X
+{
+	Speed 49
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 34, 0, 1)
+		Goto Cont
+	}
+}
+
+ACTOR PlayerTNT_35X : PlayerTNT_16X
+{
+	Speed 50
+	States
+	{
+	Spawn:
+		PTNT EE 1 ThrustThingZ(0, 35, 0, 1)
+		Goto Cont
+	}
+}
+
+//Mad Skills TNT
+ACTOR MidAirTNT : PlayerTNT1
+{
+	Speed 40
+	GibHealth 0
+	Reactiontime 24
+	+SHOOTABLE
+	+THRUGHOST
+	States
+	{
+	Spawn:
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT E 0 BRIGHT A_LoopActiveSound
+		Goto See
+	See:
+		PTNT E 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT E 1 BRIGHT A_LoopActiveSound
+	Cont:
+		PTNT F 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT F 1 BRIGHT A_LoopActiveSound
+		PTNT G 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT G 1 BRIGHT A_LoopActiveSound
+		PTNT H 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT H 1 BRIGHT A_LoopActiveSound
+		PTNT A 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT A 1 BRIGHT A_LoopActiveSound
+		PTNT B 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT B 1 BRIGHT A_LoopActiveSound
+		PTNT C 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT C 1 BRIGHT A_LoopActiveSound
+		PTNT D 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT D 1 BRIGHT A_LoopActiveSound
+		PTNT F 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT F 1 BRIGHT A_LoopActiveSound
+		PTNT G 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT G 1 BRIGHT A_LoopActiveSound
+		PTNT H 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT H 1 BRIGHT A_LoopActiveSound
+		PTNT A 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT A 1 BRIGHT A_LoopActiveSound
+		PTNT B 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT B 1 BRIGHT A_LoopActiveSound
+		PTNT C 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT C 1 BRIGHT A_LoopActiveSound
+		PTNT D 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT D 1 BRIGHT A_LoopActiveSound
+		Loop
+	Boom:
+		PTNT I 0 BRIGHT A_Explode (128,160)//A_Explode
+		MISL B 1 BRIGHT A_Pain
+		MISL B 0 A_SpawnItem("FloorKaboom",-16)
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		Stop
+	XDeath:
+	Goto Death+6
+	Death:
+		PTNT A 0 A_Stop
+		PTNT E 0 A_SetGravity(0)
+		PTNT A 0 BRIGHT A_Recoil(-14) //Le classic slide
+		PTNT CDE 1 BRIGHT
+		PTNT A 1 BRIGHT A_Stop
+		PTNT A 0 a_SpawnItemex("ClassicoTNTRapid")
+		Stop
+	}
+}
+
+ACTOR DeathWishKiss : PlayerTNT1
+{
+	Speed 40
+	Health 1
+	GibHealth 0
+	Reactiontime 10
+	+SHOOTABLE
+	States
+	{
+	Spawn:
+		PTNT E 0 BRIGHT A_LoopActiveSound
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT E 0 BRIGHT A_LoopActiveSound
+		Goto See
+	See:
+		PTNT E 1 BRIGHT A_SpawnItem("TNTSmoke",5)
+		PTNT E 0 BRIGHT A_Countdown
+		PTNT E 2 BRIGHT A_LoopActiveSound
+		Goto Boom
+	Boom:
+		PTNT I 0 BRIGHT A_Explode (128,160)//A_Explode
+		MISL B 1 BRIGHT A_Pain
+		MISL B 0 A_SpawnItem("FloorKaboom",-16)
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		Stop
+	XDeath:
+	Goto Death+6
+	Death:
+		PTNT A 0 A_Stop
+		PTNT A 0 A_SetGravity(0)
+		PTNT A 0 BRIGHT A_Recoil(-14) //Le classic slide
+		PTNT AAA 1 BRIGHT
+		PTNT A 1 BRIGHT A_Stop
+		PTNT A 0 a_SpawnItemex("ClassicoTNTRapid")
+		Stop
+	}
+}
+
+ACTOR ClassicoTNTRapid : ClassicoTNT
+{
+	//TNT for half the duration.. All the next ones should use it except the mad skills final TNT
+	States
+	{
+	Spawn:
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 2 BRIGHT
+		PTNT A 0 BRIGHT A_LoopActiveSound
+		PTNT IJK 2 BRIGHT
+	Death:
+		PTNT I 0 BRIGHT A_Explode (128,160)//A_Explode
+		MISL B 1 BRIGHT A_Pain
+		MISL B 0 A_SpawnItem("FloorKaboom",-16)
+		TNT1 A 0 A_SpawnItemEx("VBlower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("VBlower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+	Blowers:
+		TNT1 A 0 A_FadeOut(0.65)
+		MISL A 0 A_AlertMonsters
+		TNT1 A 1
+		MISL A 0 A_Explode(96,160,1)
+		TNT1 A 1 A_Explode(96,140,1)
+		TNT1 A 1 A_Explode(96,96,1)
+		MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
+	Damage:
+		MISL A 1 A_Explode(2,768*alpha*2,1)//Both blowers at once
+		MISL A 0 A_FadeOut(.01)
+		Goto Damage
+		Stop
+	}
+}
+
+ACTOR -----------SPRAYS-BEHAVIOUR------------{}
+ACTOR SprayCanAlt
+{
+	Decal Scorch
+	Radius 3
+	Height 4
+	Speed 16
+	Scale 0.5
+	Damage 18
+	DamageType "SpecialFire"
+	PROJECTILE
+	+DONTSPLASH
+	+NODAMAGETHRUST
+	+THRUGHOST
+	-NOGRAVITY
+	DeathSound "DSEXPBRL"
+	States
+	{
+	Spawn:
+		STOS A 0 A_LoopActiveSound
+		Goto See
+	See:
+		STOS A 0 A_LoopActiveSound
+		TNT1 A 0 ThrustThingZ(0, 12, 0, 1)
+		STOS ABCDEFGH 2 BRIGHT A_SpawnItem("TNTSmoke",5)
+		Loop
+	Death:
+		DEXP A 1 BRIGHT A_PlayWeaponSound("DSEXPBRL")
+		DEXP A 3 BRIGHT A_Explode(60,184)
+		DEXP A 0 A_SpawnItem("FloorKaboom",-16,-15+random(-2,2))//A_SpawnItem("FlareKaboom",0,0)
+		TNT1 B 1 BRIGHT A_Explode(20,184)
+		TNT1 B 1 BRIGHT A_Explode(20,184)
+		TNT1 B 1 BRIGHT A_Explode(20,184)
+		TNT1 B 1 BRIGHT A_Explode(60,184)
+		TNT1 B 1 BRIGHT A_Explode(20,184)
+		TNT1 B 1 BRIGHT A_Explode(20,184)
+		TNT1 B 1 BRIGHT A_Explode(20,184)
+		TNT1 B 1 BRIGHT A_Explode(40,184)
+		TNT1 B 1 BRIGHT A_Explode(5,184)
+		TNT1 B 1 BRIGHT A_Explode(5,184)
+		TNT1 B 1 BRIGHT A_Explode(6,184)
+		TNT1 B 1 BRIGHT A_Explode(4,184)
+		TNT1 B 1 BRIGHT A_Explode(5,184)
+		TNT1 B 1 BRIGHT A_Explode(4,184)
+		TNT1 B 1 BRIGHT A_Explode(4,184)
+		TNT1 B 1 BRIGHT A_Explode(6,184)
+		TNT1 B 1 BRIGHT A_Explode(3,184)//TNT1 BBBBBBBBBBBBB 3 BRIGHT A_Explode(3,184)
+		Stop
+	}
+}
+
+/* //Old code for SprayCanAlt
+ACTOR SprayCanAlt
+{
+	Decal Scorch
+	Radius 3
+	Height 4
+	Speed 25
+	Scale 0.5
+	Damage 18
+	PROJECTILE
+	+DONTSPLASH
+	-NOGRAVITY
+	//ActiveSound "Weapons/plasmaf"
+	DamageType "Fire"
+	DeathSound "DSEXPBRL"
+	States
+	{
+	Spawn:
+		STOS A 0 A_LoopActiveSound
+		Goto See
+	See:
+		STOS A 0 A_LoopActiveSound
+		TNT1 A 0 ThrustThingZ(0, 12, 0, 1)
+		STOS ABCDEFGH 2 BRIGHT A_SpawnItem("TNTSmoke",5)
+		Loop
+	Death:
+		DEXP A 1 BRIGHT A_PlayWeaponSound("DSEXPBRL")
+		DEXP A 0 BRIGHT A_Explode(224,184)//it took 48 ammo for the original blood, so it justifys this much Damage
+		DEXP A 0 A_SpawnItem("FlareKaboom",-16,64)
+		Stop
+	}
+}
+*/
+
+ACTOR SprayCanAlt2 : SprayCanAlt { Speed 17 }
+ACTOR SprayCanAlt3 : SprayCanAlt { Speed 18 }
+ACTOR SprayCanAlt4 : SprayCanAlt { Speed 19 }
+ACTOR SprayCanAlt5 : SprayCanAlt { Speed 20 }
+ACTOR SprayCanAlt6 : SprayCanAlt { Speed 21 }
+ACTOR SprayCanAlt7 : SprayCanAlt { Speed 22 }
+ACTOR SprayCanAlt8 : SprayCanAlt { Speed 23 }
+ACTOR SprayCanAlt9 : SprayCanAlt { Speed 24 }
+ACTOR SprayCanAlt10 : SprayCanAlt { Speed 25 }
+ACTOR SprayCanAlt11 : SprayCanAlt { Speed 26 }
+ACTOR SprayCanAlt12 : SprayCanAlt { Speed 27 }
+ACTOR SprayCanAlt13 : SprayCanAlt { Speed 28 }
+ACTOR SprayCanAlt14 : SprayCanAlt { Speed 29 }
+ACTOR SprayCanAlt15 : SprayCanAlt { Speed 30 }

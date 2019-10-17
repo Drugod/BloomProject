@@ -1,0 +1,7 @@
+*.backup*
+thumbs.db
+*.dbs
+*.psd
+*.xcf
+*.bak
+

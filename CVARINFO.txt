@@ -1,0 +1,4 @@
+server bool hybridmonster = TRUE;
+server bool traps = TRUE;
+server bool blm_voxmod = FALSE;
+user int bloodremain = 1;

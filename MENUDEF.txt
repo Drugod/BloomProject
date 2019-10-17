@@ -1,0 +1,128 @@
+DEFAULTLISTMENU
+{
+	Font "BigFont", "Untranslated"
+		Font "DBIGFON2", "White"
+	IfGame(Doom)
+	{
+		Selector "M_SKULL1", 0, -5
+		Linespacing 16
+		Font "BigFont", "Red"
+	}
+}
+
+LISTMENU "MainMenu"
+{
+	IfGame(Doom)
+	{
+		StaticPatch 73, -20, "LOGO"//Bloom Logo position
+		Position 97, 87
+		IfOption(ReadThis)
+		{
+			Position 97, 87//64
+		}
+	}	
+	
+	IfGame(Doom)
+	{
+	    TextItem "      New Game", "n", "PlayerclassMenu"					
+		ifOption(SwapMenu)
+		{
+			TextItem "      Load Game", "l", "LoadGameMenu"						
+			TextItem "      Save Game", "s", "SaveGameMenu"				
+			TextItem "      Options", "o", "OptionsMenu"			
+		}
+		else
+		{
+			TextItem "      Options", "o", "OptionsMenu"			
+			TextItem "      Load Game", "l", "LoadGameMenu"						
+			TextItem "      Save Game", "s", "SaveGameMenu"									
+		}
+		ifOption(ReadThis)
+		{
+			TextItem "      Read me idiot", "r", "ReadThisMenu"
+		}
+		TextItem "      Quit Game", "r", "QuitMenu"		
+	}
+}
+
+ListMenu "EpisodeMenu"
+{
+	IfGame(Doom, Chex)
+	{
+		Selector "M_SKULL1", -32, -5
+		Linespacing 16
+		Font "BigFont", "Red"
+	}
+	IfGame(Doom, Heretic, Hexen, Strife)
+	{
+		NetgameMessage "$NEWGAME"
+	}
+	IfGame(Doom, Chex)
+	{
+		Position 48, 63
+	    StaticText 70, 38, "Episode"			
+	}
+}
+
+OptionMenu "OptionsMenu"
+{
+	Title "OPTIONS"
+	Submenu "Bloom options",			"BloomOptions"
+	StaticText " "
+	Submenu "Customize Controls",		"CustomizeControls"
+	Submenu "Mouse options",			"MouseOptions"
+	Submenu "Joystick options",			"JoystickOptions"
+	StaticText " "
+	Submenu "Player Setup",				"PlayerMenu"
+	Submenu "Gameplay Options",			"GameplayOptions"
+	Submenu "Compatibility Options",	"CompatibilityOptions"
+	Submenu "Automap Options",			"AutomapOptions"
+	Submenu "HUD Options",				"HUDOptions"
+	Submenu "Miscellaneous Options",	"MiscOptions"
+	Submenu "Sound Options",			"SoundOptions"
+	Submenu "Display Options",			"VideoOptions"
+	Submenu "Set video mode",			"VideoModeMenu"
+	StaticText " "
+	SafeCommand "Reset to defaults",	"reset2defaults"
+	SafeCommand	"Reset to last saved",	"reset2saved"
+	Command "Go to console",			"menuconsole"
+}
+
+OptionMenu "BloomOptions"
+{
+	Title  "Bloom options"
+	Statictext " "
+	StaticText "Gameplay Options", 1
+	Option "Hybrid Bloom monsters?", "hybridmonster", "YesOrNo"  
+	Option "Traps on iwad maps?", "traps", "YesOrNo"    
+	StaticText " "  
+	StaticText "Performance Options", 1
+	//, "Do you want to disable models and voxels for weapons, objects & items?"
+	SafeCommand "Disable Models & Voxels", "vox_off-mod_off"
+	
+	//, "Do you want to enable models but not voxels for weapons, objects & items? This requires a game restart."
+	SafeCommand "Enable Models, restart required", "vox_off-mod_on"
+	
+	//, "Do you want to enable voxels but not models for weapons, objects & items? Restart not required."
+	SafeCommand "Enable Voxels", "vox_on-mod_off"
+	Option "Keep 3d blood on floor", "bloodremain", "bloodyremain"    
+	StaticText " "  
+	StaticText "Key config for advanced movements", 1
+	Control "Doomguy toss grenade", "grenadetoss"
+	//Control "Timer freeze", "timerfreeze"
+}
+
+OptionValue "YesOrNo"
+{
+	0, "No"
+	1, "Yes"
+}
+
+OptionValue "bloodyremain"
+{
+	0, "No"
+	1, "Fast fading"
+	2, "Normal Fading"
+	3, "Slow Fading"
+	4, "Yes (Fast CPUs)"
+}

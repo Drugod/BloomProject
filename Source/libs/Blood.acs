@@ -1,0 +1,716 @@
+#library "Addon"
+#include "zcommon.acs"
+
+int lifeLeechPlayer[32];
+int armortype[3] = { "BodyArmor", "FireArmor", "SpiritArmor" };
+int CalebSpeech[15] = { "CalebSpeech1", "CalebSpeech2", "CalebSpeech3", "CalebSpeech4",
+					  "CalebSpeech5", "CalebSpeech6", "CalebSpeech7", "CalebSpeech8",
+					  "CalebSpeech9", "CalebSpeech10", "CalebSpeech11", "CalebSpeech12",
+					  "CalebSpeech13", "CalebSpeech14", "CalebSpeech15" };
+global int 5: BroodSpiders;
+global int 6: MotherSpiders;
+global int 0: PlayerHealths[];
+global int 1: JumpBootsAmount[];
+global int 2: DivingSuitAmount[];
+global int 3: BeastVisionAmount[];
+global int 4: DoctorBagAmount[];
+
+function int degsin(int x)
+{
+	int result;
+	if (x>=0)
+	{
+		result=sin(FixedMul(x<<16,0.0111111111)/4);
+	}
+	else 
+	{
+		result=-sin(FixedMul(-x<<16,0.0111111111)/4);
+	}
+	return result;
+}
+
+function int degcos(int x)
+{
+	return cos(FixedMul(x<<16,0.0111111111)/4);
+}
+
+
+function int sqrt_x3(int number)
+{
+	if(number <= 3)
+	{
+		if(number > 0)
+		{
+			return 1;
+		}
+		return 0;
+	}
+
+	int oldAns = number >> 1,                     // initial guess
+	    newAns = (oldAns + number / oldAns) >> 1; // first iteration
+
+	// main iterative method
+	while(newAns < oldAns)
+	{
+		oldAns = newAns;
+		newAns = (oldAns + number / oldAns) >> 1;
+	}
+
+	return oldAns;
+}
+
+function int abs(int x)
+{
+    if (x < 0)
+        return -x;
+    return x;
+}
+
+function int sqrt_x(int x)
+{
+	int r;
+	x = x + 1 >> 1;
+	while (x > r)
+	x-=r++;
+	return r;
+}
+
+function int dist (int tid1, int tid2)
+{
+	int x, y, z, d;
+	x = GetActorX(tid1) - GetActorX(tid2) >> 16; 
+	y = GetActorY(tid1) - GetActorY(tid2) >> 16;
+	z = GetActorZ(tid1) - GetActorZ(tid2) >> 16;
+	d = sqrt_x( x*x + y*y + z*z );
+	return d;
+}
+
+Script 500 (int type)
+{
+	switch (type) {
+	case 0:
+		if(CheckInventory("LaughDelay"))
+			Terminate;
+		int u = random(0, 14);
+		LocalAmbientSound(CalebSpeech[u], 127);
+		LocalAmbientSound(CalebSpeech[u], 127);
+		GiveInventory("LaughDelay", 1);
+	break;
+	case 1:
+		ActivatorSound("GoodDoggy", 127);
+		ActivatorSound("GoodDoggy", 127);
+	break;
+	case 2:
+		ActivatorSound("CalebTaunt1", 100);
+	break;
+	}
+}
+
+// Grenade Script
+//
+// Originally by Cybermind
+// Modified by Michaelis
+
+script 514 (int tid)
+{
+	int k=activatorTID();
+	int subheight;
+	int grenangle;
+	int distancepro,d,i;
+	SetActivatorToTarget(0);
+	int distance=dist(0,k);
+	subheight=(GetActorZ(0)>>16)-(GetActorZ(k)>>16);
+	for (i=-89;i<=89;++i)
+	{
+		distancepro=sqrt_x3(distance*distance-abs((subheight>>16)*(subheight>>16)));
+		d=((FixedMul(distancepro<<16,FixedDiv(degsin(i),degcos(i))))>>16)-(((FixedMul(1.4,distancepro<<16))>>16)*distancepro)/((FixedMul(4050.0,FixedMul(degcos(i),degcos(i))))>>16);
+		if (d>subheight)
+		{
+			grenangle=i * 0.85;
+			break;
+		}
+	}
+	SetActivator(k);
+	SetResultValue(i); // i
+}
+
+Script 599 (void)
+{
+	int u = ActivatorTID();
+	SetActivatorToTarget(0);
+	Thing_ChangeTID(u, CheckInventory("Voodoo")/2+1);
+}
+
+script 600 (int mode, int firemode)
+{
+/*
+	int u = GetActorPitch(0);
+	if(firemode == 0)
+	{
+		if(mode == 0)
+			SetActorPitch(0, u - 200);
+		else
+			SetActorPitch(0, u + 20);	
+	}
+	else
+	{
+		if(mode == 0)
+			SetActorPitch(0, u - 400);
+		else
+			SetActorPitch(0, u + 40);
+	}
+	*/
+}
+
+Script 601 (int rand)
+{
+	if(rand)
+		TakeInventory("Voodoo", random(1,2));
+}
+
+Script 602 (void)
+{
+	if(CheckInventory("TeslaCounterX") > 7)
+	{
+		TakeInventory("TeslaCounterX", 24);
+	}
+}
+
+Script 603 (void)
+{
+	int LifeLeechAmmo = CheckInventory("EssencePower");
+	
+	if(CheckWeapon("LifeLeech"))
+	{
+		if(LifeLeechAmmo >= 1)
+		{
+			TakeInventory("EssencePower", 1);
+		}
+		
+		if(LifeLeechAmmo == 0)
+		{
+			if(CheckInventory("SpiritArmor") > 0)
+				TakeInventory("SpiritArmor", 4);
+			
+			//In blood you lose hp with or without armor and staff hurts armor
+			    Thing_Damage2(0, 2, "%o gave his soul to the life leech");
+		}
+	}
+}
+Script 604 (int control)
+{
+	if(control == 0)
+	{
+		int LifeLeechAmmo = CheckInventory("EssencePower");
+		
+		if(LifeLeechAmmo <= 23)
+		{
+			SetResultValue(1);
+		}
+		else
+		{
+			TakeInventory("EssencePower", 24);
+			SetResultValue(0);
+		}
+	}
+	else
+	if(control == 1)
+		SetActorProperty(0, APROP_Alpha, 0.9);
+}
+
+Script 605 Enter
+{
+	Thing_ChangeTid(0, PlayerNumber() + 1000);
+	PlayerHealths[PlayerNumber() + 1000] = GetActorProperty(0, APROP_HEALTH);
+	
+	// thing is, if you have more than 0, the thing actually resets it to 1 amount after maps. This -1 is to eliminate that
+	
+	GiveInventory("DoctorBag", DoctorBagAmount[PlayerNumber()+1000] - 1);
+	GiveInventory("JumpingBoots", JumpBootsAmount[PlayerNumber()+1000] - 1);
+	GiveInventory("DivingSuit", DivingSuitAmount[PlayerNumber()+1000] - 1);
+	GiveInventory("BeastVision", BeastVisionAmount[PlayerNumber()+1000] - 1); 
+
+}
+
+Script 606 Death
+{
+	Thing_ChangeTID(PlayerNumber()+1000, 0);
+	PlayerHealths[PlayerNumber()+1000] = 0;
+	
+	Delay(15); // Dont instantly take away, looks stupid
+	if(CheckInventory("TNTAmmo") == 0)
+		TakeInventory("Dynamite", 1);	
+	if(CheckInventory("SprayCanister") == 0)
+		TakeInventory("SprayCan", 1);
+	TakeInventory("PoisonIntensity",400);
+
+}
+
+Script 607 Respawn
+{
+	Thing_ChangeTid(0, PlayerNumber() + 1000);
+	PlayerHealths[PlayerNumber() + 1000] = GetActorProperty(PlayerNumber() + 1000, APROP_HEALTH);
+	GiveInventory("Shell2",8);
+	GiveInventory("Flares",4);
+	GiveInventory("Dynamite",1);
+	GiveInventory("TNTAmmo",3);
+	GiveInventory("Sawedoff",1);
+		TakeInventory("AmAlreadyChoked",99);
+	TakeInventory("ChokeMe",99);
+	TakeInventory("BurnTics",400);
+	TakeInventory("BurnSound",100);
+	TakeInventory("PoisonIntensity",400);
+	TakeInventory("StrongPoison",400);
+	TakeInventory("AmAlreadyChoked",100);
+	TakeInventory("ChokeMe",100);
+	TakeInventory("ThrowPower",100);
+	TakeInventory("ThrowPowerBig",400);
+//	TakeInventory("PoisonIntensity",400);
+}
+
+script 608 OPEN // Damage Tracker
+{
+	int i = 0;
+	int dmg,type,am,pt;
+	
+	while (i<=31) // cant believe this actually works!
+	{
+			int phpn = GetActorProperty(1000+i,APROP_Health);
+			
+			if(phpn > 0) //Is caleb alive?!
+			{
+				dmg = PlayerHealths[i+1000] - phpn;//Stored health more than health after damage calc?
+				if (phpn<PlayerHealths[i+1000])//Did I TAKE damage
+				if (dmg>0)
+				{
+					type = CheckActorInventory(1000+i,"ArmorPicker");	//enum: body, fire, spirit
+					am = CheckActorInventory(1000+i,armortype[type]);	//AMount of armor
+						// SavePercent = 25+(ArmorAmount*3/8)
+						// 25% at 0 ar-p
+						// 62% at 100 ar-p
+						// 100% at 200 ar-p
+					pt = dmg * (25 + (am*3/8)) / 100;
+					if (am<pt) pt=am;
+					thing_damage(1000+i, -pt);
+					thing_damage(1000+i, -1); // To forcefully update your health
+					thing_damage(1000+i, 1);
+					// thing_Damage(1000+i,-pt);
+					TakeActorInventory(1000+i,armortype[type],pt);
+					TakeActorInventory(1000+i,"ArmorPicker",411);
+				}
+				PlayerHealths[i+1000] = GetActorProperty(1000+i,APROP_Health);//Save the players REAL hp instead of a fake one that made chip health bug
+			}			
+		i++;
+	}
+	Delay(1);
+	Restart;
+}
+
+Script 994 OPEN
+{
+BroodSpiders = 0;
+MotherSpiders =0;
+}
+
+Script 609 (void) // This script is used for the Tesla Coil by Snarboo
+{
+	int buttonPress = GetPlayerInput (-1, INPUT_BUTTONS); // Checks what keys the player is pressing
+	if (buttonPress & BT_Attack)
+	{
+		SetResultValue (1);
+	}
+	else
+	{
+		SetResultValue (0);
+	}
+}		
+
+Script 610 (void)  //Choke me baby
+{
+	//int Hor = random(2,5);
+	If((CheckInventory("AmAlreadyChoked") == 1))
+	Terminate;
+	GiveInventory("AmAlreadyChoked",1);	
+	SetHudSize(640, 480,0); 
+	if((CheckInventory("Chokeme") != 0)&& (GetActorProperty(0,Aprop_Health)>0) )
+	{
+	SetFont("HandGrab");
+  switch(random(1, 5))
+  {
+   case 1:
+	HudMessage(s:"A"; HUDMSG_PLAIN, 0, CR_UNTRANSLATED , 320.2, 480.2, 0.5);
+   break;
+	
+   case 2:
+	HudMessage(s:"B"; HUDMSG_PLAIN, 0, CR_UNTRANSLATED , 320.2, 480.2, 0.5);
+   break;
+	
+   case 3:
+	HudMessage(s:"C"; HUDMSG_PLAIN, 0, CR_UNTRANSLATED , 320.2, 480.2, 0.5);
+   break;
+   
+      case 4:
+	HudMessage(s:"D"; HUDMSG_PLAIN, 0, CR_UNTRANSLATED , 320.2, 480.2, 0.5);
+   break;
+   
+      case 5:
+	HudMessage(s:"E"; HUDMSG_PLAIN, 0, CR_UNTRANSLATED , 320.2, 480.2, 0.5);
+   break;
+   }
+
+	thing_damage2(0,random(3,5),"numbnessX");
+	Delay(18);
+	GiveInventory("AmAlreadyChoked",1);
+	SetFont("SMALLFONT");
+	int ChokedInput = GETPLAYERINPUT(-1,INPUT_BUTTONS);
+	If ((ChokedInput & BT_USE) && (Random(1,3)==2))
+		{
+		TakeInventory("Chokeme",99);
+			TakeInventory("AmAlreadyChoked",99);
+				ActivatorSound("Hand/Die",60);
+	//	Print(s:"Got It Off!!");
+		Terminate;
+		}
+		else
+//	Print(s:"Debug #1");
+	Print(s:"Spam the USE BUTTON to take it off!");
+	ActivatorSound("Hand/Choke",60);
+	TakeInventory("AmAlreadyChoked",99);
+	If((GetActorProperty(0,Aprop_Health))>0)
+	Restart;
+	}
+	else
+{
+	TakeInventory("Chokeme",99);
+	TakeInventory("AmAlreadyChoked",99);
+	Terminate;
+//Print(s:"Debug #2");
+}
+}
+
+Script 611 (void) //Annoying spiders!! ADDITIVE
+{
+int k = CheckInventory("PoisonIntensity");
+	If(CheckInventory("PoisonIntensity")!=0)
+		{
+		GiveInventory("PoisonIntensity",60);
+//		Print(s:"The poison got worse");
+//			Print(d:CheckInventory("PoisonIntenity"));
+		Terminate;
+		}
+//	Print(s:"You Feel Dizzy");
+		GiveInventory("PoisonIntensity",60);
+	//Print(d:CheckInventory("PoisonIntenity"));
+int Direction = 1; // How many seconds poison lasts, ADD 36 While poison is fading
+While ((CheckInventory("PoisonIntensity"))>0)
+{
+If((CheckInventory("PoisonIntensity"))<170)
+{
+	SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(6);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(6);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(6);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(6);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(6);
+}
+Else
+{
+	SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+	Delay(3);
+}
+	If(random(1,2)==1)
+	Direction = Direction*-1;
+	TakeInventory("PoisonIntensity",45);
+	If(CheckInventory("StrongPoison")<1)
+	SetActorState(0,"Dill",TRUE);
+}
+//	Print(s:"PoisoningOver");
+SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(3);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(3);
+SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(3);
+SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(3);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(3);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(6);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(6);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(6);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(6);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(8);
+}
+
+Script 612 (void) //Heavy head bash causes this, Gargoyles in short
+{
+int K = 70; // Stun duration = this/35 + a second recovering
+While (K>0)
+{	SetActorAngle(0, GetActorangle(0)+Random(-0.06,0.06));
+	Delay(10);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.06,0.06));
+	Delay(10);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.04,0.04));
+	Delay(10);
+	K = K-30;
+}
+		SetActorAngle(0, GetActorangle(0)+Random(-0.02,0.02));
+	Delay(10);
+			SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(10);
+			SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(10);
+}
+
+Script 613 (void) //This script limits spammed spiders to 200
+{
+	BroodSpiders = BroodSpiders+1;
+	Terminate;
+}
+
+Script 614 (void) //This script allows mother spammers to spam some more
+{
+	BroodSpiders = BroodSpiders-1;
+	If (BroodSpiders<0)
+		BroodSpiders=0;
+		Terminate;
+}
+
+Script 615 (void) // Called by spider spawners, if they return 1 the spawner will summon stuff
+{
+		       SetResultValue(BroodSpiders );
+	Terminate;
+			   }
+			   
+Script 616 (int Amount) //This script is used instead of decorate to make caleb bleed when hit by some enemies for extended amounts of time. A lot of enemies use this function now.
+{
+	While (Amount>0)
+	{
+		Amount--;
+		Spawn("Blood_",GetActorX(0)+random(-10,10),GetActorY(0)+random(27,36),GetActorZ(0)+Random(-90,90));
+		Delay(3);
+	}
+}
+
+Script 617 (Int DelayTime,Int Duration,Int DPS) // BurningScript, The input is the delay before it starts burning
+{
+
+	If(SetActivatorToTarget(0))
+	{
+		Delay(DelayTime);
+		If(CheckInventory("PitchFork")==1)
+		Terminate;
+		If(GetActorProperty(0,APROP_Health)<=20)
+			Terminate;
+		for(int i; i<=Duration;i++)
+			{
+				Delay(9);
+				If(GetActorProperty(0,APROP_Health)>=DPS+2)
+				{
+				Spawn("YouAreOnFireSir",GetActorX(0)+0,GetActorY(0)+0,GetActorZ(0)+0);
+				Thing_Damage(0,DPS,14);
+				}
+			}
+		}
+	}
+
+Script 618 (Int Duration,Int DPS)//AM ON FIRE
+{
+	If(CheckInventory("BurnTics")>=1)
+		{
+		GiveInventory("BurnTics",11);
+		Terminate;
+		}
+	
+	GiveInventory("BurnTics",50);
+	While(CheckInventory("BurnTics")>0)
+	{
+		Delay(7);
+		//Print(i:CheckInventory("BurnTics"));
+		Spawn("YouAreOnFireSir",GetActorX(0)+0,GetActorY(0)+0,GetActorZ(0)+0);
+		Delay(7);
+		//Print(i:CheckInventory("BurnTics"));
+		Spawn("YouAreOnFireSir",GetActorX(0)+0,GetActorY(0)+0,GetActorZ(0)+0);
+		Thing_Damage(0,DPS,14);
+//		Print(i:GetActorProperty(0,APROP_Waterlevel));
+		If(CheckInventory("Swimming") || (GetActorProperty(0,APROP_Health)<1))
+			{
+		//	Print(s:"You are Swimming!!");
+			TakeInventory("BurnTics",99);
+			TakeInventory("BurnSound",99);			
+			Terminate;
+		}
+		TakeInventory("BurnTics",3);
+	}
+	Delay(30);
+	TakeInventory("BurnSound",90);
+			}
+
+Script 619 (Void)//This script is called by spider mothers. If there is +2 all the rest will have half hp.
+{
+	MotherSpiders++;
+//	PrintBold(s:"SpiderChecked");
+	If(MotherSpiders>2)
+		Thing_Damage(0,1000,0);
+}
+
+Script 620 (Void)//Prevents red spiders poison color from overriding green spiders
+{
+	GiveInventory("StrongPoison",1);
+	Delay(190);
+	TakeInventory("StrongPoison",1);
+}
+
+Script 995 UNLOADING // Saves inventory items since we dont have proper interhub flags...
+{
+	for(int i; i<=31; i++)
+	{
+		if(CheckActorInventory(1000+i, "BeastVision") > 0)
+			BeastVisionAmount[i+1000] = CheckActorInventory(1000+i, "BeastVision");
+		if(CheckActorInventory(1000+i, "JumpingBoots") > 0)
+			JumpBootsAmount[i+1000] = CheckActorInventory(1000+i, "JumpingBoots");
+		if(CheckActorInventory(1000+i, "DivingSuit") > 0)
+			DivingSuitAmount[i+1000] = CheckActorInventory(1000+i, "DivingSuit");
+		if(CheckActorInventory(1000+i, "DoctorBag") > 0)
+			DoctorBagAmount[i+1000] = CheckActorInventory(1000+i, "DoctorBag");	
+	}
+}
+
+Script 996 (int angle, int type)
+{
+	int tid = ActivatorTID();
+	int num = CheckInventory("ThrowPower");
+	printbold(d:num);
+	if (type ==  0)
+	{
+		SpawnProjectile(tid, "PlayerTNT", angle*256/360, num*3.2+120, 0, 2, 1500+PlayerNumber());
+		ThrustThingZ(1500+PlayerNumber(), num*2.0+32, 0, 1);
+		Delay(1);
+		Thing_ChangeTID(1500+PlayerNumber(), 0);
+	}
+	else
+	{
+		SpawnProjectile(tid, "PlayerTNT1", angle*256/360, num*3.2+120, 0, 1, 1500+PlayerNumber());
+		ThrustThingZ(1500+PlayerNumber(), num*2.0+32, 0, 1);
+		Delay(1);
+		Thing_ChangeTID(1500+PlayerNumber(), 0);		
+	}
+}
+
+Script 997 (void)
+{
+	if(CheckInventory("BodyArmor") < 200 | CheckInventory("FireArmor") < 200 | CheckInventory("SpiritArmor") < 200)
+		SetResultValue(1);
+	else
+		SetResultValue(0);
+}
+//ACS CAN BE CALLED FROM DECORATE... KEEPING THIS JUST TO NOT BLOW SOMETHING UP
+Script 998 (int angle) // We don't have A_SetAngle yet... still... as of date May 23 2012...
+{
+	SetActorAngle(0, angle);
+}
+
+Script 999 (void) 
+{
+   SetActorProperty(0, APROP_Speed, 2.75);
+}

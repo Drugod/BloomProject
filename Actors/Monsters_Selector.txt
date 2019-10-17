@@ -1,0 +1,661 @@
+ACTOR --------SHOTGUN_MONSTERS_SELECTOR------------ {}
+ACTOR ShotgunMonsters replaces ShotgunGuy  
+{
+	//$Category "Bloom Monsters"
+	//$Title ShotgunGuy Spawner
+	//$Color 3 
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridShotgunSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalShotgunSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	}	  
+}
+
+ACTOR OriginalShotgunSpawner : RandomSpawner 
+{
+	DropItem "BrownCultist"
+	DropItem "ShotgunGuy_"	
+}
+
+ACTOR HybridShotgunSpawner : RandomSpawner
+{
+	DropItem "Apocalyptic_NeoCvltist"
+	DropItem "NeoCvltist"	
+	DropItem "ShotgunMonk"	
+}
+
+ACTOR --------CHAINGUN_MONSTERS_SELECTOR------------ {}
+ACTOR ChaingunMonsters replaces ChaingunGuy 
+{
+	//$Category "Bloom Monsters"
+	//$Title Chaingun Spawner
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("checkheight",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	RandomHybrid:	  
+		TNT1 A 0 A_SpawnItemEx("HybridChaingunnerSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	lowz:
+		TNT1 A 0 A_SpawnItemEx("Fanatic_Chaingunner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop			  
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalChaingunnerSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	}	  
+}
+
+ACTOR OriginalChaingunnerSpawner : RandomSpawner 
+{
+	DropItem "GreyCultist"
+	DropItem "ChaingunGuy_"	
+}
+
+ACTOR HybridChaingunnerSpawner : RandomSpawner
+{
+	DropItem "Fanatic_Chaingunner", 255, 1
+	DropItem "Fanatic_ChaingunnerAlt", 255, 2
+}
+
+ACTOR --------EELMONSTERS_SELECTOR------------ {}
+ACTOR Eelmonsters replaces Fatso 
+{
+	//$Category "Bloom Monsters"
+	//$Title Eel/Mancubus Spawner
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridFishMancubus",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalFishMancubus",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	}	  
+}
+
+ACTOR OriginalFishMancubus : RandomSpawner
+{
+	DropItem "GillBeast"
+	DropItem "Fatso_"	
+}
+
+ACTOR HybridFishMancubus : RandomSpawner
+{
+	DropItem "Eelcubus"
+	DropItem "EelcubusAlt"  
+	DropItem "Gillcubus"  
+}
+
+ACTOR --------ELEMENTAL_GARMONSTERS_SELECTOR------------ {}
+ACTOR ElementalGarmonsters replaces PainElemental 
+{
+	//$Category "Bloom Monsters"
+	//$Title Elemental Garmonsters Spawner
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridElementalGarmonsters",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalElementalGarmonsters",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	}	  
+}
+
+ACTOR OriginalElementalGarmonsters : RandomSpawner 
+{
+	DropItem "BloodGargoyle"
+	DropItem "PainElemental_"	
+}
+
+ACTOR HybridElementalGarmonsters : RandomSpawner
+{
+	DropItem "Elemental_Gargoyle"
+}
+
+ACTOR --------HOUND_SELECTOR------------ {}
+ACTOR HoundSpawner replaces Demon 
+{
+	//$Category "Bloom Monsters"
+	//$Title Hounds Spawner
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridHoundSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalHoundSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	}	  
+}
+
+ACTOR OriginalHoundSpawner : RandomSpawner 
+{
+	DropItem "Demon_"
+	DropItem "HellHound"	
+}
+
+ACTOR HybridHoundSpawner : RandomSpawner
+{
+	DropItem "DemonHound", 255, 9
+	DropItem "DemonhoundAlt", 255, 1   
+}
+
+ACTOR --------SPECTRE_HOUND_SELECTOR------------ {}
+ACTOR SpectreSpawner replaces Spectre 
+{
+	//$Category "Bloom Monsters"
+	//$Title Hounds Spawner
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridSpectreSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalSpectreSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	}	  
+}
+
+ACTOR OriginalSpectreSpawner : RandomSpawner 
+{
+	DropItem "Spectre_"
+}
+
+ACTOR HybridSpectreSpawner : RandomSpawner
+{
+	DropItem "Spectrehound", 255, 9
+	DropItem "SpectrehoundAlt", 255, 1  
+}
+
+ACTOR --------CACOYLES_SELECTOR------------ {}
+ACTOR Garmonsters replaces Cacodemon 
+{
+	//$Category "Bloom Monsters"
+	//$Title Garmonsters Spawner
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridGarmonsters",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalGarmonsters",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	}	  
+}
+
+ACTOR OriginalGarmonsters : RandomSpawner 
+{
+	DropItem "BloodGargoyle"
+	DropItem "Cacodemon_"
+}
+
+ACTOR HybridGarmonsters : RandomSpawner
+{
+	DropItem "Cacoyle"  
+	DropItem "Cacoyle_Variant"
+}
+
+ACTOR --------GHOST_REVENANTS_SELECTOR------------ {}
+ACTOR GhostandRevenants replaces Revenant 
+{
+	//$Category "Bloom Monsters"
+	//$Title Ghost & Revenants Spawner
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridGhostandRevenants",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalGhostandRevenants",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	}	  
+}
+
+ACTOR OriginalGhostandRevenants : RandomSpawner 
+{
+	DropItem "Revenant_", 255, 9
+	DropItem "Phantasm", 255, 1
+}
+
+ACTOR HybridGhostandRevenants : RandomSpawner
+{
+	DropItem "GhostRevenantTerrain", 255, 3  
+	DropItem "GhostRevenantTerrainAlt", 255, 4 
+	DropItem "Shielded_Ghost_Revenant", 255, 2  
+	DropItem "Shielded_Ghost_Revenant_Alt", 255, 1 
+}
+
+ACTOR --------SOULS_SELECTOR------------ {}
+ACTOR Thesouls replaces LostSoul 
+{
+	//$Category "Bloom Monsters"
+	//$Title The Souls
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("Thesoulshybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("ThesoulsNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
+	}	  
+}
+
+ACTOR ThesoulsNormal : RandomSpawner 
+{
+	DropItem "LostSoul_"
+}
+
+ACTOR Thesoulshybrid : RandomSpawner
+{
+	DropItem "GargoylSoul"
+}
+
+ACTOR --------ARACHNOID_SELECTOR------------ {}
+ACTOR TheArachnoids replaces Arachnotron
+{
+	//$Category "Bloom Monsters"
+	//$Title The Arachnoids
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("Arachnoidhybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("Arachnoidnormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	}	  
+}
+
+ACTOR Arachnoidnormal : RandomSpawner 
+{
+	DropItem "Arachnotron_"
+	DropItem "SpiderMother"  
+}
+
+ACTOR Arachnoidhybrid : RandomSpawner
+{
+	DropItem "Arachnoid"
+}
+
+ACTOR --------CVLTIMPS_ZOMBIMPS_SELECTOR------------ {}
+ACTOR TheCvltimpZombimps replaces DoomImp
+{
+	//$Category "Bloom Monsters"
+	//$Title The Cvltimps and Zombimps
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("Cvltimphybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("Cvltimpnormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	}	  
+}
+
+ACTOR Cvltimpnormal : RandomSpawner 
+{
+	DropItem "DoomImp_"
+}
+
+ACTOR Cvltimphybrid : RandomSpawner
+{
+	DropItem "Cvltimp", 255, 2
+	DropItem "CvltimpAlt", 255, 1 
+	DropItem "Zombimps", 255, 7
+}
+
+ACTOR --------WOLFKNIGHTS_SELECTOR------------ {}
+ACTOR TheWolfKnights replaces BaronOfHell
+{
+	//$Category "Bloom Monsters"
+	//$Title WereWolfs of Hell
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("BaronofHellHybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("BaronofHellNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	}	  
+}
+
+ACTOR BaronofHellNormal : RandomSpawner 
+{
+	DropItem "BaronOfHell_"
+	DropItem "BloodBeast"  
+}
+
+ACTOR BaronofHellHybrid : RandomSpawner
+{
+	DropItem "WereWolfOfHell"
+	DropItem "WereWolfOfHellAlt"
+}
+
+ACTOR --------GHOULSZOMBIES_SELECTOR------------ {}
+ACTOR TheGhoulsZombies replaces ZombieMan
+{
+	//$Category "Bloom Monsters"
+	//$Title Ghouls and Zombies
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("GhoulZombieHybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("GhoulZombieNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	}	  
+}
+
+ACTOR GhoulZombieNormal : RandomSpawner 
+{
+	DropItem "ZombieMan_"
+	DropItem "BloodZombie"  
+}
+
+ACTOR GhoulZombieHybrid : RandomSpawner
+{
+	DropItem "GhoulsZombies"
+}
+
+ACTOR --------ARCHVILESZOMBIES_SELECTOR------------ {}
+ACTOR TheArchZombies replaces Archvile
+{
+	//$Category "Bloom Monsters"
+	//$Title Archviles and zombies
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("ArchZombieHybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("ArchZombieNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	}	  
+}
+
+ACTOR ArchZombieNormal : RandomSpawner 
+{
+	DropItem "Archvile_"
+}
+
+ACTOR ArchZombieHybrid : RandomSpawner
+{
+	DropItem "Archzombie"
+	DropItem "Gargovile"
+}
+
+ACTOR --------HELLBUTCHER_SELECTOR------------ {}
+ACTOR TheHellButchers replaces HellKnight 
+{
+	//$Category "Bloom Monsters"
+	//$Title HellButcher
+	//$Color 3  	
+	+NOTDMATCH
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheHellButchersHybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheHellButchersNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	}	  
+}
+
+ACTOR TheHellButchersNormal : RandomSpawner 
+{
+	DropItem "HellKnight_"
+	DropItem "BloatedButcher"  
+}
+
+ACTOR TheHellButchersHybrid : RandomSpawner
+{
+	DropItem "HellButcher"
+	DropItem "HellButcherAlt"  
+}
+
+ACTOR --------GARGOL_LIVING_STATUE------------ {}
+ACTOR TheGargolLivingStatue 19044
+{
+	//$Category "Bloom Monsters"
+	//$Title The Gargovile living Statue
+	//$Color 3
+	+DROPPED
+	+FIXMAPTHINGPOS
+	+LOOKALLAROUND
+	+NOTDMATCH
+	Mass 0x7fffff
+	States
+	{
+	Spawn:
+	See:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheGargolsStatueHybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheGargolsStatueNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	}	  
+}
+
+ACTOR TheGargolsStatueNormal : RandomSpawner 
+{
+	+DROPPED
+	+FIXMAPTHINGPOS
+	+LOOKALLAROUND
+	+NOTDMATCH
+	Mass 0x7fffff
+	DropItem "LivingGargStatue"
+}
+
+ACTOR TheGargolsStatueHybrid : RandomSpawner
+{
+	+DROPPED
+	+FIXMAPTHINGPOS
+	+LOOKALLAROUND
+	+NOTDMATCH
+	Mass 0x7fffff
+	DropItem "LivingGargovileStatue"
+}
+
+ACTOR --------GARGOL_STATUE------------ {}
+ACTOR TheGargolStatue 19045
+{
+	//$Category "Bloom Monsters"
+	//$Title The Gargovile Statue
+	//$Color 3 
+	+DROPPED
+	+FIXMAPTHINGPOS
+	+LOOKALLAROUND 	
+	+NOTDMATCH
+	Mass 0x7fffff
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheStatueHybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheStatueNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		Stop
+	}	  
+}
+
+ACTOR TheStatueNormal : RandomSpawner 
+{
+	DropItem "MerryGargStatue"
+}
+
+ACTOR TheStatueHybrid : RandomSpawner
+{
+	DropItem "MerryGargovileStatue"
+}
+
+ACTOR --------CUSTOMEYE_SELECTOR------------ {}
+/*ACTOR CustomEye : BossEye replaces BossEye
+{
+	DropItem "ChaingunMonsters"
+	DropItem "Eelmonsters"
+	DropItem "ElementalGarmonsters"
+	DropItem "Garmonsters"
+	DropItem "GhostandRevenants"
+	DropItem "HoundSpawner"
+	DropItem "ShotgunMonsters"
+	DropItem "TheArachnoids"
+	DropItem "Thesouls"
+}*/

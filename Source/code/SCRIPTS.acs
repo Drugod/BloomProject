@@ -1,0 +1,38 @@
+#include "zcommon.acs"
+
+Script 226 (VOID)
+{
+SetMusic("DS1010_1",0);
+}
+
+//Variable used to track kills every time a monster dies
+int killCount = 0;
+
+script 10 (void) //Called by certain monsters when they die
+{
+    killCount++; //Increase variable by 1
+    
+    if(killCount==2) //If variable is equal to 2 (2 monsters killed)...
+    {
+        //... lower platform
+        Floor_LowerToLowest(10, 10);
+    }
+}
+
+script 92 (void)
+{
+//lower platform
+ Floor_LowerToLowest(92, 10);
+}
+
+script 28 (void)
+{
+//lower platform
+ Floor_LowerToLowest(28, 10);
+}
+
+script 87 (void)
+{
+//lower platform
+ Floor_LowerToLowest(87, 10);
+}

@@ -1,0 +1,6996 @@
+ACTOR ---------NEOCVLTISTS--------- {}
+ACTOR Apocalyptic_NeoCvltist 19001
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Apocalyptic Cvltist
+  //$Color 3
+  Health 30
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 8
+  PainChance 170
+  Monster
+  +FLOORCLIP
+  SeeSound "NCultistSee"
+  PainSound "NCultistPain"
+  DeathSound "NCultistDie"
+  AttackSound "NCultistShotgun"
+  ActiveSound "NCultistAct"
+  Obituary "$OB_SHOTGUY"
+  DropItem "Shotgun_" 100
+  Dropitem "UselessStuff" 32
+  DropItem "GrenadeAmmo" 32 
+  DropItem "HappyBundle" 32
+  States
+  {
+  Spawn:
+    WPOS E 10 A_Look
+    Loop
+  See:
+    WPOS AABBCCDD 3 A_Chase
+    Loop
+  Missile:
+    WPOS E 10 A_FaceTarget
+    WPOS F 10 BRIGHT A_SPosAttackUseAtkSound
+    WPOS E 10
+    Goto See
+  Pain:
+    WPOS G 3
+    WPOS G 3 A_Pain
+    Goto See
+  Death:
+    WPOS H 5
+    WPOS I 5 A_Scream
+    WPOS J 5 A_NoBlocking
+    WPOS K 5
+    WPOS L -1
+    Stop
+  Burn:
+  Death.SpecialFire:
+  Death.Flare:
+	TNT1 A 0 A_Jump(128, 2)
+	TNT1 A 0 A_ThrowGrenade("KickableFlyingFanatic",0,5,10,0)
+	TNT1 A 0 A_Jump(128, 2)
+	TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+	WPOS A 1
+	TNT1 A 0 A_Fall
+	TNT1 A 0 A_Pain
+	TNT1 A 0 A_PlaySound("demon/Pain")
+	TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+  Stop	
+  XDeath:
+    WPOS M 5
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_ThrowGrenade ("KickableFlyingFanatic",0,5,10,0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("HeadBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))		
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("OrganDebris")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+    WPOS N 5 A_XScream
+    WPOS O 5 A_NoBlocking
+    WPOS PQRST 5
+    WPOS U -1
+    Stop
+  Raise:
+    WPOS L 5
+    WPOS KJIH 5
+    Goto See
+  }
+}
+
+ACTOR NeoCvltist 19003
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title NeoCvltist
+  //$Color 3
+  Health 30
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 8
+  PainChance 170
+  Monster
+  +FLOORCLIP
+  SeeSound "NCultistSee"
+  PainSound "NCultistPain"
+  DeathSound "NCultistDie"
+  AttackSound "NCultistShotgun"
+  ActiveSound "NCultistAct"
+  Obituary "$OB_SHOTGUY"
+  DropItem "Shotgun_" 100
+  Dropitem "UselessStuff" 32
+  DropItem "GrenadeAmmo" 32  
+  DropItem "HappyBundle" 32  
+  States
+  {
+  Spawn:
+    YPOS E 10 A_Look
+    Loop
+  See:
+    YPOS AABBCCDD 3 A_Chase
+    Loop
+  Missile:
+    YPOS E 10 A_FaceTarget
+    YPOS F 10 BRIGHT A_SPosAttackUseAtkSound
+    YPOS E 10
+    Goto See
+  Pain:
+    YPOS G 3
+    YPOS G 3 A_Pain
+    Goto See
+  Death:
+    YPOS H 5
+    YPOS I 5 A_Scream
+    YPOS J 5 A_NoBlocking
+    YPOS K 5
+    YPOS L -1
+    Stop
+  Burn:
+  Death.SpecialFire:
+  Death.Flare:
+	TNT1 A 0 A_Jump(128, 2)  
+	TNT1 A 0 A_ThrowGrenade("KickableFlyingFanatic",0,5,10,0)
+	TNT1 A 0 A_Jump(128, 2)
+	TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+	YPOS A 1
+	TNT1 A 0 A_Fall
+	TNT1 A 0 A_Pain
+	TNT1 A 0 A_PlaySound("demon/Pain")
+	TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+  Stop		
+  XDeath:
+    YPOS M 5
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_ThrowGrenade ("KickableFlyingFanatic",0,5,10,0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("HeadBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))		
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("OrganDebris")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+    YPOS N 5 A_XScream
+    YPOS O 5 A_NoBlocking
+    YPOS PQRST 5
+    YPOS U -1
+    Stop
+  Raise:
+    YPOS L 5
+    YPOS KJIH 5
+    Goto See
+  }
+}
+
+ACTOR ShotgunMonk 18323
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title ShotgunMonk
+  //$Color 3
+  Health 30
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 8
+  PainChance 170
+  Monster
+  +FLOORCLIP
+  SeeSound "NCultistSee"
+  PainSound "NCultistPain"
+  DeathSound "NCultistDie"
+  AttackSound "NCultistShotgun"
+  ActiveSound "NCultistAct"
+  Obituary "$OB_SHOTGUY"
+  DropItem "Shotgun_" 100
+  Dropitem "UselessStuff" 32
+  DropItem "GrenadeAmmo" 32  
+  DropItem "HappyBundle" 32  
+  States
+  {
+  Spawn:
+    MONK G 10 A_Look
+    Loop
+  See:
+    MONK AABBCCDDEEFF 3 A_Chase
+    Loop
+  Missile:
+    MONK G 10 A_FaceTarget
+    MONK H 10 BRIGHT A_SPosAttackUseAtkSound
+    Goto See
+  Pain:
+    MONK I 3
+    MONK I 3 A_Pain
+    Goto See
+  Death:
+    MONK J 5
+    MONK K 5 A_Scream
+    MONK L 5 A_NoBlocking
+    MONK MNOP 5
+    MONK Q -1
+    Stop
+  Burn:
+  Death.SpecialFire:
+  Death.Flare:
+	TNT1 A 0 A_Jump(128, 2)  
+	TNT1 A 0 A_ThrowGrenade("KickableFlyingFanatic",0,5,10,0)
+	TNT1 A 0 A_Jump(128, 2)
+	TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+	MONK A 1
+	TNT1 A 0 A_Fall
+	TNT1 A 0 A_Pain
+	TNT1 A 0 A_PlaySound("demon/Pain")
+	TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+  Stop		
+  XDeath:
+    MONK R 5
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_ThrowGrenade ("KickableFlyingFanatic",0,5,10,0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("HeadBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))		
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("OrganDebris")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+    MONK S 5 A_XScream
+    MONK T 5 A_NoBlocking
+    MONK UVW 5
+    MONK X -1
+    Stop
+  Raise:
+    MONK Q 5
+    MONK PONMLKJ 5
+    Goto See
+  }
+}
+
+ACTOR -------FANATIC_CHAINGUNNERS---------- {}
+ACTOR Fanatic_Chaingunner 19004
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Fanatic Chaingunner
+  //$Color 3
+  Health 70
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 8
+  PainChance 170
+  Monster
+  +FLOORCLIP
+  SeeSound "CultistSee"
+  PainSound "CultistPain"
+  DeathSound "CultistDie"
+  ActiveSound "CultistAct"
+  AttackSound "chainguy/attack"
+  Obituary "$OB_CHAINGUY"
+  Dropitem "Chaingun_" 100
+  Dropitem "Clip_" 160
+  Dropitem "UselessStuff" 32
+  DropItem "GrenadeAmmo" 32  
+  DropItem "HappyBundle" 32  
+  States
+  {
+  Spawn:
+    FCOS A 10 A_Look
+    Loop
+  See:
+    FCOS AABBCCDD 3 A_Chase
+    Loop
+  Missile:
+    FCOS E 10 A_FaceTarget
+    FCOS FE 4 BRIGHT A_CposAttack
+    FCOS F 1 A_CposRefire
+    Goto Missile+1
+  Pain:
+    FCOS G 3
+    FCOS G 3 A_Pain
+    Goto See
+  Death:
+    FCOS H 5
+    FCOS I 5 A_Scream
+    FCOS J 5 A_NoBlocking
+    FCOS KLM 5
+    FCOS N -1
+    Stop
+  Burn:
+  Death.SpecialFire:
+  Death.Flare:
+	TNT1 A 0 A_Jump(128, 2)  
+	TNT1 A 0 A_ThrowGrenade("KickableFlyingFanatic",0,5,10,0)
+	TNT1 A 0 A_Jump(128, 2)
+	TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+	FCOS A 1
+	TNT1 A 0 A_Fall
+	TNT1 A 0 A_Pain
+	TNT1 A 0 A_PlaySound("demon/Pain")
+	TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+  Stop		
+  XDeath:
+    FCOS O 5 
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_ThrowGrenade ("KickableFlyingFanatic",0,5,10,0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("HeadBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))		
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("OrganDebris")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+    FCOS P 5 A_XScream
+    FCOS Q 5 A_NoBlocking
+    FCOS RS 5
+    FCOS T -1
+  Stop
+  Raise:
+    FCOS N 5
+    FCOS MLKJIH 5
+  Goto See
+  }
+}
+
+ACTOR Fanatic_ChaingunnerAlt 19046
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Fanatic Chaingunner Alternative
+  //$Color 3
+  Health 105
+  Radius 20
+  Height 72
+  Mass 100
+  Speed 8
+  PainChance 170
+  Monster
+  +FLOORCLIP
+  SeeSound "ButcherSee"
+  PainSound "ButcherPain"
+  DeathSound "ButcherDeath"
+  ActiveSound "ButcherAct"
+  AttackSound "chainguy/attack"
+  Obituary "$OB_CHAINGUY"
+  Dropitem "Chaingun_" 100
+  Dropitem "Clip_" 160
+  Dropitem "UselessStuff" 32
+  DropItem "GrenadeAmmo" 32  
+  DropItem "HappyBundle" 32  
+  Scale 0.8
+  GibHealth -10      
+  States
+  {
+  Spawn:
+    BUOS A 10 A_Look
+    Loop
+  See:
+    BUOS AABBCCDD 3 A_Chase
+    Loop
+  Melee:
+	BUOK A 10 A_Facetarget
+	BUOK BC 4 A_SkelFist
+	Goto See
+  Missile:
+	TNT1 A 0 A_Jump(128,"Axe")
+    BUOS E 10 A_FaceTarget
+    BUOS FE 4 BRIGHT A_CposAttack
+    BUOS F 1 A_CposRefire
+	TNT1 A 0 A_Jump(32,"See")
+    Goto Missile+2
+  Axe:
+	BUOK A 10 A_Facetarget
+	BUOK BC 4 A_CustomMissile ("Cleaver",30,7,0,1,0)	
+	Goto See
+  Pain:
+    BUOS G 3
+    BUOS G 3 A_Pain
+    Goto See
+  Death:
+    BUOS H 5
+    BUOS I 5 A_Scream
+    BUOS J 5 A_NoBlocking
+    BUOS KLM 5
+    BUOS N -1
+    Stop
+  Burn:
+  Death.SpecialFire:
+  Death.Flare:
+	TNT1 A 0 A_Jump(128, 2)  
+	TNT1 A 0 A_ThrowGrenade("KickableFlyingFanatic",0,5,10,0)
+	TNT1 A 0 A_Jump(128, 2)
+	TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+	BUOS A 1
+	TNT1 A 0 A_Fall
+	TNT1 A 0 A_Pain
+	TNT1 A 0 A_PlaySound("demon/Pain")
+	TNT1 A 0 A_SpawnItemEx("BurnDeathZombie",0,0,0,0,0,0,0,SXF_TRANSFERSCALE)	
+  Stop		
+  XDeath:
+    BUOS O 5 
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_ThrowGrenade ("KickableFlyingGhoul6",0,5,10,0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("HeadBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))		
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("OrganDebris")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+    BUOS P 5 A_XScream
+    BUOS Q 5 A_NoBlocking
+    BUOS RS 5
+    BUOS T -1
+  Stop
+  Raise:
+    BUOS N 5
+    BUOS MLKJIH 5
+  Goto See
+  }
+}
+
+ACTOR ---------GARGOYLESOULS----------- {}
+ACTOR GargoylSoul 19005
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Gargoyle's Soul
+  //$Color 3
+  Health 100
+  Radius 16
+  Height 56
+  Mass 50
+  Speed 8
+  Damage 3
+  PainChance 256
+  Monster
+  +FLOAT
+  +NOGRAVITY
+  +MISSILEMORE
+  +DONTFALL
+  +NOICEDEATH
+  AttackSound "skull/Melee"
+  PainSound "skull/pain"
+  DeathSound "skull/death"
+  ActiveSound "skull/active"
+  RenderStyle SoulTrans
+  Obituary "%o was spooked by a Gargoyle's soul."
+  States
+  {
+  Spawn:
+    GKUL AB 10 BRIGHT A_Look
+    Loop
+  See:
+    GKUL AB 6 BRIGHT A_Chase
+    Loop
+  Missile:
+    GKUL C 10 BRIGHT A_FaceTarget
+    GKUL D 4 BRIGHT A_SkullAttack
+    GKUL CD 4 BRIGHT
+    Goto Missile+2
+  Pain:
+    GKUL E 3 BRIGHT
+    GKUL E 3 BRIGHT A_Pain
+    Goto See
+  Death:
+    GKUL F 6 BRIGHT
+    GKUL G 6 BRIGHT A_Scream
+    GKUL H 6 BRIGHT
+    GKUL I 6 BRIGHT A_NoBlocking
+    GKUL J 6
+    GKUL K 6
+    Stop
+  }
+ }
+ 
+ ACTOR ----------EELCUBUS---------- {}
+ ACTOR Eelcubus 19007
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Eelcubus
+  //$Color 3
+  Species "Eelcubus" 
+  BloodColor DarkRed
+  Health 600
+  Radius 48
+  Height 64
+  Mass 1000
+  Speed 8
+  PainChance 80
+  Monster
+  +BOSSDEATH
+  +FLOORCLIP
+  SeeSound "fatso/sight"
+  PainSound "fatso/pain"
+  DeathSound "fatso/death"
+  ActiveSound "fatso/active"
+  Obituary "Carbonized by a Eelcubus"
+  States
+  {
+  Spawn:
+    FSTT AB 15 A_Look
+    Loop
+  See:
+    FSTT AABBCCDDEEFF 4 A_Chase
+    Loop
+  Missile:
+    FSTT G 20 A_FatRaise
+    FSTT H 10 BRIGHT A_FatAttack1
+    FSTT IG 5 A_FaceTarget
+    FSTT H 10 BRIGHT A_FatAttack2
+    FSTT IG 5 A_FaceTarget
+    FSTT H 10 BRIGHT A_FatAttack3
+    FSTT IG 5 A_FaceTarget
+    Goto See
+  Pain:
+    FSTT J 3
+    FSTT J 3 A_Pain
+    Goto See
+  Death:
+    FSTT K 6
+    FSTT L 6 A_Scream
+    FSTT M 6 A_NoBlocking
+    FSTT NOPQRS 6
+    FSTT T -1 A_BossDeath
+    Stop
+  Raise:
+    FSTT R 5
+    FSTT QPONMLK 5
+    Goto See
+  }
+}
+
+ACTOR EelcubusAlt 19008
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Eelcubus Alternative
+  //$Color 3
+  Species "Eelcubus"
+  BloodColor DarkRed
+  Health 600
+  Radius 48
+  Height 64
+  Mass 1000
+  Speed 8
+  PainChance 80
+  Monster
+  +FLOORCLIP
+  +BOSSDEATH
+  SeeSound "fatso/sight"
+  PainSound "fatso/pain"
+  DeathSound "fatso/death"
+  ActiveSound "fatso/active"
+  Obituary "Carbonized by a Eelcubus"
+  States
+  {
+  Spawn:
+    FS2T AB 15 A_Look
+    Loop
+  See:
+    FS2T AABBCCDDEEFF 4 A_Chase
+    Loop
+  Missile:
+    FS2T G 20 A_FatRaise
+    FS2T H 10 BRIGHT A_FatAttack1
+    FS2T IG 5 A_FaceTarget
+    FS2T H 10 BRIGHT A_FatAttack2
+    FS2T IG 5 A_FaceTarget
+    FS2T H 10 BRIGHT A_FatAttack3
+    FS2T IG 5 A_FaceTarget
+    Goto See
+  Pain:
+    FS2T J 3
+    FS2T J 3 A_Pain
+    Goto See
+  Death:
+    FS2T K 6
+    FS2T L 6 A_Scream
+    FS2T M 6 A_NoBlocking
+    FS2T NOPQRS 6
+    FS2T T -1 A_BossDeath
+    Stop
+  Raise:
+    FS2T R 5
+    FS2T QPONMLK 5
+    Goto See
+  }
+}
+
+ACTOR Gillcubus 19027
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Gillcubus
+  //$Color 3
+  Species "Eelcubus"
+  BloodColor DarkRed
+  Health 600
+  Radius 48
+  Height 64
+  Mass 1000
+  Speed 8
+  PainChance 80
+  Monster
+  +FLOORCLIP
+  +BOSSDEATH
+  SeeSound "fatso/sight"
+  PainSound "fatso/pain"
+  DeathSound "fatso/death"
+  ActiveSound "fatso/active"
+  Obituary "Carbonized by a Gillcubus"
+  States
+  {
+  Spawn:
+    FS3T A 15 A_Look
+    Loop
+  See:
+    FS3T AABBCCDD 4 A_Chase
+    Loop
+  Missile:
+    FS3T E 20 A_FatRaise
+    FS3T F 10 BRIGHT A_FatAttack1
+    FS3T G 5 A_FaceTarget
+    FS3T E 10 BRIGHT A_FatAttack2
+    FS3T FG 5 A_FaceTarget
+    FS3T E 10 BRIGHT A_FatAttack3
+    FS3T FG 5 A_FaceTarget
+    Goto See
+  Pain:
+    FS3T H 3
+    FS3T H 3 A_Pain
+    Goto See
+  Death:
+    FS3T J 6
+    FS3T K 6 A_Scream
+    FS3T L 6 A_NoBlocking
+    FS3T MN 6
+    FS3T N -1 A_BossDeath
+    Stop
+  Raise:
+    FS3T R 5
+    FS3T QPONMLK 5
+    Goto See
+  }
+}
+
+ACTOR ----------ELEMENTAL_GARGOYLES---------- {}
+ACTOR Elemental_Gargoyle 19009
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Elemental Gargoyle
+  //$Color 3
+  Health 400
+  Radius 31
+  Height 56
+  Mass 400
+  Speed 8
+  PainChance 128
+  Monster
+  +FLOAT
+  +NOGRAVITY
+  +FLOATBOB  
+  SeeSound "pain/sight"
+  PainSound "pain/pain"
+  DeathSound "pain/death"
+  ActiveSound "pain/active"
+  States
+  {
+  Spawn:
+    PGIN A 10 A_Look
+    Loop
+  See:
+    PGIN AABBCC 3 A_Chase
+    Loop
+  Missile:
+    PGIN D 5 A_FaceTarget
+    PGIN E 5 A_FaceTarget
+    PGIN F 5 BRIGHT A_FaceTarget
+    PGIN F 0 BRIGHT A_PainAttack("GargoylSoul")
+    Goto See
+  Pain:
+    PGIN G 6
+    PGIN G 6 A_Pain
+    Goto See
+  Death:
+    PGIN H 8 BRIGHT
+    PGIN I 8 BRIGHT A_Scream
+    PGIN JK 8 BRIGHT
+    PGIN L 8 BRIGHT A_PainDie("GargoylSoul")
+    PGIN M 8 BRIGHT
+    Stop
+  Raise:
+    PGIN MLKJIH 8
+    Goto See
+  }
+}
+
+ACTOR ----------ARACHNOIDS---------- {}
+ACTOR Arachnoid 19011
+{
+    //$Category Bloom Hybrid Monsters
+    //$Title Arachnoid
+    //$Color 3
+	Health 150
+	PainChance 180
+	Speed 8
+	FastSpeed 12	
+	Radius 30
+	Height 56
+	Mass 80
+	Monster
+	+BOSSDEATH
+	+DROPOFF	
+	Obituary "%o killed by an Arachnoid"
+	Attacksound "dsdolstb"
+	PainSound "SpiderPain"
+	DeathSound "baby/death"//DeathSound "SpiderDie"
+	ActiveSound "SpiderSee"
+	States
+	{
+	Spawn:
+		ARND A 5 A_Look
+		Loop
+	See:
+		ARND AAAAABBBBB 1 A_Chase
+		ARND CCCCCDDDDD 1 A_Chase
+		ARND A 0 A_JumpIfCloser(random(200,400),"Bounce")
+		ARND A 0 A_CheckFloor("Jump")
+		Loop
+	Bounce:
+		ARND A 0 A_FaceTarget
+		ARND A 0 A_Recoil(-4)
+		ARND AAA 1 ThrustThingZ(0,frandom(11,20),0,0)
+		ARND BBB 1 ThrustThing(angle*256/360,random(5,8),0,0)
+		Goto See			
+	Jump:
+		ARND A 0 A_Recoil(-4)
+		ARND A 0 ThrustThingZ(0,frandom(11,20),0,0)
+		ARND A 0 ThrustThing(angle*256/360,random(5,8),0,0)
+		Goto See
+	Melee:
+		ARND F 3
+		ARND G 6 A_CustomMeleeAttack(frandom(1,2),"dsdolstb","none","Turner",true)
+		Goto See
+	Pain:
+		ARND I 3
+		ARND I 3 A_Pain
+		Goto See
+	XDeath:
+	Death:
+		ARND J 0 A_Scream
+		ARND JKLMNOP 3 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_NoBlocking
+		ARND P 1 A_SpawnDebris("FlyingBlood") 
+		ARND P -1 A_BossDeath
+		Stop
+	}
+}
+
+ACTOR ----------DEMONSHOUNDS---------- {}
+ACTOR Demonhound 19012
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Demonhound
+  //$Color 3
+  Health 150
+  PainChance 180
+  Speed 12
+  Radius 30
+  Height 56
+  Mass 400
+  Monster
+  +ALWAYSFAST
+  +DROPOFF
+  GibHealth -10    
+  SeeSound "demon/sight"
+  AttackSound "demon/Melee"
+  PainSound "demon/pain"
+  DeathSound "demon/death"
+  ActiveSound "demon/active"
+  Obituary "%o was bit by a Demonhound."
+  DamageType "Fire"
+  MaxTargetRange 192  
+  Meleerange 44 
+  States
+  {
+	Spawn:
+		DHRG AB 10 A_Look
+	Loop
+	See:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_CheckFloor("Jump")							
+		DHRG AABBCCDD 2 A_Chase
+		TNT1 A 0 A_Jump(4,1)
+	Loop	
+		DHRG A 0 A_JumpIfCloser(random(200,400),"Bounce")
+	Goto See+2
+	Bounce:
+		DHRG A 0 A_FaceTarget
+		DHR2 A 8 A_Recoil(-4)
+		DHR2 B 8 ThrustThingZ(0,frandom(30,40),0,0)
+		DHR2 C 8 ThrustThing(angle*256/360,random(10,16),0,0)
+	Goto See			
+	Jump:
+		TNT1 A 0 A_FaceTarget
+		DHR2 A 8 A_Recoil(-4)
+		DHR2 B 8 ThrustThingZ(0,frandom(30,40),0,0)
+		DHR2 C 8 ThrustThing(angle*256/360,random(10,16),0,0)
+	Goto See	
+	Melee:
+		DHRG EF 8 Fast A_FaceTarget
+		DHRG GO 8 Fast A_SargAttack
+	Goto See
+	Missile:
+		DHRG P 1 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)//A_CustomComboAttack ("HellHoundFire",20,4* random(1,10),"demon/Melee")
+		TNT1 A 0 A_FaceTarget		
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)//A_CustomComboAttack ("HellHoundFire",20,4* random(1,10),"demon/Melee")
+		TNT1 A 0 A_FaceTarget		
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)//A_CustomComboAttack ("HellHoundFire",20,4* random(1,10),"demon/Melee")
+		TNT1 A 0 A_FaceTarget		
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)//A_CustomComboAttack ("HellHoundFire",20,4* random(1,10),"demon/Melee")		
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)//A_CustomComboAttack ("HellHoundFire",20,4* random(1,10),"demon/Melee")		
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)//A_CustomComboAttack ("HellHoundFire",20,4* random(1,10),"demon/Melee")		
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)//A_CustomComboAttack ("HellHoundFire",20,4* random(1,10),"demon/Melee")		
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)//A_CustomComboAttack ("HellHoundFire",20,4* random(1,10),"demon/Melee")		
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)//A_CustomComboAttack ("HellHoundFire",20,4* random(1,10),"demon/Melee")		
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)//A_CustomComboAttack ("HellHoundFire",20,4* random(1,10),"demon/Melee")		
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_JumpIfCloser(200,1)
+		Goto See
+		TNT1 AAAAAAAA 0 A_MonsterRefire(130, "See")
+		Goto Missile		
+	Goto See
+	Pain:
+		DHRG H 2 Fast
+		DHRG H 2 Fast A_Pain
+	Goto See
+	Death:
+		DHRG I 8
+		DHRG J 8 A_Scream
+		DHRG K 4
+		DHRG L 4 A_NoBlocking
+		DHRG M 4
+		DHRG N -1
+	Stop
+	XDeath:
+		DHRG Q 4 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")	
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")	
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")	
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("HeadBlood")
+		TNT1 A 0 A_SpawnItemEx("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")	
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")	
+		TNT1 A 0 A_SpawnItemEx("Entrails",random(-50,50),random(-50,50),0)	
+		DHRG R 4 A_XScream
+		DHRG S 4 A_SpawnDebris("FlyingBlood")
+		DHRG T 4 A_SpawnDebris("FlyingBlood")
+		DHRG U 4 A_NoBlocking
+		DHRG V 4 A_SpawnDebris("FlyingBlood")
+		DHRG W 4 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		DHRG X 4 A_SpawnDebris("FlyingBlood")
+		DHRG Y -1
+	Stop	
+	Raise:
+		DHRG N 5
+		DHRG MLKJI 5
+	Goto See
+  }
+}
+
+ACTOR DemonhoundAlt : HellKnight 19026
+{ 
+	//$Category Bloom Hybrid Monsters
+	//$Title Demonhound Alternative
+	//$Color 3
+	MeleeDamage 4
+	Speed 8
+	MaxstepHeight 46
+	FastSpeed 8
+	Height 32
+	ProjectilePassHeight 40
+	Radius 20
+	Health 150
+	Mass 100
+	PainSound "HellHoundPain"
+	DeathSound "HellHoundDie"
+	SeeSound "HellHoundSee"
+	ActiveSound "HellHoundSee"
+	+DROPOFF
+	MaxTargetRange 256
+	Meleesound "dsdolstb"
+	Meleerange 50
+	MeleeThreshold 128
+	HitObituary "%o got caught by a puppy"
+	Obituary "%o was incinerated by a DemonHound"
+	Species "HellDog"
+	DamageType "GOUPBOY"
+	States
+	{
+  	Spawn:
+		HOU2 A 10 A_Look 
+		Loop
+	See:
+	    HOU2 A 0 A_Jump(30,"Hunter")
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Sunk")
+		HOU2 AAAABBBB 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,6,0,0)
+		HOU2 CCCCDDDD 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,6,0,0)
+		HOU2 EEEEFFFF 1 A_Chase
+		HOU2 E 0 A_Jump(112,"Sproink")
+		Loop
+	Hunter:
+		HOU2 ABCDABCD 2 A_FaceTarget
+		HOU2 ABCDABCDABCD 1 A_Recoil(-1)
+		HOU2 ABCD 1 A_Recoil(-40)
+		Goto Missile
+	Sunk:
+		TNT1 A 0 Thing_Damage(0,Health,0)
+		Loop	
+	Sproink:
+		HOU2 C 2 ThrustThingZ(0,frandom(35,50),0,1)
+		HOU2 DDDD 1 A_Recoil(-6)
+		HOU2 EEEEFFFF 1
+	Fallin:
+		HOU2 FFFFFFFFFFFFFFFFF 3 A_CheckFloor("See")
+		Goto See
+	Wander:
+		HOU2 AAAAABBBBB 1 A_Wander
+		TNT1 A 0 ThrustThing(angle*256/360,2,0,0)
+		HOU2 CCCCCDDDDDD 1 A_Wander
+		TNT1 A 0 ThrustThing(angle*256/360,2,0,0)
+		HOU2 EEEEEFFFFF 1 A_Wander
+		Goto See
+	Melee:
+		HOU2 H 5 A_FaceTarget
+		HOU2 I 7 A_Recoil(-2)
+		TNT1 A 0 A_CustomMeleeAttack(frandom(4,20),"dsdolstb","HellHound/Bite")
+		TNT1 A 0 A_CustomMeleeAttack(frandom(2,12),"dsdolstb","HellHound/Bite")
+		HOU2 A 0 A_Jump(125,"Sproink")
+		HOU2 AAAAAAAA 1 A_Chase
+		Goto Spawn
+	MeleeFurious:
+		HOU2 H 3 A_FaceTarget
+		HOU2 I 5 A_Recoil(-12)
+		TNT1 A 0 A_CustomMeleeAttack(frandom(10,25),"dsdolstb","HellHound/Bite")
+		TNT1 A 0 A_CustomMeleeAttack(frandom(10,20),"dsdolstb","HellHound/Bite")
+		HOU2 H 4 A_jumpIfInTargetInventory("BurnTics",1,"MeleeFurious")
+		Goto See
+	Missile:
+		HOU3 I 6 A_jumpIfInTargetInventory("BurnTics",1,"MeleeFurious")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_JumpIfCloser(200,1)
+		Goto See
+		HOU2 AAAAAAAA 0 A_SentinelRefire
+		Goto Missile+1
+	Pain:
+		HOU2 J 3
+		HOU2 J 5 A_Pain
+		HOU2 J 0 A_SetAngle(frandom(-90,90))
+		Goto Sproink
+	Pain.Fire:
+		TNT1 A 0 Healthing(1)
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0 A_JUMP(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("potionHealth", frandom(0,1))
+	    Goto See
+	Pain.Shock: 
+		HSOK A 0 A_ChangeFlag("NoPain",1)
+		HSOK A 0 A_ScaleVelocity(.25)
+		HSOK A 0 A_Jump(192,1,2,3,4,5,6,7,8)
+		HSOK AAAAAAAAAAAAAAAAAAAAAAAA 1 BRIGHT
+		HSOK A 4 A_Pain
+		HSOK A 0 A_ChangeFlag("NoPain",0)
+		HSOK A 0 A_JumpIfHealthLower(64,2)
+		HSOK A 0 A_Jump(192,"See")
+		HSOK AAAAAAAAAAAAAAAAAAAAAAAA 1 BRIGHT
+		Goto See
+	Death:
+		HOU3 A  6
+		HOU3 B  5 A_Scream
+		HOU3 C  4
+		HOU3 D  4 A_NoBlocking
+		HOU3 EFGHGGGHGHGHHHG 4
+		HOU3 H -1
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
+		Stop
+	}
+}
+
+ACTOR Spectrehound : Demonhound 19049
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Spectrehound 
+  //$Color 3
+  +SHADOW
+  RenderStyle OptFuzzy
+  Alpha 0.5
+  SeeSound "spectre/sight"
+  AttackSound "spectre/melee"
+  PainSound "spectre/pain"
+  DeathSound "spectre/death"
+  ActiveSound "spectre/active"
+  HitObituary "%o was eaten by a spectrehound."
+  States
+  {
+	Missile:   
+	Goto See
+  }
+}
+
+ACTOR SpectrehoundAlt : DemonhoundAlt 19050
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Spectrehound Alternative
+  //$Color 3
+  +SHADOW
+  RenderStyle OptFuzzy
+  Alpha 0.5
+  SeeSound "spectre/sight"
+  AttackSound "spectre/melee"
+  PainSound "spectre/pain"
+  DeathSound "spectre/death"
+  ActiveSound "spectre/active"
+  HitObituary "%o was eaten by a spectrehound."
+  States
+  {
+	Missile:  
+	Goto See
+  }  
+}
+
+ACTOR ----------CACOYLES---------- {}
+ACTOR LivingCacoyleStatue 19035
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Living Cacoyle Statue
+  //$Color 3
+  Radius 10
+  Height 35
+  Mass 10
+  Gravity 0.6
+  +SOLID
+  +SHOOTABLE
+  -NOBLOOD
+  -SPAWNCEILING
+  -NOGRAVITY
+  States
+  {
+  Spawn:
+	CCLS A 320 A_SetTics (frandom((Health / 20)+950,2100))
+    CCLS A 1 A_Look
+	Loop
+  See:
+	CCLS A 1 A_JumpIfCloser(196,"Unmorph")
+	Loop
+  Unmorph:
+	CCLS ABCD 5
+	TNT1 A 0 A_UnSetSolid	
+	CCLS E 1 A_SpawnItemEx("Cacoyle",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+	CCLS E -1
+	Stop
+  }
+}
+
+ACTOR Cacoyle 19014
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Cacoyle
+  //$Color 3
+  Health 400
+  Radius 31
+  Height 64
+  Mass 400
+  Speed 9
+  PainChance 128
+  Monster
+  +FLOAT
+  +NOGRAVITY
+  +FLOATBOB  
+  +QUICKTORETALIATE  
+  SeeSound "caco/sight"
+  PainSound "caco/pain"
+  DeathSound "caco/death"
+  ActiveSound "caco/active"
+  Obituary "$OB_CACO"
+  HitObituary "%o gets killed by a Cacoyle's bad breath ;)"
+  DropItem "UselessStuff" 32
+  States
+  {
+  Spawn:
+    CYAD ABCCBA 3 A_Look
+    Loop
+  See:
+	TNT1 A 0 A_Jump(128,8)
+    TNT1 A 0 A_PlaySound ("GarWing")	
+    CYAD ABCCBA 3 A_Chase
+	Loop
+	CYAD A 0 ThrustThingZ(0,frandom(12,15),1,0)
+    TNT1 A 0 A_SentinelBob
+    TNT1 A 0 A_PlaySound ("GarWing")
+    CYAD A 1 A_Chase
+    CYAD A 1 A_ExtChase(0,0,0,0)
+    CYAD A 1 A_Chase
+    CYAD A 1 A_ExtChase(0,0,0,0)
+	CYAD A 0 ThrustThing(angle*256/360,1,0,0)	
+    CYAD B 1 A_Chase
+    CYAD B 1 A_ExtChase(0,0,0,0)
+    CYAD B 1 A_Chase
+    CYAD B 1 A_ExtChase(0,0,0,0)
+	CYAD B 0 ThrustThing(angle*256/360,1,0,0)		
+    CYAD C 1 A_Chase
+    CYAD C 1 A_ExtChase(0,0,0,0)
+    CYAD C 1 A_Chase
+    CYAD C 1 A_ExtChase(0,0,0,0)
+	CYAD C 0 ThrustThing(angle*256/360,1,0,0)			
+    CYAD C 1 A_Chase
+    CYAD C 1 A_ExtChase(0,0,0,0)
+    CYAD C 1 A_Chase
+    CYAD C 1 A_ExtChase(0,0,0,0)
+	CYAD C 0 ThrustThing(angle*256/360,1,0,0)				
+    CYAD B 1 A_Chase
+    CYAD B 1 A_ExtChase(0,0,0,0)
+    CYAD B 1 A_Chase
+    CYAD B 1 A_ExtChase(0,0,0,0)
+	CYAD B 0 ThrustThing(angle*256/360,1,0,0)			
+    CYAD A 1 A_Chase
+    CYAD A 1 A_ExtChase(0,0,0,0)
+    CYAD A 1 A_Chase
+    CYAD A 1 A_ExtChase(0,0,0,0)
+	CYAD A 0 ThrustThing(angle*256/360,1,0,0)
+    Loop
+  Missile:
+    CYAD DE 5 A_FaceTarget
+	TNT1 A 0 A_Jump(256,"Missile1","Missile2","Missile3","Missile4","Missile5","Missile6","Missile7","Missile8")	
+  Missile1:	
+    CYAD F  5 A_CustomComboAttack("CacoyleBall", 24, 10 * random(1, 6))
+    Goto See
+  Missile2:	
+    CYAD F  5 A_CustomComboAttack("CacoyleBall2", 24, 10 * random(1, 6))
+    Goto See	
+  Missile3:	
+    CYAD F  5 A_CustomComboAttack("CacoyleBall3", 24, 10 * random(1, 6))
+    Goto See	
+  Missile4:	
+    CYAD F  5 A_CustomComboAttack("CacoyleBall4", 24, 10 * random(1, 6))
+    Goto See	
+  Missile5:	
+    CYAD F  5 A_CustomComboAttack("CacoyleBall5", 24, 10 * random(1, 6))
+    Goto See	
+  Missile6:	
+    CYAD F  5 A_CustomComboAttack("CacoyleBall6", 24, 10 * random(1, 6))
+    Goto See	
+  Missile7:	
+    CYAD F  5 A_CustomComboAttack("CacoyleBall7", 24, 10 * random(1, 6))
+    Goto See	
+  Missile8:	
+    CYAD F  5 A_CustomComboAttack("CacoyleBall8", 24, 10 * random(1, 6))
+    Goto See	
+  Pain:
+	TNT1 A 0 A_Jump(128,4)
+	CYAD O 3
+	CYAD P random(35,75) A_SetInvulnerable
+	CYAD O 3 A_UnSetInvulnerable	
+	Goto See
+    CYAD G 3
+    CYAD G 3 A_Pain
+    CYAD H 6
+    Goto See
+  Death:
+    CYAD I 8
+    CYAD J 8 A_Scream
+    CYAD KL 8
+    CYAD M 8 A_NoBlocking
+	TNT1 A 0 A_ChangeFlag("FLOATBOB",FALSE)			
+    CYAD N -1 A_SetFloorClip
+    Stop
+  Raise:
+    CYAD N 8 A_UnSetFloorClip
+    CYAD MLKJI 8
+    Goto See
+  }
+}
+
+ACTOR Cacoyle_Variant 19016
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Cacoyle with arms
+  //$Color 3
+  Health 400
+  Radius 31
+  Height 56
+  Mass 400
+  Speed 9
+  PainChance 128
+  Monster
+  +FLOAT
+  +NOGRAVITY
+  +FLOATBOB  
+  +QUICKTORETALIATE
+  SeeSound "caco/sight"
+  PainSound "caco/pain"
+  DeathSound "caco/death"
+  ActiveSound "caco/active"
+  Obituary "$OB_CACO"
+  HitObituary "%o gets killed by a Cacoyle's bad breath ;)"
+  DropItem "UselessStuff" 32  
+  States
+  {
+  Spawn:
+    CYA2 A 10 A_Look
+    Loop
+  See:
+	TNT1 A 0 A_Jump(64,2)
+	CYA2 A 3 A_Chase
+	Loop
+    CYA2 A 3 A_FastChase
+    Goto See
+  Missile:
+    CYA2 BC 5 A_FaceTarget
+	TNT1 A 0 A_Jump(256,"Missile1","Missile2","Missile3","Missile4","Missile5","Missile6","Missile7","Missile8")
+  Missile1:	
+    CYA2 D  5 A_CustomComboAttack("CacoyleBall", 24, 10 * random(1, 6))
+    Goto See
+  Missile2:	
+    CYA2 D  5 A_CustomComboAttack("CacoyleBall2", 24, 10 * random(1, 6))
+    Goto See	
+  Missile3:	
+    CYA2 D  5 A_CustomComboAttack("CacoyleBall3", 24, 10 * random(1, 6))
+    Goto See	
+  Missile4:	
+    CYA2 D  5 A_CustomComboAttack("CacoyleBall4", 24, 10 * random(1, 6))
+    Goto See	
+  Missile5:	
+    CYA2 D  5 A_CustomComboAttack("CacoyleBall5", 24, 10 * random(1, 6))
+    Goto See	
+  Missile6:	
+    CYA2 D  5 A_CustomComboAttack("CacoyleBall6", 24, 10 * random(1, 6))
+    Goto See	
+  Missile7:	
+    CYA2 D  5 A_CustomComboAttack("CacoyleBall7", 24, 10 * random(1, 6))
+    Goto See	
+  Missile8:	
+    CYA2 D  5 A_CustomComboAttack("CacoyleBall8", 24, 10 * random(1, 6))
+    Goto See	
+  Pain:
+    CYA2 E 3
+    CYA2 E 3 A_Pain
+    CYA2 F 6
+    Goto See
+  Death:
+    CYA2 G 8
+    CYA2 H 8 A_Scream
+    CYA2 IJ 8
+    CYA2 K 8 A_NoBlocking
+	TNT1 A 0 A_ChangeFlag("FLOATBOB",FALSE)		
+    CYA2 L -1 A_SetFloorClip
+    Stop
+
+  Raise:
+    CYA2 L 8 A_UnSetFloorClip
+    CYA2 KJIHG 8
+    Goto See
+  }
+}
+
+ACTOR CacoyleBall
+{
+  Radius 6
+  Height 8
+  Speed 25
+  Health 1
+  FastSpeed 20
+  Damage 3
+  Projectile
+  +RANDOMIZE
+  +SHOOTABLE
+  -NOBLOCKMAP
+  SeeSound "caco/attack"
+  DeathSound "caco/shotx"
+  GibHealth -1  
+  States
+  {
+  Spawn:
+    ZHED ABCDEFGHIJKLMNOP 8
+  Loop
+  Death:
+    ZHED A 1 A_ThrowGrenade("KickableFlying",-30,-20,0,0)
+  Stop
+  XDeath:
+	ZHED B 1
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")    
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")    
+	TNT1 A 0 A_SpawnDebris("FlyingBlood")	  
+  Stop
+  }
+}
+
+ACTOR CacoyleBall2
+{
+  Radius 6
+  Height 8
+  Speed 25
+  Health 1
+  FastSpeed 20
+  Damage 3
+  Projectile
+  +RANDOMIZE
+  +SHOOTABLE
+  -NOBLOCKMAP
+  SeeSound "caco/attack"
+  DeathSound "caco/shotx"
+  GibHealth -1  
+  States
+  {
+  Spawn:
+    ZHE2 ABCDEFGHIJKLMNOP 8
+  Loop
+  Death:
+    ZHE2 A 1 A_ThrowGrenade("KickableFlyingZombimp2",-30,-20,0,0)
+  Stop
+  XDeath:
+	ZHE2 B 1
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")    
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")    
+	TNT1 A 0 A_SpawnDebris("FlyingBlood")	  
+  Stop
+  }
+}
+
+ACTOR CacoyleBall3
+{
+  Radius 6
+  Height 8
+  Speed 25
+  Health 1
+  FastSpeed 20
+  Damage 3
+  Projectile
+  +RANDOMIZE
+  +SHOOTABLE
+  -NOBLOCKMAP
+  SeeSound "caco/attack"
+  DeathSound "caco/shotx"
+  GibHealth -1  
+  States
+  {
+  Spawn:
+    ZHE3 ABCDEFGHIJKLMNOP 8
+  Loop
+  Death:
+    ZHE3 A 1 A_ThrowGrenade("KickableFlyingZombimp3",-30,-20,0,0)
+  Stop
+  XDeath:
+	ZHE3 B 1
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")    
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")    
+	TNT1 A 0 A_SpawnDebris("FlyingBlood")	  
+  Stop
+  }
+}
+
+ACTOR CacoyleBall4
+{
+  Radius 6
+  Height 8
+  Speed 25
+  Health 1
+  FastSpeed 20
+  Damage 3
+  Projectile
+  +RANDOMIZE
+  +SHOOTABLE
+  -NOBLOCKMAP
+  SeeSound "caco/attack"
+  DeathSound "caco/shotx"
+  GibHealth -1  
+  States
+  {
+  Spawn:
+    ZHE4 ABCDEFGHIJKLMNOP 8
+  Loop
+  Death:
+    ZHE4 A 1 A_ThrowGrenade("KickableFlyingZombimp4",-30,-20,0,0)
+  Stop
+  XDeath:
+	ZHE4 B 1
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")    
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")    
+	TNT1 A 0 A_SpawnDebris("FlyingBlood")	  
+  Stop
+  }
+}
+
+ACTOR CacoyleBall5
+{
+  Radius 6
+  Height 8
+  Speed 25
+  Health 1
+  FastSpeed 20
+  Damage 3
+  Projectile
+  +RANDOMIZE
+  +SHOOTABLE
+  -NOBLOCKMAP
+  SeeSound "caco/attack"
+  DeathSound "caco/shotx"
+  GibHealth -1  
+  States
+  {
+  Spawn:
+    GHE1 ABCDEFGHIJKLMNOP 8
+  Loop
+  Death:
+    GHE1 A 1 A_ThrowGrenade("KickableFlyingGhoul1",-30,-20,0,0)
+  Stop
+  XDeath:
+	GHE1 B 1
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")    
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")    
+	TNT1 A 0 A_SpawnDebris("FlyingBlood")	  
+  Stop
+  }
+}
+
+ACTOR CacoyleBall6
+{
+  Radius 6
+  Height 8
+  Speed 25
+  Health 1
+  FastSpeed 20
+  Damage 3
+  Projectile
+  +RANDOMIZE
+  +SHOOTABLE
+  -NOBLOCKMAP
+  SeeSound "caco/attack"
+  DeathSound "caco/shotx"
+  GibHealth -1  
+  States
+  {
+  Spawn:
+    GHE2 ABCDEFGHIJKLMNOP 8
+  Loop
+  Death:
+    GHE2 A 1 A_ThrowGrenade("KickableFlyingGhoul2",-30,-20,0,0)
+  Stop
+  XDeath:
+	GHE2 B 1
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")    
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")    
+	TNT1 A 0 A_SpawnDebris("FlyingBlood")	  
+  Stop
+  }
+}
+
+ACTOR CacoyleBall7
+{
+  Radius 6
+  Height 8
+  Speed 25
+  Health 1
+  FastSpeed 20
+  Damage 3
+  Projectile
+  +RANDOMIZE
+  +SHOOTABLE
+  -NOBLOCKMAP
+  SeeSound "caco/attack"
+  DeathSound "caco/shotx"
+  GibHealth -1  
+  States
+  {
+  Spawn:
+    GHE3 ABCDEFGHIJKLMNOP 8
+  Loop
+  Death:
+    GHE3 A 1 A_ThrowGrenade("KickableFlyingGhoul3",-30,-20,0,0)
+  Stop
+  XDeath:
+	GHE3 B 1
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")    
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")    
+	TNT1 A 0 A_SpawnDebris("FlyingBlood")	  
+  Stop
+  }
+}
+
+ACTOR CacoyleBall8
+{
+  Radius 6
+  Height 8
+  Speed 25
+  Health 1
+  FastSpeed 20
+  Damage 3
+  Projectile
+  +RANDOMIZE
+  +SHOOTABLE
+  -NOBLOCKMAP
+  SeeSound "caco/attack"
+  DeathSound "caco/shotx"
+  GibHealth -1  
+  States
+  {
+  Spawn:
+    GHE6 ABCDEFGHIJKLMNOP 8
+  Loop
+  Death:
+    GHE6 A 1 A_ThrowGrenade("KickableFlyingGhoul6",-30,-20,0,0)
+  Stop
+  XDeath:
+	GHE6 B 1
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")    
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")    
+	TNT1 A 0 A_SpawnDebris("FlyingBlood")	  
+  Stop
+  }
+}
+
+ACTOR ----------Ghost_Revenant---------- {}
+ACTOR Shielded_Ghost_Revenant  19017
+{
+	//$Category Bloom Hybrid Monsters
+	//$Title Ghost Revenant with armor
+	//$Color 3	
+	Health 250
+	Radius 24
+	Height 40
+	ProjectilePassHeight 56
+	Mass 100
+	Speed 15
+	FastSpeed 17
+	Painchance 80
+	MinMissileChance 200
+	MaxTargetRange 1024
+	Meleerange 54	
+	MeleeThreshold 256
+	Monster
+	+FLOAT 
+	+NOGRAVITY
+	+CANNOTPUSH
+    -CANUSEWALLS	
+	-PUSHABLE
+	FloatSpeed 7
+	Alpha 0.75
+	GibHealth -10   
+	SeeSound "PhantasmSee"
+	PainSound "PhantasmPain"
+	DeathSound "PhantasmDie"
+	ActiveSound "PhantasmSee"
+	HitObituary "A Ghost revenant scared the hell out of %o"
+	Obituary "%o couldn't evade to be harvested by a Ghost revenant's fireball."	
+	States
+	{
+  	Spawn:
+		SKGH AABBCCDDEE 2 A_Look
+	Loop
+  	Idle:
+		TNT1 A 0 
+		TNT1 A 0 A_PlaySound("PhantomWin")
+		SKGH AABBCCDDEE 2 A_Wander
+		TNT1 A 0 A_Look
+	Loop
+	See:
+		TNT1 A 0 A_Jump(192,2)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)	
+		TNT1 A 0 A_CheckRange(512,"GhostSee")//,True)
+		TNT1 A 0 A_SetTranslucent(1.0,0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_SetShootable		
+		SKGH AABBCCDDEE 2 A_Chase
+	Loop
+	GhostSee:
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable		
+		TNT1 A 0 A_Jump(192,2)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)	
+		SKGH A 1 A_RadiusThrust(128,32,1)
+		SKGH AABBCCDDEE 2 A_Chase ("Melee","")//Avoid missile attack		
+		TNT1 A 0 A_Wander		
+		TNT1 A 0 A_ClearTarget
+	Goto See
+	Missile:
+		TNT1 A 0 A_SetTranslucent(1.0,0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_SetShootable			
+		TNT1 A 0  A_Jump(192,"SoulMissile")
+		SKGH O 10 BRIGHT A_FaceTarget //Revenant Custom Missile
+		SKGH P 10 A_SkelMissile
+		SKGH P 10 A_FaceTarget
+    Goto See
+	SoulMissile:
+		SKGH O 0 BRIGHT A_FaceTarget
+		SKGH OQR 4 A_FaceTarget
+		SKGH S 4   A_FaceTarget
+		TNT1 A 0   A_PlaySound("LLFireInitiate")
+		SKGH S 1   A_CustomMissile("PhantasmProjectile",24,0,0)	
+	Goto See
+	Melee:
+		TNT1 A 0 A_SetTranslucent(1.0,0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_SetShootable			
+		SKGH OQR 4 A_FaceTarget
+		SKGH S 1   A_FaceTarget
+		TNT1 A 0   A_PlaySound("PhantasmMelee")
+		SKGH S 4   A_CustomMeleeAttack(frandom(6,60),"","none","InsaneBleed")
+		SKGH R 6 
+	Goto See	
+	Pain:
+		SKGH K 4
+		SKGH K 3 A_Pain
+	Goto See
+	Death://The death is just the beginning
+		SKGH K  5 BRIGHT	
+		SKGH M  5 BRIGHT A_Scream
+		SKGH MN 5 BRIGHT
+		TNT1 A  0 A_CustomMissile("ArmourPiece_1",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))	
+		TNT1 A  0 A_CustomMissile("ArmourPiece_2",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))			
+		TNT1 A  0 A_CustomMissile("ArmourPiece_3",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))	
+		TNT1 A  0 A_CustomMissile("ArmourPiece_4",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))			
+		TNT1 A  0 A_CustomMissile("ArmourPiece_5",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))	
+		TNT1 A  0 A_CustomMissile("ArmourPiece_6",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))			
+		TNT1 A  0 A_CustomMissile("ArmourPiece_7",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))	
+		TNT1 A  0 A_CustomMissile("ArmourPiece_8",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))			
+		TNT1 A  0 A_CustomMissile("ArmourPiece_9",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))					
+		SKGH L  1 A_SpawnitemEx("Ghost_Revenant",0,0,0)
+	Stop
+	Xdeath:
+		TNT1 A 0 A_SetTranslucent(0.85,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable
+		ZDEA A 0 A_Scream
+		ZDEA ABCDEFGHI 5 BRIGHT A_FadeOut(0.09)	
+	Stop
+	}
+}
+
+ACTOR Ghost_Revenant 19018
+{
+	//$Category Bloom Hybrid Monsters
+	//$Title Ghost Revenant without armor
+	//$Color 3	
+	Health 60
+	Radius 24
+	Height 40
+	ProjectilePassHeight 56
+	Mass 100
+	Speed 3
+	FastSpeed 7
+	DamageType "InsaneBleed"
+	MinMissileChance 40
+	MaxTargetRange 1024
+	Monster
+	Meleerange 76
+	RenderStyle Add
+	+NOCLIP
+	+FLOAT 
+	+NOGRAVITY
+	+NOICEDEATH
+	-SOLID
+	+CANNOTPUSH
+    -CANUSEWALLS
+	RadiusDamageFactor 0.20
+	FloatSpeed 5
+	Alpha 0.75
+	SeeSound "PhantasmSee"
+	PainSound "PhantasmPain"
+	DeathSound "PhantasmDie"
+	ActiveSound "PhantasmSee"
+	HitObituary "A Ghost revenant scared the hell out of %o"
+	Obituary "%o couldn't evade to be harvested by a Ghost revenant's fireball."
+	States
+	{
+  	Spawn:
+		SKWS A 1
+  	Idle:
+		TNT1 A 0 A_PlaySound("PhantomWin")
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable
+		SKWS ABCDE 5 A_Look
+	Goto Idle+3
+	See:
+		SKWS K 0 A_Changeflag("NOCLIP",1)
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable
+		TNT1 A 0 A_Jump(122,"WhoopWhoop")
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKWS A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKWS A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS B 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKWS B 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS B 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKWS B 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKWS C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKWS C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKWS D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKWS D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKWS E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKWS E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKWS E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_LoopActiveSound
+	Loop
+	WhoopWhoop:
+		TNT1 A 0 A_SetTranslucent(0.45,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable	
+		SKWS A 0 A_Jumpifcloser(400,"Cont")
+	Goto See
+	Cont:
+		SKWS A 1 A_SetAngle(angle+22.5)
+		SKWS B 2 A_Recoil(-14)
+		SKWS B 0 A_Jump(128,2)
+		SKWS B 0 ThrustThingZ(0,frandom(0,20),0,1)
+		SKWS B 0 A_Jump(255,1)
+		SKWS B 0 ThrustThingZ(0,frandom(0,6),0,0)
+		SKWS C 0 A_SetAngle(angle+22.5)
+		SKWS C 1 A_Jump(21,"CHARGEE")
+		SKWS DE 1 A_Recoil(-7)
+		SKWS A 0 A_Stop
+	Loop
+	Descend:
+		SKWS K 4 
+		TNT1 A 0 A_SetTranslucent(1,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable
+		SKWS ABCD 5 A_FadeOut(0.2)
+		SKWS E 5 A_FadeOut(0.1)
+		SKWS E 0 A_SetSolid
+		SKWS E 4 A_Recoil(-30)
+		SKWS E 0 A_SetAngle(angle+frandom(0,360))
+		SKWS E 0 A_SetSolid
+		SKWS E 4 A_Recoil(-30)
+		SKWS E 0 A_SetSolid
+		SKWS E 4 A_Recoil(-30)
+		SKWS E 0 A_SetSolid
+		SKWS E 4 A_Recoil(-30)
+		SKWS E 0 A_Stop
+		SKWS E 0 A_SetSolid
+		SKWS E 4 A_Recoil(-30)
+		SKWS E 0 A_SetSolid
+		SKWS E 4 A_Recoil(-30)
+		SKWS E 0 A_SetAngle(angle+frandom(0,360))
+		SKWS E 0 A_SetSolid
+		SKWS E 4 A_Recoil(-30)
+		SKWS E 0 A_SetAngle(angle+frandom(0,360))
+		SKWS E 0 A_SetSolid
+		SKWS E 4 A_Recoil(-30)
+		SKWS E 0 A_Stop
+		SKWS K 4
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable		
+		TNT1 A 0 A_PlaySound("PhantomWin")
+	Goto See
+	WTF:
+		SKWS A 1 A_SetAngle(angle-22.5)
+		SKWS B 1 A_Recoil(-14)
+		SKWS B 0 A_Jump(128,2)
+		SKWS B 0 ThrustThingZ(0,frandom(0,20),0,1)
+		SKWS B 0 A_Jump(255,1)
+		SKWS B 0 ThrustThingZ(0,frandom(0,20),0,0)
+		SKWS C 0 A_SetAngle(angle-22.5)
+		SKWS C 1 A_Jump(30,"CHARGEE")
+		SKWS DE 1 A_Recoil(-7)
+		SKWS A 0 A_Stop
+		SKWS A 0
+	Loop
+	CHARGEE:
+		SKWS A 0 A_jump(80,"WTF")
+		SKWS A 0 A_FaceTarget
+		SKWS A 1 A_Recoil(-20)
+	Goto See+8
+	Rambo:
+		SKWS K 4 A_Changeflag("NOCLIP",1)
+		TNT1 A 0 A_SetTranslucent(1,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable
+		SKWS E 0 A_SetTranslucent(0.14)
+		SKWS ABCDEABCDEABCDE 4 A_ExtChase(255,0,10)
+		SKWS ABCDEABCDEABCDE 4 A_ExtChase(255,0,10)
+	Missile:
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_SetTranslucent(1,0)
+		TNT1 A 0 A_SetSolid
+		SKWS A 4 A_SetShootable
+		SKWS FGH 4 A_FaceTarget
+		SKWS I 4 A_FaceTarget
+		TNT1 A 0 A_PlaySound("LLFireInitiate")
+		SKWS I 2  A_CustomMissile("PhantasmProjectile",24,0,0)	
+		TNT1 A 0 A_Changeflag("NOCLIP",1)
+		SKWS J 0 A_Jump(100,"Descend","Rambo")
+		SKWS J 0 A_Jump(140,"WhoopWhoop")
+		Goto See
+	Melee:
+		TNT1 A 0 A_Changeflag("NOCLIP",0)
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_SetTranslucent(1,0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_SetShootable
+		SKWS FGH 4 A_FaceTarget
+		SKWS I 1  A_FaceTarget
+		TNT1 A 0 A_PlaySound("PhantasmMelee")
+		SKWS I 4  A_CustomMeleeAttack(frandom(43,80),"","none","InsaneBleed")
+		SKWS J 6 A_Changeflag("NOCLIP",1)
+		SKWS J 0 A_Jump(70,"Rambo")
+		Goto See
+	Pain:
+		SKWS K 4
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable		
+		SKWS K 3 A_Pain
+		SKWS K 0 A_Jump(110,"Descend")
+		SKWS K 0
+	Goto WhoopWhoop
+	Pain.Shock:
+		TNT1 A 0 A_ChangeFlag("NoPain",1)
+		PSOK AAAAAAAAAAAAAAAAAAAAAAAA 3 BRIGHT
+		TNT1 A 0 A_ChangeFlag("NoPain",0)
+	Goto See
+	Death:
+		SKWS L 5 BRIGHT
+		SKWS M 5 BRIGHT A_Scream
+		SKWS NOPQRS 5 BRIGHT
+	Stop
+	}
+}
+
+ACTOR Shielded_Ghost_Revenant_Alt  19020
+{
+	//$Category Bloom Hybrid Monsters
+	//$Title Ghost Revenant (Alternative) with armor
+	//$Color 3	
+	Health 250
+	Radius 24
+	Height 40
+	ProjectilePassHeight 56
+	Mass 100
+	Speed 15
+	FastSpeed 17
+	Painchance 80
+	MinMissileChance 200
+	MaxTargetRange 1024
+	Meleerange 54	
+	MeleeThreshold 256
+	Monster
+	+FLOAT 
+	+NOGRAVITY
+	+CANNOTPUSH
+    -CANUSEWALLS	
+	-PUSHABLE
+	FloatSpeed 7
+	Alpha 0.75
+	GibHealth -10   
+	SeeSound "PhantasmSee"
+	PainSound "PhantasmPain"
+	DeathSound "PhantasmDie"
+	ActiveSound "PhantasmSee"
+	HitObituary "A Ghost revenant scared the hell out of %o"
+	Obituary "%o couldn't evade to be harvested by a Ghost revenant's fireball."	
+	States
+	{
+  	Spawn:
+		SKG2 AABBCCDDEE 2 A_Look
+	Loop
+  	Idle:
+		TNT1 A 0 
+		TNT1 A 0 A_PlaySound("PhantomWin")
+		SKG2 AABBCCDDEE 2 A_Wander
+		TNT1 A 0 A_Look
+	Loop
+	See:
+		TNT1 A 0 A_Jump(192,2)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)	
+		TNT1 A 0 A_CheckRange(512,"GhostSee")//, True )
+		TNT1 A 0 A_SetTranslucent(1.0,0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_SetShootable		
+		SKG2 AABBCCDDEE 2 A_Chase
+	Loop
+	GhostSee:
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable		
+		TNT1 A 0 A_Jump(192,2)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)	
+		SKG2 A 1 A_RadiusThrust(128,32,1)
+		SKG2 AABBCCDDEE 2 A_Chase ("Melee","")//Avoid missile attack		
+		TNT1 A 0 A_Wander		
+		TNT1 A 0 A_ClearTarget
+	Goto See
+	Missile:
+		TNT1 A 0 A_SetTranslucent(1.0,0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_SetShootable			
+		TNT1 A 0  A_Jump(192,"SoulMissile")
+		SKG2 O 10 BRIGHT A_FaceTarget //Revenant Custom Missile
+		SKG2 P 10 A_SkelMissile
+		SKG2 P 10 A_FaceTarget
+    Goto See
+	SoulMissile:
+		SKG2 O 0 BRIGHT A_FaceTarget
+		SKG2 OQR 4 A_FaceTarget
+		SKG2 S 4   A_FaceTarget
+		TNT1 A 0   A_PlaySound("LLFireInitiate")
+		SKG2 S 1   A_CustomMissile("PhantasmProjectile",24,0,0)	
+	Goto See
+	Melee:
+		TNT1 A 0 A_SetTranslucent(1.0,0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_SetShootable			
+		SKG2 OQR 4 A_FaceTarget
+		SKG2 S 1   A_FaceTarget
+		TNT1 A 0   A_PlaySound("PhantasmMelee")
+		SKG2 S 4   A_CustomMeleeAttack(frandom(6,60),"","none","InsaneBleed")
+		SKG2 R 6 
+	Goto See	
+	Pain:
+		SKG2 K 4
+		SKG2 K 3 A_Pain
+	Goto See
+	Death://The death is the beginning
+		SKG2 K  5 BRIGHT	
+		SKG2 M  5 BRIGHT A_Scream
+		SKG2 MN 5 BRIGHT
+		TNT1 A  0 A_CustomMissile("ArmourPiece_1",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))	
+		TNT1 A  0 A_CustomMissile("ArmourPiece_2",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))			
+		TNT1 A  0 A_CustomMissile("ArmourPiece_3",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))	
+		TNT1 A  0 A_CustomMissile("ArmourPiece_4",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))			
+		TNT1 A  0 A_CustomMissile("ArmourPiece_5",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))	
+		TNT1 A  0 A_CustomMissile("ArmourPiece_6",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))			
+		TNT1 A  0 A_CustomMissile("ArmourPiece_7",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))	
+		TNT1 A  0 A_CustomMissile("ArmourPiece_8",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))			
+		TNT1 A  0 A_CustomMissile("ArmourPiece_9",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))			
+		SKG2 L  1 A_SpawnitemEx("Ghost_Revenant_Alt",0,0,0)
+	Stop
+	Xdeath:
+		TNT1 A 0 A_SetTranslucent(0.85,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable
+		ZDE2 A 0 A_Scream
+		ZDE2 ABCDEFGHI 5 BRIGHT A_FadeOut(0.09)	
+	Stop
+	}
+}
+
+ACTOR Ghost_Revenant_Alt 19021
+{
+	//$Category Bloom Hybrid Monsters
+	//$Title Ghost Revenant (Alternative) without armor
+	//$Color 3	
+	Health 60
+	Radius 24
+	Height 40
+	ProjectilePassHeight 56
+	Mass 100
+	Speed 3
+	FastSpeed 7
+	DamageType "InsaneBleed"
+	MinMissileChance 40
+	MaxTargetRange 1024
+	Monster
+	Meleerange 76
+	RenderStyle Add
+	+NOCLIP
+	+FLOAT 
+	+NOGRAVITY
+	+NOICEDEATH
+	-SOLID
+	+CANNOTPUSH
+    -CANUSEWALLS
+	RadiusDamageFactor 0.20
+	FloatSpeed 5
+	Alpha 0.75
+	SeeSound "PhantasmSee"
+	PainSound "PhantasmPain"
+	DeathSound "PhantasmDie"
+	ActiveSound "PhantasmSee"
+	HitObituary "A Ghost revenant scared the hell out of %o"
+	Obituary "%o couldn't evade to be harvested by a Ghost revenant's fireball."
+	States
+	{
+  	Spawn:
+		SKW2 A 1
+  	Idle:
+		TNT1 A 0 A_PlaySound("PhantomWin")
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable
+		SKW2 ABCDE 5 A_Look
+	Goto Idle+3
+	See:
+		SKW2 K 0 A_Changeflag("NOCLIP",1)
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable
+		TNT1 A 0 A_Jump(122,"WhoopWhoop")
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKW2 A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKW2 A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 B 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKW2 B 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 B 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKW2 B 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKW2 C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKW2 C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKW2 D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKW2 D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKW2 E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		SKW2 E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		SKW2 E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_LoopActiveSound
+	Loop
+	WhoopWhoop:
+		TNT1 A 0 A_SetTranslucent(0.45,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable	
+		SKW2 A 0 A_Jumpifcloser(400,"Cont")
+	Goto See
+	Cont:
+		SKW2 A 1 A_SetAngle(angle+22.5)
+		SKW2 B 2 A_Recoil(-14)
+		SKW2 B 0 A_Jump(128,2)
+		SKW2 B 0 ThrustThingZ(0,frandom(0,20),0,1)
+		SKW2 B 0 A_Jump(255,1)
+		SKW2 B 0 ThrustThingZ(0,frandom(0,6),0,0)
+		SKW2 C 0 A_SetAngle(angle+22.5)
+		SKW2 C 1 A_Jump(21,"CHARGEE")
+		SKW2 DE 1 A_Recoil(-7)
+		SKW2 A 0 A_Stop
+	Loop
+	Descend:
+		SKW2 K 4 
+		TNT1 A 0 A_SetTranslucent(1,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable
+		SKW2 ABCD 5 A_FadeOut(0.2)
+		SKW2 E 5 A_FadeOut(0.1)
+		SKW2 E 0 A_SetSolid
+		SKW2 E 4 A_Recoil(-30)
+		SKW2 E 0 A_SetAngle(angle+frandom(0,360))
+		SKW2 E 0 A_SetSolid
+		SKW2 E 4 A_Recoil(-30)
+		SKW2 E 0 A_SetSolid
+		SKW2 E 4 A_Recoil(-30)
+		SKW2 E 0 A_SetSolid
+		SKW2 E 4 A_Recoil(-30)
+		SKW2 E 0 A_Stop
+		SKW2 E 0 A_SetSolid
+		SKW2 E 4 A_Recoil(-30)
+		SKW2 E 0 A_SetSolid
+		SKW2 E 4 A_Recoil(-30)
+		SKW2 E 0 A_SetAngle(angle+frandom(0,360))
+		SKW2 E 0 A_SetSolid
+		SKW2 E 4 A_Recoil(-30)
+		SKW2 E 0 A_SetAngle(angle+frandom(0,360))
+		SKW2 E 0 A_SetSolid
+		SKW2 E 4 A_Recoil(-30)
+		SKW2 E 0 A_Stop
+		SKW2 K 4
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable		
+		TNT1 A 0 A_PlaySound("PhantomWin")
+	Goto See
+	WTF:
+		SKW2 A 1 A_SetAngle(angle-22.5)
+		SKW2 B 1 A_Recoil(-14)
+		SKW2 B 0 A_Jump(128,2)
+		SKW2 B 0 ThrustThingZ(0,frandom(0,20),0,1)
+		SKW2 B 0 A_Jump(255,1)
+		SKW2 B 0 ThrustThingZ(0,frandom(0,20),0,0)
+		SKW2 C 0 A_SetAngle(angle-22.5)
+		SKW2 C 1 A_Jump(30,"CHARGEE")
+		SKW2 DE 1 A_Recoil(-7)
+		SKW2 A 0 A_Stop
+		SKW2 A 0
+	Loop
+	CHARGEE:
+		SKW2 A 0 A_jump(80,"WTF")
+		SKW2 A 0 A_FaceTarget
+		SKW2 A 1 A_Recoil(-20)
+	Goto See+8
+	Rambo:
+		SKW2 K 4 A_Changeflag("NOCLIP",1)
+		TNT1 A 0 A_SetTranslucent(1,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable
+		SKW2 E 0 A_SetTranslucent(0.14)
+		SKW2 ABCDEABCDEABCDE 4 A_ExtChase(255,0,10)
+		SKW2 ABCDEABCDEABCDE 4 A_ExtChase(255,0,10)
+	Missile:
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_SetTranslucent(1,0)
+		TNT1 A 0 A_SetSolid
+		SKW2 A 4 A_SetShootable
+		SKW2 FGH 4 A_FaceTarget
+		SKW2 I 4 A_FaceTarget
+		TNT1 A 0 A_PlaySound("LLFireInitiate")
+		SKW2 I 2  A_CustomMissile("PhantasmProjectile",24,0,0)	
+		TNT1 A 0 A_Changeflag("NOCLIP",1)
+		SKW2 J 0 A_Jump(100,"Descend","Rambo")
+		SKW2 J 0 A_Jump(140,"WhoopWhoop")
+		Goto See
+	Melee:
+		TNT1 A 0 A_Changeflag("NOCLIP",0)
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_SetTranslucent(1,0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_SetShootable
+		SKW2 FGH 4 A_FaceTarget
+		SKW2 I 1  A_FaceTarget
+		TNT1 A 0 A_PlaySound("PhantasmMelee")
+		SKW2 I 4  A_CustomMeleeAttack(frandom(43,80),"","none","InsaneBleed")
+		SKW2 J 6 A_Changeflag("NOCLIP",1)
+		SKW2 J 0 A_Jump(70,"Rambo")
+		Goto See
+	Pain:
+		SKW2 K 4
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnsetSolid
+		TNT1 A 0 A_UnSetShootable		
+		SKW2 K 3 A_Pain
+		SKW2 K 0 A_Jump(110,"Descend")
+		SKW2 K 0
+	Goto WhoopWhoop
+	Pain.Shock:
+		TNT1 A 0 A_ChangeFlag("NoPain",1)
+		PSOK AAAAAAAAAAAAAAAAAAAAAAAA 3 BRIGHT
+		TNT1 A 0 A_ChangeFlag("NoPain",0)
+	Goto See
+	Death:
+		SKW2 L 5 BRIGHT
+		SKW2 M 5 BRIGHT A_Scream
+		SKW2 NOPQRS 5 BRIGHT
+	Stop
+	}
+}
+
+ACTOR GhostRevenantTerrain 19024
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Ghost Revenant Terrain
+  //$Color 3	
+  Health 300
+  Radius 20
+  Height 56
+  Mass 500
+  Speed 10
+  PainChance 100
+  Monster
+  MeleeThreshold 196
+  +MISSILEMORE 
+  +FLOORCLIP
+  SeeSound "skeleton/sight"
+  PainSound "skeleton/pain"
+  DeathSound "skeleton/death"
+  ActiveSound "skeleton/active"
+  Meleesound "skeleton/Melee"
+  HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
+  Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+  States
+  {
+  Spawn:
+    SKT1 AB 10 A_Look
+    Loop
+  See:
+    SKT1 AABBCCDDEEFF 2 A_Chase
+    Loop
+  Melee:
+    SKT1 G 0 A_FaceTarget
+    SKT1 G 6 A_SkelWhoosh
+    SKT1 H 6 A_FaceTarget
+    SKT1 I 6 A_SkelFist
+    Goto See
+  Missile:
+    SKT1 J 0 BRIGHT A_FaceTarget
+    SKT1 J 10 BRIGHT A_FaceTarget
+    SKT1 K 10 A_SkelMissile
+    SKT1 K 10 A_FaceTarget
+    Goto See
+  Pain:
+    SKT1 L 5
+    SKT1 L 5 A_Pain
+    Goto See
+  Death:
+    SKT1 LM 7
+    SKT1 N 7 A_Scream
+    SKT1 O 7 A_NoBlocking
+    SKT1 P 7
+    SKT1 Q -1
+    Stop
+  Raise:
+    SKT1 Q 5
+    SKT1 PONML 5
+    Goto See
+  }
+}
+
+ACTOR GhostRevenantTerrainAlt 19025
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Ghost Revenant Terrain Alternative
+  //$Color 3	
+  Health 300
+  Radius 20
+  Height 56
+  Mass 500
+  Speed 10
+  PainChance 100
+  Monster
+  MeleeThreshold 196
+  +MISSILEMORE 
+  +FLOORCLIP
+  SeeSound "skeleton/sight"
+  PainSound "skeleton/pain"
+  DeathSound "skeleton/death"
+  ActiveSound "skeleton/active"
+  Meleesound "skeleton/Melee"
+  HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
+  Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+  States
+  {
+  Spawn:
+    SKT2 AB 10 A_Look
+    Loop
+  See:
+    SKT2 AABBCCDDEEFF 2 A_Chase
+    Loop
+  Melee:
+    SKT2 G 0 A_FaceTarget
+    SKT2 G 6 A_SkelWhoosh
+    SKT2 H 6 A_FaceTarget
+    SKT2 I 6 A_SkelFist
+    Goto See
+  Missile:
+    SKT2 J 0 BRIGHT A_FaceTarget
+    SKT2 J 10 BRIGHT A_FaceTarget
+    SKT2 K 10 A_SkelMissile
+    SKT2 K 10 A_FaceTarget
+    Goto See
+  Pain:
+    SKT2 L 5
+    SKT2 L 5 A_Pain
+    Goto See
+  Death:
+    SKT2 LM 7
+    SKT2 N 7 A_Scream
+    SKT2 O 7 A_NoBlocking
+    SKT2 P 7
+    SKT2 Q -1
+    Stop
+  Raise:
+    SKT2 Q 5
+    SKT2 PONML 5
+    Goto See
+  }
+}
+
+ACTOR ArmourPiece_1
+{
+    Radius 8
+    Height 12
+    Speed 14
+	Mass 1
+	BounceFACTOR 0.4
+	+DOOMBOUNCE
+    +NOBLOCKMAP
+	+MISSILE
+    +NOTELEPORT
+    +MOVEWITHSECTOR
+    +CLIENTSIDEONLY
+    +FORCEXYBILLBOARD
+	-EXPLODEONWATER
+	States
+    {
+    Spawn:
+		PIEZ A 1
+    Loop
+    Death:   
+		PIEZ A -1		
+	Stop
+    }
+}
+
+ACTOR ArmourPiece_2: ArmourPiece_1
+{
+	States
+    {
+    Spawn:
+		PIEZ B 1
+    Loop
+    Death:   
+		PIEZ B -1		
+	Stop
+    }
+}
+
+ACTOR ArmourPiece_3: ArmourPiece_1
+{
+	States
+    {
+    Spawn:
+		PIEZ C 1
+    Loop
+    Death:   
+		PIEZ C -1		
+	Stop
+    }
+}
+
+ACTOR ArmourPiece_4: ArmourPiece_1
+{
+	States
+    {
+    Spawn:
+		PIEZ D 1
+    Loop
+    Death:   
+		PIEZ D -1		
+	Stop
+    }
+}
+
+ACTOR ArmourPiece_5: ArmourPiece_1
+{
+	States
+    {
+    Spawn:
+		PIEZ E 1
+    Loop
+    Death:   
+		PIEZ E -1		
+	Stop
+    }
+}
+
+ACTOR ArmourPiece_6: ArmourPiece_1
+{
+	States
+    {
+    Spawn:
+		PIEZ F 1
+    Loop
+    Death:   
+		PIEZ F -1		
+	Stop
+    }
+}
+
+ACTOR ArmourPiece_7: ArmourPiece_1
+{
+	States
+    {
+    Spawn:
+		PIEZ G 1
+    Loop
+    Death:   
+		PIEZ G -1		
+	Stop
+    }
+}
+
+ACTOR ArmourPiece_8: ArmourPiece_1
+{
+	States
+    {
+    Spawn:
+		PIEZ H 1
+    Loop
+    Death:   
+		PIEZ H -1		
+	Stop
+    }
+}
+
+ACTOR ArmourPiece_9: ArmourPiece_1
+{
+	States
+    {
+    Spawn:
+		PIEZ I 1
+    Loop
+    Death:   
+		PIEZ I -1		
+	Stop
+    }
+}
+
+ACTOR -----CVLTIMPS-------- {}
+ACTOR Cvltimp 19028
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Cvltimp
+  //$Color 3
+  Health 60
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 12
+  PainChance 200
+  Monster
+  +FLOORCLIP
+  SeeSound "imp/sight"
+  PainSound "imp/pain"
+  DeathSound "imp/death"
+  ActiveSound "imp/active"
+  HitObituary "$OB_IMPHIT"
+  Obituary "$OB_IMP"
+  DropItem "Flaregun" 16
+  DropItem "Flare" 64  
+  Dropitem "UselessStuff" 16  
+  States
+  {
+  Spawn:
+    CIOO AB 10 A_Look
+    Loop
+  See:
+    CIOO AABBCCDD 3 A_Chase
+    Loop
+  Melee:
+  Missile:  
+	TNT1 A  0 A_JumpIfCloser(200,"Missile2")
+    CIOO EF 8 A_FaceTarget
+    CIOO G  6 A_TroopAttack
+    Goto See  
+  Missile2:	
+    CIO1 AB 4 A_FaceTarget
+    CIO1 CD 4 BRIGHT A_FaceTarget
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)	
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+	TNT1 A 0 A_FaceTarget
+    CIO1 E 6 BRIGHT A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)		
+	TNT1 A 0 A_JumpIfCloser(200,1)
+	Goto See
+	TNT1 AAAAAAAA 0 A_SentinelRefire
+	Goto Missile2+5
+  Pain:
+    CIOO H 2
+    CIOO H 2 A_Pain
+    Goto See
+  Death:
+    CIOO I 8
+    CIOO J 8 A_Scream
+    CIOO K 6
+    CIOO L 6 A_NoBlocking
+    CIOO M -1
+    Stop
+  XDeath:
+    CIOO N 5
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp1",0,5,10,0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("HeadBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))		
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("OrganDebris")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+    CIOO O 5 A_XScream
+    CIOO P 5 A_NoBlocking
+    CIOO Q 5 
+    CIOO RST 5
+    CIOO U -1
+    Stop
+  Raise:
+    CIOO ML 8
+    CIOO KJI 6
+    Goto See
+  }
+}
+
+ACTOR CvltimpAlt 19029
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Cvltimp Alt
+  //$Color 3
+  Health 60
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 12
+  PainChance 200
+  Monster
+  +FLOORCLIP
+  SeeSound "imp/sight"
+  PainSound "imp/pain"
+  DeathSound "imp/death"
+  ActiveSound "imp/active"
+  HitObituary "$OB_IMPHIT"
+  Obituary "$OB_IMP"
+  Dropitem "UselessStuff" 16    
+  States
+  {
+  Spawn:
+    CI2O AB 10 A_Look
+    Loop
+  See:
+    CI2O AABBCCDD 3 A_Chase
+    Loop
+  Melee:
+    CI2O EF 8 A_FaceTarget
+    CI2O G 6 A_TroopAttack
+    Goto See  
+  Missile:
+    CI21 AB 4 A_FaceTarget
+    CI21 CD 4 BRIGHT A_FaceTarget
+	TNT1 A 0 A_FaceTarget
+    CI21 E 6 BRIGHT A_CustomMissile("PhantasmProjectile",24,0,0)	
+	Goto See
+  Pain:
+    CI2O H 2
+    CI2O H 2 A_Pain
+    Goto See
+  Death:
+    CI2O I 8
+    CI2O J 8 A_Scream
+    CI2O K 6
+    CI2O L 6 A_NoBlocking
+    CI2O M 6
+	CI2O N -1
+    Stop
+  Burn:
+  Death.SpecialFire:
+  Death.Flare:
+	TNT1 A 0 A_Jump(128, 2)  
+	TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp1",0,5,10,0)
+	TNT1 A 0 A_Jump(128, 2)
+	TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+	CI2O A 1
+	TNT1 A 0 A_Fall
+	TNT1 A 0 A_Pain
+	TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+  Stop		
+  XDeath:
+    CI2O N 5
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp1",0,5,10,0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("EyeGuts")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("HeadBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))		
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+	TNT1 A 0 A_SpawnDebris ("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("OrganDebris")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+    CI2O O 5 A_XScream
+    CI2O P 5 A_NoBlocking
+    CI2O Q 5 
+    CI2O RST 5
+    CI2O U -1
+    Stop
+  Raise:
+    CI2O ML 8
+    CI2O KJI 6
+    Goto See
+  }
+}
+
+ACTOR -----ZOMBIMPS-------- {}
+ACTOR Zombimp1 
+{
+	Health 150
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 8
+	PainChance 200
+    Painchance "Flare", 0	
+    Painchance Fire, 0	
+    DamageFactor Fire, 3.35
+    DamageFactor "Flare", 3.5	
+	Monster
+	+FLOORCLIP
+	SeeSound "imp/sight"
+	PainSound "imp/pain"
+	DeathSound "imp/death"
+	ActiveSound "imp/active"
+	HitObituary "$OB_IMPHIT"
+	Obituary "$OB_IMP"
+	Gibhealth -10
+	States
+	{
+	Spawn:
+		ZI01 A 5 A_Look
+		Loop
+	See:
+		ZI01 AABBCCDD 3 A_Chase
+		Goto See
+	Melee:
+		ZI01 UVW 8 A_FaceTarget
+		ZI01 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(400,5)
+		ZI01 EFG 8 A_FaceTarget
+		ZI01 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See	
+		TNT1 A 0 
+		Goto See
+    Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		ZI01 I 4 A_TakeInventory("AmAlreadyFaking",99)
+		ZI01 I 2 A_Pain		
+		Goto See		
+	Fake:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		ZI11 A 1
+		TNT1 A 0 A_UnSetSolid
+		ZI11 AB 4
+		ZI11 B  4 A_GiveInventory("AmAlreadyFaking",1)
+		ZI11 CDE 4
+	WaitFake:
+	ContFake:
+		ZI11 EEEE 20 
+		ZI11 EEEE 20 
+		ZI11 EEEEEEEE 20
+		TNT1 A 0 A_Jump(120,"WaitFake")
+		ZI11 E 5 
+		TNT1 A 0 A_ChangeFlag("THRUSPECIES",0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_PlaySound("Zombie/Fake")
+		ZI11 EFGHIJK 4 
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See	
+	Death:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Jump(100,"DeathKickableHead")
+		ZI01 J 8
+		ZI01 K 8
+		ZI01 L 6
+		ZI01 M 6 A_NoBlocking
+		ZI01 N -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp1",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		ZI01 A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+	Stop			
+	DeathKickableHead:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp1",0,5,10,0)
+		ZI11 LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI11 MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI11 NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_Fall
+		ZI11 OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI11 PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI11 QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI11 R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI11 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI11 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		ZI11 S -1
+		Stop	
+	XDeath:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI01 O 5 A_XScream
+		ZI01 P 5 A_NoBlocking
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))		
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp1",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))				
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))					
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)	
+		ZI01 QRS 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI01 T -1
+		Stop
+	Raise:
+		ZI01 NM 8
+		ZI01 LKJ 6
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)					
+		Goto See
+	}
+}
+
+ACTOR Zombimp2: Zombimp1
+{
+	States
+	{
+	Spawn:
+		ZI02 A 5 A_Look
+		Loop
+	See:
+		ZI02 AABBCCDD 3 A_Chase
+		Goto See
+	Melee:
+		ZI02 UVW 8 A_FaceTarget
+		ZI02 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(400,5)
+		ZI02 EFG 8 A_FaceTarget
+		ZI02 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See	
+		TNT1 A 0 
+		Goto See
+    Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		ZI02 I 4 A_TakeInventory("AmAlreadyFaking",99)
+		ZI02 I 2 A_Pain		
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		ZI12 A 1
+		TNT1 A 0 A_UnSetSolid
+		ZI12 AB 4
+		ZI12 B  4 A_GiveInventory("AmAlreadyFaking",1)
+		ZI12 CDE 4
+	WaitFake:
+	ContFake:
+		ZI12 EEEE 20 
+		ZI12 EEEE 20 
+		ZI12 EEEEEEEE 20
+		TNT1 A 0 A_Jump(120,"WaitFake")
+		ZI12 E 5 
+		TNT1 A 0 A_ChangeFlag("THRUSPECIES",0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_PlaySound("Zombie/Fake")
+		ZI12 EFGHIJK 4 
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See	
+	Death:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Jump(100,"DeathKickableHead")
+		ZI02 J 8
+		ZI02 K 8
+		ZI02 L 6
+		ZI02 M 6 A_NoBlocking
+		ZI02 N -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp2",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		ZI02 A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+	Stop			
+	DeathKickableHead:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp2",0,5,10,0)
+		ZI12 LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI12 MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI12 NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_Fall
+		ZI12 OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI12 PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI12 QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI12 R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI12 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI12 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		ZI12 S -1
+		Stop	
+	XDeath:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI02 O 5 A_XScream
+		ZI02 P 5 A_NoBlocking
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp2",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))				
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))					
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		ZI02 QRS 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI02 T -1
+		Stop
+	Raise:
+		ZI02 NM 8
+		ZI02 LKJ 6
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)					
+		Goto See
+	}
+}
+
+ACTOR Zombimp3: Zombimp1
+{
+	States
+	{
+	Spawn:
+		ZI03 A 5 A_Look
+		Loop
+	See:
+		ZI03 AABBCCDD 3 A_Chase
+		Goto See
+	Melee:
+		ZI03 UVW 8 A_FaceTarget
+		ZI03 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(400,5)
+		ZI03 EFG 8 A_FaceTarget
+		ZI03 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See	
+		TNT1 A 0 
+		Goto See
+    Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		ZI03 I 4 A_TakeInventory("AmAlreadyFaking",99)
+		ZI03 I 2 A_Pain		
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		ZI13 A 1
+		TNT1 A 0 A_UnSetSolid
+		ZI13 AB 4
+		ZI13 B  4 A_GiveInventory("AmAlreadyFaking",1)
+		ZI13 CDE 4
+	WaitFake:
+	ContFake:
+		ZI13 EEEE 20 
+		ZI13 EEEE 20 
+		ZI13 EEEEEEEE 20
+		TNT1 A 0 A_Jump(120,"WaitFake")
+		ZI13 E 5 
+		TNT1 A 0 A_ChangeFlag("THRUSPECIES",0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_PlaySound("Zombie/Fake")
+		ZI13 EFGHIJK 4 
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See	
+	Death:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Jump(100,"DeathKickableHead")
+		ZI03 J 8
+		ZI03 K 8
+		ZI03 L 6
+		ZI03 M 6 A_NoBlocking
+		ZI03 N -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp3",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		ZI03 A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+	Stop		
+	DeathKickableHead:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp3",0,5,10,0)
+		ZI13 LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI13 MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI13 NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_Fall
+		ZI13 OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI13 PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI13 QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI13 R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI13 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI13 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		ZI13 S -1
+		Stop	
+	XDeath:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI03 O 5 A_XScream
+		ZI03 P 5 A_NoBlocking
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp3",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))				
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))					
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		ZI03 QRS 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI03 T -1
+		Stop
+	Raise:
+		ZI03 NM 8
+		ZI03 LKJ 6
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)					
+		Goto See
+	}
+}
+
+ACTOR Zombimp4: Zombimp1 
+{
+	States
+	{
+	Spawn:
+		ZI04 A 5 A_Look
+		Loop
+	See:
+		ZI04 AABBCCDD 3 A_Chase
+		Goto See
+	Melee:
+		ZI04 WXY 8 A_FaceTarget
+		ZI04 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(400,5)
+		ZI04 EFG 8 A_FaceTarget
+		ZI04 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See	
+		TNT1 A 0 
+		Goto See
+    Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		ZI04 I 4 A_TakeInventory("AmAlreadyFaking",99)
+		ZI04 I 2 A_Pain		
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		ZI14 A 1
+		TNT1 A 0 A_UnSetSolid
+		ZI14 AB 4
+		ZI14 B  4 A_GiveInventory("AmAlreadyFaking",1)
+		ZI14 CDE 4
+	WaitFake:
+	ContFake:
+		ZI14 EEEE 20 
+		ZI14 EEEE 20 
+		ZI14 EEEEEEEE 20
+		TNT1 A 0 A_Jump(120,"WaitFake")
+		ZI14 E 5 
+		TNT1 A 0 A_ChangeFlag("THRUSPECIES",0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_PlaySound("Zombie/Fake")
+		ZI14 EFGHIJK 4 
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See	
+	Death:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Jump(100,"DeathKickableHead")
+		ZI04 J 8
+		ZI04 K 8
+		ZI04 L 6
+		ZI04 M 6 A_NoBlocking
+		ZI04 N -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp4",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		ZI04 A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+	Stop		
+	DeathKickableHead:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp4",0,5,10,0)
+		ZI14 LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI14 MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI14 NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_Fall
+		ZI14 OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI14 PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI14 QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI14 R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI14 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI14 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		ZI14 S -1
+		Stop	
+	XDeath:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI04 O 5 A_XScream
+		ZI04 P 5
+		ZI04 Q 5 A_NoBlocking
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp4",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))				
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))					
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		ZI04 RSTU 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI04 V -1
+		Stop
+	Raise:
+		ZI04 NM 8
+		ZI04 LKJ 6
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)					
+		Goto See
+	}
+}
+
+ACTOR Zombimp5
+{
+	Health 10
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 8
+	PainChance 200
+    Painchance "Flare", 0		
+	Monster
+	+FLOORCLIP
+	SeeSound "imp/sight"
+	PainSound "imp/pain"
+	DeathSound "imp/death"
+	ActiveSound "imp/active"
+	HitObituary "$OB_IMPHIT"
+	Obituary "$OB_IMP"
+	Gibhealth -10
+	States
+	{
+	Spawn:
+		ZI05 A 5 A_Look
+		Loop
+	See:
+		ZI05 AABBCCDD 3 A_Chase
+		Goto See
+	Melee:
+		ZI05 A 1
+		TNT1 A 0 A_Die
+		Goto See
+	Pain:
+		ZI05 A 1
+		ZI05 A 1 A_Pain
+		Goto See
+	Death:
+		TNT1 A 0 A_Quake(512,5,128,256)	
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp2",0,5,10,0)
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")	
+		TNT1 A 0 A_SetAngle(0,360)		
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(0,360)			
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(0,360)	
+		ZI15 A 5  A_NoBlocking
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(0,360)	
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)	
+		TNT1 A 0  A_PlaySound("DSBDSPRY")
+		ZI15 B 5  A_XScream
+		ZI15 C 5  A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI15 D 5  A_NoBlocking
+		ZI15 EF 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI15 GH 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI15 I -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp2",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		ZI05 A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+	Stop		
+    XDeath:
+		TNT1 A 0 A_Quake(512,5,128,256)	
+		TNT1 A 0 A_XScream
+		ZI05 N 5 A_NoBlocking
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp2",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))				
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))					
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")	
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		ZI05 O 8
+		ZI05 P 8
+		ZI05 Q 6
+		ZI05 RST 6 A_NoBlocking
+		ZI05 U -1
+		Stop
+	}
+}
+
+ACTOR ZombimpBall
+{
+  Radius 6
+  Height 8
+  Speed 25
+  Health 1
+  FastSpeed 20
+  Damage 3
+  Projectile
+  RenderStyle Add
+  Alpha 1  
+  +RANDOMIZE
+  +SHOOTABLE
+  -NOBLOCKMAP
+  States
+  {
+  Spawn:
+    ZAL1 AB 4 
+    Loop
+  Death:
+    ZAL1 CDE 6 
+    Stop
+  }
+}
+
+ACTOR BuriedZombimp1 : Zombimp1 
+{	
+	-SOLID
+	-SHOOTABLE	
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		OUTA A 320 A_Look
+	Loop
+	See:
+		OUTA A 0 A_ChangeFlag("SOLID",1)
+		OUTA A 0 A_ChangeFlag("SHOOTABLE",1)		
+		OUTA A 0 A_JumpifInventory("Chokeme",1,11)
+		OUTA A 0 A_GiveInventory("Chokeme",1)
+		OUTA A 0 A_PlaySound("Zombie/Raise")
+		OUTA ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	}
+}
+
+ACTOR BuriedZombimp2 : Zombimp2
+{	
+	-SOLID
+	-SHOOTABLE	
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		OUT2 A 320 A_Look
+	Loop
+	See:
+		OUT2 A 0 A_ChangeFlag("SOLID",1)
+		OUTA A 0 A_ChangeFlag("SHOOTABLE",1)				
+		OUT2 A 0 A_JumpifInventory("Chokeme",1,11)
+		OUT2 A 0 A_GiveInventory("Chokeme",1)
+		OUT2 A 0 A_PlaySound("Zombie/Raise")
+		OUT2 ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	}
+}
+
+ACTOR BuriedZombimp3 : Zombimp3
+{	
+	-SOLID
+	-SHOOTABLE	
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		OUT3 A 320 A_Look
+	Loop
+	See:
+		OUT3 A 0 A_ChangeFlag("SOLID",1)
+		OUTA A 0 A_ChangeFlag("SHOOTABLE",1)				
+		OUT3 A 0 A_JumpifInventory("Chokeme",1,11)
+		OUT3 A 0 A_GiveInventory("Chokeme",1)
+		OUT3 A 0 A_PlaySound("Zombie/Raise")
+		OUT3 ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	}
+}
+
+ACTOR BuriedZombimp4 : Zombimp4 
+{	
+	-SOLID
+	-SHOOTABLE
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		OUT4 A 320 A_Look
+	Loop
+	See:
+		OUT4 A 0 A_ChangeFlag("SOLID",1)
+		OUTA A 0 A_ChangeFlag("SHOOTABLE",1)				
+		OUT4 A 0 A_JumpifInventory("Chokeme",1,11)
+		OUT4 A 0 A_GiveInventory("Chokeme",1)
+		OUT4 A 0 A_PlaySound("Zombie/Raise")
+		OUT4 ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	}
+}
+
+ACTOR BuriedZombimp5 : Zombimp5
+{	
+	-SOLID
+	-SHOOTABLE	
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		OUT5 A 320 A_Look
+	Loop
+	See:
+		OUT5 A 0 A_ChangeFlag("SOLID",1)
+		OUTA A 0 A_ChangeFlag("SHOOTABLE",1)				
+		OUT5 A 0 A_JumpifInventory("Chokeme",1,11)
+		OUT5 A 0 A_GiveInventory("Chokeme",1)
+		OUT5 A 0 A_PlaySound("Zombie/Raise")
+		OUT5 ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	}
+}
+
+ACTOR Zombimps: BuriedZombimp1  19033
+{
+	//$Category Bloom Hybrid Monsters
+	//$Title Zombimps
+	//$Color 3
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 ACS_NamedExecuteAlways("FloorTextureCheck", 0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+	Loop
+	NoGroundSpawner://Summon a Randomspawner class for stand up zombimps
+		//TNT1 A 0 A_SpawnItemEx("StandUpZombimpsSpawner",0,0,0,0)
+        TNT1 A 0 A_SpawnItemEx("StandUpZombimpsSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	Stop	
+	GroundSpawner://Summon a Randomspawner class for buried zombimps
+		//TNT1 A 0 A_SpawnItemEx("BuriedZombimpsSpawner",0,0,0,0)
+        TNT1 A 0 A_SpawnItemEx("BuriedZombimpsSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)		
+	Stop		
+	}
+}
+
+/*ACTOR StandUpZombimpsSpawner : RandomSpawner
+{
+  DropItem "Zombimp1"
+  DropItem "Zombimp2"  
+  DropItem "Zombimp3"	
+  DropItem "Zombimp4"	
+  DropItem "Zombimp5"	  
+}
+
+ACTOR BuriedZombimpsSpawner : RandomSpawner
+{
+  DropItem "BuriedZombimp1"
+  DropItem "BuriedZombimp2"  
+  DropItem "BuriedZombimp3"	
+  DropItem "BuriedZombimp4"	
+  DropItem "BuriedZombimp5"	
+}*/
+
+ACTOR StandUpZombimpsSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5")
+	Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Zombimp1",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Zombimp2",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("Zombimp3",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("Zombimp4",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop	
+	Spawn5:
+		TNT1 A 0 A_SpawnItemEx("Zombimp5",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop		
+	}
+}
+
+ACTOR BuriedZombimpsSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5")
+	Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("BuriedZombimp1",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BuriedZombimp2",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("BuriedZombimp3",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("BuriedZombimp4",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop	
+	Spawn5:
+		TNT1 A 0 A_SpawnItemEx("BuriedZombimp5",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop		
+	}
+}
+
+ACTOR ----------WEREWOLVES_OF_HELL---------- {}
+ACTOR WereWolfOfHellAlt 19031
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title WereWolf of Hell Alternative
+  //$Color 3
+  Radius 24
+  Height 64
+  Mass 1000
+  Speed 8
+  PainChance 50
+  Monster
+  +FLOORCLIP
+  Health 1000
+  +BOSSDEATH
+  SeeSound "baron/sight"
+  PainSound "baron/pain"
+  DeathSound "baron/death"
+  ActiveSound "baron/active"
+  Obituary "$OB_BARON"
+  HitObituary "$OB_BARONHIT"
+  GibHealth -10   
+  Species "HellWolf"
+  +DONTHARMCLASS
+  States
+  {
+  Spawn:
+    BOS3 AB 10 A_Look
+    Loop
+  See:
+    BOS3 AABBCCDD 3 A_Chase
+	TNT1 A 0 A_JumpIfCloser(256, "Stomp")	
+    Loop
+  Melee:
+  Missile:
+    BOS3 EF 8 A_FaceTarget
+    BOS3 G 8 A_BruisAttack
+    Goto See
+  Stomp:
+    BO13 A 10 A_FaceTarget
+    BO13 B 10 A_FaceTarget
+    BO13 C 10 A_FaceTarget
+	TNT1 A 0 A_Playsound("BeastStomp")
+    BO13 D 5 A_SpawnItemEx("BeastStomp")
+    BO13 E 6
+    Goto See	
+  Pain:
+    BOS3 H 2
+    BOS3 H 2 A_Pain
+    Goto See
+  Death:
+    BOS3 I 8
+    BOS3 J 8 A_Scream
+    BOS3 K 8
+    BOS3 L 8 A_NoBlocking
+    BOS3 MN 8
+    BOS3 O -1 A_BossDeath
+    Stop  
+  XDeath:
+    BOS3 P 8
+    BOS3 Q 8 A_XScream
+    BOS3 R 8
+    BOS3 S 8 A_NoBlocking
+    BOS3 TU 8
+    BOS3 V -1 A_BossDeath
+    Stop
+  Raise:
+    BOS3 O 8
+    BOS3 NMLKJI 8
+    Goto See
+  }
+}
+
+ACTOR WereWolfOfHell 19032
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title WereWolf of Hell
+  //$Color 3
+  Radius 24
+  Height 64
+  Mass 1000
+  Speed 24
+  PainChance 50
+  Monster
+  +FLOORCLIP
+  +BOSSDEATH  
+  +DROPOFF
+  Health 1000
+  SeeSound "knight/sight"
+  ActiveSound "knight/active"
+  PainSound "knight/pain"
+  DeathSound "knight/death"
+  HitObituary "$OB_KNIGHTHIT"
+  Obituary "$OB_KNIGHT"
+  MeleeDamage 10
+  Meleerange 64
+  Meleesound "baron/Melee"
+  GibHealth -10 
+  Species "HellWolf"
+  +DONTHARMCLASS
+  States
+  {
+  Spawn:
+    BOS4 AB 10 A_Look
+    Loop
+  See:
+    BOS4 AABBCCDD 3 A_Chase
+	TNT1 A 0 A_JumpIfCloser(256, "Stomp")
+    Loop
+  Stomp:
+    BO14 G 10 A_FaceTarget
+    BO14 H 10 A_FaceTarget
+    BO14 I 10 A_FaceTarget
+	TNT1 A 0 A_Playsound("BeastStomp")
+    BO14 J 5 A_SpawnItemEx("BeastStomp")
+    BO14 K 6
+    Goto See	
+  Melee:
+    BOS4 EF 8 A_FaceTarget
+    BOS4 GH 4 A_MeleeAttack
+	BOS4 IJ 8 A_FaceTarget
+	BOS4 KL 4 A_MeleeAttack
+    Goto See
+  Pain:
+    BOS4 V 2
+    BOS4 V 2 A_Pain
+    Goto See
+  Death:
+    BO14 A 8
+    BO14 B 8 A_Scream
+    BO14 C 8
+    BO14 D 8 A_NoBlocking
+    BO14 EF 8
+    BO14 F -1
+    Stop
+  XDeath:
+    BOS4 O 8
+    BOS4 P 8 A_Scream
+    BOS4 Q 8
+    BOS4 R 8 A_NoBlocking
+    BOS4 ST 8
+    BOS4 U -1
+    Stop
+  Raise:
+    BOS4 F 8
+    BOS4 FEDCBA 8
+    Goto See
+  }
+}
+
+ACTOR ----------GHOULS---------- {}
+
+ACTOR Ghoul1 
+{
+  Radius 16
+  Height 56
+  Speed 6 
+  Health 50 
+  Meleerange 48
+  Meleesound "ZombieAxe"  
+  Obituary "%o got the zombie's AXE"
+  SeeSound "ZombieSee"
+  Attacksound ""
+  DeathSound "ZombieDeath"
+  ActiveSound "ZombieSee"
+  DamageFactor Fire, 3.35
+  DamageFactor "Flare", 3.5
+  DamageFactor "Stomping", 0
+  DropItem "Clip_" 32
+  Dropitem "UselessStuff" 32
+  DropItem "GrenadeAmmo" 48
+  DropItem "Flaregun" 8
+  DropItem "Flare" 64  
+  PainSound ""
+  Painchance 100 //The old annoying zombie faking spam
+  Painchance "LifeLeech", 192
+  Painchance "Tommy", 64//11 //Never seen them fake from this but oh well
+  Painchance Fire, 0
+  Painchance "Flare", 0
+  Painchance "PitchFork", 64
+  Painchance "Dynamite", 90
+  Painchance "Blast", 190 //When they survive tnt they usually fake
+  Painchance "Shock", 255
+  Painchance "SawedoffLess", 170 //Nop not less
+  Painchance "SawedOff", 125
+  Painchance "ZBloodBullet", 64
+  Monster
+  GibHealth -10
+  Species "ZombieFall"
+  +FLOORCLIP
+  -DROPOFF
+  +DONTOVERLAP
+  +RANDOMIZE
+  +NOSPLASHALERT
+  -DONTGIB
+  DamageFactor "StunningHead",3
+  Painchance "SunningHead",230
+  Mass 40
+  States
+  {
+    Spawn:
+		GH1M I 10 A_Look
+		Loop
+	Idle:
+		GH1M I 0 A_Look
+		GH1M AAAABBBBCCCCDDDDAAAABBBBCCCCDDDDAAAABBBBCCCCDDDD 1 A_Wander
+		Loop
+	Already:	
+    See:
+		GH1M AAAABBBBCCCCDDDD 1 A_Chase
+		GH1M A 0 A_Stop //Balance regain
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH1M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH1M A 0 A_Stop
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH1M AAAABBBBCCCCDDDD 1 A_Chase
+		GH1M A 0 A_Stop //Balance regain
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH1M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH1M A 0 A_Stop
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH1M AAAABBBBCCCCDDDD 1 A_Chase
+		GH1M A 0 A_Stop //Balance regain
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH1M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH1M A 0 A_Stop
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH1M AAAABBBBCCCCDDDD 1 A_Chase
+		GH1M A 0 A_Stop //Balance regain
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH1M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH1M A 0 A_Stop
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH1M AAAABBBBCCCCDDDD 1 A_Chase
+		GH1M A 0 A_Stop //Balance regain
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH1M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH1M A 0 A_Stop
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH1M AAAABBBBCCCCDDDD 1 A_Chase
+		GH1M A 0 A_Stop //Balance regain
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH1M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH1M A 0 A_Stop
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH1M AAAABBBBCCCCDDDD 1 A_Chase
+		GH1M A 0 A_Stop //Balance regain
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH1M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH1M A 0 A_Stop
+		GH1M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")
+		GH1M A 0 A_Jump(150,1)
+		Goto StupidMode
+		Loop
+	StupidMode:
+	 	GH1M AAAABBBBCCCCDDDD  1 A_Wander
+		GH1M A 0 A_Look //Balance regain
+		GH1M DDDDCCCCBBBBAAAA  1 A_Wander
+		GH1M A 0 A_Look
+		GH1M A 0 A_Jump(150,2)
+		GH1M A 0 A_ClearTarget
+		Goto Spawn
+		Loop
+	Missile:
+		Stop
+	Missile2:
+		TNT1 A 0 A_JumpIfInventory("AlreadyFlare",1,"Already")	
+		TNT1 A 0 A_JumpIfInventory("AlreadyFlare",1,"Already",AAPTR_MASTER)			
+		TNT1 A 0 A_Jump(128,5)
+		GH12 B 45 A_FaceTarget
+		TNT1 A 0 A_FaceTarget
+		GH12 C 10 BRIGHT A_CustomMissile("FlareGhoul", 48)
+		GH12 B 10
+		TNT1 A 0 A_ChangeFlag("DROPOFF",1)
+		TNT1 A 0  A_GiveInventory("AlreadyFlare",1)
+		Goto See
+	Melee:
+		GH1M J 4 A_FaceTarget
+		GH1M J 0 A_Recoil(-2)
+		TNT1 A 0 A_PlaySound("ZombieAxe")
+		GH1M KL 4 A_FaceTarget
+		GH1M J 0 A_Recoil(-1)
+		GH1M M 4 A_CustomMeleeAttack(frandom(16,34), "", "", "Axe", 1)
+		GH1M NO 4
+		TNT1 A 0 A_ClearTarget
+		Goto See
+    Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		GH1M H 4 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		GH1D A 1
+		GH1M N 0 A_UNSetSolid
+		GH1D AB 4
+		GH1D B 4 A_GiveInventory("AmAlreadyFaking",1)
+		GH1D CDE 4
+	PainEL:
+	ContFake:
+		GH1D EEEE 20 
+		GH1D E 0 A_JumpIfCloser(70,"HAHAHA")
+		GH1D EEEE 20 
+		GH1D E 0 A_JumpIfCloser(70,"HAHAHA")
+		GH1D EEEEEEEE 20
+		GH1D E 0 A_Jump(120,"PainEL")
+		GH1D E 5 
+		GH1M N 0 A_ChangeFlag("THRUSPECIES",0)
+		GH1M O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		GH1D E 0 A_PlaySound("Zombie/Fake")
+		GH1D EDCBA 4 
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	HAHAHA:
+		GH1D E 0 A_TakeInventory("AmAlreadyFaking",99)
+		GH1D E 0 A_FaceTarget
+		GH1D E 1
+		GH1M O 0 A_SetSolid
+		GH1M O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		GH1D E 0 A_PlaySound("Zombie/Fake")
+		GH1D EDCBA 2 A_Recoil(-1)
+		Goto Melee+2
+/*	Pain.Shock:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget // Go dumb
+		ZOMZ A 7  A_ChangeFlag("GH1ST",0)
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		Goto See*/
+	Pain.LifeLeech:
+		TNT1 A 0 A_ChangeFlag("GH1ST",0)
+		TNT1 A 0 A_JUMP(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("potionHealth", frandom(0,1))
+		Goto See
+    Death:
+		TNT1 A 0 A_Scream
+		GH1D H 0 A_Jump(100,"DeathKickableHead")
+		GH1D H 0 A_JumpIfHealthLower (-9, 7)
+		GH1D A 8 A_TakeInventory("AlreadyFlare",99)
+		GH1D B 8
+		GH1D C 4
+		GH1D D 4 A_Fall
+		//GH1D E 1 A_SpawnItemEx("DeadBloodZombie",0,0,0)
+		GH1D E -1
+		Stop 
+		GH1M H 0 A_PlaySound("DSBDSPRY")
+		GH12 A 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		GH1D LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1D MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1D NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1M H 0 A_Fall
+		GH1D OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1D PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1D QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1D RR 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1M H 0 A_PlaySound("DSBDSPRY")
+		GH1D SSSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1M H 0 A_PlaySound("DSBDSPRY")
+		GH1D SSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		GH1D S -1
+		Stop
+	DeathKickableHead:
+		GH1M H 0 A_PlaySound("DSBDSPRY")
+		GH12 A 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		GH1D LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1D MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1D NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1M H 0 A_Fall
+		GH1D OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1D PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1D QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1D R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1M H 0 A_PlaySound("DSBDSPRY")
+		GH1D SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH1M H 0 A_PlaySound("DSBDSPRY")
+		GH1D SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		GH1D S -1
+		Stop
+	Death.Shock:
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 2)
+		Goto Death //Well it looked goofy when they suddenly disappeared out of the world
+    XDeath:
+		TNT1 A 0 A_Jump(120,"XDeath.KickableAlt")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)	
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Fall
+		GH1X A 5    
+		TNT1 AAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		GH1X B 5
+		TNT1 A 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		GH1X C 5
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("Hand1")
+		TNT1 A 0 A_SpawnItemEx("Intestines",frandom(-50,50),frandom(-50,50),0)
+		TNT1 A 0 A_SpawnItemEx("Entrails",frandom(-50,50),frandom(-50,50),0)
+		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAAAA 0 A_SpawnItemEx("Blood_",frandom(-20,20),frandom(-20,20),frandom(-20,20),frandom(0,15),frandom(0,15),frandom(0,15),frandom(0,360),0,120)
+		GH1X DEFGH 5
+		GH1X I -1
+		Stop
+	XDeath.KickableAlt:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)	
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Fall
+		GH1X A 5    
+		TNT1 AAA 0 A_SpawnDebris ("OrganDebris")
+		GH1X B 5
+		TNT1 A 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		GH1X C 5
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		GH1X DEFGH 5
+		GH1X I -1
+		Stop
+    Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		GH1M A 1
+		GH1M I 0 A_Fall
+		GH1M I 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		GH1M I 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+    Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:
+		GH1S I 0 A_Scream
+		GH1S ABCD 6
+		GH1S L 0 A_Fall
+		GH1S EFGH 3
+		GH1S I -1
+        Stop
+    Raise:
+		GH1D FGHIJ 5
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)					
+        Goto See
+	Death.Dynamite:
+		GH1S I 0 A_Jump(190,"Death")
+		GH1S I 0 ThrustThingZ(0,frandom(25,45),0,0)
+		Goto Death
+  }
+}
+
+ACTOR BuriedGhoul1 : Ghoul1 
+{	
+	-SOLID
+	-SHOOTABLE	
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		G1UT A 320 A_Look
+	Loop
+	See:
+		G1UT A 0 A_ChangeFlag("SOLID",1)
+		G1UT A 0 A_ChangeFlag("SHOOTABLE",1)		
+		G1UT A 0 A_JumpifInventory("Chokeme",1,11)
+		G1UT A 0 A_GiveInventory("Chokeme",1)
+		G1UT A 0 A_PlaySound("Zombie/Raise")
+		G1UT ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	}
+}
+
+ACTOR FastBuriedGhoul1 : Ghoul1
+{	
+	-SOLID
+	-SHOOTABLE	
+	+LOOKALLAROUND
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		TNT1 A 45
+		G1UT A 1 A_Look
+	Loop
+	See:
+		G1UT A 0 A_ChangeFlag("SOLID",1)
+		G1UT A 0 A_ChangeFlag("SHOOTABLE",1)		
+		G1UT A 0 A_JumpifInventory("Chokeme",1,11)
+		G1UT A 0 A_GiveInventory("Chokeme",1)
+		G1UT A 0 A_PlaySound("Zombie/Raise")
+		G1UT ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	Death:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Death
+    Burn:
+	Death.SpecialFire:
+	Death.Flare:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Burn
+    Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Disintegrate	
+	DeathKickableHead:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::DeathKickableHead
+	Death.Shock:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Death.Shock
+	XDeath:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::XDeath
+	XDeath.KickableAlt:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::XDeath.KickableAlt	
+	}
+}
+
+ACTOR Ghoul2 
+{
+  Radius 16
+  Height 56
+  Speed 6 
+  Health 50 
+  Meleerange 48
+  Meleesound "ZombieAxe"  
+  Obituary "%o got the zombie's AXE"
+  SeeSound "ZombieSee"
+  Attacksound ""
+  DeathSound "ZombieDeath"
+  ActiveSound "ZombieSee"
+  DamageFactor Fire, 3.35
+  DamageFactor "Flare", 3.5
+  DamageFactor "Stomping", 0
+  DropItem "Clip_" 32
+  Dropitem "UselessStuff" 32
+  DropItem "GrenadeAmmo" 48
+  DropItem "Flaregun" 8
+  DropItem "Flare" 64  
+  PainSound ""
+  Painchance 100 //The old annoying zombie faking spam
+  Painchance "LifeLeech", 192
+  Painchance "Tommy", 64//11 //Never seen them fake from this but oh well
+  Painchance Fire, 0
+  Painchance "Flare", 0
+  Painchance "PitchFork", 64
+  Painchance "Dynamite", 90
+  Painchance "Blast", 190 //When they survive tnt they usually fake
+  Painchance "Shock", 255
+  Painchance "SawedoffLess", 170 //Nop not less
+  Painchance "SawedOff", 125
+  Painchance "ZBloodBullet", 64
+  Monster
+  GibHealth -10
+  Species "ZombieFall"
+  +FLOORCLIP
+  -DROPOFF
+  +DONTOVERLAP
+  +RANDOMIZE
+  +NOSPLASHALERT
+  -DONTGIB
+  DamageFactor "StunningHead",3
+  Painchance "SunningHead",230
+  Mass 40
+  States
+  {
+    Spawn:
+		GH2M I 10 A_Look
+		Loop
+	Idle:
+		GH2M I 0 A_Look
+		GH2M AAAABBBBCCCCDDDDAAAABBBBCCCCDDDDAAAABBBBCCCCDDDD 1 A_Wander
+		Loop
+	Already:	
+    See:
+		GH2M AAAABBBBCCCCDDDD 1 A_Chase
+		GH2M A 0 A_Stop //Balance regain
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH2M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH2M A 0 A_Stop
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH2M AAAABBBBCCCCDDDD 1 A_Chase
+		GH2M A 0 A_Stop //Balance regain
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH2M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH2M A 0 A_Stop
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH2M AAAABBBBCCCCDDDD 1 A_Chase
+		GH2M A 0 A_Stop //Balance regain
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH2M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH2M A 0 A_Stop
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH2M AAAABBBBCCCCDDDD 1 A_Chase
+		GH2M A 0 A_Stop //Balance regain
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH2M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH2M A 0 A_Stop
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH2M AAAABBBBCCCCDDDD 1 A_Chase
+		GH2M A 0 A_Stop //Balance regain
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH2M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH2M A 0 A_Stop
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH2M AAAABBBBCCCCDDDD 1 A_Chase
+		GH2M A 0 A_Stop //Balance regain
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH2M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH2M A 0 A_Stop
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH2M AAAABBBBCCCCDDDD 1 A_Chase
+		GH2M A 0 A_Stop //Balance regain
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH2M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH2M A 0 A_Stop
+		GH2M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")
+		GH2M A 0 A_Jump(150,1)
+		Goto StupidMode
+		Loop
+	StupidMode:
+	 	GH2M AAAABBBBCCCCDDDD  1 A_Wander
+		GH2M A 0 A_Look //Balance regain
+		GH2M DDDDCCCCBBBBAAAA  1 A_Wander
+		GH2M A 0 A_Look
+		GH2M A 0 A_Jump(150,2)
+		GH2M A 0 A_ClearTarget
+		Goto Spawn
+		Loop
+	Missile:
+		Stop
+	Missile2:
+		TNT1 A 0 A_JumpIfInventory("AlreadyFlare",1,"Already")	
+		TNT1 A 0 A_JumpIfInventory("AlreadyFlare",1,"Already",AAPTR_MASTER)					
+		TNT1 A 0 A_Jump(128,5)
+		GH22 B 45 A_FaceTarget
+		TNT1 A 0 A_FaceTarget
+		GH22 C 10 BRIGHT A_CustomMissile("FlareGhoul", 48)
+		GH22 B 10 
+		TNT1 A 0 A_ChangeFlag("DROPOFF",1)
+		TNT1 A 0 A_GiveInventory("AlreadyFlare",1)
+		Goto See
+	Melee:
+		GH2M J 4 A_FaceTarget
+		GH2M J 0 A_Recoil(-2)
+		TNT1 A 0 A_PlaySound("ZombieAxe")
+		GH2M KL 4 A_FaceTarget
+		GH2M J 0 A_Recoil(-1)
+		GH2M M 4 A_CustomMeleeAttack(frandom(16,34), "", "", "Axe", 1)
+		GH2M NO 4
+		TNT1 A 0 A_ClearTarget
+		Goto See
+    Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		GH2M H 4 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		GH2D A 1
+		GH2M N 0 A_UNSetSolid
+		GH2D AB 4
+		GH2D B 4 A_GiveInventory("AmAlreadyFaking",1)
+		GH2D CDE 4
+	PainEL:
+	ContFake:
+		GH2D EEEE 20 
+		GH2D E 0 A_JumpIfCloser(70,"HAHAHA")
+		GH2D EEEE 20 
+		GH2D E 0 A_JumpIfCloser(70,"HAHAHA")
+		GH2D EEEEEEEE 20
+		GH2D E 0 A_Jump(120,"PainEL")
+		GH2D E 5 
+		GH2M N 0 A_ChangeFlag("THRUSPECIES",0)
+		GH2M O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		GH2D E 0 A_PlaySound("Zombie/Fake")
+		GH2D EDCBA 4 
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	HAHAHA:
+		GH2D E 0 A_TakeInventory("AmAlreadyFaking",99)
+		GH2D E 0 A_FaceTarget
+		GH2D E 1
+		GH2M O 0 A_SetSolid
+		GH2M O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		GH2D E 0 A_PlaySound("Zombie/Fake")
+		GH2D EDCBA 2 A_Recoil(-1)
+		Goto Melee+2
+/*	Pain.Shock:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget // Go dumb
+		ZOMZ A 7  A_ChangeFlag("Ghost",0)
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		Goto See*/
+	Pain.LifeLeech:
+		TNT1 A 0 A_ChangeFlag("Ghost",0)
+		TNT1 A 0 A_JUMP(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("potionHealth", frandom(0,1))
+		Goto See
+    Death:
+		TNT1 A 0 A_Scream
+		GH2D H 0 A_Jump(100,"DeathKickableHead")
+		GH2D H 0 A_JumpIfHealthLower (-9, 7)
+		GH2D A 8 A_TakeInventory("AlreadyFlare",99)
+		GH2D B 8
+		GH2D C 4
+		GH2D D 4 A_Fall
+		//GH2D E 1 A_SpawnItemEx("DeadBloodZombie",0,0,0)
+		GH2D E -1
+		Stop 
+		GH2M H 0 A_PlaySound("DSBDSPRY")
+		GH22 A 0 A_ThrowGrenade("KickableFlyingGhoul2",0,5,10,0)
+		GH2D LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2D MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2D NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2M H 0 A_Fall
+		GH2D OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2D PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2D QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2D RR 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2M H 0 A_PlaySound("DSBDSPRY")
+		GH2D SSSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2M H 0 A_PlaySound("DSBDSPRY")
+		GH2D SSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		GH2D S -1
+		Stop
+	DeathKickableHead:
+		GH2M H 0 A_PlaySound("DSBDSPRY")
+		GH22 A 0 A_ThrowGrenade("KickableFlyingGhoul2",0,5,10,0)
+		GH2D LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2D MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2D NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2M H 0 A_Fall
+		GH2D OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2D PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2D QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2D R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2M H 0 A_PlaySound("DSBDSPRY")
+		GH2D SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH2M H 0 A_PlaySound("DSBDSPRY")
+		GH2D SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		GH2D S -1
+		Stop
+	Death.Shock:
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 2)
+		Goto Death //Well it looked goofy when they suddenly disappeared out of the world
+    XDeath:
+		TNT1 A 0 A_Jump(120,"XDeath.KickableAlt")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)	
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Fall
+		GH2X A 5    
+		TNT1 AAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		GH2X B 5
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingGhoul2",0,5,10,0)
+		GH2X C 5
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("Hand1")
+		TNT1 A 0 A_SpawnItemEx("Intestines",frandom(-50,50),frandom(-50,50),0)
+		TNT1 A 0 A_SpawnItemEx("Entrails",frandom(-50,50),frandom(-50,50),0)
+		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAAAA 0 A_SpawnItemEx("Blood_",frandom(-20,20),frandom(-20,20),frandom(-20,20),frandom(0,15),frandom(0,15),frandom(0,15),frandom(0,360),0,120)
+		GH2X DEFGH 5
+		GH2X I -1
+		Stop
+	XDeath.KickableAlt:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)	
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Fall
+		GH2X A 5    
+		TNT1 AAA 0 A_SpawnDebris ("OrganDebris")
+		GH2X B 5
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingGhoul2",0,5,10,0)
+		GH2X C 5
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		GH2X DEFGH 5
+		GH2X I -1
+		Stop
+    Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingGhoul2",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		GH2M A 1
+		GH2M I 0 A_Fall
+		GH2M I 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		GH2M I 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+    Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:
+		GH2S I 0 A_Scream
+		GH2S ABCD 6
+		GH2S L 0 A_Fall
+		GH2S EFGH 3
+		GH2S I -1
+        Stop
+    Raise:
+		GH2D FGHIJ 5
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)					
+        Goto See
+	Death.Dynamite:
+		GH2S I 0 A_Jump(190,"Death")
+		GH2S I 0 ThrustThingZ(0,frandom(25,45),0,0)
+		Goto Death
+  }
+}
+
+ACTOR BuriedGhoul2 : Ghoul2 
+{	
+	-SOLID
+	-SHOOTABLE	
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		G2UT A 320 A_Look
+	Loop
+	See:
+		G2UT A 0 A_ChangeFlag("SOLID",1)
+		G2UT A 0 A_ChangeFlag("SHOOTABLE",1)		
+		G2UT A 0 A_JumpifInventory("Chokeme",1,11)
+		G2UT A 0 A_GiveInventory("Chokeme",1)
+		G2UT A 0 A_PlaySound("Zombie/Raise")
+		G2UT ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	}
+}
+
+ACTOR FastBuriedGhoul2 : Ghoul2
+{	
+	-SOLID
+	-SHOOTABLE	
+	+LOOKALLAROUND
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		G2UT A 1 A_Look
+	Loop
+	See:
+		G2UT A 0 A_ChangeFlag("SOLID",1)
+		G2UT A 0 A_ChangeFlag("SHOOTABLE",1)		
+		G2UT A 0 A_JumpifInventory("Chokeme",1,11)
+		G2UT A 0 A_GiveInventory("Chokeme",1)
+		G2UT A 0 A_PlaySound("Zombie/Raise")
+		G2UT ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	Death:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Death
+    Burn:
+	Death.SpecialFire:
+	Death.Flare:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Burn
+    Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Disintegrate	
+	DeathKickableHead:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::DeathKickableHead
+	Death.Shock:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Death.Shock
+	XDeath:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::XDeath
+	XDeath.KickableAlt:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::XDeath.KickableAlt	
+	}
+}
+
+ACTOR Ghoul3 
+{
+  Radius 16
+  Height 56
+  Speed 6 
+  Health 50 
+  Meleerange 48
+  Meleesound "ZombieAxe"  
+  Obituary "%o got the zombie's AXE"
+  SeeSound "ZombieSee"
+  Attacksound ""
+  DeathSound "ZombieDeath"
+  ActiveSound "ZombieSee"
+  DamageFactor Fire, 3.35
+  DamageFactor "Flare", 3.5
+  DamageFactor "Stomping", 0
+  DropItem "Clip_" 32
+  Dropitem "UselessStuff" 32
+  DropItem "GrenadeAmmo" 48
+  DropItem "Flaregun" 8
+  DropItem "Flare" 64  
+  PainSound ""
+  Painchance 100 //The old annoying zombie faking spam
+  Painchance "LifeLeech", 192
+  Painchance "Tommy", 64//11 //Never seen them fake from this but oh well
+  Painchance Fire, 0
+  Painchance "Flare", 0
+  Painchance "PitchFork", 64
+  Painchance "Dynamite", 90
+  Painchance "Blast", 190 //When they survive tnt they usually fake
+  Painchance "Shock", 255
+  Painchance "SawedoffLess", 170 //Nop not less
+  Painchance "SawedOff", 125
+  Painchance "ZBloodBullet", 64
+  Monster
+  GibHealth -10
+  Species "ZombieFall"
+  +FLOORCLIP
+  -DROPOFF
+  +DONTOVERLAP
+  +RANDOMIZE
+  +NOSPLASHALERT
+  -DONTGIB
+  DamageFactor "StunningHead",3
+  Painchance "SunningHead",230
+  Mass 40
+  States
+  {
+    Spawn:
+		GH3M I 10 A_Look
+		Loop
+	Idle:
+		GH3M I 0 A_Look
+		GH3M AAAABBBBCCCCDDDDAAAABBBBCCCCDDDDAAAABBBBCCCCDDDD 1 A_Wander
+		Loop
+	Already:	
+    See:
+		GH3M AAAABBBBCCCCDDDD 1 A_Chase
+		GH3M A 0 A_Stop //Balance regain
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH3M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH3M A 0 A_Stop
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH3M AAAABBBBCCCCDDDD 1 A_Chase
+		GH3M A 0 A_Stop //Balance regain
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH3M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH3M A 0 A_Stop
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH3M AAAABBBBCCCCDDDD 1 A_Chase
+		GH3M A 0 A_Stop //Balance regain
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH3M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH3M A 0 A_Stop
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH3M AAAABBBBCCCCDDDD 1 A_Chase
+		GH3M A 0 A_Stop //Balance regain
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH3M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH3M A 0 A_Stop
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH3M AAAABBBBCCCCDDDD 1 A_Chase
+		GH3M A 0 A_Stop //Balance regain
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH3M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH3M A 0 A_Stop
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH3M AAAABBBBCCCCDDDD 1 A_Chase
+		GH3M A 0 A_Stop //Balance regain
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH3M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH3M A 0 A_Stop
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH3M AAAABBBBCCCCDDDD 1 A_Chase
+		GH3M A 0 A_Stop //Balance regain
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH3M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH3M A 0 A_Stop
+		GH3M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")
+		GH3M A 0 A_Jump(150,1)
+		Goto StupidMode
+		Loop
+	StupidMode:
+	 	GH3M AAAABBBBCCCCDDDD  1 A_Wander
+		GH3M A 0 A_Look //Balance regain
+		GH3M DDDDCCCCBBBBAAAA  1 A_Wander
+		GH3M A 0 A_Look
+		GH3M A 0 A_Jump(150,2)
+		GH3M A 0 A_ClearTarget
+		Goto Spawn
+		Loop
+	Missile:
+		Stop
+	Missile2:
+		TNT1 A 0 A_JumpIfInventory("AlreadyFlare",1,"Already")	
+		TNT1 A 0 A_JumpIfInventory("AlreadyFlare",1,"Already",AAPTR_MASTER)					
+		TNT1 A 0 A_Jump(128,5)
+		GH32 B 45 A_FaceTarget
+		TNT1 A 0 A_FaceTarget
+		GH32 C 10 BRIGHT A_CustomMissile("FlareGhoul", 48)
+		GH32 B 10 
+		TNT1 A 0 A_ChangeFlag("DROPOFF",1)
+		TNT1 A 0 A_GiveInventory("AlreadyFlare",1)
+		Goto See
+	Melee:
+		GH3M J 4 A_FaceTarget
+		GH3M J 0 A_Recoil(-2)
+		TNT1 A 0 A_PlaySound("ZombieAxe")
+		GH3M KL 4 A_FaceTarget
+		GH3M J 0 A_Recoil(-1)
+		GH3M M 4 A_CustomMeleeAttack(frandom(16,34), "", "", "Axe", 1)
+		GH3M NO 4
+		TNT1 A 0 A_ClearTarget
+		Goto See
+    Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		GH3M H 4 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		GH3D A 1
+		GH3M N 0 A_UNSetSolid
+		GH3D AB 4
+		GH3D B 4 A_GiveInventory("AmAlreadyFaking",1)
+		GH3D CDE 4
+	PainEL:
+	ContFake:
+		GH3D EEEE 20 
+		GH3D E 0 A_JumpIfCloser(70,"HAHAHA")
+		GH3D EEEE 20 
+		GH3D E 0 A_JumpIfCloser(70,"HAHAHA")
+		GH3D EEEEEEEE 20
+		GH3D E 0 A_Jump(120,"PainEL")
+		GH3D E 5 
+		GH3M N 0 A_ChangeFlag("THRUSPECIES",0)
+		GH3M O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		GH3D E 0 A_PlaySound("Zombie/Fake")
+		GH3D EDCBA 4 
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	HAHAHA:
+		GH3D E 0 A_TakeInventory("AmAlreadyFaking",99)
+		GH3D E 0 A_FaceTarget
+		GH3D E 1
+		GH3M O 0 A_SetSolid
+		GH3M O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		GH3D E 0 A_PlaySound("Zombie/Fake")
+		GH3D EDCBA 2 A_Recoil(-1)
+		Goto Melee+2
+/*	Pain.Shock:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget // Go dumb
+		ZOMZ A 7  A_ChangeFlag("Ghost",0)
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		Goto See*/
+	Pain.LifeLeech:
+		TNT1 A 0 A_ChangeFlag("Ghost",0)
+		TNT1 A 0 A_JUMP(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("potionHealth", frandom(0,1))
+		Goto See
+    Death:
+		TNT1 A 0 A_Scream
+		GH3D H 0 A_Jump(100,"DeathKickableHead")
+		GH3D H 0 A_JumpIfHealthLower (-9, 7)
+		GH3D A 8 A_TakeInventory("AlreadyFlare",99)
+		GH3D B 8
+		GH3D C 4
+		GH3D D 4 A_Fall
+		//GH3D E 1 A_SpawnItemEx("DeadBloodZombie",0,0,0)
+		GH3D E -1
+		Stop 
+		GH3M H 0 A_PlaySound("DSBDSPRY")
+		GH32 A 0 A_ThrowGrenade("KickableFlyingGhoul3",0,5,10,0)
+		GH3D LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3D MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3D NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3M H 0 A_Fall
+		GH3D OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3D PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3D QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3D RR 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3M H 0 A_PlaySound("DSBDSPRY")
+		GH3D SSSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3M H 0 A_PlaySound("DSBDSPRY")
+		GH3D SSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		GH3D S -1
+		Stop
+	DeathKickableHead:
+		GH3M H 0 A_PlaySound("DSBDSPRY")
+		GH32 A 0 A_ThrowGrenade("KickableFlyingGhoul3",0,5,10,0)
+		GH3D LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3D MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3D NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3M H 0 A_Fall
+		GH3D OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3D PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3D QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3D R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3M H 0 A_PlaySound("DSBDSPRY")
+		GH3D SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH3M H 0 A_PlaySound("DSBDSPRY")
+		GH3D SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		GH3D S -1
+		Stop
+	Death.Shock:
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 2)
+		Goto Death //Well it looked goofy when they suddenly disappeared out of the world
+    XDeath:
+		TNT1 A 0 A_Jump(120,"XDeath.KickableAlt")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)	
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Fall
+		GH3X A 5    
+		TNT1 AAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		GH3X B 5
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingGhoul3",0,5,10,0)
+		GH3X C 5
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("Hand1")
+		TNT1 A 0 A_SpawnItemEx("Intestines",frandom(-50,50),frandom(-50,50),0)
+		TNT1 A 0 A_SpawnItemEx("Entrails",frandom(-50,50),frandom(-50,50),0)
+		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAAAA 0 A_SpawnItemEx("Blood_",frandom(-20,20),frandom(-20,20),frandom(-20,20),frandom(0,15),frandom(0,15),frandom(0,15),frandom(0,360),0,120)
+		GH3X DEFGH 5
+		GH3X I -1
+		Stop
+	XDeath.KickableAlt:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)	
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Fall
+		GH3X A 5    
+		TNT1 AAA 0 A_SpawnDebris ("OrganDebris")
+		GH3X B 5
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingGhoul3",0,5,10,0)
+		GH3X C 5
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		GH3X DEFGH 5
+		GH3X I -1
+		Stop
+    Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingGhoul3",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		GH3M A 1
+		GH3M I 0 A_Fall
+		GH3M I 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		GH3M I 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+    Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:
+		GH3S I 0 A_Scream
+		GH3S ABCD 6
+		GH3S L 0 A_Fall
+		GH3S EFGH 3
+		GH3S I -1
+        Stop
+    Raise:
+		GH3D FGHIJ 5
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)					
+        Goto See
+	Death.Dynamite:
+		GH3S I 0 A_Jump(190,"Death")
+		GH3S I 0 ThrustThingZ(0,frandom(25,45),0,0)
+		Goto Death
+  }
+}
+
+ACTOR BuriedGhoul3 : Ghoul3 
+{	
+	-SOLID
+	-SHOOTABLE	
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		G3UT A 320 A_Look
+	Loop
+	See:
+		G3UT A 0 A_ChangeFlag("SOLID",1)
+		G3UT A 0 A_ChangeFlag("SHOOTABLE",1)		
+		G3UT A 0 A_JumpifInventory("Chokeme",1,11)
+		G3UT A 0 A_GiveInventory("Chokeme",1)
+		G3UT A 0 A_PlaySound("Zombie/Raise")
+		G3UT ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	}
+}
+
+ACTOR FastBuriedGhoul3 : Ghoul3
+{	
+	-SOLID
+	-SHOOTABLE	
+	+LOOKALLAROUND
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		G3UT A 1 A_Look
+	Loop
+	See:
+		G3UT A 0 A_ChangeFlag("SOLID",1)
+		G3UT A 0 A_ChangeFlag("SHOOTABLE",1)		
+		G3UT A 0 A_JumpifInventory("Chokeme",1,11)
+		G3UT A 0 A_GiveInventory("Chokeme",1)
+		G3UT A 0 A_PlaySound("Zombie/Raise")
+		G3UT ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	Death:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Death
+    Burn:
+	Death.SpecialFire:
+	Death.Flare:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Burn
+    Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Disintegrate	
+	DeathKickableHead:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::DeathKickableHead
+	Death.Shock:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Death.Shock
+	XDeath:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::XDeath
+	XDeath.KickableAlt:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::XDeath.KickableAlt	
+	}
+}
+
+ACTOR Ghoul4 
+{
+  Radius 16
+  Height 56
+  Speed 6 
+  Health 50 
+  Meleerange 48
+  Meleesound "ZombieAxe"  
+  Obituary "%o got the zombie's AXE"
+  SeeSound "ZombieSee"
+  Attacksound ""
+  DeathSound "ZombieDeath"
+  ActiveSound "ZombieSee"
+  DamageFactor Fire, 3.35
+  DamageFactor "Flare", 3.5
+  DamageFactor "Stomping", 0
+  DropItem "Clip_" 32
+  Dropitem "UselessStuff" 32
+  DropItem "GrenadeAmmo" 48
+  DropItem "Flaregun" 8
+  DropItem "Flare" 64   
+  PainSound ""
+  Painchance 100 //The old annoying zombie faking spam
+  Painchance "LifeLeech", 192
+  Painchance "Tommy", 64//11 //Never seen them fake from this but oh well
+  Painchance Fire, 0
+  Painchance "Flare", 0
+  Painchance "PitchFork", 64
+  Painchance "Dynamite", 90
+  Painchance "Blast", 190 //When they survive tnt they usually fake
+  Painchance "Shock", 255
+  Painchance "SawedoffLess", 170 //Nop not less
+  Painchance "SawedOff", 125
+  Painchance "ZBloodBullet", 64
+  Monster
+  GibHealth -10
+  Species "ZombieFall"
+  +FLOORCLIP
+  -DROPOFF
+  +DONTOVERLAP
+  +RANDOMIZE
+  +NOSPLASHALERT
+  -DONTGIB
+  DamageFactor "StunningHead",3
+  Painchance "SunningHead",230
+  Mass 40
+  States
+  {
+    Spawn:
+		GH4M I 10 A_Look
+		Loop
+	Idle:
+		GH4M I 0 A_Look
+		GH4M AAAABBBBCCCCDDDDAAAABBBBCCCCDDDDAAAABBBBCCCCDDDD 1 A_Wander
+		Loop
+	Already:	
+    See:
+		GH4M AAAABBBBCCCCDDDD 1 A_Chase
+		GH4M A 0 A_Stop //Balance regain
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH4M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH4M A 0 A_Stop
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH4M AAAABBBBCCCCDDDD 1 A_Chase
+		GH4M A 0 A_Stop //Balance regain
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH4M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH4M A 0 A_Stop
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH4M AAAABBBBCCCCDDDD 1 A_Chase
+		GH4M A 0 A_Stop //Balance regain
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH4M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH4M A 0 A_Stop
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH4M AAAABBBBCCCCDDDD 1 A_Chase
+		GH4M A 0 A_Stop //Balance regain
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH4M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH4M A 0 A_Stop
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH4M AAAABBBBCCCCDDDD 1 A_Chase
+		GH4M A 0 A_Stop //Balance regain
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH4M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH4M A 0 A_Stop
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH4M AAAABBBBCCCCDDDD 1 A_Chase
+		GH4M A 0 A_Stop //Balance regain
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH4M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH4M A 0 A_Stop
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH4M AAAABBBBCCCCDDDD 1 A_Chase
+		GH4M A 0 A_Stop //Balance regain
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH4M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH4M A 0 A_Stop
+		GH4M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")
+		GH4M A 0 A_Jump(150,1)
+		Goto StupidMode
+		Loop
+	StupidMode:
+	 	GH4M AAAABBBBCCCCDDDD  1 A_Wander
+		GH4M A 0 A_Look //Balance regain
+		GH4M DDDDCCCCBBBBAAAA  1 A_Wander
+		GH4M A 0 A_Look
+		GH4M A 0 A_Jump(150,2)
+		GH4M A 0 A_ClearTarget
+		Goto Spawn
+		Loop
+	Missile:
+		Stop
+	Missile2:
+		TNT1 A 0 A_JumpIfInventory("AlreadyFlare",1,"Already")	
+		TNT1 A 0 A_JumpIfInventory("AlreadyFlare",1,"Already",AAPTR_MASTER)					
+		TNT1 A 0 A_Jump(128,5)
+		GH42 B 45 A_FaceTarget
+		TNT1 A 0 A_FaceTarget
+		GH42 C 10 BRIGHT A_CustomMissile("FlareGhoul", 48)
+		GH42 B 10 
+		TNT1 A 0 A_ChangeFlag("DROPOFF",1)
+		TNT1 A 0 A_GiveInventory("AlreadyFlare",1)
+		Goto See
+	Melee:
+		GH4M J 4 A_FaceTarget
+		GH4M J 0 A_Recoil(-2)
+		TNT1 A 0 A_PlaySound("ZombieAxe")
+		GH4M KL 4 A_FaceTarget
+		GH4M J 0 A_Recoil(-1)
+		GH4M M 4 A_CustomMeleeAttack(frandom(16,34), "", "", "Axe", 1)
+		GH4M NO 4
+		TNT1 A 0 A_ClearTarget
+		Goto See
+    Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		GH4M H 4 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		GH4D A 1
+		GH4M N 0 A_UNSetSolid
+		GH4D AB 4
+		GH4D B 4 A_GiveInventory("AmAlreadyFaking",1)
+		GH4D CDE 4
+	PainEL:
+	ContFake:
+		GH4D EEEE 20 
+		GH4D E 0 A_JumpIfCloser(70,"HAHAHA")
+		GH4D EEEE 20 
+		GH4D E 0 A_JumpIfCloser(70,"HAHAHA")
+		GH4D EEEEEEEE 20
+		GH4D E 0 A_Jump(120,"PainEL")
+		GH4D E 5 
+		GH4M N 0 A_ChangeFlag("THRUSPECIES",0)
+		GH4M O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		GH4D E 0 A_PlaySound("Zombie/Fake")
+		GH4D EDCBA 4 
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	HAHAHA:
+		GH4D E 0 A_TakeInventory("AmAlreadyFaking",99)
+		GH4D E 0 A_FaceTarget
+		GH4D E 1
+		GH4M O 0 A_SetSolid
+		GH4M O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		GH4D E 0 A_PlaySound("Zombie/Fake")
+		GH4D EDCBA 2 A_Recoil(-1)
+		Goto Melee+2
+/*	Pain.Shock:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget // Go dumb
+		ZOMZ A 7  A_ChangeFlag("GH4ST",0)
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		Goto See*/
+	Pain.LifeLeech:
+		TNT1 A 0 A_ChangeFlag("GH4ST",0)
+		TNT1 A 0 A_JUMP(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("potionHealth", frandom(0,1))
+		Goto See
+    Death:
+		TNT1 A 0 A_Scream
+		GH4D H 0 A_Jump(100,"DeathKickableHead")
+		GH4D H 0 A_JumpIfHealthLower (-9, 7)
+		GH4D A 8 A_TakeInventory("AlreadyFlare",99)
+		GH4D B 8
+		GH4D C 4
+		GH4D D 4 A_Fall
+		//GH4D E 1 A_SpawnItemEx("DeadBloodZombie",0,0,0)
+		GH4D E -1
+		Stop 
+		GH4M H 0 A_PlaySound("DSBDSPRY")
+		GH42 A 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		GH4D LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4D MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4D NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4M H 0 A_Fall
+		GH4D OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4D PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4D QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4D RR 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4M H 0 A_PlaySound("DSBDSPRY")
+		GH4D SSSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4M H 0 A_PlaySound("DSBDSPRY")
+		GH4D SSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		GH4D S -1
+		Stop
+	DeathKickableHead:
+		GH4M H 0 A_PlaySound("DSBDSPRY")
+		GH42 A 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		GH4D LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4D MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4D NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4M H 0 A_Fall
+		GH4D OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4D PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4D QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4D R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4M H 0 A_PlaySound("DSBDSPRY")
+		GH4D SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH4M H 0 A_PlaySound("DSBDSPRY")
+		GH4D SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		GH4D S -1
+		Stop
+	Death.Shock:
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 2)
+		Goto Death //Well it looked goofy when they suddenly disappeared out of the world
+    XDeath:
+		TNT1 A 0 A_Jump(120,"XDeath.KickableAlt")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)	
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Fall
+		GH4X A 5    
+		TNT1 AAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		GH4X B 5
+		TNT1 A 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		GH4X C 5
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("Hand1")
+		TNT1 A 0 A_SpawnItemEx("Intestines",frandom(-50,50),frandom(-50,50),0)
+		TNT1 A 0 A_SpawnItemEx("Entrails",frandom(-50,50),frandom(-50,50),0)
+		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAAAA 0 A_SpawnItemEx("Blood_",frandom(-20,20),frandom(-20,20),frandom(-20,20),frandom(0,15),frandom(0,15),frandom(0,15),frandom(0,360),0,120)
+		GH4X DEFGH 5
+		GH4X I -1
+		Stop
+	XDeath.KickableAlt:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)	
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Fall
+		GH4X A 5    
+		TNT1 AAA 0 A_SpawnDebris ("OrganDebris")
+		GH4X B 5
+		TNT1 A 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		GH4X C 5
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		GH4X DEFGH 5
+		GH4X I -1
+		Stop
+    Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		GH4M A 1
+		GH4M I 0 A_Fall
+		GH4M I 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		GH4M I 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+    Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:
+		GH4S I 0 A_Scream
+		GH4S ABCD 6
+		GH4S L 0 A_Fall
+		GH4S EFGH 3
+		GH4S I -1
+        Stop
+    Raise:
+		GH4D FGHIJ 5
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)					
+        Goto See
+	Death.Dynamite:
+		GH4S I 0 A_Jump(190,"Death")
+		GH4S I 0 ThrustThingZ(0,frandom(25,45),0,0)
+		Goto Death
+  }
+}
+
+ACTOR BuriedGhoul4 : Ghoul4 
+{	
+	-SOLID
+	-SHOOTABLE	
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		G4UT A 320 A_Look
+	Loop
+	See:
+		G4UT A 0 A_ChangeFlag("SOLID",1)
+		G4UT A 0 A_ChangeFlag("SHOOTABLE",1)		
+		G4UT A 0 A_JumpifInventory("Chokeme",1,11)
+		G4UT A 0 A_GiveInventory("Chokeme",1)
+		G4UT A 0 A_PlaySound("Zombie/Raise")
+		G4UT ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	}
+}
+
+ACTOR FastBuriedGhoul4 : Ghoul4
+{	
+	-SOLID
+	-SHOOTABLE	
+	+LOOKALLAROUND
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		G4UT A 1 A_Look
+	Loop
+	See:
+		G4UT A 0 A_ChangeFlag("SOLID",1)
+		G4UT A 0 A_ChangeFlag("SHOOTABLE",1)		
+		G4UT A 0 A_JumpifInventory("Chokeme",1,11)
+		G4UT A 0 A_GiveInventory("Chokeme",1)
+		G4UT A 0 A_PlaySound("Zombie/Raise")
+		G4UT ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	Death:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Death
+    Burn:
+	Death.SpecialFire:
+	Death.Flare:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Burn
+    Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Disintegrate	
+	DeathKickableHead:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::DeathKickableHead
+	Death.Shock:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Death.Shock
+	XDeath:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::XDeath
+	XDeath.KickableAlt:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::XDeath.KickableAlt	
+	}
+}
+
+ACTOR Ghoul5 
+{
+  Radius 16
+  Height 56
+  Speed 6 
+  Health 50 
+  Meleerange 48
+  Meleesound "ZombieAxe"  
+  Obituary "%o got the zombie's AXE"
+  SeeSound "ZombieSee"
+  Attacksound ""
+  DeathSound "ZombieDeath"
+  ActiveSound "ZombieSee"
+  DamageFactor Fire, 3.35
+  DamageFactor "Flare", 3.5
+  DamageFactor "Stomping", 0
+  DropItem "Clip_" 32
+  Dropitem "UselessStuff" 32
+  DropItem "GrenadeAmmo" 48
+  DropItem "Flaregun" 8
+  DropItem "Flare" 64  
+  PainSound ""
+  Painchance 100 //The old annoying zombie faking spam
+  Painchance "LifeLeech", 192
+  Painchance "Tommy", 64//11 //Never seen them fake from this but oh well
+  Painchance Fire, 0
+  Painchance "Flare", 0
+  Painchance "PitchFork", 64
+  Painchance "Dynamite", 90
+  Painchance "Blast", 190 //When they survive tnt they usually fake
+  Painchance "Shock", 255
+  Painchance "SawedoffLess", 170 //Nop not less
+  Painchance "SawedOff", 125
+  Painchance "ZBloodBullet", 64
+  Monster
+  GibHealth -10
+  Species "ZombieFall"
+  +FLOORCLIP
+  -DROPOFF
+  +DONTOVERLAP
+  +RANDOMIZE
+  +NOSPLASHALERT
+  -DONTGIB
+  DamageFactor "StunningHead",3
+  Painchance "SunningHead",230
+  Mass 40
+  States
+  {
+    Spawn:
+		GH5M I 10 A_Look
+		Loop
+	Idle:
+		GH5M I 0 A_Look
+		GH5M AAAABBBBCCCCDDDDAAAABBBBCCCCDDDDAAAABBBBCCCCDDDD 1 A_Wander
+		Loop
+	Already:	
+    See:
+		GH5M AAAABBBBCCCCDDDD 1 A_Chase
+		GH5M A 0 A_Stop //Balance regain
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH5M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH5M A 0 A_Stop
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH5M AAAABBBBCCCCDDDD 1 A_Chase
+		GH5M A 0 A_Stop //Balance regain
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH5M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH5M A 0 A_Stop
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH5M AAAABBBBCCCCDDDD 1 A_Chase
+		GH5M A 0 A_Stop //Balance regain
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH5M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH5M A 0 A_Stop
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH5M AAAABBBBCCCCDDDD 1 A_Chase
+		GH5M A 0 A_Stop //Balance regain
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH5M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH5M A 0 A_Stop
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH5M AAAABBBBCCCCDDDD 1 A_Chase
+		GH5M A 0 A_Stop //Balance regain
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH5M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH5M A 0 A_Stop
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH5M AAAABBBBCCCCDDDD 1 A_Chase
+		GH5M A 0 A_Stop //Balance regain
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH5M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH5M A 0 A_Stop
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH5M AAAABBBBCCCCDDDD 1 A_Chase
+		GH5M A 0 A_Stop //Balance regain
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")		
+		GH5M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH5M A 0 A_Stop
+		GH5M A 0 A_JumpIfTargetOutsideMeleeRange ("Missile2")
+		GH5M A 0 A_Jump(150,1)
+		Goto StupidMode
+		Loop
+	StupidMode:
+	 	GH5M AAAABBBBCCCCDDDD  1 A_Wander
+		GH5M A 0 A_Look //Balance regain
+		GH5M DDDDCCCCBBBBAAAA  1 A_Wander
+		GH5M A 0 A_Look
+		GH5M A 0 A_Jump(150,2)
+		GH5M A 0 A_ClearTarget
+		Goto Spawn
+		Loop
+	Missile:
+		Stop
+	Missile2:
+		TNT1 A 0 A_JumpIfInventory("AlreadyFlare",1,"Already")	
+		TNT1 A 0 A_JumpIfInventory("AlreadyFlare",1,"Already",AAPTR_MASTER)					
+		TNT1 A 0 A_Jump(128,5)
+		GH52 B 45 A_FaceTarget
+		TNT1 A 0 A_FaceTarget
+		GH52 C 10 BRIGHT A_CustomMissile("FlareGhoul", 48)
+		GH52 B 10 
+		TNT1 A 0 A_ChangeFlag("DROPOFF",1)
+		TNT1 A 0 A_GiveInventory("AlreadyFlare",1)
+		Goto See
+	Melee:
+		GH5M J 4 A_FaceTarget
+		GH5M J 0 A_Recoil(-2)
+		TNT1 A 0 A_PlaySound("ZombieAxe")
+		GH5M KL 4 A_FaceTarget
+		GH5M J 0 A_Recoil(-1)
+		GH5M M 4 A_CustomMeleeAttack(frandom(16,34), "", "", "Axe", 1)
+		GH5M NO 4
+		TNT1 A 0 A_ClearTarget
+		Goto See
+    Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		GH5M H 4 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		GH5D A 1
+		GH5M N 0 A_UNSetSolid
+		GH5D AB 4
+		GH5D B 4 A_GiveInventory("AmAlreadyFaking",1)
+		GH5D CDE 4
+	PainEL:
+	ContFake:
+		GH5D EEEE 20 
+		GH5D E 0 A_JumpIfCloser(70,"HAHAHA")
+		GH5D EEEE 20 
+		GH5D E 0 A_JumpIfCloser(70,"HAHAHA")
+		GH5D EEEEEEEE 20
+		GH5D E 0 A_Jump(120,"PainEL")
+		GH5D E 5 
+		GH5M N 0 A_ChangeFlag("THRUSPECIES",0)
+		GH5M O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		GH5D E 0 A_PlaySound("Zombie/Fake")
+		GH5D EDCBA 4 
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	HAHAHA:
+		GH5D E 0 A_TakeInventory("AmAlreadyFaking",99)
+		GH5D E 0 A_FaceTarget
+		GH5D E 1
+		GH5M O 0 A_SetSolid
+		GH5M O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		GH5D E 0 A_PlaySound("Zombie/Fake")
+		GH5D EDCBA 2 A_Recoil(-1)
+		Goto Melee+2
+/*	Pain.Shock:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget // Go dumb
+		ZOMZ A 7  A_ChangeFlag("GH5ST",0)
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		Goto See*/
+	Pain.LifeLeech:
+		TNT1 A 0 A_ChangeFlag("GH5ST",0)
+		TNT1 A 0 A_JUMP(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("potionHealth", frandom(0,1))
+		Goto See
+    Death:
+		TNT1 A 0 A_Scream
+		GH5D H 0 A_Jump(100,"DeathKickableHead")
+		GH5D H 0 A_JumpIfHealthLower (-9, 7)
+		GH5D A 8 A_TakeInventory("AlreadyFlare",99)
+		GH5D B 8
+		GH5D C 4
+		GH5D D 4 A_Fall
+		//GH5D E 1 A_SpawnItemEx("DeadBloodZombie",0,0,0)
+		GH5D E -1
+		Stop 
+		GH5M H 0 A_PlaySound("DSBDSPRY")
+		GH52 A 0 A_ThrowGrenade("KickableFlyingGhoul2",0,5,10,0)
+		GH5D LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5D MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5D NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5M H 0 A_Fall
+		GH5D OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5D PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5D QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5D RR 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5M H 0 A_PlaySound("DSBDSPRY")
+		GH5D SSSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5M H 0 A_PlaySound("DSBDSPRY")
+		GH5D SSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		GH5D S -1
+		Stop
+	DeathKickableHead:
+		GH5M H 0 A_PlaySound("DSBDSPRY")
+		GH52 A 0 A_ThrowGrenade("KickableFlyingGhoul2",0,5,10,0)
+		GH5D LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5D MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5D NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5M H 0 A_Fall
+		GH5D OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5D PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5D QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5D R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5M H 0 A_PlaySound("DSBDSPRY")
+		GH5D SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH5M H 0 A_PlaySound("DSBDSPRY")
+		GH5D SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		GH5D S -1
+		Stop
+	Death.Shock:
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 2)
+		Goto Death //Well it looked goofy when they suddenly disappeared out of the world
+    XDeath:
+		TNT1 A 0 A_Jump(120,"XDeath.KickableAlt")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)	
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Fall
+		GH5X A 5    
+		TNT1 AAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		GH5X B 5
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingGhoul2",0,5,10,0)
+		GH5X C 5
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("Hand1")
+		TNT1 A 0 A_SpawnItemEx("Intestines",frandom(-50,50),frandom(-50,50),0)
+		TNT1 A 0 A_SpawnItemEx("Entrails",frandom(-50,50),frandom(-50,50),0)
+		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAAAA 0 A_SpawnItemEx("Blood_",frandom(-20,20),frandom(-20,20),frandom(-20,20),frandom(0,15),frandom(0,15),frandom(0,15),frandom(0,360),0,120)
+		GH5X DEFGH 5
+		GH5X I -1
+		Stop
+	XDeath.KickableAlt:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)	
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Fall
+		GH5X A 5    
+		TNT1 AAA 0 A_SpawnDebris ("OrganDebris")
+		GH5X B 5
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingGhoul2",0,5,10,0)
+		GH5X C 5
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		GH5X DEFGH 5
+		GH5X I -1
+		Stop
+    Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingGhoul2",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		GH5M A 1
+		GH5M I 0 A_Fall
+		GH5M I 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		GH5M I 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+    Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:
+		GH5S I 0 A_Scream
+		GH5S ABCD 6
+		GH5S L 0 A_Fall
+		GH5S EFGH 3
+		GH5S I -1
+        Stop
+    Raise:
+		GH5D FGHIJ 5
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)					
+        Goto See
+	Death.Dynamite:
+		GH5S I 0 A_Jump(190,"Death")
+		GH5S I 0 ThrustThingZ(0,frandom(25,45),0,0)
+		Goto Death
+  }
+}
+
+ACTOR BuriedGhoul5 : Ghoul5 
+{	
+	-SOLID
+	-SHOOTABLE	
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		G5UT A 320 A_Look
+	Loop
+	See:
+		G5UT A 0 A_ChangeFlag("SOLID",1)
+		G5UT A 0 A_ChangeFlag("SHOOTABLE",1)		
+		G5UT A 0 A_JumpifInventory("Chokeme",1,11)
+		G5UT A 0 A_GiveInventory("Chokeme",1)
+		G5UT A 0 A_PlaySound("Zombie/Raise")
+		G5UT ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	}
+}
+
+ACTOR FastBuriedGhoul5 : Ghoul5
+{	
+	-SOLID
+	-SHOOTABLE	
+	+LOOKALLAROUND
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		G5UT A 1 A_Look
+	Loop
+	See:
+		G5UT A 0 A_ChangeFlag("SOLID",1)
+		G5UT A 0 A_ChangeFlag("SHOOTABLE",1)		
+		G5UT A 0 A_JumpifInventory("Chokeme",1,11)
+		G5UT A 0 A_GiveInventory("Chokeme",1)
+		G5UT A 0 A_PlaySound("Zombie/Raise")
+		G5UT ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	Death:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Death
+    Burn:
+	Death.SpecialFire:
+	Death.Flare:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Burn
+    Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Disintegrate	
+	DeathKickableHead:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::DeathKickableHead
+	Death.Shock:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Death.Shock
+	XDeath:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::XDeath
+	XDeath.KickableAlt:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::XDeath.KickableAlt	
+	}
+}
+
+ACTOR Ghoul6 
+{
+  Radius 16
+  Height 56
+  Speed 6 
+  Health 50 
+  Meleerange 48
+  Meleesound "ZombieAxe"  
+  Obituary "%o got the zombie's AXE"
+  SeeSound "ZombieSee"
+  Attacksound ""
+  DeathSound "ZombieDeath"
+  ActiveSound "ZombieSee"
+  DamageFactor Fire, 3.35
+  DamageFactor "Flare", 3.5
+  DamageFactor "Stomping", 0
+  DropItem "Clip_" 32
+  Dropitem "UselessStuff" 32
+  DropItem "GrenadeAmmo" 48
+  DropItem "Flaregun" 8
+  DropItem "Flare" 64  
+  PainSound ""
+  Painchance 100 //The old annoying zombie faking spam
+  Painchance "LifeLeech", 192
+  Painchance "Tommy", 64//11 //Never seen them fake from this but oh well
+  Painchance Fire, 0
+  Painchance "Flare", 0
+  Painchance "PitchFork", 64
+  Painchance "Dynamite", 90
+  Painchance "Blast", 190 //When they survive tnt they usually fake
+  Painchance "Shock", 255
+  Painchance "SawedoffLess", 170 //Nop not less
+  Painchance "SawedOff", 125
+  Painchance "ZBloodBullet", 64
+  Monster
+  GibHealth -10
+  Species "ZombieFall"
+  +FLOORCLIP
+  -DROPOFF
+  +DONTOVERLAP
+  +RANDOMIZE
+  +NOSPLASHALERT
+  -DONTGIB
+  DamageFactor "StunningHead",3
+  Painchance "SunningHead",230
+  Mass 40
+  States
+  {
+    Spawn:
+		GH6M I 10 A_Look
+		Loop
+	Idle:
+		GH6M I 0 A_Look
+		GH6M AAAABBBBCCCCDDDDAAAABBBBCCCCDDDDAAAABBBBCCCCDDDD 1 A_Wander
+		Loop
+	Already:	
+    See:
+		GH6M AAAABBBBCCCCDDDD 1 A_Chase
+		GH6M A 0 A_Stop //Balance regain
+		GH6M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH6M A 0 A_Stop
+		GH6M AAAABBBBCCCCDDDD 1 A_Chase
+		GH6M A 0 A_Stop //Balance regain
+		GH6M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH6M A 0 A_Stop
+		GH6M AAAABBBBCCCCDDDD 1 A_Chase
+		GH6M A 0 A_Stop //Balance regain
+		GH6M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH6M A 0 A_Stop
+		GH6M AAAABBBBCCCCDDDD 1 A_Chase
+		GH6M A 0 A_Stop //Balance regain
+		GH6M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH6M A 0 A_Stop
+		GH6M AAAABBBBCCCCDDDD 1 A_Chase
+		GH6M A 0 A_Stop //Balance regain
+		GH6M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH6M A 0 A_Stop
+		GH6M AAAABBBBCCCCDDDD 1 A_Chase
+		GH6M A 0 A_Stop //Balance regain
+		GH6M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH6M A 0 A_Stop
+		GH6M AAAABBBBCCCCDDDD 1 A_Chase
+		GH6M A 0 A_Stop //Balance regain
+		GH6M DDDDCCCCBBBBAAAA 1 A_Chase
+		GH6M A 0 A_Stop
+		GH6M A 0 A_Jump(150,1)
+		Goto StupidMode
+		Loop
+	StupidMode:
+	 	GH6M AAAABBBBCCCCDDDD  1 A_Wander
+		GH6M A 0 A_Look //Balance regain
+		GH6M DDDDCCCCBBBBAAAA  1 A_Wander
+		GH6M A 0 A_Look
+		GH6M A 0 A_Jump(150,2)
+		GH6M A 0 A_ClearTarget
+		Goto Spawn
+		Loop
+	Melee:
+		GH6M J 4 A_FaceTarget
+		GH6M J 0 A_Recoil(-2)
+		TNT1 A 0 A_PlaySound("ZombieAxe")
+		GH6M KL 4 A_FaceTarget
+		GH6M J 0 A_Recoil(-1)
+		GH6M M 4 A_CustomMeleeAttack(frandom(16,34), "", "", "Axe", 1)
+		GH6M NO 4
+		TNT1 A 0 A_ClearTarget
+		Goto See
+    Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		GH6M H 4 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		GH6D A 1
+		GH6M N 0 A_UNSetSolid
+		GH6D AB 4
+		GH6D B 4 A_GiveInventory("AmAlreadyFaking",1)
+		GH6D CDE 4
+	PainEL:
+	ContFake:
+		GH6D EEEE 20 
+		GH6D E 0 A_JumpIfCloser(70,"HAHAHA")
+		GH6D EEEE 20 
+		GH6D E 0 A_JumpIfCloser(70,"HAHAHA")
+		GH6D EEEEEEEE 20
+		GH6D E 0 A_Jump(120,"PainEL")
+		GH6D E 5 
+		GH6M N 0 A_ChangeFlag("THRUSPECIES",0)
+		GH6M O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		GH6D E 0 A_PlaySound("Zombie/Fake")
+		GH6D EDCBA 4 
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	HAHAHA:
+		GH6D E 0 A_TakeInventory("AmAlreadyFaking",99)
+		GH6D E 0 A_FaceTarget
+		GH6D E 1
+		GH6M O 0 A_SetSolid
+		GH6M O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		GH6D E 0 A_PlaySound("Zombie/Fake")
+		GH6D EDCBA 2 A_Recoil(-1)
+		Goto Melee+2
+/*	Pain.Shock:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget // Go dumb
+		ZOMZ A 7  A_ChangeFlag("GH6ST",0)
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7 BRIGHT
+		Goto See*/
+	Pain.LifeLeech:
+		TNT1 A 0 A_ChangeFlag("GH6ST",0)
+		TNT1 A 0 A_JUMP(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("potionHealth", frandom(0,1))
+		Goto See
+    Death:
+		TNT1 A 0 A_Scream
+		GH6D H 0 A_Jump(100,"DeathKickableHead")
+		GH6D H 0 A_JumpIfHealthLower (-9, 7)
+		GH6D A 8 A_TakeInventory("AlreadyFlare",99)
+		GH6D B 8
+		GH6D C 4
+		GH6D D 4 A_Fall
+		//GH6D E 1 A_SpawnItemEx("DeadBloodZombie",0,0,0)
+		GH6D E -1
+		Stop 
+		GH6M H 0 A_PlaySound("DSBDSPRY")
+		GH62 A 0 A_ThrowGrenade("KickableFlyingGhoul6",0,5,10,0)
+		GH6D LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6D MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6D NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6M H 0 A_Fall
+		GH6D OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6D PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6D QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6D RR 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6M H 0 A_PlaySound("DSBDSPRY")
+		GH6D SSSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6M H 0 A_PlaySound("DSBDSPRY")
+		GH6D SSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		GH6D S -1
+		Stop
+	DeathKickableHead:
+		GH6M H 0 A_PlaySound("DSBDSPRY")
+		GH62 A 0 A_ThrowGrenade("KickableFlyingGhoul6",0,5,10,0)
+		GH6D LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6D MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6D NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6M H 0 A_Fall
+		GH6D OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6D PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6D QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6D R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6M H 0 A_PlaySound("DSBDSPRY")
+		GH6D SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		GH6M H 0 A_PlaySound("DSBDSPRY")
+		GH6D SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		GH6D S -1
+		Stop
+	Death.Shock:
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 2)
+		Goto Death //Well it looked goofy when they suddenly disappeared out of the world
+    XDeath:
+		TNT1 A 0 A_Jump(120,"XDeath.KickableAlt")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)	
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Fall
+		GH6X A 5    
+		TNT1 AAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		GH6X B 5
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingGhoul6",0,5,10,0)
+		GH6X C 5
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("Hand1")
+		TNT1 A 0 A_SpawnItemEx("Intestines",frandom(-50,50),frandom(-50,50),0)
+		TNT1 A 0 A_SpawnItemEx("Entrails",frandom(-50,50),frandom(-50,50),0)
+		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAAAA 0 A_SpawnItemEx("Blood_",frandom(-20,20),frandom(-20,20),frandom(-20,20),frandom(0,15),frandom(0,15),frandom(0,15),frandom(0,360),0,120)
+		GH6X DEFGH 5
+		GH6X I -1
+		Stop
+	XDeath.KickableAlt:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)	
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Fall
+		GH6X A 5    
+		TNT1 AAA 0 A_SpawnDebris ("OrganDebris")
+		GH6X B 5
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingGhoul6",0,5,10,0)
+		GH6X C 5
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		GH6X DEFGH 5
+		GH6X I -1
+		Stop
+    Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingGhoul6",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		GH6M A 1
+		GH6M I 0 A_Fall
+		GH6M I 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		GH6M I 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+    Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:
+		GH6S I 0 A_Scream
+		GH6S ABCD 6
+		GH6S L 0 A_Fall
+		GH6S EFGH 3
+		GH6S I -1
+        Stop
+    Raise:
+		GH6D FGHIJ 5
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)			
+        Goto See
+	Death.Dynamite:
+		GH6S I 0 A_Jump(190,"Death")
+		GH6S I 0 ThrustThingZ(0,frandom(25,45),0,0)
+		Goto Death
+  }
+}
+
+ACTOR BuriedGhoul6 : Ghoul6 
+{	
+	-SOLID
+	-SHOOTABLE	
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		G6UT A 320 A_Look
+	Loop
+	See:
+		G6UT A 0 A_ChangeFlag("SOLID",1)
+		G6UT A 0 A_ChangeFlag("SHOOTABLE",1)		
+		G6UT A 0 A_JumpifInventory("Chokeme",1,11)
+		G6UT A 0 A_GiveInventory("Chokeme",1)
+		G6UT A 0 A_PlaySound("Zombie/Raise")
+		G6UT ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	}
+}
+
+ACTOR FastBuriedGhoul6 : Ghoul6 
+{	
+	-SOLID
+	-SHOOTABLE	
+	+LOOKALLAROUND
+    States
+	{
+	Idle:
+	Goto Super::Spawn
+	Spawn:
+		G5UT A 1 A_Look
+	Loop
+	See:
+		G6UT A 0 A_ChangeFlag("SOLID",1)
+		G6UT A 0 A_ChangeFlag("SHOOTABLE",1)		
+		G6UT A 0 A_JumpifInventory("Chokeme",1,11)
+		G6UT A 0 A_GiveInventory("Chokeme",1)
+		G6UT A 0 A_PlaySound("Zombie/Raise")
+		G6UT ABCDEFGHIJ 4 A_FaceTarget
+	Goto Super::See
+	Death:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Death
+    Burn:
+	Death.SpecialFire:
+	Death.Flare:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Burn
+    Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Disintegrate	
+	DeathKickableHead:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::DeathKickableHead
+	Death.Shock:	
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::Death.Shock
+	XDeath:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::XDeath
+	XDeath.KickableAlt:
+		TNT1 A 0 A_TakeInventory("CountZombie",1,0,AAPTR_MASTER)
+	Goto Super::XDeath.KickableAlt	
+	}
+}
+
+ACTOR GhoulsZombies: BuriedGhoul2  19036
+{
+	//$Category Bloom Hybrid Monsters
+	//$Title GhoulsZombies
+	//$Color 3
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 ACS_NamedExecuteAlways("FloorTextureCheck", 0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+	Loop
+	NoGroundSpawner://Summon a Randomspawner class for stand up zombimps
+		//TNT1 A 0 A_SpawnItemEx("StandUpGhoulsSpawner",0,0,0,0)
+        TNT1 A 0 A_SpawnItemEx("StandUpGhoulsSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)		
+	Stop	
+	GroundSpawner://Summon a Randomspawner class for buried zombimps
+		//TNT1 A 0 A_SpawnItemEx("BuriedGhoulsSpawner",0,0,0,0)
+        TNT1 A 0 A_SpawnItemEx("BuriedGhoulsSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)				
+	Stop		
+	}
+}
+
+/*ACTOR StandUpGhoulsSpawner : RandomSpawner
+{
+  DropItem "Ghoul1"
+  DropItem "Ghoul2"
+  DropItem "Ghoul3"
+  DropItem "Ghoul4"
+  DropItem "Ghoul5"
+  DropItem "Ghoul6"  
+}
+
+ACTOR BuriedGhoulsSpawner : RandomSpawner
+{
+  DropItem "BuriedGhoul1"
+  DropItem "BuriedGhoul2"
+  DropItem "BuriedGhoul3"
+  DropItem "BuriedGhoul4"
+  DropItem "BuriedGhoul5"
+  DropItem "BuriedGhoul6"  
+}*/
+
+ACTOR StandUpGhoulsSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5","Spawn6")
+	Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Ghoul1",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Ghoul2",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("Ghoul3",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("Ghoul4",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop	
+	Spawn5:
+		TNT1 A 0 A_SpawnItemEx("Ghoul5",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop		
+	Spawn6:
+		TNT1 A 0 A_SpawnItemEx("Ghoul6",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop		
+	}
+}
+
+ACTOR BuriedGhoulsSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5","Spawn6")
+	Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("BuriedGhoul1",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BuriedGhoul2",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("BuriedGhoul3",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("BuriedGhoul4",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop	
+	Spawn5:
+		TNT1 A 0 A_SpawnItemEx("BuriedGhoul5",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop		
+	Spawn6:
+		TNT1 A 0 A_SpawnItemEx("BuriedGhoul6",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+	Stop		
+	}
+}
+
+ACTOR FlareGhoul
+{
+   Radius 3
+   Height 4
+   Speed 50
+   Scale 0.5
+   Damage 0
+   Projectile
+   +SEEKERMISSILE
+   +NODAMAGETHRUST
+   +ROCKETTRAIL    
+   +DONTSPLASH
+   +FOILINVUL
+   +THRUGHOST
+   -SOLID   
+   DamageType "Flare"
+   DamageType "Fire"
+   DeathSound "DSRXPLOD"
+   ActiveSound "dsFLRAIR"
+   States
+   {
+   Spawn:
+	  FAIR A 0
+      FAIR A 0 BRIGHT A_LoopActiveSound
+      FAIR ABC 1 BRIGHT
+	  FAIR AAA 0 A_CustomMissile("Flaretrail",0,0,frandom(0,360),2,frandom(-90,90))
+      Goto Spawn+2
+   Death:
+   	  FAIR A 1 BRIGHT
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",0,0,frandom(0,360),2,frandom(-90,90))
+      Stop
+   XDeath:
+      FAIR DEF 1 BRIGHT A_Fire
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(2,20,0)
+	  FAIR GHI 1 BRIGHT A_Fire
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(2,20,0)
+	  FAIR DEF 1 BRIGHT A_Fire
+	  FAIR A 0 A_SpawnItem("BurningAlive")
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(2,20,0)
+	  FAIR GHI 1 BRIGHT A_Fire
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(2,20,0)
+	  FAIR DEF 1 BRIGHT A_Fire
+	  FAIR A 0 A_SpawnItem("BurningAlive")
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(2,20,0)
+	  FAIR GHI 1 BRIGHT A_Fire
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(2,20,0)
+	  FAIR DEF 1 BRIGHT A_Fire
+	  FAIR A 0 A_SpawnItem("BurningAlive")
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(2,20,0)
+	  FAIR GHI 1 BRIGHT A_Fire
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(2,20,0)
+	  FAIR DEF 1 BRIGHT A_Fire
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(2,20,0)
+	  FAIR GHI 1 BRIGHT A_Fire
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(2,20,0)
+	  FAIR DEF 1 BRIGHT A_Fire
+	  FAIR A 0 A_SpawnItem("BurningAlive")
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(2,20,0)
+	  FAIR GHI 1 BRIGHT A_Fire
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(2,20,0)
+	  FAIR DEF 1 BRIGHT A_Fire
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(2,20,0)
+	  FAIR GHI 1 BRIGHT A_Fire
+	  FAIR A 0 A_SpawnItem("BurningAlive")
+      FAIR AAAAA 0 A_CustomMissile("Flaretrail",40,0,frandom(0,360),2,frandom(-90,90))
+      TNT1 A 0 A_Explode(16,20,0)
+      Stop
+   }
+}
+
+ACTOR AlreadyFlare : Inventory
+{
+Inventory.Amount 1
+Inventory.MaxAmount 1
+}
+
+ACTOR ----------ARCHZOMBIE---------- {}
+ACTOR Gargovile 19040
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Gargovile
+  //$Color 3
+  Health 700
+  Radius 20
+  Height 56
+  Mass 500
+  Speed 15
+  PainChance 10
+  Monster
+  MaxTargetRange 896
+  +QUICKTORETALIATE
+  +FLOORCLIP
+  +NOTARGET
+  +DROPOFF
+  GibHealth -10  
+  SeeSound "vile/sight"
+  PainSound "vile/pain"
+  DeathSound "vile/death"
+  ActiveSound "vile/active"
+  MeleeSound "vile/Stop"
+  Obituary "$OB_VILE"
+  States
+  {
+  Spawn:
+    ARCH A 10 A_Look
+    Loop
+  See:
+    ARCH AABBCCDDEEFF 2 A_Chase
+	TNT1 A 0 A_Checksight("Summon")
+    ARCH AABBCCDDEEFF 2 A_Chase	
+	//TNT1 A 0 A_JumpIfHigherOrLower ("Summon","",128,0)
+    Loop
+  Summon:
+	ARCF J 1 ThrustThingZ(0,20,0,0)
+	ARCF J 1 A_UnSetSolid
+	ARCF J 1 A_SpawnItemEx("FlyingGargovile",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION || SXF_TRANSFERPOINTERS)
+    Stop	
+  Melee:
+	ARCM A 0 A_Recoil(frandom(-2,0))
+	ARCM A 0 A_PlaySound("GargoyleMelee")
+    ARCM A 7 A_FaceTarget
+    ARCM B 7 A_CustomMeleeAttack (frandom(3,6)*7,"imp/melee","imp/melee", "Stun",1) 
+    ARCM CBA 6	
+	Goto See
+  Missile:
+    TNT1 A 0 BRIGHT A_VileStart
+    ARCH G 10 BRIGHT A_FaceTarget
+    ARCH H 8 BRIGHT A_VileTarget
+    ARCH IJKLMN 8 BRIGHT A_FaceTarget
+    ARCH N 8 BRIGHT A_VileAttack
+    ARCH N 20 BRIGHT
+    Goto See
+  Pain:
+    ARCH O 5   
+    ARCH O 5 A_Pain
+    Goto See
+  Death:
+    ARCH P 7
+    ARCH Q 7 A_Scream
+    ARCH R 7 A_NoBlocking
+    ARCH STUVW 7
+    ARCH X -1
+    Stop
+  }
+}
+
+ACTOR FlyingGargovile 18322
+{
+	//$Category Bloom Hybrid Monsters
+	//$Title Flying gargovile
+	//$Color 3
+	Health 700
+	Radius 20
+	Height 56
+	Mass 500
+	Speed 15
+	PainChance 255
+	Monster  
+	+FLOAT
+	+NOGRAVITY
+	+FLOATBOB
+	GibHealth -10  
+	PainSound "vile/pain"
+	DeathSound "vile/death"
+	ActiveSound "vile/active"
+	MeleeSound "vile/Stop"
+	Obituary "$OB_VILE"	
+	States
+	{
+	Spawn:
+		ARCF AABBCCAABBCC 2 A_Look	
+	Loop		
+	See:
+		ARCF AABBCCAABBCC 2 A_Chase	
+		TNT1 A 0 A_JumpIfHealthLower(500, "Summon")
+	    //TNT1 A 0 A_JumpIfHigherOrLower ("","Summon",0,64)
+	Goto See
+	Summon:
+	    ARCF J 1 ThrustThingZ(0,20,0,0)	
+	    ARCF J 1 A_Recoil(-20)
+		ARCF J 1 A_UnSetSolid
+		ARCF J 1 A_SpawnItemEx("Gargovile",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION || SXF_TRANSFERPOINTERS)		
+	Stop
+	Melee:
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_Recoil(frandom(-2,0))
+		TNT1 A 0 A_PlaySound("GargoyleMelee")
+		ARCF G 7 A_FaceTarget
+		ARCF H 7 A_CustomMeleeAttack (frandom(3,6)*7,"imp/melee","imp/melee", "Stun",1) 
+		ARCF I 6 
+	Goto See 
+	Pain:
+		ARCF J 5   
+		ARCF J 5 A_Pain
+    Goto Summon	
+	}
+}
+
+ACTOR LivingGargovileStatue 19043
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title Living Gargovile Statue
+  //$Color 3
+  Radius 10
+  Height 35
+  Mass 10
+  Gravity 0.6
+  +SOLID
+  +SHOOTABLE
+  -NOBLOOD
+  -SPAWNCEILING
+  -NOGRAVITY
+  +LOOKALLAROUND
+  States
+  {
+  Spawn:
+	ARCS A 320 A_SetTics (frandom((Health / 20)+950,2100))
+    ARCS A 1 A_Look
+	Loop
+  See:
+	ARCS A 1 A_JumpIfCloser(196,"Unmorph")
+	TNT1 A 0 A_Facetarget
+	Loop
+  Unmorph:
+	ARCS BCD 5 A_Facetarget
+	TNT1 A 0 A_UnSetSolid	
+	ARCS E 1 A_SpawnItemEx("Gargovile",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION || SXF_TRANSFERPOINTERS)
+	Stop
+  }
+}
+
+ACTOR Archzombie 19039
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title ArchZombie
+  //$Color 3
+  Health 700
+  Radius 20
+  Height 56
+  Mass 500
+  Speed 15
+  PainChance 10
+  Monster
+  MaxTargetRange 896
+  +QUICKTORETALIATE
+  +FLOORCLIP
+  +NOTARGET
+  GibHealth -10  
+  SeeSound "vile/sight"
+  PainSound "vile/pain"
+  DeathSound "vile/death"
+  ActiveSound "vile/active"
+  MeleeSound "vile/Stop"
+  Obituary "$OB_VILE"
+  States
+  {
+  Spawn:
+    ARZM AB 10 A_Look
+    Loop
+  See:
+    ARZM AABBCCDDEEFF 2 A_VileChase
+    Loop
+  Missile:
+	TNT1 A 0 A_JumpIfInventory("CountZombie",10,2)  
+	TNT1 A 0 A_Jump(256,"Invocation")
+    ARZM G 0 BRIGHT A_VileStart
+    ARZM G 10 BRIGHT A_FaceTarget
+    ARZM H 8 BRIGHT A_VileTarget
+    ARZM IJKLMN 8 BRIGHT A_FaceTarget
+    ARZM O 8 BRIGHT A_VileAttack
+    ARZM P 20 BRIGHT
+    Goto See
+  Invocation:
+	TNT1 A 0 A_GiveInventory("CountZombie",1)  
+	TNT1 A 0 A_GiveInventory("AlreadyFlare",1)  
+    ARZM "[\]" 10 BRIGHT A_FaceTarget
+	TNT1 A 0 A_SpawnItemEx("VileSpawner",frandom(32.0,64.0),frandom(32.0,64.0),0)
+	TNT1 A 0 A_PlaySound("SummonZombies")
+	TNT1 A 0 A_Jump(256,"Invocation1","Invocation2","Invocation3","Invocation4","Invocation5","Invocation6")
+  Invocation1:
+	TNT1 A 0 A_SpawnItemEx("FastBuriedGhoul1",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+    Goto See
+  Invocation2:
+	TNT1 A 0 A_SpawnItemEx("FastBuriedGhoul2",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+    Goto See
+  Invocation3:
+	TNT1 A 0 A_SpawnItemEx("FastBuriedGhoul3",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+    Goto See
+  Invocation4:
+	TNT1 A 0 A_SpawnItemEx("FastBuriedGhoul4",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+    Goto See
+  Invocation5:
+	TNT1 A 0 A_SpawnItemEx("FastBuriedGhoul5",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+    Goto See
+  Invocation6:
+	TNT1 A 0 A_SpawnItemEx("FastBuriedGhoul6",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+    Goto See	
+  Heal:
+    ARZM "[\]" 10 BRIGHT
+    Goto See
+  Pain:
+    ARZM Q 5   
+    ARZM Q 5 A_Pain
+    Goto See
+  Death:
+	TNT1 A 0 A_Jump(128,"UltraDeath")
+    ARZM Q 7
+    ARZM R 7 A_Scream
+    ARZM S 7 A_NoBlocking
+    ARZM TUVWXY 7
+    ARZM Z -1
+    Stop
+  XDeath:
+    NOHX A 2 
+    NOHX B 2 
+    NOHX C 2 A_Quake(128,75,64,0)		
+	TNT1 A 0 A_SpawnItemEx("Blower",0,0,0)
+	TNT1 AAA 0 A_SpawnDebris("OrganDebris")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+	TNT1 A 0 A_SpawnDebris("OrganDebris2")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris("Bloodliver")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnDebris("Hand1")
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnItemEx("Intestines",frandom(-50,50),frandom(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 A 0 A_SpawnItemEx("Entrails",frandom(-50,50),frandom(-50,50),0)
+	TNT1 A 0 A_SetAngle(frandom(0.0,360.0))	
+	TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+	TNT1 AAAAAAA 0 A_SpawnItemEx("Blood_",frandom(-20,20),frandom(-20,20),frandom(-20,20),frandom(0,15),frandom(0,15),frandom(0,15),frandom(0,360),0,120)	
+    NOHX DEFGH 4
+    NOHX I -1
+    Stop	
+  UltraDeath:
+	NOHA AAAAA 4 A_NoBlocking
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)			
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)			
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)		
+	NOHA BBBBB 4
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)			
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)			
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)		
+	NOHA C  45 
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)			
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)			
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)			
+	NOHA DDDD 5
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)			
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)			
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)			
+	NOHA EEEE 5
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)			
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)			
+	TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)			
+	NOHA F 45 A_ThrowGrenade("KickableFlying",5,0,0,0)
+	TNT1 A 0 A_Scream
+	TNT1 A 0 A_Fall	
+	NOHE A 1 A_SpawnItemEx("ArchzombieHeadless",0,0,0) 
+	Stop
+  }
+}
+
+ACTOR ArchzombieHeadless
+{
+	Health 80
+	Radius 20
+	Height 56
+	Mass 500
+	Speed 15
+	PainChance 10
+	Monster
+	+NOTARGET
+	+FRIENDLY
+    DeathSound "DSBDSPRY"	
+	States
+	{
+	Spawn:
+		NOHE A 10 A_Look
+		TNT1 A 0 A_GiveInventory("CountToDeath",10)
+		Loop
+	See:
+		TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)		
+		NOHE AABBCC 2 A_Chase
+		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_JumpIfInventory("CountToDeath",1,"See")				
+		Goto Death
+		TNT1 A 0 A_TakeInventory("CountToDeath",1)
+		Loop
+	Pain:
+		NOHE D 4 A_Pain
+		TNT1 A 0 
+		Goto See
+	Death:
+		NOHE E 7
+		NOHE F 7 A_Scream
+		NOHE G 7 A_NoBlocking
+		NOHE HIJKL 7
+		NOHE M -1		
+		Stop
+	}
+}
+
+ACTOR VileSpawner
+{
+  Radius 4
+  Height 4
+  Alpha 0.8
+  RenderStyle Add
+  +FLOORCLIP
+  +RANDOMIZE
+  +CANNOTPUSH
+  -NOGRAVITY
+  -NOBLOCKMAP
+  States
+  {
+	Spawn:
+		MUMM QRSTUVW 4
+	Stop  
+  }
+}
+
+ACTOR CountToDeath : Inventory
+{
+Inventory.Amount 1
+Inventory.MaxAmount 10
+}
+
+ACTOR CountZombie : Inventory
+{
+Inventory.Amount 1
+Inventory.MaxAmount 10
+}
+
+ACTOR ----------HELLBUTCHER---------- {}
+ACTOR HellButcher : WereWolfOfHellAlt 19042
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title HellButcher
+  //$Color 3
+  Health 500
+  -BOSSDEATH
+  SeeSound "ButcherSee"
+  PainSound "ButcherPain"
+  DeathSound "ButcherDeath"
+  ActiveSound "ButcherAct"
+  HitObituary "$OB_KNIGHTHIT"
+  Obituary "$OB_KNIGHT"
+  GibHealth -10   
+  States
+  {
+  Spawn:
+    FAUN AB 10 A_Look
+    Loop
+  See:
+    FAUN AABBCCDDEEFF 3 A_Chase
+    Loop
+  Melee:		
+  Missile:
+	TNT1 A 0 A_JumpIfCloser(360,"Missile2")
+    TNT1 A 0 A_FaceTarget
+    FAUN H 8 A_FaceTarget
+	TNT1 A 0 A_PlaySound("ButcherVomit")
+    FAUN I 4
+	FAUN J 6 A_CustomMissile("ButcherVomit", 64)
+    FAUN K 14 A_FaceTarget
+    Goto See
+  Missile2:
+    FAUA AB 8 A_FaceTarget
+    FAUA C 8 A_BruisAttack
+	Goto See
+  Pain:
+    FAUN G 2
+    FAUN G 2 A_Pain
+    Goto See
+  Death:
+    FAUD AB 8
+    FAUD CD 8 A_Scream
+    FAUD EF 8
+    FAUD GH 8 A_NoBlocking
+    FAUD IJK 8
+    FAUD L -1
+    Stop
+  XDeath:
+	FAUN L 3
+	TNT1 A 0 A_SpawnDebris("OrganDebris2")
+	TNT1 A 0 A_SpawnDebris("Bloodliver")	
+	TNT1 A 0 A_SpawnDebris("OrganDebris")
+	TNT1 A 0 A_SpawnDebris("Bloodliver")	
+	TNT1 A 0 A_SpawnDebris("OrganDebris2")
+	TNT1 A 0 A_SpawnDebris("Bloodliver")	
+	TNT1 A 0 A_SpawnDebris("EyeGuts")
+	TNT1 A 0 A_SpawnDebris("Bloodliver")
+	TNT1 A 0 A_SpawnDebris("HeadBlood")
+	TNT1 A 0 A_SpawnItemEx("Intestines",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SpawnDebris("OrganDebris")
+	TNT1 A 0 A_SpawnDebris("Bloodliver")	
+	TNT1 A 0 A_SpawnDebris("OrganDebris2")
+	TNT1 A 0 A_SpawnDebris("Bloodliver")	
+	TNT1 A 0 A_SpawnItemEx("Entrails",random(-50,50),random(-50,50),0)		
+	FAUN M 3 A_XScream
+	FAUN N 4 A_SpawnDebris("FlyingBlood")
+	FAUN O 2 A_SpawnDebris("FlyingBlood")	
+	FAUN P 2 A_NoBlocking
+	FAUN QR 1
+	FAUN S -1
+  Raise:
+    FAUD L 8
+    FAUD LKIHGFEDBA 8
+    Goto See
+  }
+}
+
+ACTOR HellButcherAlt : WereWolfOfHellAlt 19047
+{
+  //$Category Bloom Hybrid Monsters
+  //$Title HellButcher Alternative
+  //$Color 3
+  Health 500
+  -BOSSDEATH
+  SeeSound "ButcherSee"
+  PainSound "ButcherPain"
+  DeathSound "ButcherDeath"
+  ActiveSound "ButcherAct"
+  HitObituary "$OB_KNIGHTHIT"
+  Obituary "$OB_KNIGHT"
+  GibHealth -10     
+  States
+  {
+  Spawn:
+    F2UN A 10 A_Look
+    Loop
+  See:
+    F2UN AABBCCDDEEFF 3 A_Chase
+    Loop
+  Melee:		
+  Missile:
+	TNT1 A 0 A_JumpIfCloser(360,"Missile2")
+    TNT1 A 0 A_FaceTarget
+    F2UN H 8 A_FaceTarget
+	TNT1 A 0 A_PlaySound("ButcherVomit")
+    F2UN I 4
+	F2UN J 6 A_CustomMissile("ButcherVomit", 64)
+    F2UN K 14 A_FaceTarget
+    Goto See
+  Missile2:
+    F2AN AB 8 A_FaceTarget
+    F2AN C 8 A_CustomComboAttack("HellButcherBall", 32, 10 * random(1, 8), "baron/melee")
+	Goto See
+  Pain:
+    F2UN G 2
+    F2UN G 2 A_Pain
+    Goto See
+  Death:
+    F2UD AB 8
+    F2UD CD 8 A_Scream
+    F2UD EF 8
+    F2UD GH 8 A_NoBlocking
+    F2UD IJK 8
+    F2UD L -1
+    Stop
+  XDeath:
+	F2AE A 3
+	TNT1 A 0 A_SpawnDebris("OrganDebris2")
+	TNT1 A 0 A_SpawnDebris("Bloodliver")	
+	TNT1 A 0 A_SpawnDebris("OrganDebris")
+	TNT1 A 0 A_SpawnDebris("Bloodliver")	
+	TNT1 A 0 A_SpawnDebris("OrganDebris2")
+	TNT1 A 0 A_SpawnDebris("Bloodliver")	
+	TNT1 A 0 A_SpawnDebris("EyeGuts")
+	TNT1 A 0 A_SpawnDebris("Bloodliver")
+	TNT1 A 0 A_SpawnDebris("HeadBlood")
+	TNT1 A 0 A_SpawnItemEx("Intestines",random(-50,50),random(-50,50),0)
+	TNT1 A 0 A_SpawnDebris("OrganDebris")
+	TNT1 A 0 A_SpawnDebris("Bloodliver")	
+	TNT1 A 0 A_SpawnDebris("OrganDebris2")
+	TNT1 A 0 A_SpawnDebris("Bloodliver")	
+	TNT1 A 0 A_SpawnItemEx("Entrails",random(-50,50),random(-50,50),0)		
+	F2AE B 3 A_XScream
+	F2AE C 4 A_SpawnDebris("FlyingBlood")
+	F2AE D 2 A_SpawnDebris("FlyingBlood")	
+	F2AE E 2 A_NoBlocking
+	F2AE FG 1
+	F2AE H -1
+  Raise:
+    F2UD L 8
+    F2UD LKIHGFEDBA 8
+    Goto See
+  }
+}
+
+ACTOR HellButcherBall
+{
+  Radius 6
+  Height 16
+  Speed 15
+  FastSpeed 20
+  Damage 8
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 1
+  SeeSound "baron/attack"
+  DeathSound "baron/shotx"
+  Decal "BaronScorch"
+  States
+  {
+  Spawn:
+    SPAX AB 4 BRIGHT
+    Loop
+  Death:
+    SPAX CDE 6 BRIGHT
+    Stop
+  }
+}

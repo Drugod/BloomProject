@@ -1,0 +1,11 @@
+#library "Options"
+#include "zcommon.acs"
+
+//Controls
+Script "blm_voxmod"(void)
+{
+	//if (GameType()!=GAME_SINGLE_PLAYER)
+	//	PrintBold(s:"Models are only available in Single Player, sorry!");
+	//else
+		SetResultValue(GetCVar("blm_voxmod"));
+}

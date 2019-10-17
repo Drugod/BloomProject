@@ -1,0 +1,43 @@
+LighterBlue "Lighter Blue"
+{
+	#508593  #94A4FF // 506093
+Console:
+	#20304C  #7080FF    0 127
+	#7080FF  #FFFFFF  128 256
+Flat:
+	#53EEFF
+}
+DarkerBlue "Darker Blue"
+{
+	#101020  #404080
+Console:
+	#101020  #3040A0    0 127
+	#3040A0  #0000FF  128 256
+Flat:
+	#404080
+}
+LighterWhite "Lighter White"
+{
+	#999999  #FFFFFF
+Console:
+	#808080  #BBBBBB    0 127
+	#BBBBBB  #FFFFFF  128 256
+Flat:
+	#EFEFEF
+}
+
+pr {
+		#0A0A0A #808080
+	Console:
+		#0A0A0A #808080 0 256
+}
+
+DarkerBlue2 "Darker Blue"
+{
+	#302835  #454590
+Console:
+	#101020  #3040A0    0 127
+	#3040A0  #0000FF  128 256
+Flat:
+	#303070
+}

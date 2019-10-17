@@ -1,0 +1,995 @@
+ACTOR HangCorpseSpawner : RandomSpawner 3252
+{
+	//$Category "BlooM Corpses"
+    DropItem "HangingMeat"
+    DropItem "BloodSkelUpsideDown"
+    DropItem "BlindfoldedGuyHang"
+    DropItem "BlindfoldedAsh"
+	DropItem "Skeletonx"
+	DropItem "Skeletonx2"
+	DropItem "Skeletonx3"
+	DropItem "Skeletonx4"
+	DropItem "Skeletonx5"
+	DropItem "Hangindeadchick"	
+	DropItem "Hangindeadchick2"
+	DropItem "Hangindeadchick3"
+}
+
+ACTOR HangSkeletonSpawner : RandomSpawner 3282
+{
+	//$Category "BlooM Corpses"
+	DropItem "Skeletonx"
+	DropItem "Skeletonx2"
+	DropItem "Skeletonx3"
+	DropItem "Skeletonx4"
+	DropItem "Skeletonx5"
+}
+
+ACTOR HangChickSpawner : RandomSpawner 3283
+{
+	//$Category "BlooM Corpses"
+	DropItem "Hangindeadchick"	
+	DropItem "Hangindeadchick2"
+	DropItem "Hangindeadchick3"
+}
+
+ACTOR BloodJar : HeartColumn 3242 //replaces HeartColumn
+{
+  //$Category "BlooM Corpses"
+  Radius 16
+  Height 30
+  Health 10
+  +SOLID
+  +SHOOTABLE
+  +NOBLOOD
+  +DONTGIB
+  +RANDOMIZE
+  Scale 0.5
+  DeathSound "DSCANDIE"
+  PainSound "DSCANDIE"
+  States
+  {
+  Spawn:
+    BJAR A -1
+	Stop
+  Death:
+    BJAR A 0 A_Pain    
+    BJAR A 5    
+    BJAR A 0 A_Fall
+    BJAR AAAAA 0 A_SpawnDebris("OrganDebris")
+    BJAR AAAAA 0 A_SpawnDebris("FlyingBlood")
+    BJAR A 0 A_XScream        
+    BJAR A 0 A_Jump(32,2)
+    BJAR A 0 A_SpawnDebris ("Hand1")
+    BJAR A 0 A_Jump(32,2)
+    BJAR A 0 A_SpawnDebris ("Bloodliver")
+    BJAR A 0 A_Jump(32,2)
+    BJAR AA 0 A_SpawnDebris ("EyeGuts")    
+    BJAR A 0
+	TNT1 A 0 A_GiveToTarget("DoLaugh", 1)  
+    Stop
+  }
+}
+
+ACTOR DeadMoron3 3173
+{
+  //$Category "BlooM Corpses"
+  Game Doom
+  Skip_Super
+  Scale 0.7
+  Height 30
+  Radius 15
+  Health 60
+  +Shootable
+  -DONTGIB
+  States
+  {
+	Spawn:
+		HORR A -1
+		Stop
+	Death:
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)  
+		BCUL P 0 A_Fall
+		BCUL P 5 A_XScream
+		BCUL P 0 A_SpawnDebris ("OrganDebris")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris ("Bloodliver")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris ("EyeGuts")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris ("Hand1")
+		BCUL P 0 A_SpawnItemEx("Intestines",0,0,0)
+		BCUL PPPPPPPP 0 A_SpawnDebris("FlyingBlood")
+	Stop
+  }
+}
+
+ACTOR DeadBloodZombie
+{
+  Game Doom
+  Skip_Super
+  scale 0.5
+  Height 10
+  Radius 15
+  Health 60
+  +Shootable
+  -DONTGIB
+  States
+  {
+	Spawn:
+		BZOD E -1
+		Stop
+	Death:
+		BCUL P 0 A_Fall
+		BCUL P 1 A_XScream
+		BCUL P 0 A_SpawnDebris ("OrganDebris")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris ("Bloodliver")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris ("EyeGuts")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris ("Hand1")
+		BCUL P 0 A_SpawnItemEx("Intestines",random(-50,50),random(-50,50),0)
+		BCUL PPPPPPPP 0 A_SpawnDebris("FlyingBlood")
+		Stop
+  }
+}
+
+ACTOR DeadBrownCultist
+{
+  Game Doom
+  Skip_Super
+  scale 0.5
+  Height 10
+  Radius 15
+  Health 60
+  +Shootable
+  -DONTGIB
+  States
+  {
+	Spawn:
+		YCUL O -1
+		Stop
+	Death:
+		BCUL P 0 A_Fall
+		YCUL P 1 A_XScream
+		BCUL P 0 A_SpawnDebris ("OrganDebris")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris ("Bloodliver")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris ("EyeGuts")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris ("Hand1")
+		BCUL P 0 A_SpawnItemEx("Intestines",random(-50,50),random(-50,50),0)
+		BCUL PPPPPPPP 0 A_SpawnDebris("FlyingBlood")
+		Stop
+  }
+}
+
+
+ACTOR TheShinning 3235
+{
+  //$Category "BlooM Corpses"
+  health 15
+  radius 16
+  height 60
+  mass 10000000
+  Scale 0.6
+  DeathSound "chainguy/pain"
+  +SOLID
+  +SHOOTABLE
+  -COUNTKILL
+  +ISMONSTER
+  States
+  {
+	Spawn:
+		JACK A 10 A_LOOK
+		Loop
+	See:
+		TNT1 A 0 A_GiveToTarget("DoJack", 1)
+		JACK A -1
+		Stop
+	Death:
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)  
+		BCUL P 0 A_Fall
+		BCUL P 5 A_XScream
+		BCUL P 0 A_SpawnDebris ("OrganDebris")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris ("Bloodliver")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris ("EyeGuts")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris ("Hand1")
+		BCUL PPPPPPPP 0 A_SpawnDebris("FlyingBlood")
+	Stop
+  }
+}
+
+ACTOR Deadmoron 3174
+{
+  //$Category "BlooM Corpses"
+  Game Doom
+  Skip_Super
+  DropItem None 
+  translation "209:223=64:71","112:127=64:79"
+  Scale 0.8
+  Health 40
+  Radius 14 
+  Height 10
+  +Shootable
+  -DONTGIB
+  States
+  {
+  Spawn:
+    HORR B -1
+    Stop
+	Death:
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)  
+		BCUL P 0 A_Fall
+		BCUL P 5 A_XScream
+		BCUL P 0 A_SpawnDebris ("OrganDebris")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris ("Bloodliver")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris ("EyeGuts")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris ("Hand1")
+		BCUL PPPPPPPP 0 A_SpawnDebris("FlyingBlood")
+  Stop
+  }
+}
+
+ACTOR Deadmoron2 : DeadZombieMan 3175
+{
+  //$Category "BlooM Corpses"
+  Game Doom
+  Skip_Super
+  DropItem None
+  Scale 0.8
+  Health 20
+  Radius 10
+  Height 10
+  +Shootable
+  States
+  {
+  Spawn:
+    HORR C -1
+    Stop
+	Death:
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)  
+		BCUL P 0 A_Fall
+		BCUL P 5 A_XScream
+		BCUL P 0 A_SpawnDebris ("OrganDebris")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris ("Bloodliver")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris ("EyeGuts")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris ("Hand1")
+		BCUL PPPPPPPP 0 A_SpawnDebris("FlyingBlood")
+		Stop
+  }
+}
+
+ACTOR DeadGargoyle : ZombieMan 3176
+{
+  //$Category "BlooM Corpses"
+  Game Doom
+  Skip_Super
+  DropItem None
+  translation "116:127=68:79","112:117=128:136"
+  Scale 0.6
+  States
+  {
+  Spawn:
+	BGAR P -1  
+    Stop
+  }
+}
+
+ACTOR livehead : HangTNoBrain 3178
+{
+  //$Category "BlooM Corpses"
+  health 15
+  radius 16
+  height 56
+  mass 10000000
+  translation 0
+  Scale 0.6
+  DeathSound "chainguy/pain"
+  -SOLID
+  -SPAWNCEILING
+  -NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+    XAHE A 250
+	XAHE B 50
+	Loop
+  Death:
+    BCUL OOOOO 0 A_SpawnDebris("FlyingBlood")
+	BCUL O 0 A_XScream        
+    BCUL O 0 A_Jump(32,2)
+    BCUL O 0 A_SpawnDebris ("Bloodliver")
+    BCUL O 0 A_Jump(32,2)
+    BCUL OO 0 A_SpawnDebris ("EyeGuts")    
+    BCUL O 5
+  Stop
+  }
+}
+
+ACTOR ZombieCan : HeartColumn 3179
+{
+  //$Category "BlooM Corpses"
+  radius 16
+  height 40
+  health 20
+  +SOLID
+  +SHOOTABLE
+  +NOBLOOD
+  +DONTGIB
+  +RANDOMIZE
+  scale 0.5
+  DeathSound "DSCANDIE"
+  PainSound "DSCANDIE"
+  States
+  {
+  Spawn:
+    BZBR A 0 A_Jump(128,2)
+    BZBR AB 14
+    Loop
+  Death:
+    BZBR A 0 A_Pain    
+    BZBR A 5    
+    BZBR A 0 A_Fall
+    BZBR AAAAA 0 A_SpawnDebris("OrganDebris")
+    BZBR AAAAA 0 A_SpawnDebris("FlyingBlood")
+    BZBR A 0 A_XScream        
+    BZBR A 0 A_Jump(32,2)
+    BZBR A 0 A_SpawnDebris ("Hand1")
+    BZBR A 0 A_Jump(32,2)
+    BZBR A 0 A_SpawnDebris ("Bloodliver")
+    BZBR A 0 A_Jump(32,2)
+    BZBR AA 0 A_SpawnDebris ("EyeGuts")    
+	TNT1 A 0 A_GiveToTarget("DoLaugh", 1)  
+    BZBR A 0
+    Stop
+  }
+}
+
+ACTOR BloodPile : HeartColumn 3253
+{
+  //$Category "BlooM Corpses"
+  radius 16
+  height 30
+  health 10
+  +SOLID
+  +SHOOTABLE
+  +NOBLOOD
+  +DONTGIB
+  +RANDOMIZE
+  scale 0.5
+  DeathSound "DSCANDIE"
+  PainSound "DSCANDIE"
+  States
+  {
+  Spawn:
+    BJAR A -1
+	Stop
+  Death:
+    BJAR A 0 A_Pain    
+    BJAR A 5    
+    BJAR A 0 A_Fall
+    BJAR AAAAA 0 A_SpawnDebris("OrganDebris")
+    BJAR AAAAA 0 A_SpawnDebris("FlyingBlood")
+    BJAR A 0 A_XScream        
+    BJAR A 0 A_Jump(32,2)
+    BJAR A 0 A_SpawnDebris ("Hand1")
+    BJAR A 0 A_Jump(32,2)
+    BJAR A 0 A_SpawnDebris ("Bloodliver")
+    BJAR A 0 A_Jump(32,2)
+    BJAR AA 0 A_SpawnDebris ("EyeGuts")    
+    BJAR A 0
+	TNT1 A 0 A_GiveToTarget("DoLaugh", 1)  
+    Stop
+  }
+}
+
+ACTOR Greenbrain : HeartColumn 3243
+{
+  //$Category "BlooM Corpses"
+  radius 16
+  height 16
+  health 10
+  +SOLID
+  +SHOOTABLE
+  +NOBLOOD
+  +DONTGIB
+  +RANDOMIZE
+  scale 0.5
+  DeathSound "DSCANDIE"
+  PainSound "DSCANDIE"
+  States
+  {
+  Spawn:
+    GBRN A -1
+	Stop
+  Death:
+    GBRN A 0 A_Pain    
+    GBRN A 5    
+    GBRN A 0 A_Fall
+    GBRN AAAAA 0 A_SpawnDebris("OrganDebris")
+    GBRN AAAAA 0 A_SpawnDebris("FlyingBlood")
+    GBRN A 0 A_XScream        
+    GBRN A 0 A_Jump(32,2)
+    GBRN A 0 A_SpawnDebris ("Hand1")
+    GBRN A 0 A_Jump(32,2)
+    GBRN A 0 A_SpawnDebris ("Bloodliver")
+    GBRN A 0 A_Jump(32,2)
+    GBRN AA 0 A_SpawnDebris ("EyeGuts")    
+    GBRN A 0
+	TNT1 A 0 A_GiveToTarget("DoLaugh", 1)  
+    Stop
+  }
+}
+
+ACTOR Redbrain : HeartColumn 3244 
+{
+  //$Category "BlooM Corpses"
+  radius 16
+  height 16
+  health 10
+  +SOLID
+  +SHOOTABLE
+  +NOBLOOD
+  +DONTGIB
+  +RANDOMIZE
+  scale 0.5
+  DeathSound "DSCANDIE"
+  PainSound "DSCANDIE"
+  States
+  {
+  Spawn:
+    RBRN A -1
+	Stop
+  Death:
+    RBRN A 0 A_Pain    
+    RBRN A 5    
+    RBRN A 0 A_Fall
+    RBRN AAAAA 0 A_SpawnDebris("OrganDebris")
+    RBRN AAAAA 0 A_SpawnDebris("FlyingBlood")
+    RBRN A 0 A_XScream        
+    RBRN A 0 A_Jump(32,2)
+    RBRN A 0 A_SpawnDebris ("Hand1")
+    RBRN A 0 A_Jump(32,2)
+    RBRN A 0 A_SpawnDebris ("Bloodliver")
+    RBRN A 0 A_Jump(32,2)
+    RBRN AA 0 A_SpawnDebris ("EyeGuts")    
+    RBRN A 0
+	TNT1 A 0 A_GiveToTarget("DoLaugh", 1)  
+    Stop
+  }
+}
+
+ACTOR HangingMeat 3187
+{ 
+  //$Category "BlooM Corpses"
+  health 30
+  radius 16
+  height 100
+  mass 10000000
+  translation 0
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  Scale 0.8
+  States
+  {
+  Spawn:
+ 	XHAN ABCDEF 6
+	TNT1 A 0 A_Jump(random(64,128),"Drip")
+	XHAN A 1 A_Jump(128,"Spawn")
+ 	XHAN A random(1,300)
+	TNT1 A 0 A_Jump(random(128,256),"Drip")	
+	Loop
+  Drip:
+	TNT1 A 0 A_SpawnItem("HangedBloodDrip")
+	Goto Spawn	
+  Death:
+	XHAN A 1 A_XScream
+    XHAN AAAAA 0 A_SpawnDebris ("OrganDebris")
+    XHAN AAAAAAAAA 0 A_SpawnDebris("FlyingBlood")
+	Stop
+  }
+}
+
+ACTOR BloodSkelUpsideDown 3188
+ {
+  //$Category "BlooM Corpses"
+  health 10
+  radius 16
+  height 100
+  mass 10000000
+  translation 0
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  Scale 0.6
+  States
+  {
+  Spawn:
+    //GOR2 A -1
+    //Stop
+	XDBZ A 600 A_Look
+  See: 
+    XDBZ BCDEFGHI 10
+	Loop
+  Death:
+    /*GOR2 A 1 A_XScream
+    GOR2 AAAAA 0 A_SpawnDebris ("OrganDebris")
+    GOR2 AAAAA 0 A_SpawnDebris("FlyingBlood")*/
+	XDBZ A 1 A_XScream
+    XDBZ AAAAA 0 A_SpawnDebris ("OrganDebris")
+    XDBZ AAAAA 0 A_SpawnDebris("FlyingBlood")
+	Stop
+  }
+}
+
+ACTOR BlindfoldedGuyHang : HangingMeat 3189
+{ 
+  //$Category "BlooM Corpses"
+  health 30
+  radius 16
+  height 100
+  mass 10000000
+  translation 0
+  +SOLID
+  +NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+	HOLG AB random(30,100)
+	TNT1 A 0 A_Jump(random(128,256),"Drip")
+	Loop
+  Drip:
+	TNT1 A 0 A_SpawnItem("HangedBloodDrip")
+	Goto Spawn	
+  Death:
+	HOLG A 1 A_XScream
+    HOLG AAAAA 0 A_SpawnDebris ("OrganDebris")
+    HOLG AAAAA 0 A_SpawnDebris("FlyingBlood")
+    Stop
+  }
+}
+
+ACTOR BlindfoldedAsh : HangingMeat 3190
+{    
+  //$Category "BlooM Corpses"
+  health 30
+  radius 16
+  height 100
+  mass 10000000
+  translation 0
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+	XBFA A 1
+	TNT1 A 0 A_Jump(random(1,4),"Drip")
+	Loop
+  Drip:
+	TNT1 A 0 A_SpawnItem("HangedBloodDrip")
+	Goto Spawn	
+  Death:
+	XBFA A 1 A_XScream
+    XBFA AAAAA 0 A_SpawnDebris ("OrganDebris")
+    XBFA AAAAA 0 A_SpawnDebris("FlyingBlood")
+    Stop
+  }
+}
+
+ACTOR Hangindeadchick : HangingMeat 3191
+{
+  //$Category "BlooM Corpses"
+  health 30
+  radius 16
+  height 100
+  mass 10000000
+  translation 0
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+	XXAO A 1
+	TNT1 A 0 A_Jump(random(1,4),"Drip")
+	Loop
+  Drip:
+	TNT1 A 0 A_SpawnItem("HangedBloodDrip")
+	Goto Spawn	
+  Death:
+    /*HDB5 A 1 A_XScream
+	HDB5 AAAAA 0 A_SpawnDebris ("OrganDebris")
+    HDB5 AAAAA 0 A_SpawnDebris("FlyingBlood")*/
+	XXAO A 1 A_XScream
+    XXAO AAAAA 0 A_SpawnDebris ("OrganDebris")
+    XXAO AAAAA 0 A_SpawnDebris("FlyingBlood")
+	//XXAD A -1
+    Stop
+  }
+}
+
+ACTOR Skeletonx : HangingMeat 3216
+{
+  //$Category "BlooM Corpses"
+  health 30
+  radius 16
+  height 100
+  mass 10000000
+  translation 0
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+	XXAA A 1 
+	Loop
+  Death:
+	XXAA A 1 A_XScream
+    XXAA AAAAA 0 A_SpawnDebris ("OrganDebris")
+    XXAA AAAAA 0 A_SpawnDebris("FlyingBlood")
+	//XXAD A -1
+    Stop
+  }
+}
+
+ACTOR Skeletonx2 : HangingMeat 3217
+{
+  //$Category "BlooM Corpses"
+  health 30
+  radius 16
+  height 100
+  mass 10000000
+  translation 0
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+    //HDB5 A -1
+	XXAB A -1
+	Stop
+  Death:
+    /*HDB5 A 1 A_XScream
+	HDB5 AAAAA 0 A_SpawnDebris ("OrganDebris")
+    HDB5 AAAAA 0 A_SpawnDebris("FlyingBlood")*/
+	XXAB A 1 A_XScream
+    XXAB AAAAA 0 A_SpawnDebris ("OrganDebris")
+    XXAB AAAAA 0 A_SpawnDebris("FlyingBlood")
+	//XXAD A -1
+    Stop
+  }
+}
+
+ACTOR Skeletonx3 : HangingMeat 3218
+{
+  //$Category "BlooM Corpses"
+  health 30
+  radius 16
+  height 100
+  mass 10000000
+  translation 0
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+    //HDB5 A -1
+	XXAC A -1
+	Stop
+  Death:
+    /*HDB5 A 1 A_XScream
+	HDB5 AAAAA 0 A_SpawnDebris ("OrganDebris")
+    HDB5 AAAAA 0 A_SpawnDebris("FlyingBlood")*/
+	XXAC A 1 A_XScream
+    XXAC AAAAA 0 A_SpawnDebris ("OrganDebris")
+    XXAC AAAAA 0 A_SpawnDebris("FlyingBlood")
+	//XXAD A -1
+    Stop
+  }
+}
+
+ACTOR Skeletonx4 : HangingMeat 3219
+{
+  //$Category "BlooM Corpses"
+  health 30
+  radius 16
+  height 100
+  mass 10000000
+  translation 0
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+    //HDB5 A -1
+	XXAE A -1
+	Stop
+  Death:
+    /*HDB5 A 1 A_XScream
+	HDB5 AAAAA 0 A_SpawnDebris ("OrganDebris")
+    HDB5 AAAAA 0 A_SpawnDebris("FlyingBlood")*/
+	XXAE A 1 A_XScream
+    XXAE AAAAA 0 A_SpawnDebris ("OrganDebris")
+    XXAE AAAAA 0 A_SpawnDebris("FlyingBlood")
+	//XXAD A -1
+    Stop
+  }
+}
+
+ACTOR Skeletonx5 : HangingMeat 3220
+{
+  //$Category "BlooM Corpses"
+  health 30
+  radius 16
+  height 100
+  mass 10000000
+  translation 0
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+	XXAF A 1
+	TNT1 A 0 A_Jump(random(1,4),"Drip")
+	Loop
+  Drip:
+	TNT1 A 0 A_SpawnItem("HangedBloodDrip")
+	Goto Spawn	
+  Death:
+	XXAF A 1 A_XScream
+    XXAF AAAAA 0 A_SpawnDebris ("OrganDebris")
+    XXAF AAAAA 0 A_SpawnDebris("FlyingBlood")
+    Stop
+  }
+}
+
+ACTOR bloodyleg 3192
+{
+  //$Category "BlooM Corpses"
+  health 15
+  radius 16
+  height 56
+  mass 10000000
+  translation 0
+  Scale 0.6
+  -SPAWNCEILING
+  -NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  -DONTGIB
+  -SOLID
+  States
+  {
+  Spawn:
+    LEGX A -1
+    Stop
+  Death:
+    BCUL OOOOO 0 A_SpawnDebris("FlyingBlood")
+	BCUL O 0 A_XScream        
+    BCUL O 0 A_Jump(32,2)
+    BCUL O 0 A_SpawnDebris ("Bloodliver")
+    BCUL O 5
+  Stop
+  }
+}
+
+ACTOR Hangindeadchick2 : HangingMeat 3180
+{
+  //$Category "BlooM Corpses"
+  health 30
+  radius 16
+  height 100
+  mass 10000000
+  translation 0
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+	XDC2 A 1
+	TNT1 A 0 A_Jump(random(1,4),"Drip")
+	Loop
+  Drip:
+	TNT1 A 0 A_SpawnItem("HangedBloodDrip")
+	Goto Spawn	
+  Death:
+	XDC2 A 1 A_XScream
+    XDC2 AAAAA 0 A_SpawnDebris ("OrganDebris")
+    XDC2 AAAAA 0 A_SpawnDebris("FlyingBlood")
+    Stop
+  }
+}
+
+ACTOR Hangindeadchick3 3184
+{
+  //$Category "BlooM Corpses"
+  health 30
+  radius 16
+  height 100
+  mass 10000000
+  translation 0
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  +SHOOTABLE
+  -COUNTKILL
+  +NOICEDEATH    
+  +DONTSPLASH
+  -ISMONSTER
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+	XDC3 A 1
+	TNT1 A 0 A_Jump(random(1,4),"Drip")
+	Loop
+  Drip:
+	TNT1 A 0 A_SpawnItem("HangedBloodDrip")
+	Goto Spawn	
+  Death:
+	XDC3 A 1 A_XScream
+    XDC3 AAAAA 0 A_SpawnDebris ("OrganDebris")
+    XDC3 AAAAA 0 A_SpawnDebris("FlyingBlood")
+    Stop
+  }
+}
+
+ACTOR skullcow 3211
+{
+  //$Category "BlooM Corpses"
+  +SOLID
+  mass 10000000
+  height 15
+  Scale 0.6
+  States
+  {
+  Spawn:
+   WCOW A -1
+    Stop
+  }
+}
+
+ACTOR pileskulls 3231
+{
+  //$Category "BlooM Corpses"
+  Scale 0.6
+  States
+  {
+  Spawn:
+   PILS A -1
+   Stop
+  }
+}
+
+
+ACTOR impaledskullx 3232
+{
+  //$Category "BlooM Corpses"
+  Scale 0.6
+  States
+  {
+  Spawn:
+   1SKL A -1
+   Stop
+  }
+}
+
+ACTOR hatchedskull 3233
+{
+  //$Category "BlooM Corpses"
+  Scale 0.6
+  States
+  {
+  Spawn:
+   QSKL A -1
+   Stop
+  }
+}
+
+ACTOR impaledskullx2 3234
+{
+  //$Category "BlooM Corpses"
+  Scale 0.6
+  States
+  {
+  Spawn:
+   RSKL A -1
+   Stop
+  }
+}

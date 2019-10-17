@@ -1,0 +1,1406 @@
+Model FlyingBlood
+{
+   Path "Models/BloodSpot"
+   Model 0 "BloodSpot.md3"
+   Skin 0 "bloodTexture.png"  // Model index, texture (can be in any format supported by GZDoom)
+   Scale 2 2 2
+   Zoffset 1
+   FrameIndex BLUD E 0 2
+}
+
+Model FlyingAcidrop
+{
+   Path "Models/AcidSpot"
+   Model 0 "AcidSpot.md3"
+   Skin 0 "AcidTexture.png"  // Model index, texture (can be in any format supported by GZDoom)
+   Scale 2 2 2
+   Zoffset 1
+   FrameIndex ACID E 0 2
+}
+
+Model Modeltrain
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "t1.jpg"
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "t2.jpg"
+   FrameIndex UNKN B 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "t3.jpg"
+   FrameIndex UNKN C 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "t4.jpg"
+   FrameIndex UNKN D 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain2
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "m1.jpg"
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain2
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "m2.jpg"
+   FrameIndex UNKN B 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain2
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "m3.jpg"
+   FrameIndex UNKN C 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain2
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "m4.jpg"
+   FrameIndex UNKN D 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain3
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "d1.jpg"
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain3
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "d2.jpg"
+   FrameIndex UNKN B 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain3
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "d3.jpg"
+   FrameIndex UNKN C 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain3
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "d4.jpg"
+   FrameIndex UNKN D 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain4
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "s1.jpg"
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain4
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "s2.jpg"
+   FrameIndex UNKN B 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain4
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "s3.jpg"
+   FrameIndex UNKN C 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modeltrain4
+{
+   Path "Models/Train"
+   Model 0 "train.md2"
+   Skin 0 "s4.jpg"
+   FrameIndex UNKN D 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modelcar1
+{
+   Path "Models/Cars"
+   Model 0 "car001.md3"
+   Skin 0 "CarTest01_TX.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modelcar2
+{
+   Path "Models/Cars"
+   Model 0 "car002.md3"
+   Skin 0 "CarTest02_TX.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modelcar3
+{
+   Path "Models/Cars"
+   Model 0 "car003.md3"
+   Skin 0 "CarTest02b_TX.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modelcar4
+{
+   Path "Models/Cars"
+   Model 0 "car004.md3"
+   Skin 0 "CarTest03_TX.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Modelcar5
+{
+   Path "Models/Cars"
+   Model 0 "car005.md3"
+   Skin 0 "CarTest03b_TX.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Building1
+{
+   Path "Models/Buildings"
+   Model 0 "building1.md3"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Building2
+{
+   Path "Models/Buildings"
+   Model 0 "building2.md3"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Building3
+{
+   Path "Models/Buildings"
+   Model 0 "building3.md3"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   ROTATING
+   Rotation-Speed 0.05
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Buildingbase1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Base01.md3"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Buildingbase2
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Base02.md2"
+   Skin 0 "BaseTX.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Buildingbase3
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Base03.md3"
+   Skin 0 "BaseTX.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Buildingbase4
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Base04.md2"
+   Skin 0 "BaseTX.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Buildingbase5
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Base05.md2"
+   Skin 0 "BaseTX.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Buildingbase6
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Base06.md2"
+   Skin 0 "BaseTx06.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Floorbase1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Floor1.md2"
+   Skin 0 "Floor1.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Floorbase2
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Floor2.md2"
+   Skin 0 "Floor2.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   ROTATING
+   Rotation-Speed 0.07
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Buildingpiece1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Building01.md2"
+   Skin 0 "Building001.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Buildingpiece2
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Building02.md2"
+   Skin 0 "Building002.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Buildingpiece3
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Building03.md3"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Buildingpiece3b
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Building03trozos.md3"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   ROTATING
+   Rotation-Speed 0.05
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Buildingpiece4
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Building04.md3"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Buildingpiece5
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Building05.md2"
+   Skin 0 "Building005.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   ROTATING
+   Rotation-Speed 0.05
+   Rotation-Vector 0.0 1.0 0.0
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model lamp1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "lamp01.md3"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model lamp2
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "lamp02.md3"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model lamp3
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "lamp03.md3"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model lamp4
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "lamp04.md3"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model lamp5
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "lamp05.md3"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Bloodlamp1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Lampblood01.md2"
+   Skin 0 "Lampblood.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Bloodlamp2
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Lampblood02.md2"
+   Skin 0 "Lampblood.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Bloodlamp3
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Lampblood03.md2"
+   Skin 0 "Lampblood.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Bloodlamp4
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Lampblood04.md2"
+   Skin 0 "Lampblood.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Bloodlamp5
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Lampblood05.md2"
+   Skin 0 "Lampblood.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Contenedor1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Contenedor1.md2"
+   Skin 0 "Contenedor1.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Contenedor2
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Contenedor2.md2"
+   Skin 0 "Contenedor2.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Sataniccube
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Sataniccube.md2"
+   Skin 0 "SatanicCube.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   ROTATING
+   Rotation-Speed 0.05
+   Rotation-Vector 0.0 1.0 0.0
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model CylinderSquare1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Squarescylinder01.md2"
+   Skin 0 "Squares.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   ROTATING
+   Rotation-Speed 0.05
+   Rotation-Vector 0.0 1.0 0.0
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model CylinderSquare2
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Squarescylinder02.md2"
+   Skin 0 "Squares.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   ROTATING
+   Rotation-Speed 0.05
+   Rotation-Vector 0.0 1.0 0.0
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Bricks
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Bricks.md2"
+   Skin 0 "Bricks.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Corner1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Corner1.md2"
+   Skin 0 "Buildingcorner1.png"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Corner2
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Corner2.md2"
+   Skin 0 "Buildingcorner2.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Corner3
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Corner3.md2"
+   Skin 0 "Buildingcorner3.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Squares01
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Squares01.md2"
+   Skin 0 "Squares.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Squares02
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Squares02.md2"
+   Skin 0 "Squares.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Squares03
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Squares03.md2"
+   Skin 0 "Squares.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Squares04
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Squares04.md2"
+   Skin 0 "Squares.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Squares05
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Squares05.md2"
+   Skin 0 "Squares.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Room1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Room1.md2"
+   Skin 0 "Room1.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Room2a
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Room2A.MD2"
+   Skin 0 "Room2.png"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model Room2b
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Room2B.MD2"
+   Skin 0 "Room2.png"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model bed
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "Bed.md2"
+   Skin 0 "Bed.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model armario1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "armario1.md2"
+   Skin 0 "armarios.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model armario2
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "armario2.md2"
+   Skin 0 "armarios.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model armario3
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "armario3.md2"
+   Skin 0 "armarios.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model armario4
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "armario4.md2"
+   Skin 0 "armarios.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model armario5
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "armario5.md2"
+   Skin 0 "armarios.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model brokewin1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "brokwin1.md2"
+   Skin 0 "brokwin.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model brokewin2
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "brokwin2.md2"
+   Skin 0 "brokwin.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model machin
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "machin.md2"
+   Skin 0 "machin.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model mesa
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "mesa.md2"
+   Skin 0 "mesa.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model wallbrok1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "wallbrok1.md2"
+   Skin 0 "wallsbrok.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model wallbrok2
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "wallbrok2.md2"
+   Skin 0 "wallsbrok.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model wallbrok3
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "wallbrok3.md2"
+   Skin 0 "wallsbrok.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model wallbrok4
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "wallbrok4.md2"
+   Skin 0 "wallsbrok.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model wallbrok5
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "wallbrok5.md3"
+   Skin 0 "wallbrok5.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+//traps
+Model firetrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "t1.jpg"
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model firetrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "t2.jpg"
+   FrameIndex UNKN B 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model firetrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "t3.jpg"
+   FrameIndex UNKN C 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model firetrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "t4.jpg"
+   FrameIndex UNKN D 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model firetrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "t5.jpg"
+   FrameIndex UNKN E 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model firetrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "t6.jpg"
+   FrameIndex UNKN F 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model icetrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "i1.jpg"
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model icetrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "i2.jpg"
+   FrameIndex UNKN B 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model icetrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "i3.jpg"
+   FrameIndex UNKN C 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model icetrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "i4.jpg"
+   FrameIndex UNKN D 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model icetrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "i5.jpg"
+   FrameIndex UNKN E 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model icetrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "i6.jpg"
+   FrameIndex UNKN F 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model fleshtrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "m1.jpg"
+   FrameIndex UNKN A 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model fleshtrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "m2.jpg"
+   FrameIndex UNKN B 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model fleshtrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "m3.jpg"
+   FrameIndex UNKN C 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model fleshtrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "m4.jpg"
+   FrameIndex UNKN D 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model fleshtrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "m5.jpg"
+   FrameIndex UNKN E 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+Model fleshtrap1
+{
+   Path "Models/Traps"
+   Model 0 "Tramp.md2"
+   Skin 0 "m6.jpg"
+   FrameIndex UNKN F 0 0
+   Scale 1 1 1
+   Zoffset 1
+}
+
+//Customing vanilla maps
+Model Decal_CeilFloor1
+{
+   Path "Models/FloorDecal"
+   Model 0 "FloorDecal.md3"
+   Skin  0 "FloorDecal1.png"    // Model index, texture (can be in any format supported by GZDoom)
+   Scale 64.0 64.0 64.0
+   Zoffset 1
+   FrameIndex DECF A 0 2   	// The sprite lump, sprite frame, model index, name of frame
+}
+Model Decal_CeilFloor2
+{
+   Path "Models/FloorDecal"
+   Model 0 "FloorDecal.md3"
+   Skin  0 "FloorDecal2.png"    // Model index, texture (can be in any format supported by GZDoom)
+   Scale 32.0 32.0 32.0
+   Zoffset 1
+   FrameIndex DECF B 0 2   	// The sprite lump, sprite frame, model index, name of frame
+}
+Model Decal_CeilFloor3
+{
+   Path "Models/FloorDecal"
+   Model 0 "FloorDecal.md3"
+   Skin  0 "FloorDecal3.png"    // Model index, texture (can be in any format supported by GZDoom)
+   Scale 48.0 48.0 48.0
+   Zoffset 1
+   FrameIndex DECF C 0 2   	// The sprite lump, sprite frame, model index, name of frame
+}
+
+//signs
+Model BigSignSpawner
+{
+   Path "Models/Signs"
+   Model 0 "sign.md2"
+   Skin 0 "sign1.jpg"
+   Scale 1.0 1.0 1.0
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+}
+
+Model BigSignSpawner
+{
+   Path "Models/Signs"
+   Model 0 "sign.md2"
+   Skin 0 "sign2.jpg"
+   Scale 1.0 1.0 1.0
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN B 0 0
+}
+
+Model BigSignSpawner
+{
+   Path "Models/Signs"
+   Model 0 "sign.md2"
+   Skin 0 "sign3.jpg"
+   Scale 1.0 1.0 1.0
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN C 0 0
+}
+
+//tombs
+Model churchcross
+{
+	Path "models/Tombs"
+	Model 0 "lapida5.md3"
+	Scale 1.0 1.0 1.0
+	FrameIndex UNKN A 0 0
+}
+
+Model woodcross
+{
+	Path "models/Tombs"
+	Model 0 "lapida6.md3"
+	Scale 1.0 1.0 1.0
+	FrameIndex UNKN A 0 0
+}
+
+Model skullcross
+{
+	Path "models/Tombs"
+	Model 0 "skullcross.md3"
+	Scale 2.5 2.5 2.5
+	FrameIndex UNKN A 0 0
+}
+
+Model lapidablood
+{
+	Path "models/Tombs"
+	Model 0 "lapida2.md3"
+	Scale 1.5 1.5 1.5
+	FrameIndex UNKN A 0 0
+}
+
+Model lapidanormal
+{
+	Path "models/Tombs"
+	Model 0 "lapida4.md3"
+	Scale 1.0 1.0 1.0
+	FrameIndex UNKN A 0 0
+}
+
+Model lapidaskull
+{
+	Path "models/Tombs"
+	Model 0 "lapida1.md3"
+	Scale 1.0 1.0 1.0
+	FrameIndex UNKN A 0 0
+}
+
+Model lapidawood
+{
+	Path "models/Tombs"
+	Model 0 "lapida3.md3"
+	Scale 1.0 1.0 1.0
+	FrameIndex UNKN A 0 0
+}
+
+Model lapidadraven
+{
+	Path "models/Tombs"
+	Model 0 "draven.md3"
+	Scale 1.5 1.5 1.8
+	FrameIndex UNKN A 0 0
+}
+
+//Doom_Ammo.txt replacements, coded by Ozy81 - these doesn't need INHERIT flags
+//Models from www.moddb.com/games/doom/addons/vanilla-doom-3d-models-for-doom-i-ii by TheMacGyverArchiver
+Model Cell_
+{
+   Path "Models/Doom/Cell/"
+   Model 0 "Cell.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model CellPack_
+{
+   Path "Models/Doom/CellPack/"
+   Model 0 "CellLarge.md3"
+   Scale 2.0 2.0 2.0
+   FrameIndex UNKN A 0 0
+}
+
+Model Clip_
+{
+   Path "Models/Doom/Clip/"
+   Model 0 "AmmoClip.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model ClipBox_
+{
+   Path "Models/Doom/ClipBox/"
+   Model 0 "AmmoBox.md3"
+   Scale 0.9 0.9 0.8
+   FrameIndex UNKN A 0 0
+}
+
+Model RocketAmmo_
+{
+   Path "Models/Doom/RocketAmmo/"
+   Model 0 "Rocket.md3"
+   Scale 0.5 0.5 0.5
+   FrameIndex UNKN A 0 0
+}
+
+Model Shell_
+{
+   Path "Models/Doom/Shell/"
+   Model 0 "Shells.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model ShellBox_
+{
+   Path "Models/Doom/ShellBox/"
+   Model 0 "ShellBox.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model RocketBox_
+{
+   Path "Models/Doom/RocketBox/"
+   Model 0 "RocketBox.md3"
+   Scale 0.9 0.9 0.8
+   FrameIndex UNKN A 0 0
+}
+
+Model HandGrenades
+{
+   Path "Models/Weapons/"
+   Model 0 "grenade.md3"
+   Scale 10.0 10.0 10.0
+   FrameIndex UNKN A 0 0
+}
+
+Model GrenadeAmmo
+{
+   Path "Models/Weapons/"
+   Model 0 "grenade.md3"
+   Scale 10.0 10.0 10.0
+   FrameIndex UNKN A 0 0
+}
+
+//GRENADES STUFF NOT INCLUDED YET
+
+//Doom_Weapons.txt replacements, coded by Ozy81 - these doesn't need INHERIT flags
+//Models from www.moddb.com/games/doom/addons/vanilla-doom-3d-models-for-doom-i-ii by TheMacGyverArchiver
+Model Chainsaw_
+{
+   Path "Models/Doom/Chainsaw/"
+   Model 0 "Chainsaw.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model Shotgun_
+{
+   Path "Models/Doom/Shotgun/"
+   Model 0 "Shotgun.md3"
+   Scale 0.2 0.2 0.2
+   FrameIndex UNKN A 0 0
+}
+
+Model SuperShotgun_
+{
+   Path "Models/Doom/SuperShotgun/"
+   Model 0 "SuperShotgun.md3"
+   Scale 0.1 0.1 0.1
+   FrameIndex UNKN A 0 0
+}
+
+Model Chaingun_
+{
+   Path "Models/Doom/Chaingun/"
+   Model 0 "Chaingun.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model RocketLauncher_
+{
+   Path "Models/Doom/RocketLauncher/"
+   Model 0 "RocketLauncher.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model PlasmaRifle_
+{
+   Path "Models/Doom/PlasmaRifle/"
+   Model 0 "PlasmaRifle.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model BFG9000_
+{
+   Path "Models/Doom/BFG9000/"
+   Model 0 "BFG9000.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+//PISTOL_ NOT INCLUDED YET

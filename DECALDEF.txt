@@ -1,0 +1,28 @@
+
+decal DecalTech 100
+{
+    pic MTEXT2
+    x-scale 1.0
+    y-scale 1.0
+}
+
+decal DecalNature 101
+{
+    pic XTEX018W
+    x-scale 1.0
+    y-scale 1.0
+}
+
+decal DecalTech2 102
+{
+    pic MTEXT5
+    x-scale 1.0
+    y-scale 1.0
+}
+
+decal ZBloodBulletChip1 103
+{
+	PIC BPU1A0
+    x-scale 0.2
+    y-scale 0.2	
+}
