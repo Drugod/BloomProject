@@ -435,8 +435,8 @@ Flickerlight ROCKET_X8
 Flickerlight ROCKET_X9
 {
     Color 0.2 0.0 0.0
-    Size 45
-    SecondarySize 50
+    Size 24
+    SecondarySize 32
     chance 0.3
 }
 
@@ -462,7 +462,6 @@ object RocketX
 object Kaboom
 {
     frame MISLA { light ROCKET    }
-
     frame MISLB { light ROCKET_X1 }
     frame MISLC { light ROCKET_X2 }
     frame MISLD { light ROCKET_X3 }
@@ -478,16 +477,92 @@ object Kaboom
     frame MISLN { light ROCKET_X9 }
 }
 
+Pointlight FLARE_X0
+{
+    Color 1.0 0.7 0.0
+    Size 16
+}
+
+Pointlight FLARE_X1
+{
+    Color 1.0 0.7 0.0
+    Size 32
+}
+
+Pointlight FLARE_X2
+{
+    Color 1.0 0.7 0.0
+    Size 28
+}
+
+
+Pointlight FLARE_X3
+{
+    Color 1.0 0.7 0.0
+    Size 25
+}
+
+Pointlight FLARE_X4
+{
+    Color 1.0 0.7 0.0
+    Size 20
+}
+
+object FlareFire
+{
+	frame FAIRA { light FLARE_X0 }
+	frame FAIRB { light FLARE_X0 }
+	frame FAIRC { light FLARE_X1 }
+	frame FAIRD { light FLARE_X1 }
+	frame FAIRE { light FLARE_X2 }
+	frame FAIRF { light FLARE_X2 }
+	frame FAIRG { light FLARE_X3 }
+	frame FAIRH { light FLARE_X3 }
+	frame FAIRI { light FLARE_X4 }
+}
+
+object FlareFire2
+{
+	frame FAIRA { light FLARE_X0 }
+	frame FAIRB { light FLARE_X0 }
+	frame FAIRC { light FLARE_X1 }
+	frame FAIRD { light FLARE_X1 }
+	frame FAIRE { light FLARE_X2 }
+	frame FAIRF { light FLARE_X2 }
+	frame FAIRG { light FLARE_X3 }
+	frame FAIRH { light FLARE_X3 }
+	frame FAIRI { light FLARE_X4 }
+}
+
+object FlareAlt
+{
+	frame FAIR { light FLARE_X4 }
+	frame DEXP { light FLARE_X3 }
+}
+
+object FlareAltSub
+{
+	frame FAIR { light FLARE_X4 }
+	frame DEXP { light FLARE_X3 }
+}
+
 // Plasma
-Pointlight PLASMABALL
+Pointlight FIREBALL
 {
     Color 0.9 0.6 0.0
     Size 56
 }
 
+// Plasma
+Pointlight PLASMA_X0
+{
+    Color 0.0 0.0 0.3
+    Size 56
+}
+
 Flickerlight PLASMA_X1
 {
-    Color 0.8 0.5 0.0
+    Color 0.0 0.0 0.4
     Size 64
     SecondarySize 72
     chance 0.4
@@ -495,7 +570,7 @@ Flickerlight PLASMA_X1
 
 Flickerlight PLASMA_X2
 {
-    Color 0.7 0.4 0.0
+    Color 0.0 0.0 0.5
     Size 80
     SecondarySize 88
     chance 0.4
@@ -503,7 +578,7 @@ Flickerlight PLASMA_X2
 
 Flickerlight PLASMA_X3
 {
-    Color 0.6 0.3 0.0
+    Color 0.0 0.0 0.6
     Size 64
     SecondarySize 72
     chance 0.4
@@ -511,7 +586,7 @@ Flickerlight PLASMA_X3
 
 Flickerlight PLASMA_X4
 {
-    Color 0.5 0.2 0.0
+    Color 0.0 0.0 0.7
     Size 8
     SecondarySize 16
     chance 0.4
@@ -519,9 +594,8 @@ Flickerlight PLASMA_X4
 
 object PlasmaBallX
 {
-    frame PLSSA { light PLASMABALL }
-    frame PLSSB { light PLASMABALL }
-
+    frame PLSSA { light PLASMA_X0 }
+    frame PLSSB { light PLASMA_X0 }
     frame PLSEA { light PLASMA_X1 }
     frame PLSEB { light PLASMA_X2 }
     frame PLSEC { light PLASMA_X2 }
@@ -529,16 +603,57 @@ object PlasmaBallX
     frame PLSEE { light PLASMA_X4 }
 }
 
+object TeslaFX
+{
+	frame TSFXA { light PLASMA_X0}
+	frame TSFXB { light PLASMA_X0}
+	frame TSFXC { light PLASMA_X0}
+	frame TSFXD { light PLASMA_X1}
+	frame TSFXE { light PLASMA_X1}
+	frame TSFXF { light PLASMA_X1}
+	frame TSFXG { light PLASMA_X2}
+	frame TSFXH { light PLASMA_X2}
+	frame TSFXI { light PLASMA_X2}
+	frame TSFXJ { light PLASMA_X3}
+	frame TSFXK { light PLASMA_X3}
+	frame TSFXL { light PLASMA_X4}
+}
+
+object TeslaProjectile
+{
+	frame TESPA { light PLASMA_X4 }
+}
+
+object TeslaSmoke
+{
+	frame TSMKA { light PLASMA_X1 }
+	frame TSMKB { light PLASMA_X2 }
+	frame TSMKC { light PLASMA_X3 }
+}
+
+object TeslaBallBig
+{
+	frame BAL2A { light PLASMA_X0 }
+	frame BAL2B { light PLASMA_X1 }
+	frame BAL2C { light PLASMA_X2 }
+	frame BAL2D { light PLASMA_X3 }
+}
+
+object BlueFlareSmall
+{
+	frame LEFL { light PLASMA_X0 }
+}
+
 // BFG
 Pointlight BFGBALL
 {
-    Color 1.0 0.7 0.0
+    Color 0.0 1.0 0.0
     Size 80
 }
 
 Flickerlight BFGBALL_X1
 {
-    Color 0.9 0.6 0.0
+    Color 0.0 0.1 0.0
     Size 80
     SecondarySize 88
     chance 0.3
@@ -546,7 +661,7 @@ Flickerlight BFGBALL_X1
 
 Flickerlight BFGBALL_X2
 {
-    Color 0.8 0.5 0.0
+    Color 0.0 0.2 0.0
     Size 104
     SecondarySize 112
     chance 0.3
@@ -554,7 +669,7 @@ Flickerlight BFGBALL_X2
 
 Flickerlight BFGBALL_X3
 {
-    Color 0.7 0.4 0.0
+    Color 0.0 0.3 0.0
     Size 120
     SecondarySize 128
     chance 0.3
@@ -562,7 +677,7 @@ Flickerlight BFGBALL_X3
 
 Flickerlight BFGBALL_X4
 {
-    Color 0.6 0.3 0.0
+    Color 0.0 0.4 0.0
     Size 56
     SecondarySize 64
     chance 0.3
@@ -570,7 +685,7 @@ Flickerlight BFGBALL_X4
 
 Flickerlight BFGBALL_X5
 {
-    Color 0.5 0.2 0.0
+    Color 0.0 0.5 0.0
     Size 48
     SecondarySize 56
     chance 0.3
@@ -578,7 +693,7 @@ Flickerlight BFGBALL_X5
 
 Flickerlight BFGBALL_X6
 {
-    Color 0.4 0.1 0.0
+    Color 0.0 0.6 0.0
     Size 48
     SecondarySize 56
     chance 0.3
@@ -586,7 +701,7 @@ Flickerlight BFGBALL_X6
 
 Flickerlight BFGBALL_X7
 {
-    Color 0.4 0.1 0.0
+    Color 0.0 0.7 0.0
     Size 38
     SecondarySize 46
     chance 0.3
@@ -594,7 +709,7 @@ Flickerlight BFGBALL_X7
 
 Flickerlight BFGBALL_X8
 {
-    Color 0.4 0.1 0.0
+    Color 0.0 0.8 0.0
     Size 28
     SecondarySize 36
     chance 0.3
@@ -602,18 +717,16 @@ Flickerlight BFGBALL_X8
 
 Flickerlight BFGBALL_X9
 {
-    Color 0.3 0.0 0.0
+    Color 0.0 0.9 0.0
     Size 18
     SecondarySize 26
     chance 0.3
 }
 
-
 object BFGBallX
 {
     frame BFS1A { light BFGBALL }
     frame BFS1B { light BFGBALL }
-
     frame BFE1A { light BFGBALL_X1 }
     frame BFE1B { light BFGBALL_X2 }
     frame BFE1C { light BFGBALL_X3 }
@@ -624,14 +737,11 @@ object BFGBallX
     frame BFE1I { light BFGBALL_X8 }
     frame BFE1J { light BFGBALL_X9 }
     frame BFE1K { light BFGBALL_X9 }
-
-    frame BFE2A { light BFGBALL    }
+    frame BFE2A { light BFGBALL }
     frame BFE2B { light BFGBALL_X1 }
     frame BFE2C { light BFGBALL_X4 }
     frame BFE2D { light BFGBALL_X5 }
 }
-
-
 
 // ----------------------
 // -- Doom Decorations --
@@ -902,7 +1012,7 @@ object Candelabra
 // Soul Sphere
 pulselight SOULSPHERE
 {
-    Color 1.0 0.0 0.0
+    Color 0.0 0.0 1.0
     Size 40
     SecondarySize 42
     interval 2.0
@@ -988,9 +1098,10 @@ object BlurSphere
 }
 
 // Health Potion
+
 pulselight HEALTHPOTION
 {
-    Color 0.3 0.0 0.0
+    Color 0.0 0.0 1.0
     Size 16
     SecondarySize 18
     interval 2.0
@@ -1229,8 +1340,8 @@ object BaronBall
 // Mancubus Fireball
 object FatShot
 {
-    frame MANFA { light PLASMABALL   }
-    frame MANFB { light PLASMABALL   }
+    frame MANFA { light FIREBALL   }
+    frame MANFB { light FIREBALL   }
 
     frame MISLB { light ROCKET_X1 }
     frame MISLC { light ROCKET_X2 }
@@ -1822,6 +1933,32 @@ object FlareKaboom2
     frame BFE1K { light FLARBIG_X9 }
 }
 
+object FlareKaboom4
+{
+    frame DEXPA { light ROCKET_X1 }
+    frame DEXPB { light ROCKET_X1 }
+    frame DEXPC { light ROCKET_X2 }
+    frame DEXPD { light ROCKET_X2 }
+    frame DEXPE { light ROCKET_X2 }
+    frame DEXPF { light ROCKET_X3 }
+    frame DEXPG { light ROCKET_X3 }
+    frame DEXPH { light ROCKET_X3 }
+    frame DEXPI { light ROCKET_X4 }
+    frame DEXPJ { light ROCKET_X4 }
+    frame DEXPK { light ROCKET_X4 }
+    frame DEXPL { light ROCKET_X5 }
+    frame DEXPM { light ROCKET_X5 }
+    frame DEXPN { light ROCKET_X5 }
+    frame DEXPO { light ROCKET_X6 }
+    frame DEXPP { light ROCKET_X6 }
+    frame DEXPQ { light ROCKET_X6 }
+    frame DEXPR { light ROCKET_X7 }
+    frame DEXPS { light ROCKET_X7 }
+    frame DEXPT { light ROCKET_X7 }
+    frame DEXPU { light ROCKET_X8 }
+    frame DEXPV { light ROCKET_X8 }
+}
+
 Flickerlight CANFIRE
 {
     Color 0.9 0.9 0.0
@@ -1830,9 +1967,17 @@ Flickerlight CANFIRE
     Offset 0 0 0
 }
 
+pulselight HEARTPOTION
+{
+    Color 0.3 0.0 0.0
+    Size 16
+    SecondarySize 18
+    interval 2.0
+}
+
 object HeartHealth
 {
-    frame BHRT { light HEALTHPOTION }
+    frame BHRT { light HEARTPOTION }
 }
 
 Flickerlight FLARBIG_X1
@@ -2085,14 +2230,12 @@ object BloodGargoyle
 
 object NapalmRocket
 {
-    frame MANF { light PLASMABALL }
+    frame NAPP { light FIREBALL }
 }
 
 object Spraycanfire
 {
-    frame NSMK { light CANFIRE }
-    frame PLSS { light CANFIRE }
-    frame PLSE { light CANFIRE }
+    frame SPFI { light CANFIRE }
 }
 
 object SprayCanAlt
@@ -2158,22 +2301,22 @@ object FloorKaboom
 
 object NapalmRocketAlt1
 {
-    frame MANF { light PLASMABALL }
+    frame NAPP { light FIREBALL }
 }
 
 object NapalmRocketAlt2
 {
-    frame MANF { light PLASMABALL }
+    frame NAPP { light FIREBALL }
 }
 
 object NapalmRocketAlt3
 {
-    frame MANF { light PLASMABALL }
+    frame NAPP { light FIREBALL }
 }
 
 object NapalmRocketAlt4
 {
-    frame MANF { light PLASMABALL }
+    frame NAPP { light FIREBALL }
 }
 
 object Kaboom
@@ -2362,22 +2505,23 @@ object BlueTorch
 /*
 object CerberusMissile
 {
-    frame MANF { light PLASMABALL }
+    frame MANF { light FIREBALL }
 }
 */
 object CerberusShot1
 {
-    frame MANF { light PLASMABALL }
+    frame MANF { light FIREBALL }
+	frame BFE1 { light FIREBALL }
 }
 /*
 object Fatso
 {
-    frame FATTH { light PLASMABALL }
+    frame FATTH { light FIREBALL }
 }
 
 object Cerebrus
 {
-    frame FATTH { light PLASMABALL }
+    frame FATTH { light FIREBALL }
 }
 */
 Flickerlight2 CYBERATK
