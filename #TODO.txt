@@ -17,3 +17,4 @@ For All:
 - there are a pletora of models that needs to be coded yet, just check inside Models/Doom
 - tweak special effects, bleeding effects and amount of used actors per maps, or at least create something that limits how much far you can see them (DistanceCheck on GZDoom)
 - verify if unified PNAMES works
+- Fix GLDEFS for Baronwolf and skullstaff, check other stuff
