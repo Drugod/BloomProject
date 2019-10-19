@@ -4,10 +4,12 @@ For Rolls, models which needs to be added:
 For All:
 - Caleb weapons needs to be fixed, some are swapped or useless, and the Life Leech has a wrong primary fire mode (same of secondary)
 - add Blood weapons and items related 3d models
-- add Doom weapons and items related 3d models
+- add Doom items related 3d models
 - add a Caleb replacement for pistol_ actor (there are any for it)
 - convert all models as md3 and try reducing polys total (not important, just a nitpick and it would require lots of time)
 - externalize KEYCONF between LANGUAGE and MENUDEF (if supported by zandro)
+- fix GLDEFS for Baronwolf and skullstaff, check other stuff
+- fix TERRAIN defs, lots of sounds needs to be defined and included, instead to use Enjay ones I will probably go for reuse Gore defs
 - fix HUD statusbar for gzdoom
 - fix SpiderMother code
 - get rid of numbered scripts from libraries so we don't fall to use some on maps already (use named ones only, so mappers are free)
@@ -17,4 +19,3 @@ For All:
 - there are a pletora of models that needs to be coded yet, just check inside Models/Doom
 - tweak special effects, bleeding effects and amount of used actors per maps, or at least create something that limits how much far you can see them (DistanceCheck on GZDoom)
 - verify if unified PNAMES works
-- Fix GLDEFS for Baronwolf and skullstaff, check other stuff
