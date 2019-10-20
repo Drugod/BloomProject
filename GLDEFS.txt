@@ -1338,6 +1338,15 @@ object BaronBall
     frame MISLN { light ROCKET_X9 }
 }
 
+object HellButcherBall
+{
+	frame SPAXA { light BARONBALL }
+	frame SPAXB { light BARONBALL }
+	frame SPAXC { light BARONBALL_X2 }
+	frame SPAXD { light BARONBALL_X3 }
+	frame SPAXE { light BARONBALL_X1 }
+}
+
 // Mancubus Fireball
 object FatShot
 {
