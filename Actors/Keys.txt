@@ -59,7 +59,7 @@ ACTOR Key5 : RedSkull replaces RedSkull
 	States
 	{
 	Spawn:
-		FSKU B -1
+		FSK2 B -1
 		Stop
 	}
 }
