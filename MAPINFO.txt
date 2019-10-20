@@ -881,6 +881,80 @@ cluster 4
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////SIGIL ///////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+map E5M1 "Baphomet's Demesne"
+{
+	levelnum = 41
+	next = "E5M2"
+	music = "D_E5M1"
+}
+
+map E5M2 "Sheol"
+{
+	levelnum = 42
+	next = "E5M3"
+	music = "D_E5M2"
+}
+
+map E5M3 "Cages of the Damned"
+{
+	levelnum = 43
+	next = "E5M4"
+	music = "D_E5M3"
+}
+
+map E5M4 "Paths of Wretchedness"
+{
+	levelnum = 44
+	next = "E5M5"
+	music = "D_E5M4"
+}
+
+map E5M5 "Abaddon's Void"
+{
+	levelnum = 45
+	next = "E5M6"
+	music = "D_E5M5"
+}
+
+map E5M6 "Unspeakable Persecution"
+{
+	levelnum = 46
+	next = "E5M7"
+	secretnext = "E5M9"
+	music = "D_E5M6"
+}
+
+map E5M7 "Nightmare Underworld"
+{
+	levelnum = 47
+	next = "E5M8"
+	music = "D_E5M7"
+}
+
+map E5M8 "Halls of Perdition"
+{
+	levelnum = 48
+	next = EndPic, "CREDIT"
+	nosoundclipping
+	music = "D_E5M8"
+}
+
+map E5M9 "Realm of Iblis"
+{
+	levelnum = 49
+	next = "E5M7"
+	music =  "D_E5M9"
+}
+
+cluster 5
+{
+	flat = "FLOOR7_2"
+	exittext = lookup, "E5TEXT"
+}
+
+////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////DOOM II//////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 map MAP01 lookup "entryway"
