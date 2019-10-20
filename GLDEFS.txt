@@ -1286,13 +1286,13 @@ object CacodemonBall
 // Baron / Hell Knight fireball
 Pointlight BARONBALL
 {
-    Color 0.0 0.0 0.8
+    Color 0.0 0.8 0.0
     Size 64
 }
 
 Flickerlight BARONBALL_X1
 {
-    Color 0.0 0.0 0.8
+    Color 0.0 0.8 0.0
     Size 80
     SecondarySize 110
     chance 0.25
@@ -1300,7 +1300,7 @@ Flickerlight BARONBALL_X1
 
 Flickerlight BARONBALL_X2
 {
-    Color 0.0 0.0 0.2
+    Color 0.0 0.2 0.0
     Size 96
     SecondarySize 104
     chance 0.25
@@ -1308,7 +1308,7 @@ Flickerlight BARONBALL_X2
 
 Flickerlight BARONBALL_X3
 {
-    Color 0.0 0.0 0.1
+    Color 0.0 0.1 0.0
     Size 112
     SecondarySize 120
     chance 0.25
@@ -1316,12 +1316,13 @@ Flickerlight BARONBALL_X3
 
 object BaronBall
 {
-    frame BAL7A { light BARONBALL    }
-    frame BAL7B { light BARONBALL    }
-
+    frame BAL7A { light BARONBALL }
+    frame BAL7B { light BARONBALL }
+	
     frame BAL7C { light BARONBALL_X1 }
     frame BAL7D { light BARONBALL_X2 }
     frame BAL7E { light BARONBALL_X3 }
+	
     frame MISLB { light ROCKET_X1 }
     frame MISLC { light ROCKET_X2 }
     frame MISLD { light ROCKET_X3 }
@@ -1340,9 +1341,9 @@ object BaronBall
 // Mancubus Fireball
 object FatShot
 {
-    frame MANFA { light FIREBALL   }
-    frame MANFB { light FIREBALL   }
-
+    frame MANFA { light FIREBALL }
+    frame MANFB { light FIREBALL }
+	
     frame MISLB { light ROCKET_X1 }
     frame MISLC { light ROCKET_X2 }
     frame MISLD { light ROCKET_X3 }
@@ -2485,7 +2486,7 @@ object LostSoul
 
 object SkullColumn
 {
-frame COL6A { light IGLOW }
+	frame COL6A { light IGLOW }
 }
 
 // Tall blue torch

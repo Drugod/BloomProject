@@ -75,7 +75,13 @@ map INT00 lookup "Thanks for playing BLOOM"
    LIGHTNING
 }
 
-map TESTMAP lookup "Testmap for BlooM"
+map TESTMAP lookup "Testmap for BlooM - Ozy81"
+{
+   levelnum = 98
+   sky1 = "YTEXTH63", 0.05
+}
+
+map TESTMAP2 lookup "Testmap for BlooM - Drugod"
 {
    levelnum = 99
    sky1 = "YTEXTH63", 0.05

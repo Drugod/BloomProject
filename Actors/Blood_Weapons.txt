@@ -2404,7 +2404,6 @@ ACTOR FlareTrail : NapalmDebris
 {
 	Scale 0.1
 	Speed 3
-		//+NOBLOCKMAP
 	Gravity 0.1
 	Translation "176:191=32:47","208:223=16:31"
 	States
