@@ -142,7 +142,7 @@ REM # Documentation
 REM #     Displays the title of the program.
 REM # ================================================================================================
 :BufferHeader
-ECHO ATR Compiler
+ECHO BlooM Compiler
 ECHO =====================
 ECHO ---------------------
 ECHO =====================
@@ -174,7 +174,7 @@ ECHO        Builds the project with absolutely no compression; maximizes perform
 ECHO.
 ECHO If unsure what to choose, select the default build or option [ 1 ] from the Main Menu.
 ECHO For further help is needed, please visit the official ZDoom forum thread:
-ECHO   https://forum.zdoom.org/viewtopic.php?f=19&t=65966
+ECHO   NO THREAD YET
 ECHO.
 PAUSE
 EXIT /B 0
@@ -379,8 +379,8 @@ ECHO %~1
 ECHO Program Path: %ProgramDirPath%
 ECHO User Path: %CD%
 ECHO.
-ECHO Please report this error to Ozymandias81!
-EXPLORER https://github.com/Ozymandias81
+ECHO Please report this error to our repository!
+EXPLORER https://github.com/Ozymandias81/BloomProject
 ECHO.
 GOTO :EOF
 
@@ -651,7 +651,7 @@ REM # Documentation
 REM #     Provide a simple interface and automatically update repository.
 REM # ================================================================================================
 :GitFeature_UpdateBranch
-CALL :ProcessingInterface 0 "Refreshing aliens"
+CALL :ProcessingInterface 0 "Refreshing gibs"
 CALL :GitFeature_UpdateBranch_Master
 CALL :ProcessingInterface 1
 EXIT /B 0

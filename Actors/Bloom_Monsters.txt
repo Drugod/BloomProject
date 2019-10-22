@@ -2607,9 +2607,9 @@ ACTOR Cvltimp : BloomHybrid_Base 19028
 		Loop
 	Melee:
 	Missile:
-		TNT1 A  0 A_JumpIfCloser(200,"Missile2")
+		TNT1 A 0 A_JumpIfCloser(200,"Missile2")
 		CIOO EF 8 A_FaceTarget
-		CIOO G  6 A_TroopAttack
+		CIOO G 6 A_TroopAttack
 		Goto See
 	Missile2:
 		CIO1 AB 4 A_FaceTarget

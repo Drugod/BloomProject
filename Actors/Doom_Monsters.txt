@@ -1,328 +1,323 @@
 ACTOR 33----------------- {}
-ACTOR ZombieMan_ 19037
+
+ACTOR DoomEnemy_Base
 {
-  //$Category "Doom Monsters"
-  //$Title Zombieman
-  //$Color 3  	
-  Health 20
-  Radius 20
-  Height 56
-  Speed 8
-  PainChance 200
-  Monster
-  +FLOORCLIP
-  SeeSound "grunt/sight"
-  AttackSound "grunt/attack"
-  PainSound "grunt/pain"
-  DeathSound "grunt/death"
-  ActiveSound "grunt/active"
-  Obituary "$OB_ZOMBIE" // "%o was killed by a zombieman."
-  DropItem "Clip_" 128
-  Dropitem "UselessStuff" 32
-  DropItem "GrenadeAmmo" 32
-  DropItem "HappyBundle" 32  
-  DamageFactor "Fire",2
-  States
-  {
-  Spawn:
-    POSS AB 10 A_Look
-    Loop
-  See:
-    POSS AABBCCDD 4 A_Chase
-    Loop
-  Missile:
-    POSS E 10 A_FaceTarget
-    POSS F 8 A_PosAttack
-    POSS E 8
-    Goto See
-  Pain:
-    POSS G 3
-    POSS G 3 A_Pain
-    Goto See
-  Death:
-    POSS H 5
-    POSS I 5 A_Scream
-    POSS J 5 A_NoBlocking
-    POSS K 5
-    POSS L -1
-    Stop
-  XDeath:
-    POSS M 5
-	TNT1 A 0 A_SpawnDebris ("EyeGuts")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris ("HeadBlood")	
-	TNT1 A 0 A_SpawnDebris ("Hand1")
-	TNT1 A 0 A_SpawnDebris ("Hand1")
-	TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
-    POSS N 5 A_XScream
-	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris ("FlyingBlood")		
-    POSS O 5 A_NoBlocking
-	TNT1 A 0 A_SpawnDebris ("OrganDebris")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")
-	TNT1 A 0 A_SpawnDebris ("FlyingBlood")	
-    POSS PQRST 5 A_SpawnDebris ("FlyingBlood")
-	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris ("FlyingBlood")
-	TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
-	TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)	
-    POSS U -1
-    Stop
-  Raise:
-    POSS K 5
-    POSS JIH 5
-    Goto See
-  Death.flare:
-  Death.fire:
-  Burn:
-	TNT1 A 0 A_Jump(128,"BURN2")
-	TNT1 A 0 A_PlaySound ("human/imonfire")
-	TNT1 A 0 A_NoBlocking	
-	BURN A 3 BRIGHT A_SpawnDebris ("NapalmDebris")
-	BURN B 3 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	BURN C 3 BRIGHT A_Wander
-	BURN D 3 BRIGHT A_NoBlocking
-	BURN E 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	BURN FGH 5 BRIGHT A_Wander
-	BURN I 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	BURN JKL 5 BRIGHT A_Wander
-	BURN M 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	BURN N 5 BRIGHT A_SpawnDebris ("NapalmDebris")
-	BURN OPQPQ 5 BRIGHT A_SpawnDebris ("NapalmDebris")
-	BURN RSTU 7 BRIGHT A_SpawnDebris ("NapalmDebris")
-	TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
-	BURN V -1
-	Stop
-  BURN2:
-	TNT1 A 0 A_Jump(200,"BURN3")  
-	TNT1 A 0 A_PlaySound ("human/imonfire")
-	TNT1 A 0 A_NoBlocking
-	BUR2 AAAA 5 BRIGHT A_SpawnDebris ("NapalmDebris")	
-	BUR2 AAAA 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	BUR2 BBBB 5 BRIGHT A_SpawnDebris ("NapalmDebris")	
-	BUR2 BBBB 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	BUR2 CCCC 3 BRIGHT A_SpawnDebris ("NapalmDebris")	
-	BUR2 CCCC 3 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))	
-	BUR2 D 8
-	BUR2 E 8
-	BUR2 F 8
-	BUR2 G 8
-	BUR2 H 5 
-	TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
-	BUR2 I -1
-	Stop
-  BURN3:
-	TNT1 A 0 A_PlaySound ("human/imonfire")
-	TNT1 A 0 A_NoBlocking	
-	BUR3 AAAA 5 BRIGHT A_SpawnDebris ("NapalmDebris") 		 
-	BUR3 AAAA 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	BUR3 BBBB 5 BRIGHT A_SpawnDebris ("NapalmDebris") 		
-	BUR3 BBBB 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	BUR3 CCCC 3 BRIGHT A_SpawnDebris ("NapalmDebris") 			
-	BUR3 CCCC 3 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	BUR3 D 8
-	BUR3 E 8
-	BUR3 F 8
-	BUR3 G 8
-	BUR3 H 5
-	TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)	
-	BUR3 I -1
-	Stop
-  }
+	//$Category "Doom Monsters"
+	//$Color 3
+	Height 56
+	Speed 8
+	Monster
+}
+
+ACTOR ZombieMan_ : DoomEnemy_Base 19037
+{
+	//$Title Zombieman
+	Health 20
+	Radius 20
+	PainChance 200
+	+FLOORCLIP
+	SeeSound "grunt/sight"
+	AttackSound "grunt/attack"
+	PainSound "grunt/pain"
+	DeathSound "grunt/death"
+	ActiveSound "grunt/active"
+	Obituary "$OB_ZOMBIE" // "%o was killed by a zombieman."
+	DropItem "Clip_" 128
+	Dropitem "UselessStuff" 32
+	DropItem "GrenadeAmmo" 32
+	DropItem "HappyBundle" 32
+	DamageFactor "Fire",2
+	States
+	{
+	Spawn:
+		POSS AB 10 A_Look
+		Loop
+	See:
+		POSS AABBCCDD 4 A_Chase
+		Loop
+	Missile:
+		POSS E 10 A_FaceTarget
+		POSS F 8 A_PosAttack
+		POSS E 8
+		Goto See
+	Pain:
+		POSS G 3
+		POSS G 3 A_Pain
+		Goto See
+	Death:
+		POSS H 5
+		POSS I 5 A_Scream
+		POSS J 5 A_NoBlocking
+		POSS K 5
+		POSS L -1
+		Stop
+	XDeath:
+		POSS M 5
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		POSS N 5 A_XScream
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		POSS O 5 A_NoBlocking
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		POSS PQRST 5 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		POSS U -1
+		Stop
+	Raise:
+		POSS K 5
+		POSS JIH 5
+		Goto See
+	Death.Flare:
+	Death.Fire:
+	Burn:
+		TNT1 A 0 A_Jump(128,"BURN2")
+		TNT1 A 0 A_PlaySound ("human/imonfire")
+		TNT1 A 0 A_NoBlocking
+		BURN A 3 BRIGHT A_SpawnDebris ("NapalmDebris")
+		BURN B 3 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN C 3 BRIGHT A_Wander
+		BURN D 3 BRIGHT A_NoBlocking
+		BURN E 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN FGH 5 BRIGHT A_Wander
+		BURN I 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN JKL 5 BRIGHT A_Wander
+		BURN M 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN N 5 BRIGHT A_SpawnDebris ("NapalmDebris")
+		BURN OPQPQ 5 BRIGHT A_SpawnDebris ("NapalmDebris")
+		BURN RSTU 7 BRIGHT A_SpawnDebris ("NapalmDebris")
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		BURN V -1
+		Stop
+	BURN2:
+		TNT1 A 0 A_Jump(200,"BURN3")
+		TNT1 A 0 A_PlaySound ("human/imonfire")
+		TNT1 A 0 A_NoBlocking
+		BUR2 AAAA 5 BRIGHT A_SpawnDebris ("NapalmDebris")
+		BUR2 AAAA 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BUR2 BBBB 5 BRIGHT A_SpawnDebris ("NapalmDebris")
+		BUR2 BBBB 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BUR2 CCCC 3 BRIGHT A_SpawnDebris ("NapalmDebris")
+		BUR2 CCCC 3 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BUR2 D 8
+		BUR2 E 8
+		BUR2 F 8
+		BUR2 G 8
+		BUR2 H 5
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		BUR2 I -1
+		Stop
+	BURN3:
+		TNT1 A 0 A_PlaySound ("human/imonfire")
+		TNT1 A 0 A_NoBlocking
+		BUR3 AAAA 5 BRIGHT A_SpawnDebris ("NapalmDebris")
+		BUR3 AAAA 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BUR3 BBBB 5 BRIGHT A_SpawnDebris ("NapalmDebris")
+		BUR3 BBBB 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BUR3 CCCC 3 BRIGHT A_SpawnDebris ("NapalmDebris")
+		BUR3 CCCC 3 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BUR3 D 8
+		BUR3 E 8
+		BUR3 F 8
+		BUR3 G 8
+		BUR3 H 5
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		BUR3 I -1
+		Stop
+	}
 }
 
 ACTOR 34----------------- {}
-ACTOR ShotgunGuy_ 18999
+ACTOR ShotgunGuy_ : DoomEnemy_base 18999
 {
-  //$Category "Doom Monsters"
-  //$Title ShotgunGuy
-  //$Color 3  	
-  Health 30
-  Radius 20
-  Height 56
-  Mass 100
-  Speed 8
-  PainChance 170
-  Monster
-  +FLOORCLIP
-  SeeSound "shotguy/sight"
-  AttackSound "shotguy/attack"
-  PainSound "shotguy/pain"
-  DeathSound "shotguy/death"
-  ActiveSound "shotguy/active"
-  Obituary "$OB_SHOTGUY"
-  DropItem "Shotgun" 128
-  Dropitem "UselessStuff" 32
-  DropItem "GrenadeAmmo" 32  
-  DropItem "HappyBundle" 32  
-  States
-  {
-  Spawn:
-    SPOS AB 10 A_Look
-    Loop
-  See:
-    SPOS AABBCCDD 3 A_Chase
-    Loop
-  Missile:
-    SPOS E 10 A_FaceTarget
-    SPOS F 10 BRIGHT A_SPosAttackUseAtkSound
-    SPOS E 10
-    Goto See
-  Pain:
-    SPOS G 3
-    SPOS G 3 A_Pain
-    Goto See
-  Death:
-    SPOS H 5
-    SPOS I 5 A_Scream
-    SPOS J 5 A_NoBlocking
-    SPOS K 5
-    SPOS L -1
-    Stop
-  XDeath:
-    SPOS M 5 A_SpawnDebris("FlyingBlood")
-	TNT1 A 0 A_SpawnDebris ("EyeGuts")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")
-	TNT1 A 0 A_SpawnDebris ("HeadBlood")		
-	TNT1 A 0 A_SpawnDebris ("Hand1")
-	TNT1 A 0 A_SpawnDebris ("Hand1")	
-	TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
-    SPOS N 5 A_XScream
-	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")	
-    SPOS O 5 A_NoBlocking
-	TNT1 A 0 A_SpawnDebris ("OrganDebris")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")		
-    SPOS PQRST 5 A_SpawnDebris("FlyingBlood")
-	TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
-	TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)	
-    SPOS U -1
-    Stop
-  Raise:
-    SPOS L 5
-    SPOS KJIH 5
-    Goto See
-  Death.fire:
-  Death.burn:
-  Death.flare:
-  Burn:
-    TNT1 A 0 A_Scream
-    TNT1 A 0 A_NoBlocking
-	TNT1 A 0 A_Jump(128,"AltBurn")
-	TNT1 A 0 A_SpawnItem("BurnFormerHuman", 0, 7)
-	Stop
-  AltBurn:
-	BURN A 3 BRIGHT A_PlaySound ("human/imonfire")
-	TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))	
-	BURN B 3 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	BURN C 3 BRIGHT A_Wander
-	TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))	
-	BURN D 3 BRIGHT A_NoBlocking
-	TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))	
-	BURN E 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	BURN FGH 5 BRIGHT A_Wander
-	BURN I 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	BURN JKL 5 BRIGHT A_Wander
-	BURN M 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-	BURN N 5 BRIGHT A_SpawnDebris ("NapalmDebris")
-	BURN OPQPQ 5 BRIGHT A_SpawnDebris ("NapalmDebris")
-	BURN RSTU 7 BRIGHT A_SpawnDebris ("NapalmDebris")
-	TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
-	BURN V -1
-	Stop
-  }
+	//$Title ShotgunGuy
+	Health 30
+	Radius 20
+	Mass 100
+	PainChance 170
+	+FLOORCLIP
+	SeeSound "shotguy/sight"
+	AttackSound "shotguy/attack"
+	PainSound "shotguy/pain"
+	DeathSound "shotguy/death"
+	ActiveSound "shotguy/active"
+	Obituary "$OB_SHOTGUY"
+	DropItem "Shotgun" 128
+	Dropitem "UselessStuff" 32
+	DropItem "GrenadeAmmo" 32
+	DropItem "HappyBundle" 32
+	States
+	{
+	Spawn:
+		SPOS AB 10 A_Look
+		Loop
+	See:
+		SPOS AABBCCDD 3 A_Chase
+		Loop
+	Missile:
+		SPOS E 10 A_FaceTarget
+		SPOS F 10 BRIGHT A_SPosAttackUseAtkSound
+		SPOS E 10
+		Goto See
+	Pain:
+		SPOS G 3
+		SPOS G 3 A_Pain
+		Goto See
+	Death:
+		SPOS H 5
+		SPOS I 5 A_Scream
+		SPOS J 5 A_NoBlocking
+		SPOS K 5
+		SPOS L -1
+		Stop
+	XDeath:
+		SPOS M 5 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		SPOS N 5 A_XScream
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		SPOS O 5 A_NoBlocking
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		SPOS PQRST 5 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		SPOS U -1
+		Stop
+	Raise:
+		SPOS L 5
+		SPOS KJIH 5
+		Goto See
+	Death.Fire:
+	Death.Burn:
+	Death.Flare:
+	Burn:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_Jump(128,"AltBurn")
+		TNT1 A 0 A_SpawnItem("BurnFormerHuman", 0, 7)
+		Stop
+	AltBurn:
+		BURN A 3 BRIGHT A_PlaySound ("human/imonfire")
+		TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN B 3 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN C 3 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN D 3 BRIGHT A_NoBlocking
+		TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN E 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN FGH 5 BRIGHT A_Wander
+		BURN I 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN JKL 5 BRIGHT A_Wander
+		BURN M 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN N 5 BRIGHT A_SpawnDebris ("NapalmDebris")
+		BURN OPQPQ 5 BRIGHT A_SpawnDebris ("NapalmDebris")
+		BURN RSTU 7 BRIGHT A_SpawnDebris ("NapalmDebris")
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		BURN V -1
+		Stop
+	}
 }
 
 ACTOR 35----------------- {}
-ACTOR ChaingunGuy_ 18998
+ACTOR ChaingunGuy_ : DoomEnemy_Base 18998
 {
-  //$Category "Doom Monsters"
-  //$Title ChaingunGuy
-  //$Color 3  	
-  Health 70
-  Radius 20
-  Height 56
-  Mass 100
-  Speed 8
-  PainChance 170
-  Monster
-  +FLOORCLIP
-  SeeSound "chainguy/sight"
-  PainSound "chainguy/pain"
-  DeathSound "chainguy/death"
-  ActiveSound "chainguy/active"
-  AttackSound "chainguy/attack"
-  Obituary "$OB_CHAINGUY"
-  Dropitem "Chaingun" 128
-  Dropitem "UselessStuff" 32
-  DropItem "GrenadeAmmo" 32  
-  DropItem "HappyBundle" 32  
-  States
-  {
-  Spawn:
-    CPOS AB 10 A_Look
-    Loop
-  See:
-    CPOS AABBCCDD 3 A_Chase
-    Loop
-  Missile:
-    CPOS E 10 A_FaceTarget
-    CPOS FE 4 BRIGHT A_CPosAttack
-    CPOS F 1 A_CPosRefire
-    Goto Missile+1
-  Pain:
-    CPOS G 3
-    CPOS G 3 A_Pain
-    Goto See
-  Death:
-    CPOS H 5
-    CPOS I 5 A_Scream
-    CPOS J 5 A_NoBlocking
-    CPOS KLM 5
-    CPOS N -1
-    Stop
-  XDeath:
-    CPOS O 2 A_SpawnDebris ("EyeGuts")
-    CPOS O 3 A_SpawnDebris ("Hand1")	
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")
-	TNT1 A 0 A_SpawnDebris ("HeadBlood")
-	TNT1 A 0 A_SpawnDebris ("Hand1")
-	TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
-    CPOS P 5 A_XScream
-	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")
-    CPOS Q 5 A_NoBlocking
-	TNT1 A 0 A_SpawnDebris ("OrganDebris")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")	
-    CPOS RS 5 A_SpawnDebris ("FlyingBlood")
-	TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
-	TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
-	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")
-    CPOS T -1
-    Stop
-  Raise:
-    CPOS N 5
-    CPOS MLKJIH 5
-    Goto See
-  Death.fire:
-  Death.burn:
-  Death.flare:
-  Burn:
-    TNT1 A 0 A_Scream
-    TNT1 A 0 A_NoBlocking
-	TNT1 A 0 A_SpawnItem("BurnFormerHuman", 0, 7)
-	Stop
-  }
+	//$Title ChaingunGuy
+	Health 70
+	Radius 20
+	Mass 100
+	PainChance 170
+	+FLOORCLIP
+	SeeSound "chainguy/sight"
+	PainSound "chainguy/pain"
+	DeathSound "chainguy/death"
+	ActiveSound "chainguy/active"
+	AttackSound "chainguy/attack"
+	Obituary "$OB_CHAINGUY"
+	Dropitem "Chaingun" 128
+	Dropitem "UselessStuff" 32
+	DropItem "GrenadeAmmo" 32
+	DropItem "HappyBundle" 32
+	States
+	{
+	Spawn:
+		CPOS AB 10 A_Look
+		Loop
+	See:
+		CPOS AABBCCDD 3 A_Chase
+		Loop
+	Missile:
+		CPOS E 10 A_FaceTarget
+		CPOS FE 4 BRIGHT A_CPosAttack
+		CPOS F 1 A_CPosRefire
+		Goto Missile+1
+	Pain:
+		CPOS G 3
+		CPOS G 3 A_Pain
+		Goto See
+	Death:
+		CPOS H 5
+		CPOS I 5 A_Scream
+		CPOS J 5 A_NoBlocking
+		CPOS KLM 5
+		CPOS N -1
+		Stop
+	XDeath:
+		CPOS O 2 A_SpawnDebris ("EyeGuts")
+		CPOS O 3 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		CPOS P 5 A_XScream
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		CPOS Q 5 A_NoBlocking
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		CPOS RS 5 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		CPOS T -1
+		Stop
+	Raise:
+		CPOS N 5
+		CPOS MLKJIH 5
+		Goto See
+	Death.Fire:
+	Death.Burn:
+	Death.Flare:
+	Burn:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_SpawnItem("BurnFormerHuman", 0, 7)
+		Stop
+	}
 }
 
 ACTOR BurnFormerHuman
@@ -347,133 +342,133 @@ ACTOR BurnFormerHuman
 		BRZ3 A 0 A_PlaySound("human/imonfire",2)
         goto See
     See:
-        BRZ3 A 0   //A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BurningAlive")
-		BRZ3 A 0   A_PlaySound("human/imonfire")
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 AAA 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   //A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 BBB 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   //A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 CCC 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   //A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 AAA 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   //A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 BBB 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 CCC 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 AAA 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 BBB 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 CCC 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BurningAlive")
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 AAA 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 BBB 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 CCC 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 AAA 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 BBB 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 CCC 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 AAA 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 BBB 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BurningAlive")
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 CCC 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-		BRZ3 A 0   A_Jump(128,"See")
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 AAA 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 BBB 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 CCC 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 AAA 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 BBB 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-        BRZ3 A 0   A_Explode (4,24,0)
-        BRZ3 CCC 1 BRIGHT  A_Wander
-		TNT1 A 0   A_SpawnDebris ("NapalmDebris") 		
-        BRZ3 A 0   A_LoopActiveSound
-        BRZ3 A 0   A_SpawnItem ("BurningAlive")
-        BRZ3 A 0   A_Explode (4,24,0)
-        Goto Death
+		BRZ3 A 0 //A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BurningAlive")
+		BRZ3 A 0 A_PlaySound("human/imonfire")
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 AAA 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 //A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 BBB 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 //A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 CCC 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 //A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 AAA 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 //A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 BBB 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 CCC 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 AAA 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 BBB 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 CCC 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BurningAlive")
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 AAA 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 BBB 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 CCC 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 AAA 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 BBB 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 CCC 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 AAA 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 BBB 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BurningAlive")
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 CCC 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_Jump(128,"See")
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 AAA 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 BBB 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 CCC 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 AAA 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 BBB 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 CCC 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BurningAlive")
+		BRZ3 A 0 A_Explode (4,24,0)
+		Goto Death
 	Death:
 		TNT1 A 0 A_Scream
 		BRZ3 D 3 BRIGHT A_PlaySound("DSBDYBRN")
@@ -484,10 +479,10 @@ ACTOR BurnFormerHuman
 		BRZ3 D 0 A_SpawnDebris("FlyingBlood")
 		BRZ3 D 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 D 0 A_Fall
-		BRZ3 DDEEFFGG 4 BRIGHT  A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BRZ3 DDEEFFGG 4 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
 		TNT1 A 0 A_StopSound
-		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)		
-		TNT1 A 0 A_jump(128,2)
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_Jump(128,2)
 		BRZ3 I -1
 		Stop
 		BRZ3 H -1
@@ -496,895 +491,854 @@ ACTOR BurnFormerHuman
 }
 
 ACTOR 36----------------- {}
-ACTOR Demon_ 19013
+ACTOR Demon_ : DoomEnemy_Base 19013
 {
-  //$Category "Doom Monsters"
-  //$Title Demon
-  //$Color 3  	
-  Health 150
-  PainChance 180
-  Speed 10
-  Radius 30
-  Height 56
-  Mass 400
-  Monster
-  +FLOORCLIP
-  GibHealth -10
-  SeeSound "demon/sight"
-  AttackSound "demon/melee"
-  PainSound "demon/pain"
-  DeathSound "demon/death"
-  ActiveSound "demon/active"
-  Obituary "$OB_DEMONHIT" // "%o was bit by a demon."
-  States
-  {
-  Spawn:
-    SARG AB 10 A_Look
-    Loop
-  See:
-    SARG AABBCCDD 2 Fast A_Chase
-    Loop
-  Melee:
-    SARG EF 8 Fast A_FaceTarget
-    SARG G 8 Fast A_SargAttack
-    Goto See
-  Pain:
-    SARG H 2 Fast
-    SARG H 2 Fast A_Pain
-    Goto See
-  Death:
-    SARG I 8
-    SARG J 8 A_Scream
-    SARG K 4
-    SARG L 4 A_NoBlocking
-    SARG M 4
-    SARG N -1
-    Stop
-  XDeath:
-  	SARR A 4 A_SpawnDebris("FlyingBlood")
-	TNT1 A 0 A_SpawnDebris ("EyeGuts")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")
-	TNT1 A 0 A_SpawnDebris ("HeadBlood")
-	TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
-	SARR B 4 A_Scream
-	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
-	SARR C 4 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
-	TNT1 A 0 A_SpawnDebris ("OrganDebris")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
-	SARR D 4 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("Bloodliver")
-	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
-	SARR E 4 A_NoBlocking
-	TNT1 A 0 A_SpawnDebris ("OrganDebris")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
-	SARR F 4 A_SpawnDebris("FlyingBlood")
-	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
-	SARR G 4 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
-	SARR H 4 A_SpawnDebris("FlyingBlood")
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
-	SARR I -1
-	Stop
-  Death.flare:
-  Death.fire:
-  Burn:
-	SARB A 4 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	SARB B 4 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	SARB C 4 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	SARB D 4 A_Scream
-	SARB E 8 A_NoBlocking
-	SARB F 8 A_SpawnItemEx ("BigSmoke",0,0,0)
-	SARB G 8
-	SARB H 8
-	SARB I 8
-	SARB J 8
-	SARB K 8
-	SARB L 8
-	SARB M 8
-	SARB N 8
-	SARB O -1
-	Stop
-  Death.Shock:
-  Shock:
-	SARS A 4 A_Scream
-	SARS B 4 A_NoBlocking
-	SARS C 4
-	SARS D 8 A_SpawnItemEx ("BigSmoke",0,0,0)
-	SARS E 8
-	SARS F -1
- 	Stop
-  Raise:
-    SARG N 5
-    SARG MLKJI 5
-    Goto See
-  }
+	//$Title Demon
+	Health 150
+	PainChance 180
+	Speed 10
+	Radius 30
+	Mass 400
+	GibHealth -10
+	+FLOORCLIP
+	SeeSound "demon/sight"
+	AttackSound "demon/melee"
+	PainSound "demon/pain"
+	DeathSound "demon/death"
+	ActiveSound "demon/active"
+	Obituary "$OB_DEMONHIT" // "%o was bit by a demon."
+	States
+	{
+	Spawn:
+		SARG AB 10 A_Look
+		Loop
+	See:
+		SARG AABBCCDD 2 Fast A_Chase
+		Loop
+	Melee:
+		SARG EF 8 Fast A_FaceTarget
+		SARG G 8 Fast A_SargAttack
+		Goto See
+	Pain:
+		SARG H 2 Fast
+		SARG H 2 Fast A_Pain
+		Goto See
+	Death:
+		SARG I 8
+		SARG J 8 A_Scream
+		SARG K 4
+		SARG L 4 A_NoBlocking
+		SARG M 4
+		SARG N -1
+		Stop
+	XDeath:
+		SARR A 4 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("HeadBlood")
+		TNT1 A 0 A_SpawnItemEx("Intestines",random(-50,50),random(-50,50),0)
+		SARR B 4 A_Scream
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
+		SARR C 4 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
+		SARR D 4 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
+		SARR E 4 A_NoBlocking
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
+		SARR F 4 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnItemEx("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
+		SARR G 4 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
+		SARR H 4 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
+		SARR I -1
+		Stop
+	Death.Flare:
+	Death.Fire:
+	Burn:
+		SARB A 4 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		SARB B 4 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		SARB C 4 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		SARB D 4 A_Scream
+		SARB E 8 A_NoBlocking
+		SARB F 8 A_SpawnItemEx ("BigSmoke",0,0,0)
+		SARB G 8
+		SARB H 8
+		SARB I 8
+		SARB J 8
+		SARB K 8
+		SARB L 8
+		SARB M 8
+		SARB N 8
+		SARB O -1
+		Stop
+	Death.Shock:
+	Shock:
+		SARS A 4 A_Scream
+		SARS B 4 A_NoBlocking
+		SARS C 4
+		SARS D 8 A_SpawnItemEx ("BigSmoke",0,0,0)
+		SARS E 8
+		SARS F -1
+		Stop
+	Raise:
+		SARG N 5
+		SARG MLKJI 5
+		Goto See
+	}
 }
 
 ACTOR Spectre_ : Demon_ 19048
 {
-  //$Category "Doom Monsters"
-  //$Title Spectre
-  //$Color 3  	
-  +SHADOW
-  RenderStyle OptFuzzy
-  Alpha 0.5
-  SeeSound "spectre/sight"
-  AttackSound "spectre/melee"
-  PainSound "spectre/pain"
-  DeathSound "spectre/death"
-  ActiveSound "spectre/active"
-  HitObituary "$OB_SPECTREHIT" // "%o was eaten by a spectre."
+	//$Title Spectre
+	+SHADOW
+	RenderStyle OptFuzzy
+	Alpha 0.5
+	SeeSound "spectre/sight"
+	AttackSound "spectre/melee"
+	PainSound "spectre/pain"
+	DeathSound "spectre/death"
+	ActiveSound "spectre/active"
+	HitObituary "$OB_SPECTREHIT" // "%o was eaten by a spectre."
 }
 
 ACTOR 37----------------- {}
-ACTOR DoomImp_ 19030
+ACTOR DoomImp_ : DoomEnemy_Base 19030
 {
-  //$Category "Doom Monsters"
-  //$Title Imp
-  //$Color 3 
-  Health 60
-  Radius 20
-  Height 56
-  Mass 100
-  Speed 8
-  PainChance 200
-  Monster
-  +FLOORCLIP
-  SeeSound "imp/sight"
-  PainSound "imp/pain"
-  DeathSound "imp/death"
-  ActiveSound "imp/active"
-  HitObituary "$OB_IMPHIT"
-  Obituary "$OB_IMP"
-  DropItem "Flaregun" 16
-  DropItem "Flare" 64  
-  Dropitem "UselessStuff" 32
-  States
-  {
-  Spawn:
-    TROO AB 10 A_Look
-    Loop
-  See:
-    TROO AABBCCDD 3 A_Chase
-    Loop
-  Melee:
-  Missile:
-    TROO EF 8 A_FaceTarget
-    TROO G 6 A_TroopAttack
-    Goto See
-  Pain:
-    TROO H 2
-    TROO H 2 A_Pain
-    Goto See
-  Death:
-    TROO I 8
-    TROO J 8 A_Scream
-    TROO K 6
-    TROO L 6 A_NoBlocking
-    TROO M -1
-    Stop
-  XDeath:
-    TROO N 5 A_SpawnDebris("FlyingBlood")
-	TNT1 A 0 A_SpawnDebris ("EyeGuts")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")
-	TNT1 A 0 A_SpawnDebris ("HeadBlood")
-	TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
-    TROO O 5 A_XScream
-	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")
-    TROO P 5
-	TNT1 A 0 A_SpawnDebris ("OrganDebris")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")
-    TROO Q 5 A_NoBlocking
-	TNT1 A 0 A_SpawnDebris ("OrganDebris2")
-	TNT1 A 0 A_SpawnDebris ("Bloodliver")	
-	TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
-	TNT1 A 0 A_SpawnDebris("FlyingBlood")
-    TROO RST 5 A_SpawnDebris("FlyingBlood")
-    TROO U -1
-    Stop
-  Raise:
-    TROO ML 8
-    TROO KJI 6
-    Goto See
-  Death.flare:
-  Death.fire:
-  Burn:
-	TRBR A 1 BRIGHT A_Wander
-	TNT1 A 0 A_PlaySound("human/imonfire",2)
-	TNT1 A 0 A_PlaySound("imp/pain",2)
-	TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	TRBR B 1 BRIGHT A_Wander
-	TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	TRBR C 1 BRIGHT A_Wander
-	TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	TRBR D 1 BRIGHT A_Wander
-	TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	TNT1 A 0 A_Jump(16,"Burn2")
-	Loop
-  Burn2:
-	PBR1 A 6 A_Scream
-	PBR1 B 6 A_SpawnItemEx ("BigSmoke",0,0,0)
-	PBR1 C 6
-	PBR1 D 6 A_NoBlocking
-	PBR1 E 6
-	PBR1 F 6
-	PBR1 G 6 
-	PBR1 H -1 
-	Stop
-  }
+	//$Title Imp
+	Health 60
+	Radius 20
+	Mass 100
+	PainChance 200
+	+FLOORCLIP
+	SeeSound "imp/sight"
+	PainSound "imp/pain"
+	DeathSound "imp/death"
+	ActiveSound "imp/active"
+	HitObituary "$OB_IMPHIT"
+	Obituary "$OB_IMP"
+	DropItem "Flaregun" 16
+	DropItem "Flare" 64
+	Dropitem "UselessStuff" 32
+	States
+	{
+	Spawn:
+		TROO AB 10 A_Look
+		Loop
+	See:
+		TROO AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		TROO EF 8 A_FaceTarget
+		TROO G 6 A_TroopAttack
+		Goto See
+	Pain:
+		TROO H 2
+		TROO H 2 A_Pain
+		Goto See
+	Death:
+		TROO I 8
+		TROO J 8 A_Scream
+		TROO K 6
+		TROO L 6 A_NoBlocking
+		TROO M -1
+		Stop
+	XDeath:
+		TROO N 5 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TROO O 5 A_XScream
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		TROO P 5
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		TROO Q 5 A_NoBlocking
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		TROO RST 5 A_SpawnDebris("FlyingBlood")
+		TROO U -1
+		Stop
+	Raise:
+		TROO ML 8
+		TROO KJI 6
+		Goto See
+	Death.Flare:
+	Death.Fire:
+	Burn:
+		TRBR A 1 BRIGHT A_Wander
+		TNT1 A 0 A_PlaySound("human/imonfire",2)
+		TNT1 A 0 A_PlaySound("imp/pain",2)
+		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		TRBR B 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		TRBR C 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		TRBR D 1 BRIGHT A_Wander
+		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		TNT1 A 0 A_Jump(16,"Burn2")
+		Loop
+	Burn2:
+		PBR1 A 6 A_Scream
+		PBR1 B 6 A_SpawnItemEx ("BigSmoke",0,0,0)
+		PBR1 C 6
+		PBR1 D 6 A_NoBlocking
+		PBR1 E 6
+		PBR1 F 6
+		PBR1 G 6
+		PBR1 H -1
+		Stop
+	}
 }
 
 ACTOR DoomImpBall_ replaces DoomImpBall
 {
-  Radius 6
-  Height 8
-  Speed 10
-  FastSpeed 20
-  Damage 3
-  Projectile
-  +RANDOMIZE
-  RenderStyle Add
-  Alpha 1
-  DamageType "Flare"
-  DamageType "Fire"
-  SeeSound "imp/attack"
-  DeathSound "imp/shotx"
-  States
-  {
-  Spawn:
-    BAL1 AB 4 BRIGHT
-    Loop
-  Death:
-    BAL1 CDE 6 BRIGHT
-    Stop
-  }
+	Radius 6
+	Height 8
+	Speed 10
+	FastSpeed 20
+	Damage 3
+	Projectile
+	+RANDOMIZE
+	RenderStyle Add
+	Alpha 1
+	DamageType "Flare"
+	DamageType "Fire"
+	SeeSound "imp/attack"
+	DeathSound "imp/shotx"
+	States
+	{
+	Spawn:
+		BAL1 AB 4 BRIGHT
+		Loop
+	Death:
+		BAL1 CDE 6 BRIGHT
+		Stop
+	}
 }
 
 ACTOR 38----------------- {}
-ACTOR BaronOfHell_ 19041
+ACTOR BaronOfHell_ : DoomEnemy_Base 19041
 {
-  //$Category "Doom Monsters"
-  //$Title Baron of Hell
-  //$Color 3 
-  Health 1000
-  Radius 24
-  Height 64
-  Mass 1000
-  Speed 8
-  PainChance 50
-  Monster
-  +FLOORCLIP
-  +BOSSDEATH
-  SeeSound "baron/sight"
-  PainSound "baron/pain"
-  DeathSound "baron/death"
-  ActiveSound "baron/active"
-  Obituary "$OB_BARON"
-  HitObituary "$OB_BARONHIT"
-  States
-  {
-  Spawn:
-    BOSS AB 10 A_Look
-    Loop
-  See:
-    BOSS AABBCCDD 3 A_Chase
-    Loop
-  Melee:
-  Missile:
-    BOSS EF 8 A_FaceTarget
-    BOSS G 8 A_BruisAttack
-    Goto See
-  Pain:
-    BOSS H 2
-    BOSS H 2 A_Pain
-    Goto See
-  Death:
-    BOSS I 8
-    BOSS J 8 A_Scream
-    BOSS K 8
-    BOSS L 8 A_NoBlocking
-    BOSS MN 8
-	TNT1 A 0 A_GiveToTarget("DoLaugh", 1)  
-    BOSS O -1 A_BossDeath
-    Stop
-  Death.flare:
-  Death.fire:
-  Burn:
-	BKR4 A 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	BKR4 B 5 BRIGHT A_Scream
-	TNT1 A 0 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	BKR4 C 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	BKR4 D 5 BRIGHT A_NoBlocking
-	TNT1 A 0 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	BKR4 E 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	BKR4 F 5
-	BKR4 G 5
-	BKR4 H 5
-	BKR4 I 5
-	BKR4 J 5
-	BKR4 K 5
-	BKR4 L 5 A_SpawnItemEx ("BigSmoke",0,0,0)
-	BKR4 M -1 
-	Stop
-  Raise:
-    BOSS O 8
-    BOSS NMLKJI 8
-    Goto See
-  }
+	//$Title Baron of Hell
+	Health 1000
+	Radius 24
+	Height 64
+	Mass 1000
+	PainChance 50
+	+FLOORCLIP
+	+BOSSDEATH
+	SeeSound "baron/sight"
+	PainSound "baron/pain"
+	DeathSound "baron/death"
+	ActiveSound "baron/active"
+	Obituary "$OB_BARON"
+	HitObituary "$OB_BARONHIT"
+	States
+	{
+	Spawn:
+		BOSS AB 10 A_Look
+		Loop
+	See:
+		BOSS AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		BOSS EF 8 A_FaceTarget
+		BOSS G 8 A_BruisAttack
+		Goto See
+	Pain:
+		BOSS H 2
+		BOSS H 2 A_Pain
+		Goto See
+	Death:
+		BOSS I 8
+		BOSS J 8 A_Scream
+		BOSS K 8
+		BOSS L 8 A_NoBlocking
+		BOSS MN 8
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BOSS O -1 A_BossDeath
+		Stop
+	Death.Flare:
+	Death.Fire:
+	Burn:
+		BKR4 A 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 B 5 BRIGHT A_Scream
+		TNT1 A 0 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 C 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 D 5 BRIGHT A_NoBlocking
+		TNT1 A 0 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 E 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 F 5
+		BKR4 G 5
+		BKR4 H 5
+		BKR4 I 5
+		BKR4 J 5
+		BKR4 K 5
+		BKR4 L 5 A_SpawnItemEx ("BigSmoke",0,0,0)
+		BKR4 M -1
+		Stop
+	Raise:
+		BOSS O 8
+		BOSS NMLKJI 8
+		Goto See
+	}
 }
 
 ACTOR 39----------------- {}
 ACTOR HellKnight_ : BaronOfHell_ 19034
 {
-  //$Category "Doom Monsters"
-  //$Title HellKnight
-  //$Color 3  	
-  Health 500
-  -BOSSDEATH
-  SeeSound "knight/sight"
-  ActiveSound "knight/active"
-  PainSound "knight/pain"
-  DeathSound "knight/death"
-  HitObituary "$OB_KNIGHTHIT"
-  Obituary "$OB_KNIGHT"
-  States
-  {
-  Spawn:
-    BOS2 AB 10 A_Look
-    Loop
-  See:
-    BOS2 AABBCCDD 3 A_Chase
-    Loop
-  Melee:
-  Missile:
-    BOS2 EF 8 A_FaceTarget
-    BOS2 G 8 A_BruisAttack
-    Goto See
-  Pain:
-    BOS2 H 2
-    BOS2 H 2 A_Pain
-    Goto See
-  Death:
-    BOS2 I 8
-    BOS2 J 8 A_Scream
-    BOS2 K 8
-    BOS2 L 8 A_NoBlocking
-    BOS2 MN 8
-    BOS2 O -1
-    Stop
-  Death.flare:
-  Death.fire:
-  Burn:
-	BKR4 A 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	BKR4 B 5 BRIGHT A_Scream
-	TNT1 A 0 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	BKR4 C 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	BKR4 D 5 BRIGHT A_NoBlocking
-	TNT1 A 0 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	BKR4 E 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-	BKR4 F 5
-	BKR4 G 5
-	BKR4 H 5
-	BKR4 I 5
-	BKR4 J 5
-	BKR4 K 5
-	BKR4 L 5 A_SpawnItemEx ("BigSmoke",0,0,0)
-	BKR4 M -1 
-	Stop
-  Raise:
-    BOS2 O 8
-    BOS2 NMLKJI 8
-    Goto See
-  }
+	//$Title HellKnight
+	Health 500
+	-BOSSDEATH
+	SeeSound "knight/sight"
+	ActiveSound "knight/active"
+	PainSound "knight/pain"
+	DeathSound "knight/death"
+	HitObituary "$OB_KNIGHTHIT"
+	Obituary "$OB_KNIGHT"
+	States
+	{
+	Spawn:
+		BOS2 AB 10 A_Look
+		Loop
+	See:
+		BOS2 AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		BOS2 EF 8 A_FaceTarget
+		BOS2 G 8 A_BruisAttack
+		Goto See
+	Pain:
+		BOS2 H 2
+		BOS2 H 2 A_Pain
+		Goto See
+	Death:
+		BOS2 I 8
+		BOS2 J 8 A_Scream
+		BOS2 K 8
+		BOS2 L 8 A_NoBlocking
+		BOS2 MN 8
+		BOS2 O -1
+		Stop
+	Death.Flare:
+	Death.Fire:
+	Burn:
+		BKR4 A 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 B 5 BRIGHT A_Scream
+		TNT1 A 0 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 C 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 D 5 BRIGHT A_NoBlocking
+		TNT1 A 0 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 E 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 F 5
+		BKR4 G 5
+		BKR4 H 5
+		BKR4 I 5
+		BKR4 J 5
+		BKR4 K 5
+		BKR4 L 5 A_SpawnItemEx ("BigSmoke",0,0,0)
+		BKR4 M -1
+		Stop
+	Raise:
+		BOS2 O 8
+		BOS2 NMLKJI 8
+		Goto See
+	}
 }
 
 ACTOR 40----------------- {}
 ACTOR SpiderMastermind_ replaces SpiderMastermind
 {
-  Health 3000
-  Radius 128
-  Height 100
-  Mass 1000
-  Speed 12
-  PainChance 40
-  Monster
-  MinMissileChance 160
-  +BOSS
-  +MISSILEMORE
-  +FLOORCLIP
-  +NORADIUSDMG
-  +DONTMORPH
-  +BOSSDEATH
-  SeeSound "spider/sight"
-  AttackSound "spider/attack"
-  PainSound "spider/pain"
-  DeathSound "spider/death"
-  ActiveSound "spider/active"
-  Obituary "$OB_SPIDER"
-  States
-  {
-  Spawn:
-    SPID AB 10 A_Look
-    Loop
-  See:
-    SPID A 3 A_Metal
-    SPID ABB 3 A_Chase
-    SPID C 3 A_Metal
-    SPID CDD 3 A_Chase
-    SPID E 3 A_Metal
-    SPID EFF 3 A_Chase
-    Loop
-  Missile:
-    SPID A 20 BRIGHT A_FaceTarget
-    SPID G 4 BRIGHT A_SPosAttackUseAtkSound
-    SPID H 4 BRIGHT A_SPosAttackUseAtkSound
-    SPID H 1 BRIGHT A_SpidRefire
-    Goto Missile+1
-  Pain:
-    SPID I 3
-    SPID I 3 A_Pain
-    Goto See
-  Death:
-    SPID J 20 A_Scream
-    SPID K 10 A_NoBlocking
-    SPID LMNOPQR 10
-    SPID S 30
-	TNT1 A 0 A_GiveToTarget("DoLaugh", 1)  
-    SPID S -1 A_BossDeath
-    Stop
-  }
+	//$Category "Doom Monsters"
+	//$Title Spider-Mastermind
+	//$Color 3
+	Health 3000
+	Radius 128
+	Height 100
+	Mass 1000
+	Speed 12
+	PainChance 40
+	Monster
+	MinMissileChance 160
+	+BOSS
+	+BOSSDEATH
+	+DONTMORPH
+	+FLOORCLIP
+	+MISSILEMORE
+	+NORADIUSDMG
+	SeeSound "spider/sight"
+	AttackSound "spider/attack"
+	PainSound "spider/pain"
+	DeathSound "spider/death"
+	ActiveSound "spider/active"
+	Obituary "$OB_SPIDER"
+	States
+	{
+	Spawn:
+		SPID AB 10 A_Look
+		Loop
+	See:
+		SPID A 3 A_Metal
+		SPID ABB 3 A_Chase
+		SPID C 3 A_Metal
+		SPID CDD 3 A_Chase
+		SPID E 3 A_Metal
+		SPID EFF 3 A_Chase
+		Loop
+	Missile:
+		SPID A 20 BRIGHT A_FaceTarget
+		SPID G 4 BRIGHT A_SPosAttackUseAtkSound
+		SPID H 4 BRIGHT A_SPosAttackUseAtkSound
+		SPID H 1 BRIGHT A_SpidRefire
+		Goto Missile+1
+	Pain:
+		SPID I 3
+		SPID I 3 A_Pain
+		Goto See
+	Death:
+		SPID J 20 A_Scream
+		SPID K 10 A_NoBlocking
+		SPID LMNOPQR 10
+		SPID S 30
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		SPID S -1 A_BossDeath
+		Stop
+	}
 }
 
 ACTOR 41----------------- {}
 ACTOR Cyberdemon_ replaces Cyberdemon
 {
-  Health 4000
-  Radius 40
-  Height 110
-  Mass 1000
-  Speed 16
-  PainChance 20
-  Monster
-  MinMissileChance 160
-  +BOSS
-  +MISSILEMORE
-  +FLOORCLIP
-  +NORADIUSDMG
-  +DONTMORPH
-  +BOSSDEATH
-  SeeSound "cyber/sight"
-  PainSound "cyber/pain"
-  DeathSound "cyber/death"
-  ActiveSound "cyber/active"
-  Obituary "$OB_CYBORG"
-  States
-  {
-  Spawn:
-    CYBR AB 10 A_Look
-    Loop
-  See:
-    CYBR A 3 A_Hoof
-    CYBR ABBCC 3 A_Chase
-    CYBR D 3 A_Metal
-    CYBR D 3 A_Chase
-    Loop
-  Missile:
-    CYBR E 6 A_FaceTarget
-    CYBR F 12 A_CyberAttack
-    CYBR E 12 A_FaceTarget
-    CYBR F 12 A_CyberAttack
-    CYBR E 12 A_FaceTarget
-    CYBR F 12 A_CyberAttack
-    Goto See
-  Pain:
-    CYBR G 10 A_Pain
-    Goto See
-  Death:
-    CYBR H 10
-    CYBR I 10 A_Scream
-    CYBR JKL 10
-    CYBR M 10 A_NoBlocking
-    CYBR NO 10
-    CYBR P 30
-	TNT1 A 0 A_GiveToTarget("DoLaugh", 1)  
-    CYBR P -1 A_BossDeath
-    Stop
-  }
+	//$Category "Doom Monsters"
+	//$Title Cyberdemon
+	//$Color 3
+	Health 4000
+	Radius 40
+	Height 110
+	Mass 1000
+	Speed 16
+	PainChance 20
+	Monster
+	MinMissileChance 160
+	+BOSS
+	+BOSSDEATH
+	+DONTMORPH
+	+FLOORCLIP
+	+MISSILEMORE
+	+NORADIUSDMG
+	SeeSound "cyber/sight"
+	PainSound "cyber/pain"
+	DeathSound "cyber/death"
+	ActiveSound "cyber/active"
+	Obituary "$OB_CYBORG"
+	States
+	{
+	Spawn:
+		CYBR AB 10 A_Look
+		Loop
+	See:
+		CYBR A 3 A_Hoof
+		CYBR ABBCC 3 A_Chase
+		CYBR D 3 A_Metal
+		CYBR D 3 A_Chase
+		Loop
+	Missile:
+		CYBR E 6 A_FaceTarget
+		CYBR F 12 A_CyberAttack
+		CYBR E 12 A_FaceTarget
+		CYBR F 12 A_CyberAttack
+		CYBR E 12 A_FaceTarget
+		CYBR F 12 A_CyberAttack
+		Goto See
+	Pain:
+		CYBR G 10 A_Pain
+		Goto See
+	Death:
+		CYBR H 10
+		CYBR I 10 A_Scream
+		CYBR JKL 10
+		CYBR M 10 A_NoBlocking
+		CYBR NO 10
+		CYBR P 30
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		CYBR P -1 A_BossDeath
+		Stop
+	}
 }
 
 ACTOR 88----------------- {}
-ACTOR LostSoul_ 19022
+ACTOR LostSoul_ : DoomEnemy_Base 19022
 {
-  //$Category "Doom Monsters"
-  //$Title LostSoul
-  //$Color 3  	
-  Health 100
-  Radius 16
-  Height 56
-  Mass 50
-  Speed 8
-  Damage 3
-  PainChance 256
-  Monster
-  +FLOAT
-  +NOGRAVITY
-  +MISSILEMORE
-  +DONTFALL
-  +NOICEDEATH
-  AttackSound "skull/melee"
-  PainSound "skull/pain"
-  DeathSound "skull/death"
-  ActiveSound "skull/active"
-  RenderStyle SoulTrans
-  Obituary "$OB_SKULL" // "%o was spooked by a lost soul."
-  States
-  {
-  Spawn:
-    SKUL AB 10 BRIGHT A_Look
-    Loop
-  See:
-    SKUL AB 6 BRIGHT A_Chase
-    Loop
-  Missile:
-    SKUL C 10 BRIGHT A_FaceTarget
-    SKUL D 4 BRIGHT A_SkullAttack
-    SKUL CD 4 BRIGHT
-    Goto Missile+2
-  Pain:
-    SKUL E 3 BRIGHT
-    SKUL E 3 BRIGHT A_Pain
-    Goto See
-  Death:
-    SKUL F 6 BRIGHT
-    SKUL G 6 BRIGHT A_Scream
-    SKUL H 6 BRIGHT
-    SKUL I 6 BRIGHT A_NoBlocking
-    SKUL J 6
-    SKUL K 6
-    Stop
-  }
- }
+	//$Title LostSoul
+	Health 100
+	Radius 16
+	Mass 50
+	Damage 3
+	PainChance 256
+	+DONTFALL
+	+FLOAT
+	+MISSILEMORE
+	+NOGRAVITY
+	+NOICEDEATH
+	AttackSound "skull/melee"
+	PainSound "skull/pain"
+	DeathSound "skull/death"
+	ActiveSound "skull/active"
+	RenderStyle SoulTrans
+	Obituary "$OB_SKULL" // "%o was spooked by a lost soul."
+	States
+	{
+	Spawn:
+		SKUL AB 10 BRIGHT A_Look
+		Loop
+	See:
+		SKUL AB 6 BRIGHT A_Chase
+		Loop
+	Missile:
+		SKUL C 10 BRIGHT A_FaceTarget
+		SKUL D 4 BRIGHT A_SkullAttack
+		SKUL CD 4 BRIGHT
+		Goto Missile+2
+	Pain:
+		SKUL E 3 BRIGHT
+		SKUL E 3 BRIGHT A_Pain
+		Goto See
+	Death:
+		SKUL F 6 BRIGHT
+		SKUL G 6 BRIGHT A_Scream
+		SKUL H 6 BRIGHT
+		SKUL I 6 BRIGHT A_NoBlocking
+		SKUL J 6
+		SKUL K 6
+		Stop
+	}
+}
 
-ACTOR 89----------------- {} 
-ACTOR Fatso_ 19006
+ACTOR 89----------------- {}
+ACTOR Fatso_ : DoomEnemy_Base 19006
 {
-  //$Category "Doom Monsters"
-  //$Title Fatso
-  //$Color 3  	
-  Health 600
-  Radius 48
-  Height 64
-  Mass 1000
-  Speed 8
-  PainChance 80
-  Monster
-  +FLOORCLIP
-  +BOSSDEATH
-  SeeSound "fatso/sight"
-  PainSound "fatso/pain"
-  DeathSound "fatso/death"
-  ActiveSound "fatso/active"
-  Obituary "$OB_FATSO"
-  States
-  {
-  Spawn:
-    FATT AB 15 A_Look
-    Loop
-  See:
-    FATT AABBCCDDEEFF 4 A_Chase
-    Loop
-  Missile:
-    FATT G 20 A_FatRaise
-    FATT H 10 BRIGHT A_FatAttack1
-    FATT IG 5 A_FaceTarget
-    FATT H 10 BRIGHT A_FatAttack2
-    FATT IG 5 A_FaceTarget
-    FATT H 10 BRIGHT A_FatAttack3
-    FATT IG 5 A_FaceTarget
-    Goto See
-  Pain:
-    FATT J 3
-    FATT J 3 A_Pain
-    Goto See
-  Death:
-    FATT K 6
-    FATT L 6 A_Scream
-    FATT M 6 A_NoBlocking
-    FATT NOPQRS 6
-    FATT T -1 A_BossDeath
-    Stop
-  Raise:
-    FATT R 5
-    FATT QPONMLK 5
-    Goto See
-  }
-} 
+	//$Title Mancubus
+	Health 600
+	Radius 48
+	Height 64
+	Mass 1000
+	PainChance 80
+	+BOSSDEATH
+	+FLOORCLIP
+	SeeSound "fatso/sight"
+	PainSound "fatso/pain"
+	DeathSound "fatso/death"
+	ActiveSound "fatso/active"
+	Obituary "$OB_FATSO"
+	States
+	{
+	Spawn:
+		FATT AB 15 A_Look
+		Loop
+	See:
+		FATT AABBCCDDEEFF 4 A_Chase
+		Loop
+	Missile:
+		FATT G 20 A_FatRaise
+		FATT H 10 BRIGHT A_FatAttack1
+		FATT IG 5 A_FaceTarget
+		FATT H 10 BRIGHT A_FatAttack2
+		FATT IG 5 A_FaceTarget
+		FATT H 10 BRIGHT A_FatAttack3
+		FATT IG 5 A_FaceTarget
+		Goto See
+	Pain:
+		FATT J 3
+		FATT J 3 A_Pain
+		Goto See
+	Death:
+		FATT K 6
+		FATT L 6 A_Scream
+		FATT M 6 A_NoBlocking
+		FATT NOPQRS 6
+		FATT T -1 A_BossDeath
+		Stop
+	Raise:
+		FATT R 5
+		FATT QPONMLK 5
+		Goto See
+	}
+}
 
-ACTOR 90----------------- {} 
-ACTOR PainElemental_ 19010
+ACTOR 90----------------- {}
+ACTOR PainElemental_ : DoomEnemy_Base 19010
 {
-  //$Category "Doom Monsters"
-  //$Title PainElemental
-  //$Color 3  	
-  Health 400
-  Radius 31
-  Height 56
-  Mass 400
-  Speed 8
-  PainChance 128
-  Monster
-  +FLOAT
-  +NOGRAVITY
-  SeeSound "pain/sight"
-  PainSound "pain/pain"
-  DeathSound "pain/death"
-  ActiveSound "pain/active"
-  States
-  {
-  Spawn:
-    PAIN A 10 A_Look
-    Loop
-  See:
-    PAIN AABBCC 3 A_Chase
-    Loop
-  Missile:
-    PAIN D 5 A_FaceTarget
-    PAIN E 5 A_FaceTarget
-    PAIN F 5 BRIGHT A_FaceTarget
-    PAIN F 0 BRIGHT A_PainAttack
-    Goto See
-  Pain:
-    PAIN G 6
-    PAIN G 6 A_Pain
-    Goto See
-  Death:
-    PAIN H 8 BRIGHT
-    PAIN I 8 BRIGHT A_Scream
-    PAIN JK 8 BRIGHT
-    PAIN L 8 BRIGHT A_PainDie
-    PAIN M 8 BRIGHT
-    Stop
-  Raise:
-    PAIN MLKJIH 8
-    Goto See
-  }
+	//$Title Pain Elemental
+	Health 400
+	Radius 31
+	Mass 400
+	PainChance 128
+	+FLOAT
+	+NOGRAVITY
+	SeeSound "pain/sight"
+	PainSound "pain/pain"
+	DeathSound "pain/death"
+	ActiveSound "pain/active"
+	States
+	{
+	Spawn:
+		PAIN A 10 A_Look
+		Loop
+	See:
+		PAIN AABBCC 3 A_Chase
+		Loop
+	Missile:
+		PAIN D 5 A_FaceTarget
+		PAIN E 5 A_FaceTarget
+		PAIN F 5 BRIGHT A_FaceTarget
+		PAIN F 0 BRIGHT A_PainAttack
+		Goto See
+	Pain:
+		PAIN G 6
+		PAIN G 6 A_Pain
+		Goto See
+	Death:
+		PAIN H 8 BRIGHT
+		PAIN I 8 BRIGHT A_Scream
+		PAIN JK 8 BRIGHT
+		PAIN L 8 BRIGHT A_PainDie
+		PAIN M 8 BRIGHT
+		Stop
+	Raise:
+		PAIN MLKJIH 8
+		Goto See
+	}
 }
 
 ACTOR 135----------------- {}
-ACTOR Cacodemon_ 19015
+ACTOR Cacodemon_ : DoomEnemy_Base 19015
 {
-  //$Category "Doom Monsters"
-  //$Title Cacodemon
-  //$Color 3  	
-  Health 400
-  Radius 31
-  Height 56
-  Mass 400
-  Speed 8
-  PainChance 128
-  Monster
-  +FLOAT
-  +NOGRAVITY
-  SeeSound "caco/sight"
-  PainSound "caco/pain"
-  DeathSound "caco/death"
-  ActiveSound "caco/active"
-  Obituary "$OB_CACO"
-  HitObituary "$OB_CACOHIT"
-  States
-  {
-  Spawn:
-    HEAD A 10 A_Look
-    Loop
-  See:
-    HEAD A 3 A_Chase
-    Loop
-  Missile:
-    HEAD BC 5 A_FaceTarget
-    HEAD D 5 BRIGHT A_HeadAttack
-    Goto See
-  Pain:
-    HEAD E 3
-    HEAD E 3 A_Pain
-    HEAD F 6
-    Goto See
-  Death:
-    HEAD G 8
-    HEAD H 8 A_Scream
-    HEAD IJ 8
-    HEAD K 8 A_NoBlocking
-    HEAD L -1 A_SetFloorClip
-    Stop
-  Raise:
-    HEAD L 8 A_UnSetFloorClip
-    HEAD KJIHG 8
-    Goto See
-  }
+	//$Title Cacodemon
+	Health 400
+	Radius 31
+	Mass 400
+	PainChance 128
+	+FLOAT
+	+NOGRAVITY
+	SeeSound "caco/sight"
+	PainSound "caco/pain"
+	DeathSound "caco/death"
+	ActiveSound "caco/active"
+	Obituary "$OB_CACO"
+	HitObituary "$OB_CACOHIT"
+	States
+	{
+	Spawn:
+		HEAD A 10 A_Look
+		Loop
+	See:
+		HEAD A 3 A_Chase
+		Loop
+	Missile:
+		HEAD BC 5 A_FaceTarget
+		HEAD D 5 BRIGHT A_HeadAttack
+		Goto See
+	Pain:
+		HEAD E 3
+		HEAD E 3 A_Pain
+		HEAD F 6
+		Goto See
+	Death:
+		HEAD G 8
+		HEAD H 8 A_Scream
+		HEAD IJ 8
+		HEAD K 8 A_NoBlocking
+		HEAD L -1 A_SetFloorClip
+		Stop
+	Raise:
+		HEAD L 8 A_UnSetFloorClip
+		HEAD KJIHG 8
+		Goto See
+	}
 }
 
 ACTOR 136----------------- {}
-ACTOR Arachnotron_ 19023
+ACTOR Arachnotron_ : DoomEnemy_Base 19023
 {
-  //$Category "Doom Monsters"
-  //$Title Arachnotron
-  //$Color 3  	
-  Health 500
-  Radius 48
-  Height 64
-  Mass 600
-  Speed 12
-  PainChance 128
-  Monster
-  +FLOORCLIP
-  +BOSSDEATH
-  SeeSound "baby/sight"
-  PainSound "baby/pain"
-  DeathSound "baby/death"
-  ActiveSound "baby/active"
-  Obituary "$OB_BABY"
-  States
-  {
-  Spawn:
-    BSPI AB 10 A_Look
-    Loop
-  See:
-    BSPI A 20
-    BSPI A 3 A_BabyMetal
-    BSPI ABBCC 3 A_Chase
-    BSPI D 3 A_BabyMetal
-    BSPI DEEFF 3 A_Chase
-    Goto See+1
-  Missile:
-    BSPI A 20 BRIGHT A_FaceTarget
-    BSPI G 4 BRIGHT A_BspiAttack
-    BSPI H 4 BRIGHT
-    BSPI H 1 BRIGHT A_SpidRefire
-    Goto Missile+1
-  Pain:
-    BSPI I 3
-    BSPI I 3 A_Pain
-    Goto See+1
-  Death:
-    BSPI J 20 A_Scream
-    BSPI K 7 A_NoBlocking
-    BSPI LMNO 7
-    BSPI P -1 A_BossDeath
-    Stop
-  Raise:
-    BSPI P 5
-    BSPI ONMLKJ 5
-    Goto See+1
-  }
+	//$Title Arachnotron
+	Health 500
+	Radius 48
+	Height 64
+	Mass 600
+	Speed 12
+	PainChance 128
+	+BOSSDEATH
+	+FLOORCLIP
+	SeeSound "baby/sight"
+	PainSound "baby/pain"
+	DeathSound "baby/death"
+	ActiveSound "baby/active"
+	Obituary "$OB_BABY"
+	States
+	{
+	Spawn:
+		BSPI AB 10 A_Look
+		Loop
+	See:
+		BSPI A 20
+		BSPI A 3 A_BabyMetal
+		BSPI ABBCC 3 A_Chase
+		BSPI D 3 A_BabyMetal
+		BSPI DEEFF 3 A_Chase
+		Goto See+1
+	Missile:
+		BSPI A 20 BRIGHT A_FaceTarget
+		BSPI G 4 BRIGHT A_BspiAttack
+		BSPI H 4 BRIGHT
+		BSPI H 1 BRIGHT A_SpidRefire
+		Goto Missile+1
+	Pain:
+		BSPI I 3
+		BSPI I 3 A_Pain
+		Goto See+1
+	Death:
+		BSPI J 20 A_Scream
+		BSPI K 7 A_NoBlocking
+		BSPI LMNO 7
+		BSPI P -1 A_BossDeath
+		Stop
+	Raise:
+		BSPI P 5
+		BSPI ONMLKJ 5
+		Goto See+1
+	}
 }
 
 ACTOR 137----------------- {}
-ACTOR Revenant_ 19019
+ACTOR Revenant_ : DoomEnemy_Base 19019
 {
-  //$Category "Doom Monsters"
-  //$Title Revenant
-  //$Color 3  	
-  Health 300
-  Radius 20
-  Height 56
-  Mass 500
-  Speed 10
-  PainChance 100
-  Monster
-  MeleeThreshold 196
-  +MISSILEMORE 
-  +FLOORCLIP
-  SeeSound "skeleton/sight"
-  PainSound "skeleton/pain"
-  DeathSound "skeleton/death"
-  ActiveSound "skeleton/active"
-  MeleeSound "skeleton/melee"
-  HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
-  Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
-  States
-  {
-  Spawn:
-    SKEL AB 10 A_Look
-    Loop
-  See:
-    SKEL AABBCCDDEEFF 2 A_Chase
-    Loop
-  Melee:
-    SKEL G 0 A_FaceTarget
-    SKEL G 6 A_SkelWhoosh
-    SKEL H 6 A_FaceTarget
-    SKEL I 6 A_SkelFist
-    Goto See
-  Missile:
-    SKEL J 0 BRIGHT A_FaceTarget
-    SKEL J 10 BRIGHT A_FaceTarget
-    SKEL K 10 A_SkelMissile
-    SKEL K 10 A_FaceTarget
-    Goto See
-  Pain:
-    SKEL L 5
-    SKEL L 5 A_Pain
-    Goto See
-  Death:
-    SKEL LM 7
-    SKEL N 7 A_Scream
-    SKEL O 7 A_NoBlocking
-    SKEL P 7
-    SKEL Q -1
-    Stop
-  Raise:
-    SKEL Q 5
-    SKEL PONML 5
-    Goto See
-  }
+	//$Title Revenant
+	Health 300
+	Radius 20
+	Mass 500
+	Speed 10
+	PainChance 100
+	MeleeThreshold 196
+	+FLOORCLIP
+	+MISSILEMORE
+	SeeSound "skeleton/sight"
+	PainSound "skeleton/pain"
+	DeathSound "skeleton/death"
+	ActiveSound "skeleton/active"
+	MeleeSound "skeleton/melee"
+	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
+	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+	States
+	{
+	Spawn:
+		SKEL AB 10 A_Look
+		Loop
+	See:
+		SKEL AABBCCDDEEFF 2 A_Chase
+		Loop
+	Melee:
+		SKEL G 0 A_FaceTarget
+		SKEL G 6 A_SkelWhoosh
+		SKEL H 6 A_FaceTarget
+		SKEL I 6 A_SkelFist
+		Goto See
+	Missile:
+		SKEL J 0 BRIGHT A_FaceTarget
+		SKEL J 10 BRIGHT A_FaceTarget
+		SKEL K 10 A_SkelMissile
+		SKEL K 10 A_FaceTarget
+		Goto See
+	Pain:
+		SKEL L 5
+		SKEL L 5 A_Pain
+		Goto See
+	Death:
+		SKEL LM 7
+		SKEL N 7 A_Scream
+		SKEL O 7 A_NoBlocking
+		SKEL P 7
+		SKEL Q -1
+		Stop
+	Raise:
+		SKEL Q 5
+		SKEL PONML 5
+		Goto See
+	}
 }
 
 ACTOR --------ARCHVILE------------ {}
-ACTOR Archvile_ 19038
+ACTOR Archvile_ : DoomEnemy_Base 19038
 {
-  //$Category "Doom Monsters"
-  //$Title Archvile
-  //$Color 3 
-  Health 700
-  Radius 20
-  Height 56
-  Mass 500
-  Speed 15
-  PainChance 10
-  Monster
-  MaxTargetRange 896
-  +QUICKTORETALIATE
-  +FLOORCLIP
-  +NOTARGET
-  SeeSound "vile/sight"
-  PainSound "vile/pain"
-  DeathSound "vile/death"
-  ActiveSound "vile/active"
-  MeleeSound "vile/Stop"
-  Obituary "$OB_VILE"
-  States
-  {
-  Spawn:
-    VILE AB 10 A_Look
-    Loop
-  See:
-    VILE AABBCCDDEEFF 2 A_VileChase
-    Loop
-  Missile:
-    VILE G 0 BRIGHT A_VileStart
-    VILE G 10 BRIGHT A_FaceTarget
-    VILE H 8 BRIGHT A_VileTarget
-    VILE IJKLMN 8 BRIGHT A_FaceTarget
-    VILE O 8 BRIGHT A_VileAttack
-    VILE P 20 BRIGHT
-    Goto See
-  Heal:
-    VILE "[\]" 10 BRIGHT
-    Goto See
-  Pain:
-    VILE Q 5   
-    VILE Q 5 A_Pain
-    Goto See
-  Death:
-    VILE Q 7
-    VILE R 7 A_Scream
-    VILE S 7 A_NoBlocking
-    VILE TUVWXY 7
-    VILE Z -1
-    Stop
-  }
+	//$Title Archvile
+	Health 700
+	Radius 20
+	Mass 500
+	Speed 15
+	PainChance 10
+	MaxTargetRange 896
+	+FLOORCLIP
+	+NOTARGET
+	+QUICKTORETALIATE
+	SeeSound "vile/sight"
+	PainSound "vile/pain"
+	DeathSound "vile/death"
+	ActiveSound "vile/active"
+	MeleeSound "vile/Stop"
+	Obituary "$OB_VILE"
+	States
+	{
+	Spawn:
+		VILE AB 10 A_Look
+		Loop
+	See:
+		VILE AABBCCDDEEFF 2 A_VileChase
+		Loop
+	Missile:
+		VILE G 0 BRIGHT A_VileStart
+		VILE G 10 BRIGHT A_FaceTarget
+		VILE H 8 BRIGHT A_VileTarget
+		VILE IJKLMN 8 BRIGHT A_FaceTarget
+		VILE O 8 BRIGHT A_VileAttack
+		VILE P 20 BRIGHT
+		Goto See
+	Heal:
+		VILE "[\]" 10 BRIGHT
+		Goto See
+	Pain:
+		VILE Q 5
+		VILE Q 5 A_Pain
+		Goto See
+	Death:
+		VILE Q 7
+		VILE R 7 A_Scream
+		VILE S 7 A_NoBlocking
+		VILE TUVWXY 7
+		VILE Z -1
+		Stop
+	}
 }

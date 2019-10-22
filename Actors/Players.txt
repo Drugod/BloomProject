@@ -170,7 +170,7 @@ ACTOR Caleb : Playerpawn
 		TNT1 G 0 A_PlaySound("Null")
 		Goto See
 	Pain.Turner:
-		CALE G 0 ACS_ExecuteAlways(611)
+		CALE G 0 ACS_NamedExecuteAlways("PoisonCheck")
 		Goto Pain
 	Pain.Stun: // Gargoyles
 		Goto Pain

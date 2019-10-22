@@ -202,7 +202,7 @@ ACTOR SuperArmorPickup : CustomInventory 3161//replaces BlueArmor 6234
 		XRM2 A -1
 		Stop
 	Pickup:
-		TNT1 A 0 A_JumpIf(1 == ACS_ExecuteWithResult(997, 0), 2) // Dont know why, but I need it to be like this for this one
+		TNT1 A 0 A_JumpIf(1 == ACS_NamedExecuteWithResult("ArmorCheck", 0), 2) // Dont know why, but I need it to be like this for this one
 		XRM2 A 1
 	Fail
 		TNT1 A 0 A_GiveInventory("BodyArmor", 200)

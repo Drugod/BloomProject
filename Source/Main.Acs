@@ -193,12 +193,12 @@ Script "GiveGrenade" (VOID) NET{
 	GiveInventory("TossGrenade", 1);
 }
 
-Script 501 (void){
+Script "GetActorX" (void){
 	Print(f:GetActorX(0));
 	SetResultValue(GetActorX(0));
 }
 
-Script 514 (int tid){
+Script "SetActivatorTarget" (int tid){
 	int k=activatorTID();
 	int subheight;
 	int grenangle;
@@ -218,22 +218,22 @@ Script 514 (int tid){
 	SetResultValue(i);
 }
 
-Script 599 (void){
+Script "VoodooCheck" (void){
 	int u = ActivatorTID();
 	SetActivatorToTarget(0);
 	Thing_ChangeTID(u, CheckInventory("Voodoo")/2+1);
 }
 
-Script 601 (int rand){
+Script "VoodooRemove" (int rand){
 	if(rand) TakeInventory("Voodoo", random(1,2));
 }
 
-Script 602 (void){
+Script "TeslaCounter" (void){
 	if(CheckInventory("TeslaCounterX") > 7){
 		TakeInventory("TeslaCounterX", 24);
 }}
 
-Script 603 (void){
+Script "LifeLeechCheck" (void){
 	int LifeLeechAmmo = CheckInventory("EssencePower");
 	if(CheckWeapon("LifeLeech")){
 		if(LifeLeechAmmo >= 1){
@@ -246,7 +246,7 @@ Script 603 (void){
 			    Thing_Damage2(0, 1, "Disintegrate");
 }}}
 
-Script 604 (int control){
+Script "LifeLeechCheck2" (int control){
 	if(control == 0){
 		int LifeLeechAmmo = CheckInventory("EssencePower");
 		if(LifeLeechAmmo <= 23){
@@ -260,7 +260,7 @@ Script 604 (int control){
 		SetActorProperty(0, APROP_Alpha, 0.9);
 }
 
-Script 609 (void){
+Script "ButtonCheck" (void){
 	int buttonPress = GetPlayerInput (-1, INPUT_BUTTONS); // Checks what keys the player is pressing
 	if (buttonPress & BT_Attack){
 		SetResultValue (1);
@@ -268,7 +268,7 @@ Script 609 (void){
 		SetResultValue (0);
 }}		
 
-Script 996 (int angle, int type){
+Script "TNTCheck" (int angle, int type){
 	int tid = ActivatorTID();
 	int num = CheckInventory("ThrowPower");
 	printbold(d:num);
@@ -284,16 +284,16 @@ Script 996 (int angle, int type){
 		Thing_ChangeTID(1500+PlayerNumber(), 0);		
 }}
 
-Script 997 (void){
+Script "ArmorCheck" (void){
 	if(CheckInventory("BodyArmor") < 200 | CheckInventory("FireArmor") < 200 | CheckInventory("SpiritArmor") < 200)	SetResultValue(1);
 	else SetResultValue(0);
 }
 
-Script 998 (int angle){
+Script "ResetAngle" (int angle){
 	SetActorAngle(0, angle);
 }
 
-Script 999 (void){
+Script "SpeedCheck" (void){
    SetActorProperty(0, APROP_Speed, 2.75);
 }
 
@@ -399,7 +399,7 @@ Script "AcsPowerupTimerDiving" (void){
 }
 
 //Code needed for spiders - ozy81
-Script 611 (void) //Annoying spiders!! ADDITIVE
+Script "PoisonCheck" (void) //Annoying spiders!! ADDITIVE
 {
 int k = CheckInventory("PoisonIntensity");
 	If(CheckInventory("PoisonIntensity")!=0)
@@ -553,13 +553,13 @@ SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
 	Delay(8);
 }
 
-Script 613 (void) //This script limits spammed spiders to 200
+Script "LimitSpiders" (void) //This script limits spammed spiders to 200
 {
 	BroodSpiders = BroodSpiders+1;
 	Terminate;
 }
 
-Script 614 (void) //This script allows mother spammers to spam some more
+Script "MoreSpiders" (void) //This script allows mother spammers to spam some more
 {
 	BroodSpiders = BroodSpiders-1;
 	If (BroodSpiders<0)
@@ -567,7 +567,7 @@ Script 614 (void) //This script allows mother spammers to spam some more
 		Terminate;
 }
 
-Script 615 (void) // Called by spider spawners, if they return 1 the spawner will summon stuff
+Script "BroodCheck" (void) // Called by spider spawners, if they return 1 the spawner will summon stuff
 {
 	SetResultValue(BroodSpiders );
 	Terminate;
@@ -666,6 +666,4 @@ Script 610 (int angle, int type){
 		ThrustThingZ(1500+PlayerNumber(), num*2.0+32, 0, 1);
 		Delay(1);
 		Thing_ChangeTID(1500+PlayerNumber(), 0);		
-}}
-
-*/
+}}*/
