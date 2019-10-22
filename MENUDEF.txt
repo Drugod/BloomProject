@@ -51,7 +51,7 @@ ListMenu "EpisodeMenu"
 	{
 		Selector "M_SKULL1", -32, -5
 		Linespacing 16
-		Font "BigFont", "Red"
+		Font "BigFont", "Black", "Red"
 	}
 	IfGame(Doom, Heretic, Hexen, Strife)
 	{
@@ -60,7 +60,25 @@ ListMenu "EpisodeMenu"
 	IfGame(Doom, Chex)
 	{
 		Position 48, 63
-	    StaticText 70, 38, "Episode"			
+	    StaticText 70, 38, "Episode", "Red"
+	}
+}
+
+ListMenu "PlayerclassMenu"
+{
+	IfGame(Doom, Heretic, Hexen, Strife)
+	{
+		NetgameMessage "$NEWGAME"
+	}
+	IfGame(Doom, Strife, Chex)
+	{
+		StaticTextCentered 160, 15, "$MNU_CHOOSECLASS"
+		Position 48, 63
+		PlayerDisplay 220, 63, "20 00 00", "80 00 40"
+		MouseWindow 0, 220
+		Selector "M_SKULL1", -32, -5
+		Linespacing 16		
+		Font "BigFont", "Black", "Red"				
 	}
 }
 
