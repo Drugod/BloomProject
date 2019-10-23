@@ -1395,7 +1395,7 @@ Model lapidadraven
 	FrameIndex UNKN A 0 0
 }
 
-//Doom_Ammo.txt replacements, coded by Ozy81 - these doesn't need INHERIT flags
+//Doom_Ammo/Weapons.txt replacements, coded by Ozy81 - these doesn't need INHERIT flags
 //Models from www.moddb.com/games/doom/addons/vanilla-doom-3d-models-for-doom-i-ii by TheMacGyverArchiver
 Model Cell_
 {
@@ -1477,8 +1477,6 @@ Model GrenadeAmmo
    FrameIndex UNKN A 0 0
 }
 
-//Doom_Weapons.txt replacements, coded by Ozy81 - these doesn't need INHERIT flags
-//Models from www.moddb.com/games/doom/addons/vanilla-doom-3d-models-for-doom-i-ii by TheMacGyverArchiver
 Model Chainsaw_
 {
    Path "Models/Doom/Chainsaw/"
@@ -1547,7 +1545,7 @@ Model Backpack_
    FrameIndex UNKN A 0 0
 }
 
-//Blood_Ammo.txt replacements, coded by Ozy81 - these doesn't need INHERIT flags
+//Blood_Ammo/Weapons.txt replacements, coded by Ozy81 - these doesn't need INHERIT flags
 //Models from ZBlood and also some from scratch
 Model BulletDrum
 {
@@ -1593,7 +1591,7 @@ Model TNTAmmoBox
 {
    Path "Models/Blood/Ammo/"
    Model 0 "a_tnt.md3"
-   Scale 2.0 2.0 2.0
+   Scale 1.3 1.3 1.5
    FrameIndex UNKN A 0 0
 }
 
@@ -1602,6 +1600,86 @@ Model TNTBundle
    Path "Models/Blood/Weapons/"
    Model 0 "w_tnt.md3"
    Scale 2.0 2.0 2.0
+   FrameIndex UNKN A 0 0
+}
+
+Model RTNTBox
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_remote.md3"
+   Scale 2.0 2.0 2.0
+   FrameIndex UNKN A 0 0
+}
+
+Model DTNTBox
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_proxy.md3"
+   Scale 2.0 2.0 2.0
+   FrameIndex UNKN A 0 0
+}
+
+Model VoodooDollPickup
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_voodoo.md3"
+   Scale 2.0 2.0 2.0
+   FrameIndex UNKN A 0 0
+}
+
+Model VoodooDoll
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_voodoo.md3"
+   Scale 2.0 2.0 2.0
+   FrameIndex UNKN A 0 0
+}
+
+Model SprayCanisterPickup
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_aerosol.md3"
+   Scale 2.0 2.0 2.0
+   FrameIndex UNKN A 0 0
+}
+
+Model SprayCan
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_aerosol.md3"
+   Scale 2.0 2.0 2.0
+   FrameIndex UNKN A 0 0
+}
+
+Model GasolineCan
+{
+   Path "Models/Blood/Ammo/"
+   Model 0 "a_gascan.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model MiniGasolineCan
+{
+   Path "Models/Blood/Ammo/"
+   Model 0 "a_gascan2.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model Flares
+{
+   Path "Models/Blood/Ammo/"
+   Model 0 "a_flares.md3"
+   Scale 1.0 1.0 1.2
+   FrameIndex UNKN A 0 0
+}
+
+Model Flare
+{
+   Path "Models/Blood/Ammo/"
+   Model 0 "a_flare.md3"
+   Scale 2.5 2.5 2.5
    FrameIndex UNKN A 0 0
 }
 
@@ -1620,3 +1698,77 @@ Model TeslaChargeBox
    Scale 1.0 1.0 1.0
    FrameIndex UNKN A 0 0
 }
+
+Model RemoteDynamite
+{
+   Path "Models/Blood/"
+   Model 0 "gr_remote.md3"
+   Scale 2.0 2.0 2.0
+   FrameIndex UNKN A 0 0
+}
+
+Model ProximityDynamite
+{
+   Path "Models/Blood/"
+   Model 0 "gr_proxy.md3"
+   Scale 2.0 2.0 2.0
+   FrameIndex UNKN A 0 0
+}
+
+Model Dynamite
+{
+   Path "Models/Blood/"
+   Model 0 "gr_tnt.md3"
+   Scale 2.0 2.0 2.0
+   FrameIndex UNKN A 0 0
+}
+
+Model SawedOff
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_shotgun.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model FlareGun
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_flare.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model LifeLeech
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_leech.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model NapalmLauncher
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_napalm.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model TommyGun
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_tommy.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model TeslaRifle
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_tesla.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+//SINGLESHOTGUN & COLT NOT INCLUDED YET

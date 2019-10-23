@@ -1,7 +1,9 @@
 For Rolls, models which needs to be added:
 - a_boxbullet.md3 needs a skin
 - a_fewbullet.md3 needs a better skin
+- colt needs 3d model
 - pistol_ needs a 3d model
+- singleshotgun needs a 3d model
 - teslacharge voxel and teslachargebox voxel + model
 
 For All:

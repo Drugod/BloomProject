@@ -17,1794 +17,12 @@ ACTOR BloomUltimateWeapons : RandomSpawner
 ACTOR BOOMBABY : Ammo
 {
 	+INVENTORY.RESTRICTABSOLUTELY
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
 	Inventory.ForbiddenTo "DoomDude"
 	VisibleToPlayerClass "Caleb"
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
 }
 
-ACTOR --------COLT------------ {}
-ACTOR Colt : CalebW 31370
-{
-	Tag "Colt"
-	Decal ZBloodBulletChip1
-	Weapon.AmmoUse 1
-	Weapon.AmmoGive 20
-	Weapon.AmmoType "TommyClip"
-	Obituary "$OB_MPPISTOL"
-	+WEAPON.WIMPY_WEAPON
-	+INVENTORY.UNDROPPABLE
-	Inventory.PickupMessage "$PICKUP_PISTOL_DROPPED"
-	States
-	{
-	Ready:
-		PKP2 A 1 A_WeaponReady
-		Loop
-	Deselect:
-		PKP2 A 1 A_Lower
-		Loop
-	Select:
-		PKP2 A 1 A_Raise
-		Loop
-	Fire:
-		PKP2 A 4
-		TNT1 A 0 A_FireBullets (5.6, 0, 1, 7, "BulletPuff")
-		TNT1 A 0 A_PlaySound("weapons/tommygun", CHAN_WEAPON)
-		TNT1 A 0 A_GunFlash
-		PKF2 BCD 2 BRIGHT
-		PKP2 D 1
-		PKP2 E 1
-		PKP2 E 1
-		PKP2 F 1
-		PKP2 F 1
-		PKP2 G 1
-		PKP2 G 1
-		PKP2 H 1
-		PKP2 H 1
-		PKP2 I 1
-		PKP2 I 1
-		PKP2 J 1
-		PKP2 J 1
-		PKP2 K 1
-		PKP2 K 1
-		PKP2 L 1
-		PKP2 L 1
-		PKP2 B 1
-		PKP2 B 1 A_ReFire
-		PKP2 A 4 A_ReFire
-		Goto Ready
-	Flash:
-		TNT1 A 0
-		TNT1 A 0 A_Quake(2,6,0,100)
-		TNT1 A 0 A_SetPitch(pitch-2.5)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		PKP2 B 2
-		PKP2 C 4
-		Goto LightDone
-	Spawn:
-		PIST A -1
-		Stop
-	}
-}
-ACTOR --------SINGLESHOTGUN------------ {}
-ACTOR SingleShotgun : CalebW 31371
-{
-	//$Category "BlooM Weapons"
-	Weapon.SelectionOrder 1300
-	Tag "Single barrel shotgun"
-	Decal ZBloodBulletChip1
-	Weapon.AmmoUse 1
-	Weapon.AmmoGive 8
-	Weapon.AmmoType "shell2"
-	Obituary "$OB_MPSHOTGUN"
-	+WEAPON.WIMPY_WEAPON
-	+INVENTORY.UNDROPPABLE
-	Inventory.PickupMessage "$PICKUP_PISTOL_DROPPED"
-	States
-	{
-	Ready:
-		SP03 A 1 A_WeaponReady
-		Loop
-	Deselect:
-		SP03 A 1 A_Lower
-		Loop
-	Select:
-		SP03 A 1 A_Raise
-		Loop
-	Fire:
-		SP03 A 4
-		TNT1 A 0 A_FireBullets (7.2, 6.4, 7, 5, "BulletPuff")
-		TNT1 A 0 A_PlaySound("DSSAWFIR", CHAN_WEAPON)
-		TNT1 A 0 A_GunFlash
-		SP0F BCD 2 BRIGHT
-		TNT1 A 0 A_FireCustomMissile("ShotgunCasing",-15+frandom(-8,8),0,1,3+frandom(-2,2),0)
-		SP03 E 1
-		SP03 E 1
-		SP03 F 1
-		SP03 F 1
-		SP03 G 1
-		SP03 G 1
-		SP03 H 1
-		SP03 H 1
-		SP03 I 1
-		SP03 I 1
-		SP03 J 1
-		SP03 J 1
-		SP03 K 1
-		SP03 K 1
-		SP03 L 1
-		SP03 L 1
-		SP03 M 1
-		SP03 M 1
-		SP03 N 1
-		SP03 N 1
-		SP03 O 1
-		SP03 O 1
-		SP03 P 1
-		SP03 P 1
-		SP03 Q 1
-		SP03 Q 1
-		SP03 A 4 A_ReFire
-		Goto Ready
-	Flash:
-		TNT1 A 0
-		TNT1 A 0 A_Quake(2,6,0,50)
-		TNT1 A 0 A_SetPitch(pitch-2.5)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		SP0F A 1
-		SP03 B 2
-		SP03 C 2
-		SP03 D 2
-		Goto LightDone
-	Spawn:
-		SBSS A -1
-		Stop
-	}
-}
-
-ACTOR --------DYNAMITES------------ {}
-ACTOR RemoteDynamite : CalebW
-{
-    //$Category "BlooM Weapons"
-	Tag "Remote Dynamite"
-	Height 16
-	Scale 0.646
-	Inventory.PickupMessage "Its time for mindgames!"
-	Inventory.PickupSound "PICKWEAP"
-	Weapon.Kickback 80
-	Weapon.AmmoGive 0
-	Weapon.AmmoType "RTNTAMMO"
-	Obituary "%o found %k's little bomb!"
-	Weapon.AmmoUse 1
-	Weapon.AmmoUse2	0
-	Weapon.AmmoType2 "RTNTAMMO"
-	+WEAPON.EXPLOSIVE
-	+NOAUTOAIM
-	+WEAPON.NOALERT
-	States
-	{
-	Ready:
-		DRNH A 0 A_TakeInventory("BOOMBABY",99)
-		DRNH A 0 A_JumpIfInventory("RTNTAMMO",1,"ReadyAmmo")
-		DRNH ABCDE 3 A_WeaponReady
-		Goto Ready+1
-	ReadyAmmo:
-		DREM ABCDE 3 A_WeaponReady
-		Loop
-	Deselect:
-			//DYND A 0 A_JumpifInventory("ThrowPowerBig",1,"DeselectDead")
-			// A_JumpIfInventory("ThrowerPowerBig",120,"Explode") //A check to ensure the boom is correct
-		TNT1 A 0 A_TakeInventory("ThrowPower",300)
-		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)//Safe measures
-		DRNH A 0 A_JumpIfInventory("RTNTAMMO",1,"DeselectAmmo")
-		DRNH A 1 A_Lower
-		Goto Deselect+3
-	DeselectAmmo:
-		DREM A 1 A_Lower
-		Loop
-	Select:
-		TNT1 A 0 A_TakeInventory("ThrowPower",300)
-		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)//Safe measures
-		TNT1 A 0 A_JumpIfInventory("RTNTAMMO",1,"SelectAmmo")
-		DRNH ABCDE 1 A_Raise
-		Goto Select+3
-	SelectAmmo:
-		DREM ABCDE 1 A_Raise
-		Loop
-	Fire:
-		DREM A 0 A_TakeInventory("BOOMBABY",99)
-			//SPLG A 2  offset(-52,-72)
-		DREM A 2 A_WeaponReady(14)
-		TNT1 A 0 A_Refire
-		DREM B 1 A_WeaponReady(14)
-		TNT1 A 0
-		Goto Throw
-	Hold:
-			//TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",90,"Boomination1")
-		TNT1 A 0 A_GiveInventory("TNTCounter", 1)
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 3, "Hold3")
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 2, "Hold2")
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 1, "Hold1")
-	Hold1:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DREM AB 2 A_WeaponReady(14)
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire
-	Hold2:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DREM CD 2 A_WeaponReady(14)
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire
-	Hold3:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DREM EE 2 A_WeaponReady(14)
-		TNT1 A 0 A_TakeInventory("TNTCounter", 3)
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_PlayWeaponSound("Spray/Can")
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire
-		//Flash:
-			//ZIPP ABCDEFGH 1
-			//ZIPP EDCBAIJ 1
-			//Stop
-	Throw:
-		TNT1 A 0 A_GunFlash
-		//TNT1 A 0 A_JumpIfInventory("ThrowPower", 30, "Throw_15")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 28, "Throw_14")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 26, "Throw_13")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 24, "Throw_12")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 22, "Throw_11")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 20, "Throw_10")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 18, "Throw_9")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 16, "Throw_8")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 14, "Throw_7")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 12, "Throw_6")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 10, "Throw_5")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 8, "Throw_4")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 6, "Throw_3")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 4, "Throw_2")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 2, "Throw_1")
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial")
-		Goto ThrowFinish
-	Throw_1:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial2")
-		Goto ThrowFinish
-	Throw_2:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial3")
-		Goto ThrowFinish
-	Throw_3:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial4")
-		Goto ThrowFinish
-	Throw_4:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial5")
-		Goto ThrowFinish
-	Throw_5:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial6")
-		Goto ThrowFinish
-	Throw_6:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial7")
-		Goto ThrowFinish
-	Throw_7:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial8")
-		Goto ThrowFinish
-	Throw_8:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial9")
-		Goto ThrowFinish
-	Throw_9:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial10")
-		Goto ThrowFinish
-	Throw_10:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial11")
-		Goto ThrowFinish
-	Throw_11:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial12")
-		Goto ThrowFinish
-	Throw_12:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial13")
-		Goto ThrowFinish
-	Throw_13:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial14")
-		Goto ThrowFinish
-	Throw_14:
-		TNT1 A 0 A_FireCustomMissile("RemoteAerial15")
-		Goto ThrowFinish
-	ThrowFinish:	//Why done without Offset? Because hand made is faster and more accurate!
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		TNT1 A 0 A_PlayWeaponSound("TNTTOSS")
-		TNT1 A 0 A_TakeInventory("ThrowPower", 300)
-		TNT1 A 0 A_TakeInventory("ThrowPowerBig", 300)
-		DRTS ABCDE 2
-			//TNT1 A 0 A_JumpIfInventory("DTNTAMMO", 1, 1)
-			//Goto TakeAway
-			//TNT1 AAA 0 A_Lower
-		Goto Ready
-	AltFire:
-		TNT1 A 0 A_JumpIfInventory("RTNTAMMO",1,"AltFireAmmo")
-		DRNH E 4
-		DRNH F 0 A_PlaySound("Proximity/Det")
-		DRNH FG 4 A_GiveInventory("BOOMBABY",1)
-		DRNH FE 4
-		TNT1 A 0 A_TakeInventory("BOOMBABY",2)
-		Goto Ready
-	AltFireAmmo:
-		DREM AA 4
-		DREM A 0 A_PlaySound("Proximity/Det")
-		DRDT BA 4 A_GiveInventory("BOOMBABY",1)
-		DREM A 4
-		TNT1 A 0 A_TakeInventory("BOOMBABY",2)
-		Goto Ready
-	Spawn:
-		REMO A -1
-		Stop
-	}
-}
-
-ACTOR ProximityDynamite : CalebW
-{
-	Tag "Proximity Dynamite"
-	Height 16
-	Scale 0.646
-	Inventory.PickupMessage "Got proximity TNT!"
-	Inventory.PickupSound "PICKWEAP"
-	Weapon.Kickback 80
-	Weapon.AmmoGive 0
-	Weapon.AmmoType "DTNTAMMO"
-	Obituary "%o fell in %k's little trap!"
-	Weapon.AmmoUse 1
-	Weapon.AmmoUse2	1
-	Weapon.AmmoType2 "DTNTAMMO"
-	+WEAPON.EXPLOSIVE
-	+NOAUTOAIM
-	+WEAPON.NOALERT
-	+INVENTORY.INVBAR
-	States
-	{
-	Ready:
-		DPRO ABCDE 3 A_WeaponReady
-		Loop
-	DeselectDead:
-		DYNT ABCDEABCDEABCDEABCDE 4 A_Lower
-		TNT1 A 0 A_TakeInventory("ThrowPower",300)
-		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)
-	TakeAway:
-		TNT1 A 0 A_GiveInventory("RemoveProximity", 1)
-		TNT1 A 1 A_SelectWeapon("Pitchfork")
-		Goto DeselectAmmoLess
-	Deselect:
-		TNT1 A 0 A_TakeInventory("ThrowPower",300)
-		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)
-		DPRO ABCDE 1 A_Lower
-		Goto Deselect+2
-	DeselectAmmoLess:
-		TNT1 D 1 A_Lower
-		Loop
-	Select:
-		TNT1 A 0 A_TakeInventory("ThrowPower",300)
-		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)
-		DPRO ABCDE 1 A_Raise
-		Goto Select+2
-	Altfire:
-		Goto Throw
-	Fire:
-		DPRO A 2 A_WeaponReady(14)
-		TNT1 A 0 A_Refire
-		DPRO B 1 A_WeaponReady(14)
-		TNT1 A 0
-		Goto Throw
-	Hold:
-		TNT1 A 0 A_GiveInventory("TNTCounter", 1)
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 3, "Hold3")
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 2, "Hold2")
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 1, "Hold1")
-	Hold1:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DPRO AB 2 A_WeaponReady(14)
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire
-	Hold2:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DPRO CD 2 A_WeaponReady(14)
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire
-	Hold3:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DPRO EE 2 A_WeaponReady(14)
-		TNT1 A 0 A_TakeInventory("TNTCounter", 3)
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_PlayWeaponSound("Spray/Can")
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire
-	Throw:
-		TNT1 A 0 A_GunFlash
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 28, "Throw_14")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 26, "Throw_13")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 24, "Throw_12")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 22, "Throw_11")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 20, "Throw_10")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 18, "Throw_9")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 16, "Throw_8")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 14, "Throw_7")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 12, "Throw_6")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 10, "Throw_5")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 8,  "Throw_4")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 6,  "Throw_3")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 4,  "Throw_2")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 2,  "Throw_1")
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial1")
-		Goto ThrowFinish
-	Throw_1:
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial2")
-		Goto ThrowFinish
-	Throw_2:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial3")
-		Goto ThrowFinish
-	Throw_3:
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial4")
-		Goto ThrowFinish
-	Throw_4:
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial5")
-		Goto ThrowFinish
-	Throw_5:
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial6")
-		Goto ThrowFinish
-	Throw_6:
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial7")
-		Goto ThrowFinish
-	Throw_7:
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial8")
-		Goto ThrowFinish
-	Throw_8:
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial9")
-		Goto ThrowFinish
-	Throw_9:
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial10")
-		Goto ThrowFinish
-	Throw_10:
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial11")
-		Goto ThrowFinish
-	Throw_11:
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial12")
-		Goto ThrowFinish
-	Throw_12:
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial13")
-		Goto ThrowFinish
-	Throw_13:
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial14")
-		Goto ThrowFinish
-	Throw_14:
-		TNT1 A 0 A_FireCustomMissile("ProximityAerial15")
-		Goto ThrowFinish
-	ThrowFinish:
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		TNT1 A 0 A_PlayWeaponSound("TNTTOSS")
-		TNT1 A 0 A_TakeInventory("ThrowPower", 300)
-		TNT1 A 0 A_TakeInventory("ThrowPowerBig", 300)
-		DPTS GHIJK 3
-		TNT1 A 0 A_JumpIfNoAmmo("TakeAway")
-		Goto TakeAway
-		Goto Ready
-	Spawn:
-		PROX A 1
-		Stop
-	Cannot:
-		TNT1 A 0 A_SelectWeapon("PitchFork")
-		Goto Deselect
-	}
-}
-
-ACTOR TNT2 : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-
-ACTOR TNTCounter : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 3
-}
-
-ACTOR TNTSoundDelay : PowerDamage
-{
-	DamageFactor "Normal", 1.0
-	Powerup.Duration -2
-}
-
-ACTOR Dynamite : CalebW
-{
-	Tag "TNT"
-	Height 16
-	Scale 0.646
-	Inventory.PickupMessage "Picked up a case of TNT!"
-	Inventory.PickupSound "PICKWEAP"
-	Weapon.Selectionorder 880
-	Weapon.Kickback 80
-	Weapon.AmmoGive 0
-	Weapon.AmmoType "TNTAmmo"
-	Obituary "%o got a faceful of %k's TNT!" //Returned the message from blood
-	Weapon.AmmoUse 1
-	Weapon.AmmoUse2	1
-	Weapon.AmmoType2 "TNTAmmo"
-	Weapon.SlotNumber 6
-	+WEAPON.EXPLOSIVE
-	+NOAUTOAIM
-	+WEAPON.NOALERT
-	States
-	{
-	Ready:
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		DYNR A 3 A_WeaponReady
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		DYNR C 3 A_WeaponReady
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		DYNR B 3 A_WeaponReady
-		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
-		Goto Ready+1
-	DeselectDead:
-		DYNT ABABCABCHDEFG 4 A_Lower
-		TNT1 A 0 A_TakeInventory("ThrowPower",300)
-		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)//Safe measures
-		Goto EXPLODE
-	Deselect:
-		DYND AB 3
-		DYND C 1 A_PlaySound("DSZIPCLS")
-		DYND A 0 A_JumpIfnoammo("DeselectAmmoLess")
-		DYND DE 1 A_Lower
-		DYND FGH 1 A_Lower
-		DYND HHHHHHH 1 A_Lower
-		Goto Deselect+10
-	DeselectBoomed:
-		BLWS A 4 A_TakeInventory("ThrowPowerBig",255)
-		TNT1 A 0 A_Explode(500, 128) //wtf is this op Damage
-		BLWS B 3 A_Lower
-		BLWS C 1 A_Lower
-		Goto DeselectBoomed+3
-	DeselectAmmoLess:
-		ZIPD ABCD 2
-		ZIPD D 1 A_Lower
-		Goto DeselectAmmoLess+4
-	Select:
-		TNT1 A 0 A_TakeInventory("ThrowPower",300)
-		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)//Safe measures
-		TNT1 AAAAAAAA 0 A_Raise
-		DYNU AAA 1 A_Raise
-		DYNU AB 1
-		DYNU C 1 A_PlayWeaponSound ("DSZIPCLS")
-		DYNU D 1 A_Raise
-		DYNN AB 1 A_Raise
-		Goto Select+16
-	Fire:
-		DYNL AB 3 A_WeaponReady(14)
-		DYNL A 0 A_PlayWeaponSound("TNTFUSE")
-		DYNL CD 3 A_WeaponReady(14)
-		DYNL EFG 3 A_WeaponReady(14)
-		TNT1 A 0 A_Refire
-		DYNL G 1 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 140, "Explode")
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		TNT1 A 0
-		Goto Throw
-	Hold:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",90,"Boomination1")
-		TNT1 A 0 A_GiveInventory("TNTCounter", 1)
-		TNT1 A 0 A_JumpIfInventory("TNTSoundDelay", 1, 3)
-		TNT1 A 0 A_GiveInventory("TNTSoundDelay", 1)
-		TNT1 A 0 A_PlayWeaponSound("TNT/FUSE")
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 140, "Explode")
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 3, "Hold3")
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 2, "Hold2")
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 1, "Hold1")
-	Hold1:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNT A 3 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	Hold2:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNT B 3 A_WeaponReady(14)
-		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	Hold3:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNT C 3 A_WeaponReady(14)
-		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_TakeInventory("TNTCounter", 3)
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	BooMination1:	//Should add 4-6 more frames near the end so its less clunky
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",93,"BooMination2")
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNO A 4 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	BooMination2:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",96,"BooMination3")
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNO B 4 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	BooMination3:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",99,"BooMination4")
-		TNT1 C 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNO C 4 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	BooMination4:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",102,"BooMination5")
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNO A 4 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	BooMination5:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",105,"BooMination6")
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNO B 4 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	BooMination6:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",108,"BooMination7")
-		TNT1 C 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNO C 4 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	BooMination7:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",108,"BooMination8")
-		TNT1 C 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNO H 4 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	BooMination8:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",111,"BooMination9")
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNO D 3 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	BooMination9:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",114,"BooMination10")
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNO E 4 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	BooMination10:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",117,"BooMination11")
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNO F 4 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	BooMination11:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",120,"BooMination12")
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNO F 4 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	BooMination12:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",123,"BooMination13")
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNO G 3 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Fire+8
-	BooMination13:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 126, "Explode")
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		DYNO G 2 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire //YOUR LAST CHANCE IS OVER MAN
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto Explode
-	AltFire:
-			//TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",90,"Boomination1")
-		TNT1 A 0 A_GiveInventory("TNT2", 1)
-		DYNL AB 3 A_WeaponReady(14)
-		TNT1 A 0 A_PlayWeaponSound("TNTFUSE")
-		DYNL CD 3 A_WeaponReady(14)
-		DYNL EFF 2 A_WeaponReady(14)
-		TNT1 A 0 A_Refire
-		DYNL G 1 A_WeaponReady(14)
-		TNT1 A 0 A_GiveInventory("TNT2", 1)
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 140, "Explode")
-		DYNL A 0 A_StopSound(Chan_Weapon)
-		Goto Throw
-	AltHold:
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",90,"Boomination1")
-		TNT1 A 0 A_GiveInventory("TNTCounter", 1)
-		TNT1 A 0 A_JumpIfInventory("TNTSoundDelay", 1, 3)
-		TNT1 A 0 A_GiveInventory("TNTSoundDelay", 1)
-		TNT1 A 0 A_PlayWeaponSound("TNTFUSE")
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 140, "Explode") //Fixed altfire never causing boom
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 3, "AltHold3")
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 2, "AltHold2")
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 1, "AltHold1")
-	AltHold1:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 2)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 2)
-		DYNT A 3 A_WeaponReady(14)
-		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto AltFire+8
-	AltHold2:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 2)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 2)
-		DYNT B 3 A_WeaponReady(14)
-		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto AltFire+8
-	AltHold3:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 2)//Fixed a very slow boom delay
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 2)
-		DYNT C 3 A_WeaponReady(14)
-		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_TakeInventory("TNTCounter", 3)
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto AltFire+8
-	Flash:
-		ZIPP ABCDEFGH 1
-		ZIPP EDCBAIJ 1
-		Stop
-	Spawn:
-		TNTF A 1
-		Stop
-	Cannot:
-		TNT1 A 0 A_TakeInventory("ThrowPower",255)
-		TNT1 A 1 A_SelectWeapon("Pitchfork")
-		Goto Deselect
-	Cannot2:
-		TNT1 A 0 A_GiveInventory("RemoveTNT", 1)
-		TNT1 A 1 A_SelectWeapon("Pitchfork")
-		Goto Ready
-	Explode:
-		TNT1 A 0  A_TakeInventory("ThrowPower",255)//Moved.. now you explode then die Also no reSpawn boom
-		TNT1 A 0 A_SpawnItem("FloorKaboom")
-		TNT1 A 0 A_PlaySound("Weapons/rocklx")
-		TNT1 AAAAAA 0 A_SpawnItemex("Blower",-16)
-		BLWS A 4 A_TakeInventory("ThrowPowerBig",255)
-			//TNT1 A 0 A_Explode(500, 128) //wtf is this op Damage
-		BLWS B 8
-		BLWS C 5
-		Goto Ready
-	Throw:
-		TNT1 A 0 A_GunFlash
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 122, "Throw_37")
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 90, "Throw_36")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 70, "Throw_35")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 68, "Throw_34")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 66, "Throw_33")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 64, "Throw_32")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 62, "Throw_31")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 60, "Throw_30")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 58, "Throw_29")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 56, "Throw_28")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 54, "Throw_27")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 52, "Throw_26")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 50, "Throw_25")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 48, "Throw_24")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 46, "Throw_23")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 44, "Throw_22")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 42, "Throw_21")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 40, "Throw_20")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 38, "Throw_19")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 36, "Throw_18")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 34, "Throw_17")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 32, "Throw_16")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 30, "Throw_15")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 28, "Throw_14")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 26, "Throw_13")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 24, "Throw_12")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 22, "Throw_11")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 20, "Throw_10")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 18, "Throw_9")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 16, "Throw_8")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 14, "Throw_7")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 12, "Throw_6")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 10, "Throw_5")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 8, "Throw_4")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 6, "Throw_3")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 4, "Throw_2")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 2, "Throw_1")
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT1")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_1:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_1")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_1X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_2:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_2")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_2X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_3:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_3")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_3X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_4:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_4")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_4X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_5:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_5")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_5X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_6:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_6")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_6X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_7:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_7")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_7X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_8:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_8")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_8X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_9:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_9")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_9X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_10:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_10")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_10X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_11:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_11")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_11X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_12:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_12")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_12X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_13:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_13")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_13X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_14:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_14")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_14X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_15:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_15")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_15X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_16:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_16")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_16X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_17:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_17")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_17X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_18:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_18")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_18X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_19:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_19")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_19X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_20:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_20")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_20X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_21:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_21")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_21X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_22:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_22")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_22X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_23:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_23")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_23X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_24:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_24")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_24X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_25:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_25")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_25X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_26:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_26")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_26X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_27:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_27")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_27X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_28:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_28")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_28X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_29:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_29")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_29X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_30:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_30")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_30X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_31:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_31")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_31X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_32:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_32")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_32X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_33:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_33")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_33X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_34:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_34")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_34X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_35:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_35")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("PlayerTNT_35X")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_36:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_35")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("MidAirTNT")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	Throw_37:
-		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_35")
-		Goto ThrowFinish
-		TNT1 A 0 A_FireCustomMissile("DeathWishKiss")
-		TNT1 A 0 A_TakeInventory("TNT2", 1)
-		Goto ThrowFinish
-	ThrowFinish:	//Why done without Offset? Because hand made is faster and more accurate!
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		TNT1 A 0 A_PlayWeaponSound("TNTTOSS")
-		TNT1 A 0 A_TakeInventory("ThrowPower", 150)
-		TNT1 A 0 A_TakeInventory("ThrowPowerBig", 200)
-		TNT1 A 0 A_TakeInventory("TNT2", 100)
-		DYHN AB 2
-		DYHN CDEFG 1
-		DYHN HI 2
-		DYHN J 1 //15 Tics just like flash
-		TNT1 A 0 A_JumpIfInventory("TNTAmmo", 1, 1)
-		Goto Cannot2
-		TNTF PQMNO 3 A_WeaponReady(14)
-		Goto Ready
-	}
-}
-
-ACTOR TNTSmoke : BulletPuff
-{
-	Renderstyle "Translucent"
-	Alpha 0.5
-	PROJECTILE
-	+ALLOWPARTICLES
-	+DONTSPLASH
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+WINDTHRUST
-	States
-	{
-	Spawn:
-		PUFF A 0 A_Jump(128,32)
-		PUFF AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHH 1 A_FadeOut(0.01)
-		Stop
-		PUFF IIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPP 1 A_FadeOut(0.01)
-		Stop
-	}
-}
-
-ACTOR ThrowPower : Ammo //The status bar
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 70
-	Ammo.BackpackAmount 0
-	Ammo.BackpackMaxAmount 70
-	+IGNORESKILL
-}
-
-ACTOR ThrowPowerBig : Ammo //Helps in knowing some stuff like when fuse is eaten
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 150
-	Ammo.BackpackAmount 0
-	Ammo.BackpackMaxAmount 150
-	+IGNORESKILL
-}
-
-ACTOR RemBombAmmo : Ammo
-{
-	Inventory.ForbiddenTo "DoomDude"
-	VisibleToPlayerClass "Caleb"
-	Inventory.MaxAmount 50
-	Ammo.BackpackAmount 10
-	Ammo.BackpackMaxAmount 50
-	Inventory.Icon REPKA0
-	+INVENTORY.RESTRICTABSOLUTELY
-	+IGNORESKILL
-}
-
-ACTOR ProxScan : Ammo
-{
-	Inventory.ForbiddenTo "DoomDude"
-	VisibleToPlayerClass "Caleb"
-	Inventory.MaxAmount 5
-	Ammo.BackpackAmount 0
-	Ammo.BackpackMaxAmount 0
-	Inventory.Icon PROXA0
-	+INVENTORY.RESTRICTABSOLUTELY
-	+IGNORESKILL
-}
-
-ACTOR ProxTNT : Ammo
-{
-   Inventory.ForbiddenTo "DoomDude"
-   VisibleToPlayerClass "Caleb"
-   Inventory.MaxAmount 50
-   Ammo.BackpackAmount 10
-   Ammo.BackpackMaxAmount 50
-   Inventory.Icon PROXA0
-   +INVENTORY.RESTRICTABSOLUTELY
-   +IGNORESKILL
-}
-
-//========== SPRAY CAN ==========//
-// Pegg : Fixed the sound problem in a hacky way.. A_JumpIfInventory shouldn't punish worse net
-ACTOR BurnCheck : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 100
-}
-
-ACTOR HoldingSpray : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-
-ACTOR Spraycan : CalebW //replaces PlasmaRifle 2004
-{
-	//Spawnid 30
-	Tag "Spray can"
-	Scale 0.5
-	Obituary "%o was toasted by %k's Aerosol Can!"
-	Height 16
-	Inventory.PickupMessage "You got the Spraycan!"
-	Inventory.PickupSound "PICKWEAP"
-	Weapon.SelectionOrder 2500
-	Weapon.Kickback 0
-	Weapon.AmmoType "SprayCanister"
-	Weapon.AmmoUse 1
-	Weapon.AmmoGive 0
-	Weapon.AmmoType2 "SprayCanister"
-	Weapon.AmmoUse2 48
-	+WEAPON.NOALERT
-	+NOAUTOAIM
-	States
-	{
-	Ready:
-		TNT1 A 0 A_StopSound
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		SPRR A 3 A_WeaponReady
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		SPRR C 3 A_WeaponReady
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		SPRR B 3 A_WeaponReady
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		SPRR C 3 A_WeaponReady
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		Loop
-	Deselect:
-			//SPRC A 0 A_Lower
-			//TNT1 A 0 A_JumpIfNoAmmo("DeselectNoAmmo")
-			//SPRC DD 1 A_Lower
-			//TNT1 A 0 A_TakeInventory("HoldingSpray",40)
-			//SPRC DDBBCC 1 A_Lower
-			//SPRC A 0 A_PlayWeaponSound ("DSZIPCLS")
-		SPRC AAAAAAAA 1 A_Lower
-			//Goto Deselect+17
-		Loop
-	DeselectNoAmmo:
-		ZIPD AB 2
-		ZIPD C 2 A_PlaySound("Lighter/Close")
-		ZIPD A 0 A_TakeInventory("Spraycan")
-		ZIPD DDDDDDDDD 1 A_Lower
-		Goto DeselectNoAmmo+5
-	Select:
-		TNT1 A 0 A_TakeInventory("ThrowPower",300)
-		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)//Safe measures
-		TNT1 AA 0 A_Raise
-		TNT1 A 0 A_GiveInventory("HoldingSpray",1)
-		SPRC AAAAAAAA 1 A_Raise
-		MISF A 0 A_PlayWeaponSound ("DSZIPCLS")
-		SPRC BBCCDD 1 A_Raise
-		SPRR AA 1 A_Raise
-		Goto Select+18
-	Cannot:
-		TNT1 A 0 A_TakeInventory("HoldingSpray",40)
-		TNT1 A 0 A_TakeInventory("ThrowPower",255)
-		TNT1 A 1 A_SelectWeapon("Pitchfork")
-		Goto Deselect
-	Cannot2:
-		TNT1 A 0 A_GiveInventory("RemoveSpray", 1)
-		TNT1 A 0 A_TakeInventory("HoldingSpray",40)
-		TNT1 A 1 A_SelectWeapon("Pitchfork")
-		Goto Ready
-	Fire:
-		TNT1 A 0 A_JumpIfNoAmmo("TakeAway")
-		TNT1 A 0 A_GiveInventory("BurnCheck",1)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_JumpIfInventory("SpraySound",1,"FireNoSoundThisTime")
-		TNT1 A 0 A_PlayWeaponsound("Spray/Alt")
-		PLSG B 0 A_JumpIfCloser(250,"BurnTarget")
-		PLSG B 0 A_FireCustomMissile("SprayCanFire",0+frandom(-1,1),1,0+frandom(-1,1),4+frandom(-1,1))
-		TNT1 A 0 A_GunFlash
-		SPRF A 3 BRIGHT A_WeaponReady(14)
-		PLSG B 0 A_GiveInventory("SpraySound",1)
-		PLSG B 0 A_ReFire//("FireNoSoundThisTime") DAMMIT ZAN
-		TNT1 A 0 A_JumpIfNoAmmo("TakeAway")
-		TNT1 A 0 A_StopSound(CHAN_WEAPON)
-		TNT1 A 0 A_TakeInventory("SpraySound",60)
-		Goto Ready
-	BurnTarget:
-		TNT1 A 0 A_JumpIfTargetINLOS(1)
-		Goto Fire+6
-		TNT1 A 0 A_JumpIfInventory("BurnCheck",17,1)
-		Goto Fire+6
-		TNT1 A 0 A_TakeInventory("BurnCheck",100)
-		PLSG B 0 A_FireCustomMissile("SprayCanFire",0+frandom(-1,1),1,0+frandom(-1,1),4+frandom(-1,1))
-		TNT1 A 0 A_GunFlash
-		SPRF A 3 BRIGHT A_WeaponReady(14)
-		PLSG B 0 A_GiveInventory("SpraySound",1)
-		PLSG B 0 A_ReFire//("FireNoSoundThisTime") DAMMIT ZAN
-		TNT1 A 0 A_JumpIfNoAmmo("TakeAway")
-		TNT1 A 0 A_StopSound
-		TNT1 A 0 A_TakeInventory("SpraySound",60)
-		Goto Ready
-	FireNoSoundThisTime:
-		TNT1 A 0 A_JumpIfNoAmmo("TakeAway")
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_JumpIfInventory("SpraySound",20,"SoundCheckPoint")
-		TNT1 A 0 A_GiveInventory("BurnCheck",1)
-		SPRF B 0 BRIGHT A_FireCustomMissile ("SprayCanFire",0+frandom(-1,1),1,0+frandom(-1,1),4+frandom(-1,1))
-		SPRF A 1 A_GunFlash
-		PLSG B 0 A_GiveInventory("SpraySound",1)
-		SPRF A 2 A_WeaponReady(14)
-		PLSG B 0 A_ReFire//("Fire")
-		TNT1 A 0 A_JumpIfNoAmmo("TakeAway")
-		TNT1 A 0 A_StopSound
-		TNT1 A 0 A_TakeInventory("SpraySound",60)
-		Goto Fire
-	SoundCheckPoint:
-		TNT1 A 0 A_TakeInventory("SpraySound",60)
-		Goto Ready
-		Goto Fire
-	BurnTarget2:
-		TNT1 A 0 A_JumpIfTargetINLOS(1)
-		Goto SoundCheckPoint+1
-		Goto SoundCheckPoint+1
-	TakeAway:
-		TNT1 A 0 A_TakeInventory("HoldingSpray",40)
-		TNT1 A 0 A_GiveInventory("RemoveSpray", 1)
-		TNT1 A 1 A_SelectWeapon("Pitchfork")
-		Goto Deselect
-	AltFire:
-		SPLG A 0 A_Jumpif(waterlevel>1,"Cannot")
-		SPLG JAB 2 A_WeaponReady(14)
-		DYNL A 0 A_PlayWeaponSound("Spray/Can")
-		SPLG CD 2 A_WeaponReady(14)
-		SPLG EFGHI 2 A_WeaponReady(14)
-		TNT1 A 0 A_Refire
-		SPLG I 1 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 140, "Explode")
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		TNT1 A 0
-		Goto Throw
-	AltHold:
-		TNT1 A 0 A_GiveInventory("TNTCounter", 1)
-		TNT1 A 0 A_JumpIfInventory("TNTSoundDelay", 1, 3)
-		TNT1 A 0 A_GiveInventory("TNTSoundDelay", 1)
-		TNT1 A 0 A_PlayWeaponSound("TNT/FUSE")
-		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 140, "Explode")
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 3, "Hold3")
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 2, "Hold2")
-		TNT1 A 0 A_JumpIfInventory("TNTCounter", 1, "Hold1")
-	Hold1:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		SPAF GAB 2 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto AltFire+8
-	Hold2:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		SPAF CD 2 A_WeaponReady(14)
-		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto AltFire+8
-	Hold3:
-		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
-		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
-		SPAF EF 2 A_WeaponReady(14)
-		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
-		TNT1 A 0 A_TakeInventory("TNTCounter", 3)
-		TNT1 A 0 A_Refire
-		TNT1 A 0 A_PlayWeaponSound("Spray/Can")
-		TNT1 A 0 A_StopSound(CHAN_Weapon)
-		Goto AltFire+8
-	Explode:
-		TNT1 A 0 A_TakeInventory("ThrowPower",255)//Moved.. now you explode then die Also no reSpawn boom
-		TNT1 A 0 A_SpawnItem("FloorKaboom",0)
-		BLWS A 4 A_TakeInventory("ThrowPowerBig",255)
-		TNT1 A 0 A_Explode(500, 128) //wtf is this op Damage
-		BLWS B 8
-		BLWS C 5
-		Goto Ready
-	Throw:
-		TNT1 A 0 A_GunFlash
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 28, "Throw_14")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 26, "Throw_13")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 24, "Throw_12")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 22, "Throw_11")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 20, "Throw_10")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 18, "Throw_9")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 16, "Throw_8")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 14, "Throw_7")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 12, "Throw_6")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 10, "Throw_5")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 8, "Throw_4")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 6, "Throw_3")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 4, "Throw_2")
-		TNT1 A 0 A_JumpIfInventory("ThrowPower", 2, "Throw_1")
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt")
-		Goto ThrowFinish
-	Throw_1:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt2")
-		Goto ThrowFinish
-	Throw_2:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt3")
-		Goto ThrowFinish
-	Throw_3:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt4")
-		Goto ThrowFinish
-	Throw_4:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt5")
-		Goto ThrowFinish
-	Throw_5:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt6")
-		Goto ThrowFinish
-	Throw_6:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt7")
-		Goto ThrowFinish
-	Throw_7:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt8")
-		Goto ThrowFinish
-	Throw_8:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt9")
-		Goto ThrowFinish
-	Throw_9:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt10")
-		Goto ThrowFinish
-	Throw_10:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt11")
-		Goto ThrowFinish
-	Throw_11:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt12")
-		Goto ThrowFinish
-	Throw_12:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt13")
-		Goto ThrowFinish
-	Throw_13:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt14")
-		Goto ThrowFinish
-	Throw_14:
-		TNT1 A 0 A_FireCustomMissile("SprayCanAlt15")
-		Goto ThrowFinish
-	ThrowFinish:
-		TNT1 A 0 A_StopSound(CHAN_WEAPON)
-		TNT1 A 0 A_PlayWeaponSound("TNTTOSS")
-		TNT1 A 0 A_TakeInventory("ThrowPower", 150)
-		TNT1 A 0 A_TakeInventory("ThrowPowerBig", 200)
-		DYHN AB 2
-		DYHN CDEFG 1
-		DYHN HI 2
-		DYHN J 1
-		TNT1 A 0 A_JumpIfInventory("SprayCanister", 1, 1)
-		Goto Deselect
-		SPRC ABCD 3 A_WeaponReady(14)
-		Goto Ready
-	}
-}
-
-ACTOR SpraySound : Inventory
-{
-	Inventory.MaxAmount 70
-	Inventory.Amount 1
-}
-
-ACTOR RemoveSpray : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-ACTOR RemoveProximity : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-
-ACTOR RemoveTNT : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-
-ACTOR --------SHOTGUNS------------ {}
-ACTOR ShotgunCasing
-{
-	Height 1
-	Radius 3
-	Speed 4
-	Scale 0.2
-	Gravity 0.7
-	MaxStepHeight 0
-	BounceFactor 0.5
-	BounceCount 2
-	PROJECTILE
-	+CANNOTPUSH
-	+CLIENTSIDEONLY
-	+DOOMBOUNCE
-	+DONTSPLASH
-	+EXPLODEONWATER
-	+FLOORCLIP
-	+SOLID
-	+WINDTHRUST
-	-CANBOUNCEWATER
-	-NOGRAVITY
-	-NOLIFTDROP
-	SeeSound "Shotgun/Shells"
-	DeathSound "Shotgun/Shells"
-	States
-	{
-	Spawn:
-		CASS AA 0 A_Recoil(frandom(0,-2))
-		CASS A 0 THRUSTTHINGZ(0,frandom(3,5),0,0)
-		CASS A 0 A_Jump(192,1,2,3,4)
-		CASS BCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFA 1
-		Stop
-	Death:
-		CASS A 0 A_Jump(127,8)
-		CASS A 160 A_Fall
-		CASS AAAAAA 200 A_FadeOut(0.15)
-		Stop
-		CASS E 600 A_Fall
-		Stop
-	}
-}
-
-ACTOR Sawedoff : CalebW 3137// replaces SuperShotgun 82
-{
-	//$Category "BlooM Weapons"
-	Tag "Sawedoff"
-	Decal ZBloodBulletChip1
-	Obituary "%o chewed on %k's Sawed off."
-	Weapon.AmmoType "shell2"
-	Weapon.AmmoType2 "shell2"
-	Inventory.PickupMessage "You got the Sawed off!"
-	Inventory.PickupSound "PICKWEAP"
-	Weapon.SelectionOrder 80
-	Weapon.Kickback 24
-	Weapon.AmmoGive 4
-	Weapon.AmmoUse 1
-	Weapon.AmmoUse2 1
-	Weapon.SisterWeapon DoubleSawedoff
-	Xscale 0.8
-	YScale 0.9
-	+THRUGHOST
-	States
-	{
-	Spawn:
-		SOSP A -1
-		Loop
-	Ready:
-		WP01 A 1 A_WeaponReady
-		Loop
-	Deselect:
-		WP01 A 1 A_Lower
-		TNT1 AA 0 A_Lower
-		Loop
-	Select:
-		WP01 A 1 A_Raise
-		TNT1 AA 0 A_Raise
-		Loop
-	Fire:
-		TNT1 A 0 A_JumpIfInventory("sawedoffcheck",1,"Fire2")
-		TNT1 A 0 A_Gunflash
-		SWFL ABC 2 BRIGHT A_WeaponReady(14)
-		TNT1 A 5 A_WeaponReady(14)
-		TNT1 A 0 A_GiveInventory("sawedoffcheck",1)
-		Goto Ready
-	Fire2:
-		TNT1 A 0 A_Gunflash
-		SWFL DEF 2 BRIGHT A_WeaponReady(14)
-		TNT1 A 24 A_WeaponReady(14)
-		TNT1 A 0 A_TakeInventory("sawedoffcheck",1)
-		Goto Ready
-	AltFire:
-		TNT1 A 0 A_JumpIfInventory("sawedoffcheck",1,"Fire2")
-		SWF2 A 0 A_JumpIfInventory("shell2", 2, 1)
-		Goto Fire
-		TNT1 A 0 A_Gunflash
-		SWF2 ABC 2 BRIGHT A_WeaponReady(14)
-		TNT1 A 26 A_WeaponReady(14)
-		Goto Ready
-	Flash:
-		TNT1 A 0 A_JumpIfInventory("sawedoffcheck",1,"Flash2")
-		TNT1 A 0 A_PlayWeaponSound("DSSAWFIR")
-		TNT1 A 0 A_FireBullets(7.2, 6.4, 10, 5, "ZBBulletPuff", 1)
-		TNT1 A 0 A_Quake(2,6,0,100)
-		TNT1 A 0 A_SetPitch(pitch-2.5)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM D 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM E 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM F 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM G 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM G 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM F 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM Y 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM X 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM C 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM BAA 1 A_WeaponReady(14)
-		Stop
-	Flash2:
-		TNT1 A 0 A_PlayWeaponSound("DSSAWFIR")
-		TNT1 A 0 A_FireBullets(7.2, 6.4, 10, 5, "ZBBulletPuff", 1)
-		TNT1 A 0 A_Quake(2,6,0,100)
-		TNT1 A 0 A_SetPitch(pitch-2.5)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM D 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM E 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM F 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM G 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM G 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM F 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM X 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM C 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM B 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		ANIM A 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.25)
-		TNT1 A 0 A_JumpIfNoAmmo("NoAmmo")
-		TNT1 A 0 A_PlaySound("Weapons/sawedoffload")
-		WP01 EFG 2 A_WeaponReady(14)
-		TNT1 AA 0 A_FireCustomMissile("ShotgunCasing",-45+frandom(-8,8),0,1,7+frandom(-2,2),0)
-		WP01 HIJKLMNOPQRSTT 1 A_WeaponReady(14)
-		Stop
-	Altflash:
-		TNT1 A 0 A_JumpIfInventory("sawedoffcheck",1,"Flash2")
-		TNT1 A 0 A_JumpIfInventory("shell2", 2, 1)
-		Goto Flash
-		TNT1 A 0 A_PlayWeaponSound("SAWNALT")
-		TNT1 A 0 A_FireBullets(10.2, 7.2, 10, 5, "ZBBulletPuff", 1)
-		TNT1 A 0 A_FireBullets(7.2, 10.2, 10, 5, "ZBBulletPuff", 1)
-		TNT1 A 0 A_Quake(4,12,0,200)
-		TNT1 A 0 A_SetPitch(pitch-5.0)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		ANIM D 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		ANIM E 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		ANIM F 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		ANIM G 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		ANIM H 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		ANIM I 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		ANIM I 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		ANIM H 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		ANIM G 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		ANIM FYXC 1 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIfNoAmmo("NoAmmo")
-		TNT1 A 0 A_PlaySound("Weapons/sawedoffload")
-		WP01 EF 2 A_WeaponReady(14)
-		WP01 G 1 A_WeaponReady(14)
-		TNT1 AA 0 A_FireCustomMissile("ShotgunCasing",-45+frandom(-8,8),0,1,7+frandom(-2,2),0)
-		WP01 HIJKLMNOPQRSTT 1 A_WeaponReady(14)
-		Stop
-	NoAmmo:
-		WP01 A 19 A_WeaponReady(14)
-		Stop
-	}
-}
-
-ACTOR DoubleSawedoff : Sawedoff
-{
-	+POWERED_UP
-	+THRUGHOST
-	+Weapon.BFG
-	Weapon.AmmoUse 1
-	Weapon.AmmoUse2 1
-	Weapon.SisterWeapon Sawedoff
-	States
-	{
-	Ready:
-		XAKM A 1 A_WeaponReady
-		Loop
-	Deselect:
-		TNT1 AA 0 A_Lower
-		XAKM A 1 A_Lower
-		Loop
-	Select:
-		TNT1 AA 0 A_Raise
-		XAKM A 1 A_Raise
-		Loop
-	Fire:
-		TNT1 A 0 A_GunFlash
-		SWFL JK 2 BRIGHT A_WeaponReady(14)
-		SWFL L 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_JumpIfInventory("Shell2", 1, 1)
-		Goto Ready // Go back if no ammo, this is needed since this works with flash state.
-		SWFL GH 2 BRIGHT A_WeaponReady(14)
-		SWFL I 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 7 A_WeaponReady(14)
-		Goto Ready
-	AltFire:
-		TNT1 A 0 A_JumpIfInventory("Shell2", 4, 1)
-		Goto Fire
-		TNT1 A 0 A_GunFlash
-		SAFF ABC 2 BRIGHT A_WeaponReady(14)
-		TNT1 A 18 A_WeaponReady(14)
-		Goto Ready
-	Flash:
-		XAKF A 3 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("ShotgunCasing",-45+frandom(-8,8),0,1,7+frandom(-2,2),0)
-		TNT1 A 0 A_FireBullets (7.6, 4.1, 10, 5, "ZBBulletPuff")
-		TNT1 A 0 A_Quake(2,6,0,150)
-		TNT1 A 0 A_PlaySound ("DSSAWFIR")
-		XAKF B 3 A_WeaponReady(14)
-		TNT1 A 0 A_JumpIfInventory("Shell2", 1, 1)
-		Stop
-		XAKF C 3 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("ShotgunCasing",45+frandom(-8,8),0,-4,7+frandom(-2,2),0)
-		TNT1 A 0 A_FireBullets (7.6, 4.1, 10, 5, "ZBBulletPuff")
-		TNT1 A 0 A_PlaySound ("DSSAWFIR")
-		XAKF EFGH 2 A_WeaponReady(14)
-		Stop
-	AltFlash:
-		TNT1 A 0 A_JumpIfInventory("Shell2", 4, 1)
-		Goto Flash
-		XAKM B 3 BRIGHT A_WeaponReady(14)
-		TNT1 AA 0 A_FireCustomMissile("ShotgunCasing",-45+frandom(-8,8),0,1,7+frandom(-2,2),0)
-		TNT1 AA 0 A_FireCustomMissile("ShotgunCasing",45+frandom(-8,8),0,-4,7+frandom(-2,2),0)
-		TNT1 A 0 A_FireBullets (12.2, 8.1, 40, 5, "ZBBulletPuff")
-		TNT1 A 0 A_Quake(2,6,0,250)
-		TNT1 A 0 A_TakeInventory("Shell2", 3)
-		TNT1 A 0 A_SetPitch(pitch-5.0)
-		TNT1 AA 0 A_PlayWeaponSound ("SAWNALT")
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		XAKM C 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		XAKM C 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		XAKM C 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		XAKM C 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		XAKM D 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		XAKM D 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		XAKM D 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		XAKM D 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		XAKM E 1 A_WeaponReady(14)
-		TNT1 A 0 A_SetPitch(pitch+0.5)
-		XAKM E 3 A_WeaponReady(14)
-		XAKM CF 4 A_WeaponReady(14)
-		XAKM A 4 A_WeaponReady(14)
-		Stop
-	}
-}
-
-ACTOR SawedOffCheck : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
 
 ACTOR --------PITCHFORK------------ {}
 ACTOR UsingPitchfork : Inventory
@@ -1827,6 +45,9 @@ ACTOR Pitchfork : CalebW
 	Inventory.PickupSound ""
 	States
 	{
+	Spawn:
+		PITC E -1
+		Stop
 	Ready:
 		TOMG A 0 ACS_NamedExecuteAlways("TeslaCounter", 0)
 		TNT1 A 0 A_JumpIfInventory("RemoveProximity", 1, "TakeProximity")
@@ -1874,9 +95,6 @@ ACTOR Pitchfork : CalebW
 		TNT1 A 0 A_TakeInventory("ProximityDynamite", 1)
 		TNT1 A 0 A_TakeInventory("RemoveProximity", 1)
 		Goto Ready
-	Spawn:
-		PITC E -1
-		Stop
 	}
 }
 
@@ -1961,6 +179,7 @@ ACTOR BeastHands : Weapon
 ACTOR --------FLAREGUN------------ {}
 ACTOR Flaregun : CalebW 3136//Weapon 3136
 {
+	//$Sprite FGRNA0
 	Tag "Flaregun"
 	Scale 0.8
 	Obituary "%o was cooked by %k's Flare Gun."
@@ -1978,6 +197,14 @@ ACTOR Flaregun : CalebW 3136//Weapon 3136
 	Weapon.SisterWeapon DoubleFlaregun
 	States
 	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		FGRN A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
 	Ready:
 		FLAR A 1 A_WeaponReady
 		Loop
@@ -2067,9 +294,6 @@ ACTOR Flaregun : CalebW 3136//Weapon 3136
 		TNT1 FGH 2 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
 		FLAR H 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
 		Stop
-	Spawn:
-		FGRN A -1
-		Stop
 	}
 }
 
@@ -2100,8 +324,8 @@ ACTOR FlareAlt
 	Damage 60
 	RenderStyle "Add"
 	PROJECTILE
+	+ROCKETTRAIL
 	+STRIFEDAMAGE
-	+ROCKETTrail
 	DamageType "SpecialFire"
 	DamageType "Fire"
 	DeathSound "DSEXPLRG"
@@ -2214,14 +438,14 @@ ACTOR FlareFire
 	Speed 50
 	Scale 0.5
 	Damage 0
-	-SOLID
 	PROJECTILE
 	+DONTSPLASH
 	+FOILINVUL
 	+NODAMAGETHRUST
-	+ROCKETTrail
+	+ROCKETTRAIL
 	+SEEKERMISSILE
 	+THRUGHOST
+	-SOLID
 	DamageType "Flare"
 	DamageType "Fire"
 	DeathSound "DSRXPLOD"
@@ -2626,6 +850,1834 @@ ACTOR DoubleFlaregun : Flaregun
 	}
 }
 
+ACTOR --------COLT------------ {}
+ACTOR Colt : CalebW 31370
+{
+	//$Sprite COLTA0
+	Tag "Colt"
+	Scale 0.5
+	Decal ZBloodBulletChip1
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 20
+	Weapon.AmmoType "TommyClip"
+	Obituary "$OB_MPPISTOL"
+	+INVENTORY.UNDROPPABLE
+	+WEAPON.WIMPY_WEAPON
+	Inventory.PickupMessage "$PICKUP_PISTOL_DROPPED"
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		COLT A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	Ready:
+		PKP2 A 1 A_WeaponReady
+		Loop
+	Deselect:
+		PKP2 A 1 A_Lower
+		Loop
+	Select:
+		PKP2 A 1 A_Raise
+		Loop
+	Fire:
+		PKP2 A 4
+		TNT1 A 0 A_FireBullets (5.6, 0, 1, 7, "BulletPuff")
+		TNT1 A 0 A_PlaySound("weapons/tommygun", CHAN_WEAPON)
+		TNT1 A 0 A_GunFlash
+		PKF2 BCD 2 BRIGHT
+		PKP2 D 1
+		PKP2 E 1
+		PKP2 E 1
+		PKP2 F 1
+		PKP2 F 1
+		PKP2 G 1
+		PKP2 G 1
+		PKP2 H 1
+		PKP2 H 1
+		PKP2 I 1
+		PKP2 I 1
+		PKP2 J 1
+		PKP2 J 1
+		PKP2 K 1
+		PKP2 K 1
+		PKP2 L 1
+		PKP2 L 1
+		PKP2 B 1
+		PKP2 B 1 A_ReFire
+		PKP2 A 4 A_ReFire
+		Goto Ready
+	Flash:
+		TNT1 A 0
+		TNT1 A 0 A_Quake(2,6,0,100)
+		TNT1 A 0 A_SetPitch(pitch-2.5)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		PKP2 B 2
+		PKP2 C 4
+		Goto LightDone
+	}
+}
+ACTOR --------SINGLESHOTGUN------------ {}
+ACTOR SingleShotgun : CalebW 31371
+{
+	//$Category "BlooM Weapons"
+	//$Sprite SBSSA0
+	Weapon.SelectionOrder 1300
+	Tag "Single barrel shotgun"
+	Decal ZBloodBulletChip1
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 8
+	Weapon.AmmoType "shell2"
+	Obituary "$OB_MPSHOTGUN"
+	+INVENTORY.UNDROPPABLE
+	+WEAPON.WIMPY_WEAPON
+	Inventory.PickupMessage "$PICKUP_PISTOL_DROPPED"
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		SBSS A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	Ready:
+		SP03 A 1 A_WeaponReady
+		Loop
+	Deselect:
+		SP03 A 1 A_Lower
+		Loop
+	Select:
+		SP03 A 1 A_Raise
+		Loop
+	Fire:
+		SP03 A 4
+		TNT1 A 0 A_FireBullets (7.2, 6.4, 7, 5, "BulletPuff")
+		TNT1 A 0 A_PlaySound("DSSAWFIR", CHAN_WEAPON)
+		TNT1 A 0 A_GunFlash
+		SP0F BCD 2 BRIGHT
+		TNT1 A 0 A_FireCustomMissile("ShotgunCasing",-15+frandom(-8,8),0,1,3+frandom(-2,2),0)
+		SP03 E 1
+		SP03 E 1
+		SP03 F 1
+		SP03 F 1
+		SP03 G 1
+		SP03 G 1
+		SP03 H 1
+		SP03 H 1
+		SP03 I 1
+		SP03 I 1
+		SP03 J 1
+		SP03 J 1
+		SP03 K 1
+		SP03 K 1
+		SP03 L 1
+		SP03 L 1
+		SP03 M 1
+		SP03 M 1
+		SP03 N 1
+		SP03 N 1
+		SP03 O 1
+		SP03 O 1
+		SP03 P 1
+		SP03 P 1
+		SP03 Q 1
+		SP03 Q 1
+		SP03 A 4 A_ReFire
+		Goto Ready
+	Flash:
+		TNT1 A 0
+		TNT1 A 0 A_Quake(2,6,0,50)
+		TNT1 A 0 A_SetPitch(pitch-2.5)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		SP0F A 1
+		SP03 B 2
+		SP03 C 2
+		SP03 D 2
+		Goto LightDone
+	}
+}
+
+ACTOR --------DYNAMITES------------ {}
+ACTOR RemoteDynamite : CalebW
+{
+    //$Category "BlooM Weapons"
+	//$Sprite REMOA0
+	Tag "Remote Dynamite"
+	Height 16
+	Scale 0.646
+	Inventory.PickupMessage "Its time for mindgames!"
+	Inventory.PickupSound "PICKWEAP"
+	Weapon.Kickback 80
+	Weapon.AmmoGive 0
+	Weapon.AmmoType "RTNTAMMO"
+	Obituary "%o found %k's little bomb!"
+	Weapon.AmmoUse 1
+	Weapon.AmmoUse2	0
+	Weapon.AmmoType2 "RTNTAMMO"
+	+NOAUTOAIM
+	+WEAPON.EXPLOSIVE
+	+WEAPON.NOALERT
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		REPK A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	Ready:
+		DRNH A 0 A_TakeInventory("BOOMBABY",99)
+		DRNH A 0 A_JumpIfInventory("RTNTAMMO",1,"ReadyAmmo")
+		DRNH ABCDE 3 A_WeaponReady
+		Goto Ready+1
+	ReadyAmmo:
+		DREM ABCDE 3 A_WeaponReady
+		Loop
+	Deselect:
+			//DYND A 0 A_JumpifInventory("ThrowPowerBig",1,"DeselectDead")
+			// A_JumpIfInventory("ThrowerPowerBig",120,"Explode") //A check to ensure the boom is correct
+		TNT1 A 0 A_TakeInventory("ThrowPower",300)
+		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)//Safe measures
+		DRNH A 0 A_JumpIfInventory("RTNTAMMO",1,"DeselectAmmo")
+		DRNH A 1 A_Lower
+		Goto Deselect+3
+	DeselectAmmo:
+		DREM A 1 A_Lower
+		Loop
+	Select:
+		TNT1 A 0 A_TakeInventory("ThrowPower",300)
+		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)//Safe measures
+		TNT1 A 0 A_JumpIfInventory("RTNTAMMO",1,"SelectAmmo")
+		DRNH ABCDE 1 A_Raise
+		Goto Select+3
+	SelectAmmo:
+		DREM ABCDE 1 A_Raise
+		Loop
+	Fire:
+		DREM A 0 A_TakeInventory("BOOMBABY",99)
+			//SPLG A 2  offset(-52,-72)
+		DREM A 2 A_WeaponReady(14)
+		TNT1 A 0 A_Refire
+		DREM B 1 A_WeaponReady(14)
+		TNT1 A 0
+		Goto Throw
+	Hold:
+			//TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",90,"Boomination1")
+		TNT1 A 0 A_GiveInventory("TNTCounter", 1)
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 3, "Hold3")
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 2, "Hold2")
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 1, "Hold1")
+	Hold1:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DREM AB 2 A_WeaponReady(14)
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire
+	Hold2:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DREM CD 2 A_WeaponReady(14)
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire
+	Hold3:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DREM EE 2 A_WeaponReady(14)
+		TNT1 A 0 A_TakeInventory("TNTCounter", 3)
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_PlayWeaponSound("Spray/Can")
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire
+		//Flash:
+			//ZIPP ABCDEFGH 1
+			//ZIPP EDCBAIJ 1
+			//Stop
+	Throw:
+		TNT1 A 0 A_GunFlash
+			//TNT1 A 0 A_JumpIfInventory("ThrowPower", 30, "Throw_15")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 28, "Throw_14")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 26, "Throw_13")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 24, "Throw_12")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 22, "Throw_11")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 20, "Throw_10")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 18, "Throw_9")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 16, "Throw_8")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 14, "Throw_7")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 12, "Throw_6")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 10, "Throw_5")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 8, "Throw_4")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 6, "Throw_3")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 4, "Throw_2")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 2, "Throw_1")
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial")
+		Goto ThrowFinish
+	Throw_1:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial2")
+		Goto ThrowFinish
+	Throw_2:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial3")
+		Goto ThrowFinish
+	Throw_3:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial4")
+		Goto ThrowFinish
+	Throw_4:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial5")
+		Goto ThrowFinish
+	Throw_5:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial6")
+		Goto ThrowFinish
+	Throw_6:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial7")
+		Goto ThrowFinish
+	Throw_7:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial8")
+		Goto ThrowFinish
+	Throw_8:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial9")
+		Goto ThrowFinish
+	Throw_9:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial10")
+		Goto ThrowFinish
+	Throw_10:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial11")
+		Goto ThrowFinish
+	Throw_11:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial12")
+		Goto ThrowFinish
+	Throw_12:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial13")
+		Goto ThrowFinish
+	Throw_13:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial14")
+		Goto ThrowFinish
+	Throw_14:
+		TNT1 A 0 A_FireCustomMissile("RemoteAerial15")
+		Goto ThrowFinish
+	ThrowFinish:	//Why done without Offset? Because hand made is faster and more accurate!
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		TNT1 A 0 A_PlayWeaponSound("TNTTOSS")
+		TNT1 A 0 A_TakeInventory("ThrowPower", 300)
+		TNT1 A 0 A_TakeInventory("ThrowPowerBig", 300)
+		DRTS ABCDE 2
+			//TNT1 A 0 A_JumpIfInventory("DTNTAMMO", 1, 1)
+			//Goto TakeAway
+			//TNT1 AAA 0 A_Lower
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_JumpIfInventory("RTNTAMMO",1,"AltFireAmmo")
+		DRNH E 4
+		DRNH F 0 A_PlaySound("Proximity/Det")
+		DRNH FG 4 A_GiveInventory("BOOMBABY",1)
+		DRNH FE 4
+		TNT1 A 0 A_TakeInventory("BOOMBABY",2)
+		Goto Ready
+	AltFireAmmo:
+		DREM AA 4
+		DREM A 0 A_PlaySound("Proximity/Det")
+		DRDT BA 4 A_GiveInventory("BOOMBABY",1)
+		DREM A 4
+		TNT1 A 0 A_TakeInventory("BOOMBABY",2)
+		Goto Ready
+	}
+}
+
+ACTOR ProximityDynamite : CalebW
+{
+	//$Sprite PROXA0
+	Tag "Proximity Dynamite"
+	Height 16
+	Scale 0.646
+	Inventory.PickupMessage "Got proximity TNT!"
+	Inventory.PickupSound "PICKWEAP"
+	Weapon.Kickback 80
+	Weapon.AmmoGive 0
+	Weapon.AmmoType "DTNTAMMO"
+	Obituary "%o fell in %k's little trap!"
+	Weapon.AmmoUse 1
+	Weapon.AmmoUse2	1
+	Weapon.AmmoType2 "DTNTAMMO"
+	+INVENTORY.INVBAR
+	+NOAUTOAIM
+	+WEAPON.EXPLOSIVE
+	+WEAPON.NOALERT
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		PROX A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	Ready:
+		DPRO ABCDE 3 A_WeaponReady
+		Loop
+	DeselectDead:
+		DYNT ABCDEABCDEABCDEABCDE 4 A_Lower
+		TNT1 A 0 A_TakeInventory("ThrowPower",300)
+		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)
+	TakeAway:
+		TNT1 A 0 A_GiveInventory("RemoveProximity", 1)
+		TNT1 A 1 A_SelectWeapon("Pitchfork")
+		Goto DeselectAmmoLess
+	Deselect:
+		TNT1 A 0 A_TakeInventory("ThrowPower",300)
+		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)
+		DPRO ABCDE 1 A_Lower
+		Goto Deselect+2
+	DeselectAmmoLess:
+		TNT1 D 1 A_Lower
+		Loop
+	Select:
+		TNT1 A 0 A_TakeInventory("ThrowPower",300)
+		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)
+		DPRO ABCDE 1 A_Raise
+		Goto Select+2
+	Altfire:
+		Goto Throw
+	Fire:
+		DPRO A 2 A_WeaponReady(14)
+		TNT1 A 0 A_Refire
+		DPRO B 1 A_WeaponReady(14)
+		TNT1 A 0
+		Goto Throw
+	Hold:
+		TNT1 A 0 A_GiveInventory("TNTCounter", 1)
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 3, "Hold3")
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 2, "Hold2")
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 1, "Hold1")
+	Hold1:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DPRO AB 2 A_WeaponReady(14)
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire
+	Hold2:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DPRO CD 2 A_WeaponReady(14)
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire
+	Hold3:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DPRO EE 2 A_WeaponReady(14)
+		TNT1 A 0 A_TakeInventory("TNTCounter", 3)
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_PlayWeaponSound("Spray/Can")
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire
+	Throw:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 28, "Throw_14")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 26, "Throw_13")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 24, "Throw_12")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 22, "Throw_11")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 20, "Throw_10")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 18, "Throw_9")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 16, "Throw_8")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 14, "Throw_7")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 12, "Throw_6")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 10, "Throw_5")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 8,  "Throw_4")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 6,  "Throw_3")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 4,  "Throw_2")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 2,  "Throw_1")
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial1")
+		Goto ThrowFinish
+	Throw_1:
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial2")
+		Goto ThrowFinish
+	Throw_2:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial3")
+		Goto ThrowFinish
+	Throw_3:
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial4")
+		Goto ThrowFinish
+	Throw_4:
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial5")
+		Goto ThrowFinish
+	Throw_5:
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial6")
+		Goto ThrowFinish
+	Throw_6:
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial7")
+		Goto ThrowFinish
+	Throw_7:
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial8")
+		Goto ThrowFinish
+	Throw_8:
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial9")
+		Goto ThrowFinish
+	Throw_9:
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial10")
+		Goto ThrowFinish
+	Throw_10:
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial11")
+		Goto ThrowFinish
+	Throw_11:
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial12")
+		Goto ThrowFinish
+	Throw_12:
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial13")
+		Goto ThrowFinish
+	Throw_13:
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial14")
+		Goto ThrowFinish
+	Throw_14:
+		TNT1 A 0 A_FireCustomMissile("ProximityAerial15")
+		Goto ThrowFinish
+	ThrowFinish:
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		TNT1 A 0 A_PlayWeaponSound("TNTTOSS")
+		TNT1 A 0 A_TakeInventory("ThrowPower", 300)
+		TNT1 A 0 A_TakeInventory("ThrowPowerBig", 300)
+		DPTS GHIJK 3
+		TNT1 A 0 A_JumpIfNoAmmo("TakeAway")
+		Goto TakeAway
+		Goto Ready
+	Cannot:
+		TNT1 A 0 A_SelectWeapon("PitchFork")
+		Goto Deselect
+	}
+}
+
+ACTOR TNT2 : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR TNTCounter : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 3
+}
+
+ACTOR TNTSoundDelay : PowerDamage
+{
+	DamageFactor "Normal", 1.0
+	Powerup.Duration -2
+}
+
+ACTOR Dynamite : CalebW
+{
+	//$Sprite TNTFA0
+	Tag "TNT"
+	Height 16
+	Scale 0.646
+	Inventory.PickupMessage "Picked up a case of TNT!"
+	Inventory.PickupSound "PICKWEAP"
+	Weapon.Selectionorder 880
+	Weapon.Kickback 80
+	Weapon.AmmoGive 0
+	Weapon.AmmoType "TNTAmmo"
+	Obituary "%o got a faceful of %k's TNT!" //Returned the message from blood
+	Weapon.AmmoUse 1
+	Weapon.AmmoUse2	1
+	Weapon.AmmoType2 "TNTAmmo"
+	Weapon.SlotNumber 6
+	+NOAUTOAIM
+	+WEAPON.EXPLOSIVE
+	+WEAPON.NOALERT
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		TNTF A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	Ready:
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		DYNR A 3 A_WeaponReady
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		DYNR C 3 A_WeaponReady
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		DYNR B 3 A_WeaponReady
+		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
+		Goto Ready+1
+	DeselectDead:
+		DYNT ABABCABCHDEFG 4 A_Lower
+		TNT1 A 0 A_TakeInventory("ThrowPower",300)
+		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)//Safe measures
+		Goto EXPLODE
+	Deselect:
+		DYND AB 3
+		DYND C 1 A_PlaySound("DSZIPCLS")
+		DYND A 0 A_JumpIfnoammo("DeselectAmmoLess")
+		DYND DE 1 A_Lower
+		DYND FGH 1 A_Lower
+		DYND HHHHHHH 1 A_Lower
+		Goto Deselect+10
+	DeselectBoomed:
+		BLWS A 4 A_TakeInventory("ThrowPowerBig",255)
+		TNT1 A 0 A_Explode(500, 128) //wtf is this op Damage
+		BLWS B 3 A_Lower
+		BLWS C 1 A_Lower
+		Goto DeselectBoomed+3
+	DeselectAmmoLess:
+		ZIPD ABCD 2
+		ZIPD D 1 A_Lower
+		Goto DeselectAmmoLess+4
+	Select:
+		TNT1 A 0 A_TakeInventory("ThrowPower",300)
+		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)//Safe measures
+		TNT1 AAAAAAAA 0 A_Raise
+		DYNU AAA 1 A_Raise
+		DYNU AB 1
+		DYNU C 1 A_PlayWeaponSound ("DSZIPCLS")
+		DYNU D 1 A_Raise
+		DYNN AB 1 A_Raise
+		Goto Select+16
+	Fire:
+		DYNL AB 3 A_WeaponReady(14)
+		DYNL A 0 A_PlayWeaponSound("TNTFUSE")
+		DYNL CD 3 A_WeaponReady(14)
+		DYNL EFG 3 A_WeaponReady(14)
+		TNT1 A 0 A_Refire
+		DYNL G 1 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 140, "Explode")
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		TNT1 A 0
+		Goto Throw
+	Hold:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",90,"Boomination1")
+		TNT1 A 0 A_GiveInventory("TNTCounter", 1)
+		TNT1 A 0 A_JumpIfInventory("TNTSoundDelay", 1, 3)
+		TNT1 A 0 A_GiveInventory("TNTSoundDelay", 1)
+		TNT1 A 0 A_PlayWeaponSound("TNT/FUSE")
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 140, "Explode")
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 3, "Hold3")
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 2, "Hold2")
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 1, "Hold1")
+	Hold1:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNT A 3 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	Hold2:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNT B 3 A_WeaponReady(14)
+		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	Hold3:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNT C 3 A_WeaponReady(14)
+		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_TakeInventory("TNTCounter", 3)
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	BooMination1:	//Should add 4-6 more frames near the end so its less clunky
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",93,"BooMination2")
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNO A 4 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	BooMination2:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",96,"BooMination3")
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNO B 4 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	BooMination3:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",99,"BooMination4")
+		TNT1 C 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNO C 4 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	BooMination4:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",102,"BooMination5")
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNO A 4 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	BooMination5:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",105,"BooMination6")
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNO B 4 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	BooMination6:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",108,"BooMination7")
+		TNT1 C 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNO C 4 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	BooMination7:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",108,"BooMination8")
+		TNT1 C 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNO H 4 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	BooMination8:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",111,"BooMination9")
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNO D 3 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	BooMination9:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",114,"BooMination10")
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNO E 4 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	BooMination10:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",117,"BooMination11")
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNO F 4 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	BooMination11:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",120,"BooMination12")
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNO F 4 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	BooMination12:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",123,"BooMination13")
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNO G 3 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Fire+8
+	BooMination13:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 126, "Explode")
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		DYNO G 2 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire //YOUR LAST CHANCE IS OVER MAN
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto Explode
+	AltFire:
+			//TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",90,"Boomination1")
+		TNT1 A 0 A_GiveInventory("TNT2", 1)
+		DYNL AB 3 A_WeaponReady(14)
+		TNT1 A 0 A_PlayWeaponSound("TNTFUSE")
+		DYNL CD 3 A_WeaponReady(14)
+		DYNL EFF 2 A_WeaponReady(14)
+		TNT1 A 0 A_Refire
+		DYNL G 1 A_WeaponReady(14)
+		TNT1 A 0 A_GiveInventory("TNT2", 1)
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 140, "Explode")
+		DYNL A 0 A_StopSound(Chan_Weapon)
+		Goto Throw
+	AltHold:
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig",90,"Boomination1")
+		TNT1 A 0 A_GiveInventory("TNTCounter", 1)
+		TNT1 A 0 A_JumpIfInventory("TNTSoundDelay", 1, 3)
+		TNT1 A 0 A_GiveInventory("TNTSoundDelay", 1)
+		TNT1 A 0 A_PlayWeaponSound("TNTFUSE")
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 140, "Explode") //Fixed altfire never causing boom
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 3, "AltHold3")
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 2, "AltHold2")
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 1, "AltHold1")
+	AltHold1:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 2)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 2)
+		DYNT A 3 A_WeaponReady(14)
+		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto AltFire+8
+	AltHold2:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 2)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 2)
+		DYNT B 3 A_WeaponReady(14)
+		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto AltFire+8
+	AltHold3:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 2)//Fixed a very slow boom delay
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 2)
+		DYNT C 3 A_WeaponReady(14)
+		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_TakeInventory("TNTCounter", 3)
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto AltFire+8
+	Flash:
+		ZIPP ABCDEFGH 1
+		ZIPP EDCBAIJ 1
+		Stop
+	Cannot:
+		TNT1 A 0 A_TakeInventory("ThrowPower",255)
+		TNT1 A 1 A_SelectWeapon("Pitchfork")
+		Goto Deselect
+	Cannot2:
+		TNT1 A 0 A_GiveInventory("RemoveTNT", 1)
+		TNT1 A 1 A_SelectWeapon("Pitchfork")
+		Goto Ready
+	Explode:
+		TNT1 A 0  A_TakeInventory("ThrowPower",255)//Moved.. now you explode then die Also no reSpawn boom
+		TNT1 A 0 A_SpawnItem("FloorKaboom")
+		TNT1 A 0 A_PlaySound("Weapons/rocklx")
+		TNT1 AAAAAA 0 A_SpawnItemex("Blower",-16)
+		BLWS A 4 A_TakeInventory("ThrowPowerBig",255)
+			//TNT1 A 0 A_Explode(500, 128) //wtf is this op Damage
+		BLWS B 8
+		BLWS C 5
+		Goto Ready
+	Throw:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 122, "Throw_37")
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 90, "Throw_36")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 70, "Throw_35")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 68, "Throw_34")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 66, "Throw_33")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 64, "Throw_32")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 62, "Throw_31")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 60, "Throw_30")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 58, "Throw_29")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 56, "Throw_28")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 54, "Throw_27")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 52, "Throw_26")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 50, "Throw_25")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 48, "Throw_24")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 46, "Throw_23")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 44, "Throw_22")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 42, "Throw_21")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 40, "Throw_20")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 38, "Throw_19")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 36, "Throw_18")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 34, "Throw_17")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 32, "Throw_16")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 30, "Throw_15")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 28, "Throw_14")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 26, "Throw_13")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 24, "Throw_12")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 22, "Throw_11")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 20, "Throw_10")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 18, "Throw_9")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 16, "Throw_8")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 14, "Throw_7")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 12, "Throw_6")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 10, "Throw_5")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 8, "Throw_4")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 6, "Throw_3")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 4, "Throw_2")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 2, "Throw_1")
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT1")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_1:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_1")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_1X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_2:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_2")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_2X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_3:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_3")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_3X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_4:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_4")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_4X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_5:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_5")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_5X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_6:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_6")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_6X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_7:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_7")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_7X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_8:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_8")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_8X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_9:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_9")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_9X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_10:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_10")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_10X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_11:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_11")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_11X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_12:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_12")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_12X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_13:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_13")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_13X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_14:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_14")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_14X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_15:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_15")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_15X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_16:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_16")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_16X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_17:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_17")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_17X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_18:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_18")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_18X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_19:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_19")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_19X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_20:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_20")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_20X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_21:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_21")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_21X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_22:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_22")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_22X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_23:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_23")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_23X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_24:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_24")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_24X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_25:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_25")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_25X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_26:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_26")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_26X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_27:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_27")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_27X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_28:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_28")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_28X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_29:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_29")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_29X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_30:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_30")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_30X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_31:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_31")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_31X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_32:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_32")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_32X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_33:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_33")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_33X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_34:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_34")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_34X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_35:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_35")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_35X")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_36:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_35")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("MidAirTNT")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	Throw_37:
+		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
+		TNT1 A 0 A_FireCustomMissile("PlayerTnT_35")
+		Goto ThrowFinish
+		TNT1 A 0 A_FireCustomMissile("DeathWishKiss")
+		TNT1 A 0 A_TakeInventory("TNT2", 1)
+		Goto ThrowFinish
+	ThrowFinish:	//Why done without Offset? Because hand made is faster and more accurate!
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		TNT1 A 0 A_PlayWeaponSound("TNTTOSS")
+		TNT1 A 0 A_TakeInventory("ThrowPower", 150)
+		TNT1 A 0 A_TakeInventory("ThrowPowerBig", 200)
+		TNT1 A 0 A_TakeInventory("TNT2", 100)
+		DYHN AB 2
+		DYHN CDEFG 1
+		DYHN HI 2
+		DYHN J 1 //15 Tics just like flash
+		TNT1 A 0 A_JumpIfInventory("TNTAmmo", 1, 1)
+		Goto Cannot2
+		TNTF PQMNO 3 A_WeaponReady(14)
+		Goto Ready
+	}
+}
+
+ACTOR TNTSmoke : BulletPuff
+{
+	Renderstyle "Translucent"
+	Alpha 0.5
+	PROJECTILE
+	+ALLOWPARTICLES
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+WINDTHRUST
+	States
+	{
+	Spawn:
+		PUFF A 0 A_Jump(128,32)
+		PUFF AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHH 1 A_FadeOut(0.01)
+		Stop
+		PUFF IIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPP 1 A_FadeOut(0.01)
+		Stop
+	}
+}
+
+ACTOR ThrowPower : Ammo //The status bar
+{
+	+IGNORESKILL
+	Inventory.Amount 1
+	Inventory.MaxAmount 70
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 70
+}
+
+ACTOR ThrowPowerBig : Ammo //Helps in knowing some stuff like when fuse is eaten
+{
+	+IGNORESKILL
+	Inventory.Amount 1
+	Inventory.MaxAmount 150
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 150
+}
+
+ACTOR RemBombAmmo : Ammo
+{
+	+IGNORESKILL
+	+INVENTORY.RESTRICTABSOLUTELY
+	Ammo.BackpackAmount 10
+	Ammo.BackpackMaxAmount 50
+	Inventory.Icon REPKA0
+	Inventory.MaxAmount 50
+	Inventory.ForbiddenTo "DoomDude"
+	VisibleToPlayerClass "Caleb"
+}
+
+ACTOR ProxScan : Ammo
+{
+	+IGNORESKILL
+	+INVENTORY.RESTRICTABSOLUTELY
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 0
+	Inventory.Icon PROXA0
+	Inventory.MaxAmount 5
+	Inventory.ForbiddenTo "DoomDude"
+	VisibleToPlayerClass "Caleb"
+}
+
+ACTOR ProxTNT : Ammo
+{
+   +IGNORESKILL
+   +INVENTORY.RESTRICTABSOLUTELY
+   Ammo.BackpackAmount 10
+   Ammo.BackpackMaxAmount 50
+   Inventory.Icon PROXA0
+   Inventory.MaxAmount 50
+   Inventory.ForbiddenTo "DoomDude"
+   VisibleToPlayerClass "Caleb"
+}
+
+//========== SPRAY CAN ==========//
+// Pegg : Fixed the sound problem in a hacky way.. A_JumpIfInventory shouldn't punish worse net
+ACTOR BurnCheck : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 100
+}
+
+ACTOR HoldingSpray : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR Spraycan : CalebW //replaces PlasmaRifle 2004
+{
+	//Spawnid 30
+	Tag "Spray can"
+	Scale 0.5
+	Height 16
+	+WEAPON.NOALERT
+	+NOAUTOAIM
+	Inventory.PickupMessage "You got the Spraycan!"
+	Inventory.PickupSound "PICKWEAP"
+	Weapon.SelectionOrder 2500
+	Weapon.Kickback 0
+	Weapon.AmmoType "SprayCanister"
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 0
+	Weapon.AmmoType2 "SprayCanister"
+	Weapon.AmmoUse2 48
+	Obituary "%o was toasted by %k's Aerosol Can!"
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		SPRY A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	Ready:
+		TNT1 A 0 A_StopSound
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		SPRR A 3 A_WeaponReady
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		SPRR C 3 A_WeaponReady
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		SPRR B 3 A_WeaponReady
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		SPRR C 3 A_WeaponReady
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		Loop
+	Deselect:
+			//SPRC A 0 A_Lower
+			//TNT1 A 0 A_JumpIfNoAmmo("DeselectNoAmmo")
+			//SPRC DD 1 A_Lower
+			//TNT1 A 0 A_TakeInventory("HoldingSpray",40)
+			//SPRC DDBBCC 1 A_Lower
+			//SPRC A 0 A_PlayWeaponSound ("DSZIPCLS")
+		SPRC AAAAAAAA 1 A_Lower
+			//Goto Deselect+17
+		Loop
+	DeselectNoAmmo:
+		ZIPD AB 2
+		ZIPD C 2 A_PlaySound("Lighter/Close")
+		ZIPD A 0 A_TakeInventory("Spraycan")
+		ZIPD DDDDDDDDD 1 A_Lower
+		Goto DeselectNoAmmo+5
+	Select:
+		TNT1 A 0 A_TakeInventory("ThrowPower",300)
+		TNT1 A 0 A_TakeInventory("ThrowPowerBig",300)//Safe measures
+		TNT1 AA 0 A_Raise
+		TNT1 A 0 A_GiveInventory("HoldingSpray",1)
+		SPRC AAAAAAAA 1 A_Raise
+		MISF A 0 A_PlayWeaponSound ("DSZIPCLS")
+		SPRC BBCCDD 1 A_Raise
+		SPRR AA 1 A_Raise
+		Goto Select+18
+	Cannot:
+		TNT1 A 0 A_TakeInventory("HoldingSpray",40)
+		TNT1 A 0 A_TakeInventory("ThrowPower",255)
+		TNT1 A 1 A_SelectWeapon("Pitchfork")
+		Goto Deselect
+	Cannot2:
+		TNT1 A 0 A_GiveInventory("RemoveSpray", 1)
+		TNT1 A 0 A_TakeInventory("HoldingSpray",40)
+		TNT1 A 1 A_SelectWeapon("Pitchfork")
+		Goto Ready
+	Fire:
+		TNT1 A 0 A_JumpIfNoAmmo("TakeAway")
+		TNT1 A 0 A_GiveInventory("BurnCheck",1)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_JumpIfInventory("SpraySound",1,"FireNoSoundThisTime")
+		TNT1 A 0 A_PlayWeaponsound("Spray/Alt")
+		PLSG B 0 A_JumpIfCloser(250,"BurnTarget")
+		PLSG B 0 A_FireCustomMissile("SprayCanFire",0+frandom(-1,1),1,0+frandom(-1,1),4+frandom(-1,1))
+		TNT1 A 0 A_GunFlash
+		SPRF A 3 BRIGHT A_WeaponReady(14)
+		PLSG B 0 A_GiveInventory("SpraySound",1)
+		PLSG B 0 A_ReFire//("FireNoSoundThisTime") DAMMIT ZAN
+		TNT1 A 0 A_JumpIfNoAmmo("TakeAway")
+		TNT1 A 0 A_StopSound(CHAN_WEAPON)
+		TNT1 A 0 A_TakeInventory("SpraySound",60)
+		Goto Ready
+	BurnTarget:
+		TNT1 A 0 A_JumpIfTargetINLOS(1)
+		Goto Fire+6
+		TNT1 A 0 A_JumpIfInventory("BurnCheck",17,1)
+		Goto Fire+6
+		TNT1 A 0 A_TakeInventory("BurnCheck",100)
+		PLSG B 0 A_FireCustomMissile("SprayCanFire",0+frandom(-1,1),1,0+frandom(-1,1),4+frandom(-1,1))
+		TNT1 A 0 A_GunFlash
+		SPRF A 3 BRIGHT A_WeaponReady(14)
+		PLSG B 0 A_GiveInventory("SpraySound",1)
+		PLSG B 0 A_ReFire//("FireNoSoundThisTime") DAMMIT ZAN
+		TNT1 A 0 A_JumpIfNoAmmo("TakeAway")
+		TNT1 A 0 A_StopSound
+		TNT1 A 0 A_TakeInventory("SpraySound",60)
+		Goto Ready
+	FireNoSoundThisTime:
+		TNT1 A 0 A_JumpIfNoAmmo("TakeAway")
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_JumpIfInventory("SpraySound",20,"SoundCheckPoint")
+		TNT1 A 0 A_GiveInventory("BurnCheck",1)
+		SPRF B 0 BRIGHT A_FireCustomMissile ("SprayCanFire",0+frandom(-1,1),1,0+frandom(-1,1),4+frandom(-1,1))
+		SPRF A 1 A_GunFlash
+		PLSG B 0 A_GiveInventory("SpraySound",1)
+		SPRF A 2 A_WeaponReady(14)
+		PLSG B 0 A_ReFire//("Fire")
+		TNT1 A 0 A_JumpIfNoAmmo("TakeAway")
+		TNT1 A 0 A_StopSound
+		TNT1 A 0 A_TakeInventory("SpraySound",60)
+		Goto Fire
+	SoundCheckPoint:
+		TNT1 A 0 A_TakeInventory("SpraySound",60)
+		Goto Ready
+		Goto Fire
+	BurnTarget2:
+		TNT1 A 0 A_JumpIfTargetINLOS(1)
+		Goto SoundCheckPoint+1
+		Goto SoundCheckPoint+1
+	TakeAway:
+		TNT1 A 0 A_TakeInventory("HoldingSpray",40)
+		TNT1 A 0 A_GiveInventory("RemoveSpray", 1)
+		TNT1 A 1 A_SelectWeapon("Pitchfork")
+		Goto Deselect
+	AltFire:
+		SPLG A 0 A_Jumpif(waterlevel>1,"Cannot")
+		SPLG JAB 2 A_WeaponReady(14)
+		DYNL A 0 A_PlayWeaponSound("Spray/Can")
+		SPLG CD 2 A_WeaponReady(14)
+		SPLG EFGHI 2 A_WeaponReady(14)
+		TNT1 A 0 A_Refire
+		SPLG I 1 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 140, "Explode")
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		TNT1 A 0
+		Goto Throw
+	AltHold:
+		TNT1 A 0 A_GiveInventory("TNTCounter", 1)
+		TNT1 A 0 A_JumpIfInventory("TNTSoundDelay", 1, 3)
+		TNT1 A 0 A_GiveInventory("TNTSoundDelay", 1)
+		TNT1 A 0 A_PlayWeaponSound("TNT/FUSE")
+		TNT1 A 0 A_JumpIfInventory("ThrowPowerBig", 140, "Explode")
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 3, "Hold3")
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 2, "Hold2")
+		TNT1 A 0 A_JumpIfInventory("TNTCounter", 1, "Hold1")
+	Hold1:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		SPAF GAB 2 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto AltFire+8
+	Hold2:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		SPAF CD 2 A_WeaponReady(14)
+		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto AltFire+8
+	Hold3:
+		TNT1 A 0 A_GiveInventory("ThrowPower", 3)
+		TNT1 A 0 A_GiveInventory("ThrowPowerBig", 3)
+		SPAF EF 2 A_WeaponReady(14)
+		TNT1 A 0  A_JumpIf(waterlevel>2,"Cannot")
+		TNT1 A 0 A_TakeInventory("TNTCounter", 3)
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_PlayWeaponSound("Spray/Can")
+		TNT1 A 0 A_StopSound(CHAN_Weapon)
+		Goto AltFire+8
+	Explode:
+		TNT1 A 0 A_TakeInventory("ThrowPower",255)//Moved.. now you explode then die Also no reSpawn boom
+		TNT1 A 0 A_SpawnItem("FloorKaboom",0)
+		BLWS A 4 A_TakeInventory("ThrowPowerBig",255)
+		TNT1 A 0 A_Explode(500, 128) //wtf is this op Damage
+		BLWS B 8
+		BLWS C 5
+		Goto Ready
+	Throw:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 28, "Throw_14")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 26, "Throw_13")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 24, "Throw_12")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 22, "Throw_11")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 20, "Throw_10")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 18, "Throw_9")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 16, "Throw_8")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 14, "Throw_7")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 12, "Throw_6")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 10, "Throw_5")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 8, "Throw_4")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 6, "Throw_3")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 4, "Throw_2")
+		TNT1 A 0 A_JumpIfInventory("ThrowPower", 2, "Throw_1")
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt")
+		Goto ThrowFinish
+	Throw_1:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt2")
+		Goto ThrowFinish
+	Throw_2:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt3")
+		Goto ThrowFinish
+	Throw_3:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt4")
+		Goto ThrowFinish
+	Throw_4:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt5")
+		Goto ThrowFinish
+	Throw_5:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt6")
+		Goto ThrowFinish
+	Throw_6:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt7")
+		Goto ThrowFinish
+	Throw_7:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt8")
+		Goto ThrowFinish
+	Throw_8:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt9")
+		Goto ThrowFinish
+	Throw_9:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt10")
+		Goto ThrowFinish
+	Throw_10:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt11")
+		Goto ThrowFinish
+	Throw_11:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt12")
+		Goto ThrowFinish
+	Throw_12:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt13")
+		Goto ThrowFinish
+	Throw_13:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt14")
+		Goto ThrowFinish
+	Throw_14:
+		TNT1 A 0 A_FireCustomMissile("SprayCanAlt15")
+		Goto ThrowFinish
+	ThrowFinish:
+		TNT1 A 0 A_StopSound(CHAN_WEAPON)
+		TNT1 A 0 A_PlayWeaponSound("TNTTOSS")
+		TNT1 A 0 A_TakeInventory("ThrowPower", 150)
+		TNT1 A 0 A_TakeInventory("ThrowPowerBig", 200)
+		DYHN AB 2
+		DYHN CDEFG 1
+		DYHN HI 2
+		DYHN J 1
+		TNT1 A 0 A_JumpIfInventory("SprayCanister", 1, 1)
+		Goto Deselect
+		SPRC ABCD 3 A_WeaponReady(14)
+		Goto Ready
+	}
+}
+
+ACTOR SpraySound : Inventory
+{
+	Inventory.MaxAmount 70
+	Inventory.Amount 1
+}
+
+ACTOR RemoveSpray : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR RemoveProximity : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR RemoveTNT : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR --------SHOTGUNS------------ {}
+ACTOR ShotgunCasing
+{
+	Height 1
+	Radius 3
+	Speed 4
+	Scale 0.2
+	Gravity 0.7
+	MaxStepHeight 0
+	BounceFactor 0.5
+	BounceCount 2
+	PROJECTILE
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+DOOMBOUNCE
+	+DONTSPLASH
+	+EXPLODEONWATER
+	+FLOORCLIP
+	+SOLID
+	+WINDTHRUST
+	-CANBOUNCEWATER
+	-NOGRAVITY
+	-NOLIFTDROP
+	SeeSound "Shotgun/Shells"
+	DeathSound "Shotgun/Shells"
+	States
+	{
+	Spawn:
+		CASS AA 0 A_Recoil(frandom(0,-2))
+		CASS A 0 THRUSTTHINGZ(0,frandom(3,5),0,0)
+		CASS A 0 A_Jump(192,1,2,3,4)
+		CASS BCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFA 1
+		Stop
+	Death:
+		CASS A 0 A_Jump(127,8)
+		CASS A 160 A_Fall
+		CASS AAAAAA 200 A_FadeOut(0.15)
+		Stop
+		CASS E 600 A_Fall
+		Stop
+	}
+}
+
+ACTOR SawedOff : CalebW 3137// replaces SuperShotgun 82
+{
+	//$Sprite SOSPA0
+	Tag "Sawed-Off"
+	Decal ZBloodBulletChip1
+	Obituary "%o chewed on %k's Sawed off."
+	Weapon.AmmoType "shell2"
+	Weapon.AmmoType2 "shell2"
+	Inventory.PickupMessage "You got the Sawed off!"
+	Inventory.PickupSound "PICKWEAP"
+	Weapon.SelectionOrder 80
+	Weapon.Kickback 24
+	Weapon.AmmoGive 4
+	Weapon.AmmoUse 1
+	Weapon.AmmoUse2 1
+	Weapon.SisterWeapon DoubleSawedoff
+	Xscale 0.8
+	YScale 0.9
+	+THRUGHOST
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		SOSP A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	Ready:
+		WP01 A 1 A_WeaponReady
+		Loop
+	Deselect:
+		WP01 A 1 A_Lower
+		TNT1 AA 0 A_Lower
+		Loop
+	Select:
+		WP01 A 1 A_Raise
+		TNT1 AA 0 A_Raise
+		Loop
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("sawedoffcheck",1,"Fire2")
+		TNT1 A 0 A_Gunflash
+		SWFL ABC 2 BRIGHT A_WeaponReady(14)
+		TNT1 A 5 A_WeaponReady(14)
+		TNT1 A 0 A_GiveInventory("sawedoffcheck",1)
+		Goto Ready
+	Fire2:
+		TNT1 A 0 A_Gunflash
+		SWFL DEF 2 BRIGHT A_WeaponReady(14)
+		TNT1 A 24 A_WeaponReady(14)
+		TNT1 A 0 A_TakeInventory("sawedoffcheck",1)
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_JumpIfInventory("sawedoffcheck",1,"Fire2")
+		SWF2 A 0 A_JumpIfInventory("shell2", 2, 1)
+		Goto Fire
+		TNT1 A 0 A_Gunflash
+		SWF2 ABC 2 BRIGHT A_WeaponReady(14)
+		TNT1 A 26 A_WeaponReady(14)
+		Goto Ready
+	Flash:
+		TNT1 A 0 A_JumpIfInventory("sawedoffcheck",1,"Flash2")
+		TNT1 A 0 A_PlayWeaponSound("DSSAWFIR")
+		TNT1 A 0 A_FireBullets(7.2, 6.4, 10, 5, "ZBBulletPuff", 1)
+		TNT1 A 0 A_Quake(2,6,0,100)
+		TNT1 A 0 A_SetPitch(pitch-2.5)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM D 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM E 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM F 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM G 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM G 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM F 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM Y 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM X 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM C 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM BAA 1 A_WeaponReady(14)
+		Stop
+	Flash2:
+		TNT1 A 0 A_PlayWeaponSound("DSSAWFIR")
+		TNT1 A 0 A_FireBullets(7.2, 6.4, 10, 5, "ZBBulletPuff", 1)
+		TNT1 A 0 A_Quake(2,6,0,100)
+		TNT1 A 0 A_SetPitch(pitch-2.5)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM D 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM E 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM F 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM G 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM G 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM F 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM X 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM C 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM B 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		ANIM A 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.25)
+		TNT1 A 0 A_JumpIfNoAmmo("NoAmmo")
+		TNT1 A 0 A_PlaySound("Weapons/sawedoffload")
+		WP01 EFG 2 A_WeaponReady(14)
+		TNT1 AA 0 A_FireCustomMissile("ShotgunCasing",-45+frandom(-8,8),0,1,7+frandom(-2,2),0)
+		WP01 HIJKLMNOPQRSTT 1 A_WeaponReady(14)
+		Stop
+	Altflash:
+		TNT1 A 0 A_JumpIfInventory("sawedoffcheck",1,"Flash2")
+		TNT1 A 0 A_JumpIfInventory("shell2", 2, 1)
+		Goto Flash
+		TNT1 A 0 A_PlayWeaponSound("SAWNALT")
+		TNT1 A 0 A_FireBullets(10.2, 7.2, 10, 5, "ZBBulletPuff", 1)
+		TNT1 A 0 A_FireBullets(7.2, 10.2, 10, 5, "ZBBulletPuff", 1)
+		TNT1 A 0 A_Quake(4,12,0,200)
+		TNT1 A 0 A_SetPitch(pitch-5.0)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		ANIM D 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		ANIM E 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		ANIM F 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		ANIM G 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		ANIM H 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		ANIM I 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		ANIM I 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		ANIM H 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		ANIM G 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		ANIM FYXC 1 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIfNoAmmo("NoAmmo")
+		TNT1 A 0 A_PlaySound("Weapons/sawedoffload")
+		WP01 EF 2 A_WeaponReady(14)
+		WP01 G 1 A_WeaponReady(14)
+		TNT1 AA 0 A_FireCustomMissile("ShotgunCasing",-45+frandom(-8,8),0,1,7+frandom(-2,2),0)
+		WP01 HIJKLMNOPQRSTT 1 A_WeaponReady(14)
+		Stop
+	NoAmmo:
+		WP01 A 19 A_WeaponReady(14)
+		Stop
+	}
+}
+
+ACTOR DoubleSawedoff : Sawedoff
+{
+	+POWERED_UP
+	+THRUGHOST
+	+WEAPON.BFG
+	Weapon.AmmoUse 1
+	Weapon.AmmoUse2 1
+	Weapon.SisterWeapon Sawedoff
+	States
+	{
+	Ready:
+		XAKM A 1 A_WeaponReady
+		Loop
+	Deselect:
+		TNT1 AA 0 A_Lower
+		XAKM A 1 A_Lower
+		Loop
+	Select:
+		TNT1 AA 0 A_Raise
+		XAKM A 1 A_Raise
+		Loop
+	Fire:
+		TNT1 A 0 A_GunFlash
+		SWFL JK 2 BRIGHT A_WeaponReady(14)
+		SWFL L 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_JumpIfInventory("Shell2", 1, 1)
+		Goto Ready // Go back if no ammo, this is needed since this works with flash state.
+		SWFL GH 2 BRIGHT A_WeaponReady(14)
+		SWFL I 1 BRIGHT A_WeaponReady(14)
+		TNT1 A 7 A_WeaponReady(14)
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_JumpIfInventory("Shell2", 4, 1)
+		Goto Fire
+		TNT1 A 0 A_GunFlash
+		SAFF ABC 2 BRIGHT A_WeaponReady(14)
+		TNT1 A 18 A_WeaponReady(14)
+		Goto Ready
+	Flash:
+		XAKF A 3 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_FireCustomMissile("ShotgunCasing",-45+frandom(-8,8),0,1,7+frandom(-2,2),0)
+		TNT1 A 0 A_FireBullets (7.6, 4.1, 10, 5, "ZBBulletPuff")
+		TNT1 A 0 A_Quake(2,6,0,150)
+		TNT1 A 0 A_PlaySound ("DSSAWFIR")
+		XAKF B 3 A_WeaponReady(14)
+		TNT1 A 0 A_JumpIfInventory("Shell2", 1, 1)
+		Stop
+		XAKF C 3 BRIGHT A_WeaponReady(14)
+		TNT1 A 0 A_FireCustomMissile("ShotgunCasing",45+frandom(-8,8),0,-4,7+frandom(-2,2),0)
+		TNT1 A 0 A_FireBullets (7.6, 4.1, 10, 5, "ZBBulletPuff")
+		TNT1 A 0 A_PlaySound ("DSSAWFIR")
+		XAKF EFGH 2 A_WeaponReady(14)
+		Stop
+	AltFlash:
+		TNT1 A 0 A_JumpIfInventory("Shell2", 4, 1)
+		Goto Flash
+		XAKM B 3 BRIGHT A_WeaponReady(14)
+		TNT1 AA 0 A_FireCustomMissile("ShotgunCasing",-45+frandom(-8,8),0,1,7+frandom(-2,2),0)
+		TNT1 AA 0 A_FireCustomMissile("ShotgunCasing",45+frandom(-8,8),0,-4,7+frandom(-2,2),0)
+		TNT1 A 0 A_FireBullets (12.2, 8.1, 40, 5, "ZBBulletPuff")
+		TNT1 A 0 A_Quake(2,6,0,250)
+		TNT1 A 0 A_TakeInventory("Shell2", 3)
+		TNT1 A 0 A_SetPitch(pitch-5.0)
+		TNT1 AA 0 A_PlayWeaponSound ("SAWNALT")
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		XAKM C 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		XAKM C 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		XAKM C 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		XAKM C 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		XAKM D 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		XAKM D 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		XAKM D 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		XAKM D 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		XAKM E 1 A_WeaponReady(14)
+		TNT1 A 0 A_SetPitch(pitch+0.5)
+		XAKM E 3 A_WeaponReady(14)
+		XAKM CF 4 A_WeaponReady(14)
+		XAKM A 4 A_WeaponReady(14)
+		Stop
+	}
+}
+
+ACTOR SawedOffCheck : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
 ACTOR --------TOMMYGUN--------- {}
 ACTOR TommygunCasing
 {
@@ -2672,6 +2724,7 @@ ACTOR TommygunCasing
 
 ACTOR Tommygun : CalebW 3138 //replaces Chaingun 2002
 {
+	//$Sprite TOMPA0
 	Tag "Tommygun"
 	Scale 0.6
 	Weapon.AmmoType1 "TommyClip"
@@ -2694,8 +2747,13 @@ ACTOR Tommygun : CalebW 3138 //replaces Chaingun 2002
 	States
 	{
 	Spawn:
-		TOMP A 4
-		Loop
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		TOMP A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
 	Ready:
 		TOMG A 1 A_WeaponReady
 		Loop
@@ -3021,6 +3079,7 @@ ACTOR RealFlash : Inventory
 
 ACTOR NapalmLauncher : CalebW 3139 // 2003
 {
+	//$Sprite NLAGA0
 	Tag "Napalm Launcher"
 	Spawnid 29
 	Scale 0.6
@@ -3040,6 +3099,14 @@ ACTOR NapalmLauncher : CalebW 3139 // 2003
 	Inventory.PickupSound "PICKWEAP"
 	States
 	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		NLAG A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
 	Ready:
 		NLAN BB 1 A_WeaponReady
 		NLAN B 0 A_GunFlash
@@ -3109,9 +3176,6 @@ ACTOR NapalmLauncher : CalebW 3139 // 2003
 		BLNK Z 6 BRIGHT A_Light2
 		BLNK Z 6 BRIGHT A_Light1
 		BLNK Z 0 BRIGHT A_Light0
-		Stop
-	Spawn:
-		NLAG A -1
 		Stop
 	}
 }
@@ -3539,6 +3603,7 @@ ACTOR TeslaCounterX : Inventory
 
 ACTOR TeslaRifle : CalebW 3140
 {
+	//$Sprite TSPIA0
 	Tag "Tesla Rifle"
 	Height 16
 	Scale 0.8
@@ -3561,7 +3626,12 @@ ACTOR TeslaRifle : CalebW 3140
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		TSPI A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	Ready:
 		TESR ABCDEF 2 A_WeaponReady
@@ -4021,6 +4091,7 @@ ACTOR BoltShrink9 : BoltShrink1
 ACTOR --------LIFELEECH--------- {}
 ACTOR LifeLeech : CalebW 3141 //replaces BFG9000 2006 - this weapon needs a primary fire mode - ozy81
 {
+	//$Sprite LLSPA0
 	Tag "Life Leech"
 	Height 16
 	Scale 0.8
@@ -4040,7 +4111,12 @@ ACTOR LifeLeech : CalebW 3141 //replaces BFG9000 2006 - this weapon needs a prim
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		LLSP A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	Ready:
 		LLST A 1 A_WeaponReady
@@ -4332,7 +4408,7 @@ ACTOR LifeLeechSmallFire
 	}
 }
 
-ACTOR LifeLeechSmallfire2 : LifeLeechSmallFire
+ACTOR LifeLeechSmallFire2 : LifeLeechSmallFire
 {
 	States
 	{
@@ -4345,6 +4421,7 @@ ACTOR LifeLeechSmallfire2 : LifeLeechSmallFire
 ACTOR --------VOODOO_DOLL--------- {}
 ACTOR VoodooDoll : CalebW 3142 //replaces Chainsaw 2005
 {
+	//$Sprite VDLFA0
 	Tag "Voodoo Doll"
 	Spawnid 32
 	Height 16
@@ -4364,7 +4441,12 @@ ACTOR VoodooDoll : CalebW 3142 //replaces Chainsaw 2005
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		VDLF A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	Ready:
 		TNT1 A 0 A_TakeInventory("UsingPitchfork", 1)
@@ -4468,10 +4550,10 @@ ACTOR Voodoo : Ammo
 	Inventory.Icon VDLFA0
 	Inventory.MaxAmount 100
 	Inventory.ForbiddenTo "DoomDude"
-	Ammo.BackpackAmount 0
-	Ammo.BackpackMaxAmount 100
 	VisibleToPlayerClass "Caleb"
 	+INVENTORY.RESTRICTABSOLUTELY
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 100
 }
 
 ACTOR VoodooPuff

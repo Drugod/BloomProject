@@ -8,17 +8,17 @@ ACTOR Randombullets: RandomSpawner
 ACTOR TommyClip : Ammo
 {
 	//$Category "BlooM Ammunitions"
-	Ammo.BackpackAmount 10
-	Ammo.BackpackMaxAmount 400
+	Radius 20
+	+IGNORESKILL
+	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.RestrictedTo "Caleb"
 	Inventory.Amount 1
 	Inventory.Icon "TMBOA0"
 	Inventory.MaxAmount 200
 	Inventory.PickupSound "DSAMMOUP"
 	VisibleToPlayerClass "Caleb"
-	Radius 20
-	+IGNORESKILL
-	+INVENTORY.RESTRICTABSOLUTELY
+	Ammo.BackpackAmount 10
+	Ammo.BackpackMaxAmount 400
 }
 
 ACTOR BulletDrum : TommyClip 3147
@@ -97,16 +97,16 @@ ACTOR -------SAWEDOFF---------- {}
 ACTOR Shell2 : Ammo
 {
 	//$Category "BlooM Ammunitions"
-	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.RestrictedTo "Caleb"
-	VisibleToPlayerClass "Caleb"
-	Inventory.Amount 4
-	Inventory.MaxAmount 50
-	Ammo.BackpackAmount 4
-	Ammo.BackpackMaxAmount 100
-	Inventory.Icon "SBEXA0"
 	Radius 20
 	+IGNORESKILL
+	+INVENTORY.RESTRICTABSOLUTELY
+	Inventory.Amount 4
+	Inventory.MaxAmount 50
+	Inventory.Icon "SBEXA0"
+	Inventory.RestrictedTo "Caleb"
+	VisibleToPlayerClass "Caleb"
+	Ammo.BackpackAmount 4
+	Ammo.BackpackMaxAmount 100
 }
 
 ACTOR BloodShellBox : Shell2 3168//replaces Shellbox
@@ -153,15 +153,15 @@ ACTOR -------TNTAMMO------------ {}
 ACTOR TNTAmmo : Ammo
 {
 	//$Category "BlooM Ammunitions"
+	Radius 20
+	+IGNORESKILL
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.RestrictedTo "Caleb"
-	VisibleToPlayerClass "Caleb"
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
 	Inventory.Icon "TBNDA0"
 	Inventory.PickupSound "DSAMMOUP"
-	Radius 20
-	+IGNORESKILL
+	Inventory.RestrictedTo "Caleb"
+	VisibleToPlayerClass "Caleb"
 }
 
 ACTOR TNTAmmoBox : CustomInventory 3166
@@ -232,20 +232,21 @@ ACTOR Replacer1 : TNTBundle {} //3145//replaces RocketLauncher
 
 ACTOR RTNTAmmo : Ammo
 {
+	Radius 20
+	+IGNORESKILL
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.RestrictedTo "Caleb"
-	VisibleToPlayerClass "Caleb"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
 	Inventory.Icon "REPKA0"
-	Radius 20
-	+IGNORESKILL
+	Inventory.RestrictedTo "Caleb"
+	VisibleToPlayerClass "Caleb"
 }
 
 ACTOR RTNTBox : CustomInventory 3170
 {
 	//$Category "BlooM Ammunitions"
+	//$Sprite REPKA0
 	Tag "Remote TNT"
 	Radius 20
 	Scale 0.5
@@ -260,7 +261,12 @@ ACTOR RTNTBox : CustomInventory 3170
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		REPK A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	Pickup:
 		TNT1 A 0 A_GiveInventory("RTNTAmmo", 3)
@@ -271,35 +277,41 @@ ACTOR RTNTBox : CustomInventory 3170
 
 ACTOR DTNTAmmo : Ammo
 {
+	Radius 20
+	+IGNORESKILL
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.RestrictedTo "Caleb"
-	VisibleToPlayerClass "Caleb"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
 	Inventory.Icon "PROXA0"
-	Radius 20
-	+IGNORESKILL
+	Inventory.RestrictedTo "Caleb"
+	VisibleToPlayerClass "Caleb"
 }
 
 ACTOR DTNTBox : CustomInventory 3248
 {
 	//$Category "BlooM Ammunitions"
-	Inventory.PickupMessage "Picked up proximity TNT!"
-	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.RestrictedTo "Caleb"
-	VisibleToPlayerClass "Caleb"
+	//$SPrite PROXA0
 	Tag "Proximity TNT"
+	Radius 20
+	Scale 0.5
+	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
-	Scale 0.5
 	Inventory.Icon "PROXA0"
-	Radius 20
+	Inventory.PickupMessage "Picked up proximity TNT!"
+	Inventory.RestrictedTo "Caleb"
+	VisibleToPlayerClass "Caleb"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		PROX A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	Pickup:
 		TNT1 A 0 A_GiveInventory("DTNTAmmo", 3)
@@ -312,25 +324,31 @@ ACTOR -------VOODOODOLL------------ {}
 ACTOR VoodooDollPickup : CustomInventory 3167//replaces Chainsaw
 {
 	//$Category "BlooM Ammunitions"
-	Tag "Voodoo doll"
+	//$Sprite VDLFA0
+	Tag "Voodoo Doll"
+	Radius 20
+	Scale 0.8
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.RestrictedTo "Caleb"
-	VisibleToPlayerClass "Caleb"
 	Inventory.PickupMessage "Voodoo Doll! Stab some zombies!"
 	Inventory.PickupSound "PICKWEAP"
 	Inventory.Amount 1
 	Inventory.MaxAmount 100
-	Scale 0.8
 	Inventory.Icon "TBNDA0"
-	Radius 20
+	Inventory.RestrictedTo "Caleb"
+	VisibleToPlayerClass "Caleb"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		VDLF A -1
-	Stop
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
 	Pickup:
 		TNT1 A 0 A_GiveInventory("VoodooDoll", 1)
-	Stop
+		Stop
 	}
 }
 
@@ -346,34 +364,40 @@ ACTOR ----SPRAYCANISTER------- {}
 ACTOR SprayCanister : Ammo
 {
 	//$Category "BlooM Ammunitions"
+	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.Amount 1
 	Inventory.MaxAmount 288
 	Inventory.Icon "SPRYA0"
-	+INVENTORY.RESTRICTABSOLUTELY
+	Inventory.PickupSound "DSAMMOUP"
 	Inventory.RestrictedTo "Caleb"
 	VisibleToPlayerClass "Caleb"
-	Inventory.PickupSound "DSAMMOUP"
 }
 
-ACTOR SprayCanisterPickup : CustomInventory  3144//replaces Cell
+ACTOR SprayCanisterPickup : CustomInventory 3144//replaces Cell
 {
 	//$Category "BlooM Ammunitions"
-	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.RestrictedTo "Caleb"
-	VisibleToPlayerClass "Caleb"
+	//$Sprite SPRYA0
 	Tag "Spray Canister"
+	Radius 20
+	Scale 0.5
+	+IGNORESKILL
+	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.Amount 48
 	Inventory.MaxAmount 288
 	Inventory.PickupMessage "Got a spray can..."
 	Inventory.PickupSound "DSAMMOUP"
-	Radius 20
-	Scale 0.5
-	+IGNORESKILL
+	Inventory.RestrictedTo "Caleb"
+	VisibleToPlayerClass "Caleb"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		SPRY A -1
-	Stop
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
 	Pickup:
 		TNT1 A 0 A_GiveInventory("SprayCanister", 48)
 		TNT1 A 0 A_GiveInventory("SprayCan", 1)
@@ -381,75 +405,59 @@ ACTOR SprayCanisterPickup : CustomInventory  3144//replaces Cell
 	}
 }
 
-ACTOR Replacer2 : SprayCanisterPickup {}
+ACTOR Replacer2 : SprayCanisterPickup {} //why this exists? - ozy81
 
 ACTOR -------GASOLINECAN------------ {}
 ACTOR GasolineCan : Ammo 3146
 {
 	//$Category "BlooM Ammunitions"
-	Tag "Gasoline can"
+	//$Sprite GASOA0
+	Tag "Gasoline Can"
+	Radius 20
+	Height 20
+	Scale 0.8
+	+IGNORESKILL
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.RestrictedTo "Caleb"
-	VisibleToPlayerClass "Caleb"
 	Inventory.Amount 5
 	Inventory.MaxAmount 50
 	Inventory.PickupMessage "Picked up a gasoline can"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Icon "GASOA0"
+	Inventory.RestrictedTo "Caleb"
+	VisibleToPlayerClass "Caleb"
 	Ammo.BackpackAmount 1
 	Ammo.BackpackMaxAmount 100
-	Radius 20
-	Scale 0.8
-	Height 20
-	+IGNORESKILL
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		GASO A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	}
 }
 
 ACTOR MiniGasolineCan : GasolineCan 20083
 {
+	//$Sprite GAS2A0
 	Tag "Mini-Gasoline Can"
+	Radius 10
+	Scale 1.0
 	Inventory.Amount 1
 	Inventory.PickupMessage "Picked up a mini gasoline can"
 	Inventory.Icon "GAS2A0"
-	Radius 10
-	Scale 1.0
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		GAS2 A -1
 		Stop
-	}
-}
-
-ACTOR ------ESSENCEPOWER--------- {}
-ACTOR EssencePower : Ammo 12004 // 17
-{
-	//$Category "BlooM Ammunitions"
-	Tag "Essence Power"
-	SpawnID 142
-	Radius 20
-	Alpha 0.9
-	Scale 0.8
-	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.RestrictedTo "Caleb"
-	VisibleToPlayerClass "Caleb"
-	+INVENTORY.IGNORESKILL
-	Inventory.Amount 12
-	Inventory.MaxAmount 100// Not 120
-	RenderStyle Translucent
-	Ammo.BackpackMaxAmount 120
-	Inventory.PickupMessage "Picked up a poor soul"
-	Inventory.PickupSound "DSAMMOUP"
-	Inventory.Icon "ESSEA0"
-	States
-	{
-	Spawn:
-		ESSE A -1
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	}
 }
@@ -458,46 +466,58 @@ ACTOR -----FLARES------- {}
 ACTOR Flares : Ammo 20080
 {
 	//$Category "BlooM Ammunitions"
-	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.RestrictedTo "Caleb"
-	VisibleToPlayerClass "Caleb"
+	//$Sprite FGRDA0
 	Tag "Flares"
 	Radius 20
 	Height 8
 	Scale 0.85
+	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.PickupMessage "Picked up a box of flares"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Icon "FGRDA0"
 	Inventory.Amount 8
 	Inventory.MaxAmount 50
+	Inventory.RestrictedTo "Caleb"
+	VisibleToPlayerClass "Caleb"
 	Ammo.BackpackAmount 8
 	Ammo.BackpackMaxAmount 100
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		FGRD A 20
 		FGR2 A 20
 		FGR3 A 20
 		Loop
+	ModelSpawn:
+		UNKN A -1
+		Stop
 	}
 }
 
 ACTOR Flare : Flares 20081
 {
-	+INVENTORY.RESTRICTABSOLUTELY
+	//$Sprite FGR4A0
 	Tag "Flare"
-	Inventory.RestrictedTo "Caleb"
-	VisibleToPlayerClass "Caleb"
-	Inventory.PickupMessage "Picked up a single flare"
-	Inventory.PickupSound "DSAMMOUP"
-	Inventory.Amount 2
 	Radius 5
 	Scale 0.4
 	+IGNORESKILL
+	+INVENTORY.RESTRICTABSOLUTELY
+	Inventory.PickupMessage "Picked up a single flare"
+	Inventory.PickupSound "DSAMMOUP"
+	Inventory.Amount 2
+	Inventory.RestrictedTo "Caleb"
+	VisibleToPlayerClass "Caleb"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		FGR4 A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	}
 }
@@ -507,19 +527,19 @@ ACTOR TeslaCharge : Ammo 12002
 {
 	//$Category "BlooM Ammunitions"
 	//$Sprite TESCA0
-	Inventory.RestrictedTo "Caleb"
-	VisibleToPlayerClass "Caleb"
 	Tag "Tesla Charge"
+	Radius 20
+	Scale 0.3
+	+IGNORESKILL
+	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.PickupMessage "Picked up a tesla charge"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Amount 20
 	Inventory.MaxAmount 300
+	Inventory.RestrictedTo "Caleb"
+	VisibleToPlayerClass "Caleb"
 	Ammo.BackpackAmount 20
 	Ammo.BackpackMaxAmount 600
-	Radius 20
-	+IGNORESKILL
-	+INVENTORY.RESTRICTABSOLUTELY
-	Scale 0.3
 	States
 	{
 	Spawn:
@@ -550,6 +570,34 @@ ACTOR TeslaChargeBox : TeslaCharge 20082
 		Stop
 	ModelSpawn:
 		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR ------ESSENCEPOWER--------- {}
+ACTOR EssencePower : Ammo 12004 // 17
+{
+	//$Category "BlooM Ammunitions"
+	Tag "Essence Power"
+	SpawnID 142
+	Radius 20
+	Alpha 0.9
+	Scale 0.8
+	RenderStyle Translucent
+	+INVENTORY.IGNORESKILL
+	+INVENTORY.RESTRICTABSOLUTELY
+	Inventory.Amount 12
+	Inventory.MaxAmount 100// Not 120
+	Inventory.PickupMessage "Picked up a poor soul"
+	Inventory.PickupSound "DSAMMOUP"
+	Inventory.Icon "ESSEA0"
+	Inventory.RestrictedTo "Caleb"
+	VisibleToPlayerClass "Caleb"
+	Ammo.BackpackMaxAmount 120
+	States
+	{
+	Spawn:
+		ESSE A -1
 		Stop
 	}
 }

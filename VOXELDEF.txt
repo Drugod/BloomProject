@@ -3,6 +3,10 @@
 //==========================================
 //--------------------WEAPONS---------------
 
+COLTA="COLTA" {
+	Spin = 50
+}
+
 FGRNA="FLAREGUN" {
 	Spin = 50
 }
@@ -19,7 +23,7 @@ NLAGA="DARKGUN" {
 	Spin = 50
 }
 
-REMOA="REMOTE" {
+REPKA="REMOTE" {
 	Spin = 50
 }
 
@@ -70,49 +74,18 @@ SPRYA="SPRAYCAN" {
 }
 
 //--------------------AMMO------------------
-FGR2A="FLARES" {
-	
-}
-
-FGRDA="FLARESB" {
-	
-}
-
-FGR3A="FLARES" {
-	
-}
-
-GASOA="GASCAN" {
-	
-}
-
-REPKA="REMOTE" {
-	
-}
-
-SBEXA="SHELLBOX" {
-	
-}
-
-TBOXA="TNTBOX" {
-	
-}
-
-TBNDA="TNTBUNDL" {
-	
-}
-
-PROXA="TNTPROX" {
-	
-}
-
-LMBOA="TOMYDRUM" {
-	
-}
-
-TMBOA="BULLETS" {
-	
-}
+FGR2A="FLARES"{}
+FGR3A="FLARES"{}
+FGRDA="FLARESB"{}
+GAS2A="GAS2A"{}
+GASOA="GASCAN"{}
+LMBOA="TOMYDRUM"{}
+PROXA="TNTPROX"{}
+REPKA="REMOTE"{}
+SBEXA="SHELLBOX"{}
+TBNDA="TNTBUNDL"{}
+TBOXA="TNTBOX"{}
+TMBOA="BULLETS"{}
 
 //--------------------DECORATIONS-----------
 //GRAVES

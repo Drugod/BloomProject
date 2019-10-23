@@ -49,3 +49,23 @@ Organs
 Spiders
 Trap
 ZombieFall
+
+//SpawnIDs - Zandronum doesn't suppor them inside Mapinfo, so gonna list them here for keep track of them - ozy81
+1 = BrownCultist
+2 = GreyCultist
+3 = Cheogh
+4 = GreenCultist
+5 = BloodGargoyle
+20 = BloatedButcher
+29 = NapalmLauncher
+30 = SprayCan //uncommented
+32 = VoodooDoll
+51 = SprayCanFire
+112 = Cerberus
+116 = RedCultist //weird that these doesn't produce any warnings
+116 = BlueCultist //weird that these doesn't produce any warnings
+121 = GlitterBridge
+127 = WallBomb
+142 = EssencePower
+153 = CerberusShot1
+207 = NapalmRocketMapSpecial
