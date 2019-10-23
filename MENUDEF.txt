@@ -60,7 +60,7 @@ ListMenu "EpisodeMenu"
 	IfGame(Doom, Chex)
 	{
 		Position 48, 63
-	    StaticText 70, 38, "Episode", "Red"
+		StaticPatch 70, 38, "M_EPISOD"
 	}
 }
 
