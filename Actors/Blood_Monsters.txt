@@ -1316,7 +1316,7 @@ ACTOR GreyCultist : BloodEnemy_Base 3125
 	DeathSound "CultistDie"
 	ActiveSound "CultistAct"
 	DropItem "Tommygun" 64
-	DropItem "BulletAmmo2" 200, 30
+	DropItem "Bullets" 200, 30
 	DropItem "TNTBundle", 128
 	Scale 0.53
 	Species "Cultist"

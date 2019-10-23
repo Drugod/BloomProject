@@ -34,7 +34,7 @@ ACTOR UsingPitchfork : Inventory
 ACTOR Pitchfork : CalebW
 {
 	Tag "Pitchfork"
-	Obituary "%o was poked by %k"
+	Obituary "$OB_FORK"
 	Weapon.Kickback 200
 	+INVENTORY.UNDROPPABLE
 	+NODAMAGETHRUST
@@ -104,8 +104,8 @@ ACTOR BeastHands : Weapon
 	+INVENTORY.UNDROPPABLE
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
-	+Weapon.CHEATNOTWeapon
-	+Weapon.MELEEWeapon
+	+WEAPON.CHEATNOTWEAPON
+	+WEAPON.MELEEWEAPON
 	+POWERED_UP
 	Weapon.UpSound "BeastSee"
 	Weapon.Kickback 500
@@ -182,10 +182,10 @@ ACTOR Flaregun : CalebW 3136//Weapon 3136
 	//$Sprite FGRNA0
 	Tag "Flaregun"
 	Scale 0.8
-	Obituary "%o was cooked by %k's Flare Gun."
+	Obituary "$OB_FGUN"
 	Height 16
 	AttackSound "Weapons/shotgf"
-	Inventory.PickupMessage "You got the Flare Gun!"
+	Inventory.PickupMessage "$FGUNPICK"
 	Inventory.PickupSound "PICKWEAP"
 	Weapon.Kickback 30
 	Weapon.AmmoType "Flares"
@@ -860,10 +860,10 @@ ACTOR Colt : CalebW 31370
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 20
 	Weapon.AmmoType "TommyClip"
-	Obituary "$OB_MPPISTOL"
+	Obituary "$OB_COLT"
 	+INVENTORY.UNDROPPABLE
 	+WEAPON.WIMPY_WEAPON
-	Inventory.PickupMessage "$PICKUP_PISTOL_DROPPED"
+	Inventory.PickupMessage "$COLTPICK"
 	States
 	{
 	Spawn:
@@ -931,10 +931,10 @@ ACTOR SingleShotgun : CalebW 31371
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 8
 	Weapon.AmmoType "shell2"
-	Obituary "$OB_MPSHOTGUN"
+	Obituary "$OB_SSHOT"
 	+INVENTORY.UNDROPPABLE
 	+WEAPON.WIMPY_WEAPON
-	Inventory.PickupMessage "$PICKUP_PISTOL_DROPPED"
+	Inventory.PickupMessage "$SINGPICK"
 	States
 	{
 	Spawn:
@@ -1010,12 +1010,12 @@ ACTOR RemoteDynamite : CalebW
 	Tag "Remote Dynamite"
 	Height 16
 	Scale 0.646
-	Inventory.PickupMessage "Its time for mindgames!"
+	Inventory.PickupMessage "$REMOPICK"
 	Inventory.PickupSound "PICKWEAP"
 	Weapon.Kickback 80
 	Weapon.AmmoGive 0
 	Weapon.AmmoType "RTNTAMMO"
-	Obituary "%o found %k's little bomb!"
+	Obituary "$OB_REMO"
 	Weapon.AmmoUse 1
 	Weapon.AmmoUse2	0
 	Weapon.AmmoType2 "RTNTAMMO"
@@ -1196,12 +1196,12 @@ ACTOR ProximityDynamite : CalebW
 	Tag "Proximity Dynamite"
 	Height 16
 	Scale 0.646
-	Inventory.PickupMessage "Got proximity TNT!"
+	Inventory.PickupMessage "$PROXPICK"
 	Inventory.PickupSound "PICKWEAP"
 	Weapon.Kickback 80
 	Weapon.AmmoGive 0
 	Weapon.AmmoType "DTNTAMMO"
-	Obituary "%o fell in %k's little trap!"
+	Obituary "$OB_PROX"
 	Weapon.AmmoUse 1
 	Weapon.AmmoUse2	1
 	Weapon.AmmoType2 "DTNTAMMO"
@@ -1379,13 +1379,13 @@ ACTOR Dynamite : CalebW
 	Tag "TNT"
 	Height 16
 	Scale 0.646
-	Inventory.PickupMessage "Picked up a case of TNT!"
+	Inventory.PickupMessage "$DYNAPICK"
 	Inventory.PickupSound "PICKWEAP"
 	Weapon.Selectionorder 880
 	Weapon.Kickback 80
 	Weapon.AmmoGive 0
 	Weapon.AmmoType "TNTAmmo"
-	Obituary "%o got a faceful of %k's TNT!" //Returned the message from blood
+	Obituary "$OB_DYNA"
 	Weapon.AmmoUse 1
 	Weapon.AmmoUse2	1
 	Weapon.AmmoType2 "TNTAmmo"
@@ -2075,7 +2075,6 @@ ACTOR ProxTNT : Ammo
 }
 
 //========== SPRAY CAN ==========//
-// Pegg : Fixed the sound problem in a hacky way.. A_JumpIfInventory shouldn't punish worse net
 ACTOR BurnCheck : Inventory
 {
 	Inventory.Amount 1
@@ -2096,7 +2095,7 @@ ACTOR Spraycan : CalebW //replaces PlasmaRifle 2004
 	Height 16
 	+WEAPON.NOALERT
 	+NOAUTOAIM
-	Inventory.PickupMessage "You got the Spraycan!"
+	Inventory.PickupMessage "$SPRYPICK"
 	Inventory.PickupSound "PICKWEAP"
 	Weapon.SelectionOrder 2500
 	Weapon.Kickback 0
@@ -2105,7 +2104,7 @@ ACTOR Spraycan : CalebW //replaces PlasmaRifle 2004
 	Weapon.AmmoGive 0
 	Weapon.AmmoType2 "SprayCanister"
 	Weapon.AmmoUse2 48
-	Obituary "%o was toasted by %k's Aerosol Can!"
+	Obituary "$OB_SCAN"
 	States
 	{
 	Spawn:
@@ -2406,7 +2405,7 @@ ACTOR ShotgunCasing
 	{
 	Spawn:
 		CASS AA 0 A_Recoil(frandom(0,-2))
-		CASS A 0 THRUSTTHINGZ(0,frandom(3,5),0,0)
+		CASS A 0 ThrustThingZ(0,frandom(3,5),0,0)
 		CASS A 0 A_Jump(192,1,2,3,4)
 		CASS BCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFABCDFA 1
 		Stop
@@ -2425,10 +2424,10 @@ ACTOR SawedOff : CalebW 3137// replaces SuperShotgun 82
 	//$Sprite SOSPA0
 	Tag "Sawed-Off"
 	Decal ZBloodBulletChip1
-	Obituary "%o chewed on %k's Sawed off."
+	Obituary "$OB_SOFF"
 	Weapon.AmmoType "shell2"
 	Weapon.AmmoType2 "shell2"
-	Inventory.PickupMessage "You got the Sawed off!"
+	Inventory.PickupMessage "$SAWDPICK"
 	Inventory.PickupSound "PICKWEAP"
 	Weapon.SelectionOrder 80
 	Weapon.Kickback 24
@@ -2725,7 +2724,7 @@ ACTOR TommygunCasing
 ACTOR Tommygun : CalebW 3138 //replaces Chaingun 2002
 {
 	//$Sprite TOMPA0
-	Tag "Tommygun"
+	Tag "Tommy-Gun"
 	Scale 0.6
 	Weapon.AmmoType1 "TommyClip"
 	Weapon.AmmoType2 "TommyClip"
@@ -2741,8 +2740,8 @@ ACTOR Tommygun : CalebW 3138 //replaces Chaingun 2002
 	+THRUSPECIES
 	AttackSound ""
 	Decal ZBloodBulletChip1
-	Obituary "%o sung %k's tommy tune"
-	Inventory.PickupMessage "You got the Tommy Gun!"
+	Obituary "%OB_TOMMY"
+	Inventory.PickupMessage "$TOMMPICK"
 	Inventory.PickupSound "PICKWEAP"
 	States
 	{
@@ -2978,12 +2977,6 @@ ACTOR TommyCounter : Inventory
 	Inventory.MaxAmount 8
 }
 
-ACTOR Justfrandomed : PowerDamage
-{
-	Powerup.Duration 4
-	DamageFactor "nothing", 1.0
-}
-
 ACTOR DoubleTommyGun : Tommygun
 {
 	Weapon.AmmoUse 1
@@ -3094,8 +3087,8 @@ ACTOR NapalmLauncher : CalebW 3139 // 2003
 	Weapon.SisterWeapon DoubleNapalmLauncher
 	+WEAPON.EXPLOSIVE
 	+WEAPON.NOAUTOFIRE
-	Obituary "%k Blew %o with napalm"
-	Inventory.PickupMessage "You got the Incinerator!"
+	Obituary "$OB_NAPL"
+	Inventory.PickupMessage "$NAPLPICK"
 	Inventory.PickupSound "PICKWEAP"
 	States
 	{
@@ -3620,9 +3613,9 @@ ACTOR TeslaRifle : CalebW 3140
 	Weapon.SlotNumber 8
 	+IGNORESKILL
 	+THRUGHOST
-	Inventory.PickupMessage "Picked up Tesla Cannon"
+	Inventory.PickupMessage "$TESLPICK"
 	Inventory.PickupSound "PICKWEAP"
-	Obituary "%o was overcharged by %k."
+	Obituary "$OB_TESL"
 	States
 	{
 	Spawn:
@@ -4104,9 +4097,9 @@ ACTOR LifeLeech : CalebW 3141 //replaces BFG9000 2006 - this weapon needs a prim
 	Weapon.AmmoUse2 0
 	Weapon.AmmoGive 30
 	Weapon.SlotNumber 9
-	Inventory.PickupMessage "You found the Life Leech!"
+	Inventory.PickupMessage "$LECHPICK"
 	Inventory.PickupSound "PICKWEAP"
-	Obituary "%o had %p soul sucked dry by %k."
+	Obituary "$OB_LECH"
 	AttackSound "LLFireInitiate"
 	States
 	{
@@ -4435,9 +4428,9 @@ ACTOR VoodooDoll : CalebW 3142 //replaces Chainsaw 2005
 	Weapon.AmmoType2 "Voodoo"
 	Weapon.SlotNumber 0
 	+WEAPON.NOALERT
-	Inventory.PickupMessage "Voodoo Doll! Find some victims!"
+	Inventory.PickupMessage "$VODOPICK"
 	Inventory.PickupSound "PICKWEAP"
-	Obituary "%o was tingled by %k's voodoo stings."
+	Obituary "%OB_VODO"
 	States
 	{
 	Spawn:

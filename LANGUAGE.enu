@@ -1,0 +1,76 @@
+[enu default]
+
+//QUIT MESSAGES
+QUITMSG  = "Ok, I'll let you out only if it's to read Lovecraft.";
+QUITMSG1 = "If you hate Fornite press N.";
+QUITMSG2 = "Press N to keep seying the lovely smile of Caleb.";
+QUITMSG3 = "Press Y If you're going to quit this game for a good reason, for example commit suicide.";
+QUITMSG4 = "Get the hell out of here, loser. You're not fit to keep playing Bloom.";
+QUITMSG5 = "You're ready to go out on the street and kill them all now.";
+QUITMSG6 = "Repeat with me 'I hate overwatch'.";
+QUITMSG7 = "Press Y if you're another stupid millenial.";
+QUITMSG8 = "If you quit this game away, I'll have to kill you.";
+QUITMSG9 = "Get the hell out of here, loser. You're not fit to keep playing BLOOM.";
+QUITMSG10 = "You're ready to go out on the street and kill them all now.";
+QUITMSG11 = "I'm John Romero.";
+QUITMSG12 = "Press N, 'It promise to be fun'.";
+QUITMSG13 = "If you quit this game away, I'll have to kill you.";
+QUITMSG14 = "Press Y If you're going to quit this game for a good reason, for example commit suicide.";
+
+//AMMO MESSAGES
+BBOX = "Picked up a box of bullets.";
+BDRUM = "Picked up a full drum of bullets.";
+BSBOX = "Picked up a box of shells.";
+BSHEL = "Picked up a few shells.";
+BULLS = "Picked up 15 bullets.";
+FLAR = "Picked up a single flare.";
+FLARBOX = "Picked up a box of flares.";
+GASOCAN = "Picked up a gasoline can.";
+GRENBOXP = "Picked up a box of grenades.";
+MINIGASO = "Picked up a mini gasoline can.";
+SPRPICK = "Got a spray can...";
+TESCBOX = "Picked up a box of tesla charges.";
+TESCHA = "Picked up a tesla charge.";
+TNTAB = "Picked up case of TNT.";
+TNTBUND = "Picked up a bundle of TNT.";
+TNTPB = "Picked up proximity TNT!";
+TNTRB = "Picked up remote dynamite!";
+
+//WEAPONS MESSAGES
+COLTPICK = "You found a colt";
+DYNAPICK = "Picked up a case of TNT!";
+FGUNPICK = "You got the flare gun!";
+FRAGPICK = "You got a Frag Grenade! (Slot 0)";
+GRENPICK = "Picked up a Grenade.";
+LECHPICK = "You found the life leech!";
+NAPLPICK = "You got the Incinerator!";
+PROXPICK = "Got proximity TNT!";
+REMOPICK = "It's time for mindgames!";
+SAWDPICK = "You got the sawed off!";
+SINGPICK = "You got a single-barreled shotgun.";
+SPRYPICK = "You got the spraycan!";
+TESLPICK = "Picked up tesla cannon.";
+TOMMPICK = "You got the tommy gun!";
+VODOPICK = "Voodoo doll! Find some victims!";
+
+//PICKUPS MESSAGES
+ESSENCE = "Picked up a poor soul.";
+
+//OBITUARIES
+OB_COLT = "%o was been shoot to the head by %k.";
+OB_DEFAULT = "\n";
+OB_DYNA = "%o got a faceful of %k's TNT!";
+OB_FGUN = "%o was cooked by %k's flare gun.";
+OB_FORK = "%o was poked by %k.";
+OB_FRAG = "%o was shredded in pieces by %k's grenade.";
+OB_HAND = "%o ate %k grenade.";
+OB_LECH = "%o had %p soul sucked dry by %k.";
+OB_NAPL = "%k blew %o with napalm.";
+OB_PROX = "%o fell in %k's little trap!";
+OB_REMO = "%o found %k's little bomb!";
+OB_SCAN = "%o was toasted by %k's aerosol can!";
+OB_SOFF = "%o chewed on %k's sawed off.";
+OB_SSHOT = "%o was single-barreled to the chest by %k.";
+OB_TESL = "%o was overcharged by %k.";
+OB_TOMMY = "%o sung %k's Tommy tune.";
+OB_VODO = "%o was tingled by %k's voodoo stings.";

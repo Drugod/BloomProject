@@ -192,10 +192,10 @@ ACTOR HandGrenades : DoomW
 	Weapon.SelectionOrder 99999
 	Weapon.AmmoType1 "GrenadeAmmo"
 	Weapon.AmmoType2 "GrenadeAmmo"
-	Obituary "%o was shreded by %k's grenade."
+	Obituary "$OB_FRAG"
     AttackSound "None"
     Inventory.PickupSound "AmmoAPIN"
-	Inventory.Pickupmessage "You got a Frag Grenade! (Slot 0)"
+	Inventory.Pickupmessage "$FRAGPICK"
     +WEAPON.NOAUTOAIM
     +WEAPON.NOALERT
 	+WEAPON.NOAUTOFIRE
@@ -322,7 +322,7 @@ ACTOR HandGrenade
     Health 5
     SeeSound "grenades/grnbnce"
 	DeathSound "none"
-	Obituary "%o ate %k grenade."
+	Obituary "$OB_HAND"
 	States
 	{
 	Spawn:
@@ -358,7 +358,7 @@ ACTOR GrenadeAmmo : Ammo 6666
     Tag "Hand Grenade"
     Inventory.ForbiddenTo "Caleb"
     VisibleToPlayerClass "DoomDude"
-	Inventory.PickupMessage "Picked up a Grenade."
+	Inventory.PickupMessage "$GRENPICK"
 	Inventory.Amount 1
 	Inventory.MaxAmount 10
 	Ammo.BackpackAmount 5
@@ -385,7 +385,7 @@ ACTOR GrenadeBox : GrenadeAmmo
     +INVENTORY.RESTRICTABSOLUTELY
     Inventory.ForbiddenTo "Caleb"
     VisibleToPlayerClass "DoomDude"
-	Inventory.PickupMessage "Picked up a box of grenades."
+	Inventory.PickupMessage "$GRENBOXP"
 	Inventory.Amount 10
 	States
 	{

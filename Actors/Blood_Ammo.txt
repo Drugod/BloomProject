@@ -27,7 +27,7 @@ ACTOR BulletDrum : TommyClip 3147
 	Tag "Bullet Drum"
 	Radius 20
 	Inventory.Amount 25
-	Inventory.PickupMessage "Picked up a full drum of bullets"
+	Inventory.PickupMessage "$BDRUM"
 	States
 	{
 	Spawn:
@@ -47,7 +47,7 @@ ACTOR BulletBox : TommyClip 3148
 	Tag "Bullet Box"
 	Radius 20
 	Inventory.Amount 50
-	Inventory.PickupMessage "Picked up a box of bullets"
+	Inventory.PickupMessage "$BBOX"
 	States
 	{
 	Spawn:
@@ -67,7 +67,7 @@ ACTOR Bullets : TommyClip 3149
 	Tag "Bullets"
 	Radius 20
 	Inventory.Amount 15
-	Inventory.PickupMessage "Picked up 15 bullets"
+	Inventory.PickupMessage "$BULLS"
 	States
 	{
 	Spawn:
@@ -77,18 +77,6 @@ ACTOR Bullets : TommyClip 3149
 		Stop
 	ModelSpawn:
 		UNKN A -1
-		Stop
-	}
-}
-
-ACTOR BulletAmmo2 : TommyClip
-{
-	Inventory.Amount 15
-	Inventory.PickupMessage "Picked up 15 bullets"
-	States
-	{
-	Spawn:
-		2MBO A -1
 		Stop
 	}
 }
@@ -115,7 +103,7 @@ ACTOR BloodShellBox : Shell2 3168//replaces Shellbox
 	Tag "Shell Box"
 	Radius 20
 	Inventory.Amount 20
-	Inventory.PickupMessage "Picked up a box of shells"
+	Inventory.PickupMessage "$BSBOX"
 	States
 	{
 	Spawn:
@@ -135,7 +123,7 @@ ACTOR BloodShells : Shell2 3169//replaces Shell
 	Tag "Shells"
 	Radius 20
 	Inventory.Amount 4
-	Inventory.PickupMessage "Picked up a few shells"
+	Inventory.PickupMessage "$BSHEL"
 	States
 	{
 	Spawn:
@@ -172,7 +160,7 @@ ACTOR TNTAmmoBox : CustomInventory 3166
 	Radius 20
 	Scale 0.8
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.PickupMessage "Picked up case of TNT"
+	Inventory.PickupMessage "$TNTAB"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Amount 5
 	Inventory.MaxAmount 50
@@ -204,7 +192,7 @@ ACTOR TNTBundle : CustomInventory 3145
 	Radius 20
 	Scale 0.5
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.PickupMessage "Picked up a Bundle of TNT"
+	Inventory.PickupMessage "$TNTBUND"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
@@ -228,8 +216,6 @@ ACTOR TNTBundle : CustomInventory 3145
 	}
 }
 
-ACTOR Replacer1 : TNTBundle {} //3145//replaces RocketLauncher
-
 ACTOR RTNTAmmo : Ammo
 {
 	Radius 20
@@ -251,7 +237,7 @@ ACTOR RTNTBox : CustomInventory 3170
 	Radius 20
 	Scale 0.5
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.PickupMessage "Picked up Remote Dynamite!"
+	Inventory.PickupMessage "$TNTRB"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
@@ -300,7 +286,7 @@ ACTOR DTNTBox : CustomInventory 3248
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
 	Inventory.Icon "PROXA0"
-	Inventory.PickupMessage "Picked up proximity TNT!"
+	Inventory.PickupMessage "$TNTPB"
 	Inventory.RestrictedTo "Caleb"
 	VisibleToPlayerClass "Caleb"
 	States
@@ -329,7 +315,7 @@ ACTOR VoodooDollPickup : CustomInventory 3167//replaces Chainsaw
 	Radius 20
 	Scale 0.8
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.PickupMessage "Voodoo Doll! Stab some zombies!"
+	Inventory.PickupMessage "$VODOPICK"
 	Inventory.PickupSound "PICKWEAP"
 	Inventory.Amount 1
 	Inventory.MaxAmount 100
@@ -384,7 +370,7 @@ ACTOR SprayCanisterPickup : CustomInventory 3144//replaces Cell
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.Amount 48
 	Inventory.MaxAmount 288
-	Inventory.PickupMessage "Got a spray can..."
+	Inventory.PickupMessage "$SPRPICK"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.RestrictedTo "Caleb"
 	VisibleToPlayerClass "Caleb"
@@ -405,8 +391,6 @@ ACTOR SprayCanisterPickup : CustomInventory 3144//replaces Cell
 	}
 }
 
-ACTOR Replacer2 : SprayCanisterPickup {} //why this exists? - ozy81
-
 ACTOR -------GASOLINECAN------------ {}
 ACTOR GasolineCan : Ammo 3146
 {
@@ -420,7 +404,7 @@ ACTOR GasolineCan : Ammo 3146
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.Amount 5
 	Inventory.MaxAmount 50
-	Inventory.PickupMessage "Picked up a gasoline can"
+	Inventory.PickupMessage "$GASOCAN"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Icon "GASOA0"
 	Inventory.RestrictedTo "Caleb"
@@ -442,12 +426,11 @@ ACTOR GasolineCan : Ammo 3146
 
 ACTOR MiniGasolineCan : GasolineCan 20083
 {
-	//$Sprite GAS2A0
 	Tag "Mini-Gasoline Can"
 	Radius 10
 	Scale 1.0
 	Inventory.Amount 1
-	Inventory.PickupMessage "Picked up a mini gasoline can"
+	Inventory.PickupMessage "$MINIGASO"
 	Inventory.Icon "GAS2A0"
 	States
 	{
@@ -472,7 +455,7 @@ ACTOR Flares : Ammo 20080
 	Height 8
 	Scale 0.85
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.PickupMessage "Picked up a box of flares"
+	Inventory.PickupMessage "$FLARBOX"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Icon "FGRDA0"
 	Inventory.Amount 8
@@ -504,7 +487,7 @@ ACTOR Flare : Flares 20081
 	Scale 0.4
 	+IGNORESKILL
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.PickupMessage "Picked up a single flare"
+	Inventory.PickupMessage "$FLAR"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Amount 2
 	Inventory.RestrictedTo "Caleb"
@@ -532,7 +515,7 @@ ACTOR TeslaCharge : Ammo 12002
 	Scale 0.3
 	+IGNORESKILL
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.PickupMessage "Picked up a tesla charge"
+	Inventory.PickupMessage "$TESCHA"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Amount 20
 	Inventory.MaxAmount 300
@@ -559,7 +542,7 @@ ACTOR TeslaChargeBox : TeslaCharge 20082
 	Tag "Tesla Charge Box"
 	Radius 30
 	Scale 0.8
-	Inventory.PickupMessage "Picked up a box of tesla charges"
+	Inventory.PickupMessage "$TESCBOX"
 	Inventory.Amount 100
 	States
 	{
@@ -588,7 +571,7 @@ ACTOR EssencePower : Ammo 12004 // 17
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.Amount 12
 	Inventory.MaxAmount 100// Not 120
-	Inventory.PickupMessage "Picked up a poor soul"
+	Inventory.PickupMessage "$ESSENCE"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Icon "ESSEA0"
 	Inventory.RestrictedTo "Caleb"

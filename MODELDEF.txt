@@ -1691,13 +1691,13 @@ Model TeslaCharge
    FrameIndex UNKN A 0 0
 }
 
-Model TeslaChargeBox
+/*Model TeslaChargeBox
 {
    Path "Models/Blood/Ammo/"
    Model 0 "a_battery.md3"
    Scale 1.0 1.0 1.0
    FrameIndex UNKN A 0 0
-}
+}*/
 
 Model RemoteDynamite
 {
@@ -1751,7 +1751,7 @@ Model NapalmLauncher
 {
    Path "Models/Blood/Weapons/"
    Model 0 "w_napalm.md3"
-   Scale 1.0 1.0 1.0
+   Scale 1.7 1.7 1.7
    FrameIndex UNKN A 0 0
 }
 
