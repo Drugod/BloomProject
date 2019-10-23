@@ -3,7 +3,7 @@ Model FlyingBlood
    Path "Models/BloodSpot"
    Model 0 "BloodSpot.md3"
    Skin 0 "bloodTexture.png"  // Model index, texture (can be in any format supported by GZDoom)
-   Scale 2 2 2
+   Scale 2.0 2.0 2.0
    Zoffset 1
    FrameIndex BLUD E 0 2
 }
@@ -13,171 +13,304 @@ Model FlyingAcidrop
    Path "Models/AcidSpot"
    Model 0 "AcidSpot.md3"
    Skin 0 "AcidTexture.png"  // Model index, texture (can be in any format supported by GZDoom)
-   Scale 2 2 2
+   Scale 2.0 2.0 2.0
    Zoffset 1
    FrameIndex ACID E 0 2
 }
 
+//Rolls trains
 Model Modeltrain
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "t1.jpg"
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
 Model Modeltrain
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "t2.jpg"
    FrameIndex UNKN B 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
 Model Modeltrain
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "t3.jpg"
    FrameIndex UNKN C 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
 Model Modeltrain
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "t4.jpg"
    FrameIndex UNKN D 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
 Model Modeltrain2
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "m1.jpg"
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
 Model Modeltrain2
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "m2.jpg"
    FrameIndex UNKN B 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
 Model Modeltrain2
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "m3.jpg"
    FrameIndex UNKN C 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
 Model Modeltrain2
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "m4.jpg"
    FrameIndex UNKN D 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
+
 }
 
 Model Modeltrain3
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "d1.jpg"
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
 Model Modeltrain3
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "d2.jpg"
    FrameIndex UNKN B 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
 Model Modeltrain3
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "d3.jpg"
    FrameIndex UNKN C 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
+
 }
 
 Model Modeltrain3
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "d4.jpg"
    FrameIndex UNKN D 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
 Model Modeltrain4
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "s1.jpg"
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
 Model Modeltrain4
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "s2.jpg"
    FrameIndex UNKN B 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
 Model Modeltrain4
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "s3.jpg"
    FrameIndex UNKN C 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
 Model Modeltrain4
 {
    Path "Models/Train"
-   Model 0 "train.md2"
+   Model 0 "train.md3"
    Skin 0 "s4.jpg"
    FrameIndex UNKN D 0 0
-   Scale 1 1 1
-   Zoffset 1
+   Scale 1.0 1.0 1.0
 }
 
+Model GhostTrain1
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "t1.jpg"
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain1
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "t2.jpg"
+   FrameIndex UNKN B 0 0
+   Scale 1.0 1.0 1.0
+
+}
+
+Model GhostTrain1
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "t3.jpg"
+   FrameIndex UNKN C 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain1
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "t4.jpg"
+   FrameIndex UNKN D 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain2
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "m1.jpg"
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain2
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "m2.jpg"
+   FrameIndex UNKN B 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain2
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "m3.jpg"
+   FrameIndex UNKN C 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain2
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "m4.jpg"
+   FrameIndex UNKN D 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain3
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "d1.jpg"
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain3
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "d2.jpg"
+   FrameIndex UNKN B 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain3
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "d3.jpg"
+   FrameIndex UNKN C 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain3
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "d4.jpg"
+   FrameIndex UNKN D 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain4
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "s1.jpg"
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain4
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "s2.jpg"
+   FrameIndex UNKN B 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain4
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "s3.jpg"
+   FrameIndex UNKN C 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model GhostTrain4
+{
+   Path "Models/Train"
+   Model 0 "train.md3"
+   Skin 0 "s4.jpg"
+   FrameIndex UNKN D 0 0
+   Scale 1.0 1.0 1.0
+}
+
+//Rolls cars
 Model Modelcar1
 {
    Path "Models/Cars"
@@ -186,7 +319,7 @@ Model Modelcar1
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -198,7 +331,7 @@ Model Modelcar2
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -210,7 +343,7 @@ Model Modelcar3
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -222,7 +355,7 @@ Model Modelcar4
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -234,10 +367,11 @@ Model Modelcar5
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
+//Rolls buildings
 Model Building1
 {
    Path "Models/Buildings"
@@ -245,7 +379,7 @@ Model Building1
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -256,7 +390,7 @@ Model Building2
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -269,7 +403,7 @@ Model Building3
    ROTATING
    Rotation-Speed 0.05
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -280,7 +414,7 @@ Model Buildingbase1
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -292,7 +426,7 @@ Model Buildingbase2
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -304,7 +438,7 @@ Model Buildingbase3
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -316,7 +450,7 @@ Model Buildingbase4
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -328,7 +462,7 @@ Model Buildingbase5
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -340,7 +474,7 @@ Model Buildingbase6
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -352,7 +486,7 @@ Model Floorbase1
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -366,7 +500,7 @@ Model Floorbase2
    ROTATING
    Rotation-Speed 0.07
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -378,7 +512,7 @@ Model Buildingpiece1
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -390,7 +524,7 @@ Model Buildingpiece2
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -401,7 +535,7 @@ Model Buildingpiece3
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -414,7 +548,7 @@ Model Buildingpiece3b
    ROTATING
    Rotation-Speed 0.05
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -425,7 +559,7 @@ Model Buildingpiece4
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -440,7 +574,7 @@ Model Buildingpiece5
    Rotation-Speed 0.05
    Rotation-Vector 0.0 1.0 0.0
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -451,7 +585,7 @@ Model lamp1
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -462,7 +596,7 @@ Model lamp2
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -473,7 +607,7 @@ Model lamp3
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -484,7 +618,7 @@ Model lamp4
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -495,7 +629,7 @@ Model lamp5
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -507,7 +641,7 @@ Model Bloodlamp1
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -519,7 +653,7 @@ Model Bloodlamp2
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -531,7 +665,7 @@ Model Bloodlamp3
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -543,7 +677,7 @@ Model Bloodlamp4
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -555,7 +689,7 @@ Model Bloodlamp5
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -567,7 +701,7 @@ Model Contenedor1
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -579,7 +713,7 @@ Model Contenedor2
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -594,7 +728,7 @@ Model Sataniccube
    Rotation-Speed 0.05
    Rotation-Vector 0.0 1.0 0.0
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -609,7 +743,7 @@ Model CylinderSquare1
    Rotation-Speed 0.05
    Rotation-Vector 0.0 1.0 0.0
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -624,7 +758,7 @@ Model CylinderSquare2
    Rotation-Speed 0.05
    Rotation-Vector 0.0 1.0 0.0
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -636,7 +770,7 @@ Model Bricks
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -648,7 +782,7 @@ Model Corner1
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -660,7 +794,7 @@ Model Corner2
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -672,7 +806,7 @@ Model Corner3
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -684,7 +818,7 @@ Model Squares01
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -696,7 +830,7 @@ Model Squares02
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -708,7 +842,7 @@ Model Squares03
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -720,7 +854,7 @@ Model Squares04
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -732,7 +866,7 @@ Model Squares05
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -744,7 +878,7 @@ Model Room1
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -756,7 +890,7 @@ Model Room2a
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -768,7 +902,7 @@ Model Room2b
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -780,7 +914,7 @@ Model bed
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -792,7 +926,7 @@ Model armario1
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -804,7 +938,7 @@ Model armario2
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -816,7 +950,7 @@ Model armario3
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -828,7 +962,7 @@ Model armario4
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -840,7 +974,7 @@ Model armario5
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -852,7 +986,7 @@ Model brokewin1
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -864,7 +998,7 @@ Model brokewin2
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -876,7 +1010,7 @@ Model machin
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -888,7 +1022,7 @@ Model mesa
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -900,7 +1034,7 @@ Model wallbrok1
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -912,7 +1046,7 @@ Model wallbrok2
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -924,7 +1058,7 @@ Model wallbrok3
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -936,7 +1070,7 @@ Model wallbrok4
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -948,7 +1082,7 @@ Model wallbrok5
    INHERITACTORROLL
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -959,7 +1093,7 @@ Model firetrap1
    Model 0 "Tramp.md2"
    Skin 0 "t1.jpg"
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -969,7 +1103,7 @@ Model firetrap1
    Model 0 "Tramp.md2"
    Skin 0 "t2.jpg"
    FrameIndex UNKN B 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -979,7 +1113,7 @@ Model firetrap1
    Model 0 "Tramp.md2"
    Skin 0 "t3.jpg"
    FrameIndex UNKN C 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -989,7 +1123,7 @@ Model firetrap1
    Model 0 "Tramp.md2"
    Skin 0 "t4.jpg"
    FrameIndex UNKN D 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -999,7 +1133,7 @@ Model firetrap1
    Model 0 "Tramp.md2"
    Skin 0 "t5.jpg"
    FrameIndex UNKN E 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1009,7 +1143,7 @@ Model firetrap1
    Model 0 "Tramp.md2"
    Skin 0 "t6.jpg"
    FrameIndex UNKN F 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1019,7 +1153,7 @@ Model icetrap1
    Model 0 "Tramp.md2"
    Skin 0 "i1.jpg"
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1029,7 +1163,7 @@ Model icetrap1
    Model 0 "Tramp.md2"
    Skin 0 "i2.jpg"
    FrameIndex UNKN B 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1039,7 +1173,7 @@ Model icetrap1
    Model 0 "Tramp.md2"
    Skin 0 "i3.jpg"
    FrameIndex UNKN C 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1049,7 +1183,7 @@ Model icetrap1
    Model 0 "Tramp.md2"
    Skin 0 "i4.jpg"
    FrameIndex UNKN D 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1059,7 +1193,7 @@ Model icetrap1
    Model 0 "Tramp.md2"
    Skin 0 "i5.jpg"
    FrameIndex UNKN E 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1069,7 +1203,7 @@ Model icetrap1
    Model 0 "Tramp.md2"
    Skin 0 "i6.jpg"
    FrameIndex UNKN F 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1079,7 +1213,7 @@ Model fleshtrap1
    Model 0 "Tramp.md2"
    Skin 0 "m1.jpg"
    FrameIndex UNKN A 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1089,7 +1223,7 @@ Model fleshtrap1
    Model 0 "Tramp.md2"
    Skin 0 "m2.jpg"
    FrameIndex UNKN B 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1099,7 +1233,7 @@ Model fleshtrap1
    Model 0 "Tramp.md2"
    Skin 0 "m3.jpg"
    FrameIndex UNKN C 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1109,7 +1243,7 @@ Model fleshtrap1
    Model 0 "Tramp.md2"
    Skin 0 "m4.jpg"
    FrameIndex UNKN D 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1119,7 +1253,7 @@ Model fleshtrap1
    Model 0 "Tramp.md2"
    Skin 0 "m5.jpg"
    FrameIndex UNKN E 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1129,7 +1263,7 @@ Model fleshtrap1
    Model 0 "Tramp.md2"
    Skin 0 "m6.jpg"
    FrameIndex UNKN F 0 0
-   Scale 1 1 1
+   Scale 1.0 1.0 1.0
    Zoffset 1
 }
 
@@ -1343,8 +1477,6 @@ Model GrenadeAmmo
    FrameIndex UNKN A 0 0
 }
 
-//GRENADES STUFF NOT INCLUDED YET
-
 //Doom_Weapons.txt replacements, coded by Ozy81 - these doesn't need INHERIT flags
 //Models from www.moddb.com/games/doom/addons/vanilla-doom-3d-models-for-doom-i-ii by TheMacGyverArchiver
 Model Chainsaw_
@@ -1404,3 +1536,87 @@ Model BFG9000_
 }
 
 //PISTOL_ NOT INCLUDED YET
+
+//Doom_Replaces.txt, coded by Ozy81 - these doesn't need INHERIT flags
+//Models from www.moddb.com/games/doom/addons/vanilla-doom-3d-models-for-doom-i-ii by TheMacGyverArchiver
+Model Backpack_
+{
+   Path "Models/Doom/Backpack/"
+   Model 0 "Backpack.md3"
+   Scale 0.4 0.4 0.4
+   FrameIndex UNKN A 0 0
+}
+
+//Blood_Ammo.txt replacements, coded by Ozy81 - these doesn't need INHERIT flags
+//Models from ZBlood and also some from scratch
+Model BulletDrum
+{
+   Path "Models/Blood/Ammo/"
+   Model 0 "a_drum.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model BulletBox //needs a skin - ozy81
+{
+   Path "Models/Blood/Ammo/"
+   Model 0 "a_boxbullet.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model Bullets //needs a better skin - ozy81
+{
+   Path "Models/Blood/Ammo/"
+   Model 0 "a_fewbullet.md3"
+   Scale 2.8 2.8 2.8
+   FrameIndex UNKN A 0 0
+}
+
+Model BloodShellBox
+{
+   Path "Models/Blood/Ammo/"
+   Model 0 "a_boxshell.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model BloodShells
+{
+   Path "Models/Blood/Ammo/"
+   Model 0 "a_fewshell.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model TNTAmmoBox
+{
+   Path "Models/Blood/Ammo/"
+   Model 0 "a_tnt.md3"
+   Scale 2.0 2.0 2.0
+   FrameIndex UNKN A 0 0
+}
+
+Model TNTBundle
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_tnt.md3"
+   Scale 2.0 2.0 2.0
+   FrameIndex UNKN A 0 0
+}
+
+Model TeslaCharge
+{
+   Path "Models/Blood/Ammo/"
+   Model 0 "a_battery.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+Model TeslaChargeBox
+{
+   Path "Models/Blood/Ammo/"
+   Model 0 "a_battery.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}

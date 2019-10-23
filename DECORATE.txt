@@ -22,6 +22,7 @@
 #include Actors/Doom_Weapons.txt
 #include Actors/Blood_Ammo.txt
 #include Actors/Doom_Ammo.txt
+#include Actors/Doom_Replaces.txt
 #include Actors/Monsters_Selector.txt
 #include Actors/Blood_Monsters.txt
 #include Actors/Bloom_Monsters.txt

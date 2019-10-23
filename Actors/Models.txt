@@ -454,7 +454,7 @@ ACTOR Modeltrains : RandomSpawner 18319
 	DropItem "Modeltrain3"
 }
 
-ACTOR Modeltrain 18171
+ACTOR ModelTrain 18171
 {
 	//$Category BlooM Models
 	//$Title Train
@@ -463,22 +463,16 @@ ACTOR Modeltrain 18171
 	//$Arg0Tooltip "Set 1 or higher to stop animation"
 	Radius 76
     Height 56
+	Mass 100
 	-SOLID
 	+MOVEWITHSECTOR
 	+WINDTHRUST
-	RenderStyle "Translucent"
-	Alpha 0
-	Mass 100
 	States
 	{
 	Spawn:
-		UNKN A 0 NODELAY A_SetTranslucent(1.0, 0)
-		UNKN A 4 A_FadeIn(0.1)
-		TNT1 A 1 A_JumpIf(Args[0]>0, "StopTrain")
-		TNT1 A 0 A_Playsound("TRAINMOVE",2,1.0,TRUE)		
-		TNT1 A 0 ACS_NamedExecuteAlways("CheckAlphaTrain",0,0,0,0)
-		Loop
-	Lighter:
+		UNKN A 0 NODELAY
+		UNKN A 1 A_JumpIf(Args[0]>0, "StopTrain")
+		UNKN A 0 A_Playsound("TRAINMOVE",2,1.0,TRUE)
 		UNKN A 0 A_SpawnItemEx ("TrainLight",125.0, 0.0, 300.0)
 		UNKN A 0 A_SpawnItemEx ("TrainLight",225.0, 0.0, 200.0)
 		UNKN A 0 A_SpawnItemEx ("TrainLight",325.0, 0.0, 100.0)
@@ -501,17 +495,45 @@ ACTOR Modeltrain 18171
 		UNKN D 3 A_SpawnItemEx ("TrainLight",525.0, 0.0, 25.0)
 		Loop
 	StopTrain:
-		TNT1 A 0 A_SetTranslucent(1.0, 0)
+		UNKN A 0 A_StopSound(2)
 		UNKN A -1
 		Stop
 	}
 }
 
-ACTOR Modeltrain2: Modeltrain 18320 { //$Title Techtrain
+ACTOR ModelTrain2: Modeltrain 18320 { //$Title Techtrain
 }
-ACTOR Modeltrain3: Modeltrain 18321 { //$Title Bloodytrain
+ACTOR ModelTrain3: Modeltrain 18321 { //$Title Bloodytrain
 }
-ACTOR Modeltrain4: Modeltrain 18324 { //$Title Bloodytrain2
+ACTOR ModelTrain4: Modeltrain 18324 { //$Title Bloodytrain2
+}
+
+ACTOR GhostTrain1: Modeltrain 20001
+{
+	//$Title Ghost Train
+	Renderstyle "Shaded"
+	StencilColor "CC CC CC"
+}
+
+ACTOR GhostTrain2: Modeltrain 20002
+{
+	//$Title Ghost Tech-Train
+	Renderstyle "Shaded"
+	StencilColor "CC CC CC"
+}
+
+ACTOR GhostTrain3: Modeltrain 20003
+{
+	//$Title Ghost Bloody Train 1
+	Renderstyle "Shaded"
+	StencilColor "CC CC CC"
+}
+
+ACTOR GhostTrain4: Modeltrain 20004
+{
+	//$Title Ghost Bloody Train 2
+	Renderstyle "Shaded"
+	StencilColor "CC CC CC"
 }
 
 ACTOR TrainLight
@@ -521,15 +543,15 @@ ACTOR TrainLight
     Scale 1.0
     Mass 5000
     RenderStyle Add
-    alpha 0.25
-    +NOGRAVITY
-	+DONTSPLASH
-    +NOTIMEFREEZE
-	+NOBLOOD
+    Alpha 0.25
 	+ALWAYSPUFF
-	+PUFFONActorS
 	+BLOODLESSIMPACT
+	+DONTSPLASH
+	+NOBLOOD
+	+NOGRAVITY
+	+NOTIMEFREEZE
 	+NOTRIGGER
+	+PUFFONACTORS
 	States
 	{
 	Spawn:

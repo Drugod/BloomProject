@@ -1,5 +1,8 @@
 For Rolls, models which needs to be added:
-- pistol_ actor (not sure if needed due pistolstart, but doesn't have any 3d model)
+- a_boxbullet.md3 needs a skin
+- a_fewbullet.md3 needs a better skin
+- pistol_ needs a 3d model
+- teslacharge voxel and teslachargebox voxel + model
 
 For All:
 - Caleb weapons needs to be fixed, some are swapped or useless, and the Life Leech has a wrong primary fire mode (same of secondary)
@@ -15,6 +18,6 @@ For All:
 - polish overall code
 - reduce size of models skins, 1000x1000 is very engine intensive, 512x512 should be okay... We must figure how to not break quality though
 - remove unused stuff
-- there are a pletora of models that needs to be coded yet, just check inside Models/Doom
-- tweak special effects, bleeding effects and amount of used actors per maps, or at least create something that limits how much far you can see them (DistanceCheck on GZDoom)
+- there are a pletora of models that needs to be coded yet, just check inside Models/Doom and Models/Blood
+- tweak special effects, bleeding effects and amount of used actors per maps
 - verify if unified PNAMES works

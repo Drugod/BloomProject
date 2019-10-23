@@ -1,0 +1,17 @@
+ACTOR -------DOOM_REPLACEMENTS------------ {}
+ACTOR Backpack_ : BackpackItem replaces Backpack
+{
+	Height 26
+	Inventory.PickupMessage "$GOTBACKPACK" // "Picked up a backpack full of ammo!"
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		BPAK A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	}
+}
