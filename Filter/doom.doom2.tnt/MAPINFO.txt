@@ -960,19 +960,13 @@ cluster 5
 ////////////////////////////////////////////////////////////////////////////////
 episode map01
 {
-	name = "$TXT_D2E1"
-	key = "h"
+	name = "$TXT_TNT_EP"
+	key = "t"
 	optional
 }
-
-episode level01
+map MAP01 lookup "THUSTR_1"
 {
-	name = "$TXT_D2E2"
-	key = "n"
-	optional
-}
-map MAP01 lookup "entryway"
-{
+	//titlepatch = "CWILV00"
 	next = "MAP02"
 	secretnext = "MAP02"
 	sky1 = "SKY1"
@@ -981,8 +975,9 @@ map MAP01 lookup "entryway"
 	music = "$MUSIC_RUNNIN"
 }
 
-map MAP02 lookup "underhalls"
+map MAP02 lookup "THUSTR_2"
 {
+	//titlepatch = "CWILV01"
 	next = "MAP03"
 	secretnext = "MAP03"
 	sky1 = "SKY1"
@@ -991,8 +986,9 @@ map MAP02 lookup "underhalls"
 	music = "$MUSIC_STALKS"
 }
 
-map MAP03 lookup "the gantlet"
+map MAP03 lookup "THUSTR_3"
 {
+	//titlepatch = "CWILV02"
 	next = "MAP04"
 	secretnext = "MAP04"
 	sky1 = "SKY1"
@@ -1001,8 +997,9 @@ map MAP03 lookup "the gantlet"
 	music = "$MUSIC_COUNTD"
 }
 
-map MAP04 lookup "the focus"
+map MAP04 lookup "THUSTR_4"
 {
+	//titlepatch = "CWILV03"
 	next = "MAP05"
 	secretnext = "MAP05"
 	sky1 = "SKY1"
@@ -1011,8 +1008,9 @@ map MAP04 lookup "the focus"
 	music = "$MUSIC_BETWEE"
 }
 
-map MAP05 lookup "the waste tunnels"
+map MAP05 lookup "THUSTR_5"
 {
+	//titlepatch = "CWILV04"
 	next = "MAP06"
 	secretnext = "MAP06"
 	sky1 = "SKY1"
@@ -1021,34 +1019,33 @@ map MAP05 lookup "the waste tunnels"
 	music = "$MUSIC_DOOM"
 }
 
-map MAP06 lookup "the crusher"
+map MAP06 lookup "THUSTR_6"
 {
+	//titlepatch = "CWILV05"
 	next = "MAP07"
 	secretnext = "MAP07"
 	sky1 = "SKY1"
 	cluster = 5
 	par = 150
-	sucktime = 1
 	music = "$MUSIC_THE_DA"
+	needclustertext
 }
 
-map MAP07 lookup "dead simple"
+map MAP07 lookup "THUSTR_7"
 {
+	//titlepatch = "CWILV06"
 	next = "MAP08"
 	secretnext = "MAP08"
 	sky1 = "SKY1"
 	cluster = 6
 	par = 120
 	map07special
-	SPECIALACTION = "OriginalFishMancubus","Floor_LowerToLowest",666,8 	
-	SPECIALACTION = "HybridFishMancubus","Floor_LowerToLowest",666,8 	
-	SPECIALACTION = "Arachnoidhybrid","Floor_RaiseByTexture",667,8 	
-	SPECIALACTION = "Arachnoidnormal","Floor_RaiseByTexture",667,8 	
 	music = "$MUSIC_SHAWN"
 }
 
-map MAP08 lookup "tricks and traps"
+map MAP08 lookup "THUSTR_8"
 {
+	//titlepatch = "CWILV07"
 	next = "MAP09"
 	secretnext = "MAP09"
 	sky1 = "SKY1"
@@ -1057,8 +1054,9 @@ map MAP08 lookup "tricks and traps"
 	music = "$MUSIC_DDTBLU"
 }
 
-map MAP09 lookup "the pit"
+map MAP09 lookup "THUSTR_9"
 {
+	//titlepatch = "CWILV08"
 	next = "MAP10"
 	secretnext = "MAP10"
 	sky1 = "SKY1"
@@ -1067,8 +1065,9 @@ map MAP09 lookup "the pit"
 	music = "$MUSIC_IN_CIT"
 }
 
-map MAP10 lookup "refueling base"
+map MAP10 lookup "THUSTR_10"
 {
+	//titlepatch = "CWILV09"
 	next = "MAP11"
 	secretnext = "MAP11"
 	sky1 = "SKY1"
@@ -1077,18 +1076,21 @@ map MAP10 lookup "refueling base"
 	music = "$MUSIC_DEAD"
 }
 
-map MAP11 lookup "'o' of destruction!"
+map MAP11 lookup "THUSTR_11"
 {
+	//titlepatch = "CWILV10"
 	next = "MAP12"
 	secretnext = "MAP12"
 	sky1 = "SKY1"
 	cluster = 6
 	par = 210
 	music = "$MUSIC_STLKS2"
+	needclustertext
 }
 
-map MAP12 lookup "the factory"
+map MAP12 lookup "THUSTR_12"
 {
+	//titlepatch = "CWILV11"
 	next = "MAP13"
 	secretnext = "MAP13"
 	sky1 = "SKY2"
@@ -1097,8 +1099,9 @@ map MAP12 lookup "the factory"
 	music = "$MUSIC_THEDA2"
 }
 
-map MAP13 lookup "downtown"
+map MAP13 lookup "THUSTR_13"
 {
+	//titlepatch = "CWILV12"
 	next = "MAP14"
 	secretnext = "MAP14"
 	sky1 = "SKY2"
@@ -1107,8 +1110,9 @@ map MAP13 lookup "downtown"
 	music = "$MUSIC_DOOM2"
 }
 
-map MAP14 lookup "the inmost dens"
+map MAP14 lookup "THUSTR_14"
 {
+	//titlepatch = "CWILV13"
 	next = "MAP15"
 	secretnext = "MAP15"
 	sky1 = "SKY2"
@@ -1117,18 +1121,21 @@ map MAP14 lookup "the inmost dens"
 	music = "$MUSIC_DDTBL2"
 }
 
-map MAP15 lookup "industrial zone"
+map MAP15 lookup "THUSTR_15"
 {
+	//titlepatch = "CWILV14"
 	next = "MAP16"
 	secretnext = "MAP31"
 	sky1 = "SKY2"
 	cluster = 7
 	par = 210
 	music = "$MUSIC_RUNNI2"
+	needclustertext
 }
 
-map MAP16 lookup "suburbs"
+map MAP16 lookup "THUSTR_16"
 {
+	//titlepatch = "CWILV15"
 	next = "MAP17"
 	secretnext = "MAP17"
 	sky1 = "SKY2"
@@ -1137,8 +1144,9 @@ map MAP16 lookup "suburbs"
 	music = "$MUSIC_DEAD2"
 }
 
-map MAP17 lookup "tenements"
+map MAP17 lookup "THUSTR_17"
 {
+	//titlepatch = "CWILV16"
 	next = "MAP18"
 	secretnext = "MAP18"
 	sky1 = "SKY2"
@@ -1147,8 +1155,9 @@ map MAP17 lookup "tenements"
 	music = "$MUSIC_STLKS3"
 }
 
-map MAP18 lookup "the courtyard"
+map MAP18 lookup "THUSTR_18"
 {
+	//titlepatch = "CWILV17"
 	next = "MAP19"
 	secretnext = "MAP19"
 	sky1 = "SKY2"
@@ -1157,8 +1166,9 @@ map MAP18 lookup "the courtyard"
 	music = "$MUSIC_ROMERO"
 }
 
-map MAP19 lookup "the citadel"
+map MAP19 lookup "THUSTR_19"
 {
+	//titlepatch = "CWILV18"
 	next = "MAP20"
 	secretnext = "MAP20"
 	sky1 = "SKY2"
@@ -1167,18 +1177,21 @@ map MAP19 lookup "the citadel"
 	music = "$MUSIC_SHAWN2"
 }
 
-map MAP20 lookup "gotcha!"
+map MAP20 lookup "THUSTR_20"
 {
+	//titlepatch = "CWILV19"
 	next = "MAP21"
 	secretnext = "MAP21"
 	sky1 = "SKY2"
 	cluster = 7
 	par = 150
 	music = "$MUSIC_MESSAG"
+	needclustertext
 }
 
-map MAP21 lookup "nirvana"
+map MAP21 lookup "THUSTR_21"
 {
+	//titlepatch = "CWILV20"
 	next = "MAP22"
 	secretnext = "MAP22"
 	sky1 = "SKY3"
@@ -1187,8 +1200,9 @@ map MAP21 lookup "nirvana"
 	music = "$MUSIC_COUNT2"
 }
 
-map MAP22 lookup "the catacombs"
+map MAP22 lookup "THUSTR_22"
 {
+	//titlepatch = "CWILV21"
 	next = "MAP23"
 	secretnext = "MAP23"
 	sky1 = "SKY3"
@@ -1197,8 +1211,9 @@ map MAP22 lookup "the catacombs"
 	music = "$MUSIC_DDTBL3"
 }
 
-map MAP23 lookup "barrels o' fun"
+map MAP23 lookup "THUSTR_23"
 {
+	//titlepatch = "CWILV22"
 	next = "MAP24"
 	secretnext = "MAP24"
 	sky1 = "SKY3"
@@ -1207,8 +1222,9 @@ map MAP23 lookup "barrels o' fun"
 	music = "$MUSIC_AMPIE"
 }
 
-map MAP24 lookup "the chasm"
+map MAP24 lookup "THUSTR_24"
 {
+	//titlepatch = "CWILV23"
 	next = "MAP25"
 	secretnext = "MAP25"
 	sky1 = "SKY3"
@@ -1217,8 +1233,9 @@ map MAP24 lookup "the chasm"
 	music = "$MUSIC_THEDA3"
 }
 
-map MAP25 lookup "bloodfalls"
+map MAP25 lookup "THUSTR_25"
 {
+	//titlepatch = "CWILV24"
 	next = "MAP26"
 	secretnext = "MAP26"
 	sky1 = "SKY3"
@@ -1227,8 +1244,9 @@ map MAP25 lookup "bloodfalls"
 	music = "$MUSIC_ADRIAN"
 }
 
-map MAP26 lookup "the abandoned mines"
+map MAP26 lookup "THUSTR_26"
 {
+	//titlepatch = "CWILV25"
 	next = "MAP27"
 	secretnext = "MAP27"
 	sky1 = "SKY3"
@@ -1237,8 +1255,9 @@ map MAP26 lookup "the abandoned mines"
 	music = "$MUSIC_MESSG2"
 }
 
-map MAP27 lookup "monster condo"
+map MAP27 lookup "THUSTR_27"
 {
+	//titlepatch = "CWILV26"
 	next = "MAP28"
 	secretnext = "MAP28"
 	sky1 = "SKY3"
@@ -1247,8 +1266,9 @@ map MAP27 lookup "monster condo"
 	music = "$MUSIC_ROMER2"
 }
 
-map MAP28 lookup "the spirit world"
+map MAP28 lookup "THUSTR_28"
 {
+	//titlepatch = "CWILV27"
 	next = "MAP29"
 	secretnext = "MAP29"
 	sky1 = "SKY3"
@@ -1257,8 +1277,9 @@ map MAP28 lookup "the spirit world"
 	music = "$MUSIC_TENSE"
 }
 
-map MAP29 lookup "the living end"
+map MAP29 lookup "THUSTR_29"
 {
+	//titlepatch = "CWILV28"
 	next = "MAP30"
 	secretnext = "MAP30"
 	sky1 = "SKY3"
@@ -1267,8 +1288,9 @@ map MAP29 lookup "the living end"
 	music = "$MUSIC_SHAWN3"
 }
 
-map MAP30 lookup "icon of sin"
+map MAP30 lookup "THUSTR_30"
 {
+	//titlepatch = "CWILV29"
 	next = "EndGameC"
 	secretnext = "EndGameC"
 	sky1 = "SKY3"
@@ -1276,20 +1298,24 @@ map MAP30 lookup "icon of sin"
 	par = 180
 	allowmonstertelefrags
 	music = "$MUSIC_OPENIN"
+	needclustertext
 }
 
-map MAP31 lookup "wolfenstein"
+map MAP31 lookup "THUSTR_31"
 {
+	//titlepatch = "CWILV30"
 	next = "MAP16"
 	secretnext = "MAP32"
 	sky1 = "SKY3"
 	cluster = 9
 	par = 120
 	music = "$MUSIC_EVIL"
+	needclustertext
 }
 
-map MAP32 lookup "grosse"
+map MAP32 lookup "THUSTR_32"
 {
+	//titlepatch = "CWILV31"
 	next = "MAP16"
 	secretnext = "MAP16"
 	sky1 = "SKY3"
@@ -1303,9 +1329,7 @@ map MAP32 lookup "grosse"
 cluster 5
 {
 	flat = "$BGFLAT06"
-	music = "$MUSIC_READ_M"
-	exittext = lookup, "C1TEXT"
-
+	exittext = lookup, "T1TEXT"
 }
 
 // DOOM II second cluster (up thru level 11)
@@ -1313,9 +1337,7 @@ cluster 5
 cluster 6
 {
 	flat = "$BGFLAT11"
-	music = "$MUSIC_READ_M"
-	exittext = lookup, "C2TEXT"
-
+	exittext = lookup, "T2TEXT"
 }
 
 // DOOM II third cluster (up thru level 20)
@@ -1323,8 +1345,7 @@ cluster 6
 cluster 7
 {
 	flat = "$BGFLAT20"
-	music = "$MUSIC_READ_M"
-	exittext = lookup, "C3TEXT"
+	exittext = lookup, "T3TEXT"
 }
 
 // DOOM II fourth cluster (up thru level 30)
@@ -1332,8 +1353,7 @@ cluster 7
 cluster 8
 {
 	flat = "$BGFLAT30"
-	music = "$MUSIC_READ_M"
-	exittext = lookup, "C4TEXT"
+	exittext = lookup, "T4TEXT"
 }
 
 // DOOM II fifth cluster (level 31)
@@ -1341,8 +1361,7 @@ cluster 8
 cluster 9
 {
 	flat = "$BGFLAT15"
-	music = "$MUSIC_READ_M"
-	entertext = lookup, "C5TEXT"
+	entertext = lookup, "T5TEXT"
 }
 
 // DOOM II sixth cluster (level 32)
@@ -1350,8 +1369,7 @@ cluster 9
 cluster 10
 {
 	flat = "$BGFLAT31"
-	music = "$MUSIC_READ_M"
-	entertext = lookup, "C6TEXT"
+	entertext = lookup, "T6TEXT"
 }
 
 clearskills
