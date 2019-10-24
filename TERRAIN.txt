@@ -1,26 +1,26 @@
 //SPLASHES DEFS//
-splash 	nukage
+splash nukage
 {
-	smallclass 	nukageSplashBase
+	smallclass 		nukagesplashbase
 	smallclip		6
 	//smallsound	world/lavasizzlesmall
-	baseclass		nukageSplashBase
+	baseclass		nukagesplashbase
 	chunkclass	    sludgechunk
 	chunkxvelshift	8
 	chunkyvelshift	8
 	chunkzvelshift	6
 	chunkbasezvel	2
-	sound		world/lavasizzle
+	sound			world/lavasizzle
 	NoAlert
 }
 
-splash Slime
+splash slime
 {
-	smallclass		SlimeSplashBaseSmall
+	smallclass		slimesplashbasesmall
 	smallclip		16
 	smallsound		world/sludgegloopsmall
-	baseclass		SlimeSplashBase
-	chunkclass		SlimeChunk
+	baseclass		slimesplashbase
+	chunkclass		slimechunk
 	chunkxvelshift	8
 	chunkyvelshift	8
 	chunkzvelshift	8
@@ -29,48 +29,48 @@ splash Slime
 	NoAlert
 }
 
-splash 	water
+splash water
 {
-	smallclass 	watersplashbasesmall
+	smallclass 		watersplashbasesmall
 	smallclip		16
-	//smallsound	dssplash
+	smallsound		world/watersplashsmall
 	baseclass		watersplashbase2
 	chunkclass		watersplash
 	chunkxvelshift	8
 	chunkyvelshift	8
 	chunkzvelshift	8
 	chunkbasezvel	2
-	sound		water
+	sound			world/watersplash
 	NoAlert
 }
 
-splash 	blood
+splash blood
 {
-	smallclass 	bloodsplashbasesmall
+	smallclass 		bloodsplashbasesmall
 	smallclip		16
-	//smallsound	world/sludgegloopsmall
+	smallsound		world/sludgegloopsmall
 	baseclass		bloodsplashbase3
-	chunkclass	bloodsplash
+	chunkclass		bloodsplash
 	chunkxvelshift	8
 	chunkyvelshift	8
 	chunkzvelshift	8
 	chunkbasezvel	2
-	sound		world/sludgegloop
+	sound			world/sludgegloop
 	NoAlert
 }
 
-splash 	lava
+splash lava
 {
-	smallclass 	lavasplash
+	smallclass 		lavasplash
 	smallclip		10
-	//smallsound	world/lavasizzlesmall
+	smallsound		world/lavasizzlesmall
 	baseclass		lavasplash
-	//chunkclass	    lavasmoke2
+	//chunkclass	lavasmoke2
 	chunkxvelshift	-1
 	chunkyvelshift	-1
 	chunkzvelshift	2
 	chunkbasezvel	1
-	sound		world/lavasizzle
+	sound			world/lavasizzle
 	NoAlert
 }
 
@@ -78,7 +78,7 @@ splash carpet
 {
 	smallclass		None
 	smallclip		0
-	smallsound		njmt
+	smallsound		None
 	baseclass		None
 	chunkclass		None
 	chunkxvelshift	0
@@ -93,7 +93,7 @@ splash dirt
 {
 	smallclass		None
 	smallclip		0
-	smallsound		njmt
+	smallsound		None
 	baseclass		None
 	chunkclass		None
 	chunkxvelshift	0
@@ -108,7 +108,7 @@ splash gravel
 {
 	smallclass		None
 	smallclip		0
-	smallsound		njmt
+	smallsound		None
 	baseclass		None
 	chunkclass		None
 	chunkxvelshift	0
@@ -123,7 +123,7 @@ splash metal
 {
 	smallclass		None
 	smallclip		0
-	smallsound		njmt
+	smallsound		None
 	baseclass		None
 	chunkclass		None
 	chunkxvelshift	0
@@ -138,7 +138,7 @@ splash metal2
 {
 	smallclass		None
 	smallclip		0
-	smallsound		njmt
+	smallsound		None
 	baseclass		None
 	chunkclass		None
 	chunkxvelshift	0
@@ -153,7 +153,7 @@ splash rock
 {
 	smallclass		None
 	smallclip		0
-	smallsound		njmt
+	smallsound		None
 	baseclass		None
 	chunkclass		None
 	chunkxvelshift	0
@@ -168,7 +168,7 @@ splash slimy
 {
 	smallclass		None
 	smallclip		0
-	smallsound		njmt
+	smallsound		None
 	baseclass		None
 	chunkclass		None
 	chunkxvelshift	0
@@ -183,7 +183,7 @@ splash snow
 {
 	smallclass		None
 	smallclip		0
-	smallsound		njmt
+	smallsound		None
 	baseclass		None
 	chunkclass		None
 	chunkxvelshift	0
@@ -198,7 +198,7 @@ splash hard
 {
 	smallclass		None
 	smallclip		0
-	smallsound		njmt
+	smallsound		None
 	baseclass		None
 	chunkclass		None
 	chunkxvelshift	0
@@ -213,7 +213,7 @@ splash tile
 {
 	smallclass		None
 	smallclip		0
-	smallsound		njmt
+	smallsound		None
 	baseclass		None
 	chunkclass		None
 	chunkxvelshift	0
@@ -228,7 +228,7 @@ splash tile2
 {
 	smallclass		None
 	smallclip		0
-	smallsound		njmt
+	smallsound		None
 	baseclass		None
 	chunkclass		None
 	chunkxvelshift	0
@@ -243,7 +243,7 @@ splash wood
 {
 	smallclass		None
 	smallclip		0
-	smallsound		njmt
+	smallsound		None
 	baseclass		None
 	chunkclass		None
 	chunkxvelshift	0
@@ -254,156 +254,163 @@ splash wood
 	NoAlert
 }
 
-//TERRAIN DEFS//
-terrain	 nukage
+splash electric
 {
-	splash 	nukage
-	footclip	 6
+	smallclass		None
+	smallclip		0
+	smallsound		None
+	baseclass		None
+	chunkclass		None
+	chunkxvelshift	0
+	chunkyvelshift	0
+	chunkzvelshift	0
+	chunkbasezvel	0
+	sound			floor/electric
+	NoAlert
+}
+
+splash flesh
+{
+	smallclass      None
+	smallclip       0
+	smallsound		None
+	baseclass       None
+	chunkclass      None
+	chunkxvelshift  0
+	chunkyvelshift  0
+	chunkzvelshift  0
+	chunkbasezvel   0
+	sound           floor/flesh
+	NoAlert
+}
+
+//TERRAIN DEFS//
+terrain	lava
+{
+	damagetype "Fire"
+	footclip 6
 	liquid
+	splash lava
+}
+
+terrain	electric
+{
+	damagetype "Electric"
+	footclip 0
+	splash electric
+}
+
+terrain	nukage
+{
+	footclip 6
+	liquid
+	splash nukage
 }
 
 terrain	water
 {
-	splash 	water
-	footclip	 6
+	footclip 6
 	liquid
-}
-
-terrain	lava
-{
-	splash 	lava
-	footclip	 6
-	liquid
-	damagetype		"Fire"
+	splash water
 }
 
 terrain	blood
 {
-	footclip	 6
+	footclip 6
 	liquid
-	splash 	blood
+	splash blood
 }
 
-terrain Slime
+terrain slime
 {
-	footclip	 6
+	footclip 6
 	liquid
-	splash Slime
+	splash slime
+}
+
+terrain flesh
+{
+	footclip 0
+	splash flesh
 }
 
 terrain carpet
 {
-	splash			carpet
-	footclip		0
-	//liquid//
+	footclip 0
+	splash carpet
 }
 
 terrain dirt
 {
-	splash			dirt
-	footclip		0
-	//liquid//
+	footclip 0
+	splash dirt
 }
 
 terrain gravel
 {
-	splash			gravel
-	footclip		0
-	//liquid//
+	footclip 0
+	splash gravel
 }
 
 terrain metal
 {
-	splash			metal
-	footclip		0
-	//liquid//
+	footclip 0
+	splash metal
 }
 
 terrain metal2
 {
-	splash			metal2
-	footclip		0
-	//liquid//
+	footclip 0
+	splash metal2
 }
 
 terrain rock
 {
-	splash			rock
-	footclip		0
-	//liquid//
+	footclip 0
+	splash rock
 }
 
 terrain snow
 {
-	splash			snow
-	footclip		0
-	//liquid//
+	footclip 0
+	splash snow
 }
 
 terrain slimy
 {
-	splash			slimy
-	footclip		0
-	//liquid//
+	footclip 0
+	splash slimy
 }
 
 terrain hard
 {
-	splash			hard
-	footclip		0
-	//liquid//
+	footclip 0
+	splash hard
 }
 
 terrain tile
 {
-	splash			tile
-	footclip		0
-	//liquid//
+	footclip 0
+	splash tile
 }
 
 terrain tile2
 {
-	splash			tile2
-	footclip		0
-	//liquid//
+	footclip 0
+	splash tile2
 }
 
 terrain wood
 {
-	splash			wood
-	footclip		0
-	//liquid//
+	footclip 0
+	splash wood
 }
 
-//THE DEFS//
+//DOOM DEFS//
 ifdoom
-
-//Splash floors first
-floor BLOOD1 Blood
-floor BLOOD2 Blood
-floor BLOOD3 Blood
-floor FWATER1 Water
-floor FWATER2 Water
-floor FWATER3 Water
-floor FWATER4 Water
-floor FWATER02 Water
-floor LAVA1 Lava
-floor LAVA2 Lava
-floor LAVA3 Lava
-floor LAVA4 Lava
-floor NUKAGE1 Nukage
-floor NUKAGE2 Nukage
-floor NUKAGE3 Nukage
-floor SLIME01 Slime
-floor SLIME02 Slime
-floor SLIME03 Slime
-floor SLIME04 Slime
-floor SLIME05 Slime
-floor SLIME06 Slime
-floor SLIME07 Slime
-floor SLIME08 Slime
-
-//Everything else
+floor BLOOD1 blood
+floor BLOOD2 blood
+floor BLOOD3 blood
 floor CEIL1_1 wood
 floor CEIL1_2 metal
 floor CEIL1_3 tile
@@ -423,6 +430,7 @@ floor COMP01 tile
 floor CONS1_1 tile
 floor CONS1_5 tile
 floor CONS1_7 tile
+floor CONS1_9 tile
 floor CRATOP1 wood
 floor CRATOP2 wood
 floor DEM1_1 tile2
@@ -479,6 +487,11 @@ floor FLOOR6_1 gravel
 floor FLOOR6_2 gravel
 floor FLOOR7_1 hard
 floor FLOOR7_2 tile2
+floor FWATER02 water
+floor FWATER1 water
+floor FWATER2 water
+floor FWATER3 water
+floor FWATER4 water
 floor GATE1 metal
 floor GATE2 metal
 floor GATE3 metal
@@ -487,6 +500,10 @@ floor GRASS1 dirt
 floor GRASS2 dirt
 floor GRNLITE1 hard
 floor GRNROCK rock
+floor LAVA1 lava
+floor LAVA2 lava
+floor LAVA3 lava
+floor LAVA4 lava
 floor METAL metal2
 floor METAL1 metal2
 floor METAL2 metal2
@@ -494,6 +511,9 @@ floor MFLR8_1 hard
 floor MFLR8_2 rock
 floor MFLR8_3 rock
 floor MFLR8_4 dirt
+floor NUKAGE1 nukage
+floor NUKAGE2 nukage
+floor NUKAGE3 nukage
 floor REDWALL rock
 floor RROCK03 rock
 floor RROCK04 rock
@@ -515,6 +535,18 @@ floor SFLR7_1 slimy
 floor SFLR7_4 slimy
 floor SHAWN1 metal2
 floor SHAWN2 metal2
+floor SLIME01 slime
+floor SLIME02 slime
+floor SLIME03 slime
+floor SLIME04 slime
+floor SLIME05 slime
+floor SLIME06 slime
+floor SLIME07 slime
+floor SLIME08 slime
+floor SLIME09 lava
+floor SLIME10 lava
+floor SLIME11 lava
+floor SLIME12 lava
 floor SLIME13 rock
 floor SLIME14 metal2
 floor SLIME15 metal2
@@ -526,8 +558,210 @@ floor TLITE6_1 tile
 floor TLITE6_4 tile
 floor TLITE6_5 tile
 floor TLITE6_6 tile
-floor TLITE6_6 tile
 floor WOOD1 wood
 floor WOODVERT wood
-
 endif
+
+//BLOOM DEFS//
+floor FHDB01 blood
+floor FHDB02 blood
+floor FHDB03 blood
+floor FHDB04 blood
+floor FHDB05 blood
+floor FHDB06 blood
+floor FHDB07 blood
+floor FHDB08 blood
+floor FHDB09 blood
+floor FHDB10 blood
+floor FHDB11 blood
+floor FHDB12 blood
+floor FHDB13 blood
+floor FHDB14 blood
+floor FHDB15 blood
+floor FHDB16 blood
+floor FHDB17 blood
+floor FHDB18 blood
+floor FHDB19 blood
+floor FHDB20 blood
+floor FHDB21 blood
+floor FHDB22 blood
+floor FHDB23 blood
+floor FHDB24 blood
+floor FHDB25 blood
+floor FHDB26 blood
+floor FHDB27 blood
+floor FHDB28 blood
+floor FHDB29 blood
+floor FHDB30 blood
+floor FHDB31 blood
+floor FHDB32 blood
+floor FHDM01 slime
+floor FHDM02 slime
+floor FHDM03 slime
+floor FHDM04 slime
+floor FHDM05 slime
+floor FHDM06 slime
+floor FHDM07 slime
+floor FHDM08 slime
+floor FHDM09 slime
+floor FHDM10 slime
+floor FHDM11 slime
+floor FHDM12 slime
+floor FHDM13 slime
+floor FHDM14 slime
+floor FHDM15 slime
+floor FHDM16 slime
+floor FHDM17 slime
+floor FHDM18 slime
+floor FHDM19 slime
+floor FHDM20 slime
+floor FHDM21 slime
+floor FHDM22 slime
+floor FHDM23 slime
+floor FHDM24 slime
+floor FHDM25 slime
+floor FHDM26 slime
+floor FHDM27 slime
+floor FHDM28 slime
+floor FHDM29 slime
+floor FHDM30 slime
+floor FHDM31 slime
+floor FHDM32 slime
+floor FHDS01 nukage
+floor FHDS02 nukage
+floor FHDS03 nukage
+floor FHDS04 nukage
+floor FHDS05 nukage
+floor FHDS06 nukage
+floor FHDS07 nukage
+floor FHDS08 nukage
+floor FHDS09 nukage
+floor FHDS10 nukage
+floor FHDS11 nukage
+floor FHDS12 nukage
+floor FHDS13 nukage
+floor FHDS14 nukage
+floor FHDS15 nukage
+floor FHDS16 nukage
+floor FHDS17 nukage
+floor FHDS18 nukage
+floor FHDS19 nukage
+floor FHDS20 nukage
+floor FHDS21 nukage
+floor FHDS22 nukage
+floor FHDS23 nukage
+floor FHDS24 nukage
+floor FHDS25 nukage
+floor FHDS26 nukage
+floor FHDS27 nukage
+floor FHDS28 nukage
+floor FHDS29 nukage
+floor FHDS30 nukage
+floor FHDS31 nukage
+floor FHDS32 nukage
+floor FHDW01 water
+floor FHDW02 water
+floor FHDW03 water
+floor FHDW04 water
+floor FHDW05 water
+floor FHDW06 water
+floor FHDW07 water
+floor FHDW08 water
+floor FHDW09 water
+floor FHDW10 water
+floor FHDW11 water
+floor FHDW12 water
+floor FHDW13 water
+floor FHDW14 water
+floor FHDW15 water
+floor FHDW16 water
+floor FHDW17 water
+floor FHDW18 water
+floor FHDW19 water
+floor FHDW20 water
+floor FHDW21 water
+floor FHDW22 water
+floor FHDW23 water
+floor FHDW24 water
+floor FHDW25 water
+floor FHDW26 water
+floor FHDW27 water
+floor FHDW28 water
+floor FHDW29 water
+floor FHDW30 water
+floor FHDW31 water
+floor FHDW32 water
+floor FHDZ01 slime
+floor FHDZ01 slime
+floor FHDZ02 slime
+floor FHDZ02 slime
+floor FHDZ03 slime
+floor FHDZ03 slime
+floor FHDZ04 slime
+floor FHDZ04 slime
+floor FHDZ05 slime
+floor FHDZ05 slime
+floor FHDZ06 slime
+floor FHDZ06 slime
+floor FHDZ07 slime
+floor FHDZ07 slime
+floor FHDZ08 slime
+floor FHDZ08 slime
+floor FHDZ09 slime
+floor FHDZ09 slime
+floor FHDZ10 slime
+floor FHDZ10 slime
+floor FHDZ11 slime
+floor FHDZ11 slime
+floor FHDZ12 slime
+floor FHDZ12 slime
+floor FHDZ13 slime
+floor FHDZ13 slime
+floor FHDZ14 slime
+floor FHDZ14 slime
+floor FHDZ15 slime
+floor FHDZ15 slime
+floor FHDZ16 slime
+floor FHDZ16 slime
+floor FHDZ17 slime
+floor FHDZ17 slime
+floor FHDZ18 slime
+floor FHDZ18 slime
+floor FHDZ19 slime
+floor FHDZ19 slime
+floor FHDZ20 slime
+floor FHDZ20 slime
+floor FHDZ21 slime
+floor FHDZ21 slime
+floor FHDZ22 slime
+floor FHDZ22 slime
+floor FHDZ23 slime
+floor FHDZ23 slime
+floor FHDZ24 slime
+floor FHDZ24 slime
+floor FHDZ25 slime
+floor FHDZ25 slime
+floor FHDZ26 slime
+floor FHDZ26 slime
+floor FHDZ27 slime
+floor FHDZ27 slime
+floor FHDZ28 slime
+floor FHDZ28 slime
+floor FHDZ29 slime
+floor FHDZ29 slime
+floor FHDZ30 slime
+floor FHDZ30 slime
+floor FHDZ31 slime
+floor FHDZ31 slime
+floor FHDZ32 slime
+floor FHDZ32 slime
+floor LAVA11 lava
+floor LAVA21 lava
+floor LAVA31 lava
+floor LAVA41 lava
+floor SLIME101 lava
+floor SLIME111 lava
+floor SLIME121 lava
+floor TILE16 gravel
+floor XTEX01 rock
+floor XTEX02 rock

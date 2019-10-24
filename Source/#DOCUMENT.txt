@@ -19,6 +19,7 @@ InsaneBleed
 LifeLeech
 LifeLeechFlame
 Napalm
+Nothing //pointless for LaughDelay dummy item
 Numbness
 Pitchfork
 PoisonCloud
