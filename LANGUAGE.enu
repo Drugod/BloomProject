@@ -66,6 +66,7 @@ OB_FORK = "%o was poked by %k.";
 OB_FRAG = "%o was shredded in pieces by %k's grenade.";
 OB_HAND = "%o ate %k grenade.";
 OB_LECH = "%o had %p soul sucked dry by %k.";
+OB_LEC2 = "%o was incinerated by %k.";
 OB_NAPL = "%k blew %o with napalm.";
 OB_PROX = "%o fell in %k's little trap!";
 OB_REMO = "%o found %k's little bomb!";
