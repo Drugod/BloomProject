@@ -21,46 +21,46 @@ ACTOR HeadBlood
    {
   Spawn:
   TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
-  BLUD J 0 A_Jump (231,1,2,3,4,5,6,7,8,9,10)
-  BLUD J 4 A_Jump (127, 1)
+  BLUD J 0 A_Jump(231,1,2,3,4,5,6,7,8,9,10)
+  BLUD J 4 A_Jump(127, 1)
   BLUD K 4 A_SpawnItem("BloodTrail")
-  BLUD L 4 A_Jump (127, 1)
+  BLUD L 4 A_Jump(127, 1)
   BLUD M 4 A_SpawnItem("BloodTrail")
-  BLUD N 4 A_Jump (127, 1)
+  BLUD N 4 A_Jump(127, 1)
   BLUD X 4 A_SpawnItem("BloodTrail")
-  BLUD Y 4 A_Jump (127, 1)
+  BLUD Y 4 A_Jump(127, 1)
   BLUD Z 4 A_SpawnItem("BloodTrail")
-  BLUD "[" 4 A_Jump (127, 1)
+  BLUD "[" 4 A_Jump(127, 1)
   BLUD "\" 4 A_SpawnItem("BloodTrail")
-  BLUD J 4 A_Jump (127, 1)
+  BLUD J 4 A_Jump(127, 1)
   BLUD K 4 A_SpawnItem("BloodTrail")
-  BLUD L 4 A_Jump (127, 1)
+  BLUD L 4 A_Jump(127, 1)
   BLUD M 4 A_SpawnItem("BloodTrail")
-  BLUD N 4 A_Jump (127, 1)
+  BLUD N 4 A_Jump(127, 1)
   BLUD X 4 A_SpawnItem("BloodTrail")
-  BLUD Y 4 A_Jump (127, 1)
+  BLUD Y 4 A_Jump(127, 1)
   BLUD Z 4 A_SpawnItem("BloodTrail")
-  BLUD "[" 4 A_Jump (127, 1)
+  BLUD "[" 4 A_Jump(127, 1)
   BLUD "\" 4 A_SpawnItem("BloodTrail")
-  BLUD J 4 A_Jump (127, 1)
+  BLUD J 4 A_Jump(127, 1)
   BLUD K 4 A_SpawnItem("BloodTrail")
-  BLUD L 4 A_Jump (127, 1)
+  BLUD L 4 A_Jump(127, 1)
   BLUD M 4 A_SpawnItem("BloodTrail")
-  BLUD N 4 A_Jump (127, 1)
+  BLUD N 4 A_Jump(127, 1)
   BLUD X 4 A_SpawnItem("BloodTrail")
-  BLUD Y 4 A_Jump (127, 1)
+  BLUD Y 4 A_Jump(127, 1)
   BLUD Z 4 A_SpawnItem("BloodTrail")
-  BLUD "[" 4 A_Jump (127, 1)
+  BLUD "[" 4 A_Jump(127, 1)
   BLUD "\" 4 A_SpawnItem("BloodTrail")
-  BLUD J 4 A_Jump (127, 1)
+  BLUD J 4 A_Jump(127, 1)
   BLUD K 4 A_SpawnItem("BloodTrail")
-  BLUD L 4 A_Jump (127, 1)
+  BLUD L 4 A_Jump(127, 1)
   BLUD M 4 A_SpawnItem("BloodTrail")
-  BLUD N 4 A_Jump (127, 1)
+  BLUD N 4 A_Jump(127, 1)
   BLUD X 4 A_SpawnItem("BloodTrail")
-  BLUD Y 4 A_Jump (127, 1)
+  BLUD Y 4 A_Jump(127, 1)
   BLUD Z 4 A_SpawnItem("BloodTrail")
-  BLUD "[" 4 A_Jump (127, 1)
+  BLUD "[" 4 A_Jump(127, 1)
   BLUD "\" 4 A_SpawnItem("BloodTrail")
   Stop
   Death:
@@ -89,7 +89,7 @@ ACTOR ZombieHead
   States
   {
   Spawn:
-		ZHED A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		ZHED A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		ZHED A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		ZHED B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		ZHED C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -124,10 +124,10 @@ ACTOR ZombieHead
 		ZHED P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		//TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
 		TNT1 A 0 A_Jump(127, "Death")
-		goto Spawn+1
+		Goto Spawn+1
 		
   Death:
-	ZHED A 0 A_Jump (240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+	ZHED A 0 A_Jump(240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
 	ZHED B -1 //No A.. that is only for kickable!
     Stop
     ZHED B -1
@@ -172,7 +172,7 @@ ACTOR KickableFlying : ZombieHead
 	+NoExtremeDeath
 	States
 	{
-		ZHED A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		ZHED A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		ZHED A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		ZHED B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		ZHED C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -207,7 +207,7 @@ ACTOR KickableFlying : ZombieHead
 		ZHED O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		ZHED P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
-		goto Spawn+3
+		Goto Spawn+3
 	Death:
 		ZHED AA 1
 		ZHED A 2 //A_Jump(140,"Boom")
@@ -253,7 +253,7 @@ ACTOR KickableHead
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JUMP (256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
+		TNT1 A 0 A_Jump(256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
 	Spawn1:
 		ZHED A 30
 		Loop
@@ -319,7 +319,7 @@ ACTOR ZombimpHead1
   States
   {
   Spawn:
-		ZHE1 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		ZHE1 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		ZHE1 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		ZHE1 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		ZHE1 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -354,10 +354,10 @@ ACTOR ZombimpHead1
 		ZHE1 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		//TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
 		TNT1 A 0 A_Jump(127, "Death")
-		goto Spawn+1
+		Goto Spawn+1
 		
   Death:
-	ZHE1 A 0 A_Jump (240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+	ZHE1 A 0 A_Jump(240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
 	ZHE1 B -1 //No A.. that is only for kickable!
     Stop
     ZHE1 B -1
@@ -402,7 +402,7 @@ ACTOR KickableFlyingZombimp1: ZombimpHead1
 	+NoExtremeDeath
 	States
 	{
-		ZHE1 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		ZHE1 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		ZHE1 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		ZHE1 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		ZHE1 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -437,7 +437,7 @@ ACTOR KickableFlyingZombimp1: ZombimpHead1
 		ZHE1 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		ZHE1 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
-		goto Spawn+3
+		Goto Spawn+3
 	Death:
 		ZHE1 AA 1
 		ZHE1 A 2
@@ -483,7 +483,7 @@ ACTOR KickableHeadZombimp1
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JUMP (256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
+		TNT1 A 0 A_Jump(256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
 	Spawn1:
 		ZHE1 A 30
 		Loop
@@ -549,7 +549,7 @@ ACTOR ZombimpHead2
   States
   {
   Spawn:
-		ZHE2 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		ZHE2 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		ZHE2 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		ZHE2 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		ZHE2 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -583,10 +583,10 @@ ACTOR ZombimpHead2
 		ZHE2 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		ZHE2 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_Jump(127, "Death")
-		goto Spawn+1
+		Goto Spawn+1
 		
   Death:
-	ZHE2 A 0 A_Jump (240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+	ZHE2 A 0 A_Jump(240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
 	ZHE2 B -1 //No A.. that is only for kickable!
     Stop
     ZHE2 B -1
@@ -631,7 +631,7 @@ ACTOR KickableFlyingZombimp2: ZombimpHead2
 	+NoExtremeDeath
 	States
 	{
-		ZHE2 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		ZHE2 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		ZHE2 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		ZHE2 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		ZHE2 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -666,7 +666,7 @@ ACTOR KickableFlyingZombimp2: ZombimpHead2
 		ZHE2 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		ZHE2 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
-		goto Spawn+3
+		Goto Spawn+3
 	Death:
 		ZHE2 AA 1
 		ZHE2 A 2
@@ -713,7 +713,7 @@ ACTOR KickableHeadZombimp2
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JUMP (256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
+		TNT1 A 0 A_Jump(256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
 	Spawn1:
 		ZHE2 A 30
 		Loop
@@ -779,7 +779,7 @@ ACTOR ZombimpHead3
   States
   {
   Spawn:
-		ZHE3 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		ZHE3 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		ZHE3 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		ZHE3 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		ZHE3 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -813,10 +813,10 @@ ACTOR ZombimpHead3
 		ZHE3 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		ZHE3 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_Jump(127, "Death")
-		goto Spawn+1
+		Goto Spawn+1
 		
   Death:
-	ZHE3 A 0 A_Jump (240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+	ZHE3 A 0 A_Jump(240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
 	ZHE3 B -1 //No A.. that is only for kickable!
     Stop
     ZHE3 B -1
@@ -861,7 +861,7 @@ ACTOR KickableFlyingZombimp3: ZombimpHead3
 	+NoExtremeDeath
 	States
 	{
-		ZHE3 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		ZHE3 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		ZHE3 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		ZHE3 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		ZHE3 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -896,7 +896,7 @@ ACTOR KickableFlyingZombimp3: ZombimpHead3
 		ZHE3 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		ZHE3 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
-		goto Spawn+3
+		Goto Spawn+3
 	Death:
 		ZHE3 AA 1
 		ZHE3 A 2
@@ -942,7 +942,7 @@ ACTOR KickableHeadZombimp3
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JUMP (256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
+		TNT1 A 0 A_Jump(256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
 	Spawn1:
 		ZHE3 A 30
 		Loop
@@ -1008,7 +1008,7 @@ ACTOR ZombimpHead4
   States
   {
   Spawn:
-		ZHE4 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		ZHE4 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		ZHE4 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		ZHE4 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		ZHE4 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -1042,10 +1042,10 @@ ACTOR ZombimpHead4
 		ZHE4 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		ZHE4 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_Jump(127, "Death")
-		goto Spawn+1
+		Goto Spawn+1
 		
   Death:
-	ZHE4 A 0 A_Jump (240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+	ZHE4 A 0 A_Jump(240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
 	ZHE4 B -1 //No A.. that is only for kickable!
     Stop
     ZHE4 B -1
@@ -1090,7 +1090,7 @@ ACTOR KickableFlyingZombimp4: ZombimpHead4
 	+NoExtremeDeath
 	States
 	{
-		ZHE4 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		ZHE4 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		ZHE4 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		ZHE4 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		ZHE4 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -1125,7 +1125,7 @@ ACTOR KickableFlyingZombimp4: ZombimpHead4
 		ZHE4 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		ZHE4 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
-		goto Spawn+3
+		Goto Spawn+3
 	Death:
 		ZHE4 AA 1
 		ZHE4 A 2
@@ -1171,7 +1171,7 @@ ACTOR KickableHeadZombimp4
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JUMP (256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
+		TNT1 A 0 A_Jump(256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
 	Spawn1:
 		ZHE4 A 30
 		Loop
@@ -1237,7 +1237,7 @@ ACTOR GhoulHead1
   States
   {
   Spawn:
-		GHE1 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		GHE1 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		GHE1 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		GHE1 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		GHE1 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -1271,10 +1271,10 @@ ACTOR GhoulHead1
 		GHE1 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		GHE1 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_Jump(127, "Death")
-		goto Spawn+1
+		Goto Spawn+1
 		
   Death:
-	GHE1 A 0 A_Jump (240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+	GHE1 A 0 A_Jump(240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
 	GHE1 B -1 //No A.. that is only for kickable!
     Stop
     GHE1 B -1
@@ -1319,7 +1319,7 @@ ACTOR KickableFlyingGhoul1: GhoulHead1
 	+NoExtremeDeath
 	States
 	{
-		GHE1 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		GHE1 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		GHE1 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		GHE1 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		GHE1 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -1354,7 +1354,7 @@ ACTOR KickableFlyingGhoul1: GhoulHead1
 		GHE1 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		GHE1 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
-		goto Spawn+3
+		Goto Spawn+3
 	Death:
 		GHE1 AA 1
 		GHE1 A 2
@@ -1400,7 +1400,7 @@ ACTOR KickableHeadGhoul1
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JUMP (256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
+		TNT1 A 0 A_Jump(256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
 	Spawn1:
 		GHE1 A 30
 		Loop
@@ -1466,7 +1466,7 @@ ACTOR GhoulHead2
   States
   {
   Spawn:
-		GHE2 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		GHE2 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		GHE2 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		GHE2 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		GHE2 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -1500,10 +1500,10 @@ ACTOR GhoulHead2
 		GHE2 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		GHE2 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_Jump(127, "Death")
-		goto Spawn+1
+		Goto Spawn+1
 		
   Death:
-	GHE2 A 0 A_Jump (240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+	GHE2 A 0 A_Jump(240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
 	GHE2 B -1 //No A.. that is only for kickable!
     Stop
     GHE2 B -1
@@ -1548,7 +1548,7 @@ ACTOR KickableFlyingGhoul2: GhoulHead2
 	+NoExtremeDeath
 	States
 	{
-		GHE2 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		GHE2 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		GHE2 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		GHE2 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		GHE2 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -1583,7 +1583,7 @@ ACTOR KickableFlyingGhoul2: GhoulHead2
 		GHE2 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		GHE2 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
-		goto Spawn+3
+		Goto Spawn+3
 	Death:
 		GHE2 AA 1
 		GHE2 A 2
@@ -1629,7 +1629,7 @@ ACTOR KickableHeadGhoul2
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JUMP (256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
+		TNT1 A 0 A_Jump(256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
 	Spawn1:
 		GHE2 A 30
 		Loop
@@ -1695,7 +1695,7 @@ ACTOR GhoulHead3
   States
   {
   Spawn:
-		GHE3 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		GHE3 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		GHE3 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		GHE3 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		GHE3 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -1729,10 +1729,10 @@ ACTOR GhoulHead3
 		GHE3 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		GHE3 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_Jump(127, "Death")
-		goto Spawn+1
+		Goto Spawn+1
 		
   Death:
-	GHE3 A 0 A_Jump (240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+	GHE3 A 0 A_Jump(240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
 	GHE3 B -1 //No A.. that is only for kickable!
     Stop
     GHE3 B -1
@@ -1777,7 +1777,7 @@ ACTOR KickableFlyingGhoul3: GhoulHead3
 	+NoExtremeDeath
 	States
 	{
-		GHE3 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		GHE3 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		GHE3 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		GHE3 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		GHE3 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -1812,7 +1812,7 @@ ACTOR KickableFlyingGhoul3: GhoulHead3
 		GHE3 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		GHE3 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
-		goto Spawn+3
+		Goto Spawn+3
 	Death:
 		GHE3 AA 1
 		GHE3 A 2
@@ -1858,7 +1858,7 @@ ACTOR KickableHeadGhoul3
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JUMP (256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
+		TNT1 A 0 A_Jump(256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
 	Spawn1:
 		GHE3 A 30
 		Loop
@@ -1924,7 +1924,7 @@ ACTOR FanaticHead
   States
   {
   Spawn:
-		WPHE A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		WPHE A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		WPHE A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		WPHE B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		WPHE C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -1958,10 +1958,10 @@ ACTOR FanaticHead
 		WPHE O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		WPHE P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_Jump(127, "Death")
-		goto Spawn+1
+		Goto Spawn+1
 		
   Death:
-	WPHE A 0 A_Jump (240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+	WPHE A 0 A_Jump(240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
 	WPHE B -1 //No A.. that is only for kickable!
     Stop
     WPHE B -1
@@ -2003,10 +2003,10 @@ ACTOR KickableFlyingFanatic: FanaticHead
 	Gravity 0.87
 	BounceCount 4
 	DamageType "StunningHead"
-	+NoExtremeDeath
+	+NOEXTREMEDEATH
 	States
 	{
-		WPHE A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		WPHE A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		WPHE A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		WPHE B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		WPHE C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -2041,7 +2041,7 @@ ACTOR KickableFlyingFanatic: FanaticHead
 		WPHE O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		WPHE P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
-		goto Spawn+3
+		Goto Spawn+3
 	Death:
 		WPHE AA 1
 		WPHE A 2
@@ -2061,33 +2061,33 @@ ACTOR KickableHeadFanatic
 	Height 8
 	Radius 4
 	//Scale 0.5
-	-CountKill
-	+ShootAble
-	-NOBLOCKMAP
-	+SLIDESONWALLS
-	+WINDTHRUST
+	+BLOCKEDBYSOLIDACTORS
+	+BOUNCEONACTORS
+	+BOUNCEONACTORS
+	+BOUNCEONCEILINGS
+	+BOUNCEONFLOORS
+	+BOUNCEONWALLS
 	+DOOMBOUNCE
 	+PUSHABLE
-	+BOUNCEONACTORS
-	+BOUNCEONWALLS
-	+BOUNCEONFLOORS
-	+BOUNCEONCEILINGS
+	+SHOOTABLE
+	+SLIDESONWALLS
 	+SOLID
-	+BOUNCEONACTORS
-	+BLOCKEDBYSOLIDActorS
+	+WINDTHRUST
+	-COUNTKILL
+	-NOBLOCKMAP
 	Speed 1
 	DamageFactor "Normal",0.4
 	DamageFactor "Dynamite",3
 	PainChance "Normal",0
 	PainChance "Stomping",255
-	PainChance Melee,255
+	PainChance "Melee",255
 	PainChance "Lowkick",255
 	PainChance "kick",255
 	States
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JUMP (256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
+		TNT1 A 0 A_Jump(256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
 	Spawn1:
 		WPHE A 30
 		Loop
@@ -2107,9 +2107,9 @@ ACTOR KickableHeadFanatic
 	Pain.Stomping:
 	Pain.Melee:
 	Pain.Lowkick:
-	Pain.kick:
+	Pain.Kick:
 	Pain.Fist:
-	Pain.normal:
+	Pain.Normal:
 		WPHE A 0 A_PlaySound("DSHEDKCK")
 		WPHE A 0 A_FaceTarget
 		WPHE A 0 A_SetAngle(angle+90)
@@ -2118,7 +2118,7 @@ ACTOR KickableHeadFanatic
 	Death.PitchFork:
 	Death.Melee:
 	Death.Lowkick:
-	Death.kick:
+	Death.Kick:
 	Death.Stomping:
 		WPHE A 0 A_PlaySound("DSHEDKCK")
 		WPHE A 0 A_FaceTarget
@@ -2136,24 +2136,24 @@ ACTOR KickableHeadFanatic
 
 ACTOR GhoulHead6
 { 
-  Health 5
-  Radius 8
-  Height 16
-  Speed 10
-  Mass 1
-  PROJECTILE
-  +RANDOMIZE
-  -NOGRAVITY
-  +DOOMBOUNCE
-  +PUSHABLE
-  +BOUNCEONACTORS
-  +CANBOUNCEWATER
-  +FLOORCLIP
-  SeeSound "DSHEDBON"
-  States
-  {
-  Spawn:
-		GHE6 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+	Health 5
+	Radius 8
+	Height 16
+	Speed 10
+	Mass 1
+	PROJECTILE
+	+BOUNCEONACTORS
+	+CANBOUNCEWATER
+	+DOOMBOUNCE
+	+FLOORCLIP
+	+PUSHABLE
+	+RANDOMIZE
+	-NOGRAVITY
+	SeeSound "DSHEDBON"
+	States
+	{
+	Spawn:
+		GHE6 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		GHE6 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		GHE6 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		GHE6 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -2187,43 +2187,42 @@ ACTOR GhoulHead6
 		GHE6 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		GHE6 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_Jump(127, "Death")
-		goto Spawn+1
-		
-  Death:
-	GHE6 A 0 A_Jump (240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-	GHE6 B -1 //No A.. that is only for kickable!
-    Stop
-    GHE6 B -1
-    Stop
-    GHE6 C -1
-    Stop
-    GHE6 D -1
-    Stop
-    GHE6 E -1
-    Stop
-    GHE6 F -1
-    Stop
-    GHE6 G -1
-    Stop
-    GHE6 H -1
-    Stop
-    GHE6 I -1
-    Stop
-    GHE6 J -1
-    Stop
-    GHE6 K -1
-    Stop
-    GHE6 L -1
-    Stop
-    GHE6 M -1
-    Stop
-    GHE6 N -1
-    Stop
-    GHE6 O -1
-    Stop
-    GHE6 P -1
-    Stop
-  }
+		Goto Spawn+1
+	Death:
+		GHE6 A 0 A_Jump(240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+		GHE6 B -1 //No A.. that is only for kickable!
+		Stop
+		GHE6 B -1
+		Stop
+		GHE6 C -1
+		Stop
+		GHE6 D -1
+		Stop
+		GHE6 E -1
+		Stop
+		GHE6 F -1
+		Stop
+		GHE6 G -1
+		Stop
+		GHE6 H -1
+		Stop
+		GHE6 I -1
+		Stop
+		GHE6 J -1
+		Stop
+		GHE6 K -1
+		Stop
+		GHE6 L -1
+		Stop
+		GHE6 M -1
+		Stop
+		GHE6 N -1
+		Stop
+		GHE6 O -1
+		Stop
+		GHE6 P -1
+		Stop
+	}
 }
 
 ACTOR KickableFlyingGhoul6: GhoulHead6
@@ -2232,10 +2231,10 @@ ACTOR KickableFlyingGhoul6: GhoulHead6
 	Gravity 0.87
 	BounceCount 4
 	DamageType "StunningHead"
-	+NoExtremeDeath
+	+NOEXTREMEDEATH
 	States
 	{
-		GHE6 A 0 A_Jump (248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		GHE6 A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
 		GHE6 A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		GHE6 B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
 		GHE6 C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
@@ -2270,7 +2269,7 @@ ACTOR KickableFlyingGhoul6: GhoulHead6
 		GHE6 O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
 		GHE6 P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
 		TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
-		goto Spawn+3
+		Goto Spawn+3
 	Death:
 		GHE6 AA 1
 		GHE6 A 2
@@ -2290,33 +2289,33 @@ ACTOR KickableHeadGhoul6
 	Height 8
 	Radius 4
 	//Scale 0.5
-	-CountKill
-	+ShootAble
-	-NOBLOCKMAP
-	+SLIDESONWALLS
-	+WINDTHRUST
+	+BLOCKEDBYSOLIDACTORS
+	+BOUNCEONACTORS
+	+BOUNCEONACTORS
+	+BOUNCEONCEILINGS
+	+BOUNCEONFLOORS
+	+BOUNCEONWALLS
 	+DOOMBOUNCE
 	+PUSHABLE
-	+BOUNCEONACTORS
-	+BOUNCEONWALLS
-	+BOUNCEONFLOORS
-	+BOUNCEONCEILINGS
+	+SHOOTABLE
+	+SLIDESONWALLS
 	+SOLID
-	+BOUNCEONACTORS
-	+BLOCKEDBYSOLIDActorS
+	+WINDTHRUST
+	-COUNTKILL
+	-NOBLOCKMAP
 	Speed 1
 	DamageFactor "Normal",0.4
 	DamageFactor "Dynamite",3
 	PainChance "Normal",0
 	PainChance "Stomping",255
-	PainChance Melee,255
+	PainChance "Melee",255
 	PainChance "Lowkick",255
-	PainChance "kick",255
+	PainChance "Kick",255
 	States
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JUMP (256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
+		TNT1 A 0 A_Jump(256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
 	Spawn1:
 		GHE6 A 30
 		Loop
@@ -2336,9 +2335,9 @@ ACTOR KickableHeadGhoul6
 	Pain.Stomping:
 	Pain.Melee:
 	Pain.Lowkick:
-	Pain.kick:
+	Pain.Kick:
 	Pain.Fist:
-	Pain.normal:
+	Pain.Normal:
 		GHE6 A 0 A_PlaySound("DSHEDKCK")
 		GHE6 A 0 A_FaceTarget
 		GHE6 A 0 A_SetAngle(angle+90)
@@ -2347,7 +2346,7 @@ ACTOR KickableHeadGhoul6
 	Death.PitchFork:
 	Death.Melee:
 	Death.Lowkick:
-	Death.kick:
+	Death.Kick:
 	Death.Stomping:
 		GHE6 A 0 A_PlaySound("DSHEDKCK")
 		GHE6 A 0 A_FaceTarget
@@ -2373,15 +2372,15 @@ ACTOR FlyingBlood
 	Gravity 0.60
 	Mass 30
 	Projectile
-	-NOGRAVITY
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
 	+DONTSPLASH
 	+FLOORCLIP
-	-SOLID
-	+WINDTHRUST
 	+NOBLOCKMAP
 	+NOPAIN
-	+CLIENTSIDEONLY
-	+CANNOTPUSH
+	+WINDTHRUST
+	-NOGRAVITY
+	-SOLID
 	States
 	{
 	Spawn:
@@ -2391,40 +2390,41 @@ ACTOR FlyingBlood
 		BLUD A 0 A_Jump(127,27)
 		BLUD A 9
 		BLUD AAAAABBBBBCCCCCDDDDEEEEEE 2 A_SpawnItemEX("BloodTrail",Random(-15,15),Random(-15,15))
-	Stop
+		Stop
 		BLUD FFFFFGGGGGHHHHHIIJJJJJJ 3 A_SpawnItem("BloodTrail",Random(-2,2),Random(-2,2))
-	Stop
+		Stop
 	Death:
 		BLUD EEEEE 2 A_SpawnitemEx("RainBlood",Random(-15,15),Random(-15,15))
 		TNT1 A 0 ACS_NamedExecuteAlways("blood_selection",0)
 		TNT1 A 0 A_Stop
 		BLUD A 1
 		BLUD A 1
-	Stop
+		Stop
 	Death0:
 		TNT1 A 1
-	Stop
+		Stop
 	Death1:
 		BLUD EEEEEEEEEE 1 A_FadeOut(0.01)		
-	Loop		
+		Loop		
 	Death2:
 		BLUD EEEEEEEEEE 3 A_FadeOut(0.01)		
-	Loop
+		Loop
 	Death3:
 		BLUD EEEEEEEEEE 6 A_FadeOut(0.01)				
-	Loop	
+		Loop	
 	Death4:
 		BLUD E 1
 		TNT1 A 0 A_CheckSight("Death0")//Blood dissapears if its out of player sight
-	Loop
+		Loop
 	}
 }
 
 ACTOR BloodPool_ replaces BloodPool	//The floor will be a bit dirty this time,these make an i5 LOSE 90 fps so no they wont be ever back
 {
-	+CLIENTSIDEONLY
-	-NOGRAVITY
 	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	-NOGRAVITY
 	Scale 0.65
 	States
 	{
@@ -2435,26 +2435,21 @@ ACTOR BloodPool_ replaces BloodPool	//The floor will be a bit dirty this time,th
 		BLUD A 1
 		BLUD A 1		
 	Death0:
-		//POB2 A 1
 		BLUD E 1
-	Stop
+		Stop
 	Death1:
-		//POB2 AAAAAAAAAA 1 A_FadeOut(0.01)
 		BLUD EEEEEEEEEE 1 A_FadeOut(0.01)						
-	Loop		
+		Loop		
 	Death2:
-		//POB2 AAAAAAAAAA 3 A_FadeOut(0.01)
 		BLUD EEEEEEEEEE 3 A_FadeOut(0.01)						
-	Loop
+		Loop
 	Death3:
-		//POB2 AAAAAAAAAA 6 A_FadeOut(0.01)
 		BLUD EEEEEEEEEE 6 A_FadeOut(0.01)				
-	Loop	
+		Loop	
 	Death4:
-		//POB2 A 1
 		BLUD E 1		
 		TNT1 A 0 A_CheckSight("Death0")//Blood dissapears if its out of player sight		
-	Loop
+		Loop
 	}
 }
 
@@ -2472,294 +2467,279 @@ ACTOR Blood_ : Blood replaces Blood
 		BLUD A 5
 		BLUD B 4 A_SpawnDebris("FlyingBlood")
 		BLUD CDE 3
-	Stop
+		Stop
 		BLUD FF 3 
 		BLUD G 4 A_SpawnDebris("FlyingBlood")
 		BLUD HIJ 3
-	Stop
+		Stop
 	}
 }
 
 ACTOR BloodTrail
 {
-   Radius 1
-   Gravity 0.55
-   Height 1
-   Speed 1
-   Projectile
-   -SOLID
-   +NOPAIN
-   -NOGRAVITY
-   +DONTSPLASH
-   +FLOORCLIP
-   +RANDOMIZE
-   +WINDTHRUST
-   +NOBLOCKMAP
-   +CANNOTPUSH
-   Scale 0.5
- States
- {
-  Spawn:
-	  BLD2 J 0 A_Jump (128,2,3,4,5,6,7,8,9,10)
-	  BLD2 "ABEJKLCDMN" 3
-	  BLD2 J 0 A_Jump (128,2,3,4,5,6,7,8,9,10)
-	  BLD2 "AJKLBCDEMN" 5
-	  BLD2 J 0 A_Jump (128,2,3,4,5,6,7,8,9,10)
-	  BLD2 "ABLMNCDEJK" 4
-	  BLD2 J 0 A_Jump (128,2,3,4,5,6,7,8,9,10)
-	  BLD2 "EJKABCDLMN" 3
-	  BLD2 J 0 A_Jump (128,2,3,4,5,6,7,8,9,10)
-	  BLD2 "AJKLMBCDEN" 5
-  Stop
-  Death:
-	  TNT1 A 0
-	  BLD2 N 0 A_Jump (92, 2)
-	  POB2 A 6 
-	  BLUD E 6
-  Stop
-	  BLD2 F 0 A_Jump (128, 7)
-	  BLD2 F 4 A_PlaySound("Body/Blood")
-	  BLD2 GHI 8
-	  BLD2 I 0 A_Jump (128, 1)
-  goto XDeath  
-	  POB2 A 5 
-	  BLUD E 6 
-	  BLUD E 50 A_FadeOut(0.07) 
-  goto Death+9
-	  BLD2 O 4 A_PlaySound("Body/Blood")
-	  BLD2 PQR 4
-	  BLD2 R 0 A_Jump (128, 1)
-  goto XDeath  
-	  POB2 A 5
-	  BLUD E 5 
-	  BLUD E 50 A_FadeOut(0.07) 	  
-  goto Death+19
-  xDeath:
-      POB2 B 5 A_SpawnItemEX("BloodPool",Random(-10,10),Random(-10,10))
-	  BLUD E 5  A_SpawnItemEX("BloodPool",Random(-10,10),Random(-10,10))
-	  BLUD E 50 A_FadeOut(0.07) 	  	  
-  goto XDeath+1
-  }
+	Radius 1
+	Gravity 0.55
+	Height 1
+	Speed 1
+	Scale 0.5
+	Projectile
+	+CANNOTPUSH
+	+DONTSPLASH
+	+FLOORCLIP
+	+NOBLOCKMAP
+	+NOPAIN
+	+RANDOMIZE
+	+WINDTHRUST
+	-NOGRAVITY
+	-SOLID
+	States
+	{
+	Spawn:
+		BLD2 J 0 A_Jump(128,2,3,4,5,6,7,8,9,10)
+		BLD2 "ABEJKLCDMN" 3
+		BLD2 J 0 A_Jump(128,2,3,4,5,6,7,8,9,10)
+		BLD2 "AJKLBCDEMN" 5
+		BLD2 J 0 A_Jump(128,2,3,4,5,6,7,8,9,10)
+		BLD2 "ABLMNCDEJK" 4
+		BLD2 J 0 A_Jump(128,2,3,4,5,6,7,8,9,10)
+		BLD2 "EJKABCDLMN" 3
+		BLD2 J 0 A_Jump(128,2,3,4,5,6,7,8,9,10)
+		BLD2 "AJKLMBCDEN" 5
+		Stop
+	Death:
+		TNT1 A 0
+		BLD2 N 0 A_Jump(92, 2)
+		POB2 A 6 
+		BLUD E 6
+		Stop
+		BLD2 F 0 A_Jump(128, 7)
+		BLD2 F 4 A_PlaySound("Body/Blood")
+		BLD2 GHI 8
+		BLD2 I 0 A_Jump(128, 1)
+		Goto XDeath  
+		POB2 A 5 
+		BLUD E 6 
+		BLUD E 50 A_FadeOut(0.07) 
+		Goto Death+9
+		BLD2 O 4 A_PlaySound("Body/Blood")
+		BLD2 PQR 4
+		BLD2 R 0 A_Jump(128, 1)
+		Goto XDeath  
+		POB2 A 5
+		BLUD E 5 
+		BLUD E 50 A_FadeOut(0.07) 	  
+		Goto Death+19
+	XDeath:
+		POB2 B 5 A_SpawnItemEX("BloodPool",Random(-10,10),Random(-10,10))
+		BLUD E 5 A_SpawnItemEX("BloodPool",Random(-10,10),Random(-10,10))
+		BLUD E 50 A_FadeOut(0.07) 	  	  
+		Goto XDeath+1
+	}
 }
 
-ACTOR OrganDebris2
+ACTOR OrganDebris
 { 
-  Decal BloodSmear2
-  Health 5
-  Radius 1
-  Height 1
-  Speed 10
-  Mass 1
-  PROJECTILE
-  +DONTSPLASH
-  +RANDOMIZE
-  +FLOORCLIP
-  -NOGRAVITY
-  Species "Organs"
-  +THRUSPECIES
-  +NOBLOCKMAP
-  +WINDTHRUST
-  +CLIENTSIDEONLY
-  -SOLID
-  +CannotPush
-  States
-  {
-  Spawn:
-    OSPN ABCD 3 A_SpawnItem("BloodTrail")
-    Loop
-  Death:
-    BLUD F 2 A_PlaySound("Body/Gibs")
-	BLUD F 0 A_CustomMissile("BloodTrail",frandom(-4,4),frandom(-4,4),frandom(0,360))
-    BLUD GHI 2
-    Stop
-  }
+	Decal BloodSmear
+	Health 5
+	Radius 1
+	Height 1
+	Speed 10
+	Mass 1
+	PROJECTILE
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+FLOORCLIP
+	+NOBLOCKMAP
+	+RANDOMIZE
+	+WINDTHRUST
+	-NOGRAVITY
+	-SOLID
+	DeathSound "Body/Gibs"
+	States
+	{
+	Spawn:
+		OSPN ABCD 3 A_SpawnItem("BloodTrail")
+		Loop
+	Death:
+		BLUD F 2 A_PlaySound("Body/Gibs")
+		BLUD GHI 2
+		Stop
+	}
+}
+
+ACTOR OrganDebris2 : OrganDebris
+{ 
+	Decal BloodSmear2
+	+THRUSPECIES
+	Species "Organs"
+	DeathSound ""
+	States
+	{
+	Spawn:
+		OSPN ABCD 3 A_SpawnItem("BloodTrail")
+		Loop
+	Death:
+		BLUD F 2 A_PlaySound("Body/Gibs")
+		BLUD F 0 A_CustomMissile("BloodTrail",frandom(-4,4),frandom(-4,4),frandom(0,360))
+		BLUD GHI 2
+		Stop
+	}
 }
 
 ACTOR WingDebris
 { 
-  Health 1
-  Radius 8
-  Height 16
-  Speed 10
-  Scale 0.6
-  Mass 1
-  PROJECTILE
-  +DOOMBOUNCE
-  +BOUNCEONACTORS
-  +CANBOUNCEWATER
-  +RANDOMIZE
-  +WINDTHRUST
-  -NOGRAVITY
-  +FLOORCLIP
-  +CannotPush
-  Species "Organs"
-  +THRUSPECIES
-  SeeSound "Body/Gibs"
-  States
-  {
-  Spawn:
-    GWNG ABCDEFG 3
-    Loop
-  Death:
-    GWNG D 1 A_spawnItem("WingDestroyable")
-    Stop
-  }
+	Health 1
+	Radius 8
+	Height 16
+	Speed 10
+	Scale 0.6
+	Mass 1
+	PROJECTILE
+	+BOUNCEONACTORS
+	+CANBOUNCEWATER
+	+CANNOTPUSH
+	+DOOMBOUNCE
+	+FLOORCLIP
+	+RANDOMIZE
+	+THRUSPECIES
+	+WINDTHRUST
+	-NOGRAVITY
+	Species "Organs"
+	SeeSound "Body/Gibs"
+	States
+	{
+	Spawn:
+		GWNG ABCDEFG 3
+		Loop
+	Death:
+		GWNG D 1 A_SpawnItem("WingDestroyable")
+		Stop
+	}
 }
 
 ACTOR WingDestroyable
 {
 	Scale 0.6
 	Health 20
-	+Shootable
-	-Solid
 	Radius 6 
 	Height 10
 	Mass 15
-	Species "Organs"
+	+CANNOTPUSH
+	+SHOOTABLE
 	+THRUSPECIES
-	+CannotPush
+	-SOLID
+	Species "Organs"
 	States
 	{
 	Spawn:
-	 GWNG D 30
-	 Loop
+		GWNG D 30
+		Loop
 	Death:
-	 ZHED AAAAAA 0 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
-	 Stop
+		ZHED AAAAAA 0 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
+		Stop
 	}
-}
-ACTOR OrganDebris
-{ 
-  Decal BloodSmear
-  Health 5
-  Radius 1
-  Height 1
-  Speed 10
-  Mass 1
-  PROJECTILE
-  +DONTSPLASH
-  +RANDOMIZE
-  +FLOORCLIP
-  -NOGRAVITY
-  +NOBLOCKMAP
-  +WINDTHRUST
-  -SOLID
-  +CannotPush
-  +CLIENTSIDEONLY
-  DeathSound "Body/Gibs"
-  States
-  {
-  Spawn:
-    OSPN ABCD 3 A_SpawnItem("BloodTrail")
-    Loop
-  Death:
-    BLUD F 2 A_PlaySound("Body/Gibs")
-    BLUD GHI 2
-    Stop
-  }
 }
 
 ACTOR Bloodliver
 {  
-  Speed 30
-  Health 3
-  Radius 20
-  Height 11
-  Scale 0.5
-  +DONTSPLASH
-  -NOGRAVITY
-  +FLOORCLIP
-  +Shootable
-  +CLIENTSIDEONLY
-  +CannotPush
-	+DOOMBOUNCE
+	Speed 30
+	Health 3
+	Radius 20
+	Height 11
+	Scale 0.5
+	+BLOCKEDBYSOLIDACTORS
 	+BOUNCEONACTORS
-	+BOUNCEONWALLS
-	+BOUNCEONFLOORS
+	+BOUNCEONACTORS
 	+BOUNCEONCEILINGS
-	+BOUNCEONACTORS
-	+BLOCKEDBYSOLIDActorS
-  States
-  {
-  Spawn:
-    BLVR A 0 A_Jump(171,2,3)
-    BLVR A -1
-    GUT2 A -1
-    GUT1 A -1
-    Stop
+	+BOUNCEONFLOORS
+	+BOUNCEONWALLS
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+DOOMBOUNCE
+	+FLOORCLIP
+	+SHOOTABLE
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+		BLVR A 0 A_Jump(171,2,3)
+		BLVR A -1
+		GUT2 A -1
+		GUT1 A -1
+		Stop
 	Death:
 		ZHED AAAAAA 0 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
 		Stop
-  }
+	}
 }
 
 ACTOR EyeGuts : Bloodliver
 { 
-  Health 2
-  Radius 5
-  Height 5
-  +CannotPush
-  States
-  {
-  Spawn:
-    BEYE A -1
-    Stop
-  }
+	Health 2
+	Radius 5
+	Height 5
+	+CANNOTPUSH
+	States
+	{
+	Spawn:
+		BEYE A -1
+		Stop
+	}
 }
 
 ACTOR Mimehead : Bloodliver
 { 
-  Health 2
-  Radius 5
-  Height 5
-  +CannotPush
-  States
-  {
-  Spawn:
-    YCUX A -1
-	Stop
-  Death:
-    YCUX AAAAA 0 A_SpawnDebris("FlyingBlood")
-	YCUX A 0 A_XScream        
-    YCUX A 0 A_Jump(32,2)
-    YCUX A 0 A_SpawnDebris ("Bloodliver")
-    YCUX A 0 A_Jump(32,2)
-    YCUX AA 0 A_SpawnDebris ("EyeGuts")    
-    YCUX A 5
-	Stop
-  }
+	Health 2
+	Radius 5
+	Height 5
+	+CANNOTPUSH
+	States
+	{
+	Spawn:
+		YCUX A -1
+		Stop
+	Death:
+		YCUX AAAAA 0 A_SpawnDebris("FlyingBlood")
+		YCUX A 0 A_XScream        
+		YCUX A 0 A_Jump(32,2)
+		YCUX A 0 A_SpawnDebris("Bloodliver")
+		YCUX A 0 A_Jump(32,2)
+		YCUX AA 0 A_SpawnDebris("EyeGuts")    
+		YCUX A 5
+		Stop
+	}
 }
-
 
 ACTOR Hand1 : Bloodliver
 { 
-  Health 1
-  Radius 8
-  Height 12
-  +CannotPush
-  States
-  {
-  Spawn:
-    BLVR A 0 A_Jump(128,2)
-    HND1 A -1
-	Stop	
-    HND2 A -1
-    Stop
-  }
+	Health 1
+	Radius 8
+	Height 12
+	+CANNOTPUSH
+	States
+	{
+	Spawn:
+		BLVR A 0 A_Jump(128,2)
+		HND1 A -1
+		Stop	
+		HND2 A -1
+		Stop
+	}
 }
 
 ACTOR GargHed : Bloodliver
 { 
-  Health 1
-  Radius 20
-  Height 26  
-  +CannotPush
-  Scale 0.6
-  States
-  {
-  Spawn:
-    GHE2 A -1
-    Stop
-  }
+	Health 1
+	Radius 20
+	Height 26  
+	+CANNOTPUSH
+	Scale 0.6
+	States
+	{
+	Spawn:
+		GHE2 A -1
+		Stop
+	}
 }
-

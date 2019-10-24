@@ -4,9 +4,9 @@
 
 ACTOR YouAreOnFireSir
 {
-	+NOGRAVITY
-	+NOBLOCKMAP
 	Speed 0
+	+NOBLOCKMAP
+	+NOGRAVITY
 	States
 	{
 	Spawn:
@@ -71,9 +71,9 @@ ACTOR TortureSpike 3240//: EvilEye 3172 //replaces EvilEye
 	Height 54
 	Speed 12
 	Scale 0.8
-	Obituary "%o was grinded"
 	+NODAMAGETHRUST
 	+SOLID
+	Obituary "$OB_SPIKE"
 	States
 	{
 	Spawn:
@@ -97,43 +97,43 @@ ACTOR TortureSpike 3240//: EvilEye 3172 //replaces EvilEye
 
 ACTOR TortureSpike2 3269
 {
-  //$Category "BlooM Ambient"
-  Radius 16
-  Height 54
-  Speed 12
-  Scale 0.8
-  Obituary "%o was grinded"
-  +NODAMAGETHRUST
-  States
-  {
-  Spawn:
-	SP2K  ABCDE 5
-	SP2K  F 1 A_Explode(100, 20, 0, 0, 128)
-	TNT1  A 0 A_Playsound("Pitch/Solid")
-	SP2K  E 1 A_Explode(100, 20, 0, 0, 128)
-	SP2K  DCBA 5
-	Loop
-  }
+	//$Category "BlooM Ambient"
+	Radius 16
+	Height 54
+	Speed 12
+	Scale 0.8
+	+NODAMAGETHRUST
+	Obituary "$OB_SPIKE"
+	States
+	{
+	Spawn:
+		SP2K ABCDE 5
+		SP2K F 1 A_Explode(100, 20, 0, 0, 128)
+		TNT1 A 0 A_Playsound("Pitch/Solid")
+		SP2K E 1 A_Explode(100, 20, 0, 0, 128)
+		SP2K DCBA 5
+		Loop
+	}
 }
 
 ACTOR BurnDeathSmoke
 {  
-  Radius 64
-  Height 16
-  RENDERSTYLE Translucent
-  ALPHA 0.30
-  +NOBLOCKMAP
-  +NOGRAVITY  
-  +DONTSPLASH
-  +FIXMAPTHINGPOS
-  -SOLID
-  +CANNOTPUSH
-  States
-  {
-  Spawn:
-    LVAS KGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJK 4
-    Stop
-  }
+	Radius 64
+	Height 16
+	RenderStyle Translucent
+	Alpha 0.30
+	+CANNOTPUSH
+	+DONTSPLASH
+	+FIXMAPTHINGPOS
+	+NOBLOCKMAP
+	+NOGRAVITY  
+	-SOLID
+	States
+	{
+	Spawn:
+		LVAS KGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJK 4
+		Stop
+	}
 }
 
 /*
@@ -152,10 +152,10 @@ ACTOR BloodBeer : Meat5 3177//replaces Meat5
   Health 3
   +NOBLOOD
   +SHOOTABLE
-  RENDERSTYLE Translucent
+  RenderStyle Translucent
   DeathSound "PotteryBreak" 
   Translation "112:127=32:47"
-  alpha 0.9
+  Alpha 0.9
   Scale 0.5
   States
   {
@@ -176,7 +176,7 @@ ACTOR BloodBeer : Meat5 3177//replaces Meat5
 ACTOR GlitterBridge : Bridge 
 { 
   spawnid 121
-  renderstyle Add
+  RenderStyle Add
   +NOBLOCKMAP
   +NOGRAVITY
   States
@@ -189,7 +189,7 @@ ACTOR GlitterBridge : Bridge
 
 ACTOR ZBlooDTeleportFog : TeleportFog replaces TeleportFog
 {
-  renderstyle Add
+  RenderStyle Add
   +NOBLOCKMAP
   +NOGRAVITY
   //Scale 0.5
@@ -629,7 +629,7 @@ ACTOR Acid : Blood
  RenderStyle Translucent
  +CANNOTPUSH
  Gravity 0.6
- ALPHA 0.90
+ Alpha 0.90
  States
  {
   Spawn:
@@ -650,6 +650,7 @@ ACTOR HangedBloodDrip
 {
     Radius 1
     Height 1
+	+DONTSPLASH
     -NOGRAVITY
     States
     {
@@ -670,10 +671,9 @@ ACTOR RainBlood
 	Gravity 0.65
 	+CANNOTPUSH
 	+CLIENTSIDEONLY
+	+DONTSPLASH
 	+NOBLOCKMAP
 	-NOGRAVITY
-	//Scale 1.33
-	//Projectile
 	States
 	{
 	Spawn:
@@ -902,9 +902,9 @@ ACTOR Balloon : HeadOnAStick 3186
   -SOLID
   +SHOOTABLE
   +NOBLOOD
-  RENDERSTYLE Translucent
+  RenderStyle Translucent
   DeathSound "DSBALPOP"
-  alpha 0.9
+  Alpha 0.9
   States
   {
   Spawn:
@@ -921,8 +921,8 @@ ACTOR BalloonDebris : Napalmdebris
 {
   Health 10
   Scale 0.5
-  RENDERSTYLE Translucent
-  alpha 0.9
+  RenderStyle Translucent
+  Alpha 0.9
   States
   {
   Spawn:
@@ -946,8 +946,8 @@ ACTOR GlassDebris : Napalmdebris
 {
   Health 10
   Scale 0.5
-  RENDERSTYLE Translucent
-  alpha 0.9
+  RenderStyle Translucent
+  Alpha 0.9
   Scale 0.5
   States
   {
@@ -2073,7 +2073,7 @@ ACTOR BaseLensflare
 	Health -1
 	Radius 0
 	Height 0
-	Renderstyle "Add"
+	RenderStyle "Add"
 	Alpha 1
 	+CLIENTSIDEONLY
 	+DONTSPLASH
