@@ -721,15 +721,15 @@ ACTOR Icetrap1 : Firetrap1 18344 //placeholder code - ozy81
 	{
 	Spawn:
 		UNKN ABCDEF 5
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
 		UNKN FEDCBA 5
 		Loop
 	}
@@ -742,15 +742,14 @@ ACTOR Fleshtrap1 : Firetrap1 18345 //placeholder code - ozy81
 	{
 	Spawn:
 		UNKN ABCDEF 5
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlying",8.0, 0, 15.0,0)
+		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingZombImp1",8.0, 0, 15.0,0)
+		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingZombImp2",8.0, 0, 15.0,0)
+		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingZombImp4",8.0, 0, 15.0,0)
+		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingGhoul1",8.0, 0, 15.0,0)
+		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingGhoul2",8.0, 0, 15.0,0)
+		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingGhoul3",8.0, 0, 15.0,0)
+		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingGhoul6",8.0, 0, 15.0,0)
 		UNKN FEDCBA 5
 		Loop
 	}

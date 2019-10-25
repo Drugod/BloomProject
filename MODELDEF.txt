@@ -1533,7 +1533,13 @@ Model BFG9000_
    FrameIndex UNKN A 0 0
 }
 
-//PISTOL_ NOT INCLUDED YET
+Model Pistol_
+{
+   Path "Models/Doom/Pistol/"
+   Model 0 "a_pistol.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
 
 //Doom_Replaces.txt, coded by Ozy81 - these doesn't need INHERIT flags
 //Models from www.moddb.com/games/doom/addons/vanilla-doom-3d-models-for-doom-i-ii by TheMacGyverArchiver
@@ -1687,17 +1693,17 @@ Model TeslaCharge
 {
    Path "Models/Blood/Ammo/"
    Model 0 "a_battery.md3"
-   Scale 1.0 1.0 1.0
+   Scale 3.5 3.5 3.5
    FrameIndex UNKN A 0 0
 }
 
-/*Model TeslaChargeBox
+Model TeslaChargeBox
 {
    Path "Models/Blood/Ammo/"
-   Model 0 "a_battery.md3"
-   Scale 1.0 1.0 1.0
+   Model 0 "a_teslabox.md3"
+   Scale 1.5 1.5 1.5
    FrameIndex UNKN A 0 0
-}*/
+}
 
 Model RemoteDynamite
 {
@@ -1731,6 +1737,14 @@ Model SawedOff
    FrameIndex UNKN A 0 0
 }
 
+Model SingleShotgun
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_singleshot.md3"
+   Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
 Model FlareGun
 {
    Path "Models/Blood/Weapons/"
@@ -1739,11 +1753,19 @@ Model FlareGun
    FrameIndex UNKN A 0 0
 }
 
+Model Colt
+{
+   Path "Models/Blood/Weapons/"
+   Model 0 "w_colt.md3"
+   Scale 1.7 1.7 1.7
+   FrameIndex UNKN A 0 0
+}
+
 Model LifeLeech
 {
    Path "Models/Blood/Weapons/"
    Model 0 "w_leech.md3"
-   Scale 1.0 1.0 1.0
+   Scale 1.25 1.25 1.25
    FrameIndex UNKN A 0 0
 }
 
@@ -1770,5 +1792,3 @@ Model TeslaRifle
    Scale 1.0 1.0 1.0
    FrameIndex UNKN A 0 0
 }
-
-//SINGLESHOTGUN & COLT NOT INCLUDED YET

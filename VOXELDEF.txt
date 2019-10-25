@@ -2,250 +2,149 @@
 //--------------BLOOD-----------------------
 //==========================================
 //--------------------WEAPONS---------------
-
-COLTA="COLTA" {
-	Spin = 50
-}
-
-FGRNA="FLAREGUN" {
-	Spin = 50
-}
-
-SOSPA="SHOTGUN" {
-	Spin = 50
-}
-
-TOMPA="TOMMYGUN" {
-	Spin = 50
-}
-
-NLAGA="DARKGUN" {
-	Spin = 50
-}
-
-REPKA="REMOTE" {
-	Spin = 50
-}
-
-TNTFA="TNTBUNDL" {
-	Spin = 50
-}
-
-LLSPA="HELLSTAF" {
-	Spin = 50
-	angleoffset = 270
-}
-
-TSPIA="SPEARGUN" {
-	Spin = 50
-}
-
-VDLFA="VOODOO" {
-	Spin = 50
-}
-
-SBSSA="LUPARA"{
-	Spin = 50
-}
+COLTA="COLTA" {Spin = 50}
+FGRNA="FLAREGUN" {Spin = 50}
+LLSPA="LIFELECH" {Spin = 50}
+NLAGA="DARKGUN" {Spin = 50}
+REPKA="REMOTE" {Spin = 50}
+SBSSA="LUPARA" {Spin = 50}
+SOSPA="SHOTGUN" {Spin = 50}
+TNTFA="TNTBUNDL" {Spin = 50}
+TOMPA="TOMMYGUN" {Spin = 50}
+TSPIA="SPEARGUN" {Spin = 50}
+VDLFA="VOODOO" {Spin = 50}
 
 //--------------------ARMOR----------------
-BARMA="ARMOR0" {
-	Spin = 50
-}
-
-ARMFA="ARMOR1" {
-	Spin = 50
-}
-
-XRM1A="ARMOR2" {
-	Spin = 50
-}
-
-SARMA="ARMOR3" {
-	Spin = 50
-}
-
-XRM2A="ARMOR4" {
-	Spin = 50
-}
-
-SPRYA="SPRAYCAN" {
-	Spin = 50
-}
+ARMFA="ARMOR1" {Spin = 50}
+BARMA="ARMOR0" {Spin = 50}
+SARMA="ARMOR3" {Spin = 50}
+SPRYA="SPRAYCAN" {Spin = 50}
+XRM1A="ARMOR2" {Spin = 50}
+XRM2A="ARMOR4" {Spin = 50}
 
 //--------------------AMMO------------------
-FGR2A="FLARES"{}
-FGR3A="FLARES"{}
-FGRDA="FLARESB"{}
-GAS2A="GAS2A"{}
-GASOA="GASCAN"{}
-LMBOA="TOMYDRUM"{}
-PROXA="TNTPROX"{}
-REPKA="REMOTE"{}
-SBEXA="SHELLBOX"{}
-TBNDA="TNTBUNDL"{}
-TBOXA="TNTBOX"{}
-TMBOA="BULLETS"{}
+FGR2A="FLARES" {}
+FGR3A="FLARES" {}
+FGRDA="FLARESB" {}
+GAS2A="GAS2A" {}
+GASOA="GASCAN" {}
+LMBOA="TOMYDRUM" {}
+PROXA="TNTPROX" {}
+REPKA="REMOTE" {}
+SBEXA="SHELLBOX" {}
+TBNDA="TNTBUNDL" {}
+TBOXA="TNTBOX" {}
+TMBOA="BULLETS" {}
 
 //--------------------DECORATIONS-----------
-//GRAVES
 YCRSA="TOMBSTN1" {}
 YCRWA="TOMBSTN2" {}
-YLPWA="TOMBSTN3" {}
-YLPSA="TOMBSTN4" {}
+YCSSA="TOMBSTN8" {}
+YLDDA="TOMBSTN7" {}
 YLPBA="TOMBSTN5" {}
 YLPDA="TOMBSTN6" {}
-YLDDA="TOMBSTN7" {}
-YCSSA="TOMBSTN8" {}
-
+YLPSA="TOMBSTN4" {}
+YLPWA="TOMBSTN3" {}
 CHA2A="CHAIR1" {}
-
-SPIKA="SLICER" {
-SPIN = 400
-}
-SPIKB="SLICER" {
-SPIN = 400
-}
-SPIKC="SLICER" {
-SPIN = 400
-}
-SPIKD="SLICER" {
-SPIN = 400
-}
-SPIKE="SLICER" {
-SPIN = 400
-}
-SPIKF="SLICER" {
-SPIN = 400
-}
-SPIKG="SLICER" {
-SPIN = 400
-}
-SPIKH="SLICER" {
-SPIN = 400
-}
-
+SPIKA="SLICER" {Spin = 400}
+SPIKB="SLICER" {Spin = 400}
+SPIKC="SLICER" {Spin = 400}
+SPIKD="SLICER" {Spin = 400}
+SPIKE="SLICER" {Spin = 400}
+SPIKF="SLICER" {Spin = 400}
+SPIKG="SLICER" {Spin = 400}
+SPIKH="SLICER" {Spin = 400}
 
 //==========================================
 //--------------Vanilla Doom----------------
 //==========================================
-//--------------------WEAPONS---------------
 
 //Chainsaw
-csawa = "csawa"
+CSAWA = "CSAWA"
 {
 	Scale = 0.9
 	Spin = 50	
 }
 
 //Pistol - model by reikall
-PISTA = "PISTA"
-{
-	Spin = 50	
-}
+PISTA = "PISTA" {Spin = 50}
 
 //Shotgun
-shota = "shtca"
+SHOTA = "SHTCA"
 {
 	Scale = 0.5
 	Spin = 50	
 }
 
 //Super Shotgun
-sgn2a = "sgn2a"
+SGN2A = "SGN2A"
 {
 	Scale = 0.5
 	Spin = 50	
 }
 
 //Minigun
-mguna = "mguna"
+MGUNA = "MGUNA"
 {
 	Scale = 0.6
 	Spin = 50	
 }
 
 //Plasma Gun
-plasa = "plas2"
+PLASA = "PLAS2"
 {
 	Scale = 0.45
 	Spin = 50	
 }
 
 //Rocket Laucher
-LAUNA = "LAUNA"
-{
-	Spin = 50	
-}
+LAUNA = "LAUNA" {Spin = 50}
 
 //BFG 9000
-BFUGA = "BFUGA"
-{
-	Spin = 50	
-}
-
-//--------------------AMMO------------------
+BFUGA = "BFUGA" {Spin = 50}
 
 //Ammo Box
-ammoa = "ammoa"
+AMMOA = "AMMOA"
 {
 	Scale = 0.35
-	droppedspin = 25
+	DroppedSpin = 25
 }
 
 //Rocket Box
-broka = "broka"
-{
-	droppedspin = 25
-}
+BROKA = "BROKA" {DroppedSpin = 25}
 
 //Rocket Ammo - model by reikall
-rocka = "rocka"
-{
-	droppedspin = 25
-}
+ROCKA = "ROCKA" {DroppedSpin = 25}
 
 //Backpack
-bpaka = "bpaka"
+BPAKA = "BPAKA"
 {
-	droppedspin = 25
-	placedspin = 25
+	DroppedSpin = 25
+	PlacedSpin = 25
 }
 
 //Energy Cell
-cella = "cella"
-{
-	droppedspin = 25
-}
+CELLA = "CELLA" {DroppedSpin = 25}
 
 //Big Energy Cell
-celpa = "celpa"
-{
-	droppedspin = 25
-}
+CELPA = "CELPA" {DroppedSpin = 25}
 
 //Ammo Clip
-clipa = "clipa"
-{
-	droppedspin = 25
-}
+CLIPA = "CLIPA" {DroppedSpin = 25}
 
 //Box of Shells
-sboxa = "sboxa"
-{
-	droppedspin = 25
-}
+SBOXA = "SBOXA" {DroppedSpin = 25}
 
 //4 Shotgun shells
-shela = "shela"
+SHELA = "SHELA"
 {
 	Scale = 0.19
-	droppedspin = 25
+	DroppedSpin = 25
 }
 
 //2 Shotgun shells
-shelb = "shelb"
+SHELB = "SHELB"
 {
 	Scale = 0.19
-	droppedspin = 25
+	DroppedSpin = 25
 }

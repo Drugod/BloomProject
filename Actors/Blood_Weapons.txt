@@ -832,7 +832,6 @@ ACTOR DoubleFlaregun : Flaregun
 ACTOR --------COLT------------ {}
 ACTOR Colt : CalebW 31370
 {
-	//$Sprite COLTA0
 	Tag "Colt"
 	Scale 0.5
 	Decal ZBloodBulletChip1
