@@ -3,11 +3,16 @@ ACTOR Key1 : BlueCard replaces BlueCard
 {
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
-	Inventory.PickupMessage "You got the Dagger Key."
+	Inventory.PickupMessage "$DAGKEY"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		DKEY A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	}
 }
@@ -16,11 +21,16 @@ ACTOR Key2 : YellowCard replaces YellowCard
 {
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
-	Inventory.PickupMessage "You got the Moon Key."
+	Inventory.PickupMessage "$MONKEY"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		MKEY A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	}
 }
@@ -29,11 +39,16 @@ ACTOR Key3 : RedCard replaces RedCard
 {
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
-	Inventory.PickupMessage "You got the Eye Key."
+	Inventory.PickupMessage "$EYEKEY"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		EKEY A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	}
 }
@@ -42,11 +57,16 @@ ACTOR Key4 : Blueskull replaces Blueskull
 {
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
-	Inventory.PickupMessage "You got the Skull Key."
+	Inventory.PickupMessage "$SKUKEY"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		SSKU A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	}
 }
@@ -55,11 +75,16 @@ ACTOR Key5 : RedSkull replaces RedSkull
 {
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
-	Inventory.PickupMessage "You got the Fire Key."
+	Inventory.PickupMessage "$FIRKEY"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		FSK2 B -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	}
 }
@@ -68,11 +93,16 @@ ACTOR Key6 : YellowSkull replaces YellowSkull
 {
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
-	Inventory.PickupMessage "You got the Spider Key."
+	Inventory.PickupMessage "$SPIKEY"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		ASKU B -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	}
 }

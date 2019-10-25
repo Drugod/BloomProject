@@ -2,18 +2,23 @@
 ========== ARMORS ==========
 */
 
-ACTOR ArmorPicker : PuzzleItem {	Inventory.MaxAmount 2 -INVBAR }
+ACTOR ArmorPicker : PuzzleItem { Inventory.MaxAmount 2 -INVBAR }
 
 ACTOR BodyArmorPickup : CustomInventory 3155
 {	
 	//$Category "BlooM Armor"
 	Tag "Body Armor"
-	Inventory.PickupMessage "Picked up Body Armor"
+	Inventory.PickupMessage "$BODA"
 	Inventory.PickupSound "misc/armor_pkup"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		XRM1 A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	Pickup:
 		XRM1 A 0 A_JumpIfInventory("BodyArmor",100,"DontPick")
@@ -29,11 +34,16 @@ ACTOR BodyArmorPickup : CustomInventory 3155
 ACTOR FireArmorPickup : BodyArmorPickup 3156
 {
 	Tag "Fire Armor"
-	Inventory.PickupMessage "Picked up Fire Armor"
+	Inventory.PickupMessage "$FIRA"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		ARMF A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	Pickup:
 		XRM1 A 0 A_JumpIfInventory("FireArmor",100,"DontPick")
@@ -52,11 +62,16 @@ ACTOR FireArmorPickup : BodyArmorPickup 3156
 ACTOR SpiritArmorPickup : BodyArmorPickup 3157
 {
 	Tag "Spirit Armor"
-	Inventory.PickupMessage "Picked up Spirit Armor"
+	Inventory.PickupMessage "$SPIA"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		SARM A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	Pickup:
 		XRM1 A 0 A_JumpIfInventory("SpiritArmor",100,"DontPick")
@@ -76,12 +91,17 @@ ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160
 {	
 	//$Category "BlooM Armor"
 	Tag "Basic Armor"
-	Inventory.PickupMessage "Picked up Basic Armor"
+	Inventory.PickupMessage "$BASA"
 	Inventory.PickupSound "misc/armor_pkup"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		BARM A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	Pickup:
 		XRM1 A 0 A_JumpIfInventory("BodyArmor",100,"DontPickA")
@@ -108,13 +128,18 @@ ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160
 ACTOR BodyArmorPickupLower : CustomInventory
 {	
 	Scale 0.67
-	Inventory.PickupMessage "Picked up lesser body armor"
+	Inventory.PickupMessage "$LESA"
 	Inventory.PickupSound "misc/armor_pkup"
 	Tag "Body Armor"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		XRM1 A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	Pickup:
 		XRM1 A 0 A_JumpIfInventory("BodyArmor",100,"DontPick")
@@ -136,12 +161,17 @@ ACTOR BodyArmorPickupLower : CustomInventory
 
 ACTOR FireArmorPickupLower : BodyArmorPickupLower //6235
 {	
-	Inventory.PickupMessage "Picked up lesser fire armor"
+	Inventory.PickupMessage "$FESA"
 	Translation "192:207=[255,255,255]:[255,32,0]","240:247=[255,32,0]:[64,16,0]" 
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		ARMF A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	Pickup:
 		XRM1 A 0 A_JumpIfInventory("FireArmor",100,"DontPick")
@@ -163,12 +193,17 @@ ACTOR FireArmorPickupLower : BodyArmorPickupLower //6235
 
 ACTOR SpiritArmorPickupLower : BodyArmorPickupLower //6237
 {	
-	Inventory.PickupMessage "Picked up lesser spirit armor"
+	Inventory.PickupMessage "LESP"
 	Translation "192:207=[255,255,255]:[32,255,64]","240:247=[32,255,64]:[16,64,64]" 
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		SARM A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	Pickup:
 		XRM1 A 0 A_JumpIfInventory("SpiritArmor",100,"DontPick")
@@ -194,12 +229,17 @@ ACTOR SuperArmorPickup : CustomInventory 3161//replaces BlueArmor 6234
 	Tag "Super Armor"
 	Inventory.amount 1
 	Inventory.maxamount 200
-	Inventory.PickupMessage "Picked up Super Armor!"
+	Inventory.PickupMessage "$SUPA"
 	Inventory.PickupSound "misc/armor_pkup"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
 		XRM2 A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
 		Stop
 	Pickup:
 		TNT1 A 0 A_JumpIf(1 == ACS_NamedExecuteWithResult("ArmorCheck", 0), 2) // Dont know why, but I need it to be like this for this one
@@ -216,8 +256,7 @@ ACTOR BodyArmor : Inventory
 {	
 	Inventory.Amount 1
 	Inventory.MaxAmount 200
-	Inventory.PickupMessage "Picked up Body Armor"
-//	+INVENTORY.PERSISTENTPOWER
+	Inventory.PickupMessage "$BODA"
 	-INVENTORY.INTERHUBSTRIP
 	-INVBAR
 	Renderstyle "Add"
@@ -232,7 +271,7 @@ ACTOR BodyArmor : Inventory
 
 ACTOR FireArmor : BodyArmor 
 {	
-	Inventory.PickupMessage "Picked up Fire Armor"
+	Inventory.PickupMessage "$FIRA"
 	//Translation "192:207=[255,255,255]:[255,32,0]","240:247=[255,32,0]:[64,16,0]" 
 	States
 	{
@@ -244,7 +283,7 @@ ACTOR FireArmor : BodyArmor
 
 ACTOR SpiritArmor : BodyArmor 
 {	
-	Inventory.PickupMessage "Picked up Spirit Armor"
+	Inventory.PickupMessage "$SPIA"
 	//Translation "192:207=[255,255,255]:[32,255,64]","240:247=[32,255,64]:[16,64,64]" 
 	States
 	{

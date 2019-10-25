@@ -1792,3 +1792,138 @@ Model TeslaRifle
    Scale 1.0 1.0 1.0
    FrameIndex UNKN A 0 0
 }
+
+//Armors.txt replacements, coded by Ozy81 - these doesn't need INHERIT flags
+//Models from ZBlood and also some from scratch
+Model BodyArmorPickup
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_arm_body.md3"
+   Scale 1.3 1.3 1.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}
+
+Model BodyArmorPickupLower
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_arm_body.md3"
+   Scale 1.3 1.3 1.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}
+
+Model FireArmorPickup
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_arm_fire.md3"
+   Scale 1.3 1.3 1.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}
+
+Model FireArmorPickupLower
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_arm_fire.md3"
+   Scale 1.3 1.3 1.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}
+
+Model SpiritArmorPickup
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_arm_spirit.md3"
+   Scale 1.3 1.3 1.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}
+
+Model SpiritArmorPickupLower
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_arm_spirit.md3"
+   Scale 1.3 1.3 1.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}
+
+Model SuperArmorPickup
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_arm_super.md3"
+   Scale 1.3 1.3 1.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}
+
+Model BasicArmorPickup_
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_arm_basic.md3"
+   Scale 1.3 1.3 1.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}
+
+//Keys.txt replacements, coded by Ozy81 - these doesn't need INHERIT flags
+//Models from ZBlood and also some from scratch
+Model Key1
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_key.md3"
+   Skin 0 "i_key_knife.jpg"
+   Scale 3.3 3.3 3.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}
+
+Model Key2
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_key.md3"
+   Skin 0 "i_key_moon.jpg"
+   Scale 3.3 3.3 3.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}
+
+Model Key3
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_key.md3" //skin embedded
+   Scale 3.3 3.3 3.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}
+
+Model Key4
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_key.md3"
+   Skin 0 "i_key_skull.jpg"
+   Scale 3.3 3.3 3.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}
+
+Model Key5
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_key.md3"
+   Skin 0 "i_key_fire.jpg"
+   Scale 3.3 3.3 3.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}
+
+Model Key6
+{
+   Path "Models/Blood/Items/"
+   Model 0 "i_key.md3"
+   Skin 0 "i_key_spider.jpg"
+   Scale 3.3 3.3 3.3
+   Rotating	
+   FrameIndex UNKN A 0 0
+}

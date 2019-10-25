@@ -54,7 +54,27 @@ TOMMPICK = "You got the tommy gun!";
 VODOPICK = "Voodoo doll! Find some victims!";
 
 //PICKUPS MESSAGES
+BASA = "Picked up Basic Armor.";
+BEAST = "Picked up Beast Vision.";
+BODA = "Picked up Body Armor.";
+DIVESUIT = "Picked up Diving Suit.";
+DOCBAG = "Stole the Doctor's Bag.";
 ESSENCE = "Picked up a poor soul.";
+FESA = "Picked up Lesser Fire Armor.";
+FIRA = "Picked up Fire Armor.";
+JUMPB = "Picked up Jumping Boots.";
+LESA = "Picked up Lesser Body Armor.";
+LESP = "Picked up Lesser Spirit Armor.";
+SPIA = "Picked up Spirit Armor.";
+SUPA = "Picked up Super Armor!";
+
+//KEYS MESSAGES
+DAGKEY = "You got the Dagger Key.";
+EYEKEY = "You got the Eye Key.";
+FIRKEY = "You got the Fire Key.";
+MONKEY = "You got the Moon Key.";
+SKUKEY = "You got the Skull Key.";
+SPIKEY = "You got the Spider Key.";
 
 //OBITUARIES
 OB_COLT = "%o was been shoot to the head by %k.";

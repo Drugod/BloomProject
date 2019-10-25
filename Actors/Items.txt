@@ -6,7 +6,7 @@ ACTOR BeastVision : CustomInventory 3153
 	Inventory.Icon "INBEAST"
 	Inventory.PickupSound "misc/i_pkup"
 	Inventory.UseSound "misc/p_pkup"
-	Inventory.PickupMessage "Picked up Beast Vision"
+	Inventory.PickupMessage "$BEAST"
 	Inventory.Amount 100
 	Inventory.MaxAmount 100
 	+COUNTITEM
@@ -47,7 +47,7 @@ ACTOR JumpingBoots : CustomInventory 3154
 {
 	//$Category "BlooM Items"
 	//$Title Jumping Boots
-	Inventory.PickupMessage "Picked up Jumping Boots"
+	Inventory.PickupMessage "$JUMPB"
 	Inventory.PickupSound "misc/p_pkup"
 	Inventory.Amount 100
 	Inventory.MaxAmount 100
@@ -94,7 +94,7 @@ ACTOR DivingSuit : CustomInventory 6246
 {
 	//$Category "BlooM Items"
 	//$Title Diving Suit
-	Inventory.PickupMessage "Picked up Diving Suit"
+	Inventory.PickupMessage "$DIVESUIT"
 	Inventory.PickupSound "misc/p_pkup"
 	Inventory.Amount 100
 	Inventory.MaxAmount 100
@@ -148,7 +148,7 @@ ACTOR DoctorBag : CustomInventory 20100
 	Inventory.MaxAmount 100
 	Inventory.Amount 100
 	Inventory.Icon "INDOCB"
-	Inventory.PickupMessage "Stole the Doctor's Bag"	
+	Inventory.PickupMessage "$DOCBAG"	
 	+DONTSPLASH
 	+FLOORCLIP
 	+INVENTORY.INVBAR
