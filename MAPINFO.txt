@@ -1430,7 +1430,7 @@ skill ZB_Extreme
 name = "Caleb's nightmare!"
 textcolor = black
 acsreturn = 4
-spawnfilter = "Hard"
+spawnfilter = "nightmare"
 damagefactor = 1.25
 aggressiveness = 2
 ammofactor = 1
