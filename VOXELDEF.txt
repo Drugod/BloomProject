@@ -3,49 +3,50 @@
 //==========================================
 //--------------------WEAPONS---------------
 COLTA="COLTA" {Spin = 50}
-FGRNA="FLAREGUN" {Spin = 50}
-LLSPA="LIFELECH" {Spin = 50}
-NLAGA="DARKGUN" {Spin = 50}
-REPKA="REMOTE" {Spin = 50}
-SBSSA="LUPARA" {Spin = 50}
-SOSPA="SHOTGUN" {Spin = 50}
-TNTFA="TNTBUNDL" {Spin = 50}
-TOMPA="TOMMYGUN" {Spin = 50}
-TSPIA="SPEARGUN" {Spin = 50}
-VDLFA="VOODOO" {Spin = 50}
+FGRNA="FGRNA" {Spin = 50}
+LLSPA="LLSPA" {Spin = 50}
+NLAGA="NLAGA" {Spin = 50}
+REPKA="REPKA" {Spin = 50}
+SBSSA="SBSSA" {Spin = 50}
+SOSPA="SOSPA" {Spin = 50}
+TNTFA="TNTFA" {Spin = 50}
+TOMPA="TOMPA" {Spin = 50}
+TSPIA="TSPIA" {Spin = 50}
+VDLFA="VDLFA" {Spin = 50}
 
 //--------------------ARMOR----------------
-ARMFA="ARMOR1" {Spin = 50}
-BARMA="ARMOR0" {Spin = 50}
-SARMA="ARMOR3" {Spin = 50}
-SPRYA="SPRAYCAN" {Spin = 50}
-XRM1A="ARMOR2" {Spin = 50}
-XRM2A="ARMOR4" {Spin = 50}
+ARMFA="ARMFA" {Spin = 50}
+BARMA="BARMA" {Spin = 50}
+SARMA="SARMA" {Spin = 50}
+SPRYA="SPRYA" {Spin = 50}
+XRM1A="XRM1A" {Spin = 50}
+XRM2A="XRM2A" {Spin = 50}
 
 //--------------------AMMO------------------
-FGR2A="FLARES" {}
-FGR3A="FLARES" {}
-FGRDA="FLARESB" {}
+FGR2A="FGR2A" {}
+FGR3A="FGR2A" {}
+FGRDA="FGRDA" {}
 GAS2A="GAS2A" {}
-GASOA="GASCAN" {}
-LMBOA="TOMYDRUM" {}
-PROXA="TNTPROX" {}
-REPKA="REMOTE" {}
-SBEXA="SHELLBOX" {}
-TBNDA="TNTBUNDL" {}
-TBOXA="TNTBOX" {}
-TMBOA="BULLETS" {}
+GASOA="GASOA" {}
+LMBOA="LMBOA" {}
+PROXA="PROXA" {}
+REPKA="REPKA" {}
+SBEXA="SBEXA" {}
+SHEXA="SHEXA" {Scale = 0.19}
+TBNDA="TBNDA" {}
+TBOXA="TBOXA" {}
+TMBOA="TMBOA" {}
 
 //--------------------DECORATIONS-----------
-YCRSA="TOMBSTN1" {}
-YCRWA="TOMBSTN2" {}
-YCSSA="TOMBSTN8" {}
-YLDDA="TOMBSTN7" {}
-YLPBA="TOMBSTN5" {}
-YLPDA="TOMBSTN6" {}
-YLPSA="TOMBSTN4" {}
-YLPWA="TOMBSTN3" {}
-CHA2A="CHAIR1" {}
+YCRSA="YCRSA" {}
+YCRWA="YCRWA" {}
+YCSSA="YCSSA" {}
+YLDDA="YLDDA" {}
+YLPBA="YLPBA" {}
+YLPDA="YLPDA" {}
+YLPSA="YLPSA" {}
+YLPWA="YLPWA" {}
+CHA2A="CHA2A" {}
 SPIKA="SLICER" {Spin = 400}
 SPIKB="SLICER" {Spin = 400}
 SPIKC="SLICER" {Spin = 400}
@@ -58,93 +59,21 @@ SPIKH="SLICER" {Spin = 400}
 //==========================================
 //--------------Vanilla Doom----------------
 //==========================================
-
-//Chainsaw
-CSAWA = "CSAWA"
-{
-	Scale = 0.9
-	Spin = 50	
-}
-
-//Pistol - model by reikall
-PISTA = "PISTA" {Spin = 50}
-
-//Shotgun
-SHOTA = "SHTCA"
-{
-	Scale = 0.5
-	Spin = 50	
-}
-
-//Super Shotgun
-SGN2A = "SGN2A"
-{
-	Scale = 0.5
-	Spin = 50	
-}
-
-//Minigun
-MGUNA = "MGUNA"
-{
-	Scale = 0.6
-	Spin = 50	
-}
-
-//Plasma Gun
-PLASA = "PLAS2"
-{
-	Scale = 0.45
-	Spin = 50	
-}
-
-//Rocket Laucher
-LAUNA = "LAUNA" {Spin = 50}
-
-//BFG 9000
 BFUGA = "BFUGA" {Spin = 50}
+CSAWA = "CSAWA" {Spin = 50}
+LAUNA = "LAUNA" {Spin = 50}
+MGUNA = "MGUNA" {Spin = 50}
+PISTA = "PISTA" {Spin = 50}
+PLASA = "PLASA" {Spin = 50}
+SGN2A = "SGN2A" {Spin = 50}
+SHOTA = "SHOTA" {Spin = 50}
 
-//Ammo Box
-AMMOA = "AMMOA"
-{
-	Scale = 0.35
-	DroppedSpin = 25
-}
-
-//Rocket Box
+AMMOA = "AMMOA" {DroppedSpin = 25}
+BPAKA = "BPAKA" {Spin = 25}
 BROKA = "BROKA" {DroppedSpin = 25}
-
-//Rocket Ammo - model by reikall
-ROCKA = "ROCKA" {DroppedSpin = 25}
-
-//Backpack
-BPAKA = "BPAKA"
-{
-	DroppedSpin = 25
-	PlacedSpin = 25
-}
-
-//Energy Cell
 CELLA = "CELLA" {DroppedSpin = 25}
-
-//Big Energy Cell
 CELPA = "CELPA" {DroppedSpin = 25}
-
-//Ammo Clip
 CLIPA = "CLIPA" {DroppedSpin = 25}
-
-//Box of Shells
+ROCKA = "ROCKA" {DroppedSpin = 25}
 SBOXA = "SBOXA" {DroppedSpin = 25}
-
-//4 Shotgun shells
-SHELA = "SHELA"
-{
-	Scale = 0.19
-	DroppedSpin = 25
-}
-
-//2 Shotgun shells
-SHELB = "SHELB"
-{
-	Scale = 0.19
-	DroppedSpin = 25
-}
+SHELA = "SHELA" {Scale = 0.19 DroppedSpin = 25}

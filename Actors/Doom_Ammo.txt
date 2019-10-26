@@ -1,6 +1,7 @@
 ACTOR -------CELLPACKS------------ {}
 ACTOR Cell_ : Cell Replaces Cell
 {
+	//$Sprite CELLA0
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.ForbiddenTo "Caleb"
 	VisibleToPlayerClass "DoomDude"
@@ -27,6 +28,7 @@ ACTOR Cell_ : Cell Replaces Cell
 
 ACTOR CellPack_ : Cell_ replaces CellPack
 {
+	//$Sprite CELPA0
 	Inventory.PickupMessage "$GOTCELLBOX" // "Picked up an energy cell pack."
 	Inventory.Amount 100
 	States
@@ -47,6 +49,7 @@ ACTOR CellPack_ : Cell_ replaces CellPack
 ACTOR ---------CLIPSBULLETS------ {}
 ACTOR Clip_ : Clip replaces Clip
 {
+	//$Sprite CLIPA0
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.ForbiddenTo "Caleb"
 	VisibleToPlayerClass "DoomDude"
@@ -73,6 +76,7 @@ ACTOR Clip_ : Clip replaces Clip
 
 ACTOR ClipBox_ : Clip_ replaces Clipbox
 {
+	//$Sprite AMMOA0
 	Inventory.PickupMessage "$GOTCLIPBOX" // "Picked up a box of bullets."
 	Inventory.Amount 50
 	States
@@ -93,6 +97,7 @@ ACTOR ClipBox_ : Clip_ replaces Clipbox
 ACTOR -------ROCKETS------------ {}
 ACTOR RocketAmmo_ : RocketAmmo replaces RocketAmmo
 {
+	//$Sprite ROCKA0
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.ForbiddenTo "Caleb"
 	VisibleToPlayerClass "DoomDude"  
@@ -119,6 +124,7 @@ ACTOR RocketAmmo_ : RocketAmmo replaces RocketAmmo
 
 ACTOR RocketBox_ : RocketAmmo_ replaces RocketBox
 {
+	//$Sprite BROKA0
 	Inventory.PickupMessage "$GOTROCKBOX" // "Picked up a box of rockets."
 	Inventory.Amount 5
 	States
@@ -139,6 +145,7 @@ ACTOR RocketBox_ : RocketAmmo_ replaces RocketBox
 ACTOR -----SHELLS-------------- {}
 ACTOR Shell_ : Shell replaces Shell
 {
+	//$Sprite SHELA0
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.ForbiddenTo "Caleb"
 	VisibleToPlayerClass "DoomDude"  
@@ -165,6 +172,7 @@ ACTOR Shell_ : Shell replaces Shell
 
 ACTOR ShellBox_ : Shell_ replaces ShellBox
 {
+	//$Sprite SBOXA0
 	Inventory.PickupMessage "$GOTSHELLBOX" // "Picked up a box of shotgun shells."
 	Inventory.Amount 20
 	States
@@ -354,6 +362,7 @@ ACTOR HandGrenadeAlt: HandGrenade { Speed 8 }
 ACTOR GrenadeAmmo : Ammo 6666
 {
 	//$Category "BlooM Amunitions"
+	//$Sprite PGRND0
     +INVENTORY.RESTRICTABSOLUTELY
     Tag "Hand Grenade"
     Inventory.ForbiddenTo "Caleb"
@@ -382,6 +391,7 @@ ACTOR GrenadeAmmo : Ammo 6666
 
 ACTOR GrenadeBox : GrenadeAmmo
 {
+	//$Sprite GRNDH0
     +INVENTORY.RESTRICTABSOLUTELY
     Inventory.ForbiddenTo "Caleb"
     VisibleToPlayerClass "DoomDude"

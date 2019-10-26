@@ -1,6 +1,7 @@
 ACTOR -------DOOM_REPLACEMENTS------------ {}
 ACTOR Backpack_ : BackpackItem replaces Backpack
 {
+	//$Sprite BPAKA0
 	Height 26
 	Inventory.PickupMessage "$GOTBACKPACK" // "Picked up a backpack full of ammo!"
 	States

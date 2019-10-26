@@ -9,7 +9,7 @@ Bloom is based on ZbloodX Addon by Marinelol
 
 Colt and single barrel Shotgun taken from Blood weapon mod
 Doom Models mainly from TheMacGyverArchiver
-Doom Voxels by Doom Voxel Project team
+Doom Voxels by Reikall (several)
 Some flats and general defs by SgtMarkIV
 Grenades/Playerclasses by SgtMarkIV, modified by Drugod
 Grenades/Snow/Rain/Steam/Fog effects by Tormentor667/Ghastly_dragon, modified by Drugod

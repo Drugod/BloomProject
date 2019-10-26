@@ -426,6 +426,7 @@ ACTOR GasolineCan : Ammo 3146
 
 ACTOR MiniGasolineCan : GasolineCan 20083
 {
+	//$Sprite GAS2A0
 	Tag "Mini-Gasoline Can"
 	Radius 10
 	Scale 1.0
