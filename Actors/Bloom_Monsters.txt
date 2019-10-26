@@ -611,7 +611,7 @@ ACTOR Eelcubus : BloomHybrid_Base 19007
 		Loop
 	Missile:
 		FSTT G 20 A_FatRaise
-		FSTT H 10 BRIGHT 
+		FSTT H 10 BRIGHT A_FatAttack1("FatFish")
 		FSTT IG 5 A_FaceTarget
 		FSTT H 10 BRIGHT A_FatAttack2("FatFish")
 		FSTT IG 5 A_FaceTarget
