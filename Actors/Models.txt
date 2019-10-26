@@ -682,20 +682,18 @@ ACTOR wallbrok5: wallbrok1 18342 { //$Title wallbrok5
 }
 
 ACTOR ---------TRAPS---------{}
-ACTOR Firetrap1 18343
+ACTOR FireTrap1 18343
 {
 	//$Category BlooM Models
 	//$Title Fire Trap
 	//$Color 4
 	Radius 4
 	Height 32
-	Mass 9999
-	-SOLID
-	+SHOOTABLE
-	-PUSHABLE
-	+NOBLOOD
-	+RANDOMIZE
+	Mass 0x7ffffff
 	+NOGRAVITY
+	+NOINTERACTION
+	+RANDOMIZE
+	-SOLID
 	States
 	{
 	Spawn:
@@ -714,7 +712,7 @@ ACTOR Firetrap1 18343
 	}
 }
 
-ACTOR Icetrap1 : Firetrap1 18344 //placeholder code - ozy81
+ACTOR IceTrap1 : Firetrap1 18344 //placeholder code - ozy81
 {
 	//$Title Ice Trap
 	States
@@ -735,21 +733,47 @@ ACTOR Icetrap1 : Firetrap1 18344 //placeholder code - ozy81
 	}
 }
 
-ACTOR Fleshtrap1 : Firetrap1 18345 //placeholder code - ozy81
+ACTOR BloodPuke
+{
+	Radius 4
+	Height 4
+	Damage 7
+	Speed 20
+	Scale 0.80
+	Deathsound "ftrap/death"
+	PROJECTILE
+	+BRIGHT
+	+EXTREMEDEATH
+	+NOTELESTOMP
+	+NOTELEFRAG
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+		FGOR ABCDEF 3 A_SpawnItemEx("FlyingBlood",0,0,0,0,0,0,0,0,10)
+		Loop
+	Death:
+		FGOR GHIJ 5
+		Stop
+	}
+}
+
+ACTOR FleshTrap1 : FireTrap1 18345 //placeholder code - ozy81
 {
 	//$Title Flesh Trap
 	States
 	{
 	Spawn:
 		UNKN ABCDEF 5
-		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlying",8.0, 0, 15.0,0)
-		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingZombImp1",8.0, 0, 15.0,0)
-		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingZombImp2",8.0, 0, 15.0,0)
-		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingZombImp4",8.0, 0, 15.0,0)
-		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingGhoul1",8.0, 0, 15.0,0)
-		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingGhoul2",8.0, 0, 15.0,0)
-		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingGhoul3",8.0, 0, 15.0,0)
-		UNKN F 5 BRIGHT A_ThrowGrenade("KickableFlyingGhoul6",8.0, 0, 15.0,0)
+		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
 		UNKN FEDCBA 5
 		Loop
 	}

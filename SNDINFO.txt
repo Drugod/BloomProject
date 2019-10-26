@@ -422,6 +422,9 @@ grenades/grnbnce		GRNBNCE
 
 human/imonfire			dsburnme
 
+//FleshTrap
+ftrap/death 	DSBLDPUK
+
 //RAIN
 Ambient/Rain	AMBRAIN
 
