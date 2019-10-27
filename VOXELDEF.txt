@@ -56,6 +56,14 @@ SPIKF="SLICER" {Spin = 400}
 SPIKG="SLICER" {Spin = 400}
 SPIKH="SLICER" {Spin = 400}
 
+//--------------------KEYS-----------------
+ASKUB="ASKUB" {Spin = 50}
+DKEYA="DKEYA" {Spin = 50}
+EKEYA="EKEYA" {Spin = 50}
+FSK2B="FSK2B" {Spin = 50}
+MKEYA="MKEYA" {Spin = 50}
+SSKUA="SSKUA" {Spin = 50}
+
 //==========================================
 //--------------Vanilla Doom----------------
 //==========================================

@@ -1,6 +1,7 @@
 //========== KEYS ==========//
 ACTOR Key1 : BlueCard replaces BlueCard
 {
+	//$Sprite DKEYA0
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
 	Inventory.PickupMessage "$DAGKEY"
@@ -19,6 +20,7 @@ ACTOR Key1 : BlueCard replaces BlueCard
 
 ACTOR Key2 : YellowCard replaces YellowCard
 {
+	//$Sprite MKEYA0
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
 	Inventory.PickupMessage "$MONKEY"
@@ -37,6 +39,7 @@ ACTOR Key2 : YellowCard replaces YellowCard
 
 ACTOR Key3 : RedCard replaces RedCard
 {
+	//$Sprite EKEYA0
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
 	Inventory.PickupMessage "$EYEKEY"
@@ -55,6 +58,7 @@ ACTOR Key3 : RedCard replaces RedCard
 
 ACTOR Key4 : Blueskull replaces Blueskull
 {
+	//$Sprite SSKUA0
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
 	Inventory.PickupMessage "$SKUKEY"
@@ -73,6 +77,7 @@ ACTOR Key4 : Blueskull replaces Blueskull
 
 ACTOR Key5 : RedSkull replaces RedSkull
 {
+	//$Sprite FSK2B0
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
 	Inventory.PickupMessage "$FIRKEY"
@@ -91,6 +96,7 @@ ACTOR Key5 : RedSkull replaces RedSkull
 
 ACTOR Key6 : YellowSkull replaces YellowSkull
 {
+	//$Sprite ASKUB0
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
 	Inventory.PickupMessage "$SPIKEY"
