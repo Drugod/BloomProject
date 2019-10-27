@@ -2,16 +2,13 @@ For Rolls, models which needs to be added:
 - nothing yet
 
 For All:
-- Caleb weapons needs to be fixed, some are swapped or useless, and the Life Leech has a wrong primary fire mode (same of secondary)
-- add Blood weapons and items related 3d models
-- add Doom items related 3d models
-- add a Caleb replacement for pistol_ actor (there are any for it)
+- add Blood items related 3d models
 - convert all models as md3 and try reducing polys total (not important, just a nitpick and it would require lots of time)
 - externalize KEYCONF between LANGUAGE and MENUDEF (if supported by zandro)
 - fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff
 - fix LifeLeech for Zandronum: fire states originate some unknown flags messages, probably cause by non-existent GunFlash calls or maybe Acs calls
-- fix TERRAIN defs, lots of sounds needs to be defined and included, instead to use Enjay ones I will probably go for reuse Gore defs
-- fix HUD statusbar for gzdoom
+- fix TERRAIN defs, lots of sounds needs to be defined and included
+- fix HUD statusbar for gzdoom 4+
 - fix SpiderMother code
 - polish overall code
 - reduce size of models skins, 1000x1000 is very engine intensive, 512x512 should be okay... We must figure how to not break quality though

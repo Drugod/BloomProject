@@ -1,12 +1,10 @@
-/*
-========== ARMORS ==========
-*/
-
+//ARMORS//
 ACTOR ArmorPicker : PuzzleItem { Inventory.MaxAmount 2 -INVBAR }
 
 ACTOR BodyArmorPickup : CustomInventory 3155
 {	
 	//$Category "BlooM Armor"
+	//$Sprite XRM1A0
 	Tag "Body Armor"
 	Inventory.PickupMessage "$BODA"
 	Inventory.PickupSound "misc/armor_pkup"
@@ -33,6 +31,7 @@ ACTOR BodyArmorPickup : CustomInventory 3155
 
 ACTOR FireArmorPickup : BodyArmorPickup 3156
 {
+	//$Sprite ARMFA0
 	Tag "Fire Armor"
 	Inventory.PickupMessage "$FIRA"
 	States
@@ -61,6 +60,7 @@ ACTOR FireArmorPickup : BodyArmorPickup 3156
 
 ACTOR SpiritArmorPickup : BodyArmorPickup 3157
 {
+	//$Sprite SARMA0
 	Tag "Spirit Armor"
 	Inventory.PickupMessage "$SPIA"
 	States
@@ -90,6 +90,7 @@ ACTOR SpiritArmorPickup : BodyArmorPickup 3157
 ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160 
 {	
 	//$Category "BlooM Armor"
+	//$Sprite BARMA0
 	Tag "Basic Armor"
 	Inventory.PickupMessage "$BASA"
 	Inventory.PickupSound "misc/armor_pkup"
@@ -127,6 +128,7 @@ ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160
 
 ACTOR BodyArmorPickupLower : CustomInventory
 {	
+	//$Sprite XRM1A0
 	Scale 0.67
 	Inventory.PickupMessage "$LESA"
 	Inventory.PickupSound "misc/armor_pkup"
@@ -160,7 +162,8 @@ ACTOR BodyArmorPickupLower : CustomInventory
 }
 
 ACTOR FireArmorPickupLower : BodyArmorPickupLower //6235
-{	
+{
+	//$Sprite ARMFA0	
 	Inventory.PickupMessage "$FESA"
 	Translation "192:207=[255,255,255]:[255,32,0]","240:247=[255,32,0]:[64,16,0]" 
 	States
@@ -193,6 +196,7 @@ ACTOR FireArmorPickupLower : BodyArmorPickupLower //6235
 
 ACTOR SpiritArmorPickupLower : BodyArmorPickupLower //6237
 {	
+	//$Sprite SARMA0
 	Inventory.PickupMessage "LESP"
 	Translation "192:207=[255,255,255]:[32,255,64]","240:247=[32,255,64]:[16,64,64]" 
 	States
@@ -226,9 +230,10 @@ ACTOR SpiritArmorPickupLower : BodyArmorPickupLower //6237
 ACTOR SuperArmorPickup : CustomInventory 3161//replaces BlueArmor 6234
 {	
 	//$Category "BlooM Armor"
+	//$Sprite XRM2A0
 	Tag "Super Armor"
-	Inventory.amount 1
-	Inventory.maxamount 200
+	Inventory.Amount 1
+	Inventory.MaxAmount 200
 	Inventory.PickupMessage "$SUPA"
 	Inventory.PickupSound "misc/armor_pkup"
 	States
@@ -257,10 +262,10 @@ ACTOR BodyArmor : Inventory
 	Inventory.Amount 1
 	Inventory.MaxAmount 200
 	Inventory.PickupMessage "$BODA"
-	-INVENTORY.INTERHUBSTRIP
-	-INVBAR
 	Renderstyle "Add"
 	+FLOATBOB
+	-INVBAR
+	-INVENTORY.INTERHUBSTRIP
 	States
 	{
 	Spawn:
@@ -272,7 +277,6 @@ ACTOR BodyArmor : Inventory
 ACTOR FireArmor : BodyArmor 
 {	
 	Inventory.PickupMessage "$FIRA"
-	//Translation "192:207=[255,255,255]:[255,32,0]","240:247=[255,32,0]:[64,16,0]" 
 	States
 	{
 	Spawn:
@@ -284,7 +288,6 @@ ACTOR FireArmor : BodyArmor
 ACTOR SpiritArmor : BodyArmor 
 {	
 	Inventory.PickupMessage "$SPIA"
-	//Translation "192:207=[255,255,255]:[32,255,64]","240:247=[32,255,64]:[16,64,64]" 
 	States
 	{
 	Spawn:

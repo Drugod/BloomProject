@@ -3859,7 +3859,7 @@ ACTOR SpiderMother : BloodEnemy_Base 3135 //this actor needs tweaks - ozy81
 	Missile.Spider9:
 		TNT1 A 0 A_SpawnItemEx("WhiteSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDW A 0 A_ActiveSound
-		Goto See	
+		Goto See
 	Pain:
 		SPDW A 2 A_Pain
 		SPDW A 0 A_DamageChildren(35)

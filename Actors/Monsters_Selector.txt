@@ -1,9 +1,10 @@
 ACTOR --------SHOTGUN_MONSTERS_SELECTOR------------ {}
-ACTOR ShotgunMonsters replaces ShotgunGuy  
+ACTOR ShotgunMonsters replaces ShotgunGuy
 {
     //$Category "Bloom Monsters"
     //$Title ShotgunGuy Spawner
-    //$Color 3 
+    //$Color 3
+	//$Sprite B1ILA0
 	+NOTDMATCH
 	States
 	{
@@ -20,20 +21,20 @@ ACTOR ShotgunMonsters replaces ShotgunGuy
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("OriginalShotgunSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR OriginalShotgunSpawner : RandomSpawner 
+/*ACTOR OriginalShotgunSpawner : RandomSpawner
 {
 	DropItem "BrownCultist"
-	DropItem "ShotgunGuy_"	
+	DropItem "ShotgunGuy_"
 }
 
 ACTOR HybridShotgunSpawner : RandomSpawner
 {
 	DropItem "Apocalyptic_NeoCvltist"
-	DropItem "NeoCvltist"	
-	DropItem "ShotgunMonk"	
+	DropItem "NeoCvltist"
+	DropItem "ShotgunMonk"
 }*/
 
 ACTOR OriginalShotgunSpawner
@@ -45,10 +46,10 @@ ACTOR OriginalShotgunSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("BrownCultist",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("BrownCultist",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("ShotgunGuy_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("ShotgunGuy_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -62,23 +63,24 @@ ACTOR HybridShotgunSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Apocalyptic_NeoCvltist",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Apocalyptic_NeoCvltist",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("NeoCvltist",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("NeoCvltist",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("ShotgunMonk",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("ShotgunMonk",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
 
 ACTOR --------CHAINGUN_MONSTERS_SELECTOR------------ {}
-ACTOR ChaingunMonsters replaces ChaingunGuy 
+ACTOR ChaingunMonsters replaces ChaingunGuy
 {
     //$Category "Bloom Monsters"
     //$Title Chaingun Spawner
-    //$Color 3  	
+    //$Color 3
+	//$Sprite B1ILB0
 	+NOTDMATCH
 	States
 	{
@@ -93,22 +95,22 @@ ACTOR ChaingunMonsters replaces ChaingunGuy
 		TNT1 A 0
 		TNT1 A 1 ACS_NamedExecuteAlways("checkheight",0)
 		TNT1 A 1 A_Jump(256,"Deciding")
-	RandomHybrid:	  
+	RandomHybrid:
 		TNT1 A 0 A_SpawnItemEx("HybridChaingunnerSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	lowz:
 		TNT1 A 0 A_SpawnItemEx("Fanatic_Chaingunner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
-		Stop			  
+		Stop
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("OriginalChaingunnerSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR OriginalChaingunnerSpawner : RandomSpawner 
+/*ACTOR OriginalChaingunnerSpawner : RandomSpawner
 {
 	DropItem "GreyCultist"
-	DropItem "ChaingunGuy_"	
+	DropItem "ChaingunGuy_"
 }
 
 ACTOR HybridChaingunnerSpawner : RandomSpawner
@@ -126,10 +128,10 @@ ACTOR OriginalChaingunnerSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("GreyCultist",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("GreyCultist",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("ChaingunGuy_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("ChaingunGuy_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -143,20 +145,20 @@ ACTOR HybridChaingunnerSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Fanatic_Chaingunner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Fanatic_Chaingunner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Fanatic_ChaingunnerAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Fanatic_ChaingunnerAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
 
 ACTOR --------EELMONSTERS_SELECTOR------------ {}
-ACTOR Eelmonsters replaces Fatso 
+ACTOR Eelmonsters replaces Fatso
 {
     //$Category "Bloom Monsters"
     //$Title Eel/Mancubus Spawner
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -173,20 +175,20 @@ ACTOR Eelmonsters replaces Fatso
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("OriginalFishMancubus",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
 		Stop
-	}	  
+	}
 }
 
 /*ACTOR OriginalFishMancubus : RandomSpawner
 {
 	DropItem "GillBeast"
-	DropItem "Fatso_"	
+	DropItem "Fatso_"
 }
 
 ACTOR HybridFishMancubus : RandomSpawner
 {
 	DropItem "Eelcubus"
-	DropItem "EelcubusAlt"  
-	DropItem "Gillcubus"  
+	DropItem "EelcubusAlt"
+	DropItem "Gillcubus"
 }*/
 
 ACTOR OriginalFishMancubus
@@ -198,10 +200,10 @@ ACTOR OriginalFishMancubus
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("GillBeast",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("GillBeast",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Fatso_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Fatso_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -215,23 +217,23 @@ ACTOR HybridFishMancubus
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Eelcubus",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Eelcubus",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("EelcubusAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("EelcubusAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("Gillcubus",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Gillcubus",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
 
 ACTOR --------ELEMENTAL_GARMONSTERS_SELECTOR------------ {}
-ACTOR ElementalGarmonsters replaces PainElemental 
+ACTOR ElementalGarmonsters replaces PainElemental
 {
     //$Category "Bloom Monsters"
     //$Title Elemental Garmonsters Spawner
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -248,13 +250,13 @@ ACTOR ElementalGarmonsters replaces PainElemental
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("OriginalElementalGarmonsters",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR OriginalElementalGarmonsters : RandomSpawner 
+/*ACTOR OriginalElementalGarmonsters : RandomSpawner
 {
 	DropItem "BloodGargoyle"
-	DropItem "PainElemental_"	
+	DropItem "PainElemental_"
 }
 
 ACTOR HybridElementalGarmonsters : RandomSpawner
@@ -271,10 +273,10 @@ ACTOR OriginalElementalGarmonsters
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("BloodGargoyle",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("BloodGargoyle",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("PainElemental_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("PainElemental_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -288,17 +290,17 @@ ACTOR HybridElementalGarmonsters
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Elemental_Gargoyle",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Elemental_Gargoyle",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
 
 ACTOR --------HOUND_SELECTOR------------ {}
-ACTOR HoundSpawner replaces Demon 
+ACTOR HoundSpawner replaces Demon
 {
     //$Category "Bloom Monsters"
     //$Title Hounds Spawner
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -315,19 +317,19 @@ ACTOR HoundSpawner replaces Demon
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("OriginalHoundSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR OriginalHoundSpawner : RandomSpawner 
+/*ACTOR OriginalHoundSpawner : RandomSpawner
 {
 	DropItem "Demon_"
-	DropItem "HellHound"	
+	DropItem "HellHound"
 }
 
 ACTOR HybridHoundSpawner : RandomSpawner
 {
 	DropItem "DemonHound", 255, 9
-	DropItem "DemonhoundAlt", 255, 1   
+	DropItem "DemonhoundAlt", 255, 1
 }*/
 
 ACTOR OriginalHoundSpawner
@@ -339,10 +341,10 @@ ACTOR OriginalHoundSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Demon_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Demon_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("HellHound",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("HellHound",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -356,23 +358,23 @@ ACTOR HybridHoundSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
 	Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("DemonHound",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("DemonHound",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 	Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("DemonhoundAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("DemonhoundAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 	Stop
 	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("Gargodemon",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
-	Stop	
+		TNT1 A 0 A_SpawnItemEx("Gargodemon",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	Stop
 	}
 }
 
 ACTOR --------SPECTRE_HOUND_SELECTOR------------ {}
-ACTOR SpectreSpawner replaces Spectre 
+ACTOR SpectreSpawner replaces Spectre
 {
     //$Category "Bloom Monsters"
     //$Title Hounds Spawner
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -389,10 +391,10 @@ ACTOR SpectreSpawner replaces Spectre
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("OriginalSpectreSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR OriginalSpectreSpawner : RandomSpawner 
+/*ACTOR OriginalSpectreSpawner : RandomSpawner
 {
 	DropItem "Spectre_"
 }
@@ -400,7 +402,7 @@ ACTOR SpectreSpawner replaces Spectre
 ACTOR HybridSpectreSpawner : RandomSpawner
 {
 	DropItem "Spectrehound", 255, 9
-	DropItem "SpectrehoundAlt", 255, 1  
+	DropItem "SpectrehoundAlt", 255, 1
 }*/
 
 ACTOR OriginalSpectreSpawner
@@ -412,7 +414,7 @@ ACTOR OriginalSpectreSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Spectre_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Spectre_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -426,21 +428,21 @@ ACTOR HybridSpectreSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Spectrehound",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Spectrehound",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("SpectrehoundAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("SpectrehoundAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
 
 
 ACTOR --------CACOYLES_SELECTOR------------ {}
-ACTOR Garmonsters replaces Cacodemon 
+ACTOR Garmonsters replaces Cacodemon
 {
     //$Category "Bloom Monsters"
     //$Title Garmonsters Spawner
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -457,10 +459,10 @@ ACTOR Garmonsters replaces Cacodemon
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("OriginalGarmonsters",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR OriginalGarmonsters : RandomSpawner 
+/*ACTOR OriginalGarmonsters : RandomSpawner
 {
 	DropItem "BloodGargoyle"
 	DropItem "Cacodemon_"
@@ -468,7 +470,7 @@ ACTOR Garmonsters replaces Cacodemon
 
 ACTOR HybridGarmonsters : RandomSpawner
 {
-	DropItem "Cacoyle"  
+	DropItem "Cacoyle"
 	DropItem "Cacoyle_Variant"
 }*/
 
@@ -481,10 +483,10 @@ ACTOR OriginalGarmonsters
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("BloodGargoyle",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("BloodGargoyle",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Cacodemon_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Cacodemon_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -498,20 +500,20 @@ ACTOR HybridGarmonsters
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Cacoyle",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Cacoyle",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Cacoyle_Variant",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Cacoyle_Variant",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
 
 ACTOR --------GHOST_REVENANTS_SELECTOR------------ {}
-ACTOR GhostandRevenants replaces Revenant 
+ACTOR GhostandRevenants replaces Revenant
 {
     //$Category "Bloom Monsters"
     //$Title Ghost & Revenants Spawner
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -528,10 +530,10 @@ ACTOR GhostandRevenants replaces Revenant
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("OriginalGhostandRevenants",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR OriginalGhostandRevenants : RandomSpawner 
+/*ACTOR OriginalGhostandRevenants : RandomSpawner
 {
 	DropItem "Revenant_", 255, 9
 	DropItem "Phantasm", 255, 1
@@ -539,10 +541,10 @@ ACTOR GhostandRevenants replaces Revenant
 
 ACTOR HybridGhostandRevenants : RandomSpawner
 {
-	DropItem "GhostRevenantTerrain", 255, 3  
-	DropItem "GhostRevenantTerrainAlt", 255, 4 
-	DropItem "Shielded_Ghost_Revenant", 255, 2  
-	DropItem "Shielded_Ghost_Revenant_Alt", 255, 1 
+	DropItem "GhostRevenantTerrain", 255, 3
+	DropItem "GhostRevenantTerrainAlt", 255, 4
+	DropItem "Shielded_Ghost_Revenant", 255, 2
+	DropItem "Shielded_Ghost_Revenant_Alt", 255, 1
 }*/
 
 ACTOR OriginalGhostandRevenants
@@ -554,10 +556,10 @@ ACTOR OriginalGhostandRevenants
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Revenant_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Revenant_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Phantasm",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Phantasm",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -571,26 +573,26 @@ ACTOR HybridGhostandRevenants
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("GhostRevenantTerrain",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("GhostRevenantTerrain",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("GhostRevenantTerrainAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("GhostRevenantTerrainAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("Shielded_Ghost_Revenant",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Shielded_Ghost_Revenant",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn4:
-		TNT1 A 0 A_SpawnItemEx("Shielded_Ghost_Revenant_Alt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
-		Stop	
+		TNT1 A 0 A_SpawnItemEx("Shielded_Ghost_Revenant_Alt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		Stop
 	}
 }
 
 ACTOR --------SOULS_SELECTOR------------ {}
-ACTOR Thesouls replaces LostSoul 
+ACTOR Thesouls replaces LostSoul
 {
     //$Category "Bloom Monsters"
     //$Title The Souls
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -607,10 +609,10 @@ ACTOR Thesouls replaces LostSoul
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("ThesoulsNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR ThesoulsNormal : RandomSpawner 
+/*ACTOR ThesoulsNormal : RandomSpawner
 {
 	DropItem "LostSoul_"
 }
@@ -630,7 +632,7 @@ ACTOR ThesoulsNormal
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("LostSoul_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("LostSoul_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -644,7 +646,7 @@ ACTOR Thesoulshybrid
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("GargoylSoul",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("GargoylSoul",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -654,7 +656,7 @@ ACTOR TheArachnoids replaces Arachnotron
 {
     //$Category "Bloom Monsters"
     //$Title The Arachnoids
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -671,13 +673,13 @@ ACTOR TheArachnoids replaces Arachnotron
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("Arachnoidnormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR Arachnoidnormal : RandomSpawner 
+/*ACTOR Arachnoidnormal : RandomSpawner
 {
 	DropItem "Arachnotron_"
-	DropItem "SpiderMother"  
+	DropItem "SpiderMother"
 }
 
 ACTOR Arachnoidhybrid : RandomSpawner
@@ -694,10 +696,10 @@ ACTOR Arachnoidnormal
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Arachnotron_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Arachnotron_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("SpiderMother",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("SpiderMother",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -711,7 +713,7 @@ ACTOR Arachnoidhybrid
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Arachnoid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Arachnoid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -721,7 +723,7 @@ ACTOR TheCvltimpZombimps replaces DoomImp
 {
     //$Category "Bloom Monsters"
     //$Title The Cvltimps and Zombimps
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -738,10 +740,10 @@ ACTOR TheCvltimpZombimps replaces DoomImp
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("Cvltimpnormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR Cvltimpnormal : RandomSpawner 
+/*ACTOR Cvltimpnormal : RandomSpawner
 {
 	DropItem "DoomImp_"
 }
@@ -749,7 +751,7 @@ ACTOR TheCvltimpZombimps replaces DoomImp
 ACTOR Cvltimphybrid : RandomSpawner
 {
 	DropItem "Cvltimp", 255, 2
-	DropItem "CvltimpAlt", 255, 1 
+	DropItem "CvltimpAlt", 255, 1
 	DropItem "Zombimps", 255, 7
 }*/
 
@@ -762,7 +764,7 @@ ACTOR Cvltimpnormal
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("DoomImp_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("DoomImp_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -776,13 +778,13 @@ ACTOR Cvltimphybrid
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Cvltimp",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Cvltimp",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("CvltimpAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("CvltimpAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("Zombimps",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Zombimps",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -792,7 +794,7 @@ ACTOR TheWolfKnights replaces BaronOfHell
 {
     //$Category "Bloom Monsters"
     //$Title WereWolfs of Hell
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -809,13 +811,13 @@ ACTOR TheWolfKnights replaces BaronOfHell
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("BaronofHellNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR BaronofHellNormal : RandomSpawner 
+/*ACTOR BaronofHellNormal : RandomSpawner
 {
 	DropItem "BaronOfHell_"
-	DropItem "BloodBeast"  
+	DropItem "BloodBeast"
 }
 
 ACTOR BaronofHellHybrid : RandomSpawner
@@ -833,10 +835,10 @@ ACTOR BaronofHellNormal
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("BaronOfHell_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("BaronOfHell_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("BloodBeast",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("BloodBeast",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -850,10 +852,10 @@ ACTOR BaronofHellHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("WereWolfOfHell",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("WereWolfOfHell",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("WereWolfOfHellAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("WereWolfOfHellAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -863,7 +865,7 @@ ACTOR TheGhoulsZombies replaces ZombieMan
 {
     //$Category "Bloom Monsters"
     //$Title Ghouls and Zombies
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -880,13 +882,13 @@ ACTOR TheGhoulsZombies replaces ZombieMan
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("GhoulZombieNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR GhoulZombieNormal : RandomSpawner 
+/*ACTOR GhoulZombieNormal : RandomSpawner
 {
 	DropItem "ZombieMan_"
-	DropItem "BloodZombie"  
+	DropItem "BloodZombie"
 }
 
 ACTOR GhoulZombieHybrid : RandomSpawner
@@ -903,10 +905,10 @@ ACTOR GhoulZombieNormal
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("ZombieMan_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("ZombieMan_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("BloodZombie",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("BloodZombie",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -920,7 +922,7 @@ ACTOR GhoulZombieHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("GhoulsZombies",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("GhoulsZombies",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -930,7 +932,7 @@ ACTOR TheArchZombies replaces Archvile
 {
     //$Category "Bloom Monsters"
     //$Title Archviles and zombies
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -947,10 +949,10 @@ ACTOR TheArchZombies replaces Archvile
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("ArchZombieNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR ArchZombieNormal : RandomSpawner 
+/*ACTOR ArchZombieNormal : RandomSpawner
 {
 	DropItem "Archvile_"
 }
@@ -970,7 +972,7 @@ ACTOR ArchZombieNormal
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Archvile_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Archvile_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -984,20 +986,20 @@ ACTOR ArchZombieHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Archzombie",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Archzombie",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Gargovile",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("Gargovile",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
 
 ACTOR --------HELLBUTCHER_SELECTOR------------ {}
-ACTOR TheHellButchers replaces HellKnight 
+ACTOR TheHellButchers replaces HellKnight
 {
     //$Category "Bloom Monsters"
     //$Title HellButcher
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -1014,19 +1016,19 @@ ACTOR TheHellButchers replaces HellKnight
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("TheHellButchersNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR TheHellButchersNormal : RandomSpawner 
+/*ACTOR TheHellButchersNormal : RandomSpawner
 {
 	DropItem "HellKnight_"
-	DropItem "BloatedButcher"  
+	DropItem "BloatedButcher"
 }
 
 ACTOR TheHellButchersHybrid : RandomSpawner
 {
 	DropItem "HellButcher"
-	DropItem "HellButcherAlt"  
+	DropItem "HellButcherAlt"
 }*/
 
 ACTOR TheHellButchersNormal
@@ -1038,10 +1040,10 @@ ACTOR TheHellButchersNormal
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("HellKnight_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("HellKnight_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("BloatedButcher",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("BloatedButcher",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -1055,10 +1057,10 @@ ACTOR TheHellButchersHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("HellButcher",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("HellButcher",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("HellButcherAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("HellButcherAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -1068,7 +1070,7 @@ ACTOR TheGargolLivingStatue 19044
 {
     //$Category "Bloom Monsters"
     //$Title The Gargovile living Statue
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -1085,10 +1087,10 @@ ACTOR TheGargolLivingStatue 19044
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("TheGargolsStatueNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR TheGargolsStatueNormal : RandomSpawner 
+/*ACTOR TheGargolsStatueNormal : RandomSpawner
 {
 	DropItem "LivingGargStatue"
 }
@@ -1107,7 +1109,7 @@ ACTOR TheGargolsStatueNormal
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("LivingGargStatue",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("LivingGargStatue",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -1121,7 +1123,7 @@ ACTOR TheGargolsStatueHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("LivingGargovileStatue",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("LivingGargovileStatue",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -1131,7 +1133,7 @@ ACTOR TheGargolStatue 19045
 {
     //$Category "Bloom Monsters"
     //$Title The Gargovile Statue
-    //$Color 3  	
+    //$Color 3
 	+NOTDMATCH
 	States
 	{
@@ -1148,10 +1150,10 @@ ACTOR TheGargolStatue 19045
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("TheStatueNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
 		Stop
-	}	  
+	}
 }
 
-/*ACTOR TheStatueNormal : RandomSpawner 
+/*ACTOR TheStatueNormal : RandomSpawner
 {
 	DropItem "MerryGargStatue"
 }
@@ -1170,7 +1172,7 @@ ACTOR TheStatueNormal
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("MerryGargStatue",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("MerryGargStatue",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
@@ -1184,7 +1186,7 @@ ACTOR TheStatueHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("MerryGargovileStatue",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)	
+		TNT1 A 0 A_SpawnItemEx("MerryGargovileStatue",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
