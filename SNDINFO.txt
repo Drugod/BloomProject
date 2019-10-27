@@ -363,6 +363,7 @@ DSSTSHL1	DSSTSHL1
 DSSTSHL2	DSSTSHL2
 DSSTSHL3	DSSTSHL3
 DSSTSHL4	DSSTSHL4
+PISTOL1     pistol1
 items/heartpickup		HEARTPIC
 weapons/sawedoffload	SWSLOAD
 weapons/tommygun    	TOM1

@@ -865,7 +865,7 @@ ACTOR Colt : CalebW 31370
 	Fire:
 		PKP2 A 4
 		TNT1 A 0 A_FireBullets (5.6, 0, 1, 7, "BulletPuff")
-		TNT1 A 0 A_PlaySound("weapons/tommygun", CHAN_WEAPON)
+		TNT1 A 0 A_PlaySound("PISTOL1", CHAN_WEAPON)
 		TNT1 A 0 A_GunFlash
 		PKF2 BCD 2 BRIGHT
 		PKP2 D 1
@@ -891,7 +891,7 @@ ACTOR Colt : CalebW 31370
 		Goto Ready
 	Flash:
 		TNT1 A 0
-		TNT1 A 0 A_Quake(2,6,0,100)
+		TNT1 A 0 A_Quake(4,6,0,100)
 		TNT1 A 0 A_SetPitch(pitch-2.5)
 		TNT1 A 0 A_SetPitch(pitch+0.25)
 		PKP2 B 2
