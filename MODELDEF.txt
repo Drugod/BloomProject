@@ -1271,29 +1271,36 @@ Model fleshtrap1
 Model Decal_CeilFloor1
 {
    Path "Models/FloorDecal"
-   Model 0 "FloorDecal.md3"
-   Skin  0 "FloorDecal1.png"    // Model index, texture (can be in any format supported by GZDoom)
+   Model 0 "FloorDecal.md3" //embedded
    Scale 64.0 64.0 64.0
+   INHERITACTORROLL
+   INHERITACTORPITCH
    Zoffset 1
-   FrameIndex DECF A 0 2   	// The sprite lump, sprite frame, model index, name of frame
+   FrameIndex DECF A 0 2 
 }
+
 Model Decal_CeilFloor2
 {
    Path "Models/FloorDecal"
    Model 0 "FloorDecal.md3"
-   Skin  0 "FloorDecal2.png"    // Model index, texture (can be in any format supported by GZDoom)
+   Skin  0 "FloorDecal2.png"
    Scale 32.0 32.0 32.0
+   INHERITACTORROLL
+   INHERITACTORPITCH
    Zoffset 1
-   FrameIndex DECF B 0 2   	// The sprite lump, sprite frame, model index, name of frame
+   FrameIndex DECF B 0 2
 }
+
 Model Decal_CeilFloor3
 {
    Path "Models/FloorDecal"
    Model 0 "FloorDecal.md3"
-   Skin  0 "FloorDecal3.png"    // Model index, texture (can be in any format supported by GZDoom)
+   Skin  0 "FloorDecal3.png"
    Scale 48.0 48.0 48.0
+   INHERITACTORROLL
+   INHERITACTORPITCH
    Zoffset 1
-   FrameIndex DECF C 0 2   	// The sprite lump, sprite frame, model index, name of frame
+   FrameIndex DECF C 0 2 
 }
 
 //signs

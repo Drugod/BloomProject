@@ -5,6 +5,7 @@ ACTOR ShotgunMonsters replaces ShotgunGuy
     //$Title ShotgunGuy Spawner
     //$Color 3
 	//$Sprite B1ILA0
+	Scale 0.5 //needed for gzdb - ozy81
 	+NOTDMATCH
 	States
 	{
@@ -81,6 +82,7 @@ ACTOR ChaingunMonsters replaces ChaingunGuy
     //$Title Chaingun Spawner
     //$Color 3
 	//$Sprite B1ILB0
+	Scale 0.5 //needed for gzdb - ozy81
 	+NOTDMATCH
 	States
 	{
