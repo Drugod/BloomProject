@@ -76,9 +76,8 @@ MONKEY = "You got the Moon Key.";
 SKUKEY = "You got the Skull Key.";
 SPIKEY = "You got the Spider Key.";
 
-//OBITUARIES
+//OBITUARIES - WEAPONS
 OB_COLT = "%o was been shoot to the head by %k.";
-OB_DEFAULT = "\n";
 OB_DYNA = "%o got a faceful of %k's TNT!";
 OB_FCULT = "%o burned by cult fire!";
 OB_FGUN = "%o was cooked by %k's flare gun.";
@@ -97,3 +96,68 @@ OB_TESL = "%o was overcharged by %k.";
 OB_TOMMY = "%o sung %k's Tommy tune.";
 OB_VODO = "%o was tingled by %k's voodoo stings.";
 OB_SPIKE = "%o was grinded.";
+OB_WBOMB = "%o got caught by an explosion.";
+
+//OBITUARIES - BLOOD
+HB_BEAST = "%o was torn apart by a Beast.";
+HB_BGARG = "%o was slapped by a gargoyle.";
+HB_BLOAT = "A butcher made mince meat out of %o.";
+HB_CHEOGH = "%o was owned by Cheogh.";
+HB_PUPPY = "%o got caught by a puppy.";
+HN_PHANT = "A phantasm scared the hell out of %o.";
+OB_BEAST = "%o was swept off %p feet by a Beast.";
+OB_BGARG = "%o was sniped by a gargoyle.";
+OB_BLOAT = "%o was splattered by a bloated butcher.";
+OB_BLUCUL = "%o argued with a Zealot.";
+OB_BRAMB = "%o was cut by brambles of a Chrysalid Pod.";
+OB_BRAMB2 = "%o was cut by brambles of a Lava Pod.";
+OB_BROCUL = "%o got shot by an angry Cultist.";
+OB_CERB = "%o didn't approach Cerberus the right way.";
+OB_CHEOGH = "%o stood no chance against Cheogh.";
+OB_CHOKE = "%o was punched in the face by a hand.";
+OB_CRYPOD = "%o was spat on by a Chrysalid Pod.";
+OB_GBURN = "%o was near a gargoyle in flames.";
+OB_GILLB = "A Gill Beast ate %o.";
+OB_GRENCUL = "%o got outplayed by an Acolyte!!";
+OB_GREYCUL = "%o wasn't much liked by a Fanatic.";
+OB_HFISH = "Hellfish ate %o.";
+OB_LAVPOD = "%o was charred by a Lava Pod.";
+OB_MOUS = "%o was plagued by a little cute mouse.";
+OB_PHANT = "%o was harvested by a phantasm.";
+OB_PUPPY = "%o was incinerated by a Hell Hound.";
+OB_REDCUL = "%o was punctured by a Priest.";
+OB_SPIDS = "%o will now rage-quit thanks to spiders.";
+OB_SPIDS2 = "%o got bitten by a little spider.";
+OB_SPIDS3 = "Little spiders swarmed %o.";
+OB_SPIDS4 = "A green spider bit %o's sorry ass.";
+OB_SPIDS5 = "%o hates blue spiders.";
+OB_SPIDS6 = "%o was killed by yellow spiders.";
+OB_SPIDS7 = "Royal purple spiders purged %o.";
+OB_SPIDS8 = "%o lost all his stamina to cyan spiders.";
+OB_SPIDS9 = "%o was a great feast to spiders.";
+OB_STOMP = "%o danced with the stars.";
+OB_STOMP2 = "%o got too close to The-One-That-Binds.";
+OB_TCHERNO = "The-One-That-Binds didn't like the stupid look on %o's face.";
+OB_ZAXE = "%o got the zombie's axe.";
+
+//OBITUARIES - HYBRIDS
+HB_CACOY = "%o gets killed by a Cacoyle's bad breath ;)";
+HB_GHOREV = "A Ghost Revenant scared the hell out of %o.";
+HB_TERREV = "%o was punched by a Ghost Revenant.";
+OB_ACHNOID = "%o killed by an Arachnoid.";
+OB_CACOY = "%o didn't survive Cacoyle attack.";
+OB_DEMHOU = "%o was bit by a Demonhound.";
+OB_DEMHOU2 = "%o was incinerated by a DemonHound.";
+OB_EELCUB = "Carbonized by a Eelcubus.";
+OB_GARGD = "%o was bit by a Gargodemon.";
+OB_GHOREV = "%o couldn't dodge a Ghost Revenant's fireball.";
+OB_GILLCUB = "Carbonized by a Gillcubus.";
+OB_GSOUL = "%o was spooked by a Gargoyle's soul.";
+OB_SPEHOU = "%o was eaten by a SpectreHound.";
+
+//OBITUARIES - MISC
+OB_BBARL = "%o went boom.";
+OB_DEFAULT = "\n";
+OB_HUGGFIRE = "%o hugged a burning person.";
+OB_NEARF = "%o was near someone in flames.";
+OB_ZOMBFIRE = "%o hugged a zombie on fire.";

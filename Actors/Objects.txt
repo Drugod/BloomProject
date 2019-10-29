@@ -120,7 +120,7 @@ ACTOR BurnDeathSmoke
 {  
 	Radius 64
 	Height 16
-	RenderStyle Translucent
+	RenderStyle "Translucent"
 	Alpha 0.30
 	+CANNOTPUSH
 	+DONTSPLASH
@@ -142,54 +142,54 @@ ACTOR BurnDeathSmoke
 
 ACTOR BloodBeer : Meat5 3177//replaces Meat5
 {
-  //$Category "BlooM Ambient"
-  Tag "Red bottle"
-  Radius 4
-  Height 17
-  +SOLID
-  -SPAWNCEILING
-  -NOGRAVITY
-  Health 3
-  +NOBLOOD
-  +SHOOTABLE
-  RenderStyle Translucent
-  DeathSound "PotteryBreak" 
-  Translation "112:127=32:47"
-  Alpha 0.9
-  Scale 0.5
-  States
-  {
-  Spawn:
-    BOTL A 1
-    Loop
-  Pain:
-  Death:
-    BOTL A 0 A_Fall
-    BOTL A 0 A_Scream
-	XATT FGH 1 A_SpawnDebris ("GlassDebris",1)
-	XATT IJK 2
-    BOTL A 0 A_SpawnDebris("FlyingBlood")
-	Stop
-  }
+	//$Category "BlooM Ambient"
+	Tag "Red bottle"
+	Radius 4
+	Height 17
+	Health 3
+	+NOBLOOD
+	+SHOOTABLE
+	+SOLID
+	-NOGRAVITY
+	-SPAWNCEILING
+	RenderStyle "Translucent"
+	DeathSound "PotteryBreak" 
+	Translation "112:127=32:47"
+	Alpha 0.9
+	Scale 0.5
+	States
+	{
+	Spawn:
+		BOTL A 1
+		Loop
+	Pain:
+	Death:
+		BOTL A 0 A_Fall
+		BOTL A 0 A_Scream
+		XATT FGH 1 A_SpawnDebris ("GlassDebris",1)
+		XATT IJK 2
+		BOTL A 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	}
 }
 
 ACTOR GlitterBridge : Bridge 
 { 
-  spawnid 121
-  RenderStyle Add
-  +NOBLOCKMAP
-  +NOGRAVITY
-  States
-  {
-  Spawn:
-    TLGL ABCDE 5 BRIGHT
-    Loop
-  }
+	SpawnId 121
+	RenderStyle "Add"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		TLGL ABCDE 5 BRIGHT
+		Loop
+	}
 }
 
 ACTOR ZBlooDTeleportFog : TeleportFog replaces TeleportFog
 {
-  RenderStyle Add
+  RenderStyle "Add"
   +NOBLOCKMAP
   +NOGRAVITY
   //Scale 0.5
@@ -502,7 +502,7 @@ ACTOR intheFleshSplatMaker //522 //Timers horribly increased cuz map crasher onl
   +NOICEDEATH
   +NOGRAVITY
   DeathSound "DSPOD1"
-  RenderStyle None
+  RenderStyle "None"
   +INVISIBLE
   States
   {
@@ -531,7 +531,7 @@ ACTOR AnnoyingMallMusic 3181//521
   +SHOOTABLE
   +NOICEDEATH
   +NOBLOOD
-  RenderStyle None
+  RenderStyle "None"
   +INVISIBLE
   States
   {
@@ -545,7 +545,7 @@ ACTOR AnnoyingMallMusic 3181//521
     Stop
   Pain:
     BLD2 M 0
-    goto Spawn
+    Goto Spawn
   }
 }
 
@@ -553,7 +553,7 @@ ACTOR BloodExBarrel : ExplosiveBarrel 3182
 {
   //$Category "BlooM Ambient"
   Tag "Explosive Barrel"
-  obituary "%o went boom."
+  Obituary "$OB_BBARL"
   Health 20
   Height 34
   DeathSound "weapons/rocklx"
@@ -626,7 +626,7 @@ ACTOR MerryGargovileStatue
 ACTOR Acid : Blood 
 {
  Decal BloodSplat
- RenderStyle Translucent
+ RenderStyle "Translucent"
  +CANNOTPUSH
  Gravity 0.6
  Alpha 0.90
@@ -817,21 +817,21 @@ ACTOR AcidTrail
   ACI2 F 4 A_PlaySound("Body/Blood")
   ACI2 GHI 8
   ACI2 I 0 A_Jump (128, 1)
-  goto XDeath  
+  Goto XDeath  
   ACI2 A 5 
   ACI2 A 50 A_FadeOut(0.07) 
-  goto Death+9
+  Goto Death+9
   ACI2 O 4 A_PlaySound("Body/Blood")
   ACI2 PQR 4
   ACI2 R 0 A_Jump (128, 1)
-  goto XDeath  
+  Goto XDeath  
   ACI2 A 5
   ACI2 A 50 A_FadeOut(0.07) 
-  goto Death+19
+  Goto Death+19
   xDeath:
   ACI2 B 5 A_SpawnItemEX("AcidPool",Random(-10,10),Random(-10,10))
   ACI2 B 50 A_FadeOut(0.07)
-  goto XDeath+1
+  Goto XDeath+1
   }
 }
 
@@ -902,7 +902,7 @@ ACTOR Balloon : HeadOnAStick 3186
   -SOLID
   +SHOOTABLE
   +NOBLOOD
-  RenderStyle Translucent
+  RenderStyle "Translucent"
   DeathSound "DSBALPOP"
   Alpha 0.9
   States
@@ -921,7 +921,7 @@ ACTOR BalloonDebris : Napalmdebris
 {
   Health 10
   Scale 0.5
-  RenderStyle Translucent
+  RenderStyle "Translucent"
   Alpha 0.9
   States
   {
@@ -946,7 +946,7 @@ ACTOR GlassDebris : Napalmdebris
 {
   Health 10
   Scale 0.5
-  RenderStyle Translucent
+  RenderStyle "Translucent"
   Alpha 0.9
   Scale 0.5
   States
@@ -1270,51 +1270,49 @@ ACTOR mourn 3209
   }
 }
 
-ACTOR  BigSmoke
+ACTOR BigSmoke
 {
-  Radius 13
-  Height 8
-  Speed 12
-  Scale 0.5
-  Alpha 0.7
-  RenderStyle Translucent
-  +RANDOMIZE
-  +CANNOTPUSH
-  -NOGRAVITY
-  -NOBLOCKMAP
-  +NODAMAGETHRUST
-  +BLOODLESSIMPACT
-  States
-  {
-  Spawn:
-  //zandronum
-	//BTEA ABCD 4 A_FadeOut(0.001,FTF_REMOVE)
-	BTEA ABCD 4 A_FadeOut(0.01)
-	Loop
-  }
+	Radius 13
+	Height 8
+	Speed 12
+	Scale 0.5
+	Alpha 0.7
+	RenderStyle "Translucent"
+	+BLOODLESSIMPACT
+	+CANNOTPUSH
+	+NODAMAGETHRUST
+	+RANDOMIZE
+	-NOBLOCKMAP
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+		BTEA ABCD 4 A_FadeOut(0.01)
+		Loop
+	}
 }
 
 ACTOR Lavasmoke_ replaces Lavasmoke 3239
 {
-  //$Category "BlooM Ambient"
-  Radius 13
-  Height 8
-  Speed 12
-  Scale 0.5
-  Alpha 0.4
-  RenderStyle Translucent
-  +RANDOMIZE
-  +CANNOTPUSH
-  -NOGRAVITY
-  -NOBLOCKMAP
-  +NODAMAGETHRUST
-  +BLOODLESSIMPACT
-  States
-  {
-  Spawn:
-	BTEA ABCD 4
-	Loop
-  }
+	//$Category "BlooM Ambient"
+	Radius 13
+	Height 8
+	Speed 12
+	Scale 0.5
+	Alpha 0.4
+	RenderStyle "Translucent"
+	+BLOODLESSIMPACT
+	+CANNOTPUSH
+	+NODAMAGETHRUST
+	+RANDOMIZE
+	-NOBLOCKMAP
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+		BTEA ABCD 4
+		Loop
+	}
 }
 
 ACTOR BurnDeath1
@@ -1323,144 +1321,144 @@ ACTOR BurnDeath1
     Height 56
     Speed 4
     Scale 0.5
-    +FIREDAMAGE
-    +RANDOMIZE
     +DONTSPLASH
+    +FIREDAMAGE
     +FLOORCLIP
     +LOOKALLAROUND
+    +RANDOMIZE
     DamageType "SpecialFire"
-    Obituary "%o was near someone in flames."
+    Obituary "$OB_NEARF"
     ActiveSound "Caleb/Burns"
     States
     {
     Spawn:
-        FGUY A 0   A_KillMaster
+        FGUY A 0 A_KillMaster
         FGUY A 3 BRIGHT A_Look
-        goto See
+        Goto See
     See:
-        FGUY A 0   A_PlaySound("Caleb/Burns")
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_PlaySound("Caleb/Burns")
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY AAA 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY BBB 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BurningAlive")
+        FGUY A 0 A_Explode (4,24,0)
         FGUY CCC 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY DDD 1 BRIGHT  A_Wander
         FGUY A 0   
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY EEE 1 BRIGHT  A_Wander
         FGUY A 0  
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BurningAlive")
+        FGUY A 0 A_Explode (4,24,0)
         FGUY FFF 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY AAA 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY BBB 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BurningAlive")
+        FGUY A 0 A_Explode (4,24,0)
         FGUY CCC 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY DDD 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY EEE 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY FFF 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BurningAlive")
+        FGUY A 0 A_Explode (4,24,0)
         FGUY AAA 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY BBB 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY CCC 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BurningAlive")
+        FGUY A 0 A_Explode (4,24,0)
         FGUY DDD 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY EEE 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY FFF 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BurningAlive")
+        FGUY A 0 A_Explode (4,24,0)
         FGUY AAA 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY BBB 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY CCC 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BurningAlive")
+        FGUY A 0 A_Explode (4,24,0)
         FGUY DDD 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY EEE 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY FFF 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY AAA 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY BBB 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BurningAlive")
+        FGUY A 0 A_Explode (4,24,0)
         FGUY CCC 1 BRIGHT  A_Wander
         FGUY A 0   //A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY DDD 1 BRIGHT  A_Wander
         FGUY A 0   
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY EEE 1 BRIGHT  A_Wander
         FGUY A 0  
-		FGUY A 0   A_Jump(160,"See")
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
+		FGUY A 0 A_Jump(160,"See")
+        FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+        FGUY A 0 A_Explode (4,24,0)
         FGUY FFF 1 BRIGHT  A_Wander
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
+        FGUY A 0 A_SpawnItem ("BurningAlive")
+        FGUY A 0 A_Explode (4,24,0)
         Goto Death
     Death:
 		FGUY G 0 A_StopSound
@@ -1493,165 +1491,165 @@ ACTOR BurnDeathBBT
 	YScale 0.51
 	Speed 3
 	DeathSound "ButcherBurn"
-    Radius 16
-    Height 56
-    +FIREDAMAGE
-    +RANDOMIZE
-    +DONTSPLASH
-    +FLOORCLIP
-    +LOOKALLAROUND
-    DamageType "SpecialFire"
-    Obituary "%o was near someone in flames."
-    ActiveSound "DSBDYBRN"
-    States
-    {
-    Spawn:
-        FGUY A 0   A_KillMaster
-        FGUY A 3 BRIGHT  A_Look
-        goto See
-    See:
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY AAA 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY BBB 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY CCC 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY DDD 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY EEE 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY FFF 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY AAA 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY BBB 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY CCC 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY DDD 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY EEE 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY FFF 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY AAA 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY BBB 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY CCC 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY DDD 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY EEE 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY FFF 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY AAA 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY BBB 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY CCC 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY DDD 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY EEE 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY FFF 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY AAA 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY BBB 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY CCC 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY DDD 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BurningAlive")
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY EEE 1 BRIGHT  A_Wander
-        FGUY A 0   A_LoopActiveSound
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        FGUY FFF 1 BRIGHT  A_Wander
-        FGUY A 0   A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
-        FGUY A 0   A_Explode (4,24,0)
-        Goto Death
-		Death:
-			TNT1 A 0 A_Scream
-			FGUY G 3 BRIGHT  A_PlaySound("DSBDYBRN")
-			FGUY G 0 A_SpawnDebris("FlyingBlood")
-			FGUY G 0 A_SpawnDebris("FlyingBlood")
-			FGUY G 0 A_SpawnDebris("FlyingBlood")
-			FGUY G 0 A_SpawnDebris("FlyingBlood")
-			FGUY G 0 A_SpawnDebris("FlyingBlood")
-			FGUY G 0 A_SpawnDebris ("NapalmDebris")
-			FGUY G 0 A_Fall
-			FGUY GGHHII 3 BRIGHT  A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-			FGUY A 0 BRIGHT  A_SpawnItem ("BurnDeathSmoke")
-			FGUY JJKKLLMMNNOO 3  BRIGHT  A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5)) 
-			FGUY JJKKLLMMNNOO 3  BRIGHT  A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
-			FGUY JJKKLLMMNNOO 3  BRIGHT  A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
-			FGUY PPQQRRSS 3 BRIGHT 
-			TNT1 A 0 A_StopSound
-			FGUT T -1
-		Stop
+	Radius 16
+	Height 56
+	+FIREDAMAGE
+	+RANDOMIZE
+	+DONTSPLASH
+	+FLOORCLIP
+	+LOOKALLAROUND
+	DamageType "SpecialFire"
+	Obituary "$OB_NEARF"
+	ActiveSound "DSBDYBRN"
+	States
+	{
+	Spawn:
+	FGUY A 0 A_KillMaster
+	FGUY A 3 BRIGHT  A_Look
+	Goto See
+	See:
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY AAA 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY BBB 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY CCC 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BurningAlive")
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY DDD 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY EEE 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY FFF 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY AAA 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY BBB 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BurningAlive")
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY CCC 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY DDD 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY EEE 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY FFF 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY AAA 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY BBB 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BurningAlive")
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY CCC 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY DDD 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY EEE 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY FFF 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY AAA 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY BBB 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY CCC 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY DDD 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BurningAlive")
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY EEE 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY FFF 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY AAA 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY BBB 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY CCC 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY DDD 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BurningAlive")
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY EEE 1 BRIGHT  A_Wander
+	FGUY A 0 A_LoopActiveSound
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	FGUY FFF 1 BRIGHT  A_Wander
+	FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+	FGUY A 0 A_Explode (4,24,0)
+	Goto Death
+	Death:
+	TNT1 A 0 A_Scream
+	FGUY G 3 BRIGHT  A_PlaySound("DSBDYBRN")
+	FGUY G 0 A_SpawnDebris("FlyingBlood")
+	FGUY G 0 A_SpawnDebris("FlyingBlood")
+	FGUY G 0 A_SpawnDebris("FlyingBlood")
+	FGUY G 0 A_SpawnDebris("FlyingBlood")
+	FGUY G 0 A_SpawnDebris("FlyingBlood")
+	FGUY G 0 A_SpawnDebris ("NapalmDebris")
+	FGUY G 0 A_Fall
+	FGUY GGHHII 3 BRIGHT  A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+	FGUY A 0 BRIGHT  A_SpawnItem ("BurnDeathSmoke")
+	FGUY JJKKLLMMNNOO 3  BRIGHT  A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5)) 
+	FGUY JJKKLLMMNNOO 3  BRIGHT  A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+	FGUY JJKKLLMMNNOO 3  BRIGHT  A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+	FGUY PPQQRRSS 3 BRIGHT 
+	TNT1 A 0 A_StopSound
+	FGUT T -1
+	Stop
 	}
 }
 
@@ -1669,7 +1667,7 @@ ACTOR BurnDeathZombie
     +LOOKALLAROUND
 	+DROPOFF
     DamageType "SpecialFire"
-    Obituary "%o hugged a zombie on fire."
+    Obituary "$OB_ZOMBFIRE"
     ActiveSound "DSBDYBRN"
     States
     {
@@ -1677,7 +1675,7 @@ ACTOR BurnDeathZombie
         FGUY A 0   A_KillMaster
         FGUY A 3 BRIGHT  A_Look
 		FGUY A 0   A_PlaySound("demon/pain",2)
-        goto See
+        Goto See
     See:
         FGUY A 0   //A_LoopActiveSound
         FGUY A 0   A_SpawnItem ("BurningAlive")
@@ -1784,7 +1782,7 @@ ACTOR BurnDeathZombie
 		TNT1 A 0 A_Scream
 		FGUY G 3 BRIGHT  A_PlaySound("DSBDYBRN")
 		//ini e552428
-		FGUY G 0 A_JUMP(127,"Kick_me") 
+		FGUY G 0 A_Jump(127,"Kick_me") 
 		//fin e552428
 		FGUY G 0 A_SpawnDebris("FlyingBlood")
 		FGUY G 0 A_SpawnDebris("FlyingBlood")
@@ -1867,7 +1865,7 @@ ACTOR BurnDeath2
     +LOOKALLAROUND
     +FLOORCLIP
 	DamageType "SpecialFire"
-    Obituary "%o hugged a burning person."
+    Obituary "$OB_HUGGFIRE"
     ActiveSound "Cultist/Fire"
     SeeSound "Cultist/Fire"
     DeathSound "CultistDie"
@@ -1876,7 +1874,7 @@ ACTOR BurnDeath2
     Spawn:
         FGUY A 0   A_KillMaster
         FGUY A 3 BRIGHT  A_Look
-        goto See
+        Goto See
     See:
         FGUY A 0   A_LoopActiveSound
         FGUY A 0   A_PlayWeaponSound("CultistFire")

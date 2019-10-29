@@ -128,7 +128,7 @@ ACTOR FlameCult 3236
 	Scale 0.8
 	DamageType "Fire"
 	Damage (random(10,20))
-	RenderStyle Translucent
+	RenderStyle "Translucent"
 	Alpha 0.8
 	Projectile
 	+BLOODLESSIMPACT

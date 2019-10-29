@@ -1,30 +1,30 @@
 ACTOR Blower
 {
-	PROJECTILE
 	Speed 0
+	Gravity 10
+	Alpha .35	// 35 tics of constant AoE afterblast damage
+	DamageType "Blast"	// players are affected less
+	RenderStyle "None"
+	PROJECTILE
 	+NOBLOCKMAP
 	+DONTSPLASH
 	+RIPPER
 	+FLOORHUGGER
-	+Bloodlessimpact
-	renderstyle none
-	gravity 10
-	alpha .35	// 35 tics of constant AoE afterblast damage
-	DamageType "Blast"	// players are affected less
+	+BLOODLESSIMPACT
 	States
 	{
-		Spawn:
-			TNT1 A 0
-			MISL A 0 A_AlertMonsters
-			TNT1 A 1
-			MISL A 0 A_Explode(96,160,1)
-			TNT1 A 1 A_Explode(96,140,1)
-			TNT1 A 1 A_Explode(96,96,1)
-			MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
-		Damage:
-			MISL A 1 A_Explode(2,768*alpha,1)
-			MISL A 0 A_FadeOut(.01)
-			Goto Damage
+	Spawn:
+		TNT1 A 0
+		MISL A 0 A_AlertMonsters
+		TNT1 A 1
+		MISL A 0 A_Explode(96,160,1)
+		TNT1 A 1 A_Explode(96,140,1)
+		TNT1 A 1 A_Explode(96,96,1)
+		MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
+	Damage:
+		MISL A 1 A_Explode(2,768*alpha,1)
+		MISL A 0 A_FadeOut(.01)
+		Goto Damage
 	}
 }
 
@@ -32,162 +32,151 @@ ACTOR Blower2 : Blower
 {
 	States
 	{
-		Spawn:
-			TNT1 A 0
-			MISL A 0 A_AlertMonsters
-			MISL A 0 A_Explode(128,128,1)
-			TNT1 A 1 A_Explode(60,128,1)
-			TNT1 A 1 A_Explode(60,128,1)
-			MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
-		Damage:
-			MISL A 1 A_Explode(2,768*alpha,1)
-			MISL A 0 A_FadeOut(.01)
-			Goto Damage
+	Spawn:
+		TNT1 A 0
+		MISL A 0 A_AlertMonsters
+		MISL A 0 A_Explode(128,128,1)
+		TNT1 A 1 A_Explode(60,128,1)
+		TNT1 A 1 A_Explode(60,128,1)
+		MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
+	Damage:
+		MISL A 1 A_Explode(2,768*alpha,1)
+		MISL A 0 A_FadeOut(.01)
+		Goto Damage
 	}
 }
 
-ACTOR VBlower
+ACTOR VBlower : Blower
 {
-	PROJECTILE
-	Speed 0
-	+NOBLOCKMAP
-	+DONTSPLASH
-	+RIPPER
-	+FLOORHUGGER
-	+Bloodlessimpact
-	renderstyle none
-	gravity 10
-	alpha .35	// 35 tics of constant AoE afterblast damage
-	DamageType "Blast"	// players are affected less
 	States
 	{
-		Spawn:
-			TNT1 A 0
-			MISL A 0 A_AlertMonsters
-			TNT1 A 1
-			MISL A 0 //A_Explode(96,160,1)
-			TNT1 A 1 // A_Explode(96,140,1)
-			TNT1 A 1 //A_Explode(96,96,1)
-			MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
-		Damage:
-			MISL A 1 A_FadeOut(.01)
-			Goto Damage
+	Spawn:
+		TNT1 A 0
+		MISL A 0 A_AlertMonsters
+		TNT1 A 1
+		MISL A 0 //A_Explode(96,160,1)
+		TNT1 A 1 //A_Explode(96,140,1)
+		TNT1 A 1 //A_Explode(96,96,1)
+		MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
+	Damage:
+		MISL A 1 A_FadeOut(.01)
+		Goto Damage
 	}
 }
 
-ACTOR VBlower2 : VBlower
+ACTOR VBlower2 : Blower
 {
 	States
 	{
-		Spawn:
-			TNT1 A 0
-			MISL A 0 A_AlertMonsters
-			MISL A 0 //A_Explode(128,128,1)
-			TNT1 A 1 //A_Explode(60,128,1)
-			TNT1 A 1 //A_Explode(60,128,1)
-			MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
-		Damage:
-			MISL A 1 //A_Explode(2,768*alpha,1)
-			MISL A 0 A_FadeOut(.01)
-			Goto Damage
+	Spawn:
+		TNT1 A 0
+		MISL A 0 A_AlertMonsters
+		MISL A 0 //A_Explode(128,128,1)
+		TNT1 A 1 //A_Explode(60,128,1)
+		TNT1 A 1 //A_Explode(60,128,1)
+		MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
+	Damage:
+		MISL A 1 //A_Explode(2,768*alpha,1)
+		MISL A 0 A_FadeOut(.01)
+		Goto Damage
 	}
 }
+
 ACTOR BFireTrail : BulletPuff
 {
-  radius 13
-  height 8
-  RENDERSTYLE ADD
-  Scale 0.3
-  alpha 0.9
-  +NOBLOCKMAP
-  +RANDOMIZE
-  +NOGRAVITY
-  +WINDTHRUST
-  +ClientSideOnly
-  +CannotPush
-  States
-  {
-  Spawn:   
-  TNT1 A 0
- //   TNT1 A 0 A_Jump(220,4,5,6,7)
-    SFIR ABCDEFGH 4 BRIGHT A_Recoil(random(-1,1))
-    Stop
-  }
+	Radius 13
+	Height 8
+	RenderStyle "Add"
+	Scale 0.3
+	Alpha 0.9
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+RANDOMIZE
+	+WINDTHRUST
+	States
+	{
+	Spawn:
+		TNT1 A 0
+			//TNT1 A 0 A_Jump(220,4,5,6,7)
+		SFIR ABCDEFGH 4 BRIGHT A_Recoil(random(-1,1))
+		Stop
+	}
 }
 
 ACTOR BFireTrail2 : BFireTrail
 {
 	States
 	{
-		Spawn:
+	Spawn:
 		TNT1 A 0
-	//	    TNT1 A 0 A_Jump(220,5,6,7)
-			SFIR IJKLMNOP 4 BRIGHT A_Recoil(random(-1,1))
+			//TNT1 A 0 A_Jump(220,5,6,7)
+		SFIR IJKLMNOP 4 BRIGHT A_Recoil(random(-1,1))
 		Stop
 	}
 }
 
 ACTOR BurningAlive
 {
-+ClientSideOnly
-  +NOBLOCKMAP
-  +RANDOMIZE
-  +NOGRAVITY
-States
-{
-Spawn :
-	TNT1 AAAAAAAAAA 2 A_SpawnItemEx("BFireTrail",Random(-35,35),random(-30,60),random(0,60),0,0,random(0,3))
-	Stop
-}
-}
-ACTOR TFireTrail : BFireTrail
-{
-	+ClientSideOnly
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+RANDOMIZE
 	States
 	{
-		Spawn:
+	Spawn :
+		TNT1 AAAAAAAAAA 2 A_SpawnItemEx("BFireTrail",Random(-35,35),random(-30,60),random(0,60),0,0,random(0,3))
+		Stop
+	}
+}
+
+ACTOR TFireTrail : BFireTrail
+{
+	States
+	{
+	Spawn:
 		TNT1 A 0
-	//		TNT1 A 0 A_Jump(220,1,2,3,4,5,6,7)
-			TFIR ABCDEFGH 4 BRIGHT
+			//TNT1 A 0 A_Jump(220,1,2,3,4,5,6,7)
+		TFIR ABCDEFGH 4 BRIGHT
 		Stop
 	}
 }
 
 ACTOR TFireTrail2 : BFireTrail
 {
-		+ClientSideOnly
 	States
 	{
-		Spawn:
+	Spawn:
 		TNT1 A 0
-	//	    TNT1 A 0 A_Jump(220,1,2,3,4,5,6,7)
-			TFIR IJKLMNOP 4 BRIGHT
+			//TNT1 A 0 A_Jump(220,1,2,3,4,5,6,7)
+		TFIR IJKLMNOP 4 BRIGHT
 		Stop
 	}
 }
 
 ACTOR BSmokeTrail
 {
-  radius 13
-  height 8
-  RENDERSTYLE Translucent
-  ALPHA 0.30
-  Scale 0.1
-  +NOBLOCKMAP
-  +RANDOMIZE
-  +NOGRAVITY
-  +DONTSPLASH
-  +WINDTHRUST
-  +ClientSideOnly
-  States
-  {
-  Spawn:
-    NSMK A 0 A_Jump(128,24)//6
-    NSMK GGGGHHHHIIIIJJJJKKKKLLLL 1 A_FadeOut(0.01)
-    Stop
-    NSMK AAAABBBBCCCCDDDDEEEEFFFF 1 A_FadeOut(0.01)
-    Stop
-  }
+	Radius 13
+	Height 8
+	RenderStyle "Translucent"
+	Alpha 0.30
+	Scale 0.1
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+RANDOMIZE
+	+WINDTHRUST
+	States
+	{
+	Spawn:
+		NSMK A 0 A_Jump(128,24)//6
+		NSMK GGGGHHHHIIIIJJJJKKKKLLLL 1 A_FadeOut(0.01)
+		Stop
+		NSMK AAAABBBBCCCCDDDDEEEEFFFF 1 A_FadeOut(0.01)
+		Stop
+	}
 }
 
 ACTOR TeslaProjectile : FastProjectile
@@ -195,28 +184,28 @@ ACTOR TeslaProjectile : FastProjectile
 	Speed 72
 	Radius 8
 	Height 8
-	PROJECTILE
-	+BloodLessImpact //No more insane blood on wall
+	RenderStyle "Add"
 	Damage (random(24,32))
-	DamageType "Tesla"
 	DamageType "Shock"
-	Obituary "%o was overcharged by %k."
-	Renderstyle add
+	DamageType "Tesla"
+	PROJECTILE
+	+BLOODLESSIMPACT //No more insane blood on wall
 	+FOILINVUL
-	+ThruGhost
+	+THRUGHOST
+	Obituary "$OB_TESL"
 	States
 	{
-		Spawn:
-			TESP AAAAAAA 1 BRIGHT A_Fadeout(0.16)
-			TESP A 0 A_PlaySound("weap/tsla/see",0)
-			TESP AAAAAAA 1 BRIGHT A_FadeIn(0.16)
-			TESP A 0 A_PlaySound("weap/tsla/see",0)
+	Spawn:
+		TESP AAAAAAA 1 BRIGHT A_Fadeout(0.16)
+		TESP A 0 A_PlaySound("weap/tsla/see",0)
+		TESP AAAAAAA 1 BRIGHT A_FadeIn(0.16)
+		TESP A 0 A_PlaySound("weap/tsla/see",0)
 		Loop
-		Death:
-			TNT1 A 0 A_Explode(random(3,6), 24, 0)
-			TNT1 A 0 A_SpawnITem("BoltShrink1")
-			TNT1 A 0 A_PlaySound("TESLFIR",0)
-			TNT1 AAAAA 0 A_SpawnItemEx("TeslaFX", random(-8,8), random(-8,8), random(0,3), random(-12,12), random(-12,12), random(0,3))
+	Death:
+		TNT1 A 0 A_Explode(random(3,6), 24, 0)
+		TNT1 A 0 A_SpawnITem("BoltShrink1")
+		TNT1 A 0 A_PlaySound("TESLFIR",0)
+		TNT1 AAAAA 0 A_SpawnItemEx("TeslaFX", random(-8,8), random(-8,8), random(0,3), random(-12,12), random(-12,12), random(0,3))
 		Stop
 	}
 }
@@ -225,268 +214,264 @@ ACTOR CultistTesla : TeslaProjectile
 {
 	Speed 60
 	Scale 0.8
-	-FOILINVUL
-	//Damage(random(19,26))
+		//Damage(random(19,26))
 	Damage(random(5,12))
+	-FOILINVUL
 }
 
 ACTOR BGargBone
 {
-  Scale 0.58
-  radius 6
-  height 8
-  speed 10
-  Gravity 1.5
-  damage (random(20,25))
-  DamageType "Spiritual"
-  SeeSound "GargoyleMelee"
-  PROJECTILE
-  -SOLID
-  +NOGRAVITY
-  +RANDOMIZE
-  +DONTSPLASH
-  //+Ripper
-  States
-  {
-  Spawn:
-    BONE ABCD 4
-    Loop
-  Death:
-	BONE E 0 A_UNsetSolid
-    BONE E 6 A_Recoil(-12)
-	BONE E 6 A_Explode(7,20,0)
-	BONE F 6 A_Explode(7,20,0)
-	BONE F 6 A_Explode(7,20,0) 
-	BONE G 9 A_Explode(7,20,0)
-	BONE G 6 A_Explode(7,20,0)
-    Stop
-  }
+	Scale 0.58
+	Radius 6
+	Height 8
+	Speed 10
+	Gravity 1.5
+	Damage (random(20,25))
+	DamageType "Spiritual"
+	SeeSound "GargoyleMelee"
+	PROJECTILE
+	+DONTSPLASH
+	+NOGRAVITY
+	+RANDOMIZE
+	-SOLID
+	//+RIPPER
+	States
+	{
+	Spawn:
+		BONE ABCD 4
+		Loop
+	Death:
+		BONE E 0 A_UnsetSolid
+		BONE E 6 A_Recoil(-12)
+		BONE E 6 A_Explode(7,20,0)
+		BONE F 6 A_Explode(7,20,0)
+		BONE F 6 A_Explode(7,20,0)
+		BONE G 9 A_Explode(7,20,0)
+		BONE G 6 A_Explode(7,20,0)
+		Stop
+	}
 }
 
 ACTOR Kaboom : BulletPuff
 {
-  radius 32
-  height 50
-  Decal Scorch
-  renderstyle Add
-  alpha 0.45
-  +NOGRAVITY  
-  +DONTSPLASH
-  +RANDOMIZE
-  States
-  {
-  Spawn:
-    MISL B 0
-    goto See
-  See:
-    MISL B 0 Radius_quake(2,8,0,16,0)
-  	MISL B 0 A_JumpIf(waterlevel>2,"Vapor")
-	MISL B 0 A_SpawnItemEx("KaboomDouble",0,0,0,momx,momy,momz,0,SXF_NOCHECKPOSITION)
-    goto Death
-  Vapor:
-    MISL AAAAAA 0 A_SpawnItemEx("SmokeTrailIn4OutSlow",0,0,0,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
-  Death:
-    MISL BBBBB 0 A_CustomMissile("NapalmDebris", 0, 0, random[Puffs](0,360), 2, random[Puffs](-90,90))    
-    MISL B 0 A_SpawnDebris ("NapalmDebris") 
-    MISL B 0 A_Jump(128,"AltDeath")
-    MISL BCD 3 BRIGHT    
-    MISL D 0 Radius_Quake (1,10,0,16,0)
-	MISL A 0 A_JumpIf(waterlevel>2,"DeathVapor")
-    MISL EFGHI 3 BRIGHT
-    MISL JKL 2 BRIGHT
-    MISL MN 2 BRIGHT
-    Stop
-  DeathVapor:
-    MISL EFGHI 3 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",0,0,0,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
-    MISL JKL 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
-    MISL MN 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
-    Stop
-  AltDeath:
-    MISL OPQ 3 BRIGHT
-    MISL Q 0 BRIGHT Radius_Quake (1,10,0,16,0)
-	MISL A 0 A_JumpIf(waterlevel>2,"AltDeathVapor")
-    MISL RSTUV 3 BRIGHT 
-    MISL WXY 2 BRIGHT
-    MISL "Z[" 2 BRIGHT
-    Stop
-  AltDeathVapor:
-    MISL RSTUV 3 BRIGHT  A_SpawnItemEx("SmokeTrailIn4OutSlow",0,0,0,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
-    MISL WXY 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
-    MISL "Z[" 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
-    Stop
-  }
+	Radius 32
+	Height 50
+	Decal Scorch
+	RenderStyle "Add"
+	Alpha 0.45
+	+DONTSPLASH
+	+NOGRAVITY
+	+RANDOMIZE
+	States
+	{
+	Spawn:
+		MISL B 0
+		Goto See
+	See:
+		MISL B 0 Radius_quake(2,8,0,16,0)
+		MISL B 0 A_JumpIf(waterlevel>2,"Vapor")
+		MISL B 0 A_SpawnItemEx("KaboomDouble",0,0,0,momx,momy,momz,0,SXF_NOCHECKPOSITION)
+		Goto Death
+	Vapor:
+		MISL AAAAAA 0 A_SpawnItemEx("SmokeTrailIn4OutSlow",0,0,0,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+	Death:
+		MISL BBBBB 0 A_CustomMissile("NapalmDebris", 0, 0, random[Puffs](0,360), 2, random[Puffs](-90,90))
+		MISL B 0 A_SpawnDebris ("NapalmDebris")
+		MISL B 0 A_Jump(128,"AltDeath")
+		MISL BCD 3 BRIGHT
+		MISL D 0 Radius_Quake (1,10,0,16,0)
+		MISL A 0 A_JumpIf(waterlevel>2,"DeathVapor")
+		MISL EFGHI 3 BRIGHT
+		MISL JKL 2 BRIGHT
+		MISL MN 2 BRIGHT
+		Stop
+	DeathVapor:
+		MISL EFGHI 3 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",0,0,0,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		MISL JKL 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		MISL MN 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		Stop
+	AltDeath:
+		MISL OPQ 3 BRIGHT
+		MISL Q 0 BRIGHT Radius_Quake (1,10,0,16,0)
+		MISL A 0 A_JumpIf(waterlevel>2,"AltDeathVapor")
+		MISL RSTUV 3 BRIGHT
+		MISL WXY 2 BRIGHT
+		MISL "Z[" 2 BRIGHT
+		Stop
+	AltDeathVapor:
+		MISL RSTUV 3 BRIGHT  A_SpawnItemEx("SmokeTrailIn4OutSlow",0,0,0,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		MISL WXY 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		MISL "Z[" 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		Stop
+	}
 }
 
 ACTOR BigFireTrail
 {
-    radius 13
-    height 8
-    RENDERSTYLE ADD
-    XScale 0.45
+	Radius 13
+	Height 8
+	XScale 0.45
 	YScale 0.3
-    alpha 0.9
-    +NOBLOCKMAP
-    +RANDOMIZE
-    +NOGRAVITY
-    +WINDTHRUST
-	+ClientSideOnly
+	RenderStyle "Add"
+	Alpha 0.9
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+RANDOMIZE
+	+WINDTHRUST
 	States
 	{
-		Spawn:
-			TEX2 KL 2 BRIGHT A_Recoil(Random(-1,1))
+	Spawn:
+		TEX2 KL 2 BRIGHT A_Recoil(Random(-1,1))
 		Stop
 	}
 }
 
 ACTOR TchernobogKaboom
 {
-    radius 32
-    height 50
-    Decal Scorch
-    renderstyle Add
-    alpha 0.75
-    +NOGRAVITY  
-    +DONTSPLASH
-    +RANDOMIZE
+	Radius 32
+	Height 50
+	Decal Scorch
+	RenderStyle "Add"
+	Alpha 0.75
+	+DONTSPLASH
+	+NOGRAVITY
+	+RANDOMIZE
 	States
 	{
-		Spawn:
-		See:
-			TNT1 A 0 Radius_quake(2,8,0,16,0)
-			TEX2 ABC 3 BRIGHT    
-			TNT1 A 0 Radius_Quake (1,10,0,16,0)
-			TEX2 DEFG 3 BRIGHT
-			TEX2 HIJ 2 BRIGHT
-			TEX2 KL 2 BRIGHT
-		Stop
+	Spawn:
+	See:
+		TNT1 A 0 Radius_Quake(2,8,0,16,0)
+		TEX2 ABC 3 BRIGHT
+		TNT1 A 0 Radius_Quake (1,10,0,16,0)
+		TEX2 DEFG 3 BRIGHT
+		TEX2 HIJ 2 BRIGHT
+		TEX2 KL 2 BRIGHT
+	Stop
 	}
 }
 
 ACTOR KaboomDouble : Kaboom
 {
-  States
-  {
-  Spawn:
-  	MISL A 0
-	MISL B 0 A_Jump(128,"AltDeath")
-    MISL BCD 1 BRIGHT    
-	MISL E 2 BRIGHT A_JumpIf(waterlevel>2,"DeathVapor")
-    MISL FGHI 2 BRIGHT
-    MISL JKL 2 BRIGHT
-    MISL MN 2 BRIGHT
-    Stop
-  DeathVapor:
-    MISL EFGHI 1 BRIGHT
-    MISL JKL 1 BRIGHT
-    MISL MN 1 BRIGHT 
-    Stop
-  AltDeath:
-    MISL OPQ 2 BRIGHT
-	MISL R 2 BRIGHT A_JumpIf(waterlevel>2,"AltDeathVapor")
-    MISL STUV 2 BRIGHT 
-    MISL WXY 2 BRIGHT
-    MISL "Z[" 2 BRIGHT
-    Stop
-  AltDeathVapor:
-    MISL RSTUV 1 BRIGHT
-    MISL WXY 1 BRIGHT
-    MISL "Z[" 1 BRIGHT 
-    Stop
-  }
-}
-
-ACTOR FloorKaboom
-{
-  radius 0
-  height 0
-  //Why did it have a blocking area.. it isn't even a tangible thing.
-  //All that did was make tnt damage luck based.
-  Decal Scorch
-  renderstyle Add
-  alpha 0.45
-  +NOBLOCKMAP
-  -NOGRAVITY  
-  +DONTSPLASH
-  +RANDOMIZE  
-  PROJECTILE
-  States
-  {
-  Spawn:
-    MISL B 0
-	DEXP A 0 A_SpawnItemEx ("FloorKaboomDouble",0,0,0,momx,momy,momz,0,SXF_NOCHECKPOSITION)
-    goto Death
-  Death:
-    DEXP A 0 Radius_quake(2,7,0,16,0)    
-    DEXP A 0 A_SpawnDebris ("NapalmDebris") 
-    DEXP A 0 A_Jump(128,"AltDeath")
-    DEXP ABC 2 BRIGHT    
-    DEXP D 0 Radius_Quake (1,10,0,16,0)    
-	MISL A 0 A_JumpIf(waterlevel>2,"DeathVapor")
-    DEXP DEFGHI 3 BRIGHT
-    DEXP JKLM 2 BRIGHT
-    Stop
-  DeathVapor:
-    DEXP DEFGHI 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
-    DEXP JKLM 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
-    Stop
-  AltDeath:
-    DEXP NOP 2 BRIGHT    
-    DEXP P 0 Radius_Quake (1,10,0,16,0)
-	MISL A 0 A_JumpIf(waterlevel>2,"AltDeathVapor")
-    DEXP QRSTU 3 BRIGHT
-    DEXP VWXYZ 2 BRIGHT
-    Stop
-  AltDeathVapor:
-    DEXP DEFGHI 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
-    DEXP JKLM 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
-    Stop
-  }
-}
-
-
-ACTOR FloorKaboomDouble : FloorKaboom
-{
-  States
-  {
-  Spawn:
-    MISL B 0
-	DEXP A 0 A_Jump(128,"AltDeath")
-    DEXP ABC 1 BRIGHT    
-	MISL A 0 A_JumpIf(waterlevel>2,"DeathVapor")
-    DEXP DEFGHI 2 BRIGHT
-    DEXP JKLM 2 BRIGHT
-    Stop
-  DeathVapor:
-    DEXP DEFGHI 1 BRIGHT
-    DEXP JKLM 1 BRIGHT
-    Stop
-  AltDeath:
-    DEXP NOP 1 BRIGHT    
-	MISL A 0 A_JumpIf(waterlevel>2,"AltDeathVapor")
-    DEXP QRSTU 2 BRIGHT
-    DEXP VWXYZ 2 BRIGHT
-    Stop
-  AltDeathVapor:
-    DEXP DEFGHI 1 BRIGHT
-    DEXP JKLM 1 BRIGHT
-    Stop
-  }
-}
-
-ACTOR TNTExplo : FloorKaboom
-{ 
-	scale .6 
 	States
 	{
-		Spawn:
-		    MISL B 0
-			DEXP A 0 A_SpawnItemEx ("TNTExploDouble",0,0,0,momx,momy,momz,0,SXF_NOCHECKPOSITION)
-			Goto Super::Death
+	Spawn:
+		MISL A 0
+		MISL B 0 A_Jump(128,"AltDeath")
+		MISL BCD 1 BRIGHT
+		MISL E 2 BRIGHT A_JumpIf(waterlevel>2,"DeathVapor")
+		MISL FGHI 2 BRIGHT
+		MISL JKL 2 BRIGHT
+		MISL MN 2 BRIGHT
+		Stop
+	DeathVapor:
+		MISL EFGHI 1 BRIGHT
+		MISL JKL 1 BRIGHT
+		MISL MN 1 BRIGHT
+		Stop
+	AltDeath:
+		MISL OPQ 2 BRIGHT
+		MISL R 2 BRIGHT A_JumpIf(waterlevel>2,"AltDeathVapor")
+		MISL STUV 2 BRIGHT
+		MISL WXY 2 BRIGHT
+		MISL "Z[" 2 BRIGHT
+		Stop
+	AltDeathVapor:
+		MISL RSTUV 1 BRIGHT
+		MISL WXY 1 BRIGHT
+		MISL "Z[" 1 BRIGHT
+		Stop
 	}
 }
 
-ACTOR TNTExploDouble : FloorKaboomDouble
-{ scale .5 }
+ACTOR FloorKaboom //Why did it have a blocking area.. it isn't even a tangible thing. All that did was make tnt damage luck based.
+{
+	Radius 0
+	Height 0
+	Decal Scorch
+	RenderStyle "Add"
+	Alpha 0.45
+	PROJECTILE
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+RANDOMIZE
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+		MISL B 0
+		DEXP A 0 A_SpawnItemEx ("FloorKaboomDouble",0,0,0,momx,momy,momz,0,SXF_NOCHECKPOSITION)
+		Goto Death
+	Death:
+		DEXP A 0 Radius_quake(2,7,0,16,0)
+		DEXP A 0 A_SpawnDebris ("NapalmDebris")
+		DEXP A 0 A_Jump(128,"AltDeath")
+		DEXP ABC 2 BRIGHT
+		DEXP D 0 Radius_Quake (1,10,0,16,0)
+		MISL A 0 A_JumpIf(waterlevel>2,"DeathVapor")
+		DEXP DEFGHI 3 BRIGHT
+		DEXP JKLM 2 BRIGHT
+		Stop
+	DeathVapor:
+		DEXP DEFGHI 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		DEXP JKLM 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		Stop
+	AltDeath:
+		DEXP NOP 2 BRIGHT
+		DEXP P 0 Radius_Quake (1,10,0,16,0)
+		MISL A 0 A_JumpIf(waterlevel>2,"AltDeathVapor")
+		DEXP QRSTU 3 BRIGHT
+		DEXP VWXYZ 2 BRIGHT
+		Stop
+	AltDeathVapor:
+		DEXP DEFGHI 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		DEXP JKLM 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		Stop
+	}
+}
+
+ACTOR FloorKaboomDouble : FloorKaboom
+{
+	States
+	{
+	Spawn:
+		MISL B 0
+		DEXP A 0 A_Jump(128,"AltDeath")
+		DEXP ABC 1 BRIGHT
+		MISL A 0 A_JumpIf(waterlevel>2,"DeathVapor")
+		DEXP DEFGHI 2 BRIGHT
+		DEXP JKLM 2 BRIGHT
+		Stop
+	DeathVapor:
+		DEXP DEFGHI 1 BRIGHT
+		DEXP JKLM 1 BRIGHT
+		Stop
+	AltDeath:
+		DEXP NOP 1 BRIGHT
+		MISL A 0 A_JumpIf(waterlevel>2,"AltDeathVapor")
+		DEXP QRSTU 2 BRIGHT
+		DEXP VWXYZ 2 BRIGHT
+		Stop
+	AltDeathVapor:
+		DEXP DEFGHI 1 BRIGHT
+		DEXP JKLM 1 BRIGHT
+		Stop
+	}
+}
+
+ACTOR TNTExplo : FloorKaboom
+{
+	Scale 0.6
+	States
+	{
+	Spawn:
+		MISL B 0
+		DEXP A 0 A_SpawnItemEx ("TNTExploDouble",0,0,0,momx,momy,momz,0,SXF_NOCHECKPOSITION)
+		Goto Super::Death
+	}
+}
+
+ACTOR TNTExploDouble : FloorKaboomDouble { Scale 0.5 }
 
 ACTOR GargoyleBlastLight
 {
@@ -497,489 +482,477 @@ ACTOR GargoyleBlastLight
 	+NOINTERACTION
 	States
 	{
-		Spawn:
+	Spawn:
 		OMG2 A 4
 		OMG2 A 1
 		Stop
 	}
 }
 
-ACTOR GargoyleBallLight
-{
-	Radius 8
-	Height 8
-	Scale 0.5
-	+NOGRAVITY
-	+NOINTERACTION
-	States
-	{
-		Spawn:
-		OMG2 A 4
-		OMG2 A 1
-		Stop
-	}
-}
+ACTOR GargoyleBallLight : GargoyleBlastLight { }
 
 ACTOR StoneGargBall
-{ 
-  radius 6
-  height 8
-  speed 56
-  SCALE 0.65
-  damage (random(18,28))
-  renderstyle Add
-  //SeeSound "SARGBLST"
-  DeathSound "SARGFX"
-  DamageType "Spiritual"
-  PROJECTILE
-  +RANDOMIZE
-  	+ThruGhost
-	+SeekerMissile
+{
+	Radius 6
+	Height 8
+	Speed 56
+	Scale 0.65
+	Damage (random(18,28))
 	DamageType "GOUPBOY"
-  alpha 0.9
-  States
-  {
-  Spawn:
-  EYEB AA 1 BRIGHT A_PlaySound("SARGBLST",0)
-  EYEB AA 1 BRIGHT A_SeekerMissile(10,10)
-    EYEB ABCD 1 BRIGHT A_SpawnItemEx("GargoyleBallLight")
-    Goto Spawn+4
-  Death:
-	BAL2 E 0 A_RadiusThrust(600,270,0)
-    BAL2 EEEEEEEEEEEEEEEEEE 0 A_CustomMissile("StoneGargFX", 0, 0, random(0,360), 2, random(-90,90))
-	BAL2 A 0 A_SpawnItemEx("GargoyleBlastLight")
-	BAL2 EFG 0 BRIGHT A_SCREAM
-    BAL2 HI 0 BRIGHT
-    Stop
-  }
+	DamageType "Spiritual"
+	RenderStyle "Add"
+	Alpha 0.9
+	PROJECTILE
+	+RANDOMIZE
+	+SEEKERMISSILE
+	+THRUGHOST
+	//SeeSound "SARGBLST"
+	DeathSound "SARGFX"
+	States
+	{
+	Spawn:
+		EYEB AA 1 BRIGHT A_PlaySound("SARGBLST",0)
+		EYEB AA 1 BRIGHT A_SeekerMissile(10,10)
+		EYEB ABCD 1 BRIGHT A_SpawnItemEx("GargoyleBallLight")
+		Goto Spawn+4
+	Death:
+		BAL2 E 0 A_RadiusThrust(600,270,0)
+		BAL2 EEEEEEEEEEEEEEEEEE 0 A_CustomMissile("StoneGargFX", 0, 0, random(0,360), 2, random(-90,90))
+		BAL2 A 0 A_SpawnItemEx("GargoyleBlastLight")
+		BAL2 EFG 0 BRIGHT A_SCREAM
+		BAL2 HI 0 BRIGHT
+		Stop
+	}
 }
 
 ACTOR PhantasmProjectile
-{ 
-  radius 6
-  height 8
-  speed 24
-  SCALE 0.65
-  damage (random(12,48))
-  renderstyle Add
-  SeeSound "PhantasmMissile"
-  DamageType "Spiritual"
-  PROJECTILE
-  +RANDOMIZE
-  +NoClip
-  alpha 0.78
-  States
-  {
-  Spawn:
-    PHAM A 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM B 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM A 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM D 0 A_PlaySound("SKULAIR")
-    PHAM A 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM B 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM A 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-					PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-					PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM D 0 A_PlaySound("SKULAIR")
-	    PHAM A 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	    PHAM B 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-		    PHAM A 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-					PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-					PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM D 0 A_PlaySound("SKULAIR")
-	    PHAM A 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	    PHAM B 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-		    PHAM A 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-					PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-					PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM D 0 A_PlaySound("SKULAIR")
-	    PHAM A 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	    PHAM B 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-		    PHAM A 3 A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-					PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-					PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
-	PHAM A 0 A_Explode(random(12,30),50,0)
-	PHAM D 0 A_PlaySound("SKULAIR")
-Death:
-	PHAM D 0
-    Stop
-  }
+{
+	Radius 6
+	Height 8
+	Speed 24
+	Scale 0.65
+	Damage (random(12,48))
+	DamageType "Spiritual"
+	RenderStyle "Add"
+	Alpha 0.78
+	PROJECTILE
+	+NOCLIP
+	+RANDOMIZE
+	SeeSound "PhantasmMissile"
+	States
+	{
+	Spawn:
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM B 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 0 A_PlaySound("SKULAIR")
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM B 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 0 A_PlaySound("SKULAIR")
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM B 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 0 A_PlaySound("SKULAIR")
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM B 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 0 A_PlaySound("SKULAIR")
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM B 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 0 A_PlaySound("SKULAIR")
+	Death:
+		PHAM D 0
+		Stop
+	}
 }
 
 ACTOR PhantasmTrail
 {
-	height 1
-	radius 1
-	speed 0
-	scale 0.65
-	renderstyle add
-	alpha 0.5
+	Height 1
+	Radius 1
+	Speed 0
+	Scale 0.65
+	RenderStyle "Add"
+	Alpha 0.5
 	+NOGRAVITY
 	States
 	{
-		Spawn:
-			PHAM ABCDE 3 A_Fadeout(0.08)
+	Spawn:
+		PHAM ABCDE 3 A_Fadeout(0.08)
 		Stop
 	}
 }
 
-ACTOR Phantasmlauncher: PhantasmProjectile
+ACTOR Phantasmlauncher : PhantasmProjectile
 {
 	States
 	{
-		Spawn:
-			TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-			TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-			TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-			TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-			TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-			TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-			TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-			TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-			TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-			TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-			tnt1 a 60 A_Quake(6,60,0,800)
+	Spawn:
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 60 A_Quake(6,60,0,800)
 		Stop
 	}
 }
-
 
 ACTOR GrayCircle
 {
-	alpha 1
-	scale 0.9
-	renderstyle add
+	Scale 0.9
+	RenderStyle "Add"
+	Alpha 1
 	+NOGRAVITY
 	States
 	{
-		spawn:
-			GBAL FFFFGGGGHHHHIIII 1 A_FadeOut(.0333)
-			Stop
+	Spawn:
+		GBAL FFFFGGGGHHHHIIII 1 A_FadeOut(.0333)
+		Stop
 	}
 }
 
 ACTOR SprayCanFire
 {
-  Decal PlasmaScorchLower1
-  spawnid 51
-  radius 13
-  height 8
-  speed 12
-  RENDERSTYLE ADD
-  Scale 0.2
-  damage (random(2,4))
-  alpha 0.9
-  //DeathSound "weapons/plasmax"
-  //SeeSound "Spray/Can"
-  PROJECTILE
-  +RANDOMIZE
-  +CANNOTPUSH
-  +NODAMAGETHRUST
-  +RIPPER
-  +BLOODLESSIMPACT
-  //translation "80:95=208:223","96:111=176:191"
-  DamageType "Fire"
-  States
-  {
-  Spawn:
-    //NSMK G 0 A_JumpIf (waterlevel < 1, 13)
-    NSMK G 0 A_Jump(128,6)
-    SPFI AABBCCDD 1 BRIGHT A_SpawnItem ("BFireTrail",8+random(-7,7),8+random(-7,7),0,0)
-	TNT1 A 0 ThrustThingZ(0, 4, 0, 1)
-	SPFI EFGHI 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-7,7),0,0)
-    goto Death
-    SPFI ABCD 2 A_SpawnItem ("BFireTrail",8+random(-5,5),8+random(-7,7),0,0)
-	TNT1 A 0 ThrustThingZ(0, 4, 0, 1)
-	SPFI EF 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-5,5),0,0)
-    goto Death
-    NSMK G 0
-    goto XDeath
-  Death:
-    NSMK A 0 A_Jump(128,15)
-    SPFI GHI 2 BRIGHT A_SpawnItem ("BFireTrail",8+random(-5,5),8+random(-5,5),0,0)
-    SFIR ABCDEFGH 2 BRIGHT
-    Stop
-    SPFI GHI 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-5,5),0,0)
-    SFIR IJKLMNOP 2 BRIGHT
-    Stop
-  XDeath:
-    FTRL H 0 BRIGHT
-    Stop
-  }
+	Decal PlasmaScorchLower1
+	SpawnId 51
+	Radius 13
+	Height 8
+	Speed 12
+	Scale 0.2
+	Damage (random(2,4))
+	DamageType "Fire"
+	RenderStyle "Add"
+	Alpha 0.9
+	PROJECTILE
+	+BLOODLESSIMPACT
+	+CANNOTPUSH
+	+NODAMAGETHRUST
+	+RANDOMIZE
+	+RIPPER
+	//DeathSound "weapons/plasmax"
+	//SeeSound "Spray/Can"
+	//translation "80:95=208:223","96:111=176:191"
+	States
+	{
+	Spawn:
+			//NSMK G 0 A_JumpIf (waterlevel < 1, 13)
+		NSMK G 0 A_Jump(128,6)
+		SPFI AABBCCDD 1 BRIGHT A_SpawnItem ("BFireTrail",8+random(-7,7),8+random(-7,7),0,0)
+		TNT1 A 0 ThrustThingZ(0, 4, 0, 1)
+		SPFI EFGHI 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-7,7),0,0)
+		Goto Death
+		SPFI ABCD 2 A_SpawnItem ("BFireTrail",8+random(-5,5),8+random(-7,7),0,0)
+		TNT1 A 0 ThrustThingZ(0, 4, 0, 1)
+		SPFI EF 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-5,5),0,0)
+		Goto Death
+		NSMK G 0
+		Goto XDeath
+	Death:
+		NSMK A 0 A_Jump(128,15)
+		SPFI GHI 2 BRIGHT A_SpawnItem ("BFireTrail",8+random(-5,5),8+random(-5,5),0,0)
+		SFIR ABCDEFGH 2 BRIGHT
+		Stop
+		SPFI GHI 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-5,5),0,0)
+		SFIR IJKLMNOP 2 BRIGHT
+		Stop
+	XDeath:
+		FTRL H 0 BRIGHT
+		Stop
+	}
 }
 
 ACTOR HellHoundFire : SprayCanFire
 {
-	SeeSound ""
-	DeathSound ""
 	Speed 14
 	Damage (3)
 	DamageType "SpecialFire"
-	-Ripper
+	-RIPPER
+	SeeSound ""
+	DeathSound ""
 	States
 	{
-	  Spawn:
-		//NSMK G 0 A_JumpIf (waterlevel < 1, 13)
+	Spawn:
+			//NSMK G 0 A_JumpIf (waterlevel < 1, 13)
 		SPFI AB 1 BRIGHT A_SpawnItem ("BFireTrail",8+random(-5,5),8+random(-5,5),0,0)
 		SPFI CD 1 BRIGHT
 		SPFI EF 1 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-5,5),0,0)
 		SPFI GH 1
-		goto Death
+		Goto Death
 	}
 }
 
 ACTOR StoneGargBall2 : StoneGargBall
 {
 	Damage (random(16,24))
-  States
-  {
-  Spawn:
-    EYEB ABCD 1 BRIGHT A_SpawnItemEx("GargoyleBallLight")
-    Loop
-  Death:
-	BAL2 E 0 A_RadiusThrust(40,100,0)
-    BAL2 EEEEEEEEEEEEEEEEEE 0 A_CustomMissile("StoneGargFX", 0, 0, random(0,360), 2, random(-90,90))
-	BAL2 A 0 A_SpawnItemEx("GargoyleBlastLight")
-	TNT1 A 0 A_Explode(9, 24, 0)
-	BAL2 EFG 0 BRIGHT A_SCREAM
-    BAL2 HI 0 BRIGHT
-    Stop
-  }
+	States
+	{
+	Spawn:
+		EYEB ABCD 1 BRIGHT A_SpawnItemEx("GargoyleBallLight")
+		Loop
+	Death:
+		BAL2 E 0 A_RadiusThrust(40,100,0)
+		BAL2 EEEEEEEEEEEEEEEEEE 0 A_CustomMissile("StoneGargFX", 0, 0, random(0,360), 2, random(-90,90))
+		BAL2 A 0 A_SpawnItemEx("GargoyleBlastLight")
+		TNT1 A 0 A_Explode(9, 24, 0)
+		BAL2 EFG 0 BRIGHT A_SCREAM
+		BAL2 HI 0 BRIGHT
+		Stop
+	}
 }
 
 ACTOR StoneGargFX
 {
-  health 5
-  radius 1
-  height 1
-  Speed 10
-  Scale 0.2
-  PROJECTILE
-  +NOBLOCKMAP
-  +DONTSPLASH
-  +RANDOMIZE
-  -NOGRAVITY
-  -SOLID
-  +WINDTHRUST
-  RENDERSTYLE ADD
-  States
-  {
-  Spawn:
-    EYEP A 0 BRIGHT
-    EYEP A 10 BRIGHT 
-    EYEP A 200 BRIGHT A_LowGravity
-    Stop
-    EYEP B 10 BRIGHT 
-    EYEP B 200 BRIGHT A_LowGravity
-    Stop
-    EYEP C 10 BRIGHT 
-    EYEP C 200 BRIGHT A_LowGravity
-    Stop
-    EYEP D 10 BRIGHT 
-    EYEP D 200 BRIGHT A_LowGravity
-    Stop
-    EYEP E 10 BRIGHT 
-    EYEP E 200 BRIGHT A_LowGravity
-    Stop 
-    EYEP F 10 BRIGHT 
-    EYEP F 200 BRIGHT A_LowGravity
-    Stop
-  Death:
-    EYEP F 5 A_FadeOut(0.1)
-	Loop
-    Stop
-  }
+	Health 5
+	Radius 1
+	Height 1
+	Speed 10
+	Scale 0.2
+	RenderStyle "Add"
+	PROJECTILE
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+RANDOMIZE
+	+WINDTHRUST
+	-NOGRAVITY
+	-SOLID
+	States
+	{
+	Spawn:
+		EYEP A 0 BRIGHT
+		EYEP A 10 BRIGHT
+		EYEP A 200 BRIGHT A_LowGravity
+		Stop
+		EYEP B 10 BRIGHT
+		EYEP B 200 BRIGHT A_LowGravity
+		Stop
+		EYEP C 10 BRIGHT
+		EYEP C 200 BRIGHT A_LowGravity
+		Stop
+		EYEP D 10 BRIGHT
+		EYEP D 200 BRIGHT A_LowGravity
+		Stop
+		EYEP E 10 BRIGHT
+		EYEP E 200 BRIGHT A_LowGravity
+		Stop
+		EYEP F 10 BRIGHT
+		EYEP F 200 BRIGHT A_LowGravity
+		Stop
+	Death:
+		EYEP F 5 A_FadeOut(0.1)
+		Loop
+		Stop
+	}
 }
 
 ACTOR Bloodfire : ArchvileFire //replaces ArchvileFire
 {
-  //+NOBLOCKMAP
-  +NOGRAVITY
-  +ACTIVATEMCROSS
-  +CANPASS
-  +CANPUSHWALLS
-  //RenderStyle None
-  //+INVISIBLE
-  RENDERSTYLE ADD
-  alpha 0.0
-  States
-  {
-  Spawn:
-    FIRE A 0 A_FireCrackle
-    FIRE A 2 BRIGHT A_Fire
-    FIRE A 0 A_FadeIn(0.18)
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
-    FIRE B 2 BRIGHT A_Fire
-    FIRE A 0 A_FadeIn(0.18)
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
-    FIRE C 2 BRIGHT A_Fire
-    FIRE A 0 A_FadeIn(0.18)
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
-    FIRE D 2 BRIGHT A_Fire
-    FIRE A 0 A_FadeIn (0.18)
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
-    FIRE E 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
-    FIRE F 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
-    FIRE G 2 BRIGHT A_Fire
-    FIRE A 0 A_FireCrackle
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE A 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE B 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE C 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE D 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE E 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE F 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE G 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE A 2 BRIGHT A_Fire
-    FIRE A 0 A_FireCrackle
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE B 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE C 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE D 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE E 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE F 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE G 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE A 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE B 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE C 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE D 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE E 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE F 2 BRIGHT A_Fire
-    FIRE A 0 A_FadeOut(0.18)
-    FIRE A 0 A_StartFire
-    FIRE AAAA 0 BRIGHT A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
-    FIRE G 2 BRIGHT A_Fire
-    FIRE A 0 A_FadeOut(0.18)
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
-    FIRE A 2 BRIGHT A_Fire
-    FIRE A 0 A_FadeOut(0.18)
-    FIRE AAAA 0 BRIGHT A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
-    FIRE B 2 BRIGHT A_Fire
-    FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
-    FIRE A 0 A_FadeOut(0.18)
-    Stop
-  }
+	Alpha 0.0
+	RenderStyle "Add"
+	+ACTIVATEMCROSS
+	+CANPASS
+	+CANPUSHWALLS
+	+NOGRAVITY
+	//+INVISIBLE
+	//+NOBLOCKMAP
+	States
+	{
+	Spawn:
+		FIRE A 0 A_FireCrackle
+		FIRE A 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeIn(0.18)
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE B 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeIn(0.18)
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE C 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeIn(0.18)
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE D 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeIn (0.18)
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE E 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE F 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE G 2 BRIGHT A_Fire
+		FIRE A 0 A_FireCrackle
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE A 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE B 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE C 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE D 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE E 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE F 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE G 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE A 2 BRIGHT A_Fire
+		FIRE A 0 A_FireCrackle
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE B 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE C 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE D 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE E 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE F 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE G 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE A 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE B 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE C 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE D 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE E 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE F 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeOut(0.18)
+		FIRE A 0 A_StartFire
+		FIRE AAAA 0 BRIGHT A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE G 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeOut(0.18)
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE A 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeOut(0.18)
+		FIRE AAAA 0 BRIGHT A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE B 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE A 0 A_FadeOut(0.18)
+		Stop
+	}
 }
 
 ACTOR SmokeTrail
 {
-	+NOINTERACTION
-	+DONTSPLASH
-	+NOCLIP
-   	+NOGRAVITY
-	+NOBLOCKMAP
 	+CLIENTSIDEONLY
-	RenderStyle Add
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+NOINTERACTION
+	RenderStyle "Add"
 	States
 	{
-		Spawn:
+	Spawn:
 		SMOK ABCDEFGHIJKLMNOPQ 1
 		Stop
 	}
 }
-ACTOR SmokeTrailSmall : SmokeTrail
-{scale .25}
+
+ACTOR SmokeTrailSmall : SmokeTrail {Scale .25}
+
 ACTOR SmokeTrailSlow : SmokeTrail
-{	States
+{	
+	States
 	{
-		Spawn:
+	Spawn:
 		SMOK ABCDEFGH 2
 		SMOK IJKLMNOPQ 1
 		Stop
 	}
 }
+
 ACTOR SmokeTrailIn4OutSlow : SmokeTrail
-{	VSpeed 1
+{	
+	VSpeed 1
 	Alpha 0
 	States
 	{
-		Spawn:
+	Spawn:
 		SMOK A 0
 		SMOK A 1 A_SetTranslucent(.125,1)
 		SMOK A 1 A_SetTranslucent(.25,1)
@@ -994,18 +967,18 @@ ACTOR SmokeTrailIn4OutSlow : SmokeTrail
 		Stop
 	}
 }
+
 ACTOR SmokeTrailVerySlow : SmokeTrail
-{	States
+{	
+	States
 	{
-		Spawn:
+	Spawn:
 		SMOK ABC 3
 		SMOK DEFGHIJKLMNOPQ 2
 		Stop
 	}
 }
-ACTOR SmokeTrailSmallSlow : SmokeTrailSlow
-{scale .25}
-ACTOR SmokeTrailTiny : SmokeTrail
-{scale .125}
-ACTOR SmokeTrailTinySlow : SmokeTrailSlow
-{scale .125}
+
+ACTOR SmokeTrailSmallSlow : SmokeTrailSlow {Scale .25}
+ACTOR SmokeTrailTiny : SmokeTrail {Scale .125}
+ACTOR SmokeTrailTinySlow : SmokeTrailSlow {Scale .125}

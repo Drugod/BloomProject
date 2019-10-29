@@ -23,7 +23,7 @@ ACTOR ChokingHand : BloodEnemy_Base 6190
 	ActiveSound "Hand/Spot"
 	PainSound "Hand/Pain"
 	Scale 0.56
-	Obituary "%o was punched in the face by a hand"
+	Obituary "$OB_CHOKE"
 	+DROPOFF
 	+FLOORCLIP
 	-FRIENDLY
@@ -208,8 +208,8 @@ ACTOR Cheogh : BloodEnemy_Base 3124
 	DeathSound "Cheogh/Die"
 	ActiveSound "Cheogh/Roam"
 	MeleeSound "Cheogh/Slap"
-	Obituary "%o stood no chance against Cheogh"
-	HitObituary "%o was owned by Cheogh"
+	Obituary "$OB_CHEOGH"
+	HitObituary "$HB_CHEOGH"
 	DamageType "Stun"
 	Species "Gargoyles"
 	+FLOAT
@@ -319,8 +319,8 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 {
 	Spawnid 5
 	Scale 0.55
-	Obituary "%o was sniped by a gargoyle."
-	HitObituary "%o was slapped by a gargoyle."
+	Obituary "$OB_BGARG"
+	HitObituary "$HB_BGARG"
 	Health 400
 	Radius 31
 	Height 56
@@ -668,7 +668,7 @@ ACTOR GargBurn
 	-DONTSPLASH
 	//+FLOAT
 	//+NOGRAVITY
-	Obituary "%o was near a gargoyle in flames."
+	Obituary "$OB_GBURN"
 	ActiveSound "dsFRBALL"
 	ExplosionDamage 4
 	ExplosionRadius 40
@@ -719,8 +719,8 @@ ACTOR Hellfish : Cacodemon 3100//replaces Cacodemon 6142
 	PainChance 200
     PainChance "Tesla", 256
     DamageFactor "Tesla", 0.1
-	Obituary "Hellfish ate %o"
-	HitObituary "Hellfish ate %o"
+	Obituary "$OB_FISH"
+	HitObituary "$OB_FISH"
 	-NOTELEPORT
 	AttackSound "dsdolstb"
 	PainSound "SpiderPain"
@@ -835,8 +835,8 @@ ACTOR 6------------------ {}
 ACTOR BloatedButcher : BloodEnemy_Base 3122
 {
 	Spawnid 20
-	Obituary "%o was splattered by a butcher."
-	HitObituary "A butcher made mince meat out of %o"
+	Obituary "$OB_BLOAT"
+	HitObituary "$HB_BLOAT"
 	Health 500 //Extra crispy
 	Radius 24
 	Height 56
@@ -1298,7 +1298,7 @@ ACTOR GreyCultist : BloodEnemy_Base 3125
 {
 	Decal ZBloodBulletChip1
 	Spawnid 2
-	Obituary "%o wasn't much liked by a fanatic."
+	Obituary "$OB_GREYCUL"
 	Health 120
 	Radius 20
 	Height 56
@@ -1500,7 +1500,7 @@ ACTOR RedCultist : BloodEnemy_Base 10310
 {
 	Decal ZBloodBulletChip1
 	Spawnid 116
-	Obituary "%o was punctured by a Priest"
+	Obituary "$OB_REDCUL"
 	Health 300
 	Radius 20
 	Height 56
@@ -1658,7 +1658,7 @@ ACTOR GreenCultist : BloodEnemy_Base 3128
 {
 	Spawnid 4
 	Decal Scorch
-	Obituary "%o got outplayed by an Acolyte!!"
+	Obituary "$OB_GRENCUL"
 	Health 105
 	Radius 20
 	Height 56
@@ -1960,7 +1960,7 @@ ACTOR 10----------------- {}
 ACTOR BlueCultist : BloodEnemy_Base 10309
 {
 	Spawnid 116
-	Obituary "%o argued with a zealot"
+	Obituary "$OB_BLUCUL"
 	Health 250 //These were the tankiest and deadlist
 	Radius 20
 	Height 56
@@ -2112,7 +2112,7 @@ ACTOR BrownCultist : BloodEnemy_Base 3129
 {
 	Spawnid 1
 	Decal ZBloodBulletChip1
-	Obituary "%o got shot by angry cultists."
+	Obituary "$OB_BROCUL"
 	Health 100
 	Radius 20
 	Height 56
@@ -2443,7 +2443,7 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 	MeleeSound "ZombieAxe"
 	PainSound ""
 	SeeSound "ZombieSee"
-	Obituary "%o got the zombie's AXE"
+	Obituary "$OB_ZAXE"
 	DropItem "UselessStuff", 80
 	Species "ZombieFall"
 	+DONTOVERLAP
@@ -2760,8 +2760,8 @@ ACTOR GillBeast : Cacodemon 3126
 	ActiveSound "GillBeastSee"
 	AttackSound "dsdolstb"
 	+NOTELEPORT
-	Obituary "Gill Beasts ate %o"
-	HitObituary "Gill Beasts ate %o"
+	Obituary "$OB_GILLB"
+	HitObituary "$OB_GILLB"
 	States
 	{
 	Forget:
@@ -3088,8 +3088,8 @@ ACTOR Phantasm : BloodEnemy_Base  3134
 	+NOICEDEATH
 	-SOLID
     -CANUSEWALLS
-	Obituary "%o was harvested by a phantasm"
-	HitObituary "A phantasm scared the hell out of %o"
+	Obituary "$OB_PHANT"
+	HitObituary "$HB_PHANT"
 	States
 	{
   	Spawn:
@@ -3344,8 +3344,8 @@ ACTOR HellHound : HellKnight 3130
 	MeleeSound "dsdolstb"
 	MeleeRange 50
 	MeleeThreshold 128
-	HitObituary "%o got caught by a puppy"
-	Obituary "%o was incinerated by a Hell Hound"
+	HitObituary "$HB_PUPPY"
+	Obituary "$OB_PUPPY"
 	Species "HellDog"
 	DamageType "GOUPBOY"
 	States
@@ -3505,8 +3505,8 @@ ACTOR BloodBeast : BloodEnemy_Base 6123
 	+NOTARGET
 	+QUICKTORETALIATE
 	+SHORTMISSILERANGE
-	Obituary "%o was swept off %p feet by a beast"
-	HitObituary "%o was torn apart by a Beast"
+	Obituary "$OB_BEAST"
+	HitObituary "$HB_BEAST"
 	States
 	{
 	Spawn:
@@ -3630,7 +3630,7 @@ ACTOR BeastStomp
 	+NODAMAGETHRUST
 	+NOTIMEFREEZE
 	+PAINLESS
-	Obituary "%o danced with the stars"
+	Obituary "$OB_STOMP"
     States
 	{
 	Spawn:
@@ -3694,7 +3694,7 @@ ACTOR SpiderMother : BloodEnemy_Base 3135 //this actor needs tweaks - ozy81
 	+SLIDESONWALLS
 	+THRUSPECIES
 	-CANUSEWALLS
-	Obituary "%o Will now ragequit thanks to spiders"
+	Obituary "$OB_SPIDS"
 	States
 	{
 	Spawn:
@@ -3899,7 +3899,7 @@ ACTOR 18----------------- {}
 ACTOR Cerberus : BloodEnemy_Base 3127
 {
 	Spawnid 112
-	Obituary "%o didn't approach Cerberus the right way"
+	Obituary "$OB_CERB"
 	Health 3000
 	Radius 128
 	Height 100
@@ -4091,7 +4091,7 @@ ACTOR LowerThanHP : Inventory
 ACTOR 19----------------- {}
 ACTOR Tchernobog : BloodEnemy_Base 6134
 {
-	Obituary "The one that binds didn't like the stupid look on %o's face"
+	Obituary "$OB_TCHERNO"
 	Health 4000
 	Radius 50
 	Height 160
@@ -4449,7 +4449,7 @@ ACTOR TchernoStomp
 	+BLOODLESSIMPACT
 	+NODAMAGETHRUST
 	DamageType "TchernoStomp"
-	Obituary "%o got too close to The One That Binds"
+	Obituary "$OB_STOMP2"
     States
 	{
 	Spawn:
@@ -4466,7 +4466,7 @@ ACTOR TchernoStomp
 ACTOR 20----------------- {}
 ACTOR ChrysalidPod : BloodEnemy_Base 6147
 {
-	Obituary "%o was spat on by a Chrysalid Pod"
+	Obituary "$OB_CRYPOD"
 	Health 154
 	GibHealth -40
 	PainChance 0
@@ -4632,7 +4632,7 @@ ACTOR HellroseBramble
 	PainChance 128
 	DamageFactor "Disintegrate",0
 	DamageFactor "Stomping", 0.5
-	Obituary "%o was cut by brambles of a Chrysalid Pod"
+	Obituary "$OB_BRAMB"
 	Scale 0.5
 	Monster
 	//-SHOOTABLE
@@ -4651,9 +4651,7 @@ ACTOR HellroseBramble
 		GVIN RQMNOP 4 A_Look
 		Loop
 	See:
-	//.Desync:
 		TNT1 A 0 A_Jump(256,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)
-	//See:
 		GVIN RR 3 A_Chase
 		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		GVIN RR 3 A_Chase
@@ -4796,7 +4794,7 @@ ACTOR LavaPod : ChrysalidPod 6148
 {
     //$Category "BlooM Monsters"
 	//$Color 5
-  	Obituary "%o was charred by a Lava Pod"
+  	Obituary "$OB_LAVPOD"
 	Health 324
 	Mass 6666
 	Scale 0.7
@@ -4934,7 +4932,7 @@ ACTOR HellroseBrambleRed : HellRoseBramble
 {
    Health 60
    BloodColor "70 70 10"
-   Obituary "%o was cut by brambles of a Lava Pod"
+   Obituary "$OB_BRAMB2"
    States
    {
    Spawn:
@@ -4942,9 +4940,7 @@ ACTOR HellroseBrambleRed : HellRoseBramble
       LVIN RQMNOP 4 A_Look
       Loop
    See:
-   //.Desync:
    	  TNT1 A 0 A_Jump(256,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)
-   //See:
       GVIN RR 3 A_Chase
       ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
       GVIN RR 3 A_Chase
@@ -5053,12 +5049,11 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 	MaxStepHeight 9
 	+FLOORCLIP
 	-CANUSEWALLS
-	Obituary "%o was plagued by a little cute mouse"
+	Obituary "$OB_MOUS"
 	SeeSound "Ratsee"
 	PainSound "RatPain"
 	DeathSound "Ratdie"
 	ActiveSound "Ratsee"
-	Obituary "$Rat2"
 	PainChance "Fire", 256
 	PainChance "Disintegrate", 0
 	PainChance "LifeLeech", 0
@@ -5198,7 +5193,7 @@ ACTOR SpiderRed // Delirium Spider
 	-NORADIUSDMG
 	-THRUSPECIES
 	Translation "48:79=16:47","128:151=16:39","80:111=48:79","112:127=[96,48,32]:[32,16,0]"
-	Obituary "%o got bitten by a little spider"
+	Obituary "$OB_SPIDS2"
 	Species "Spiders"
 	States
 	{
@@ -5287,7 +5282,7 @@ ACTOR NewSpiderRed : BloodEnemy_Base 6161 // Delirium Spider
 	-NODROPOFF
 	-NORADIUSDMG
 	Translation "80:95 = 220:223","96:111 = [255,128,0]:[0,0,0]"
-	Obituary "Little spiders swarmed %o"
+	Obituary "$OB_SPIDS3"
 	States
 	{
 	Spawn:
@@ -5449,7 +5444,7 @@ ACTOR SpiderGreen : NewSpiderRed 6191
 	DamageFactor "Stomping", 0.2
 	DamageType "BlindingPoison"
 	DamageFactor "Fire", 1.35
-	Obituary "A green spider bit %o's sorry ass"
+	Obituary "$OB_SPIDS4"
 	+THRUSPECIES
 	Translation "64:79 = 115:127","232:235 = 160:163","236:239 = 123:127","144:151 = 119:127","13:15=124:126"
 	States
@@ -5496,7 +5491,7 @@ ACTOR SpiderBlue : SpiderRed 6192
 	PoisonDamage 16
 	Damage 2
 	DamageFactor "Stomping", 0
-	Obituary "%o hates blue spiders"
+	Obituary "$OB_SPIDS5"
 	Translation "48:79=192:207","128:151=[48,64,160]:[16,16,64]","80:111=[32,32,128]:[0,0,32]","112:127=[96,96,192]:[16,16,64]"
 	States
 	{
@@ -5527,7 +5522,7 @@ ACTOR SpiderYellow : SpiderGreen 6164
     //$Category "BlooM Monsters"
 	Health 100
 	DamageType "PoisonCloud"
-	Obituary "%o was killed by yellow spiders"
+	Obituary "%OB_SPIDS6"
 	Translation "48:79=160:167","128:151=[160,160,64]:[64,64,32]","80:111=[128,128,32]:[32,32,0]","112:127=[192,192,96]:[64,64,12]"
 	States
 	{
@@ -5562,7 +5557,7 @@ ACTOR SpiderPurple : SpiderRed 6165
 	Height 10
 	Radius 13
 	Scale 0.28
-	Obituary "Royal purple spiders purged %o"
+	Obituary "$OB_SPIDS7"
 	Translation "48:79=250:254","128:151=[150,50,150]:[50,0,50]","80:111=[160,32,160]:[32,0,32]","112:127=[96,32,128]:[32,8,48]"
 	States
 	{
@@ -5596,7 +5591,7 @@ ACTOR SpiderCyan : SpiderGreen 6166
 	PoisonDamage 0
 	Damage 1
 	DamageType "Numbness"
-	Obituary "%o lost all his stamina to cyan spiders"
+	Obituary "$OB_SPIDS8"
 	Translation "48:79=[0,255,255]:[32,64,64]","128:151=[50,150,150]:[0,0,0]","80:111=[32,160,160]:[0,32,32]","112:127=[64,192,192]:[16,64,48]"
 	States
 	{
@@ -5644,7 +5639,7 @@ ACTOR SpiderBlack : SpiderGreen 6167
 	PoisonDamage 15
 	Damage 1
 	DamageType "Fragility"
-	Obituary "%o was a great feast to spiders"
+	Obituary "$OB_SPIDS9"
 	Translation "48:79=[16,16,16]:[0,0,0]","128:151=[48,48,48]:[0,0,0]","80:111=[64,64,64]:[16,16,16]","112:127=[32,32,32]:[0,0,0]"
 	States
 	{

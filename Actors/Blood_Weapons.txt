@@ -3145,7 +3145,7 @@ ACTOR WallBomb //replaces Rocket
 	+RANDOMIZE
 	DeathSound "Old/DSNAPLM2"
 	ActiveSound "Old/DSNAPALM"
-	Obituary "%o got caught by an explosion."
+	Obituary "$OB_WBOMB"
 	States
 	{
 	Spawn:

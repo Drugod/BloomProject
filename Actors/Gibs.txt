@@ -2743,3 +2743,39 @@ ACTOR GargHed : Bloodliver
 		Stop
 	}
 }
+
+ACTOR ----------VANILLA_GIBS------------- {}
+ACTOR Intestines
+{ 
+	Health 10
+	Scale 0.5
+	+RANDOMIZE
+	+SHOOTABLE
+	-COUNTKILL
+	-ISMONSTER
+	-SOLID
+	States
+	{
+	Spawn:
+		GIBV A -1
+		TNT1 A 0 A_SpawnItem("BloodTrail")
+		Stop
+	Death:
+		BLUD F 2 A_PlaySound("Body/Gibs")
+		BLUD F 0 A_CustomMissile("BloodTrail",frandom(-4,4),frandom(-4,4),frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		BLUD GHI 2
+		Stop
+	}
+}
+
+ACTOR Entrails : Intestines
+{
+	States
+	{
+	Spawn:
+		GIBV B -1
+		TNT1 A 0 A_SpawnItem("BloodTrail")
+		Loop
+	}
+}

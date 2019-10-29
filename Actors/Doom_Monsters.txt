@@ -332,7 +332,7 @@ ACTOR BurnFormerHuman
     +FLOORCLIP
     +LOOKALLAROUND
     DamageType "SpecialFire"
-    Obituary "%o hugged a zombie on fire."
+    Obituary "$OB_ZOMBFIRE"
     ActiveSound "DSBDYBRN"
     States
     {
@@ -340,7 +340,7 @@ ACTOR BurnFormerHuman
         BRZ3 A 0 A_KillMaster
         BRZ3 A 3 BRIGHT  A_Look
 		BRZ3 A 0 A_PlaySound("human/imonfire",2)
-        goto See
+        Goto See
     See:
 		BRZ3 A 0 //A_LoopActiveSound
 		BRZ3 A 0 A_SpawnItem ("BurningAlive")
@@ -722,7 +722,7 @@ ACTOR DoomImpBall_ replaces DoomImpBall
 	Damage 3
 	Projectile
 	+RANDOMIZE
-	RenderStyle Add
+	RenderStyle "Add"
 	Alpha 1
 	DamageType "Flare"
 	DamageType "Fire"
@@ -890,7 +890,7 @@ ACTOR SpiderMastermind_ replaces SpiderMastermind
 	+DONTMORPH
 	+FLOORCLIP
 	+MISSILEMORE
-	+NORADIUSDMG
+	+NORadiusDMG
 	SeeSound "spider/sight"
 	AttackSound "spider/attack"
 	PainSound "spider/pain"
@@ -950,7 +950,7 @@ ACTOR Cyberdemon_ replaces Cyberdemon
 	+DONTMORPH
 	+FLOORCLIP
 	+MISSILEMORE
-	+NORADIUSDMG
+	+NORadiusDMG
 	SeeSound "cyber/sight"
 	PainSound "cyber/pain"
 	DeathSound "cyber/death"

@@ -3,6 +3,7 @@ For Rolls, models which needs to be added:
 
 For All:
 - add Blood items related 3d models
+- check always maps from Zandronum first :(
 - convert all models as md3 and try reducing polys total (not important, just a nitpick and it would require lots of time)
 - externalize KEYCONF between LANGUAGE and MENUDEF (if supported by zandro)
 - fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff
