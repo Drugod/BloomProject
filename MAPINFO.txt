@@ -4,11 +4,11 @@
 clearepisodes
 episode BLM01
 {
-   name = "The way of doomed flesh"
+   name = "$BLM_EP1"
    key = "t"
 }
 
-map TITLEMAP lookup "Wellcome to BLOOM(Demo)"
+map TITLEMAP lookup "BLM_TIT"
 {
    levelnum = 5
    sky1 = "YTEXTH63", 0.05
@@ -20,7 +20,7 @@ map TITLEMAP lookup "Wellcome to BLOOM(Demo)"
    LIGHTNING
 }
 
-map BLM01 lookup "Entryway to Grave"
+map BLM01 lookup "BLM_M01"
 {
    levelnum = 1
    next = BLM02
@@ -31,7 +31,7 @@ map BLM01 lookup "Entryway to Grave"
    LIGHTNING   
 }
 
-map BLM02 lookup "The wrong side of the Hangar"
+map BLM02 lookup "BLM_M02"
 {
    levelnum = 2
    next = BLM03
@@ -41,7 +41,7 @@ map BLM02 lookup "The wrong side of the Hangar"
    music = "d_in_cit"
 }
 
-map BLM03 lookup "UAC PHANTOM 666"
+map BLM03 lookup "BLM_M03"
 {
    levelnum = 3
    next = BLM04 //endsequence, BloomDemoEnd   
@@ -52,7 +52,7 @@ map BLM03 lookup "UAC PHANTOM 666"
    music = "d_countd"
 }
 
-map BLM04 lookup "Ghost Downtown"
+map BLM04 lookup "BLM_M04"
 {
    levelnum = 4
    next = INT00
@@ -64,7 +64,7 @@ map BLM04 lookup "Ghost Downtown"
    NoIntermission   
 }
 
-map INT00 lookup "Thanks for playing BLOOM"
+map INT00 lookup "BLM_INT"
 {
    levelnum = 0
    sky1 = "YTEXTH63", 0.05
@@ -76,13 +76,13 @@ map INT00 lookup "Thanks for playing BLOOM"
    LIGHTNING
 }
 
-map TESTMAP lookup "Testmap for BlooM - Ozy81"
+map TESTMAP lookup "BLM_TM1"
 {
    levelnum = 98
    sky1 = "YTEXTH63", 0.05
 }
 
-map TESTMAP2 lookup "Testmap for BlooM - Drugod"
+map TESTMAP2 lookup "BLM_TM2"
 {
    levelnum = 99
    sky1 = "YTEXTH63", 0.05
@@ -960,7 +960,7 @@ cluster 5
 ////////////////////////////////////////////////////////////////////////////////
 episode map01
 {
-	name = "$TXT_D2E1"
+	name = "$BLM_DM2"
 	key = "h"
 	optional
 }
@@ -971,6 +971,7 @@ episode level01
 	key = "n"
 	optional
 }
+
 map MAP01 lookup "entryway"
 {
 	next = "MAP02"

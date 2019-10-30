@@ -1,7 +1,7 @@
 ACTOR --------SHOTGUN_MONSTERS_SELECTOR------------ {}
 ACTOR ShotgunMonsters replaces ShotgunGuy
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title ShotgunGuy Spawner
     //$Color 3
 	//$Sprite B1ILA0
@@ -65,7 +65,7 @@ ACTOR HybridShotgunSpawner
 ACTOR --------CHAINGUN_MONSTERS_SELECTOR------------ {}
 ACTOR ChaingunMonsters replaces ChaingunGuy
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title Chaingun Spawner
     //$Color 3
 	//$Sprite B1ILB0
@@ -133,7 +133,7 @@ ACTOR HybridChaingunnerSpawner
 ACTOR --------EELMONSTERS_SELECTOR------------ {}
 ACTOR Eelmonsters replaces Fatso
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title Eel/Mancubus Spawner
     //$Color 3
 	+NOTDMATCH
@@ -195,7 +195,7 @@ ACTOR HybridFishMancubus
 ACTOR --------ELEMENTAL_GARMONSTERS_SELECTOR------------ {}
 ACTOR ElementalGarmonsters replaces PainElemental
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title Elemental Garmonsters Spawner
     //$Color 3
 	+NOTDMATCH
@@ -251,7 +251,7 @@ ACTOR HybridElementalGarmonsters
 ACTOR --------HOUND_SELECTOR------------ {}
 ACTOR HoundSpawner replaces Demon
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title Hounds Spawner
     //$Color 3
 	+NOTDMATCH
@@ -313,7 +313,7 @@ ACTOR HybridHoundSpawner
 ACTOR --------SPECTRE_HOUND_SELECTOR------------ {}
 ACTOR SpectreSpawner replaces Spectre
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title Hounds Spawner
     //$Color 3
 	+NOTDMATCH
@@ -369,7 +369,7 @@ ACTOR HybridSpectreSpawner
 ACTOR --------CACOYLES_SELECTOR------------ {}
 ACTOR Garmonsters replaces Cacodemon
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title Garmonsters Spawner
     //$Color 3
 	+NOTDMATCH
@@ -428,7 +428,7 @@ ACTOR HybridGarmonsters
 ACTOR --------GHOST_REVENANTS_SELECTOR------------ {}
 ACTOR GhostandRevenants replaces Revenant
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title Ghost & Revenants Spawner
     //$Color 3
 	+NOTDMATCH
@@ -493,7 +493,7 @@ ACTOR HybridGhostandRevenants
 ACTOR --------SOULS_SELECTOR------------ {}
 ACTOR TheSouls replaces LostSoul
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title The Souls
     //$Color 3
 	+NOTDMATCH
@@ -546,7 +546,7 @@ ACTOR TheSoulshybrid
 ACTOR --------ARACHNOID_SELECTOR------------ {}
 ACTOR TheArachnoids replaces Arachnotron
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title The Arachnoids
     //$Color 3
 	+NOTDMATCH
@@ -602,7 +602,7 @@ ACTOR Arachnoidhybrid
 ACTOR --------CVLTIMPS_ZOMBIMPS_SELECTOR------------ {}
 ACTOR TheCvltimpZombimps replaces DoomImp
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title The Cvltimps and Zombimps
     //$Color 3
 	+NOTDMATCH
@@ -661,7 +661,7 @@ ACTOR Cvltimphybrid
 ACTOR --------WOLFKNIGHTS_SELECTOR------------ {}
 ACTOR TheWolfKnights replaces BaronOfHell
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title WereWolfs of Hell
     //$Color 3
 	+NOTDMATCH
@@ -720,7 +720,7 @@ ACTOR BaronofHellHybrid
 ACTOR --------GHOULSZOMBIES_SELECTOR------------ {}
 ACTOR TheGhoulsZombies replaces ZombieMan
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title Ghouls and Zombies
     //$Color 3
 	+NOTDMATCH
@@ -776,7 +776,7 @@ ACTOR GhoulZombieHybrid
 ACTOR --------ARCHVILESZOMBIES_SELECTOR------------ {}
 ACTOR TheArchZombies replaces Archvile
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title Archviles and zombies
     //$Color 3
 	+NOTDMATCH
@@ -832,7 +832,7 @@ ACTOR ArchZombieHybrid
 ACTOR --------HELLBUTCHER_SELECTOR------------ {}
 ACTOR TheHellButchers replaces HellKnight
 {
-    //$Category "Bloom Monsters"
+    //$Category "Monsters Selectors"
     //$Title HellButcher
     //$Color 3
 	+NOTDMATCH
@@ -891,7 +891,7 @@ ACTOR TheHellButchersHybrid
 ACTOR --------GARGOL_LIVING_STATUE------------ {}
 ACTOR TheGargolLivingStatue 19044
 {
-    //$Category "Bloom Hybrid Monsters"
+    //$Category "Monsters Selectors"
     //$Title The Gargovile Living Statue
     //$Color 3
 	+NOTDMATCH
@@ -944,7 +944,7 @@ ACTOR TheGargolsStatueHybrid
 ACTOR --------GARGOL_STATUE------------ {}
 ACTOR TheGargolStatue 19045
 {
-    //$Category "Bloom Hybrid Monsters"
+    //$Category "Monsters Selectors"
     //$Title The Gargovile Statue
     //$Color 3
 	+NOTDMATCH

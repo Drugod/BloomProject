@@ -5,7 +5,7 @@ QUITMSG  = "Ok, I'll let you out only if it's to read Lovecraft.";
 QUITMSG1 = "If you hate Fornite press N.";
 QUITMSG2 = "Press N to keep seying the lovely smile of Caleb.";
 QUITMSG3 = "Press Y If you're going to quit this game for a good reason, for example commit suicide.";
-QUITMSG4 = "Get the hell out of here, loser. You're not fit to keep playing Bloom.";
+QUITMSG4 = "Get the hell out of here, loser. You're not fit to keep playing BLOOM.";
 QUITMSG5 = "You're ready to go out on the street and kill them all now.";
 QUITMSG6 = "Repeat with me 'I hate overwatch'.";
 QUITMSG7 = "Press Y if you're another stupid millenial.";
@@ -16,6 +16,22 @@ QUITMSG11 = "I'm John Romero.";
 QUITMSG12 = "Press N, 'It promise to be fun'.";
 QUITMSG13 = "If you quit this game away, I'll have to kill you.";
 QUITMSG14 = "Press Y If you're going to quit this game for a good reason, for example commit suicide.";
+
+//MAPINFO STUFF
+BLM_DM2 = "Hell On Earth"; //here for Zandro
+BLM_EP1 = "The Way Of Doomed Flesh";
+BLM_INT = "Thanks for playing BlooM!";
+BLM_M01 = "Entryway to Grave";
+BLM_M02 = "The wrong side of the Hangar";
+BLM_M03 = "U.A.C. Phantom 666";
+BLM_M04 = "Ghost Downtown";
+BLM_M05 = "TBD";
+BLM_M06 = "TBD";
+BLM_M07 = "TBD";
+BLM_M08 = "TBD";
+BLM_TIT = "Welcome to BlooM (Demo)";
+BLM_TM1 = "Testmap for BlooM - Ozy81";
+BLM_TM2 = "Testmap for BlooM - Drugod";
 
 //AMMO MESSAGES
 BBOX = "Picked up a box of bullets.";
