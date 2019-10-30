@@ -390,6 +390,7 @@ ACTOR CylinderSquare2 : Room_Base 18302
 		UNKN A -1
 		Stop
 	}
+}
 
 ACTOR ---------OTHERS--------- {}
 ACTOR SatanicCube : Room_Base 18303
