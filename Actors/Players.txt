@@ -363,14 +363,14 @@ ACTOR CultistSounder
 
 ACTOR LaughDelay : PowerDamage // Given when Caleb does maniacal laugh for gibbing
 {
-	powerup.duration -3
+	PowerUp.Duration -3
 	DamageFactor "nothing", 1.0
 }
 
 ACTOR DoLaugh : CustomInventory
 {
-	inventory.amount 1
-	inventory.maxamount 1
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
 	+AUTOACTIVATE
 	+ALWAYSPICKUP
 	States
@@ -384,8 +384,8 @@ ACTOR DoLaugh : CustomInventory
 
 ACTOR CerberusDead : CustomInventory
 {
-	inventory.amount 1
-	inventory.maxamount 1
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
 	+AUTOACTIVATE
 	+ALWAYSPICKUP
 	States
@@ -410,8 +410,8 @@ ACTOR TchernobogDead : CerberusDead
 
 ACTOR DoRat : CustomInventory
 {
-	inventory.amount 1
-	inventory.maxamount 1
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
 	+AUTOACTIVATE
 	+ALWAYSPICKUP
 	States
@@ -425,8 +425,8 @@ ACTOR DoRat : CustomInventory
 
 ACTOR DoTaunt : CustomInventory
 {
-	inventory.amount 1
-	inventory.maxamount 1
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
 	+AUTOACTIVATE
 	+ALWAYSPICKUP
 	States
@@ -440,8 +440,8 @@ ACTOR DoTaunt : CustomInventory
 
 ACTOR DoJack : CustomInventory
 {
-	inventory.amount 1
-	inventory.maxamount 1
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
 	+AUTOACTIVATE
 	+ALWAYSPICKUP
 	States

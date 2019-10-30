@@ -1,6 +1,7 @@
 //========== KEYS ==========//
 ACTOR Key1 : BlueCard replaces BlueCard
 {
+	//$Title Dagger Key (Blue Card)
 	//$Sprite DKEYA0
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
@@ -20,6 +21,7 @@ ACTOR Key1 : BlueCard replaces BlueCard
 
 ACTOR Key2 : YellowCard replaces YellowCard
 {
+	//$Title Moon Key (Yellow Card)
 	//$Sprite MKEYA0
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
@@ -39,6 +41,7 @@ ACTOR Key2 : YellowCard replaces YellowCard
 
 ACTOR Key3 : RedCard replaces RedCard
 {
+	//$Title Eye Key (Red Card)
 	//$Sprite EKEYA0
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
@@ -58,6 +61,7 @@ ACTOR Key3 : RedCard replaces RedCard
 
 ACTOR Key4 : Blueskull replaces Blueskull
 {
+	//$Title Skull Key (Blue Skull)
 	//$Sprite SSKUA0
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
@@ -77,6 +81,7 @@ ACTOR Key4 : Blueskull replaces Blueskull
 
 ACTOR Key5 : RedSkull replaces RedSkull
 {
+	//$Title Fire Key (Red Skull)
 	//$Sprite FSK2B0
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"
@@ -96,6 +101,7 @@ ACTOR Key5 : RedSkull replaces RedSkull
 
 ACTOR Key6 : YellowSkull replaces YellowSkull
 {
+	//$Title Spider Key (Yellow Skull)
 	//$Sprite ASKUB0
 	Scale 0.5
 	Inventory.PickupSound "PICKKEY"

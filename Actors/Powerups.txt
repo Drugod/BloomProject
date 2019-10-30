@@ -22,8 +22,8 @@ ACTOR SuperReflection : PowerupGiver
 {
   +INVENTORY.AUTOACTIVATE
   +INVENTORY.ALWAYSPICKUP
-  Powerup.duration 1050
-  Powerup.type "Reflection"
+  PowerUp.Duration 1050
+  PowerUp.Type "Reflection"
   Powerup.Colormap 0.5, 0.5, 0.6
 }
 
@@ -53,14 +53,14 @@ ACTOR Deathmask : PowerupGiver 3151
   //$Category "BlooM Powerups"
   //$Title Death mask
   Inventory.pickupmessage "Deathmask! Invulnerable!"
-  Inventory.maxamount 0
+  Inventory.MaxAmount 0
   +COUNTITEM
   +INVENTORY.AUTOACTIVATE
   +INVENTORY.ALWAYSPICKUP
   +FLOATBOB
   scale 0.7
   Powerup.color White 0.12
-  Powerup.type "Invulnerable"  
+  PowerUp.Type "Invulnerable"  
   States
   {
 	Spawn:
@@ -99,9 +99,9 @@ ACTOR GunsAkimbo : CustomInventory 3152
 ACTOR PowerGunsAkimbo : PowerupGiver
 {
   Scale 0.6 
-  Inventory.maxamount 0
-  Powerup.type "WeaponLevel2"
-  Powerup.duration 1250
+  Inventory.MaxAmount 0
+  PowerUp.Type "WeaponLevel2"
+  PowerUp.Duration 1250
   +INVENTORY.AUTOACTIVATE
   +INVENTORY.ALWAYSPICKUP
   States
@@ -115,8 +115,8 @@ ACTOR PowerGunsAkimbo : PowerupGiver
 ACTOR ultradamage : PowerupGiver
 {
 	 Powerup.color LawnGreen 0.25
-	 Powerup.type UltraDamage
-	 Powerup.duration 1250
+	 PowerUp.Type UltraDamage
+	 PowerUp.Duration 1250
 	 +AUTOACTIVATE
 	 +INVENTORY.FANCYPICKUPSOUND
 }
@@ -153,8 +153,8 @@ ACTOR Wolfme : PowerupGiver
 { 
   +INVENTORY.AUTOACTIVATE
   +INVENTORY.ALWAYSPICKUP
-  Powerup.duration 1050
-  Powerup.type "Wolf"
+  PowerUp.Duration 1050
+  PowerUp.Type "Wolf"
   Powerup.Color RedMap
 }
 

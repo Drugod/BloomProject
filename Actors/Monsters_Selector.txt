@@ -25,19 +25,6 @@ ACTOR ShotgunMonsters replaces ShotgunGuy
 	}
 }
 
-/*ACTOR OriginalShotgunSpawner : RandomSpawner
-{
-	DropItem "BrownCultist"
-	DropItem "ShotgunGuy_"
-}
-
-ACTOR HybridShotgunSpawner : RandomSpawner
-{
-	DropItem "Apocalyptic_NeoCvltist"
-	DropItem "NeoCvltist"
-	DropItem "ShotgunMonk"
-}*/
-
 ACTOR OriginalShotgunSpawner
 {
 	States
@@ -109,18 +96,6 @@ ACTOR ChaingunMonsters replaces ChaingunGuy
 	}
 }
 
-/*ACTOR OriginalChaingunnerSpawner : RandomSpawner
-{
-	DropItem "GreyCultist"
-	DropItem "ChaingunGuy_"
-}
-
-ACTOR HybridChaingunnerSpawner : RandomSpawner
-{
-	DropItem "Fanatic_Chaingunner", 255, 1
-	DropItem "Fanatic_ChaingunnerAlt", 255, 2
-}*/
-
 ACTOR OriginalChaingunnerSpawner
 {
 	States
@@ -179,19 +154,6 @@ ACTOR Eelmonsters replaces Fatso
 		Stop
 	}
 }
-
-/*ACTOR OriginalFishMancubus : RandomSpawner
-{
-	DropItem "GillBeast"
-	DropItem "Fatso_"
-}
-
-ACTOR HybridFishMancubus : RandomSpawner
-{
-	DropItem "Eelcubus"
-	DropItem "EelcubusAlt"
-	DropItem "Gillcubus"
-}*/
 
 ACTOR OriginalFishMancubus
 {
@@ -255,17 +217,6 @@ ACTOR ElementalGarmonsters replaces PainElemental
 	}
 }
 
-/*ACTOR OriginalElementalGarmonsters : RandomSpawner
-{
-	DropItem "BloodGargoyle"
-	DropItem "PainElemental_"
-}
-
-ACTOR HybridElementalGarmonsters : RandomSpawner
-{
-	DropItem "Elemental_Gargoyle"
-}*/
-
 ACTOR OriginalElementalGarmonsters
 {
 	States
@@ -321,18 +272,6 @@ ACTOR HoundSpawner replaces Demon
 		Stop
 	}
 }
-
-/*ACTOR OriginalHoundSpawner : RandomSpawner
-{
-	DropItem "Demon_"
-	DropItem "HellHound"
-}
-
-ACTOR HybridHoundSpawner : RandomSpawner
-{
-	DropItem "DemonHound", 255, 9
-	DropItem "DemonhoundAlt", 255, 1
-}*/
 
 ACTOR OriginalHoundSpawner
 {
@@ -396,17 +335,6 @@ ACTOR SpectreSpawner replaces Spectre
 	}
 }
 
-/*ACTOR OriginalSpectreSpawner : RandomSpawner
-{
-	DropItem "Spectre_"
-}
-
-ACTOR HybridSpectreSpawner : RandomSpawner
-{
-	DropItem "Spectrehound", 255, 9
-	DropItem "SpectrehoundAlt", 255, 1
-}*/
-
 ACTOR OriginalSpectreSpawner
 {
 	States
@@ -438,7 +366,6 @@ ACTOR HybridSpectreSpawner
 	}
 }
 
-
 ACTOR --------CACOYLES_SELECTOR------------ {}
 ACTOR Garmonsters replaces Cacodemon
 {
@@ -463,18 +390,6 @@ ACTOR Garmonsters replaces Cacodemon
 		Stop
 	}
 }
-
-/*ACTOR OriginalGarmonsters : RandomSpawner
-{
-	DropItem "BloodGargoyle"
-	DropItem "Cacodemon_"
-}
-
-ACTOR HybridGarmonsters : RandomSpawner
-{
-	DropItem "Cacoyle"
-	DropItem "Cacoyle_Variant"
-}*/
 
 ACTOR OriginalGarmonsters
 {
@@ -535,20 +450,6 @@ ACTOR GhostandRevenants replaces Revenant
 	}
 }
 
-/*ACTOR OriginalGhostandRevenants : RandomSpawner
-{
-	DropItem "Revenant_", 255, 9
-	DropItem "Phantasm", 255, 1
-}
-
-ACTOR HybridGhostandRevenants : RandomSpawner
-{
-	DropItem "GhostRevenantTerrain", 255, 3
-	DropItem "GhostRevenantTerrainAlt", 255, 4
-	DropItem "Shielded_Ghost_Revenant", 255, 2
-	DropItem "Shielded_Ghost_Revenant_Alt", 255, 1
-}*/
-
 ACTOR OriginalGhostandRevenants
 {
 	States
@@ -590,7 +491,7 @@ ACTOR HybridGhostandRevenants
 }
 
 ACTOR --------SOULS_SELECTOR------------ {}
-ACTOR Thesouls replaces LostSoul
+ACTOR TheSouls replaces LostSoul
 {
     //$Category "Bloom Monsters"
     //$Title The Souls
@@ -606,26 +507,15 @@ ACTOR Thesouls replaces LostSoul
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("Thesoulshybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("TheSoulshybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("ThesoulsNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("TheSoulsNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 		Stop
 	}
 }
 
-/*ACTOR ThesoulsNormal : RandomSpawner
-{
-	DropItem "LostSoul_"
-}
-
-ACTOR Thesoulshybrid : RandomSpawner
-{
-	DropItem "GargoylSoul"
-}*/
-
-
-ACTOR ThesoulsNormal
+ACTOR TheSoulsNormal
 {
 	States
 	{
@@ -639,7 +529,7 @@ ACTOR ThesoulsNormal
 	}
 }
 
-ACTOR Thesoulshybrid
+ACTOR TheSoulshybrid
 {
 	States
 	{
@@ -677,17 +567,6 @@ ACTOR TheArachnoids replaces Arachnotron
 		Stop
 	}
 }
-
-/*ACTOR Arachnoidnormal : RandomSpawner
-{
-	DropItem "Arachnotron_"
-	DropItem "SpiderMother"
-}
-
-ACTOR Arachnoidhybrid : RandomSpawner
-{
-	DropItem "Arachnoid"
-}*/
 
 ACTOR Arachnoidnormal
 {
@@ -744,18 +623,6 @@ ACTOR TheCvltimpZombimps replaces DoomImp
 		Stop
 	}
 }
-
-/*ACTOR Cvltimpnormal : RandomSpawner
-{
-	DropItem "DoomImp_"
-}
-
-ACTOR Cvltimphybrid : RandomSpawner
-{
-	DropItem "Cvltimp", 255, 2
-	DropItem "CvltimpAlt", 255, 1
-	DropItem "Zombimps", 255, 7
-}*/
 
 ACTOR Cvltimpnormal
 {
@@ -816,18 +683,6 @@ ACTOR TheWolfKnights replaces BaronOfHell
 	}
 }
 
-/*ACTOR BaronofHellNormal : RandomSpawner
-{
-	DropItem "BaronOfHell_"
-	DropItem "BloodBeast"
-}
-
-ACTOR BaronofHellHybrid : RandomSpawner
-{
-	DropItem "WereWolfOfHell"
-	DropItem "WereWolfOfHellAlt"
-}*/
-
 ACTOR BaronofHellNormal
 {
 	States
@@ -887,17 +742,6 @@ ACTOR TheGhoulsZombies replaces ZombieMan
 	}
 }
 
-/*ACTOR GhoulZombieNormal : RandomSpawner
-{
-	DropItem "ZombieMan_"
-	DropItem "BloodZombie"
-}
-
-ACTOR GhoulZombieHybrid : RandomSpawner
-{
-	DropItem "GhoulsZombies"
-}*/
-
 ACTOR GhoulZombieNormal
 {
 	States
@@ -953,17 +797,6 @@ ACTOR TheArchZombies replaces Archvile
 		Stop
 	}
 }
-
-/*ACTOR ArchZombieNormal : RandomSpawner
-{
-	DropItem "Archvile_"
-}
-
-ACTOR ArchZombieHybrid : RandomSpawner
-{
-	DropItem "Archzombie"
-	DropItem "Gargovile"
-}*/
 
 ACTOR ArchZombieNormal
 {
@@ -1021,18 +854,6 @@ ACTOR TheHellButchers replaces HellKnight
 	}
 }
 
-/*ACTOR TheHellButchersNormal : RandomSpawner
-{
-	DropItem "HellKnight_"
-	DropItem "BloatedButcher"
-}
-
-ACTOR TheHellButchersHybrid : RandomSpawner
-{
-	DropItem "HellButcher"
-	DropItem "HellButcherAlt"
-}*/
-
 ACTOR TheHellButchersNormal
 {
 	States
@@ -1070,8 +891,8 @@ ACTOR TheHellButchersHybrid
 ACTOR --------GARGOL_LIVING_STATUE------------ {}
 ACTOR TheGargolLivingStatue 19044
 {
-    //$Category "Bloom Monsters"
-    //$Title The Gargovile living Statue
+    //$Category "Bloom Hybrid Monsters"
+    //$Title The Gargovile Living Statue
     //$Color 3
 	+NOTDMATCH
 	States
@@ -1091,16 +912,6 @@ ACTOR TheGargolLivingStatue 19044
 		Stop
 	}
 }
-
-/*ACTOR TheGargolsStatueNormal : RandomSpawner
-{
-	DropItem "LivingGargStatue"
-}
-
-ACTOR TheGargolsStatueHybrid : RandomSpawner
-{
-	DropItem "LivingGargovileStatue"
-}*/
 
 ACTOR TheGargolsStatueNormal
 {
@@ -1133,7 +944,7 @@ ACTOR TheGargolsStatueHybrid
 ACTOR --------GARGOL_STATUE------------ {}
 ACTOR TheGargolStatue 19045
 {
-    //$Category "Bloom Monsters"
+    //$Category "Bloom Hybrid Monsters"
     //$Title The Gargovile Statue
     //$Color 3
 	+NOTDMATCH
@@ -1154,16 +965,6 @@ ACTOR TheGargolStatue 19045
 		Stop
 	}
 }
-
-/*ACTOR TheStatueNormal : RandomSpawner
-{
-	DropItem "MerryGargStatue"
-}
-
-ACTOR TheStatueHybrid : RandomSpawner
-{
-	DropItem "MerryGargovileStatue"
-}*/
 
 ACTOR TheStatueNormal
 {

@@ -9,6 +9,7 @@ ACTOR BloodEnemy_Base //ozy81
 
 ACTOR ChokingHand : BloodEnemy_Base 6190
 {
+	//$Title Choking Hand
 	Height 8
 	Radius 8
 	Speed 12
@@ -163,12 +164,13 @@ ACTOR FlyingHand
 ACTOR 3------------------ {}
 ACTOR Cheogh : BloodEnemy_Base 3124
 {
-	Spawnid     3
+	//$Title Cheogh
+	Spawnid 3
 	Health 3000
 	Radius 24
 	Height 64
-	Mass   1000
-	Speed       8
+	Mass 1000
+	Speed 8
 	Scale 0.88
 	FloatSpeed  14
 	MeleeDamage 13
@@ -317,6 +319,7 @@ ACTOR Cheogh : BloodEnemy_Base 3124
 ACTOR 4------------------ {}
 ACTOR BloodGargoyle : BloodEnemy_Base 3123
 {
+	//$Title Gargoyle
 	Spawnid 5
 	Scale 0.55
 	Obituary "$OB_BGARG"
@@ -324,8 +327,8 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 	Health 400
 	Radius 31
 	Height 56
-	Mass   400
-	Speed  9
+	Mass 400
+	Speed 9
 	FloatSpeed 10
 	GibHealth 30
 	MeleeDamage 7
@@ -620,8 +623,8 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 ACTOR LivingGargStatue : HangTSkull 3270
 {
 	//$Category "BlooM Monsters"
+	//$Title Living Gargoyle Statue
 	//$Color 5
-	//$Tag Statue Gargoyle
 	Scale 0.6
 	Radius 10
 	Height 35
@@ -666,8 +669,6 @@ ACTOR GargBurn
 	+LOOKALLAROUND
 	+RANDOMIZE
 	-DONTSPLASH
-	//+FLOAT
-	//+NOGRAVITY
 	Obituary "$OB_GBURN"
 	ActiveSound "dsFRBALL"
 	ExplosionDamage 4
@@ -701,6 +702,7 @@ ACTOR 5------------------ {}
 ACTOR Hellfish : Cacodemon 3100//replaces Cacodemon 6142
 {
 	//$Category "BlooM Monsters"
+	//$Title HellFish
 	//$Color 5
 	Health 15
 	GibHealth 25
@@ -834,6 +836,7 @@ ACTOR Hellfish : Cacodemon 3100//replaces Cacodemon 6142
 ACTOR 6------------------ {}
 ACTOR BloatedButcher : BloodEnemy_Base 3122
 {
+	//$Title Bloated Butcher
 	Spawnid 20
 	Obituary "$OB_BLOAT"
 	HitObituary "$HB_BLOAT"
@@ -1256,10 +1259,10 @@ ACTOR ButcherVomit
 		BARF AA 0 A_SpawnItemEx("EWWW",frandom(-2,2),frandom(-2,2),frandom(-3,3),frandom(-2,2),frandom(-2,2),frandom(-2,2))
 		BARF EF 3 A_Setangle(angle+frandom(-5,5))
 		BARF AA 0 A_SpawnItemEx("EWWW",frandom(-2,2),frandom(-2,2),frandom(-3,3),frandom(-2,2),frandom(-2,2),frandom(-2,2))
-	Loop
+		Loop
 	Death:
 		TNT1 A 1 A_PlaySound("Butcher/Wall")
-	Stop
+		Stop
 	Crash:
 		TNT1 A 0 A_PlaySound("Butcher/Wall")
 		Stop
@@ -1273,7 +1276,6 @@ ACTOR ButcherBarfSplash : CleaverTrail1
 	{
 	Spawn:
 		TNT1 A 0
-		//TNT1 A 0 A_SetTranslucent(frandom[BloatedButcher](3,10)/10,frandom[BloatedButcher](0,frandom[BloatedButcher](0,1)))
 		TNT1 A 0 A_Jump(256,"Animate1","Animate2","Animate3")//,"Animate4")
 	Animate1:
 		XWCD ABCDE 3 //A_FadeOut(frandom[BloatedButcher](0,1)/10)
@@ -1287,42 +1289,40 @@ ACTOR ButcherBarfSplash : CleaverTrail1
 		XWCD ABCDE 3 //AAABBBCCCDDDEEEFFF 10 //A_FadeOut(frandom[BloatedButcher](0,3)/100)
 		XWCD E 0 A_SpawnDebris("FlyingAcidrop")
 		Stop
-	/*Animate4:
-		XWCD FFFFGGGGHHHHIIIIJJJJKKKK 1 //A_FadeOut(frandom[BloatedButcher](0,2)/100)
-		Stop*/
 	}
 }
 
 ACTOR 7------------------ {}
 ACTOR GreyCultist : BloodEnemy_Base 3125
 {
+	//$Title Grey Cultist
 	Decal ZBloodBulletChip1
 	Spawnid 2
-	Obituary "$OB_GREYCUL"
 	Health 120
 	Radius 20
 	Height 56
-	Translation "112:120=[128,128,128]:[48,48,48]","120:127=[48,48,48]:[8,8,8]","209:223=193:207","192:200=[192,192,192]:[64,64,64]","200:207=[64,64,64]:[16,16,16]","240:247=[16,16,16]:[0,0,0]"
 	Mass 50
 	Speed 3
+	Scale 0.53
 	PainChance 90
 	PainChance "Fire", 0
 	PainChance "Flare", 0
 	PainChance "Voodoo", 256
 	DamageFactor "Stomping", 0
+	+FLOORCLIP
+	+NODROPOFF
+	+NOSPLASHALERT
 	SeeSound "CultistSee"
 	PainSound "CultistPain"
 	AttackSound ""
 	DeathSound "CultistDie"
 	ActiveSound "CultistAct"
+	Species "Cultist"
 	DropItem "Tommygun" 64
 	DropItem "Bullets" 200, 30
 	DropItem "TNTBundle", 128
-	Scale 0.53
-	Species "Cultist"
-	+FLOORCLIP
-	+NODROPOFF
-	+NOSPLASHALERT
+	Obituary "$OB_GREYCUL"
+	Translation "112:120=[128,128,128]:[48,48,48]","120:127=[48,48,48]:[8,8,8]","209:223=193:207","192:200=[192,192,192]:[64,64,64]","200:207=[64,64,64]:[16,16,16]","240:247=[16,16,16]:[0,0,0]"
 	States
 	{
 	Idle:
@@ -1492,39 +1492,40 @@ ACTOR GreyCultist : BloodEnemy_Base 3125
 		Goto See
 	}
 }
-// Old BRIGHTer Translation, possible for a new cultist, napalm?
-//  Translation "112:120=[224,160,64]:[192,48,20]","120:127=[120,24,10]:[16,0,0]","209:223=[192,160,128]:[128,80,64]"
+//Old BRIGHTer Translation, possible for a new cultist, napalm?
+//Translation "112:120=[224,160,64]:[192,48,20]","120:127=[120,24,10]:[16,0,0]","209:223=[192,160,128]:[128,80,64]"
 
 ACTOR 8------------------ {}
 ACTOR RedCultist : BloodEnemy_Base 10310
 {
+	//$Title Red Cultist
 	Decal ZBloodBulletChip1
 	Spawnid 116
-	Obituary "$OB_REDCUL"
 	Health 300
 	Radius 20
 	Height 56
 	Mass 100
 	Speed 3
+	Scale 0.53
 	PainChance 170
 	PainChance "Fire", 0
-	PainChance "flare", 0
+	PainChance "Flare", 0
 	PainChance "Voodoo", 256
 	DamageFactor "Stomping", 0
-	SeeSound "CultistSee"
-	AttackSound "shotguy/attack"
-	PainSound "CultistPain"
-	DeathSound "CultistDie"
-	ActiveSound "CultistAct"
 	DropItem "Medikit", 32
-	Species "Cultist"
 	+DONTHURTSPECIES
 	+DROPOFF
 	+FLOORCLIP
 	+NOSPLASHALERT
 	-DONTGIB
+	Species "Cultist"
+	SeeSound "CultistSee"
+	AttackSound "shotguy/attack"
+	PainSound "CultistPain"
+	DeathSound "CultistDie"
+	ActiveSound "CultistAct"
+	Obituary "$OB_REDCUL"
 	Translation "112:120=[208,144,48]:[160,32,14]","120:127=[120,24,10]:[16,0,0]","209:223=[192,160,128]:[128,80,64]"
-	Scale 0.53
 	States
 	{
 	Spawn:
@@ -1656,6 +1657,7 @@ ACTOR RedCultist : BloodEnemy_Base 10310
 ACTOR 9------------------ {}
 ACTOR GreenCultist : BloodEnemy_Base 3128
 {
+	//$Title Green Cultist
 	Spawnid 4
 	Decal Scorch
 	Obituary "$OB_GRENCUL"
@@ -1959,6 +1961,7 @@ ACTOR GreenCultistTNT2 : GreenCultistTNT
 ACTOR 10----------------- {}
 ACTOR BlueCultist : BloodEnemy_Base 10309
 {
+	//$Title Blue Cultist
 	Spawnid 116
 	Obituary "$OB_BLUCUL"
 	Health 250 //These were the tankiest and deadlist
@@ -2110,6 +2113,7 @@ ACTOR BlueCultist : BloodEnemy_Base 10309
 ACTOR 11----------------- {}
 ACTOR BrownCultist : BloodEnemy_Base 3129
 {
+	//$Title Brown Cultist
 	Spawnid 1
 	Decal ZBloodBulletChip1
 	Obituary "$OB_BROCUL"
@@ -2411,6 +2415,7 @@ ACTOR BrownCultistTNT : GreenCultistTNT { +CANNOTPUSH }
 ACTOR ------ZOMBIE------------- {}
 ACTOR BloodZombie : BloodEnemy_Base 3120
 {
+	//$Title Zombie
 	Radius 16
 	Height 56
 	Scale 0.5
@@ -2696,6 +2701,7 @@ ACTOR AmAlReadyFaking : Inventory
 
 ACTOR BuriedZombie : BloodZombie 3121
 {
+	//$Title Zombie, Buried
 	-SOLID
     States
 	{
@@ -2718,6 +2724,7 @@ ACTOR -----GILLBEAST------- {}
 ACTOR GillBeast : Cacodemon 3126
 {
 	//$Category "BlooM Monsters"
+	//$Title Gill Beast
 	//$Color 5
 	Radius 20
 	Height 64
@@ -3037,6 +3044,7 @@ ACTOR GillBeastChecks : Inventory
 ACTOR 14----------------- {}
 ACTOR Phantasm : BloodEnemy_Base  3134
 {
+	//$Title Phantasm
     Game Doom
 	Health 250
 	Radius 24
@@ -3308,17 +3316,18 @@ ACTOR 15----------------- {}
 ACTOR HellHound : HellKnight 3130
 {
     //$Category "BlooM Monsters"
+	//$Title Hell Hound
 	//$Color 5
-	MeleeDamage 4
-	Speed 8
-	MaxstepHeight 46
-	FastSpeed 8
-	Scale .6
-	Height 32
-	ProjectilePassHeight 40
 	Radius 20
 	Health 250
 	Mass 100
+	Speed 8
+	Height 32
+	MeleeDamage 4
+	MaxstepHeight 46
+	FastSpeed 8
+	Scale .6
+	ProjectilePassHeight 40
 	DamageFactor "Fire", 0
 	DamageFactor "Flare", 0.4
 	DamageFactor "Shock", 2.6
@@ -3470,6 +3479,7 @@ ACTOR HellHound : HellKnight 3130
 ACTOR 16----------------- {}
 ACTOR BloodBeast : BloodEnemy_Base 6123
 {
+	//$Title Beast
 	Health 1000
 	Radius 24
 	Height 56
@@ -3647,6 +3657,7 @@ ACTOR BeastStomp
 ACTOR 17----------------- {}
 ACTOR SpiderMother : BloodEnemy_Base 3135 //this actor needs tweaks - ozy81
 {
+	//$Title Spider Mother
     Speed 5
 	Health 500
 	Radius 40
@@ -3898,6 +3909,7 @@ ACTOR IChecked : Inventory
 ACTOR 18----------------- {}
 ACTOR Cerberus : BloodEnemy_Base 3127
 {
+	//$Title Cerberus
 	Spawnid 112
 	Obituary "$OB_CERB"
 	Health 3000
@@ -4091,6 +4103,7 @@ ACTOR LowerThanHP : Inventory
 ACTOR 19----------------- {}
 ACTOR Tchernobog : BloodEnemy_Base 6134
 {
+	//$Title Tchernobog
 	Obituary "$OB_TCHERNO"
 	Health 4000
 	Radius 50
@@ -4466,6 +4479,7 @@ ACTOR TchernoStomp
 ACTOR 20----------------- {}
 ACTOR ChrysalidPod : BloodEnemy_Base 6147
 {
+	//$Title Chrysalid Pod
 	Obituary "$OB_CRYPOD"
 	Health 154
 	GibHealth -40
@@ -4635,7 +4649,6 @@ ACTOR HellroseBramble
 	Obituary "$OB_BRAMB"
 	Scale 0.5
 	Monster
-	//-SHOOTABLE
 	+DONTSPLASH
 	+FLOORCLIP
 	+LOOKALLAROUND
@@ -4793,6 +4806,7 @@ ACTOR 21----------------- {}
 ACTOR LavaPod : ChrysalidPod 6148
 {
     //$Category "BlooM Monsters"
+	//$Title Lava Pod
 	//$Color 5
   	Obituary "$OB_LAVPOD"
 	Health 324
@@ -4899,13 +4913,13 @@ ACTOR LavaBarf : NapalmRocketAlt1
 {
 	Scale .75
 	Speed 20
-	DeathSound "dsexpbrl"
-	DamageType "Fire"
 	Gravity 0.75
 	Scale 0.5
-	-NOGRAVITY
+	DamageType "Fire"
+    BounceCount 4
 	+DONTSPLASH
-    bouncecount 4
+	-NOGRAVITY
+	DeathSound "dsexpbrl"
 	States
   	{
   	Spawn:
@@ -4930,96 +4944,96 @@ ACTOR LavaBarf : NapalmRocketAlt1
 
 ACTOR HellroseBrambleRed : HellRoseBramble
 {
-   Health 60
-   BloodColor "70 70 10"
-   Obituary "$OB_BRAMB2"
-   States
-   {
-   Spawn:
-      TNT1 A 0
-      LVIN RQMNOP 4 A_Look
-      Loop
-   See:
-   	  TNT1 A 0 A_Jump(256,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      LVIN QM 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      LVIN NO 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      LVIN PP 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      LVIN ON 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      LVIN MQ 3 A_Chase
-      GVIN R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      GVIN RR 3 A_Chase
-      ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      Goto Melee
-   Melee:
-      TNT1 A 0 A_SetShootable
-      TNT1 A 0 A_SetSolid
-      LVIN AB 4
-      GVIN RRRRRR 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-      LVIN C 4 A_MeleeAttack
-      LVIN DEFG 4
-      LVIN HIJ 4
+	Health 60
+	BloodColor "70 70 10"
+	Obituary "$OB_BRAMB2"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		LVIN RQMNOP 4 A_Look
+		Loop
+	See:
+		TNT1 A 0 A_Jump(256,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LVIN QM 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LVIN NO 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LVIN PP 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LVIN ON 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LVIN MQ 3 A_Chase
+		GVIN R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Goto Melee
+	Melee:
+		TNT1 A 0 A_SetShootable
+		TNT1 A 0 A_SetSolid
+		LVIN AB 4
+		GVIN RRRRRR 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LVIN C 4 A_MeleeAttack
+		LVIN DEFG 4
+		LVIN HIJ 4
 	Attack:
-      ROSX D 0 A_FaceTarget
-      LVIN D 3 A_MeleeAttack
-      ROSX A 0 A_Jump(64,"Anim2")
-      LVIN EF 5
-      ROSX G 0 A_FaceTarget
-      LVIN G 3 A_MeleeAttack
-	  TNT1 A 0 A_Jump(130, "See")
-	  TNT1 A 0 A_CposRefire
-      Goto Attack
+		ROSX D 0 A_FaceTarget
+		LVIN D 3 A_MeleeAttack
+		ROSX A 0 A_Jump(64,"Anim2")
+		LVIN EF 5
+		ROSX G 0 A_FaceTarget
+		LVIN G 3 A_MeleeAttack
+		TNT1 A 0 A_Jump(130, "See")
+		TNT1 A 0 A_CposRefire
+		Goto Attack
 	Anim2:
-      LVIN JKL 4
-      LVIN H 3 A_MeleeAttack
-	  TNT1 A 0 A_Jump(130, "See")
-	  TNT1 A 0 A_CposRefire
-      Goto Attack
-   Pain:
-      LVIN LMNOPQR 3
-      TNT1 A 0 A_UnSetSolid
-      TNT1 A 0 A_UnSetShootable
-      Goto See
-   Death:
-      LVIN S 5
-      LVIN T 5 A_Scream
-      LVIN U 5 A_Fall
-      LVIN V 5
-	  Stop
-   }
+		LVIN JKL 4
+		LVIN H 3 A_MeleeAttack
+		TNT1 A 0 A_Jump(130, "See")
+		TNT1 A 0 A_CposRefire
+		Goto Attack
+	Pain:
+		LVIN LMNOPQR 3
+		TNT1 A 0 A_UnSetSolid
+		TNT1 A 0 A_UnSetShootable
+		Goto See
+	Death:
+		LVIN S 5
+		LVIN T 5 A_Scream
+		LVIN U 5 A_Fall
+		LVIN V 5
+		Stop
+	}
 }
 
 ACTOR 22----------------- {}
@@ -5035,6 +5049,7 @@ ACTOR BloodRatSpawner
 
 ACTOR BloodRat : BloodEnemy_Base 3132
 {
+	//$Title Rat
 	Tag "Rat"
 	Health 24
 	Radius 8
@@ -5112,13 +5127,13 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 		Goto See
 	Missile:
 	Melee:
-		RATW A 5  A_FaceTarget
-		// these are for reflection power
-		//			POSS F 0 A_JumpIfInTargetInventory("PowerInvulnerability",1,2)
-		//			POSS F 0 A_Jump(256,4)
-		//			RATW B 5  A_CustomMeleeAttack(frandom(4,9),"dsdolstb","none")
-		//			HEAD G 0 DamageThing(2)
-		//			POSS F 0 A_Jump(256,2)
+		RATW A 5 A_FaceTarget
+			//these are for reflection power
+			//POSS F 0 A_JumpIfInTargetInventory("PowerInvulnerability",1,2)
+			//POSS F 0 A_Jump(256,4)
+			//RATW B 5  A_CustomMeleeAttack(frandom(4,9),"dsdolstb","none")
+			//HEAD G 0 DamageThing(2)
+			//POSS F 0 A_Jump(256,2)
 		TNT1 A 0 A_Playsound("RatBite")
 		RATW B 5  A_CustomMeleeAttack(frandom(4,9),"","none")
 		RATW C 5
@@ -5246,7 +5261,7 @@ ACTOR SpiderRed // Delirium Spider
 
 ACTOR NewSpiderRed : BloodEnemy_Base 6161 // Delirium Spider
 {
-	//Tag "$SpiderRed1"
+	//$Title Red Spider (BlooM)
 	Health 12
 	Radius 16
 	Height 8
@@ -5254,7 +5269,6 @@ ACTOR NewSpiderRed : BloodEnemy_Base 6161 // Delirium Spider
 	Speed 4
 	FastSpeed 8
 	PainChance 128
-	//PoisonDamage 1
 	Damage (frandom(5,10))
 	DamageType "Turner"
 	GibHealth 50
@@ -5436,6 +5450,8 @@ ACTOR 24----------------- {}
 ACTOR SpiderGreen : NewSpiderRed 6191
 {
 	//$Category "BlooM Monsters"
+	//$Title Green Spider (BlooM)
+	//$Color 5
 	Speed 3
 	FastSpeed 6
 	PoisonDamage 4
@@ -5486,6 +5502,8 @@ ACTOR 25----------------- {}
 ACTOR SpiderBlue : SpiderRed 6192
 {
     //$Category "BlooM Monsters"
+	//$Title Blue Spider (BlooM)
+	//$Color 5
 	Speed 13
 	FastSpeed 17
 	PoisonDamage 16
@@ -5520,6 +5538,7 @@ ACTOR 26----------------- {}
 ACTOR SpiderYellow : SpiderGreen 6164
 {
     //$Category "BlooM Monsters"
+	//$Title Yellow Spider (BlooM)
 	Health 100
 	DamageType "PoisonCloud"
 	Obituary "%OB_SPIDS6"
@@ -5551,6 +5570,8 @@ ACTOR 27----------------- {}
 ACTOR SpiderPurple : SpiderRed 6165
 {
     //$Category "BlooM Monsters"
+	//$Title Purple Spider (BlooM)
+	//$Color 5
 	Speed 4
 	PoisonDamage 3
 	Damage (1)
@@ -5586,6 +5607,7 @@ ACTOR 28----------------- {}
 ACTOR SpiderCyan : SpiderGreen 6166
 {
    	//$Category "BlooM Monsters"
+	//$Title Cyan Spider (BlooM)
 	Speed 15
 	FastSpeed 30
 	PoisonDamage 0
@@ -5620,8 +5642,8 @@ ACTOR PowerNumbness : PowerSpeed { Speed 0.5 }
 
 ACTOR CurseNumbness : PowerupGiver
 {
-	Powerup.Type Numbness
-	Powerup.Duration -1
+	PowerUp.Type Numbness
+	PowerUp.Duration -1
 	Powerup.Color "00 00 22",.2
 	Inventory.MaxAmount 0
 	//Inventory.PickupMessage "$CurseNumbness1"
@@ -5634,6 +5656,7 @@ ACTOR 29----------------- {}
 ACTOR SpiderBlack : SpiderGreen 6167
 {
    	//$Category "BlooM Monsters"
+	//$Title Black Spider (BlooM)
 	Health 450
 	Gravity .3
 	PoisonDamage 15
@@ -5668,11 +5691,10 @@ ACTOR PowerFragility : PowerProtection { DamageFactor "normal", 2 }
 
 ACTOR CurseFragility : PowerupGiver
 {
-	//inventory.pickupmessage "$CurseFragility1"
-	Powerup.Color "22 00 00" 0.2
 	Inventory.MaxAmount 0
-	Powerup.Type Fragility
-	Powerup.Duration -1
+	Powerup.Color "22 00 00" 0.2
+	PowerUp.Type Fragility
+	PowerUp.Duration -1
 	+AUTOACTIVATE
 	+INVENTORY.QUIET
 	+INVENTORY.ADDITIVETIME
@@ -5682,17 +5704,17 @@ ACTOR 30----------------- {}
 ACTOR SpiderWhite : SpiderRed 6168 // A mediocre version of spider mother
 {
 	//$Category "BlooM Monsters"
+	//$Title White Spider (BlooM)
 	//$Color 5
-	//Tag "$SpiderWhite1"
 	Scale .5
 	PoisonDamage 0
 	Damage 0
 	Health 250
 	MeleeRange 128
 	MaxTargetRange 1024
+	+FRIGHTENED
 	-MISSILEMORE
 	-MISSILEEVENMORE
-	+FRIGHTENED
 	Translation "48:79=[255,255,255]:[128,128,128]","128:151=80:95","80:111=88:103","112:127=[192,192,192]:[32,32,40]"
 	States
 	{
@@ -5731,8 +5753,8 @@ ACTOR 31----------------- {}
 ACTOR BabySpiderSpawner //6140
 {
     //$Category "BlooM Monsters"
+	//$Title Baby Spider (BlooM)
 	//$Sprite "YKULG1"
-	//Tag "$BabySpiderSpawner1"
 	Height 0
 	Radius 16
 	+ISMONSTER
@@ -5777,7 +5799,7 @@ ACTOR BabySpiderSpawner //6140
 }
 
 ACTOR 32----------------- {}
-ACTOR BabySpiderSpawner2 : BabySpiderSpawner // For mother spider
+ACTOR BabySpiderSpawner2 : BabySpiderSpawner // For spidermother
 {
 	-COUNTKILL
 	States

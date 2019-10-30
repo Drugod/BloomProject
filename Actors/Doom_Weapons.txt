@@ -96,6 +96,7 @@ ACTOR --------CHAINSAW------------ {}
 ACTOR Chainsaw_ : DoomW replaces Chainsaw
 {
 	//$Sprite CSAWA0
+	//$Title Chainsaw (BlooM)
 	Weapon.Kickback 0
 	Weapon.SelectionOrder 2200
 	Weapon.UpSound "weapons/sawup"
@@ -159,6 +160,7 @@ ACTOR --------PISTOL------------ {}
 ACTOR Pistol_ : DoomW replaces Pistol //3d model not present yet - ozy81
 {
 	//$Sprite PISTA0
+	//$Title Pistol (BlooM)
 	Decal ZBloodBulletChip1  
 	Weapon.SelectionOrder 1900
 	Weapon.AmmoUse 1
@@ -236,6 +238,7 @@ ACTOR --------SHOTGUN------------ {}
 ACTOR Shotgun_ : DoomW replaces Shotgun
 {
 	//$Sprite SHOTA0
+	//$Title Shotgun (BlooM)
 	Decal ZBloodBulletChip1  
 	Weapon.SelectionOrder 1300
 	Weapon.AmmoUse 1
@@ -316,6 +319,7 @@ ACTOR --------SUPERSHOTGUN------------ {}
 ACTOR SuperShotgun_ : DoomW replaces SuperShotgun
 {
 	//$Sprite SGN2A0
+	//$Title Super-Shotgun (BlooM)
 	Decal ZBloodBulletChip1  
 	Weapon.SelectionOrder 400
 	Weapon.AmmoUse 2
@@ -402,6 +406,7 @@ ACTOR --------CHAINGUN------------ {}
 ACTOR Chaingun_ : DoomW replaces Chaingun
 {
 	//$Sprite MGUNA0
+	//$Title Chaingun (BlooM)
 	Decal ZBloodBulletChip1  
 	Weapon.SelectionOrder 700
 	Weapon.AmmoUse 1
@@ -505,6 +510,7 @@ ACTOR --------ROCKETLAUNCHER------------ {}
 ACTOR RocketLauncher_ : DoomW replaces RocketLauncher
 {
 	//$Sprite LAUNA0
+	//$Title Rocket Launcher (BlooM)
 	Weapon.SelectionOrder 2500
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 2
@@ -580,6 +586,7 @@ ACTOR --------PLASMARIFLE------------ {}
 ACTOR PlasmaRifle_ : DoomW replaces PlasmaRifle
 {
 	//$Sprite PLASA0
+	//$Title Plasma Rifle (BlooM)
 	Weapon.SelectionOrder 100
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 40
@@ -657,6 +664,7 @@ ACTOR --------BFG9000------------ {}
 ACTOR BFG9000_ : DoomW replaces BFG9000
 {
 	//$Sprite BFUGA0
+	//$Title BFG9000 (BlooM)
 	Height 20
 	Weapon.SelectionOrder 2800
 	Weapon.AmmoUse 40

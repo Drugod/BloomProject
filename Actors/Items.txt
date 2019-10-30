@@ -33,8 +33,8 @@ ACTOR BeastVision : CustomInventory 3153
 
 ACTOR BeastVisionEffect : PowerupGiver
 {
-	Powerup.Duration 0x7FFFFFFD
-	Powerup.Type "LightAmp"
+	PowerUp.Duration 0x7FFFFFFD
+	PowerUp.Type "LightAmp"
 	+DONTSPLASH
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.AUTOACTIVATE
@@ -80,8 +80,8 @@ ACTOR JumpingBoots : CustomInventory 3154
 
 ACTOR JumpBootsEffect : PowerupGiver
 {
-	Powerup.Duration 0x7FFFFFFD
-	Powerup.Type "HighJump"
+	PowerUp.Duration 0x7FFFFFFD
+	PowerUp.Type "HighJump"
 	+DONTSPLASH
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.AUTOACTIVATE
@@ -128,8 +128,8 @@ ACTOR DivingSuit : CustomInventory 6246
 ACTOR DivingSuitEffect : PowerupGiver
 {
 	Powerup.Color lightblue 0.05
-	Powerup.Duration 0x7FFFFFFD //this way it fills the color
-	Powerup.Type Air
+	PowerUp.Duration 0x7FFFFFFD //this way it fills the color
+	PowerUp.Type Air
 	+DONTSPLASH
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.AUTOACTIVATE

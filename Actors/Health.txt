@@ -2,8 +2,8 @@ ACTOR NoBSItem1 : HealthBonus
 {
 	States
 	{
-		Spawn:
-			TNT1 A 1
+	Spawn:
+		TNT1 A 1
 		Stop
 	}
 }
@@ -12,8 +12,8 @@ ACTOR NoBSItem2 : ArmorBonus
 {
 	States
 	{
-		Spawn:
-			TNT1 A 1
+	Spawn:
+		TNT1 A 1
 		Stop
 	}
 }
@@ -22,8 +22,8 @@ ACTOR NoBSItem3 : Stimpack
 {
 	States
 	{
-		Spawn:
-			TNT1 A 1
+	Spawn:
+		TNT1 A 1
 		Stop
 	}
 }
@@ -32,63 +32,71 @@ ACTOR NoBSMonster : CustomInventory
 {
 	States
 	{
-		Spawn:
-			TNT1 A 1
+	Spawn:
+		TNT1 A 1
 		Stop
 	}
 }
 
-ACTOR NewInvisibility : BlurSphere
+ACTOR NewInvisibility : BlurSphere //No DoomEdum defined yet
 {
-   //$Category "BlooM Powerups"
+	//$Category "BlooM Powerups"
+	//$Title Blursphere (BlooM)
+	//$Color 5
 	Scale 0.75
 }
 
 ACTOR LifeLeechHealth : Health 3163
 {
-  //$Category "BlooM Health"
-  Scale 0.75
-  radius 20
-  height 16
-  inventory.pickupmessage "Tastes like chicken"
-  inventory.pickupsound "items/heartpick"
-  inventory.amount 50
-  inventory.maxamount 100
-  +CannotPush
-  States
-  {
-  Spawn:
-	BHEA A -1
-	Stop
-  }
+	//$Category "BlooM Health"
+	//$Title LifeLeech Health
+	//$Color 4
+	Radius 20
+	Height 16
+	Scale 0.75
+	Inventory.PickupMessage "$LIFEH"
+	Inventory.PickupSound "items/heartpick"
+	Inventory.Amount 50
+	Inventory.MaxAmount 100
+	+CANNOTPUSH
+	States
+	{
+	Spawn:
+		BHEA A -1
+		Stop
+	}
 }
 
-ACTOR potionHealth : Health 3171
+ACTOR PotionHealth : Health 3171
 { 
-  //$Category "BlooM Health"
-  Scale 0.75
-  radius 20
-  height 16
-  inventory.pickupmessage "Tastes like chicken"
-  inventory.pickupsound "items/heartpick"
-  inventory.amount 2
-  inventory.maxamount 100
-  +CannotPush
-  States
-  {
-  Spawn:
-	XPOT A -1
-	Stop
-  }
+	//$Category "BlooM Health"
+	//$Title Health Potion
+	//$Color 4
+	Radius 20
+	Height 16
+	Scale 0.75
+	Inventory.PickupMessage "$LIFEH"
+	Inventory.PickupSound "items/heartpick"
+	Inventory.Amount 2
+	Inventory.MaxAmount 100
+	+CANNOTPUSH
+	States
+	{
+	Spawn:
+		XPOT A -1
+		Stop
+	}
 }
 
 ACTOR HeartHealth : Health 3162
 { 
 	//$Category "BlooM Health"
-	Scale 0.75
+	//$Title Heart Health
+	//$Color 4
 	Radius 20
 	Height 16
-	Inventory.Pickupmessage "Tastes like chicken"
+	Scale 0.75
+	Inventory.PickupMessage "$LIFEH"
 	Inventory.PickupSound "items/heartpick"
 	Inventory.Amount 20
 	Inventory.MaxAmount 100
@@ -96,64 +104,22 @@ ACTOR HeartHealth : Health 3162
 	States
 	{
 	Spawn:
-		BHRT ABCD 6 //ThrustTHingZ(0,random(0,20),random(0,1),1)
+		BHRT ABCD 6
 		Loop
 	}
 }
 
-ACTOR HeartHealth2 : HeartHealth
-{
-	Inventory.PickUpMessage "Fresh Meat!"
-}
-
-ACTOR HeartHealth3 : HeartHealth
-{
-	Inventory.PickUpMessage "This is so disgusting yet feels good!"
-}
-
-ACTOR HeartHealth4 : HeartHealth
-{
-	Inventory.PickUpMessage "Why would you kill someone and eat their heart?!"
-}
-
-ACTOR HeartHealth5 : HeartHealth
-{
-	Inventory.PickUpMessage "Shame on you! Cannibal!"
-}
-
-ACTOR HeartHealth6 : HeartHealth
-{
-	Inventory.PickUpMessage "Never felt better!"
-}
-
-ACTOR HeartHealth7 : HeartHealth
-{
-	Inventory.PickUpMessage "You feel the love."
-}
-
-ACTOR HeartHealth8 : HeartHealth
-{
-	Inventory.PickUpMessage "Ran out of pickup messages!"
-}
-
-ACTOR HeartHealth9 : HeartHealth
-{
-	Inventory.PickUpMessage "Got a +25 health pick me up!"
-}
-
-ACTOR HeartHealth10 : HeartHealth
-{
-	Inventory.PickUpMessage "Got a medki..I mean heart!"
-}
-
-ACTOR HeartHealth11 : HeartHealth
-{
-	Inventory.PickUpMessage "Is this blood!"
-}
-ACTOR HeartHealth12 : HeartHealth
-{
-	Inventory.PickUpMessage "Rejuvernating juicy diet!"
-}
+ACTOR HeartHealth2 : HeartHealth {Inventory.PickupMessage "$HETH1"}
+ACTOR HeartHealth3 : HeartHealth {Inventory.PickupMessage "$HETH2"}
+ACTOR HeartHealth4 : HeartHealth {Inventory.PickupMessage "$HETH3"}
+ACTOR HeartHealth5 : HeartHealth {Inventory.PickupMessage "$HETH4"}
+ACTOR HeartHealth6 : HeartHealth {Inventory.PickupMessage "$HETH5"}
+ACTOR HeartHealth7 : HeartHealth {Inventory.PickupMessage "$HETH6"}
+ACTOR HeartHealth8 : HeartHealth {Inventory.PickupMessage "$HETH7"}
+ACTOR HeartHealth9 : HeartHealth {Inventory.PickupMessage "$HETH8"}
+ACTOR HeartHealth10 : HeartHealth {Inventory.PickupMessage "$HETH9"}
+ACTOR HeartHealth11 : HeartHealth {Inventory.PickupMessage "$HETH10"}
+ACTOR HeartHealth12 : HeartHealth {Inventory.PickupMessage "$HETH11"}
 
 ACTOR UselessStuff : RandomSpawner
 {
@@ -171,19 +137,18 @@ ACTOR UselessStuff : RandomSpawner
 	DropItem "HeartHealth12" 255 3
 }
 
-ACTOR MedicinePouch : HEALTH
+ACTOR MedicinePouch : Health
 { 
-  radius 20
-  height 16
-  inventory.pickupmessage "Got medicine"
-  inventory.pickupsound "misc/p_pkup"
-  inventory.amount 50
-  +DONTSPLASH
-
-  States
-  {
-  Spawn:
-    BPAK A -1
-    Stop
-  }
+	Radius 20
+	Height 16
+	Inventory.PickupMessage "$MEDS"
+	Inventory.PickupSound "misc/p_pkup"
+	Inventory.Amount 50
+	+DONTSPLASH
+	States
+	{
+	Spawn:
+		BPAK A -1
+		Stop
+	}
 }

@@ -1,5 +1,4 @@
 ACTOR 33----------------- {}
-
 ACTOR DoomEnemy_Base
 {
 	//$Category "Doom Monsters"
@@ -11,7 +10,7 @@ ACTOR DoomEnemy_Base
 
 ACTOR ZombieMan_ : DoomEnemy_Base 19037
 {
-	//$Title Zombieman
+	//$Title ZombieMan (BlooM)
 	Health 20
 	Radius 20
 	PainChance 200
@@ -141,7 +140,7 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 ACTOR 34----------------- {}
 ACTOR ShotgunGuy_ : DoomEnemy_base 18999
 {
-	//$Title ShotgunGuy
+	//$Title ShotgunGuy (BlooM)
 	Health 30
 	Radius 20
 	Mass 100
@@ -242,7 +241,7 @@ ACTOR ShotgunGuy_ : DoomEnemy_base 18999
 ACTOR 35----------------- {}
 ACTOR ChaingunGuy_ : DoomEnemy_Base 18998
 {
-	//$Title ChaingunGuy
+	//$Title ChaingunGuy (BlooM)
 	Health 70
 	Radius 20
 	Mass 100
@@ -326,11 +325,11 @@ ACTOR BurnFormerHuman
 	DeathSound "ZombieDeathB"
     Radius 16
     Height 56
-    +FIREDAMAGE
-    +RANDOMIZE
     +DONTSPLASH
+    +FIREDAMAGE
     +FLOORCLIP
     +LOOKALLAROUND
+    +RANDOMIZE
     DamageType "SpecialFire"
     Obituary "$OB_ZOMBFIRE"
     ActiveSound "DSBDYBRN"
@@ -493,7 +492,7 @@ ACTOR BurnFormerHuman
 ACTOR 36----------------- {}
 ACTOR Demon_ : DoomEnemy_Base 19013
 {
-	//$Title Demon
+	//$Title Demon (BlooM)
 	Health 150
 	PainChance 180
 	Speed 10
@@ -601,10 +600,10 @@ ACTOR Demon_ : DoomEnemy_Base 19013
 
 ACTOR Spectre_ : Demon_ 19048
 {
-	//$Title Spectre
-	+SHADOW
-	RenderStyle OptFuzzy
+	//$Title Spectre (BlooM)
 	Alpha 0.5
+	RenderStyle OptFuzzy
+	+SHADOW
 	SeeSound "spectre/sight"
 	AttackSound "spectre/melee"
 	PainSound "spectre/pain"
@@ -616,7 +615,7 @@ ACTOR Spectre_ : Demon_ 19048
 ACTOR 37----------------- {}
 ACTOR DoomImp_ : DoomEnemy_Base 19030
 {
-	//$Title Imp
+	//$Title Imp (BlooM)
 	Health 60
 	Radius 20
 	Mass 100
@@ -742,14 +741,14 @@ ACTOR DoomImpBall_ replaces DoomImpBall
 ACTOR 38----------------- {}
 ACTOR BaronOfHell_ : DoomEnemy_Base 19041
 {
-	//$Title Baron of Hell
+	//$Title Baron of Hell (BlooM)
 	Health 1000
 	Radius 24
 	Height 64
 	Mass 1000
 	PainChance 50
-	+FLOORCLIP
 	+BOSSDEATH
+	+FLOORCLIP
 	SeeSound "baron/sight"
 	PainSound "baron/pain"
 	DeathSound "baron/death"
@@ -811,7 +810,7 @@ ACTOR BaronOfHell_ : DoomEnemy_Base 19041
 ACTOR 39----------------- {}
 ACTOR HellKnight_ : BaronOfHell_ 19034
 {
-	//$Title HellKnight
+	//$Title Hell Knight (BlooM)
 	Health 500
 	-BOSSDEATH
 	SeeSound "knight/sight"
@@ -875,7 +874,7 @@ ACTOR 40----------------- {}
 ACTOR SpiderMastermind_ replaces SpiderMastermind
 {
 	//$Category "Doom Monsters"
-	//$Title Spider-Mastermind
+	//$Title Spider-Mastermind (BlooM)
 	//$Color 3
 	Health 3000
 	Radius 128
@@ -890,7 +889,7 @@ ACTOR SpiderMastermind_ replaces SpiderMastermind
 	+DONTMORPH
 	+FLOORCLIP
 	+MISSILEMORE
-	+NORadiusDMG
+	+NORADIUSDMG
 	SeeSound "spider/sight"
 	AttackSound "spider/attack"
 	PainSound "spider/pain"
@@ -935,7 +934,7 @@ ACTOR 41----------------- {}
 ACTOR Cyberdemon_ replaces Cyberdemon
 {
 	//$Category "Doom Monsters"
-	//$Title Cyberdemon
+	//$Title Cyberdemon (BlooM)
 	//$Color 3
 	Health 4000
 	Radius 40
@@ -950,7 +949,7 @@ ACTOR Cyberdemon_ replaces Cyberdemon
 	+DONTMORPH
 	+FLOORCLIP
 	+MISSILEMORE
-	+NORadiusDMG
+	+NORADIUSDMG
 	SeeSound "cyber/sight"
 	PainSound "cyber/pain"
 	DeathSound "cyber/death"
@@ -994,7 +993,7 @@ ACTOR Cyberdemon_ replaces Cyberdemon
 ACTOR 88----------------- {}
 ACTOR LostSoul_ : DoomEnemy_Base 19022
 {
-	//$Title LostSoul
+	//$Title Lost Soul (BlooM)
 	Health 100
 	Radius 16
 	Mass 50
@@ -1042,7 +1041,7 @@ ACTOR LostSoul_ : DoomEnemy_Base 19022
 ACTOR 89----------------- {}
 ACTOR Fatso_ : DoomEnemy_Base 19006
 {
-	//$Title Mancubus
+	//$Title Mancubus (BlooM)
 	Health 600
 	Radius 48
 	Height 64
@@ -1093,7 +1092,7 @@ ACTOR Fatso_ : DoomEnemy_Base 19006
 ACTOR 90----------------- {}
 ACTOR PainElemental_ : DoomEnemy_Base 19010
 {
-	//$Title Pain Elemental
+	//$Title Pain Elemental (BlooM)
 	Health 400
 	Radius 31
 	Mass 400
@@ -1138,7 +1137,7 @@ ACTOR PainElemental_ : DoomEnemy_Base 19010
 ACTOR 135----------------- {}
 ACTOR Cacodemon_ : DoomEnemy_Base 19015
 {
-	//$Title Cacodemon
+	//$Title Cacodemon (BlooM)
 	Health 400
 	Radius 31
 	Mass 400
@@ -1185,7 +1184,7 @@ ACTOR Cacodemon_ : DoomEnemy_Base 19015
 ACTOR 136----------------- {}
 ACTOR Arachnotron_ : DoomEnemy_Base 19023
 {
-	//$Title Arachnotron
+	//$Title Arachnotron (BlooM)
 	Health 500
 	Radius 48
 	Height 64
@@ -1237,7 +1236,7 @@ ACTOR Arachnotron_ : DoomEnemy_Base 19023
 ACTOR 137----------------- {}
 ACTOR Revenant_ : DoomEnemy_Base 19019
 {
-	//$Title Revenant
+	//$Title Revenant (BlooM)
 	Health 300
 	Radius 20
 	Mass 500
@@ -1294,7 +1293,7 @@ ACTOR Revenant_ : DoomEnemy_Base 19019
 ACTOR --------ARCHVILE------------ {}
 ACTOR Archvile_ : DoomEnemy_Base 19038
 {
-	//$Title Archvile
+	//$Title Archvile (BlooM)
 	Health 700
 	Radius 20
 	Mass 500

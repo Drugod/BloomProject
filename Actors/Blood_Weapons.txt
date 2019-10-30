@@ -1337,7 +1337,7 @@ ACTOR TNTCounter : Inventory
 ACTOR TNTSoundDelay : PowerDamage
 {
 	DamageFactor "Normal", 1.0
-	Powerup.Duration -2
+	PowerUp.Duration -2
 }
 
 ACTOR Dynamite : CalebW
