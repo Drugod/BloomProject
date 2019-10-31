@@ -2094,10 +2094,17 @@ ACTOR BinsSpawner 18600
 	//$Title "Trashbin Spawner"
 	Radius 8
 	Height 24
-	Mass 5
+	Health 15
+	Mass 100
 	Scale 0.35
+	+NOBLOOD
+	+SHOOTABLE
 	+PUSHABLE
 	+SOLID
+	-NOGRAVITY  
+	-SPAWNCEILING
+	DeathSound "PotteryBreak" 
+	Translation "118:118=63:63", "118:118=65:65", "121:121=64:64", "120:120=70:70", "117:117=61:61", "119:119=71:71", "122:122=75:75"
 	States
 	{
 	Spawn:
@@ -2106,6 +2113,12 @@ ACTOR BinsSpawner 18600
 		BINS B -1
 		BINS C -1
 		BINS D -1
+		Stop
+	Pain:
+	Death: //requires a fitting debris spawner
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Scream
+		TNT1 A 1 A_SpawnDebris("GlassDebris",1)
 		Stop
 	}
 }
