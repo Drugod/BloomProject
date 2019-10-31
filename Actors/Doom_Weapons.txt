@@ -167,7 +167,7 @@ ACTOR Pistol_ : DoomW replaces Pistol //3d model not present yet - ozy81
 	Weapon.AmmoGive 20
 	Weapon.AmmoType "Clip"
 	Obituary "$OB_MPPISTOL"
-	Inventory.Pickupmessage "$PICKUP_PISTOL_DROPPED"
+	Inventory.PickupMessage "$PICKUP_PISTOL_DROPPED"
 	Tag "$TAG_PISTOL"
 	+WEAPON.WIMPY_WEAPON
 	States

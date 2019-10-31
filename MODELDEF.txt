@@ -1932,3 +1932,13 @@ Model Key6
    Rotating
    FrameIndex UNKN A 0 0
 }
+
+//Objects.txt replacements, coded by Ozy81 - these doesn't need INHERIT flags
+//Models from ZBlood and also some from scratch
+Model OldChair
+{
+   Path "Models/Blood/Props/"
+   Model 0 "chair1.md3"
+   Scale 3.3 3.3 3.3
+   FrameIndex UNKN A 0 0
+}

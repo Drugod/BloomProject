@@ -5,8 +5,8 @@ ACTOR ReflectiveShots : CustomInventory 3164
 	//$Title Reflective Shots
 	+COUNTITEM
 	+INVENTORY.ALWAYSPICKUP
-	Inventory.pickupsound "PickMega"
-	Inventory.pickupmessage "Imbued with reflection mystique"
+	Inventory.PickupSound "PickMega"
+	Inventory.PickupMessage "$REFLECT"
 	States
 	{
 	Spawn:
@@ -37,7 +37,7 @@ ACTOR LifeSeed : Health 3165
 	+INVENTORY.ALWAYSPICKUP
 	Inventory.Amount 100
 	Inventory.MaxAmount 200
-	Inventory.PickupMessage "Picked up Life Seed"
+	Inventory.PickupMessage "$SEED"
 	Inventory.PickupSound "items/heartpick"
 	States
 	{
@@ -52,7 +52,7 @@ ACTOR Deathmask : PowerupGiver 3151
 { 
 	//$Category "BlooM Powerups"
 	//$Title Death mask
-	Inventory.pickupmessage "Deathmask! Invulnerable!"
+	Inventory.PickupMessage "$MASK"
 	Inventory.MaxAmount 0
 	+COUNTITEM
 	+INVENTORY.AUTOACTIVATE
@@ -75,8 +75,8 @@ ACTOR GunsAkimbo : CustomInventory 3152
 	//$Category "BlooM Powerups"
 	//$Title Guns Akimbo
 	Scale 0.6
-	Inventory.pickupmessage "Guns Akimbo!"
-	Inventory.pickupsound "misc/p_pkup"
+	Inventory.PickupMessage "$AKIMBO"
+	Inventory.PickupSound "misc/p_pkup"
 	+COUNTITEM
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP

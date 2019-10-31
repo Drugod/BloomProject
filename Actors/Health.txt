@@ -109,15 +109,15 @@ ACTOR HeartHealth : Health 3162
 	}
 }
 
-ACTOR HeartHealth2 : HeartHealth {Inventory.PickupMessage "$HETH1"}
-ACTOR HeartHealth3 : HeartHealth {Inventory.PickupMessage "$HETH2"}
-ACTOR HeartHealth4 : HeartHealth {Inventory.PickupMessage "$HETH3"}
-ACTOR HeartHealth5 : HeartHealth {Inventory.PickupMessage "$HETH4"}
-ACTOR HeartHealth6 : HeartHealth {Inventory.PickupMessage "$HETH5"}
-ACTOR HeartHealth7 : HeartHealth {Inventory.PickupMessage "$HETH6"}
-ACTOR HeartHealth8 : HeartHealth {Inventory.PickupMessage "$HETH7"}
-ACTOR HeartHealth9 : HeartHealth {Inventory.PickupMessage "$HETH8"}
-ACTOR HeartHealth10 : HeartHealth {Inventory.PickupMessage "$HETH9"}
+ACTOR HeartHealth2 : HeartHealth {Inventory.PickupMessage "$HETH01"}
+ACTOR HeartHealth3 : HeartHealth {Inventory.PickupMessage "$HETH02"}
+ACTOR HeartHealth4 : HeartHealth {Inventory.PickupMessage "$HETH03"}
+ACTOR HeartHealth5 : HeartHealth {Inventory.PickupMessage "$HETH04"}
+ACTOR HeartHealth6 : HeartHealth {Inventory.PickupMessage "$HETH05"}
+ACTOR HeartHealth7 : HeartHealth {Inventory.PickupMessage "$HETH06"}
+ACTOR HeartHealth8 : HeartHealth {Inventory.PickupMessage "$HETH07"}
+ACTOR HeartHealth9 : HeartHealth {Inventory.PickupMessage "$HETH08"}
+ACTOR HeartHealth10 : HeartHealth {Inventory.PickupMessage "$HETH09"}
 ACTOR HeartHealth11 : HeartHealth {Inventory.PickupMessage "$HETH10"}
 ACTOR HeartHealth12 : HeartHealth {Inventory.PickupMessage "$HETH11"}
 

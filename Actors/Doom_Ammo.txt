@@ -203,7 +203,7 @@ ACTOR HandGrenades : DoomW
 	Obituary "$OB_FRAG"
     AttackSound "None"
     Inventory.PickupSound "AmmoAPIN"
-	Inventory.Pickupmessage "$FRAGPICK"
+	Inventory.PickupMessage "$FRAGPICK"
     +WEAPON.NOAUTOAIM
     +WEAPON.NOALERT
 	+WEAPON.NOAUTOFIRE

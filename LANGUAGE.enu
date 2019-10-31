@@ -70,6 +70,7 @@ TOMMPICK = "You got the tommy gun!";
 VODOPICK = "Voodoo doll! Find some victims!";
 
 //PICKUPS MESSAGES
+AKIMBO = "Guns Akimbo!";
 BASA = "Picked up Basic Armor.";
 BEAST = "Picked up Beast Vision.";
 BODA = "Picked up Body Armor.";
@@ -93,7 +94,10 @@ JUMPB = "Picked up Jumping Boots.";
 LESA = "Picked up Lesser Body Armor.";
 LESP = "Picked up Lesser Spirit Armor.";
 LIFEH = "Tastes like chicken.";
+MASK = "Deathmask! Invulnerable!";
 MEDS = "Got medicine.";
+REFLECT = "Imbued with reflection mystique.";
+SEED = "Picked up Life Seed.";
 SPIA = "Picked up Spirit Armor.";
 SUPA = "Picked up Super Armor!";
 

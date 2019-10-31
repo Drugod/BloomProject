@@ -1,5 +1,5 @@
 ACTOR 2------------------ {}
-//base actor shared among all classes which doesn't inherit anything - prevent multiple lines and assign a color on GZDBuilder
+//base ACTOR shared among all classes which doesn't inherit anything - prevent multiple lines and assign a color on GZDBuilder
 ACTOR BloodEnemy_Base //ozy81
 {
     //$Category "BlooM Monsters"
@@ -3655,7 +3655,7 @@ ACTOR BeastStomp
 }
 
 ACTOR 17----------------- {}
-ACTOR SpiderMother : BloodEnemy_Base 3135 //this actor needs tweaks - ozy81
+ACTOR SpiderMother : BloodEnemy_Base 3135 //this ACTOR needs tweaks - ozy81
 {
 	//$Title Spider Mother
     Speed 5

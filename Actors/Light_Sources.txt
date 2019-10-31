@@ -50,11 +50,11 @@ ACTOR FloorLamp : SwitchableDecoration 3276
 		JILM A 1
 		Loop
 	Active:
-		JILM B 1
+		JILM B 1 A_PlaySound("SMSWITCH")
 		JILM B 1
 		Wait
 	Inactive:
-		JILM A 1
+		JILM A 1 A_PlaySound("SMSWITCH")
 		JILM A 1
 		Wait
 	}
@@ -82,11 +82,11 @@ ACTOR CeilLamp : SwitchableDecoration 3277
 		HILM A 1
 		Loop
 	Active:
-		HILM B 1
+		HILM B 1 A_PlaySound("SMSWITCH")
 		HILM B 1
 		Wait
 	Inactive:
-		HILM A 1
+		HILM A 1 A_PlaySound("SMSWITCH")
 		HILM A 1
 		Wait
 	}
@@ -114,11 +114,11 @@ ACTOR CeilLampSimple : SwitchableDecoration 3202
 		KILM A 1
 		Loop
 	Active:
-		KILM B 1
+		KILM B 1 A_PlaySound("SMSWITCH")
 		KILM B 1
 		Wait
 	Inactive:
-		KILM A 1
+		KILM A 1 A_PlaySound("SMSWITCH")
 		KILM A 1
 		Wait
 	}

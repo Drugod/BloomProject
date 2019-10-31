@@ -972,6 +972,12 @@ floor/flesh6	dsflesh6
 ============================
 */
 
+//Small Switches - some activation sounds from BoA for completeness - ozy81
+ELECSW ELECSW
+LKDIGI LKDIGI
+SMSWITCH SMSWITCH
+SWMECH SWMECH
+
 Omnibow1 OMNIBOW
 omnibow2 OMNIBOW2
 $Random Omni/Bow {Omnibow1 Omnibow2}
