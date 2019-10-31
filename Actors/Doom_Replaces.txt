@@ -51,6 +51,7 @@ ACTOR RocketX: Rocket replaces Rocket
 	Height 8
 	Speed 20
 	Damage 20
+	DamageType "Normal"
 	RenderStyle "Add"  
 	Projectile
 	+DEHEXPLOSION

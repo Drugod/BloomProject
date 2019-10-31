@@ -11,168 +11,167 @@ ACTOR ReflectiveShots : CustomInventory 3164
 	{
 	Spawn:
 		XEGA ABCDE 2 BRIGHT
-	Loop
+		Loop
 	Pickup:
 		TNT1 A 0 A_GiveInventory ("SuperReflection")
-	Stop
+		Stop
 	}
 }
 
 ACTOR SuperReflection : PowerupGiver
 {
-  +INVENTORY.AUTOACTIVATE
-  +INVENTORY.ALWAYSPICKUP
-  PowerUp.Duration 1050
-  PowerUp.Type "Reflection"
-  Powerup.Colormap 0.5, 0.5, 0.6
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	PowerUp.Duration 1050
+	PowerUp.Type "Reflection"
+	Powerup.Colormap 0.5, 0.5, 0.6
 }
 
 ACTOR -------LIFESEED---------- {}
 ACTOR LifeSeed : Health 3165
 {
-  //$Category "BlooM Powerups"
-  //$Title Life seed
-  +COUNTITEM
-  +INVENTORY.AUTOACTIVATE
-  +INVENTORY.ALWAYSPICKUP
-  Inventory.Amount 100
-  Inventory.MaxAmount 200
-  Inventory.PickupMessage "Picked up Life Seed"
-  Inventory.PickupSound "items/heartpick"
-  States
-  {
-  Spawn:
-    XOUL ABCDEDCB 6 BRIGHT
-    Loop
-  }
+	//$Category "BlooM Powerups"
+	//$Title Life seed
+	+COUNTITEM
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	Inventory.Amount 100
+	Inventory.MaxAmount 200
+	Inventory.PickupMessage "Picked up Life Seed"
+	Inventory.PickupSound "items/heartpick"
+	States
+	{
+	Spawn:
+		XOUL ABCDEDCB 6 BRIGHT
+		Loop
+	}
 }
 
 ACTOR -------DEATHMASK---------- {}
 ACTOR Deathmask : PowerupGiver 3151
 { 
-  //$Category "BlooM Powerups"
-  //$Title Death mask
-  Inventory.pickupmessage "Deathmask! Invulnerable!"
-  Inventory.MaxAmount 0
-  +COUNTITEM
-  +INVENTORY.AUTOACTIVATE
-  +INVENTORY.ALWAYSPICKUP
-  +FLOATBOB
-  scale 0.7
-  Powerup.color White 0.12
-  PowerUp.Type "Invulnerable"  
-  States
-  {
+	//$Category "BlooM Powerups"
+	//$Title Death mask
+	Inventory.pickupmessage "Deathmask! Invulnerable!"
+	Inventory.MaxAmount 0
+	+COUNTITEM
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	+FLOATBOB
+	scale 0.7
+	Powerup.color White 0.12
+	PowerUp.Type "Invulnerable"  
+	States
+	{
 	Spawn:
 		XINV A -1 BRIGHT
-	Stop
-  }
+		Stop
+	}
 }
 
 ACTOR -------GUNSAKIMBO---------- {}
 ACTOR GunsAkimbo : CustomInventory 3152
 { 
-  //$Category "BlooM Powerups"
-  //$Title Guns Akimbo
-  Scale 0.6
-  Inventory.pickupmessage "Guns Akimbo!"
-  Inventory.pickupsound "misc/p_pkup"
-  +COUNTITEM
-  +INVENTORY.AUTOACTIVATE
-  +INVENTORY.ALWAYSPICKUP
-  +INVENTORY.FANCYPICKUPSOUND
-  States
-  {
-  Spawn:
-    XSTR A -1
-    Stop
-  Pickup:
-	TNT1 A 0 A_JumpIf(CheckClass("DoomDude"), "Pickup2")
-    TNT1 A 0 A_GiveInventory ("PowerGunsAkimbo")
-    Stop
-  Pickup2:
-	TNT1 A 1 A_GiveInventory("ultradamage")
-	Stop
-  }
+	//$Category "BlooM Powerups"
+	//$Title Guns Akimbo
+	Scale 0.6
+	Inventory.pickupmessage "Guns Akimbo!"
+	Inventory.pickupsound "misc/p_pkup"
+	+COUNTITEM
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	+INVENTORY.FANCYPICKUPSOUND
+	States
+	{
+	Spawn:
+		XSTR A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_JumpIf(CheckClass("DoomDude"), "Pickup2")
+		TNT1 A 0 A_GiveInventory ("PowerGunsAkimbo")
+		Stop
+	Pickup2:
+		TNT1 A 1 A_GiveInventory("UltraDamage")
+		Stop
+	}
 }
 
 ACTOR PowerGunsAkimbo : PowerupGiver
 {
-  Scale 0.6 
-  Inventory.MaxAmount 0
-  PowerUp.Type "WeaponLevel2"
-  PowerUp.Duration 1250
-  +INVENTORY.AUTOACTIVATE
-  +INVENTORY.ALWAYSPICKUP
-  States
-  {
-  Spawn:
-    XSTR A -1
-    Stop
-  }
+	Scale 0.6 
+	Inventory.MaxAmount 0
+	PowerUp.Type "WeaponLevel2"
+	PowerUp.Duration 1250
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	States
+	{
+	Spawn:
+		XSTR A -1
+		Stop
+	}
 }
 
-ACTOR ultradamage : PowerupGiver
+ACTOR UltraDamage : PowerupGiver
 {
-	 Powerup.color LawnGreen 0.25
-	 PowerUp.Type UltraDamage
-	 PowerUp.Duration 1250
-	 +AUTOACTIVATE
-	 +INVENTORY.FANCYPICKUPSOUND
+	Powerup.color LawnGreen 0.25
+	PowerUp.Type UltraDamage
+	PowerUp.Duration 1250
+	+AUTOACTIVATE
+	+INVENTORY.FANCYPICKUPSOUND
 }
 
-ACTOR PowerUltraDamage : PowerDamage
-{ DamageFactor "normal", 4 }
+ACTOR PowerUltraDamage : PowerDamage { DamageFactor "normal", 4 }
 
 ACTOR -------BERSERK---------- {}
 ACTOR Berserk_ : CustomInventory replaces Berserk
 {
-  +COUNTITEM
-  +INVENTORY.ALWAYSPICKUP
-  Inventory.PickupMessage "$GOTBERSERK" // "Berserk!"
-  Inventory.PickupSound "misc/p_pkup"
-  States
-  {
-  Spawn:
-    PSTR A -1
-    Stop
-  Pickup:
-	TNT1 A 0 A_JumpIf(CheckClass("Caleb"), "Pickup2")
-    TNT1 A 0 A_GiveInventory("PowerStrength")
-    TNT1 A 0 HealThing(100, 0)
-    TNT1 A 0 A_SelectWeapon("Fist_")
-    Stop
-  Pickup2:
-	TNT1 A 1 A_Playsound("dscult2")
-	TNT1 A 1 A_GiveInventory("Wolfme")
-	Stop
-  }
+	+COUNTITEM
+	+INVENTORY.ALWAYSPICKUP
+	Inventory.PickupMessage "$GOTBERSERK" // "Berserk!"
+	Inventory.PickupSound "misc/p_pkup"
+	States
+	{
+	Spawn:
+		PSTR A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_JumpIf(CheckClass("Caleb"), "Pickup2")
+		TNT1 A 0 A_GiveInventory("PowerStrength")
+		TNT1 A 0 HealThing(100, 0)
+		TNT1 A 0 A_SelectWeapon("Fist_")
+		Stop
+	Pickup2:
+		TNT1 A 1 A_Playsound("dscult2")
+		TNT1 A 1 A_GiveInventory("Wolfme")
+		Stop
+	}
 }
 
-ACTOR Wolfme : PowerupGiver
+ACTOR WolfMe : PowerupGiver
 { 
-  +INVENTORY.AUTOACTIVATE
-  +INVENTORY.ALWAYSPICKUP
-  PowerUp.Duration 1050
-  PowerUp.Type "Wolf"
-  Powerup.Color RedMap
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	PowerUp.Duration 1050
+	PowerUp.Type "Wolf"
+	Powerup.Color RedMap
 }
 
 ACTOR PowerWolf : PowerMorph
 {
- PowerMorph.PlayerClass "werewolf"
- PowerMorph.MorphStyle (MRF_FULLHEALTH|MRF_ADDSTAMINA)
- PowerMorph.MorphFlash "Wolfmorph"
- PowerMorph.Unmorphflash "Wolfmorph"
+	PowerMorph.PlayerClass "werewolf"
+	PowerMorph.MorphStyle (MRF_FULLHEALTH|MRF_ADDSTAMINA)
+	PowerMorph.MorphFlash "Wolfmorph"
+	PowerMorph.Unmorphflash "Wolfmorph"
 }
 
 ACTOR Wolfmorph //here how caleb transform into werewolf
 {
- RenderStyle None
- States
- {
- Spawn:
-  TNT1 A 1
-  Stop
- }
+	RenderStyle None
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Stop
+	}
 } 
