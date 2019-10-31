@@ -6289,7 +6289,7 @@ ACTOR LivingGargovileStatue 19043
 	//$Color 3
 	Radius 10
 	Height 35
-	Mass 10
+	Mass 0x7ffffff
 	Gravity 0.6
 	+LOOKALLAROUND
 	+SHOOTABLE
@@ -6310,7 +6310,7 @@ ACTOR LivingGargovileStatue 19043
 	Unmorph:
 		ARCS BCD 5 A_Facetarget
 		TNT1 A 0 A_UnSetSolid
-		ARCS E 1 A_SpawnItemEx("Gargovile",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION || SXF_TRANSFERPOINTERS)
+		ARCS E 1 A_SpawnItemEx("Gargovile",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERPOINTERS)
 		Stop
 	}
 }
