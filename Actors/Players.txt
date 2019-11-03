@@ -1,5 +1,4 @@
 ACTOR ------COMMON-ELEMENTS---------- {}
-
 ACTOR BurnTics : Inventory
 {
 	Inventory.Amount 1
@@ -11,6 +10,7 @@ ACTOR BurnSound : Inventory
 	Inventory.Amount 1
 	Inventory.MaxAmount 90
 }
+
 ACTOR Swimming : Inventory
 {
 	Inventory.Amount 1
@@ -35,11 +35,20 @@ ACTOR isIntro : Inventory
 	Inventory.MaxAmount 1
 }
 
+ACTOR BlooMClass : Inventory
+{
+	+IGNORESKILL
+	+UNDROPPABLE
+	Inventory.Amount 1
+	Inventory.MaxAmount 3
+}
+
 ACTOR -------PLAYERS--------- {}
 ACTOR Caleb : Playerpawn
 {
 	+NOSKIN
 	Player.ForwardMove 0.88 0.82
+	Player.StartItem "BlooMClass", 1
 	Player.StartItem "Colt"	
     Player.StartItem "TommyClip", 50	
 	Player.StartItem "Pitchfork"	
@@ -241,6 +250,7 @@ ACTOR DoomDude : Playerpawn
 	Player.forwardMove 0.88 0.82  
 	Player.DisplayName "Marine"
 	Player.CrouchSprite "PLYC"
+	Player.StartItem "BlooMClass", 2
 	Player.StartItem "Pistol_"
 	Player.StartItem "Fist_"
 	Player.StartItem "Clip_", 50

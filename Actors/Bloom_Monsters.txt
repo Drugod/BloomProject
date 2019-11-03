@@ -58,7 +58,7 @@ ACTOR Apocalyptic_NeoCvltist : BloomHybrid_Base 19001
 		TNT1 A 0 A_ThrowGrenade("KickableFlyingFanatic",0,5,10,0)
 		TNT1 A 0 A_Jump(128, 2)
 		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
-		WPOS A 1
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
@@ -163,6 +163,7 @@ ACTOR NeoCvltist : BloomHybrid_Base 19003
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	XDeath:
@@ -263,6 +264,7 @@ ACTOR ShotgunMonk : BloomHybrid_Base 18323
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	XDeath:
@@ -367,6 +369,7 @@ ACTOR Fanatic_Chaingunner : BloomHybrid_Base 19004
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	XDeath:
@@ -483,6 +486,7 @@ ACTOR Fanatic_ChaingunnerAlt : BloomHybrid_Base 19046
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItemEx("BurnDeathZombie",0,0,0,0,0,0,0,SXF_TRANSFERSCALE)
 		Stop
 	XDeath:
@@ -2789,6 +2793,7 @@ ACTOR CvltimpAlt : BloomHybrid_Base 19029
 		CI2O A 1
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	XDeath:
@@ -2928,6 +2933,7 @@ ACTOR Zombimp1
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	DeathKickableHead:
@@ -3065,6 +3071,7 @@ ACTOR Zombimp2: Zombimp1
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	DeathKickableHead:
@@ -3202,6 +3209,7 @@ ACTOR Zombimp3: Zombimp1
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	DeathKickableHead:
@@ -3339,6 +3347,7 @@ ACTOR Zombimp4: Zombimp1
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	DeathKickableHead:
@@ -3503,6 +3512,7 @@ ACTOR Zombimp5
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 	Stop
 		XDeath:
@@ -4189,6 +4199,7 @@ ACTOR Ghoul1 : Ghoul_Base
 		GH1M I 0 A_Fall
 		GH1M I 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		GH1M I 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	Disintegrate:
@@ -4522,6 +4533,7 @@ ACTOR Ghoul2 : Ghoul_Base
 		GH2M I 0 A_Fall
 		GH2M I 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		GH2M I 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	Disintegrate:
@@ -4898,6 +4910,7 @@ ACTOR Ghoul3 : Ghoul_Base
 		GH3M I 0 A_Fall
 		GH3M I 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		GH3M I 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	Disintegrate:
@@ -5230,6 +5243,7 @@ ACTOR Ghoul4 : Ghoul_Base
 		GH4M I 0 A_Fall
 		GH4M I 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		GH4M I 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	Disintegrate:
@@ -5867,6 +5881,7 @@ ACTOR Ghoul6 : Ghoul_Base
 		GH6M I 0 A_Fall
 		GH6M I 0 A_Pain
 		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		GH6M I 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	Disintegrate:

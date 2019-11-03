@@ -15,30 +15,31 @@ RIFF2		RIFF2
 RIFF3		RIFF3
 
 $Random menu/quit1 { Caleb/Death1 Moron/Please demon/pain Caleb/Death2 grunt/pain Caleb/Death3 misc/gibbed ButcherSee misc/teleport CultistDie3 grunt/sight1 PhantasmSee grunt/sight3 GargoyleAct demon/melee }
-$Random menu/quit2 { vile/active ZombieSee1 misc/p_pkup Moron/Cry1  brain/cube PICKMEGA misc/gibbed PotteryBreak skeleton/swing MetalMess knight/death Hand/Die1 baby/active Voodoo/Chant demon/melee Worship1 }
+$Random menu/quit2 { vile/active ZombieSee1 misc/p_pkup Moron/Cry1 brain/cube PICKMEGA misc/gibbed PotteryBreak skeleton/swing MetalMess knight/death Hand/Die1 baby/active Voodoo/Chant demon/melee Worship1 }
 
 //CALEB
-Caleb/Everlove		    EVERLOVE
-Caleb/GoodDoggy			DOGGY
-Caleb/Ratburger			RTBRGR
 Caleb/Again				AGAIN
-Caleb/Home				HOMES
-Caleb/Sing				SINGIN
-Caleb/Strange			Stranger
-Caleb/Busines			SHOWBUZ
-Caleb/Goba				GOBA
-Caleb/Robbers			ROBBERS
-Caleb/Feeling			FEELING
-Caleb/Smellba			SMELLBA
-Caleb/Paintre			PAINTRE
-Caleb/Donateb			DONATEB
-Caleb/Deadyet			DEADYET
-Caleb/Longwat			LONGWAY
-Caleb/Asshole			ASSHOLE
-Caleb/Rowboat			ROWBOAT
-Caleb/Sunwill			SUNWILL
 Caleb/Alldead			ALLDEAD
+Caleb/Asshole			ASSHOLE
+Caleb/Busines			SHOWBUZ
+Caleb/Deadyet			DEADYET
+Caleb/Donateb			DONATEB
+Caleb/Draven			NEVERMOR
+Caleb/Everlove		    EVERLOVE
+Caleb/Feeling			FEELING
+Caleb/Goba				GOBA
+Caleb/GoodDoggy			DOGGY
+Caleb/Home				HOMES
+Caleb/Longwat			LONGWAY
+Caleb/Paintre			PAINTRE
 Caleb/Promises			PROMISES
+Caleb/Ratburger			RTBRGR
+Caleb/Robbers			ROBBERS
+Caleb/Rowboat			ROWBOAT
+Caleb/Sing				SINGIN
+Caleb/Smellba			SMELLBA
+Caleb/Strange			STRANGER
+Caleb/Sunwill			SUNWILL
 
 $Random CalebSpeech { CalebSpeech1 CalebSpeech2 CalebSpeech3 CalebSpeech4 CalebSpeech5 CalebSpeech6	CalebSpeech7 CalebSpeech8 CalebSpeech9 CalebSpeech10 CalebSpeech11 CalebSpeech12 CalebSpeech13 CalebSpeech14 CalebSpeech15 CalebSpeech16 CalebSpeech17 CalebSpeech18 CalebSpeech19 CalebSpeech20 CalebSpeech21 CalebSpeech22 CalebSpeech23 CalebSpeech24 CalebSpeech25 }
 CalebSpeech1		ALLFOLKS
@@ -286,7 +287,6 @@ TRNHRN			TRNHRN
 OPHELIA				OPHELIA
 SLEEPOPH			SLEEPOPH
 LEFTOVERS			LEFTOVER
-NEVERMORE			NEVERMOR
 CRYPTLP 			CRYPTLP
 
 //EXPLOSION

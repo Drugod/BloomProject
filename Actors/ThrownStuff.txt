@@ -100,6 +100,7 @@ ACTOR RemoteFloor
 	Species "Trap"
 	+ACTIVATEIMPACT
 	+NOBLOOD
+	+NOTAUTOAIMED
 	+SHOOTABLE
 	+THRUSPECIES
 	-NOGRAVITY
@@ -182,6 +183,7 @@ ACTOR DeleteTrip
 {
 	Height 1
 	Radius 1
+	+NOTAUTOAIMED
 	+SHOOTABLE
 	+SOLID
 	States
@@ -246,6 +248,7 @@ ACTOR PlayerTNT
 	+DONTGIB
 	+DONTSPLASH
 	+NOBOUNCESOUND
+	+NOTAUTOAIMED
 	+PUSHABLE
 	+RANDOMIZE
 	+SHOOTABLE
@@ -813,6 +816,7 @@ ACTOR ClassicoTNT
 	DamageFactor "Normal",0
 	DamageFactor "Dynamite", 60
 	DamageFactor "Napalm",60
+	+NOTAUTOAIMED
 	+SHOOTABLE
 	-SOLID
 	-NOGRAVITY
@@ -1307,6 +1311,7 @@ ACTOR MidAirTNT : PlayerTNT1
 	Speed 40
 	GibHealth 0
 	Reactiontime 24
+	+NOTAUTOAIMED
 	+SHOOTABLE
 	+THRUGHOST
 	States
@@ -1389,6 +1394,7 @@ ACTOR DeathWishKiss : PlayerTNT1
 	Health 1
 	GibHealth 0
 	Reactiontime 10
+	+NOTAUTOAIMED
 	+SHOOTABLE
 	States
 	{

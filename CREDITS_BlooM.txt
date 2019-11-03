@@ -4,8 +4,8 @@ Acs/Decorate/Tweaks by Ozymandias81
 Sprites (Hybrid monsters) and 3Dmodels by Rolls
 Music by Buio Mondo & Drugod
 
-Bloom is based on Zblood Addon by IvanDobrovski/Cruduxy
-Bloom is based on ZbloodX Addon by Marinelol
+Bloom is based on ZBlood Addon by IvanDobrovski/Cruduxy
+Bloom is based on ZBloodX Addon by Marinelol
 
 Colt and single barrel Shotgun taken from Blood weapon mod
 Doom Models mainly from TheMacGyverArchiver
@@ -15,4 +15,4 @@ Grenades/Playerclasses by SgtMarkIV, modified by Drugod
 Grenades/Snow/Rain/Steam/Fog effects by Tormentor667/Ghastly_dragon, modified by Drugod
 Resources organization by Ozymandias81
 
-Thanks to Zdoom forum, Zandronum and Realm667 for their infinite knowledgement and support.
+THANKS TO ZDOOM FORUM, ZANDRONUM, DOOMWORLD AND REALM667 FOR THEIR INFINITE SUPPORT

@@ -29,7 +29,7 @@ Credits					:
 * Play Information *
 
 Maps                    : 
-Source Port				: GZDoom 3.7.2+ or Zandronum 2.8+
+Source Port				: GZDoom 3.0.0+ or Zandronum 2.8+
 Single Player           : Yes
 Cooperative 2-8 Player  : Starts are there
 Deathmatch 2-8 Player   : No
