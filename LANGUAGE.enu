@@ -17,6 +17,17 @@ QUITMSG12 = "Press N, 'It promise to be fun'.";
 QUITMSG13 = "If you quit this game away, I'll have to kill you.";
 QUITMSG14 = "Press Y If you're going to quit this game for a good reason, for example commit suicide.";
 
+//KEYS MESSAGES
+REQ_EYE = "That requires an Eye Key.";
+REQ_DAG = "That requires a Dagger Key.";
+REQ_MON = "That requires a Moon Key.";
+REQ_SKU = "That requires a Skull Key.";
+REQ_FIR = "That requires a Fire Key.";
+REQ_SPI = "That requires a Spider Key.";
+REQ_COMB1 = "That requires Eye plus Fire Keys.";
+REQ_COMB2 = "That requires Dagger plus Skull Keys.";
+REQ_COMB3 = "That requires Moon plus Spider Keys.";
+
 //MAPINFO STUFF
 BLM_DM2 = "Hell On Earth"; //here for Zandro
 BLM_EP1 = "The Way Of Doomed Flesh";

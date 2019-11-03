@@ -3,10 +3,10 @@ ACTOR HangCorpseSpawner : RandomSpawner 3252
 	//$Category "BlooM Corpses"
 	//$Title Hanging Corpses Spawner, random
 	//$Color 15
-    DropItem "HangingMeat"
-    DropItem "BloodSkelUpsideDown"
-    DropItem "BlindfoldedGuyHang"
-    DropItem "BlindfoldedAsh"
+	DropItem "HangingMeat"
+	DropItem "BloodSkelUpsideDown"
+	DropItem "BlindfoldedGuyHang"
+	DropItem "BlindfoldedAsh"
 	DropItem "SkeletonX"
 	DropItem "SkeletonX2"
 	DropItem "SkeletonX3"
@@ -50,6 +50,7 @@ ACTOR BloodJar : HeartColumn 3242 //replaces HeartColumn
 	Scale 0.5
 	+DONTGIB
 	+NOBLOOD
+	+NOTAUTOAIMED
 	+RANDOMIZE
 	+SHOOTABLE
 	+SOLID
@@ -82,12 +83,12 @@ ACTOR BloodJar : HeartColumn 3242 //replaces HeartColumn
 ACTOR DeadBloodZombie
 {
 	Game Doom
-	Skip_Super
 	Height 10
 	Radius 15
 	Health 60
 	Scale 0.5
 	+SHOOTABLE
+	+NOTAUTOAIMED
 	-DONTGIB
 	States
 	{
@@ -110,16 +111,8 @@ ACTOR DeadBloodZombie
 	}
 }
 
-ACTOR DeadBrownCultist
+ACTOR DeadBrownCultist : DeadBloodZombie
 {
-	Game Doom
-	Skip_Super
-	Height 10
-	Radius 15
-	Health 60
-	Scale 0.5
-	+SHOOTABLE
-	-DONTGIB
 	States
 	{
 	Spawn:
@@ -152,6 +145,7 @@ ACTOR TheShinning 3235
 	Mass 10000000
 	Scale 0.6
 	+ISMONSTER
+	+NOTAUTOAIMED
 	+SHOOTABLE
 	+SOLID
 	-COUNTKILL
@@ -187,11 +181,11 @@ ACTOR DeadMoron 3174
 	//$Title Dead Moron 1, Shootable
 	//$Color 15
 	Game Doom
-	Skip_Super
 	Radius 14
 	Height 10
 	Health 40
 	Scale 0.8
+	+NOTAUTOAIMED
 	+SHOOTABLE
 	-DONTGIB
 	Translation "209:223=64:71","112:127=64:79"
@@ -228,6 +222,7 @@ ACTOR DeadMoron2 : DeadZombieMan 3175
 	Health 20
 	Radius 10
 	Height 10
+	+NOTAUTOAIMED
 	+SHOOTABLE
 	DropItem None
 	States
@@ -257,11 +252,11 @@ ACTOR DeadMoron3 3173
 	//$Title Dead Moron 3, Shootable
 	//$Color 15
 	Game Doom
-	Skip_Super
 	Height 30
 	Radius 15
 	Health 60
 	Scale 0.7
+	+NOTAUTOAIMED
 	+SHOOTABLE
 	-DONTGIB
 	States
@@ -314,6 +309,7 @@ ACTOR LiveHead : HangTNoBrain 3178 //why inherit this since it doesn't use any f
 	Scale 0.6
 	+DONTSPLASH
 	+NOICEDEATH
+	+NOTAUTOAIMED
 	+RANDOMIZE
 	+SHOOTABLE
 	-COUNTKILL //why?
@@ -350,6 +346,7 @@ ACTOR ZombieCan : HeartColumn 3179
 	Scale 0.5
 	+DONTGIB
 	+NOBLOOD
+	+NOTAUTOAIMED
 	+RANDOMIZE
 	+SHOOTABLE
 	DeathSound "DSCANDIE"
@@ -389,6 +386,7 @@ ACTOR BloodPile : HeartColumn 3253
 	Scale 0.5
 	+DONTGIB
 	+NOBLOOD
+	+NOTAUTOAIMED
 	+RANDOMIZE
 	+SHOOTABLE
 	DeathSound "DSCANDIE"
@@ -427,6 +425,7 @@ ACTOR GreenBrain : HeartColumn 3243
 	Scale 0.5
 	+DONTGIB
 	+NOBLOOD
+	+NOTAUTOAIMED
 	+RANDOMIZE
 	+SHOOTABLE
 	DeathSound "DSCANDIE"
@@ -465,6 +464,7 @@ ACTOR RedBrain : HeartColumn 3244
 	Scale 0.5
 	+DONTGIB
 	+NOBLOOD
+	+NOTAUTOAIMED
 	+RANDOMIZE
 	+SHOOTABLE
 	DeathSound "DSCANDIE"
@@ -506,6 +506,7 @@ ACTOR HangingMeat 3187
 	+DONTSPLASH
 	+NOGRAVITY
 	+NOICEDEATH
+	+NOTAUTOAIMED
 	+RANDOMIZE
 	+SHOOTABLE
 	+SOLID

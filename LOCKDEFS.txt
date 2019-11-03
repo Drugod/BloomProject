@@ -1,65 +1,65 @@
 CLEARLOCKS
 
-Lock 3
-{
-	Key3
-	Message "That requires an Eye Key."
-	RemoteMessage "That requires an Eye Key."
-	Mapcolor 255 0 0
-}
 Lock 1
 {
 	Key1
-	Message "That requires a Dagger Key."
-	RemoteMessage "That requires a Dagger Key."
+	Message "$REQ_DAG"
+	RemoteMessage "$REQ_DAG"
 	Mapcolor 0 255 0
 }
 Lock 2
 {
 	Key2
-	Message "That requires a Moon Key."
-	RemoteMessage "That requires a Moon Key."
+	Message "$REQ_MON"
+	RemoteMessage "$REQ_MON"
 	Mapcolor 0 0 255
+}
+Lock 3
+{
+	Key3
+	Message "$REQ_EYE"
+	RemoteMessage "$REQ_EYE"
+	Mapcolor 255 0 0
 }
 Lock 4
 {
 	Key4
-	Message "That requires a Skull Key."
-	RemoteMessage "That requires a Skull Key."
+	Message "$REQ_SKU"
+	RemoteMessage "$REQ_SKU"
 	Mapcolor 255 0 255
 }
 Lock 5
 {
 	Key5
-	Message "That requires a Fire Key."
-	RemoteMessage "That requires a Fire Key."
+	Message "$REQ_FIR"
+	RemoteMessage "$REQ_FIR"
 	Mapcolor 255 255 0
 }
 Lock 6
 {
 	Key6
-	Message "That requires a Spider Key."
-	RemoteMessage "That requires a Spider Key."
+	Message "$REQ_SPI"
+	RemoteMessage "$REQ_SPI"
 	Mapcolor 0 255 255
 }
 Lock 129
 {
 	Any { Key3 Key5 }
-	Message "That requires a Key."
-	RemoteMessage "That requires a Key."
+	Message "$REQ_COMB1"
+	RemoteMessage "$REQ_COMB1"
 	Mapcolor 255 0 0
 }
 Lock 130
 {
 	Any { Key1 Key4 }
-	Message "That requires a Key."
-	RemoteMessage "That requires a Key."
+	Message "$REQ_COMB2"
+	RemoteMessage "$REQ_COMB2"
 	Mapcolor 255 0 0
 }
 Lock 131
 {
 	Any { Key2 Key6 }
-	Message "That requires a Key."
-	RemoteMessage "That requires a Key."
+	Message "$REQ_COMB3"
+	RemoteMessage "$REQ_COMB3"
 	Mapcolor 255 0 0
 }

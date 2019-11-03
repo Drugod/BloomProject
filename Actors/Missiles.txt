@@ -293,7 +293,7 @@ ACTOR Kaboom : BulletPuff
 		MISL "Z[" 2 BRIGHT
 		Stop
 	AltDeathVapor:
-		MISL RSTUV 3 BRIGHT  A_SpawnItemEx("SmokeTrailIn4OutSlow",0,0,0,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		MISL RSTUV 3 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",0,0,0,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
 		MISL WXY 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
 		MISL "Z[" 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
 		Stop
@@ -522,15 +522,15 @@ ACTOR PhantasmProjectile
 {
 	Radius 6
 	Height 8
-	Speed 24
+	Speed 16
 	Scale 0.65
 	Damage (random(12,48))
 	DamageType "Spiritual"
 	RenderStyle "Add"
 	Alpha 0.78
 	PROJECTILE
-	+NOCLIP
 	+RANDOMIZE
+	+SEEKERMISSILE
 	SeeSound "PhantasmMissile"
 	States
 	{

@@ -23,7 +23,6 @@ ACTOR BOOMBABY : Ammo
 	VisibleToPlayerClass "Caleb"
 }
 
-
 ACTOR --------PITCHFORK------------ {}
 ACTOR UsingPitchfork : Inventory
 {
@@ -617,19 +616,19 @@ ACTOR FlareTrail : NapalmDebris
 	Spawn:
 		FSPK A 0 BRIGHT A_Jump(192,3,4,6,8)
 		FSPK A 10 BRIGHT ThrustThingZ(0,frandom(0,15),0,1)
-		FSPK A 200 BRIGHT //A_LowGravity
+		FSPK A 200 BRIGHT
 		Stop
 		FSPK B 10 BRIGHT ThrustThingZ(0,frandom(0,15),0,1)
-		FSPK B 200 BRIGHT //A_LowGravity
+		FSPK B 200 BRIGHT
 		Stop
 		FSPK C 10 BRIGHT ThrustThingZ(0,frandom(0,15),0,1)
-		FSPK C 200 BRIGHT //A_LowGravity
+		FSPK C 200 BRIGHT
 		Stop
 		FSPK D 10 BRIGHT ThrustThingZ(0,frandom(0,15),0,1)
-		FSPK D 200 BRIGHT //A_LowGravity
+		FSPK D 200 BRIGHT
 		Stop
 		FSPK E 10 BRIGHT ThrustThingZ(0,frandom(0,15),0,1)
-		FSPK E 200 BRIGHT //A_LowGravity
+		FSPK E 200 BRIGHT
 		Stop
 	Death:
 		FSPK A 1
@@ -678,8 +677,8 @@ ACTOR FlareKaboom
 	States
 	{
 	Spawn:
-		DEXP A 1 BRIGHT
-		DEXP A 1 BRIGHT A_Burst ("FlareKaboom3")
+		FLIR A 1 BRIGHT
+		FLIR A 1 BRIGHT A_Burst ("FlareKaboom3")
 		Stop
 	}
 }
@@ -690,12 +689,12 @@ ACTOR FlareKaboom2 : FlareKaboom
 	States
 	{
 	Spawn:
-		DEXP A 1 BRIGHT
-		DEXP A 0 A_SpawnDebris ("NapalmDebris")
-		DEXP A 0 A_Jump(127,12)
-		DEXP ABCDEFGHIJK 2 BRIGHT
+		FLIR A 1 BRIGHT
+		FLIR A 0 A_SpawnDebris ("NapalmDebris")
+		FLIR A 0 A_Jump(127,12)
+		FLIR ABCDEFGHIJKLM 2  BRIGHT
 		Stop
-		DEXP LMNOPQRSTUV 2 BRIGHT
+		FLIR NOPQRSTUVWXYZ 2 BRIGHT
 		Stop
 	}
 }
@@ -706,13 +705,13 @@ ACTOR FlareKaboom3 : FlareKaboom
 	States
 	{
 	Spawn:
-		DEXP A 1 BRIGHT
-		DEXP A 0 BRIGHT A_SpawnItem("FlareKaboom2",0,0,0)
-		DEXP A 0 A_SpawnDebris ("NapalmDebris")
-		DEXP A 0 A_Jump(127,12)
-		DEXP ABCDEFGHIJK 2 BRIGHT
+		FLIR A 1 BRIGHT
+		FLIR A 0 BRIGHT A_SpawnItem("FlareKaboom2",0,0,0)
+		FLIR A 0 A_SpawnDebris ("NapalmDebris")
+		FLIR A 0 A_Jump(127,12)
+		FLIR ABCDEFGHIJKLM 2 BRIGHT
 		Stop
-		DEXP LMNOPQRSTUV 2 BRIGHT
+		FLIR NOPQRSTUVWXYZ 2 BRIGHT
 		Stop
 	}
 }
@@ -723,12 +722,12 @@ ACTOR FlareKaboom4 : FlareKaboom
 	States
 	{
 	Spawn:
-		DEXP A 1 BRIGHT
-		DEXP A 0 A_SpawnDebris ("NapalmDebris")
-		DEXP A 0 A_Jump(127,12)
-		DEXP ABCDEFGHIJK 2 BRIGHT A_FadeOut(0.08)
+		FLIR A 1 BRIGHT
+		FLIR A 0 A_SpawnDebris ("NapalmDebris")
+		FLIR A 0 A_Jump(127,12)
+		FLIR ABCDEFGHIJKLM 2  BRIGHT A_FadeOut(0.08)
 		Stop
-		DEXP LMNOPQRSTUV 2 BRIGHT A_FadeOut(0.08)
+		FLIR NOPQRSTUVWXYZ 2 BRIGHT A_FadeOut(0.08)
 		Stop
 	}
 }
