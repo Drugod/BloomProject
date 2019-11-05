@@ -1,4 +1,5 @@
-server bool hybridmonster = TRUE;
-server bool traps = FALSE;
+server bool blm_hybrid = TRUE;
+server bool blm_traps = FALSE;
 server bool blm_voxmod = FALSE;
-user int bloodremain = 1;
+server noarchive bool blm_script = FALSE;
+user int blm_blood = 1;

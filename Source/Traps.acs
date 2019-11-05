@@ -3,7 +3,7 @@
 
 Script "TrapsIwad" Enter
 {//Checks the doom iwad maps and add traps randomly
-	if ((GameType () != GAME_TITLE_MAP) && (GetCvar("traps") == TRUE)) 
+	if ((GameType () != GAME_TITLE_MAP) && (GetCvar("blm_traps") == TRUE)) 
 	{
 		int numlevel = GetLevelInfo (LEVELINFO_LEVELNUM);
 		switch(numlevel)

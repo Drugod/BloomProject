@@ -331,8 +331,8 @@ Script "CheckAlphaTrain" (void){//Script for enemy selection.
 }
 
 Script "hybrid_selection" (void){//Script for enemy selection.
-	if (GetCvar("hybridmonster") == TRUE) { SetActorState(0,"HybridSpawner",TRUE); }
-	if (GetCvar("hybridmonster") == FALSE) { SetActorState(0,"NormalSpawner",TRUE); }		
+	if (GetCvar("blm_hybrid") == TRUE) { SetActorState(0,"HybridSpawner",TRUE); }
+	if (GetCvar("blm_hybrid") == FALSE) { SetActorState(0,"NormalSpawner",TRUE); }		
 }
 
 Script "checkheight" (void){//Script for checking the height of the monster
@@ -343,21 +343,21 @@ Script "checkheight" (void){//Script for checking the height of the monster
 Script "blood_selection" (void){//Script for enemy selection.
 	for(int i = 0; i < 8; i++){
 	if (PlayerInGame(i)){
-		if (GetUserCVar(i,"bloodremain") ==  0){ SetActorState(0,"Death0",TRUE); }
-		if (GetUserCVar(i,"bloodremain") ==  1){ SetActorState(0,"Death1",TRUE); }
-		if (GetUserCVar(i,"bloodremain") ==  2){ SetActorState(0,"Death2",TRUE); }
-		if (GetUserCVar(i,"bloodremain") ==  3){ SetActorState(0,"Death3",TRUE); }
-		if (GetUserCVar(i,"bloodremain") ==  4){ SetActorState(0,"Death4",TRUE); }	
+		if (GetUserCVar(i,"blm_blood") ==  0){ SetActorState(0,"Death0",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  1){ SetActorState(0,"Death1",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  2){ SetActorState(0,"Death2",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  3){ SetActorState(0,"Death3",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  4){ SetActorState(0,"Death4",TRUE); }	
 }}}
 
 Script "blood_pool_sel" (void){//Script for enemy selection.
 	for(int i = 0; i < 8; i++){
 	if (PlayerInGame(i)){
-		if (GetUserCVar(i,"bloodremain") ==  0){ SetActorState(0,"Death0",TRUE); }
-		if (GetUserCVar(i,"bloodremain") ==  1){ SetActorState(0,"Death1",TRUE); }
-		if (GetUserCVar(i,"bloodremain") ==  2){ SetActorState(0,"Death2",TRUE); }
-		if (GetUserCVar(i,"bloodremain") ==  3){ SetActorState(0,"Death3",TRUE); }
-		if (GetUserCVar(i,"bloodremain") ==  4){ SetActorState(0,"Death4",TRUE); }	
+		if (GetUserCVar(i,"blm_blood") ==  0){ SetActorState(0,"Death0",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  1){ SetActorState(0,"Death1",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  2){ SetActorState(0,"Death2",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  3){ SetActorState(0,"Death3",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  4){ SetActorState(0,"Death4",TRUE); }	
 }}}
 
 Script "AcsPowerupTimerBeast" (void){
