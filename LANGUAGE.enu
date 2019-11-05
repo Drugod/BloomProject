@@ -85,6 +85,7 @@ AKIMBO = "Guns Akimbo!";
 BASA = "Picked up Basic Armor.";
 BEAST = "Picked up Beast Vision.";
 BODA = "Picked up Body Armor.";
+CURSE = "You have been poisoned, run away!";
 DIVESUIT = "Picked up Diving Suit.";
 DOCBAG = "Stole the Doctor's Bag.";
 ESSENCE = "Picked up a poor soul.";

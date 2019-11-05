@@ -1,4 +1,29 @@
 //BRIGHTMAPS
+Brightmap sprite GARDA1
+{
+	map "Graphics/Brightmaps/GARDA1.png"
+}
+Brightmap sprite GARDA2A8
+{
+	map "Graphics/Brightmaps/GARDA2A8.png"
+}
+Brightmap sprite GARDA3A7
+{
+	map "Graphics/Brightmaps/GARDA3A7.png"
+}
+Brightmap sprite GARDB1
+{
+	map "Graphics/Brightmaps/GARDB1.png"
+}
+Brightmap sprite GARDB2B8
+{
+	map "Graphics/Brightmaps/GARDB2B8.png"
+}
+Brightmap sprite GARDB3B7
+{
+	map "Graphics/Brightmaps/GARDB3B7.png"
+}
+
 
 Brightmap sprite PTNTI0{
 	map "Graphics/Brightmaps/BMTNI0.png"
