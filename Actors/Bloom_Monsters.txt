@@ -317,6 +317,112 @@ ACTOR ShotgunMonk : BloomHybrid_Base 18323
 	}
 }
 
+ACTOR Deepones : BloomHybrid_Base 19052
+{
+	//$Title Deep One
+	+FLOORCLIP
+	SeeSound "NCultistSee"
+	PainSound "NCultistPain"
+	DeathSound "NCultistDie"
+	AttackSound "NCultistShotgun"
+	ActiveSound "NCultistAct"
+	Obituary "$OB_SHOTGUY"
+	DropItem "Shotgun_" 100
+	Dropitem "UselessStuff" 32
+	DropItem "GrenadeAmmo" 32
+	DropItem "HappyBundle" 32
+	States
+	{
+	Spawn:
+		FISH E 10 A_Look
+		Loop
+	See:
+		FISH AABBCCDD 3 A_Chase
+		Loop
+	Missile:
+		FISH E 10 A_FaceTarget
+		FISH F 10 BRIGHT A_SPosAttackUseAtkSound
+		FISH E 10
+		Goto See
+	Pain:
+		FISH G 3
+		FISH G 3 A_Pain
+		Goto See
+	Death:
+		FISH H 5
+		FISH I 5 A_Scream
+		FISH J 5 A_NoBlocking
+		FISH K 5
+		FISH L 5
+		FISH M 5
+		FISH N 5
+		FISH O 5
+		FISH P 5		
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		/*TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingFanatic",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)*/
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		FISH A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+	XDeath:
+		FISH I 5
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingFanatic",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		FISH J 5 A_XScream
+		FISH K 5 A_NoBlocking
+		FISH LMNO 5
+		FISH P -1
+		Stop
+	Raise:
+		FISH P 5
+		FISH ONMLKJI 5
+		Goto See
+	}
+}
+
 ACTOR -------FANATIC_CHAINGUNNERS---------- {}
 ACTOR Fanatic_Chaingunner : BloomHybrid_Base 19004
 {
