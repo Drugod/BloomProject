@@ -349,6 +349,7 @@ ACTOR Deepones : BloomHybrid_Base 19052
 		FISH G 3 A_Pain
 		Goto See
 	Death:
+		TNT1 A 0 A_Jump(128, "Death2")	
 		FISH H 5
 		FISH I 5 A_Scream
 		FISH J 5 A_NoBlocking
@@ -357,14 +358,26 @@ ACTOR Deepones : BloomHybrid_Base 19052
 		FISH M 5
 		FISH N 5
 		FISH O 5
-		FISH P 5		
+		FISH P -1		
+		Stop
+	Death2:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingFish",0,5,10,0)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		FISD A 5
+		FISD B 5 A_Scream
+		FISD C 5 A_NoBlocking
+		FISD D 5
+		FISD E 5
+		FISD F 5
+		FISD G 5
+		FISD H -1
 		Stop
 	Burn:
 	Death.SpecialFire:
 	Death.Flare:
-		/*TNT1 A 0 A_Jump(128, 2)
-		TNT1 A 0 A_ThrowGrenade("KickableFlyingFanatic",0,5,10,0)
-		TNT1 A 0 A_Jump(128, 2)*/
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingFish",0,5,10,0)
 		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
 		FISH A 1
 		TNT1 A 0 A_Fall
@@ -374,9 +387,9 @@ ACTOR Deepones : BloomHybrid_Base 19052
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
 	XDeath:
-		FISH I 5
+		FISH H 5
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_ThrowGrenade ("KickableFlyingFanatic",0,5,10,0)
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingFish",0,5,10,0)
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnDebris ("EyeGuts")
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
@@ -411,10 +424,10 @@ ACTOR Deepones : BloomHybrid_Base 19052
 		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
-		FISH J 5 A_XScream
-		FISH K 5 A_NoBlocking
-		FISH LMNO 5
-		FISH P -1
+		FISH Q 5 A_XScream
+		FISH R 5 A_NoBlocking
+		FISH STUVWX 5
+		FISH Y -1
 		Stop
 	Raise:
 		FISH P 5

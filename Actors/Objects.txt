@@ -1755,7 +1755,7 @@ ACTOR BurnDeathZombie
 		TNT1 A 0 A_Scream
 		FGUY G 3 BRIGHT A_PlaySound("DSBDYBRN")
 			//ini e552428
-		FGUY G 0 A_Jump(127,"Kick_me") 
+		//FGUY G 0 A_Jump(127,"Kick_me") 
 			//fin e552428
 		FGUY G 0 A_SpawnDebris("FlyingBlood")
 		FGUY G 0 A_SpawnDebris("FlyingBlood")

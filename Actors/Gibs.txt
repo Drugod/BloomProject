@@ -2363,6 +2363,235 @@ ACTOR KickableHeadGhoul6
 	}
 }
 
+ACTOR FishHead
+{ 
+	Health 5
+	Radius 8
+	Height 16
+	Speed 10
+	Mass 1
+	PROJECTILE
+	+BOUNCEONACTORS
+	+CANBOUNCEWATER
+	+DOOMBOUNCE
+	+FLOORCLIP
+	+PUSHABLE
+	+RANDOMIZE
+	-NOGRAVITY
+	SeeSound "DSHEDBON"
+	States
+	{
+	Spawn:
+		FHED A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		FHED A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
+		FHED B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
+		FHED C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
+		FHED D 3 A_CustomMissile("HeadBlood", 10, 0, 30, 2, 45)
+		FHED E 3 A_CustomMissile("HeadBlood", 10, 0, 40, 2, 45)
+		FHED F 3 A_CustomMissile("HeadBlood", 10, 0, 50, 2, 45)
+		FHED G 3 A_CustomMissile("HeadBlood", 10, 0, 60, 2, 45)
+		FHED H 3 A_CustomMissile("HeadBlood", 10, 0, 70, 2, 45)
+		FHED I 3 A_CustomMissile("HeadBlood", 10, 0, 80, 2, 45)
+		FHED J 3 A_CustomMissile("HeadBlood", 10, 0, 90, 2, 45)
+		FHED K 3 A_CustomMissile("HeadBlood", 10, 0, 100, 2, 45)
+		FHED L 3 A_CustomMissile("HeadBlood", 10, 0, 110, 2, 45)
+		FHED M 3 A_CustomMissile("HeadBlood", 10, 0, 120, 2, 45)
+		FHED N 3 A_CustomMissile("HeadBlood", 10, 0, 130, 2, 45)
+		FHED O 3 A_CustomMissile("HeadBlood", 10, 0, 140, 2, 45)
+		FHED P 3 A_CustomMissile("HeadBlood", 10, 0, 150, 2, 45)
+		FHED A 3 A_CustomMissile("HeadBlood", 10, 0, 160, 2, 45)
+		FHED B 3 A_CustomMissile("HeadBlood", 10, 0, 170, 2, 45)
+		FHED C 3 A_CustomMissile("HeadBlood", 10, 0, 180, 2, 45)
+		FHED D 3 A_CustomMissile("HeadBlood", 10, 0, 190, 2, 45)
+		FHED E 3 A_CustomMissile("HeadBlood", 10, 0, 200, 2, 45)
+		FHED F 3 A_CustomMissile("HeadBlood", 10, 0, 210, 2, 45)
+		FHED G 3 A_CustomMissile("HeadBlood", 10, 0, 220, 2, 45)
+		FHED H 3 A_CustomMissile("HeadBlood", 10, 0, 230, 2, 45)
+		FHED I 3 A_CustomMissile("HeadBlood", 10, 0, 240, 2, 45)
+		FHED J 3 A_CustomMissile("HeadBlood", 10, 0, 250, 2, 45)
+		FHED K 3 A_CustomMissile("HeadBlood", 10, 0, 260, 2, 45)
+		FHED L 3 A_CustomMissile("HeadBlood", 10, 0, 270, 2, 45)
+		FHED M 3 A_CustomMissile("HeadBlood", 10, 0, 280, 2, 45)
+		FHED N 3 A_CustomMissile("HeadBlood", 10, 0, 290, 2, 45)
+		FHED O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
+		FHED P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
+		TNT1 A 0 A_Jump(127, "Death")
+		Goto Spawn+1
+	Death:
+		FHED A 0 A_Jump(240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+		FHED B -1 //No A.. that is only for kickable!
+		Stop
+		FHED B -1
+		Stop
+		FHED C -1
+		Stop
+		FHED D -1
+		Stop
+		FHED E -1
+		Stop
+		FHED F -1
+		Stop
+		FHED G -1
+		Stop
+		FHED H -1
+		Stop
+		FHED I -1
+		Stop
+		FHED J -1
+		Stop
+		FHED K -1
+		Stop
+		FHED L -1
+		Stop
+		FHED M -1
+		Stop
+		FHED N -1
+		Stop
+		FHED O -1
+		Stop
+		FHED P -1
+		Stop
+	}
+}
+
+ACTOR KickableFlyingFish: FishHead
+{
+	Damage(5)
+	Gravity 0.87
+	BounceCount 4
+	DamageType "StunningHead"
+	+NOEXTREMEDEATH
+	States
+	{
+	Spawn:
+		FHED A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		FHED A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
+		FHED B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
+		FHED C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
+		FHED D 3 A_CustomMissile("HeadBlood", 10, 0, 30, 2, 45)
+		FHED E 3 A_CustomMissile("HeadBlood", 10, 0, 40, 2, 45)
+		FHED F 3 A_CustomMissile("HeadBlood", 10, 0, 50, 2, 45)
+		FHED G 3 A_CustomMissile("HeadBlood", 10, 0, 60, 2, 45)
+		FHED H 3 A_CustomMissile("HeadBlood", 10, 0, 70, 2, 45)
+		FHED I 3 A_CustomMissile("HeadBlood", 10, 0, 80, 2, 45)
+		FHED AA 5 A_SetSolid
+		FHED J 3 A_CustomMissile("HeadBlood", 10, 0, 90, 2, 45)
+		FHED K 3 A_CustomMissile("HeadBlood", 10, 0, 100, 2, 45)
+		FHED L 3 A_CustomMissile("HeadBlood", 10, 0, 110, 2, 45)
+		FHED M 3 A_CustomMissile("HeadBlood", 10, 0, 120, 2, 45)
+		FHED N 3 A_CustomMissile("HeadBlood", 10, 0, 130, 2, 45)
+		FHED O 3 A_CustomMissile("HeadBlood", 10, 0, 140, 2, 45)
+		FHED P 3 A_CustomMissile("HeadBlood", 10, 0, 150, 2, 45)
+		FHED A 3 A_CustomMissile("HeadBlood", 10, 0, 160, 2, 45)
+		FHED B 3 A_CustomMissile("HeadBlood", 10, 0, 170, 2, 45)
+		FHED C 3 A_CustomMissile("HeadBlood", 10, 0, 180, 2, 45)
+		FHED D 3 A_CustomMissile("HeadBlood", 10, 0, 190, 2, 45)
+		FHED E 3 A_CustomMissile("HeadBlood", 10, 0, 200, 2, 45)
+		FHED F 3 A_CustomMissile("HeadBlood", 10, 0, 210, 2, 45)
+		FHED G 3 A_CustomMissile("HeadBlood", 10, 0, 220, 2, 45)
+		FHED H 3 A_CustomMissile("HeadBlood", 10, 0, 230, 2, 45)
+		FHED I 3 A_CustomMissile("HeadBlood", 10, 0, 240, 2, 45)
+		FHED J 3 A_CustomMissile("HeadBlood", 10, 0, 250, 2, 45)
+		FHED K 3 A_CustomMissile("HeadBlood", 10, 0, 260, 2, 45)
+		FHED L 3 A_CustomMissile("HeadBlood", 10, 0, 270, 2, 45)
+		FHED M 3 A_CustomMissile("HeadBlood", 10, 0, 280, 2, 45)
+		FHED N 3 A_CustomMissile("HeadBlood", 10, 0, 290, 2, 45)
+		FHED O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
+		FHED P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
+		TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
+		Goto Spawn+3
+	Death:
+		FHED AA 1
+		FHED A 2
+		TNT1 A 0 A_SpawnItemEX("KickableHeadFish")
+	Boom:
+		FHED A 1 
+		FHED AAAAAA 0 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
+		Stop
+	}
+}
+
+ACTOR KickableHeadFish
+{
+	Monster
+	Health 5
+	Mass 15
+	Height 8
+	Radius 4
+	+BLOCKEDBYSOLIDACTORS
+	+BOUNCEONACTORS
+	+BOUNCEONACTORS
+	+BOUNCEONCEILINGS
+	+BOUNCEONFLOORS
+	+BOUNCEONWALLS
+	+DOOMBOUNCE
+	+NOTAUTOAIMED
+	+PUSHABLE
+	+SHOOTABLE
+	+SLIDESONWALLS
+	+SOLID
+	+WINDTHRUST
+	-COUNTKILL
+	-NOBLOCKMAP
+	Speed 1
+	DamageFactor "Normal",0.4
+	DamageFactor "Dynamite",3
+	PainChance "Normal",0
+	PainChance "Stomping",255
+	PainChance "Melee",255
+	PainChance "Lowkick",255
+	PainChance "kick",255
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")	
+	Spawn1:
+		FHED A 30
+		Loop
+	Spawn2:
+		FHED B 30
+		Loop
+	Spawn3:
+		FHED C 30
+		Loop
+	Spawn4:
+		FHED D 30
+		Loop		
+	Spawn5:
+		FHED E 30
+		Loop
+	Pain.PitchFork:
+	Pain.Stomping:
+	Pain.Melee:
+	Pain.Lowkick:
+	Pain.Kick:
+	Pain.Fist:
+	Pain.Normal:
+		FHED A 0 A_PlaySound("DSHEDKCK")
+		FHED A 0 A_FaceTarget
+		FHED A 0 A_SetAngle(angle+90)
+		FHED A 0 A_SpawnItemEX("KickableFlyingFish",0,0,6,0,frandom(9,28),frandom(5,15))
+		Stop
+	Death.PitchFork:
+	Death.Melee:
+	Death.Lowkick:
+	Death.Kick:
+	Death.Stomping:
+		FHED A 0 A_PlaySound("DSHEDKCK")
+		FHED A 0 A_FaceTarget
+		FHED A 0 A_SetAngle(angle+90)
+		FHED A 0 A_SpawnItemEX("KickableFlyingFish",0,0,6,0,frandom(9,28),frandom(5,15))
+		Stop
+	Death:
+		FHED B 1
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")    
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")    
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")	
+		Stop
+	}
+}
+
 ACTOR --------------------OTHERS-GORE-STUFF----------------------{}
 ACTOR FlyingBlood
 {
