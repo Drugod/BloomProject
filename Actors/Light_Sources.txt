@@ -10,9 +10,9 @@ ACTOR ClassicCellLamp : SwitchableDecoration 3201
 	+NOBLOOD
 	+NODAMAGE
 	+NOGRAVITY
-	+SOLID
 	+SPAWNCEILING
 	+USESPECIAL
+	-SOLID
 	Activation THINGSPEC_Activate
 	States
 	{
@@ -72,9 +72,9 @@ ACTOR CeilLamp : SwitchableDecoration 3277
 	+NOBLOOD
 	+NODAMAGE
 	+NOGRAVITY
-	+SOLID
 	+SPAWNCEILING
 	+USESPECIAL
+	-SOLID
 	Activation THINGSPEC_Switch
 	States
 	{
@@ -104,9 +104,9 @@ ACTOR CeilLampSimple : SwitchableDecoration 3202
 	+NOBLOOD
 	+NODAMAGE
 	+NOGRAVITY
-	+SOLID
 	+SPAWNCEILING
 	+USESPECIAL
+	-SOLID
 	Activation THINGSPEC_Switch
 	States
 	{
@@ -242,8 +242,8 @@ ACTOR CeilFarol 3278
 	Height 50
 	Scale 0.8
 	+NOGRAVITY
-	+SOLID
 	+SPAWNCEILING
+	-SOLID
 	States
 	{
 	Spawn:
