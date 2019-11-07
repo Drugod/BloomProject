@@ -1,3 +1,6 @@
+Const Int BLM_FLAGS1 = SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288; //still can't find the exact flag combo, it's 32+256 but exists only 28
+Const Int BLM_FLAGS2 = SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL;
+
 #include Actors/Keys.txt
 #include Actors/Armors.txt
 #include Actors/Health.txt

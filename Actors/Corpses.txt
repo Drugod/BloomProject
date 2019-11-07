@@ -298,7 +298,7 @@ ACTOR DeadGargoyle : ZombieMan 3176
 	}
 }
 
-ACTOR LiveHead : HangTNoBrain 3178 //why inherit this since it doesn't use any flags from it?
+ACTOR LiveHead 3178
 {
 	//$Category "BlooM Corpses"
 	//$Title Alive Head, Shootable
@@ -312,11 +312,6 @@ ACTOR LiveHead : HangTNoBrain 3178 //why inherit this since it doesn't use any f
 	+NOTAUTOAIMED
 	+RANDOMIZE
 	+SHOOTABLE
-	-COUNTKILL //why?
-	-ISMONSTER //why?
-	-NOGRAVITY
-	-SOLID
-	-SPAWNCEILING
 	Translation 0
 	DeathSound "chainguy/pain"
 	States

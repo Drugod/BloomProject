@@ -7,8 +7,9 @@ For All:
 - check always maps from Zandronum first :(
 - convert all models as md3 and try reducing polys total (not important, just a nitpick and it would require lots of time)
 - externalize KEYCONF between LANGUAGE and MENUDEF (if supported by zandro)
-- fix Berserk_ behavior for Zandro coop: marinelol said that it crashes once you pck it up, so I guess we should call a script for Pickup2 state jump
+- fix Berserk_ behavior for Zandro coop: cruduxy/marinelol said that it crashes once you pick it up, so I guess we should call a script for Pickup2 state jump
 - fix Cultists looping fire sounds for Zandro, marinelol said "server crashes about an infinite loop caused by fire cultists"
+- fix Gargovile/FlyingGargovile health while performing Summon states
 - fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff
 - fix LifeLeech for Zandronum: fire states originate some unknown flags messages, probably cause by non-existent GunFlash calls or maybe Acs calls
 - fix TERRAIN defs, lots of sounds needs to be defined and included

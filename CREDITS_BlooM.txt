@@ -4,8 +4,7 @@ Acs/Decorate/Tweaks by Ozymandias81
 Sprites (Hybrid monsters) and 3Dmodels by Rolls
 Music by Buio Mondo & Drugod
 
-Bloom is based on ZBlood Addon by IvanDobrovski/Cruduxy
-Bloom is based on ZBloodX Addon by Marinelol
+Bloom is based on ZBlood-ZBloodX Addon by IvanDobrovski/Cruduxy/Marinelol
 
 Colt and single barrel Shotgun taken from Blood weapon mod
 Doom Models mainly from TheMacGyverArchiver

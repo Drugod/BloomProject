@@ -7,6 +7,7 @@ ACTOR ShotgunMonsters replaces ShotgunGuy
 	//$Sprite B1ILA0
 	Scale 0.5 //needed for gzdb - ozy81
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -17,10 +18,10 @@ ACTOR ShotgunMonsters replaces ShotgunGuy
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("HybridShotgunSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("HybridShotgunSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("OriginalShotgunSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("OriginalShotgunSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -34,10 +35,10 @@ ACTOR OriginalShotgunSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("BrownCultist",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("BrownCultist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("ShotgunGuy_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("ShotgunGuy_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -51,16 +52,16 @@ ACTOR HybridShotgunSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Apocalyptic_NeoCvltist",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Apocalyptic_NeoCvltist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("NeoCvltist",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("NeoCvltist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("ShotgunMonk",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("ShotgunMonk",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn4:
-		TNT1 A 0 A_SpawnItemEx("Deepones",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Deepones",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop		
 	}
 }
@@ -74,6 +75,7 @@ ACTOR ChaingunMonsters replaces ChaingunGuy
 	//$Sprite B1ILB0
 	Scale 0.5 //needed for gzdb - ozy81
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -88,13 +90,13 @@ ACTOR ChaingunMonsters replaces ChaingunGuy
 		TNT1 A 1 ACS_NamedExecuteAlways("checkheight",0)
 		TNT1 A 1 A_Jump(256,"Deciding")
 	RandomHybrid:
-		TNT1 A 0 A_SpawnItemEx("HybridChaingunnerSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("HybridChaingunnerSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	lowz:
-		TNT1 A 0 A_SpawnItemEx("Fanatic_Chaingunner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Fanatic_Chaingunner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("OriginalChaingunnerSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("OriginalChaingunnerSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -108,10 +110,10 @@ ACTOR OriginalChaingunnerSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("GreyCultist",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("GreyCultist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("ChaingunGuy_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("ChaingunGuy_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -125,10 +127,10 @@ ACTOR HybridChaingunnerSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Fanatic_Chaingunner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Fanatic_Chaingunner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Fanatic_ChaingunnerAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Fanatic_ChaingunnerAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -140,6 +142,7 @@ ACTOR Eelmonsters replaces Fatso
     //$Title Eel/Mancubus Spawner
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -150,10 +153,10 @@ ACTOR Eelmonsters replaces Fatso
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("HybridFishMancubus",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("HybridFishMancubus",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("OriginalFishMancubus",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("OriginalFishMancubus",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	}
 }
@@ -167,10 +170,10 @@ ACTOR OriginalFishMancubus
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("GillBeast",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("GillBeast",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Fatso_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Fatso_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -184,13 +187,13 @@ ACTOR HybridFishMancubus
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Eelcubus",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Eelcubus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("EelcubusAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("EelcubusAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("Gillcubus",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Gillcubus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -202,6 +205,7 @@ ACTOR ElementalGarmonsters replaces PainElemental
     //$Title Elemental Garmonsters Spawner
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -212,10 +216,10 @@ ACTOR ElementalGarmonsters replaces PainElemental
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("HybridElementalGarmonsters",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("HybridElementalGarmonsters",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("OriginalElementalGarmonsters",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("OriginalElementalGarmonsters",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -229,10 +233,10 @@ ACTOR OriginalElementalGarmonsters
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("BloodGargoyle",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("BloodGargoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("PainElemental_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("PainElemental_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -246,7 +250,7 @@ ACTOR HybridElementalGarmonsters
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Elemental_Gargoyle",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Elemental_Gargoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -258,6 +262,7 @@ ACTOR HoundSpawner replaces Demon
     //$Title Hounds Spawner
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -268,10 +273,10 @@ ACTOR HoundSpawner replaces Demon
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("HybridHoundSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("HybridHoundSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("OriginalHoundSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("OriginalHoundSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -285,10 +290,10 @@ ACTOR OriginalHoundSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Demon_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Demon_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("HellHound",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("HellHound",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -300,16 +305,16 @@ ACTOR HybridHoundSpawner
 	Spawn:
 		TNT1 A 0
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
-	Stop
+		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("DemonHound",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
-	Stop
+		TNT1 A 0 A_SpawnItemEx("DemonHound",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("DemonhoundAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
-	Stop
+		TNT1 A 0 A_SpawnItemEx("DemonhoundAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
 	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("Gargodemon",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
-	Stop
+		TNT1 A 0 A_SpawnItemEx("Gargodemon",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
 	}
 }
 
@@ -320,6 +325,7 @@ ACTOR SpectreSpawner replaces Spectre
     //$Title Hounds Spawner
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -330,10 +336,10 @@ ACTOR SpectreSpawner replaces Spectre
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("HybridSpectreSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("HybridSpectreSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("OriginalSpectreSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("OriginalSpectreSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -347,7 +353,7 @@ ACTOR OriginalSpectreSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Spectre_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Spectre_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -361,10 +367,10 @@ ACTOR HybridSpectreSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Spectrehound",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Spectrehound",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("SpectrehoundAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("SpectrehoundAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -376,6 +382,7 @@ ACTOR Garmonsters replaces Cacodemon
     //$Title Garmonsters Spawner
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -386,10 +393,10 @@ ACTOR Garmonsters replaces Cacodemon
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("HybridGarmonsters",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("HybridGarmonsters",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("OriginalGarmonsters",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("OriginalGarmonsters",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -403,10 +410,10 @@ ACTOR OriginalGarmonsters
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("BloodGargoyle",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("BloodGargoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Cacodemon_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Cacodemon_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -420,10 +427,10 @@ ACTOR HybridGarmonsters
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Cacoyle",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Cacoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Cacoyle_Variant",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Cacoyle_Variant",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -435,6 +442,7 @@ ACTOR GhostandRevenants replaces Revenant
     //$Title Ghost & Revenants Spawner
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -445,10 +453,10 @@ ACTOR GhostandRevenants replaces Revenant
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("HybridGhostandRevenants",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("HybridGhostandRevenants",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("OriginalGhostandRevenants",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("OriginalGhostandRevenants",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -462,10 +470,10 @@ ACTOR OriginalGhostandRevenants
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Revenant_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Revenant_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Phantasm",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Phantasm",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -479,16 +487,16 @@ ACTOR HybridGhostandRevenants
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("GhostRevenantTerrain",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("GhostRevenantTerrain",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("GhostRevenantTerrainAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("GhostRevenantTerrainAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("Shielded_Ghost_Revenant",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Shielded_Ghost_Revenant",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn4:
-		TNT1 A 0 A_SpawnItemEx("Shielded_Ghost_Revenant_Alt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Shielded_Ghost_Revenant_Alt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -500,6 +508,7 @@ ACTOR TheSouls replaces LostSoul
     //$Title The Souls
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -510,10 +519,10 @@ ACTOR TheSouls replaces LostSoul
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheSoulshybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("TheSoulshybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheSoulsNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("TheSoulsNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -527,7 +536,7 @@ ACTOR TheSoulsNormal
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("LostSoul_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("LostSoul_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -541,7 +550,7 @@ ACTOR TheSoulshybrid
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("GargoylSoul",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("GargoylSoul",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -553,6 +562,7 @@ ACTOR TheArachnoids replaces Arachnotron
     //$Title The Arachnoids
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -563,10 +573,10 @@ ACTOR TheArachnoids replaces Arachnotron
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("Arachnoidhybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("Arachnoidhybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("Arachnoidnormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("Arachnoidnormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -580,10 +590,10 @@ ACTOR Arachnoidnormal
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Arachnotron_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Arachnotron_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("SpiderMother",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("SpiderMother",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -597,7 +607,7 @@ ACTOR Arachnoidhybrid
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Arachnoid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Arachnoid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -609,6 +619,7 @@ ACTOR TheCvltimpZombimps replaces DoomImp
     //$Title The Cvltimps and Zombimps
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -619,10 +630,10 @@ ACTOR TheCvltimpZombimps replaces DoomImp
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("Cvltimphybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("Cvltimphybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("Cvltimpnormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("Cvltimpnormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	}
 }
@@ -636,7 +647,7 @@ ACTOR Cvltimpnormal
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("DoomImp_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("DoomImp_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -650,13 +661,13 @@ ACTOR Cvltimphybrid
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Cvltimp",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Cvltimp",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("CvltimpAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("CvltimpAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("Zombimps",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Zombimps",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -668,6 +679,7 @@ ACTOR TheWolfKnights replaces BaronOfHell
     //$Title WereWolfs of Hell
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -678,10 +690,10 @@ ACTOR TheWolfKnights replaces BaronOfHell
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("BaronofHellHybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("BaronofHellHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("BaronofHellNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("BaronofHellNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	}
 }
@@ -695,10 +707,10 @@ ACTOR BaronofHellNormal
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("BaronOfHell_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("BaronOfHell_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("BloodBeast",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("BloodBeast",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -712,10 +724,10 @@ ACTOR BaronofHellHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("WereWolfOfHell",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("WereWolfOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("WereWolfOfHellAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("WereWolfOfHellAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -726,7 +738,10 @@ ACTOR TheGhoulsZombies replaces ZombieMan
     //$Category "Monsters Selectors"
     //$Title Ghouls and Zombies
     //$Color 3
+	Skip_Super
 	+NOTDMATCH
+	-ISMONSTER
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -737,16 +752,18 @@ ACTOR TheGhoulsZombies replaces ZombieMan
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("GhoulZombieHybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("GhoulZombieHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("GhoulZombieNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("GhoulZombieNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	}
 }
 
 ACTOR GhoulZombieNormal
 {
+	-ISMONSTER
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -754,16 +771,18 @@ ACTOR GhoulZombieNormal
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("ZombieMan_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("ZombieMan_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("BloodZombie",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("BloodZombie",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
 
 ACTOR GhoulZombieHybrid
 {
+	-ISMONSTER
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -771,7 +790,7 @@ ACTOR GhoulZombieHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("GhoulsZombies",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("GhoulsZombies",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -783,6 +802,7 @@ ACTOR TheArchZombies replaces Archvile
     //$Title Archviles and zombies
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -793,10 +813,10 @@ ACTOR TheArchZombies replaces Archvile
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("ArchZombieHybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("ArchZombieHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("ArchZombieNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("ArchZombieNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	}
 }
@@ -810,7 +830,7 @@ ACTOR ArchZombieNormal
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Archvile_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Archvile_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -824,10 +844,10 @@ ACTOR ArchZombieHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Archzombie",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Archzombie",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Gargovile",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("Gargovile",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -839,6 +859,7 @@ ACTOR TheHellButchers replaces HellKnight
     //$Title HellButcher
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL //not necessary but here in case of future inheritances - ozy81
 	States
 	{
 	Spawn:
@@ -849,10 +870,10 @@ ACTOR TheHellButchers replaces HellKnight
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheHellButchersHybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("TheHellButchersHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheHellButchersNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("TheHellButchersNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	}
 }
@@ -866,10 +887,10 @@ ACTOR TheHellButchersNormal
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("HellKnight_",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("HellKnight_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("BloatedButcher",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("BloatedButcher",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -883,10 +904,10 @@ ACTOR TheHellButchersHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("HellButcher",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("HellButcher",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("HellButcherAlt",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("HellButcherAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -898,6 +919,7 @@ ACTOR TheGargolLivingStatue 19044
     //$Title The Gargovile Living Statue
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -908,10 +930,10 @@ ACTOR TheGargolLivingStatue 19044
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheGargolsStatueHybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("TheGargolsStatueHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheGargolsStatueNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("TheGargolsStatueNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	}
 }
@@ -925,7 +947,7 @@ ACTOR TheGargolsStatueNormal
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("LivingGargStatue",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("LivingGargStatue",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -939,7 +961,7 @@ ACTOR TheGargolsStatueHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("LivingGargovileStatue",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("LivingGargovileStatue",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -951,6 +973,7 @@ ACTOR TheGargolStatue 19045
     //$Title The Gargovile Statue
     //$Color 3
 	+NOTDMATCH
+	-COUNTKILL
 	States
 	{
 	Spawn:
@@ -961,10 +984,10 @@ ACTOR TheGargolStatue 19045
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheStatueHybrid",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("TheStatueHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheStatueNormal",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL | 288)
+		TNT1 A 0 A_SpawnItemEx("TheStatueNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	}
 }
@@ -978,7 +1001,7 @@ ACTOR TheStatueNormal
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("MerryGargStatue",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("MerryGargStatue",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -992,7 +1015,7 @@ ACTOR TheStatueHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("MerryGargovileStatue",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+		TNT1 A 0 A_SpawnItemEx("MerryGargovileStatue",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }

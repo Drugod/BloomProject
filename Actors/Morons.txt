@@ -1,6 +1,6 @@
 ACTOR Moron 3241
 {
-    //$Category "BlooM Enemies"   
+    //$Category "BlooM Monsters"   
 	Health 80
 	Monster
 	Radius 14

@@ -843,10 +843,9 @@ ACTOR ActionFigures : HangTNoBrain //replaces HangTNoBrain
 	}
 }
 
-ACTOR Mime : HangTNoBrain 3185//replaces CommanderKeen// 72
+ACTOR Mime 3185
 {
 	//$Category "BlooM Ambient"
-	Skip_Super
 	Health 100
 	Radius 16
 	Height 56
@@ -860,10 +859,6 @@ ACTOR Mime : HangTNoBrain 3185//replaces CommanderKeen// 72
 	+RANDOMIZE
 	+SHOOTABLE
 	+SOLID
-	-COUNTKILL
-	-ISMONSTER
-	-NOGRAVITY
-	-SPAWNCEILING
 	States
 	{
 	Spawn:
@@ -1003,8 +998,6 @@ ACTOR churchcross 3193
 	+NOTAUTOAIMED
 	+SHOOTABLE
 	+SOLID
-	-COUNTKILL
-	-ISMONSTER
 	DamageFactor "none", 0
 	DamageFactor "Dynamite", 6.0
 	States
@@ -2120,6 +2113,38 @@ ACTOR BinsSpawner 18600
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Scream
 		TNT1 A 1 A_SpawnDebris("GlassDebris",1)
+		Stop
+	}
+}
+
+ACTOR RocksSpawner 18601
+{
+	//$Category "BlooM Ambient"
+	//$Title "Rocks Spawner, normal"
+	Radius 8
+	Height 8
+	Mass 0x7ffffff
+	+NOTAUTOAIMED
+	+SOLID
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_Jump(256,1,2,3,4)
+		ROKS B -1
+		ROKS C -1
+		ROKS D -1
+		ROKS E -1
+		Stop
+	}
+}
+
+ACTOR RocksSnowy : RocksSpawner 18602
+{
+	//$Title "Rock Spawner, snowy"
+	States
+	{
+	Spawn:
+		ROKS A -1
 		Stop
 	}
 }

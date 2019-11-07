@@ -235,7 +235,7 @@ ACTOR BGargBone
 		BONE ABCD 4
 		Loop
 	Death:
-		BONE E 0 A_UnsetSolid
+		BONE E 0 A_UnSetSolid
 		BONE E 6 A_Recoil(-12)
 		BONE E 6 A_Explode(7,20,0)
 		BONE F 6 A_Explode(7,20,0)
@@ -524,7 +524,7 @@ ACTOR PhantasmProjectile
 	Height 8
 	Speed 16
 	Scale 0.65
-	Damage (random(12,48))
+	Damage (random(12,18))
 	DamageType "Spiritual"
 	RenderStyle "Add"
 	Alpha 0.78

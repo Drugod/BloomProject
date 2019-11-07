@@ -538,7 +538,7 @@ ACTOR DeathIncarnate: weapon
 	{
 	Ready:
 		BLWS B 2 
-		BLWS A 2 A_JUMP(32,"DESELECT")
+		BLWS A 2 A_Jump(32,"DESELECT")
 		Goto Ready+1
 	Fire:
 		tnt1 a 1 
