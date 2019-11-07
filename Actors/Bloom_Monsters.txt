@@ -330,6 +330,10 @@ ACTOR Deepones : BloomHybrid_Base 19052
 	Dropitem "UselessStuff" 32
 	DropItem "GrenadeAmmo" 32
 	DropItem "HappyBundle" 32
+	SeeSound "GillBeastSee"
+	PainSound "GillBeastPain"
+	DeathSound "GillBeastDie"
+	ActiveSound "GillBeastSee"	
 	States
 	{
 	Spawn:
