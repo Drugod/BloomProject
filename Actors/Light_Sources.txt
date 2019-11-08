@@ -129,6 +129,7 @@ ACTOR FlameCult : SwitchableDecoration 3236
 	//$Category "BlooM Light Sources"
 	//$Title Cvltist Flames
 	//$Color 17
+	//$Sprite CVLTA0
 	//$Arg0 "Sound"
 	//$Arg0Type 11
 	//$Arg0Enum { 0 = "Yes"; 1 = "No"; }
@@ -151,12 +152,14 @@ ACTOR FlameCult : SwitchableDecoration 3236
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_PlaySound("SFX/FireStart", CHAN_7)
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
 	Active:
-		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
-		TNT1 A 0 A_PlaySound("SFX/FireLoop", CHAN_6, 1.0, TRUE)
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 1.0, TRUE)
 	SpawnCheck:
-		TNT1 A 0 A_JumpIf(Args[0] > 0,"Spawn+2")
 		TNT1 A 0 A_Jump(50,"Spawn1")
 		TNT1 A 0 A_Jump(50,"Spawn2")
 		TNT1 A 0 A_Jump(50,"Spawn3")
@@ -180,8 +183,8 @@ ACTOR FlameCult : SwitchableDecoration 3236
 		Goto SpawnCheck
 	Inactive:
 		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
-		TNT1 A 0 A_PlaySound("SFX/FireDie", CHAN_7)
-		TNT1 A -1 A_StopSound(CHAN_6)
+		TNT1 A 1 A_PlaySound("SFX/FireDie", 7)
+		TNT1 A -1 A_StopSound(6)
 		Stop
 	}
 }
@@ -254,7 +257,6 @@ ACTOR CeilFarol 3278
 		Loop
 	}
 }
-
 
 ACTOR LittleLamp 3210
 {
