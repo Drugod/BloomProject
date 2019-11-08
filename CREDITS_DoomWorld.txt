@@ -2,10 +2,10 @@
 Title                   : BlooM
 Version					: Demo
 Filename                : bloom.pk3
-Date Finished           : 
-Author                  : 
-Web Page                : 
-Previous Work			: 
+Date Finished           : 31/10/19
+Author                  : Drugod
+Web Page                : bloomteam.666.com
+Previous Work			: Hyperion
 
 Team:					: Core Members
 						Drugod - Project Lead, Concept Design, SFX Design, Level Design
@@ -28,7 +28,7 @@ Credits					:
 
 * Play Information *
 
-Maps                    : 
+Maps                    : 4 plus Titlemap, INT00 and 2 Testmaps
 Source Port				: GZDoom 3.0.0+ or Zandronum 2.8+
 Single Player           : Yes
 Cooperative 2-8 Player  : Starts are there
@@ -41,10 +41,10 @@ New Graphics            : Yes
 
 * Construction *
 
-Base                    : 
+Base                    : ZBlood/ZBloodX
 Build Time              : 
 Editor(s) used          : Audacity, Photoshop, GIMP, GZDoomBuilder, ACC, Slade3, LameXP, 
-						HxD Hex Editor, Maverick3d,
+						HxD Hex Editor, Maverick3d, poly2vox, Slab6, MagicaVoxel
 Known Bugs              : None
 
 

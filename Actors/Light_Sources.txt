@@ -124,11 +124,14 @@ ACTOR CeilLampSimple : SwitchableDecoration 3202
 	}
 }
 
-ACTOR FlameCult 3236
+ACTOR FlameCult : SwitchableDecoration 3236
 {
 	//$Category "BlooM Light Sources"
 	//$Title Cvltist Flames
 	//$Color 17
+	//$Arg0 "Sound"
+	//$Arg0Type 11
+	//$Arg0Enum { 0 = "Yes"; 1 = "No"; }
 	Radius 16
 	Height 54
 	Speed 12
@@ -139,6 +142,7 @@ ACTOR FlameCult 3236
 	Alpha 0.8
 	Projectile
 	+BLOODLESSIMPACT
+	+BRIGHT
 	+CANNOTPUSH
 	+DONTSPLASH
 	+NODAMAGETHRUST
@@ -147,6 +151,12 @@ ACTOR FlameCult 3236
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_PlaySound("SFX/FireStart", CHAN_7)
+	Active:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		TNT1 A 0 A_PlaySound("SFX/FireLoop", CHAN_6, 1.0, TRUE)
+	SpawnCheck:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"Spawn+2")
 		TNT1 A 0 A_Jump(50,"Spawn1")
 		TNT1 A 0 A_Jump(50,"Spawn2")
 		TNT1 A 0 A_Jump(50,"Spawn3")
@@ -154,31 +164,24 @@ ACTOR FlameCult 3236
 		TNT1 A 0 A_Jump(50,"Spawn5")
 		Loop
 	Spawn1:
-		CVLT ABCDEFGHIJKLMN 4 BRIGHT
-		TNT1 A 0 A_Playsound("CVLTFIR")
-		Goto Spawn
+		CVLT ABCDEFGHIJKLMN 4
+		Goto SpawnCheck
 	Spawn2:
-		CVLT FGHIJKLMNABCDE 4 BRIGHT
-		TNT1 A 0 A_Playsound("CVLTFIR")
-		Goto Spawn
+		CVLT FGHIJKLMNABCDE 4
+		Goto SpawnCheck
 	Spawn3:
-		CVLT JKLMNABCDEFGHI 4 BRIGHT
-		TNT1 A 0 A_Playsound("CVLTFIR")
-		Goto Spawn
+		CVLT JKLMNABCDEFGHI 4
+		Goto SpawnCheck
 	Spawn4:
-		CVLT LMNABCDEFGHIJK 4 BRIGHT
-		TNT1 A 0 A_Playsound("CVLTFIR")
-		Goto Spawn
+		CVLT LMNABCDEFGHIJK 4
+		Goto SpawnCheck
 	Spawn5:
-		CVLT EFGHIABCDJKLMN 4 BRIGHT
-		TNT1 A 0 A_Playsound("CVLTFIR")
-		Goto Spawn
-	Death:
-		TNT1 A 0 A_Jump(50,"SPAWN1")
-		TNT1 A 0 A_Jump(50,"SPAWN2")
-		TNT1 A 0 A_Jump(50,"SPAWN3")
-		TNT1 A 0 A_Jump(50,"SPAWN4")
-		TNT1 A 0 A_Jump(50,"SPAWN5")
+		CVLT EFGHIABCDJKLMN 4
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		TNT1 A 0 A_PlaySound("SFX/FireDie", CHAN_7)
+		TNT1 A -1 A_StopSound(CHAN_6)
 		Stop
 	}
 }

@@ -23,8 +23,10 @@ XRM1A="XRM1A" {Spin = 50}
 XRM2A="XRM2A" {Spin = 50}
 
 //--------------------AMMO------------------
+2MBOA="2MBOA" {}
 FGR2A="FGR2A" {}
 FGR3A="FGR2A" {}
+FGR4A="FGR4A" {}
 FGRDA="FGRDA" {}
 GAS2A="GAS2A" {}
 GASOA="GASOA" {}
@@ -35,6 +37,8 @@ SBEXA="SBEXA" {}
 SHEXA="SHEXA" {Scale = 0.19}
 TBNDA="TBNDA" {}
 TBOXA="TBOXA" {}
+TESCA="TESCA" {}
+TESCB="TESCB" {Scale = 0.65}
 TMBOA="TMBOA" {}
 
 //--------------------DECORATIONS-----------
