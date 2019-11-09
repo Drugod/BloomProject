@@ -87,11 +87,7 @@ ACTOR GunsAkimbo : CustomInventory 3152
 		XSTR A -1
 		Stop
 	Pickup:
-		TNT1 A 0 A_JumpIf(CheckClass("DoomDude"), "Pickup2")
 		TNT1 A 0 A_GiveInventory ("PowerGunsAkimbo")
-		Stop
-	Pickup2:
-		TNT1 A 1 A_GiveInventory("UltraDamage")
 		Stop
 	}
 }
@@ -112,16 +108,16 @@ ACTOR PowerGunsAkimbo : PowerupGiver
 	}
 }
 
-ACTOR UltraDamage : PowerupGiver
+ACTOR UltraDamage : PowerupGiver //not needed anymore? - ozy81
 {
-	Powerup.color LawnGreen 0.25
+	Powerup.Color LawnGreen 0.25
 	PowerUp.Type UltraDamage
 	PowerUp.Duration 1250
 	+AUTOACTIVATE
 	+INVENTORY.FANCYPICKUPSOUND
 }
 
-ACTOR PowerUltraDamage : PowerDamage { DamageFactor "normal", 4 }
+ACTOR PowerUltraDamage : PowerDamage { DamageFactor "normal", 4 } //not needed anymore? - ozy81
 
 ACTOR -------BERSERK---------- {}
 ACTOR Berserk_ : CustomInventory replaces Berserk
