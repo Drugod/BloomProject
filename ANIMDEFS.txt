@@ -32,7 +32,6 @@ flat NUKAGE1
 	pic FHDS31 rand 2 2
 	pic FHDS32 rand 2 2
 	
-	
 flat NUKAGE2
     pic FHDS01 rand 2 2
 	pic FHDS02 rand 2 2
@@ -66,7 +65,7 @@ flat NUKAGE2
 	pic FHDS30 rand 2 2
 	pic FHDS31 rand 2 2
 	pic FHDS32 rand 2 2
-	
+
 flat NUKAGE3
     pic FHDS01 rand 2 2
 	pic FHDS02 rand 2 2
@@ -101,40 +100,7 @@ flat NUKAGE3
 	pic FHDS31 rand 2 2
 	pic FHDS32 rand 2 2
 
-    warp2 flat FHDS01
-	warp2 flat FHDS02
-	warp2 flat FHDS03
-	warp2 flat FHDS04
-	warp2 flat FHDS05
-	warp2 flat FHDS06
-	warp2 flat FHDS07
-	warp2 flat FHDS08
-	warp2 flat FHDS09
-	warp2 flat FHDS10
-	warp2 flat FHDS11
-	warp2 flat FHDS12
-	warp2 flat FHDS13
-	warp2 flat FHDS14
-	warp2 flat FHDS15
-	warp2 flat FHDS16
-	warp2 flat FHDS17
-	warp2 flat FHDS18
-	warp2 flat FHDS19
-	warp2 flat FHDS20
-	warp2 flat FHDS21
-	warp2 flat FHDS22
-	warp2 flat FHDS23
-	warp2 flat FHDS24
-	warp2 flat FHDS25
-	warp2 flat FHDS26
-	warp2 flat FHDS27
-	warp2 flat FHDS28
-	warp2 flat FHDS29
-	warp2 flat FHDS30
-	warp2 flat FHDS31
-	warp2 flat FHDS32
-
-flat BLOOD1 
+flat BLOOD1
     pic FHDB01 rand 2 2
 	pic FHDB02 rand 2 2
 	pic FHDB03 rand 2 2
@@ -167,8 +133,7 @@ flat BLOOD1
 	pic FHDB30 rand 2 2
 	pic FHDB31 rand 2 2
 	pic FHDB32 rand 2 2
-	
-	
+
 flat BLOOD2
     pic FHDB01 rand 2 2
 	pic FHDB02 rand 2 2
@@ -202,9 +167,8 @@ flat BLOOD2
 	pic FHDB30 rand 2 2
 	pic FHDB31 rand 2 2
 	pic FHDB32 rand 2 2
-	
-	
-flat BLOOD3 
+
+flat BLOOD3
     pic FHDB01 rand 2 2
 	pic FHDB02 rand 2 2
 	pic FHDB03 rand 2 2
@@ -237,41 +201,7 @@ flat BLOOD3
 	pic FHDB30 rand 2 2
 	pic FHDB31 rand 2 2
 	pic FHDB32 rand 2 2
-	
-	
-	warp2 flat FHDB01
-	warp2 flat FHDB02
-	warp2 flat FHDB03
-	warp2 flat FHDB04
-	warp2 flat FHDB05
-	warp2 flat FHDB06
-	warp2 flat FHDB07
-	warp2 flat FHDB08
-	warp2 flat FHDB09
-	warp2 flat FHDB10
-	warp2 flat FHDB11
-	warp2 flat FHDB12
-	warp2 flat FHDB13
-	warp2 flat FHDB14
-	warp2 flat FHDB15
-	warp2 flat FHDB16
-	warp2 flat FHDB17
-	warp2 flat FHDB18
-	warp2 flat FHDB19
-	warp2 flat FHDB20
-	warp2 flat FHDB21
-	warp2 flat FHDB22
-	warp2 flat FHDB23
-	warp2 flat FHDB24
-	warp2 flat FHDB25
-	warp2 flat FHDB26
-	warp2 flat FHDB27
-	warp2 flat FHDB28
-	warp2 flat FHDB29
-	warp2 flat FHDB30
-	warp2 flat FHDB31
-	warp2 flat FHDB32
-	
+
 flat FWATER1
     pic FHDW01 rand 2 2
 	pic FHDW02 rand 2 2
@@ -305,7 +235,7 @@ flat FWATER1
 	pic FHDW30 rand 2 2
 	pic FHDW31 rand 2 2
 	pic FHDW32 rand 2 2
-	
+
 flat FWATER2
     pic FHDW01 rand 2 2
 	pic FHDW02 rand 2 2
@@ -339,7 +269,7 @@ flat FWATER2
 	pic FHDW30 rand 2 2
 	pic FHDW31 rand 2 2
 	pic FHDW32 rand 2 2
-	
+
 flat FWATER3
     pic FHDW01 rand 2 2
 	pic FHDW02 rand 2 2
@@ -373,7 +303,7 @@ flat FWATER3
 	pic FHDW30 rand 2 2
 	pic FHDW31 rand 2 2
 	pic FHDW32 rand 2 2
-	
+
 flat FWATER4
     pic FHDW01 rand 2 2
 	pic FHDW02 rand 2 2
@@ -407,40 +337,7 @@ flat FWATER4
 	pic FHDW30 rand 2 2
 	pic FHDW31 rand 2 2
 	pic FHDW32 rand 2 2
-	
-	warp2 flat FHDW01
-	warp2 flat FHDW02
-	warp2 flat FHDW03
-	warp2 flat FHDW04
-	warp2 flat FHDW05
-	warp2 flat FHDW06
-	warp2 flat FHDW07
-	warp2 flat FHDW08
-	warp2 flat FHDW09
-	warp2 flat FHDW10
-	warp2 flat FHDW11
-	warp2 flat FHDW12
-	warp2 flat FHDW13
-	warp2 flat FHDW14
-	warp2 flat FHDW15
-	warp2 flat FHDW16
-	warp2 flat FHDW17
-	warp2 flat FHDW18
-	warp2 flat FHDW19
-	warp2 flat FHDW20
-	warp2 flat FHDW21
-	warp2 flat FHDW22
-	warp2 flat FHDW23
-	warp2 flat FHDW24
-	warp2 flat FHDW25
-	warp2 flat FHDW26
-	warp2 flat FHDW27
-	warp2 flat FHDW28
-	warp2 flat FHDW29
-	warp2 flat FHDW30
-	warp2 flat FHDW31
-	warp2 flat FHDW32
-	
+
 flat FWATER02
     pic FHDW01 rand 2 2
 	pic FHDW02 rand 2 2
@@ -474,7 +371,7 @@ flat FWATER02
 	pic FHDW30 rand 2 2
 	pic FHDW31 rand 2 2
 	pic FHDW32 rand 2 2
-	
+
 flat SLIME01
     pic FHDM01 rand 2 2
 	pic FHDM02 rand 2 2
@@ -507,8 +404,8 @@ flat SLIME01
 	pic FHDM29 rand 2 2
 	pic FHDM30 rand 2 2
 	pic FHDM31 rand 2 2
-	pic FHDM32 rand 2 2	
-	
+	pic FHDM32 rand 2 2
+
 flat SLIME02
     pic FHDM01 rand 2 2
 	pic FHDM02 rand 2 2
@@ -541,7 +438,7 @@ flat SLIME02
 	pic FHDM29 rand 2 2
 	pic FHDM30 rand 2 2
 	pic FHDM31 rand 2 2
-	pic FHDM32 rand 2 2	
+	pic FHDM32 rand 2 2
 
 flat SLIME03
     pic FHDM01 rand 2 2
@@ -575,8 +472,8 @@ flat SLIME03
 	pic FHDM29 rand 2 2
 	pic FHDM30 rand 2 2
 	pic FHDM31 rand 2 2
-	pic FHDM32 rand 2 2	
-	
+	pic FHDM32 rand 2 2
+
 flat SLIME04
     pic FHDM01 rand 2 2
 	pic FHDM02 rand 2 2
@@ -610,39 +507,6 @@ flat SLIME04
 	pic FHDM30 rand 2 2
 	pic FHDM31 rand 2 2
 	pic FHDM32 rand 2 2
-		
-	warp2 flat FHDM01
-	warp2 flat FHDM02
-	warp2 flat FHDM03
-	warp2 flat FHDM04
-	warp2 flat FHDM05
-	warp2 flat FHDM06
-	warp2 flat FHDM07
-	warp2 flat FHDM08
-	warp2 flat FHDM09
-	warp2 flat FHDM10
-	warp2 flat FHDM11
-	warp2 flat FHDM12
-	warp2 flat FHDM13
-	warp2 flat FHDM14
-	warp2 flat FHDM15
-	warp2 flat FHDM16
-	warp2 flat FHDM17
-	warp2 flat FHDM18
-	warp2 flat FHDM19
-	warp2 flat FHDM20
-	warp2 flat FHDM21
-	warp2 flat FHDM22
-	warp2 flat FHDM23
-	warp2 flat FHDM24
-	warp2 flat FHDM25
-	warp2 flat FHDM26
-	warp2 flat FHDM27
-	warp2 flat FHDM28
-	warp2 flat FHDM29
-	warp2 flat FHDM30
-	warp2 flat FHDM31
-	warp2 flat FHDM32	
 
 flat SLIME05
     pic FHDZ01 rand 2 2
@@ -744,7 +608,7 @@ flat SLIME07
 	pic FHDZ29 rand 2 2
 	pic FHDZ30 rand 2 2
 	pic FHDZ31 rand 2 2
-	pic FHDZ32 rand 2 2	
+	pic FHDZ32 rand 2 2
 
 flat SLIME08
     pic FHDZ01 rand 2 2
@@ -778,41 +642,8 @@ flat SLIME08
 	pic FHDZ29 rand 2 2
 	pic FHDZ30 rand 2 2
 	pic FHDZ31 rand 2 2
-	pic FHDZ32 rand 2 2		
+	pic FHDZ32 rand 2 2
 
-	warp2 flat FHDZ01
-	warp2 flat FHDZ02
-	warp2 flat FHDZ03
-	warp2 flat FHDZ04
-	warp2 flat FHDZ05
-	warp2 flat FHDZ06
-	warp2 flat FHDZ07
-	warp2 flat FHDZ08
-	warp2 flat FHDZ09
-	warp2 flat FHDZ10
-	warp2 flat FHDZ11
-	warp2 flat FHDZ12
-	warp2 flat FHDZ13
-	warp2 flat FHDZ14
-	warp2 flat FHDZ15
-	warp2 flat FHDZ16
-	warp2 flat FHDZ17
-	warp2 flat FHDZ18
-	warp2 flat FHDZ19
-	warp2 flat FHDZ20
-	warp2 flat FHDZ21
-	warp2 flat FHDZ22
-	warp2 flat FHDZ23
-	warp2 flat FHDZ24
-	warp2 flat FHDZ25
-	warp2 flat FHDZ26
-	warp2 flat FHDZ27
-	warp2 flat FHDZ28
-	warp2 flat FHDZ29
-	warp2 flat FHDZ30
-	warp2 flat FHDZ31
-	warp2 flat FHDZ32
-	
 texture WFALL1
 	pic WFALL1	tics 2
 	pic WFALL2	tics 2
@@ -884,17 +715,6 @@ texture SFALL4
 	pic SFALL2	tics 2
 	pic SFALL3	tics 2
 	pic SFALL4	tics 2
-
-	warp texture SP_FACE1
-	warp texture SKSNAKE1
-	warp texture SKSNAKE2
-
-	warp flat LAVA1
-	warp flat LAVA2
-	warp flat LAVA3
-	warp flat LAVA4
-	warp flat SFLR6_1
-	warp flat SFLR6_4
 
 flat SLIME12
 	pic SLIME09 rand 4 4
@@ -992,17 +812,7 @@ Texture FIRELAV3
     pic FIRELAVA rand 3 3
 	pic FIRELAV2 rand 3 3
 	pic FIRELAV3 rand 3 3
-	
-	warp2 flat XTEX0641
-	warp2 flat XTEX0642
-	warp2 flat XTEX0643
-	warp2 flat XTEX0644
-	warp2 flat XTEX0645
-	warp2 flat XTEX0646		
-	warp2 flat XTEX0647		
-	warp2 flat XTEX0650
-	warp2 flat XTEX0750	
-		
+
 flat XTEX0641
 	pic XTEX0641 rand 4 4
 	pic XTEX0642 rand 4 4
@@ -1010,7 +820,7 @@ flat XTEX0641
 	pic XTEX0644 rand 4 4
     pic XTEX0645 rand 4 4
 	pic XTEX0646 rand 4 4
-	pic XTEX0647 rand 4 4	
+	pic XTEX0647 rand 4 4
 flat XTEX0642
 	pic XTEX0641 rand 4 4
 	pic XTEX0642 rand 4 4
@@ -1026,7 +836,7 @@ flat XTEX0643
 	pic XTEX0644 rand 4 4
     pic XTEX0645 rand 4 4
 	pic XTEX0646 rand 4 4
-	pic XTEX0647 rand 4 4	
+	pic XTEX0647 rand 4 4
 flat XTEX0644
 	pic XTEX0641 rand 4 4
 	pic XTEX0642 rand 4 4
@@ -1034,7 +844,7 @@ flat XTEX0644
 	pic XTEX0644 rand 4 4
     pic XTEX0645 rand 4 4
 	pic XTEX0646 rand 4 4
-	pic XTEX0647 rand 4 4	
+	pic XTEX0647 rand 4 4
 flat XTEX0645
 	pic XTEX0641 rand 4 4
 	pic XTEX0642 rand 4 4
@@ -1042,7 +852,7 @@ flat XTEX0645
 	pic XTEX0644 rand 4 4
     pic XTEX0645 rand 4 4
 	pic XTEX0646 rand 4 4
-	pic XTEX0647 rand 4 4	
+	pic XTEX0647 rand 4 4
 flat XTEX0646
 	pic XTEX0641 rand 4 4
 	pic XTEX0642 rand 4 4
@@ -1050,7 +860,7 @@ flat XTEX0646
 	pic XTEX0644 rand 4 4
     pic XTEX0645 rand 4 4
 	pic XTEX0646 rand 4 4
-	pic XTEX0647 rand 4 4		
+	pic XTEX0647 rand 4 4
 flat XTEX0647
 	pic XTEX0641 rand 4 4
 	pic XTEX0642 rand 4 4
@@ -1058,30 +868,17 @@ flat XTEX0647
 	pic XTEX0644 rand 4 4
     pic XTEX0645 rand 4 4
 	pic XTEX0646 rand 4 4
-	pic XTEX0647 rand 4 4			
+	pic XTEX0647 rand 4 4
 flat XTEX0948
 	pic XTEX0949 rand 4 4
 	pic XTEX0950 rand 4 4
 	pic XTEX0951 rand 4 4
     pic XTEX0952 rand 4 4
 	pic XTEX0953 rand 4 4
-	pic XTEX0954 rand 4 4				
-	pic XTEX0955 rand 4 4				
-	pic XTEX0956 rand 4 4				
-	pic XTEX0957 rand 4 4					
-	
-	warp  texture fog1
-	warp  texture CVFGA0
-	warp2 texture CVFGB0
-	warp  texture XTEX0226 0.2 ALLOWDECALS
-	warp  texture XTEX0232 0.2 ALLOWDECALS
-	warp  texture XTEX0228 0.2 ALLOWDECALS
-	warp  texture YTEXTH63 0.1
-	warp  texture YTEXTB52
-	warp  texture YTEXTR22	
-	
-	switch doom 2 STEXT1 on pic STEXT2 tics 0
-	switch doom 2 STEXT2 on pic STEXT1 tics 0
+	pic XTEX0954 rand 4 4
+	pic XTEX0955 rand 4 4
+	pic XTEX0956 rand 4 4
+	pic XTEX0957 rand 4 4
 
 Texture XTEX0862
     pic XTEX0862 tics 3
@@ -1165,7 +962,7 @@ Texture optional P_CALEB
 	PIC P_CALE72	tics 1
 	PIC P_CALE73	tics 1
 	PIC P_CALE74	tics 1
-	
+
 Texture optional P_DGUY
 	PIC P_DGUY	    tics 1
 	PIC P_DGUY1  	tics 1
@@ -1243,18 +1040,6 @@ Texture optional P_DGUY
 	PIC P_DGUY73	tics 1
 	PIC P_DGUY74	tics 1
 
-switch SW_BLOOD1Y on sound Switch1 pic XTEX0312 tics 0
-switch SW_BLOOD1N off sound Switch2 pic XTEX0311 tics 0
-
-switch SW_WLOOD1Y on sound Switch1 pic XTEX0639 tics 0
-switch SW_WLOOD1N off sound Switch2 pic XTEX0640 tics 0
-
-switch SW_BLOOD2Y on sound Switch1 pic XTEX0681 tics 0
-switch SW_BLOOD2N off sound Switch2 pic XTEX0682 tics 0
-
-switch SW_BLOOD3Y on sound Switch1 pic XTEX0683 tics 0
-switch SW_BLOOD3N off sound Switch2 pic XTEX0684 tics 0
-
 texture XTEX0660 RANGE 	XTEX0664 TICS 8
 texture XTEX0602 RANGE 	XTEX0607 TICS 8
 texture XTEX075  RANGE 	XTEX077  TICS 8
@@ -1272,3 +1057,209 @@ texture XTEX0634 RANGE 	XTEX0637 TICS 8
 texture XTEX0686 RANGE 	XTEX0689 TICS 8
 texture XTEX0944 RANGE 	XTEX0946 TICS 3
 texture XTEX0815 RANGE 	XTEX0818 TICS 3
+
+switch SW_BLOOD1N off sound Switch2 pic XTEX0311 tics 0
+switch SW_BLOOD1Y on sound Switch1 pic XTEX0312 tics 0
+switch SW_BLOOD2N off sound Switch2 pic XTEX0682 tics 0
+switch SW_BLOOD2Y on sound Switch1 pic XTEX0681 tics 0
+switch SW_BLOOD3N off sound Switch2 pic XTEX0684 tics 0
+switch SW_BLOOD3Y on sound Switch1 pic XTEX0683 tics 0
+switch SW_WLOOD1N off sound Switch2 pic XTEX0640 tics 0
+switch SW_WLOOD1Y on sound Switch1 pic XTEX0639 tics 0
+switch YTEXTI37 on sound Switch1 pic YTEXTJ37 tics 0
+
+switch doom 2 STEXT1 on pic STEXT2 tics 0
+switch doom 2 STEXT2 on pic STEXT1 tics 0
+
+//SPRITES WARPINGS
+warp texture CVFGA0
+warp2 texture CVFGB0
+warp texture FOG1
+
+//TEXTURES WARPINGS
+warp flat LAVA1
+warp flat LAVA2
+warp flat LAVA3
+warp flat LAVA4
+warp flat SFLR6_1
+warp flat SFLR6_4
+
+warp texture SKSNAKE1
+warp texture SKSNAKE2
+warp texture SP_FACE1
+warp texture XTEX0226 0.2 ALLOWDECALS
+warp texture XTEX0228 0.2 ALLOWDECALS
+warp texture XTEX0232 0.2 ALLOWDECALS
+warp texture YTEXTB52
+warp texture YTEXTH63 0.1
+warp texture YTEXTR22
+
+warp2 flat FHDB01
+warp2 flat FHDB02
+warp2 flat FHDB03
+warp2 flat FHDB04
+warp2 flat FHDB05
+warp2 flat FHDB06
+warp2 flat FHDB07
+warp2 flat FHDB08
+warp2 flat FHDB09
+warp2 flat FHDB10
+warp2 flat FHDB11
+warp2 flat FHDB12
+warp2 flat FHDB13
+warp2 flat FHDB14
+warp2 flat FHDB15
+warp2 flat FHDB16
+warp2 flat FHDB17
+warp2 flat FHDB18
+warp2 flat FHDB19
+warp2 flat FHDB20
+warp2 flat FHDB21
+warp2 flat FHDB22
+warp2 flat FHDB23
+warp2 flat FHDB24
+warp2 flat FHDB25
+warp2 flat FHDB26
+warp2 flat FHDB27
+warp2 flat FHDB28
+warp2 flat FHDB29
+warp2 flat FHDB30
+warp2 flat FHDB31
+warp2 flat FHDB32
+warp2 flat FHDM01
+warp2 flat FHDM02
+warp2 flat FHDM03
+warp2 flat FHDM04
+warp2 flat FHDM05
+warp2 flat FHDM06
+warp2 flat FHDM07
+warp2 flat FHDM08
+warp2 flat FHDM09
+warp2 flat FHDM10
+warp2 flat FHDM11
+warp2 flat FHDM12
+warp2 flat FHDM13
+warp2 flat FHDM14
+warp2 flat FHDM15
+warp2 flat FHDM16
+warp2 flat FHDM17
+warp2 flat FHDM18
+warp2 flat FHDM19
+warp2 flat FHDM20
+warp2 flat FHDM21
+warp2 flat FHDM22
+warp2 flat FHDM23
+warp2 flat FHDM24
+warp2 flat FHDM25
+warp2 flat FHDM26
+warp2 flat FHDM27
+warp2 flat FHDM28
+warp2 flat FHDM29
+warp2 flat FHDM30
+warp2 flat FHDM31
+warp2 flat FHDM32
+warp2 flat FHDS01
+warp2 flat FHDS02
+warp2 flat FHDS03
+warp2 flat FHDS04
+warp2 flat FHDS05
+warp2 flat FHDS06
+warp2 flat FHDS07
+warp2 flat FHDS08
+warp2 flat FHDS09
+warp2 flat FHDS10
+warp2 flat FHDS11
+warp2 flat FHDS12
+warp2 flat FHDS13
+warp2 flat FHDS14
+warp2 flat FHDS15
+warp2 flat FHDS16
+warp2 flat FHDS17
+warp2 flat FHDS18
+warp2 flat FHDS19
+warp2 flat FHDS20
+warp2 flat FHDS21
+warp2 flat FHDS22
+warp2 flat FHDS23
+warp2 flat FHDS24
+warp2 flat FHDS25
+warp2 flat FHDS26
+warp2 flat FHDS27
+warp2 flat FHDS28
+warp2 flat FHDS29
+warp2 flat FHDS30
+warp2 flat FHDS31
+warp2 flat FHDS32
+warp2 flat FHDW01
+warp2 flat FHDW02
+warp2 flat FHDW03
+warp2 flat FHDW04
+warp2 flat FHDW05
+warp2 flat FHDW06
+warp2 flat FHDW07
+warp2 flat FHDW08
+warp2 flat FHDW09
+warp2 flat FHDW10
+warp2 flat FHDW11
+warp2 flat FHDW12
+warp2 flat FHDW13
+warp2 flat FHDW14
+warp2 flat FHDW15
+warp2 flat FHDW16
+warp2 flat FHDW17
+warp2 flat FHDW18
+warp2 flat FHDW19
+warp2 flat FHDW20
+warp2 flat FHDW21
+warp2 flat FHDW22
+warp2 flat FHDW23
+warp2 flat FHDW24
+warp2 flat FHDW25
+warp2 flat FHDW26
+warp2 flat FHDW27
+warp2 flat FHDW28
+warp2 flat FHDW29
+warp2 flat FHDW30
+warp2 flat FHDW31
+warp2 flat FHDW32
+warp2 flat FHDZ01
+warp2 flat FHDZ02
+warp2 flat FHDZ03
+warp2 flat FHDZ04
+warp2 flat FHDZ05
+warp2 flat FHDZ06
+warp2 flat FHDZ07
+warp2 flat FHDZ08
+warp2 flat FHDZ09
+warp2 flat FHDZ10
+warp2 flat FHDZ11
+warp2 flat FHDZ12
+warp2 flat FHDZ13
+warp2 flat FHDZ14
+warp2 flat FHDZ15
+warp2 flat FHDZ16
+warp2 flat FHDZ17
+warp2 flat FHDZ18
+warp2 flat FHDZ19
+warp2 flat FHDZ20
+warp2 flat FHDZ21
+warp2 flat FHDZ22
+warp2 flat FHDZ23
+warp2 flat FHDZ24
+warp2 flat FHDZ25
+warp2 flat FHDZ26
+warp2 flat FHDZ27
+warp2 flat FHDZ28
+warp2 flat FHDZ29
+warp2 flat FHDZ30
+warp2 flat FHDZ31
+warp2 flat FHDZ32
+warp2 flat XTEX0641
+warp2 flat XTEX0642
+warp2 flat XTEX0643
+warp2 flat XTEX0644
+warp2 flat XTEX0645
+warp2 flat XTEX0646
+warp2 flat XTEX0647
+warp2 flat XTEX0650
+warp2 flat XTEX0750
