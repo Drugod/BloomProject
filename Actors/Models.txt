@@ -881,15 +881,137 @@ ACTOR BigSignSpawner 18400
 	}
 }
 
-ACTOR Vortex 18401
+ACTOR VortexA 18401
 {
-	//$Category BlooM Models
-	//$Title Vortex
+	//$Category BlooM Models/Vortex
+	//$Title Vortex, Plane A
 	//$Color 9
-	Radius 16
-	Height 56
+	Radius 1024
+	Height 2
+	Renderstyle "Translucent"
+	Alpha 0.9
+	+BRIGHT
 	+NOGRAVITY
-	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexB : VortexA 18402
+{
+	//$Title Vortex, Plane B
+	Alpha 0.8
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexC : VortexA 18403
+{
+	//$Title Vortex, Plane C
+	Alpha 0.7
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexD : VortexA 18404
+{
+	//$Title Vortex, Plane D
+	Alpha 0.7
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexE : VortexA 18405
+{
+	//$Title Vortex, Plane E
+	Alpha 0.65
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexF : VortexA 18406
+{
+	//$Title Vortex, Plane F
+	Alpha 0.6
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexG : VortexA 18407
+{
+	//$Title Vortex, Plane G
+	Alpha 0.55
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexH : VortexA 18408
+{
+	//$Title Vortex, Plane H
+	Alpha 0.5
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexI : VortexA 18409
+{
+	//$Title Vortex, Plane I
+	Alpha 0.48
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexJ : VortexA 18410
+{
+	//$Title Vortex, Plane J
+	Alpha 0.46
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexK : VortexA 18411
+{
+	//$Title Vortex, Plane K
+	Alpha 0.44
 	States
 	{
 	Spawn:

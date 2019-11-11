@@ -1944,12 +1944,123 @@ Model OldChair
 }
 
 //Rolls Vortex
-Model Vortex
+Model VortexA
 {
    Path "Models/Vortex"
    Model 0 "Vortex.md3"
-   Skin 0 "Vortex_000.png"
+   Skin 0 "Vortex01.png"
    Rotating
+   Rotation-Speed -0.45
    FrameIndex UNKN A 0 0
-   Scale 1.0 1.0 1.0
+   Scale 1.9 1.9 1.9
+}
+
+Model VortexB
+{
+   Path "Models/Vortex"
+   Model 0 "Vortex.md3"
+   Skin 0 "Vortex02.png"
+   Rotating
+   Rotation-Speed 0.45
+   FrameIndex UNKN A 0 0
+   Scale 2.0 2.0 2.0
+}
+
+Model VortexC
+{
+   Path "Models/Vortex"
+   Model 0 "Vortex.md3"
+   Skin 0 "Center01.png"
+   Rotating
+   Rotation-Speed -0.15
+   FrameIndex UNKN A 0 0
+   Scale 1.8 1.8 1.8
+}
+
+Model VortexD
+{
+   Path "Models/Vortex"
+   Model 0 "Vortex.md3"
+   Skin 0 "Center02.png"
+   Rotating
+   Rotation-Speed 0.15
+   FrameIndex UNKN A 0 0
+   Scale 1.7 1.7 1.7
+}
+
+Model VortexE
+{
+   Path "Models/Vortex"
+   Model 0 "Vortex.md3"
+   Skin 0 "Center03.png"
+   Rotating
+   Rotation-Speed 0.65
+   FrameIndex UNKN A 0 0
+   Scale 1.6 1.6 1.6
+}
+
+Model VortexF
+{
+   Path "Models/Vortex"
+   Model 0 "Vortex.md3"
+   Skin 0 "Energy01.png"
+   Rotating
+   Rotation-Speed -0.65
+   FrameIndex UNKN A 0 0
+   Scale 1.5 1.5 1.5
+}
+
+Model VortexG
+{
+   Path "Models/Vortex"
+   Model 0 "Vortex.md3"
+   Skin 0 "Energy02.png"
+   Rotating
+   Rotation-Speed 0.35
+   FrameIndex UNKN A 0 0
+   Scale 0.4 0.4 0.4
+}
+
+Model VortexH
+{
+   Path "Models/Vortex"
+   Model 0 "Vortex.md3"
+   Skin 0 "Clouds1.png"
+   Rotating
+   Rotation-Speed 0.85
+   FrameIndex UNKN A 0 0
+   Scale 3.3 3.3 3.3
+}
+
+Model VortexI
+{
+   Path "Models/Vortex"
+   Model 0 "Vortex.md3"
+   Skin 0 "Clouds2.png"
+   Rotating
+   Rotation-Speed -0.75
+   FrameIndex UNKN A 0 0
+   Scale 3.0 3.0 3.0
+}
+
+Model VortexJ
+{
+   Path "Models/Vortex"
+   Model 0 "Vortex.md3"
+   Skin 0 "Clouds3.png"
+   Rotating
+   Rotation-Speed 0.5
+   FrameIndex UNKN A 0 0
+   Scale 2.8 2.8 2.8
+}
+
+Model VortexK
+{
+   Path "Models/Vortex"
+   Model 0 "Vortex.md3"
+   Skin 0 "Clouds4.png"
+   Rotating
+   Rotation-Speed -0.5
+   FrameIndex UNKN A 0 0
+   Scale 2.5 2.5 2.5
 }

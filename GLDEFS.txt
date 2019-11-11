@@ -1,4 +1,4 @@
-#include "BMAPS.bm"
+#include "BLOOMAPS.bm"
 
 Pointlight ceillight
 {
