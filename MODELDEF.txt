@@ -1942,3 +1942,14 @@ Model OldChair
    Scale 3.3 3.3 3.3
    FrameIndex UNKN A 0 0
 }
+
+//Rolls Vortex
+Model Vortex
+{
+   Path "Models/Vortex"
+   Model 0 "Vortex.md3"
+   Skin 0 "Vortex_000.png"
+   Rotating
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}

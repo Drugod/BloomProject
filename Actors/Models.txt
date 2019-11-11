@@ -881,6 +881,23 @@ ACTOR BigSignSpawner 18400
 	}
 }
 
+ACTOR Vortex 18401
+{
+	//$Category BlooM Models
+	//$Title Vortex
+	//$Color 9
+	Radius 16
+	Height 56
+	+NOGRAVITY
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
 ACTOR ---------CEILING_FLOOR_DECALS--------- {}
 ACTOR Painter
 {
