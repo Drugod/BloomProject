@@ -68,7 +68,7 @@ ACTOR Fist_ : DoomW replaces Fist
 		Goto Ready	
 	NoGrenade:
 		TNT1 A 0
-		TNT1 A 0 A_Print("No Grenades Left")
+		TNT1 A 0 A_Print("$NOGREN")
 		Goto Ready	
 	}
 }
@@ -151,7 +151,7 @@ ACTOR Chainsaw_ : DoomW replaces Chainsaw
 		Goto Ready	
 	NoGrenade:
 		TNT1 A 0
-		TNT1 A 0 A_Print("No Grenades Left")
+		TNT1 A 0 A_Print("$NOGREN")
 		Goto Ready	
 	}
 }
@@ -230,7 +230,7 @@ ACTOR Pistol_ : DoomW replaces Pistol
 		Goto Ready	
 	NoGrenade:
 		TNT1 A 0
-		TNT1 A 0 A_Print("No Grenades Left")
+		TNT1 A 0 A_Print("$NOGREN")
 		Goto Ready	
 	}
 }
@@ -297,7 +297,7 @@ ACTOR DoublePistol_ : Pistol_
 		Goto Ready	
 	NoGrenade:
 		TNT1 A 0
-		TNT1 A 0 A_Print("No Grenades Left")
+		TNT1 A 0 A_Print("$NOGREN")
 		Goto Ready	
 	}
 }
@@ -378,7 +378,7 @@ ACTOR Shotgun_ : DoomW replaces Shotgun
 		Goto Ready	
 	NoGrenade:
 		TNT1 A 0
-		TNT1 A 0 A_Print("No Grenades Left")
+		TNT1 A 0 A_Print("$NOGREN")
 		Goto Ready	
 	}
 }
@@ -465,7 +465,7 @@ ACTOR SuperShotgun_ : DoomW replaces SuperShotgun
 		Goto Ready	
 	NoGrenade:
 		TNT1 A 0
-		TNT1 A 0 A_Print("No Grenades Left")
+		TNT1 A 0 A_Print("$NOGREN")
 		Goto Ready	
 	}
 }
@@ -569,7 +569,7 @@ ACTOR Chaingun_ : DoomW replaces Chaingun
 		Goto Ready	
 	NoGrenade:
 		TNT1 A 0
-		TNT1 A 0 A_Print("No Grenades Left")
+		TNT1 A 0 A_Print("$NOGREN")
 		Goto Ready	
 	}
 }
@@ -586,6 +586,7 @@ ACTOR RocketLauncher_ : DoomW replaces RocketLauncher
 	+WEAPON.NOAUTOFIRE
 	Inventory.PickupMessage "$GOTLAUNCHER"
 	Tag "$TAG_ROCKETLAUNCHER"
+	Weapon.SisterWeapon DoubleRocketLauncher_
 	States
 	{
 	Spawn:
@@ -645,8 +646,68 @@ ACTOR RocketLauncher_ : DoomW replaces RocketLauncher
 		Goto Ready	
 	NoGrenade:
 		TNT1 A 0
-		TNT1 A 0 A_Print("No Grenades Left")
+		TNT1 A 0 A_Print("$NOGREN")
 		Goto Ready	
+	}
+}
+
+ACTOR DoubleRocketLauncher_ : RocketLauncher_
+{
+	+POWERED_UP
+	+WEAPON.BFG
+	Weapon.SisterWeapon RocketLauncher_
+	States
+	{
+	Ready:
+		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")
+		MISG B 1 A_WeaponReady
+		Loop
+	Deselect:
+		MISG B 1 A_Lower
+		Loop
+	Select:
+		MISG B 1 A_Raise
+		Loop
+	Fire:
+		PKRL H 1 
+		PKRL H 4 A_GunFlash
+		PKRL I 2
+		PKRL K 0 A_FireCustomMissile("Rocket",0,1,12)
+		PKRL K 3 A_FireCustomMissile("Rocket",0,1,-12)
+		PKRL J 3
+		PKRL HL 2
+		PKRL MN 1
+		PKRL H 0 A_Refire
+		Goto Ready
+	Flash:
+		PKRF F 3 BRIGHT A_Light1
+		PKRF G 2 BRIGHT
+		PKRF H 2 BRIGHT A_Light2
+		PKRF IJ 3 BRIGHT
+		Goto LightDone
+	TossGrenade:	
+		TNT1 A 0
+		TNT1 A 0 A_ZoomFactor(1.0)
+		TNT1 A 0 A_TakeInventory("TossGrenade", 1)
+		TNT1 A 0 A_JumpIfInventory("GrenadeAmmo", 1, 1)
+		Goto NoGrenade
+		HNDG ABCD 1
+		TNT1 A 0 A_GiveInventory("FiredGrenade", 1)
+		TNT1 A 0 A_Playsound ("GRNPIN")
+		HNDG EEFG 1
+		TNT1 A 0 A_Playsound ("GRNTOSS")
+		HNDG HI 1
+		TNT1 A 0 A_TakeInventory("GrenadeAmmo", 1)
+		TNT1 A 0 A_FireCustomMissile("HandGrenade", frandom(-2,2), 0, 0, 0, 0, 0)
+		TNT1 A 0 A_TakeInventory("FiredGrenade", 1)
+		HNDG JKLM 1
+		TNT1 A 1 
+		TNT1 A 0 A_TakeInventory("TossGrenade", 1)
+		Goto Ready	
+	NoGrenade:
+		TNT1 A 0
+		TNT1 A 0 A_Print("$NOGREN")
+		Goto Ready
 	}
 }
 
@@ -723,7 +784,7 @@ ACTOR PlasmaRifle_ : DoomW replaces PlasmaRifle
 		Goto Ready	
 	NoGrenade:
 		TNT1 A 0
-		TNT1 A 0 A_Print("No Grenades Left")
+		TNT1 A 0 A_Print("$NOGREN")
 		Goto Ready	
 	}
 }
@@ -809,7 +870,7 @@ ACTOR BFG9000_ : DoomW replaces BFG9000
 		Goto Ready	
 	NoGrenade:
 		TNT1 A 0
-		TNT1 A 0 A_Print("No Grenades Left")
+		TNT1 A 0 A_Print("$NOGREN")
 		Goto Ready	
 	}
 }

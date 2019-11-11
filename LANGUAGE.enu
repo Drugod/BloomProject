@@ -64,6 +64,7 @@ TNTPB = "Picked up proximity TNT!";
 TNTRB = "Picked up remote dynamite!";
 
 //WEAPONS MESSAGES
+NOGREN = "No Grenades Left";
 COLTPICK = "You found a colt";
 DYNAPICK = "Picked up a case of TNT!";
 FGUNPICK = "You got the flare gun!";
