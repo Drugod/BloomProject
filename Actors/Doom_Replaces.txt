@@ -20,6 +20,7 @@ ACTOR Backpack_ : BackpackItem replaces Backpack
 ACTOR -------VANILLA_PROJECTILES---------- {}
 ACTOR PlasmaBallX : PlasmaBall replaces PlasmaBall
 {
+	Decal PlasmaScorch
 	Radius 13
 	Height 8
 	Speed 25
@@ -76,6 +77,7 @@ ACTOR RocketX: Rocket replaces Rocket
 
 ACTOR BFGBallX : BFGBall replaces BFGBall
 {
+	Decal BFGScorch
 	Radius 13
 	Height 8
 	Speed 25

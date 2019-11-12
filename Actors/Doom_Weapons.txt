@@ -720,6 +720,8 @@ ACTOR PlasmaRifle_ : DoomW replaces PlasmaRifle
 	Weapon.AmmoType "Cell"
 	Inventory.PickupMessage "$GOTPLASMA"
 	Tag "$TAG_PLASMARIFLE"
+	Weapon.SisterWeapon DoublePlasmaRifle_
+	Decal PlasmaScorch
 	States
 	{
 	Spawn:
@@ -755,6 +757,74 @@ ACTOR PlasmaRifle_ : DoomW replaces PlasmaRifle
 		PKPL E 6
 		PKPL EEDC 2
 		PKPL BA 1
+		Goto Ready
+	Flash:
+		TNT1 A 4 BRIGHT A_Light1
+		Goto LightDone
+		TNT1 A 4 BRIGHT A_Light1
+		Goto LightDone
+	TossGrenade:	
+		TNT1 A 0
+		TNT1 A 0 A_ZoomFactor(1.0)
+		TNT1 A 0 A_TakeInventory("TossGrenade", 1)
+		TNT1 A 0 A_JumpIfInventory("GrenadeAmmo", 1, 1)
+		Goto NoGrenade
+		HNDG ABCD 1
+		TNT1 A 0 A_GiveInventory("FiredGrenade", 1)
+		TNT1 A 0 A_Playsound ("GRNPIN")
+		HNDG EEFG 1
+		TNT1 A 0 A_Playsound ("GRNTOSS")
+		HNDG HI 1
+		TNT1 A 0 A_TakeInventory("GrenadeAmmo", 1)
+		TNT1 A 0 A_FireCustomMissile("HandGrenade", frandom(-2,2), 0, 0, 0, 0, 0)
+		TNT1 A 0 A_TakeInventory("FiredGrenade", 1)
+		HNDG JKLM 1
+		TNT1 A 1 
+		TNT1 A 0 A_TakeInventory("TossGrenade", 1)
+		Goto Ready	
+	NoGrenade:
+		TNT1 A 0
+		TNT1 A 0 A_Print("$NOGREN")
+		Goto Ready	
+	}
+}
+
+ACTOR DoublePlasmaRifle_ : PlasmaRifle_
+{
+	+POWERED_UP
+	+WEAPON.BFG
+	Weapon.AmmoUse 1
+	Weapon.SisterWeapon PlasmaRifle_
+	States
+	{
+	Ready:
+		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")
+		DPLS C 1 A_WeaponReady
+		Loop
+	Deselect:
+		DPLS CB 1
+	DeselectLoop:
+		DPLS A 1 A_Lower
+		Loop
+	Select:
+		DPLS AB 1
+	SelectLoop:
+		DPLS C 1 A_Raise
+		Loop  
+	Fire:
+		DPLS H 0 BRIGHT A_FireCustomMissile("PlasmaBallX",0,1,12)
+		DPLS H 1 BRIGHT A_FireCustomMissile("PlasmaBallX",0,1,-12)
+		TNT1 A 0 A_Quake(4,12,0,150)							
+		DPLS I 1 BRIGHT
+		DPLS J 1 BRIGHT
+		DPLS K 0 BRIGHT
+		TNT1 A 0 A_Refire
+		DPLS C 1 BRIGHT
+		DPLS DDE 1
+		DPLS EFG 1
+		DPLS G 3
+		DPLS GGFE 2
+		DPLS DC 1
 		Goto Ready
 	Flash:
 		TNT1 A 4 BRIGHT A_Light1
