@@ -134,24 +134,23 @@ ACTOR BurnDeathSmoke
 	}
 }
 
-ACTOR BloodBeer : Meat5 3177//replaces Meat5
+ACTOR BloodBeer 3177
 {
 	//$Category "BlooM Ambient"
-	Tag "Red bottle"
+	//$Title "Red Bottle"
+	Tag "Red Bottle"
 	Radius 4
 	Height 17
 	Health 3
+	Scale 0.5
+	RenderStyle "Translucent"
+	Alpha 0.9
 	+NOBLOOD
 	+NOTAUTOAIMED
 	+SHOOTABLE
 	+SOLID
-	-NOGRAVITY
-	-SPAWNCEILING
-	RenderStyle "Translucent"
 	DeathSound "PotteryBreak" 
 	Translation "112:127=32:47"
-	Alpha 0.9
-	Scale 0.5
 	States
 	{
 	Spawn:
@@ -161,9 +160,135 @@ ACTOR BloodBeer : Meat5 3177//replaces Meat5
 	Death:
 		BOTL A 0 A_Fall
 		BOTL A 0 A_Scream
-		XATT FGH 1 A_SpawnDebris ("GlassDebris",1)
+		XATT FGH 1 A_SpawnDebris("GlassDebris",1)
 		XATT IJK 2
 		BOTL A 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	}
+}
+
+ACTOR BrownBottles 24000
+{
+	//$Category "BlooM Ambient"
+	//$Title "Brown Bottle, random"
+	Tag "Brown Bottle"
+	Radius 4
+	Height 17
+	Health 3
+	Scale 0.5
+	RenderStyle "Translucent"
+	Alpha 0.9
+	+NOBLOOD
+	+NOTAUTOAIMED
+	+SHOOTABLE
+	+SOLID
+	DeathSound "PotteryBreak" 
+	States
+	{
+	Spawn:
+		BOTL C 0 A_Jump(256,"Bottle1", "Bottle2")
+	Bottle1:
+		BOTL C 1
+		Loop
+	Bottle2:
+		BOTL D 1
+		Loop
+	Pain:
+	Death:
+		BOTL C 0 A_Fall
+		BOTL C 0 A_Scream
+		XATT FGH 1 A_SpawnDebris("GlassDebris",1)
+		XATT IJK 2
+		Stop
+	}
+}
+
+ACTOR BigBottle : BrownBottles 24001
+{
+	//$Title "Big Bottle"
+	Tag "Big Bottle"
+	States
+	{
+	Spawn:
+		BOTL B 1
+		Loop
+	Pain:
+	Death:
+		BOTL B 0 A_Fall
+		BOTL B 0 A_Scream
+		XATT FGH 1 A_SpawnDebris("GlassDebris",1)
+		XATT IJK 2
+		Stop
+	}
+}
+
+ACTOR BloodStalags1 : Stalagmite 24002
+{
+	//$Category "BlooM Ambient"
+	//$Title "Brown Stalagmite, random"
+	States
+	{
+	Spawn:
+		STGL A 0 A_Jump(256,"Stag1", "Stag2")
+	Stag1:
+		STGL A -1
+		Stop
+	Stag2:
+		STGL C -1
+		Stop
+	}
+}
+
+ACTOR BloodStalags2 : BloodStalags1 24003
+{
+	//$Title "Brown Stalagtite, random"
+	+NOGRAVITY
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+		STGL B 0 A_Jump(256,"Stag1", "Stag2")
+	Stag1:
+		STGL B -1
+		Stop
+	Stag2:
+		STGL D -1
+		Stop
+	}
+}
+
+ACTOR BloodStalags3 : BloodStalags1 24004
+{
+	//$Title "Green Stalagmite, random"
+	Radius 8
+	States
+	{
+	Spawn:
+		STGL E 0 A_Jump(256,"Stag1", "Stag2")
+	Stag1:
+		STGL E -1
+		Stop
+	Stag2:
+		STGL F -1
+		Stop
+	}
+}
+
+ACTOR BloodStalags4 : BloodStalags1 24005
+{
+	//$Title "Green Stalagtite, random"
+	Radius 8
+	+NOGRAVITY
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+		STGL G 0 A_Jump(256,"Stag1", "Stag2")
+	Stag1:
+		STGL G -1
+		Stop
+	Stag2:
+		STGL H -1
 		Stop
 	}
 }
@@ -197,7 +322,7 @@ ACTOR ZBlooDTeleportFog : TeleportFog replaces TeleportFog
 	}
 }
 
-ACTOR Belial : HeartColumn 3245 //replaces HeartColumn
+ACTOR Belial : HeartColumn 3245
 {
 	//$Category "BlooM Ambient"
 	Radius 16
@@ -275,7 +400,7 @@ ACTOR Crown : HeartColumn 3246
 	}
 }
 
-ACTOR Platewater 3286
+ACTOR PlateWater 3286
 {
 	//$Category "BlooM Ambient"
 	Tag "Plate water"
@@ -1172,20 +1297,18 @@ ACTOR childcol : shortcol 3205
 	}
 }
 
-ACTOR jar1 3206
+ACTOR Jar1 3206
 {
 	//$Category "BlooM Ambient"
-	Mass 10000000
+	//$Title "Jar 1, breakable"
 	Height 50
 	Radius 16
-	Height 60
 	Health 3
+	Mass 0x7ffffff
 	+NOBLOOD
 	+NOTAUTOAIMED
 	+SHOOTABLE
 	+SOLID
-	-NOGRAVITY 
-	-SPAWNCEILING
 	DeathSound "PotteryBreak" 
 	Translation "118:118=63:63", "118:118=65:65", "121:121=64:64", "120:120=70:70", "117:117=61:61", "119:119=71:71", "122:122=75:75"
 	States
@@ -1197,14 +1320,63 @@ ACTOR jar1 3206
 	Death:
 		WJA1 A 0 A_Fall
 		WJA1 A 0 A_Scream
-		XATT FGH 1 A_SpawnDebris ("GlassDebris",1)
+		XATT FGH 1 A_SpawnDebris("GlassDebris",1)
 		XATT IJK 2
 		Stop	
 	}
 }
 
-ACTOR jar2 : shortcol 3207
+ACTOR Jar1B 24006//no inheritances with jar1 to avoid translations - ozy81
 {
+	//$Category "BlooM Ambient"
+	//$Title "Jar 1 B, breakable"
+	Height 48
+	Radius 16
+	Health 3
+	Mass 0x7ffffff
+	+NOBLOOD
+	+NOTAUTOAIMED
+	+SHOOTABLE
+	+SOLID
+	DeathSound "PotteryBreak" 
+	States
+	{
+	Spawn:
+		WJA1 B -1
+		Stop
+	Pain:
+	Death:
+		WJA1 B 0 A_Fall
+		WJA1 B 0 A_Scream
+		XATT FGH 1 A_SpawnDebris("GlassDebris",1)
+		XATT IJK 2
+		Stop	
+	}
+}
+
+ACTOR Jar1C : Jar1B 24007
+{
+	//$Title "Jar 1 C, breakable"
+	Height 27
+	States
+	{
+	Spawn:
+		WJA1 C -1
+		Stop
+	Pain:
+	Death:
+		WJA1 C 0 A_Fall
+		WJA1 C 0 A_Scream
+		XATT FGH 1 A_SpawnDebris("GlassDebris",1)
+		XATT IJK 2
+		Stop	
+	}
+}
+
+ACTOR Jar2 : shortcol 3207
+{
+	//$Category "BlooM Ambient"
+	//$Title "Jar 2"
 	Scale 1.0
 	States
 	{
@@ -1214,8 +1386,10 @@ ACTOR jar2 : shortcol 3207
 	}
 }
 
-ACTOR jar3 : shortcol 3208
+ACTOR Jar3 : shortcol 3208
 {
+	//$Category "BlooM Ambient"
+	//$Title "Jar 3"
 	Scale 1.0
 	States
 	{
@@ -1225,8 +1399,10 @@ ACTOR jar3 : shortcol 3208
 	}
 }
 
-ACTOR mourn : shortcol 3209
+ACTOR Mourn : shortcol 3209
 {
+	//$Category "BlooM Ambient"
+	//$Title "Mourn"
 	Height 80
 	States
 	{
