@@ -255,26 +255,24 @@ ACTOR DoublePistol_ : Pistol_
 		PKPI F 1 A_Raise
 		Loop
 	Fire:
-		PKPI F 3 
-		PKPI G 0 A_FireBullets (5.6, 0, 1, 5, "BulletPuff")
-		PKPI G 0 A_PlaySound("weapons/pistol", CHAN_WEAPON)
-		PKPI G 0 A_FireBullets (-5.6, 0, 1, 5, "BulletPuff")
-		PKPI G 0 A_PlaySound("weapons/pistol", CHAN_WEAPON)
-		PKPI G 0 A_GunFlash
-		PKPI G 1
+		PKPI G 3 
 		PKPI H 2
-		PKPI I 1
-		PKPI J 1 Offset(0,34)
-		PKPI J 1 Offset(0,33)
-		PKPI I 1 Offset(0,32)
-		PKPI G 1 Offset(0,32)
-		PKPI G 1 A_Refire
-		PKPI F 3 A_Refire
+		PKPI H 0 A_FireBullets (5.6, 0, 1, 5, "BulletPuff")
+		PKPI H 0 A_PlaySound("weapons/pistol", CHAN_WEAPON) 
+		PKPI H 0 A_GunFlash
+		PKPI I 3
+		PKPI J 2
+		PKPI J 0 A_FireBullets (-5.6, 0, 1, 5, "BulletPuff")
+		PKPI J 0 A_PlaySound("weapons/pistol", CHAN_WEAPON)
+		PKPI J 0 A_GunFlash
+		PKPI K 3 A_Refire
+		PKPI L 2 A_Refire
 		Goto Ready
 	Flash:
 		TNT1 A 0
-		PKPF D 2 BRIGHT A_Light2
-		PKPF C 1 BRIGHT A_Light1
+		TNT1 A 2 BRIGHT A_Light2
+		TNT1 A 1
+		TNT1 A 1 BRIGHT A_Light1
 		Goto LightDone
 	TossGrenade:	
 		TNT1 A 0
