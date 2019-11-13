@@ -1020,6 +1020,65 @@ ACTOR TheStatueHybrid
 	}
 }
 
+ACTOR --------BOSSES1------------ {}
+ACTOR HybridBosses1 replaces Cyberdemon
+{
+    //$Category "Monsters Selectors"
+    //$Title Hybrid bosses1 Cheogh/Cyberdemon
+    //$Color 3
+	//$Sprite B1ILC0
+	Scale 0.5 //needed for gzdb - ozy81
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridBoss1Spawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalBoss1Spawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalBoss1Spawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Cheogh",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Cyberdemon_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridBoss1Spawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("KingCacoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
 ACTOR --------CUSTOMEYE_SELECTOR------------ {}
 /*ACTOR CustomEye : BossEye replaces BossEye
 {
