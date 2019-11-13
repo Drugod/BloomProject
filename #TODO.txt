@@ -2,22 +2,23 @@ For Rolls, models which needs to be added:
 - nothing yet
 
 For All:
-- add Blood items related 3d models
 - Bloodjar and Bloodpile actors share the same behavior and sprite... What's the point?
-- check always maps from Zandronum first :(
-- convert all models as md3 and try reducing polys total (not important, just a nitpick and it would require lots of time)
-- externalize KEYCONF between LANGUAGE and MENUDEF (if supported by zandro)
-- fix Berserk_ behavior for Zandro coop: cruduxy/marinelol said that it crashes once you pick it up, so I guess we should call a script for Pickup2 state jump
-- fix Cultists looping fire sounds for Zandro, marinelol said "server crashes about an infinite loop caused by fire cultists"
-- fix Gargovile/FlyingGargovile health while performing Summon states
 - fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff
-- fix LifeLeech for Zandronum: fire states originate some unknown flags messages, probably cause by non-existent GunFlash calls or maybe Acs calls
-- fix TERRAIN defs, lots of sounds needs to be defined and included
 - fix HUD statusbar for gzdoom 4+
 - fix SpiderMother code
+- fix TERRAIN defs, lots of sounds needs to be defined and included
 - polish overall code
 - reduce size of models skins, 1000x1000 is very engine intensive, 512x512 should be okay... We must figure how to not break quality though
 - remove unused stuff
-- there are a pletora of models that needs to be coded yet, just check inside Models/Doom and Models/Blood
+- there are a couple of unused voxels yet, and possibly models
 - tweak special effects, bleeding effects and amount of used actors per maps
 - verify if unified PNAMES works
+
+Coop problems:
+- fix Berserk_ behavior for Zandro coop: cruduxy/marinelol said that it crashes once you pick it up, so I guess we should call a script for Pickup2 state jump (we may set the Berserk_ with Doomy behavior and create another powerup which has a new sprite for the Beast form, and use it only in singleplayer [and said powerup if we choose DomGuy it gives to him QuadDamage, usign the HolyBible sprote as pickup])	
+- fix CultFire sounds for Zandro, marinelol said "server crashes about an infinite loop caused by fire cultists" (the actor has been fixed, needs tests)
+
+Zandro test required:
+- check always maps from Zandronum first :(
+- externalize KEYCONF between LANGUAGE and MENUDEF (if supported by zandro)
+- fix LifeLeech for Zandronum: fire states originate some unknown flags messages, probably cause by non-existent GunFlash calls or maybe Acs calls

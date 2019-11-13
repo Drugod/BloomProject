@@ -1,13 +1,7 @@
-//Place the RainDropSpawner on your map, and use values set on the specials tab to modify it
-//The first argument controls it's area. 128, for example makes it a 256x256 square or 256-radius circle (See fourth argument)
-//The second argument controls it's frequency. The lower the number, the heavier the rainfall
-//The third argument controls whether or not it plays it's ambient sound. 0 will play the sound, 1 will not
-//The fourth argument controls the area type. 0 is a square, 1 is a circle
-//The fifth argument controls water = 0, blood = 1, acid = 2
-
-ACTOR RainSpawner 3249 //DoomEdNum on this
+ACTOR RainSpawner 3249
 {
 	//$Category "BlooM Weather"
+	//$Title "Rain Spawner"
 	//$Color 13
 	//$Sprite RNDRA0
 	//$Arg0 "Radius"
@@ -205,6 +199,7 @@ ACTOR FlyingBloodrop
 ACTOR SnowSpawner 3250
 {
     //$Category "BlooM Weather"
+	//$Title "Snow Spawner"
 	//$Color 13
 	//$Sprite SNOWA0
 	//$Arg0 "Radius"
@@ -295,6 +290,7 @@ ACTOR SnowParticle2
 ACTOR Thunder_GeneratorWhite : SwitchableDecoration 31999
 {
 	//$Category "BlooM Weather"
+	//$Title "Thunder Generator, White"
 	//$Color 13
 	//$Sprite GZDBB0
 	//$Arg2 "Sound"
@@ -337,16 +333,28 @@ ACTOR Thunder_GeneratorWhite : SwitchableDecoration 31999
 }
 
 ACTOR Thunder_GeneratorTan : Thunder_GeneratorWhite 31998
-{Translation "80:111=48:79"}
+{
+	//$Title "Thunder Generator, Tan"
+	Translation "80:111=48:79"
+}
 
 ACTOR Thunder_GeneratorGreen : Thunder_GeneratorWhite 31997
-{Translation "80:111=112:127"}
+{
+	//$Title "Thunder Generator, Green"
+	Translation "80:111=112:127"
+}
 
 ACTOR Thunder_GeneratorRed : Thunder_GeneratorWhite 31996
-{Translation "80:111=171:191"}
+{
+	//$Title "Thunder Generator, Red"
+	Translation "80:111=171:191"
+}
 
 ACTOR Thunder_GeneratorBlue : Thunder_GeneratorWhite 31995
-{Translation "80:111=192:207"}
+{
+	//$Title "Thunder Generator, Blue"
+	Translation "80:111=192:207"
+}
 
 ACTOR Thunder_Spark
 {
@@ -408,6 +416,7 @@ ACTOR Thunder_Smoke
 ACTOR FogCloud_Generator 3274
 {
 	//$Category "BlooM Weather"
+	//$Title "Fog Spawner"
 	//$Color 13
 	//$Sprite "GZDBA0"
 	//$Arg0 "Radius"
@@ -497,22 +506,10 @@ ACTOR FogCloud_V3 : FogCloud_V1
 	}
 }
 
-/*Place on map and use the first four arguments to change behavior.
-
-First argument controls direction. 0 is up, 1 is down, 2 is forward. For best results,
-down-pointing spawners should be placed 2 or 3 map units below the ceiling.
-
-Second argument chooses if it's a constant spawner, or spawns in bursts. Burst spawners use the
-third argument and play a different sound.
-
-Third argument controls the frequency of the bursts (divided by 16. I.e, 128 will end up as 8).
-This is only used by the second argument.
-
-Fourth argument silences the spawner. 0 will play the sound, 1 will not.*/
-
 ACTOR SteamSpawner : SwitchableDecoration 3275
 {
 	//$Category "BlooM Weather"
+	//$Title "Steam Spawner"
 	//$Color 13
 	//$Sprite STEMA0
 	//$Arg0 "Direction"
@@ -625,6 +622,7 @@ ACTOR SteamParticle
 ACTOR Floorfog 3287
 {
 	//$Category "BlooM Weather"
+	//$Title "Foggy Floor Effect"
 	//$Color 13
 	+FLOORCLIP
 	+NOGRAVITY

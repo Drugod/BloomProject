@@ -136,7 +136,7 @@ ACTOR DeadBrownCultist : DeadBloodZombie
 
 ACTOR TheShinning 3235
 {
-	//$Category "BlooM Corpses"
+	//$Category "BlooM Eastereggs"
 	//$Title Jack from Shining, Shootable
 	//$Color 15
 	Health 15

@@ -141,7 +141,8 @@ OB_SSHOT = "%o was single-barreled to the chest by %k.";
 OB_TESL = "%o was overcharged by %k.";
 OB_TOMMY = "%o sung %k's Tommy tune.";
 OB_VODO = "%o was tingled by %k's voodoo stings.";
-OB_SPIKE = "%o was grinded.";
+OB_SPIKE1 = "%o was grinded by a rolling spiked column.";
+OB_SPIKE2 = "%o was punctured to death from below.";
 OB_WBOMB = "%o got caught by an explosion.";
 
 //OBITUARIES - BLOOD

@@ -992,6 +992,38 @@ ACTOR TheGargolStatue 19045
 	}
 }
 
+ACTOR MerryGargStatue
+{
+	//$Category "BlooM Ambient"
+	Scale 0.6
+	Radius 10
+	Height 35
+	Mass 10
+	Gravity 0.6
+	+NOBLOOD
+	+NODAMAGE
+	+NOTAUTOAIMED
+	+SHOOTABLE
+	+SOLID
+	States
+	{
+	Spawn:
+		GRGS A -1
+		Stop
+	}
+}
+
+ACTOR MerryGargovileStatue : MerryGargStatue
+{
+	Scale 1.0
+	States
+	{
+	Spawn:
+		ARCS A -1
+		Stop
+	}
+}
+
 ACTOR TheStatueNormal
 {
 	States
