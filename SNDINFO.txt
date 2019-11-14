@@ -431,6 +431,10 @@ grenades/grnbnce		GRNBNCE
 
 human/imonfire			dsburnme
 
+//Ice attacks
+king/iceshot	DSICESHT
+king/icehit		DSICEHIT
+
 //FleshTrap
 ftrap/death 	DSBLDPUK
 

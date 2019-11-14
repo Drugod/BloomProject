@@ -968,3 +968,38 @@ ACTOR SmokeTrailVerySlow : SmokeTrail
 ACTOR SmokeTrailSmallSlow : SmokeTrailSlow {Scale .25}
 ACTOR SmokeTrailTiny : SmokeTrail {Scale .125}
 ACTOR SmokeTrailTinySlow : SmokeTrailSlow {Scale .125}
+
+ACTOR KingFX1 : IceGuyFX
+{
+	DeathSound "king/icehit"
+	Speed 30
+	States
+	{
+	Spawn:
+		ICPR ABC 3 Bright A_SpawnItemEx("KingFXPuff", 0, 0, 2)
+		Loop
+	}
+}
+
+ACTOR KingFX2 : KingFX1 { Speed 40 }
+ACTOR KingFX3 : KingFX1 { Speed 50 }
+ACTOR KingFX4 : KingFX1 { Speed 60 }
+
+ACTOR KingFXPuff : IceFXPuff {} //nothing new defined yet
+
+ACTOR KingTornado
+{
+	Height 4
+	Speed 50
+	Radius 50 
+	Height 16
+	PROJECTILE
+	+SEEKERMISSILE
+	+RANDOMIZE 
+	States
+	{
+	Spawn:
+		TNT1 AAAAAAAAAAAA 1 A_RadiusThrust(256,1024,RTF_NOIMPACTDAMAGE)
+		Stop
+	}
+}

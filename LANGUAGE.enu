@@ -189,10 +189,12 @@ OB_ZAXE = "%o got the zombie's axe.";
 
 //OBITUARIES - HYBRIDS
 HB_CACOY = "%o gets killed by a Cacoyle's bad breath ;)";
+HB_CACOYB = "%o gets pulverized by the mighty King Cacoyle rotten breath";
 HB_GHOREV = "A Ghost Revenant scared the hell out of %o.";
 HB_TERREV = "%o was punched by a Ghost Revenant.";
 OB_ACHNOID = "%o killed by an Arachnoid.";
 OB_CACOY = "%o didn't survive Cacoyle attack.";
+OB_CACOYB = "%o wasn't enough strong to survive King Cacoyle's attack.";
 OB_DEMHOU = "%o was bit by a Demonhound.";
 OB_DEMHOU2 = "%o was incinerated by a DemonHound.";
 OB_EELCUB = "Carbonized by a Eelcubus.";
