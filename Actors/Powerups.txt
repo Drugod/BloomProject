@@ -140,6 +140,8 @@ ACTOR Berserk_ : CustomInventory replaces Berserk
 	Pickup2:
 		TNT1 A 1 A_Playsound("dscult2")
 		TNT1 A 1 A_GiveInventory("Wolfme")
+		TNT1 A 0 HealThing(100, 0)
+		TNT1 A 0 A_SelectWeapon("Pitchfork")		
 		Stop
 	}
 }
@@ -151,6 +153,11 @@ ACTOR WolfMe : PowerupGiver
 	PowerUp.Duration 1050
 	PowerUp.Type "Wolf"
 	Powerup.Color RedMap
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_GiveInventory("PowerWolf")
+	}
 }
 
 ACTOR PowerWolf : PowerMorph
