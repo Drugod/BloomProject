@@ -142,9 +142,7 @@ ACTOR BeastHands : Weapon
 		BSTL AABBCCDDEEFFGGHH 3
 		Stop
 	Fire:
-		TNT1 A 0 A_Jump(256, "Attack1", "Attack2", "Attack3", "Attack4")
-		Loop
-	Attack1:
+		TNT1 A 0 A_Jump(192, "Attack2", "Attack3", "Attack4")				
 		TNT1 A 1 A_Playsound("BeastSlash1")
 		BST1 A 1 A_GunFlash("", GFF_NOEXTCHANGE)
 		TNT1 A 0 A_CUSTOMPUNCH(1000)
