@@ -1,11 +1,12 @@
 Mod concept by Drugod & Rolls
 Acs/Decorate/Maps by Drugod
 Acs/Decorate/Tweaks by Ozymandias81
-Sprites (Hybrid monsters) and 3Dmodels by Rolls
+Sprites (Hybrid monsters) and 3D Models by Rolls
 Music by Buio Mondo & Drugod
 
 Bloom is based on ZBlood-ZBloodX Addon by IvanDobrovski/Cruduxy/Marinelol
 
+Colored brightmaps by Ozymandias81
 Colt and single barrel Shotgun taken from Blood weapon mod
 Doom Models mainly from TheMacGyverArchiver
 Doom Voxels by Reikall (several)

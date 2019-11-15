@@ -1,28 +1,43 @@
 //BRIGHTMAPS
-Brightmap sprite GARDA1
-{
-	map "Graphics/Brightmaps/GARDA1.png"
-}
-Brightmap sprite GARDA2A8
-{
-	map "Graphics/Brightmaps/GARDA2A8.png"
-}
-Brightmap sprite GARDA3A7
-{
-	map "Graphics/Brightmaps/GARDA3A7.png"
-}
-Brightmap sprite GARDB1
-{
-	map "Graphics/Brightmaps/GARDB1.png"
-}
-Brightmap sprite GARDB2B8
-{
-	map "Graphics/Brightmaps/GARDB2B8.png"
-}
-Brightmap sprite GARDB3B7
-{
-	map "Graphics/Brightmaps/GARDB3B7.png"
-}
+Brightmap sprite GARDA1		{map "Graphics/Brightmaps/GARDA1.png"}
+Brightmap sprite GARDA2A8	{map "Graphics/Brightmaps/GARDA2A8.png"}
+Brightmap sprite GARDA3A7	{map "Graphics/Brightmaps/GARDA3A7.png"}
+Brightmap sprite GARDB1		{map "Graphics/Brightmaps/GARDB1.png"}
+Brightmap sprite GARDB2B8	{map "Graphics/Brightmaps/GARDB2B8.png"}
+Brightmap sprite GARDB3B7	{map "Graphics/Brightmaps/GARDB3B7.png"}
+Brightmap sprite GARDC1		{map "Graphics/Brightmaps/GARDC1.png"}
+Brightmap sprite GARDC2C8	{map "Graphics/Brightmaps/GARDC2C8.png"}
+Brightmap sprite GARDC3C7	{map "Graphics/Brightmaps/GARDC3C7.png"}
+Brightmap sprite GARDD1		{map "Graphics/Brightmaps/GARDD1.png"}
+Brightmap sprite GARDD2D8	{map "Graphics/Brightmaps/GARDD2D8.png"}
+Brightmap sprite GARDD3D7	{map "Graphics/Brightmaps/GARDD3D7.png"}
+Brightmap sprite GARDE1		{map "Graphics/Brightmaps/GARDE1.png"}
+Brightmap sprite GARDE2E8	{map "Graphics/Brightmaps/GARDE2E8.png"}
+Brightmap sprite GARDF1		{map "Graphics/Brightmaps/GARDF1.png"}
+Brightmap sprite GARDF2F8	{map "Graphics/Brightmaps/GARDF2F8.png"}
+Brightmap sprite GARDG1		{map "Graphics/Brightmaps/GARDG1.png"}
+Brightmap sprite GARDG2G8	{map "Graphics/Brightmaps/GARDG2G8.png"}
+Brightmap sprite GARDH1		{map "Graphics/Brightmaps/GARDH1.png"}
+Brightmap sprite GARDH2H8	{map "Graphics/Brightmaps/GARDH2H8.png"}
+Brightmap sprite GARDH3H7	{map "Graphics/Brightmaps/GARDH3H7.png"}
+Brightmap sprite GARDH4H6	{map "Graphics/Brightmaps/GARDH4H6.png"}
+Brightmap sprite GARDI1		{map "Graphics/Brightmaps/GARDI1.png"}
+Brightmap sprite GARDI2I8	{map "Graphics/Brightmaps/GARDI2I8.png"}
+Brightmap sprite GARDI3I7	{map "Graphics/Brightmaps/GARDI3I7.png"}
+Brightmap sprite GARDI4I6	{map "Graphics/Brightmaps/GARDI4I6.png"}
+Brightmap sprite GARDI5		{map "Graphics/Brightmaps/GARDI5.png"}
+Brightmap sprite GARDJ1		{map "Graphics/Brightmaps/GARDJ1.png"}
+Brightmap sprite GARDJ2J8	{map "Graphics/Brightmaps/GARDJ2J8.png"}
+Brightmap sprite GARDJ3J7	{map "Graphics/Brightmaps/GARDJ3J7.png"}
+Brightmap sprite GARDJ4J6	{map "Graphics/Brightmaps/GARDJ4J6.png"}
+Brightmap sprite GARDJ5		{map "Graphics/Brightmaps/GARDJ5.png"}
+Brightmap sprite GARDK1		{map "Graphics/Brightmaps/GARDK1.png"}
+Brightmap sprite GARDK2K8	{map "Graphics/Brightmaps/GARDK2K8.png"}
+Brightmap sprite GARDK3K7	{map "Graphics/Brightmaps/GARDK3K7.png"}
+Brightmap sprite GARDK4K6	{map "Graphics/Brightmaps/GARDK4K6.png"}
+Brightmap sprite GARDK5		{map "Graphics/Brightmaps/GARDK5.png"}
+Brightmap sprite GARDL0		{map "Graphics/Brightmaps/GARDL0.png"}
+Brightmap sprite GARDR0		{map "Graphics/Brightmaps/GARDR0.png"}
 
 
 Brightmap sprite PTNTI0{

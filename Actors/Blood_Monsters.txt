@@ -1227,12 +1227,12 @@ ACTOR EWWW
 	Scale 0.07
 	+CANNOTPUSH
 	+CLIENTSIDEONLY
-	+LOWGravity
+	+LOWGRAVITY
 	-SOLID
 	States
 	{
 	Spawn:
-		BARF ABCDEFABCDEFABCDEF 3
+		BARF ABCDEFABCDEFABCDEF 3 LIGHT("IGLOW") 
 	Death:
 		BARF AAAA 4 A_FadeOut(0.25)
 		Stop
@@ -1253,11 +1253,11 @@ ACTOR ButcherVomit
 	States
 	{
 	Spawn:
-		BARF AB 3 A_Setangle(angle+frandom(-5,5))
+		BARF AB 3 LIGHT("IGLOW") A_Setangle(angle+frandom(-5,5))
 		BARF AA 0 A_SpawnItemEx("EWWW",frandom(-2,2),frandom(-2,2),frandom(-3,3),frandom(-2,2),frandom(-2,2),frandom(-2,2))
-		BARF CDEF 3 A_Setangle(angle+frandom(-5,5))
+		BARF CDEF 3 LIGHT("IGLOW") A_Setangle(angle+frandom(-5,5))
 		BARF AA 0 A_SpawnItemEx("EWWW",frandom(-2,2),frandom(-2,2),frandom(-3,3),frandom(-2,2),frandom(-2,2),frandom(-2,2))
-		BARF EF 3 A_Setangle(angle+frandom(-5,5))
+		BARF EF 3 LIGHT("IGLOW") A_Setangle(angle+frandom(-5,5))
 		BARF AA 0 A_SpawnItemEx("EWWW",frandom(-2,2),frandom(-2,2),frandom(-3,3),frandom(-2,2),frandom(-2,2),frandom(-2,2))
 		Loop
 	Death:
