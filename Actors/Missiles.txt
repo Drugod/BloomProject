@@ -976,7 +976,7 @@ ACTOR KingFX1 : IceGuyFX
 	States
 	{
 	Spawn:
-		ICPR ABC 3 Bright A_SpawnItemEx("KingFXPuff", 0, 0, 2)
+		ICPR ABC 3 Bright LIGHT("KINGICE") A_SpawnItemEx("KingFXPuff", 0, 0, 2)
 		Loop
 	}
 }
@@ -994,8 +994,8 @@ ACTOR KingTornado
 	Radius 50 
 	Height 16
 	PROJECTILE
-	+SEEKERMISSILE
 	+RANDOMIZE 
+	+SEEKERMISSILE
 	States
 	{
 	Spawn:

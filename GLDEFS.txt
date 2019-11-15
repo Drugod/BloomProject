@@ -222,6 +222,12 @@ Pointlight GargoyleBallFlash
 	Size 24
 }
 
+PointLight KINGICE
+{
+	Color 0.1 0.3 1.0
+	Size 48
+}
+
 Object SprayCanAlt
 {
 Frame TNT1B { light GiganticLight2    }

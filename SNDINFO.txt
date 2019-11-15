@@ -685,15 +685,16 @@ HellHound/Bite		HOUNDBT3
 $RollOff HellHound/Bite 1400 1800
 
 //GARGOYLE
-GargoyleSee			GARGSEE
 GargoyleAct			GARGACT
-GargoylePain		GARGPAIN
-GargoyleDie1		GARGDIE1
-GargoyleDie2		GARGDIE2
 GargoyleBurn		GARGDIE3
 GargoyleMelee		GARGMLE
+GargoylePain		GARGPAIN
+GargoyleSee			GARGSEE
+GargoyleFlap1 		GARWING
+GargoyleFlap2 		KINGFLAP
 $Random GargoyleDie { GargoyleDie1 GargoyleDie2 }
-GargoyleWingFlap GarWing
+GargoyleDie1		GARGDIE1
+GargoyleDie2		GARGDIE2
 
 //CHEOGH
 Cheogh/Slap	SARGCLAW

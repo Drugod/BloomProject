@@ -6939,27 +6939,35 @@ ACTOR KingCacoyle : BloomHybrid_Base 19053
 		CHEW ABCD 4 A_FaceTarget
 		TNT1 A 0 A_FaceTarget
 		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
 		CHEW ABCD 4 A_CustomMissile("KingTornado",0,0,0,0)
 		TNT1 A 0 A_FaceTarget
 		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
 		CHEW ABCD 4 A_CustomMissile("KingTornado",0,0,0,0)
 		TNT1 A 0 A_FaceTarget
 		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
 		CHEW ABCD 4 A_CustomMissile("KingTornado",0,0,0,0)
 		TNT1 A 0 A_FaceTarget
 		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
 		CHEW ABCD 4 A_CustomMissile("KingTornado",0,0,0,0)
 		TNT1 A 0 A_FaceTarget
 		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
 		CHEW ABCD 4 A_CustomMissile("KingTornado",0,0,0,0)
 		TNT1 A 0 A_FaceTarget
 		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
 		CHEW ABCD 4 A_CustomMissile("KingTornado",0,0,0,0)
 		TNT1 A 0 A_FaceTarget
 		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
 		CHEW ABCD 4 A_CustomMissile("KingTornado",0,0,0,0)
 		TNT1 A 0 A_FaceTarget
 		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
 		CHEW ABCD 4 A_CustomMissile("KingTornado",0,0,0,0)	
 		TNT1 A 0 A_UnSetInvulnerable
 		Goto See
