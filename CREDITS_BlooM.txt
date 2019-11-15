@@ -7,6 +7,7 @@ Music by Buio Mondo & Drugod
 Bloom is based on ZBlood-ZBloodX Addon by IvanDobrovski/Cruduxy/Marinelol
 
 Colored brightmaps by Ozymandias81
+Marrub and John Romero for Doom Beta sprites used for BeastForm and UnholyBible_
 Colt and single barrel Shotgun taken from Blood weapon mod
 Doom Models mainly from TheMacGyverArchiver
 Doom Voxels by Reikall (several)
