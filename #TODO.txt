@@ -15,7 +15,7 @@ For All:
 - verify if unified PNAMES works
 
 Coop problems:
-- test new Berserk_ behavior for Zandro in coop, sinec it has a checkclass for Pickup2 state
+- fix Berserk_ behavior for Zandro coop: cruduxy/marinelol said that it crashes once you pick it up, so I guess we should call a script for Pickup2 state jump (we may set the Berserk_ with Doomy behavior and create another powerup which has a new sprite for the Beast form, and use it only in singleplayer [and said powerup if we choose DomGuy it gives to him QuadDamage, usign the HolyBible sprote as pickup])	
 - fix CultFire sounds for Zandro, marinelol said "server crashes about an infinite loop caused by fire cultists" (the actor has been fixed, needs tests)
 
 Zandro test required:

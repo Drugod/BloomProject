@@ -90,25 +90,25 @@ ACTOR Caleb : Playerpawn
     {
     Spawn:
 		TNT1 A 0
-		CALB I -1
+		CALB I -1 //A_GiveInventory("PlayerController",1)
 		Loop
 	See:
-		CALB AAAABBBBCCCCDDDDEEEEFFFF 1
+		CALB AAAABBBBCCCCDDDDEEEEFFFF 1 //A_GiveInventory("PlayerController",1)
 		Loop
 	Missile:
-		CALB IIII 1
+		CALB IIII 1 //A_GiveInventory("PlayerController",1)
 		Goto Spawn
 	Melee:
 		TNT1 A 0 A_JumpIfInventory("UsingPitchfork", 1, "Missile")
-		CALB GGGGGG 1 BRIGHT
+		CALB GGGGGG 1 BRIGHT //A_GiveInventory("PlayerController",1)
 		Goto Missile
 	Pain.GOUPBOY:
 		CALB H 0 ThrustThingZ(0,70,0,1)
 	Pain:
 		CALB H 0 A_JumpIfInventory("BurnTics",1,"Pain.Fire")
-		CALB HHHH 1
+		CALB HHHH 1 //A_GiveInventory("PlayerController",1)
 		TNT1 A 0 A_Pain
-		CALB HHHH 1
+		CALB HHHH 1 //A_GiveInventory("PlayerController",1)
 		Goto Spawn
 	Pain.SpecialFire:
 		CALB G 0 //ACS_ExecuteAlways(618,0,24,1)
@@ -343,9 +343,9 @@ ACTOR DoomDude : Playerpawn
 		PLAY H 1 A_GiveInventory("AmAlreadyChoked",1)
 		PLAY H 1 A_SpawnItemEx("ChokingHand",10,50,30,0,0,0,0)
 		Goto Death
-	Death.Fire:
-	Death.Burn:
-	Death.Flare:
+	Death.fire:
+	Death.burn:
+	Death.flare:
 	Burn:
 		PLAY A 0 A_Scream
 		PLAY A 0 A_NoBlocking
@@ -364,9 +364,9 @@ ACTOR CultistSounder
 	+NOGRAVITY
 	States
 	{
-	Spawn:
-		TNT1 A 15 
-		TNT1 A 0 A_PlaysoundEx("CultistGotYou", 1)
+		Spawn:
+			TNT1 A 15 
+			TNT1 A 0 A_PlaysoundEx("CultistGotYou", 1)
 		Stop
 	}
 }
@@ -385,10 +385,10 @@ ACTOR DoLaugh : CustomInventory
 	+ALWAYSPICKUP
 	States
 	{
-	Use:
-	Pickup:
-		TNT1 A 1 ACS_NamedExecuteAlways("CalebSpeech", 0, 0)
-		Stop
+		Use:
+		Pickup:
+			TNT1 A 1 ACS_NamedExecuteAlways("CalebSpeech", 0, 0)
+		    Stop
 	}
 }
 
@@ -400,9 +400,9 @@ ACTOR CerberusDead : CustomInventory
 	+ALWAYSPICKUP
 	States
 	{
-	Use:
-	Pickup:
-		TNT1 A 1 ACS_NamedExecuteAlways("CalebSpeech", 0, 1)
+		Use:
+		Pickup:
+			TNT1 A 1 ACS_NamedExecuteAlways("CalebSpeech", 0, 1)
 		Stop
 	}	
 }
@@ -411,9 +411,9 @@ ACTOR TchernobogDead : CerberusDead
 {
 	States
 	{
-	Use:
-	Pickup:
-		TNT1 A 1 ACS_NamedExecuteAlways("CalebSpeech", 0, 2)
+		Use:
+		Pickup:
+			TNT1 A 1 ACS_NamedExecuteAlways("CalebSpeech", 0, 2)
 		Stop
 	}
 }
@@ -426,10 +426,10 @@ ACTOR DoRat : CustomInventory
 	+ALWAYSPICKUP
 	States
 	{
-	Use:
-	Pickup:
-		TNT1 A 1 ACS_NamedExecuteAlways("CalebSpeech", 0, 3)
-		Stop
+		Use:
+		Pickup:
+			TNT1 A 1 ACS_NamedExecuteAlways("CalebSpeech", 0, 3)
+		    Stop
 	}
 }
 
@@ -441,10 +441,10 @@ ACTOR DoTaunt : CustomInventory
 	+ALWAYSPICKUP
 	States
 	{
-	Use:
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteAlways("Jokes", 0, 0)
-		Stop
+		Use:
+		Pickup:
+			TNT1 A 0 ACS_NamedExecuteAlways("Jokes", 0, 0)
+			Stop
 	}
 }
 
@@ -456,9 +456,9 @@ ACTOR DoJack : CustomInventory
 	+ALWAYSPICKUP
 	States
 	{
-	Use:
-	Pickup:
-		TNT1 A 1 ACS_NamedExecuteAlways("Jokes", 0, 1)
+		Use:
+		Pickup:
+			TNT1 A 1 ACS_NamedExecuteAlways("Jokes", 0, 1)
 		Stop
 	}
 }
@@ -466,33 +466,34 @@ ACTOR DoJack : CustomInventory
 ACTOR ------WEREWOLF-TRANSFORM---------- {}
 ACTOR StompingDamager
 {
+	+DONTSPLASH
+	+PAINLESS
+	+NOTIMEFREEZE
+	+BLOODLESSIMPACT
+	+NODAMAGETHRUST
 	Renderstyle None
 	DamageType "Stomping"
-	+BLOODLESSIMPACT
-	+DONTSPLASH
-	+NODAMAGETHRUST
-	+NOTIMEFREEZE
-	+PAINLESS
 	States
 	{
-	Spawn:
-		TNT1 A 0
-		TNT1 A 0 A_JumpIf(momz>0, 2)
-		TNT1 A 0 A_Explode(random(1,-momz)+4,24,0)
-		TNT1 A 0
-		Stop
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_JumpIf(momz>0, 2)
+			TNT1 A 0 A_Explode(random(1,-momz)+4,24,0)
+			TNT1 A 0
+			Stop
+			
 	}
 }
 
 ACTOR Werewolf : PlayerPawn
-{	
+{
+	+NOSKIN
+	-PICKUP
 	Speed 2
 	Health 666
 	Radius 16
 	Height 56
 	Mass 300
-	+NOSKIN
-	-PICKUP
 	PainChance 0
 	Player.Face "WLF"
 	Player.DisplayName "Werewolf"
@@ -502,29 +503,54 @@ ACTOR Werewolf : PlayerPawn
 	Player.JumpZ 16
 	XScale 0.6
 	YScale 0.52
-	States
+  States
+  {
+  Spawn:
+    BESW A -1
+    Loop
+  See:
+    BESW ABCDF 4 
+    Loop
+  Melee:
+    BESC ABCDEFGHIJ 10
+    Goto Spawn
+  Pain:
+    BESP A 4 
+    BESP A 4 A_Pain
+    Goto Spawn
+  Death:
+    BESD A 10
+    BESD B 10 A_PlayerScream
+    BESD C 10 A_NoBlocking
+    BESD DEF 10
+    BESD F 1
+    BESD FED 10
+    BESD F -1
+    Stop
+  }
+}
+/*
+ACTOR DeathIncarnate: weapon
+{
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	States 
 	{
-	Spawn:
-		BESW A -1
+	Ready:
+		BLWS B 2 
+		BLWS A 2 A_Jump(32,"DESELECT")
+		Goto Ready+1
+	Fire:
+		tnt1 a 1 
 		Loop
-	See:
-		BESW ABCDF 4 
+	Select:
+		BLWS C 2 A_RAISE
 		Loop
-	Melee:
-		BESC ABCDEFGHIJ 10
-		Goto Spawn
-	Pain:
-		BESP A 4 
-		BESP A 4 A_Pain
-		Goto Spawn
-	Death:
-		BESD A 10
-		BESD B 10 A_PlayerScream
-		BESD C 10 A_NoBlocking
-		BESD DEF 10
-		BESD F 1
-		BESD FED 10
-		BESD F -1
+	Deselect:
+		BLWS A 10
+		BLWS ABC 4
+		BLWS C 2 A_LOWER
+		TNT1 A 0 A_TAKEINVENTORY("DeathIncarnate")
 		Stop
 	}
-}
+}*/
