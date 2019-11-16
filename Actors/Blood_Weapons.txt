@@ -111,8 +111,11 @@ ACTOR BeastHands : Weapon
 	States
 	{
 	Select:
-		TNT1 A 1 Offset(0, 32)
-		TNT1 A 1 A_GunFlash("Select2", GFF_NOEXTCHANGE)
+		TNT1 A 1 Offset(0, 32) 
+		TNT1 A 1 //A_GunFlash("Select2", GFF_NOEXTCHANGE)
+		BHND SS 5
+		BHND TTUUVVWW 3
+		BSSL AABBCCD 3		
 		TNT1 A 17
 		BSSR AABBCCD 2
 		BSSR D 1 A_Raise
@@ -132,12 +135,12 @@ ACTOR BeastHands : Weapon
 		BSSL DCCBBAA 3
 		Stop
 	Ready:
-		BHND SS 5
-		BHND TTUUVVWW 3
+		//BHND SS 5
+		//BHND TTUUVVWW 3
 		TNT1 A 1 A_Playsound("BeastSee")
 		BSTR A 1 A_GunFlash("Ready2", GFF_NOEXTCHANGE)
 		BSTR AABBCCDDEFGGHHII 2 A_WeaponReady
-		Goto Ready+11
+		Goto Ready//+11
 	Ready2:
 		BSTL AABBCCDDEEFFGGHH 3
 		Stop
@@ -148,28 +151,28 @@ ACTOR BeastHands : Weapon
 		TNT1 A 0 A_CUSTOMPUNCH(1000)
 		BST1 ABCDEF 2 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
 		BST1 F 1 A_ReFire
-		Goto Ready+11
+		Goto Ready//+11
 	Attack2:
 		TNT1 A 1 A_Playsound("BeastSlash2")
 		BST2 A 1 A_GunFlash("", GFF_NOEXTCHANGE)
 		TNT1 A 0 A_CUSTOMPUNCH(1000)
 		BST2 ABCDEFGH 2 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
 		BST2 H 1 A_ReFire
-		Goto Ready+11
+		Goto Ready//+11
 	Attack3:
 		TNT1 A 1 A_Playsound("BeastSlash3")
 		BST3 A 1 A_GunFlash("", GFF_NOEXTCHANGE)
 		TNT1 A 0 A_CUSTOMPUNCH(1000)
 		BST3 ABCDEFG 2 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
 		BST3 G 1 A_ReFire
-		Goto Ready+11
+		Goto Ready//+11
 	Attack4:
 		TNT1 A 1 A_Playsound("BeastSlash1")
 		BST4 A 1 A_GunFlash("", GFF_NOEXTCHANGE)
 		TNT1 A 0 A_CUSTOMPUNCH(1000)
 		BST4 ABCDEFGH 2 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
 		BST4 H 1 A_ReFire
-		Goto Ready+11
+		Goto Ready//+11
 	}
 }
 
