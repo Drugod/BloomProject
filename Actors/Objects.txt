@@ -988,7 +988,7 @@ ACTOR RocksSnowy : RocksSpawner 18602
 ACTOR ActionFigures 24010
 {
 	//$Category "BlooM Eastereggs"
-	//$Title Blood Action Figures
+	//$Title "Blood Action Figures"
 	Radius 16
 	Height 64
 	Scale 0.3
@@ -996,6 +996,34 @@ ACTOR ActionFigures 24010
 	{
 	Spawn:
 		AFGR A -1
+		Stop
+	}
+}
+
+ACTOR DoomBetaBible : ActionFigures 18610
+{
+	//$Title "Doom Beta Unholy Bible"
+	Radius 4
+	Height 4
+	Scale 1.0
+	States
+	{
+	Spawn:
+		UNHB A -1
+		Stop
+	}
+}
+
+ACTOR DoomBetaHand : ActionFigures 18611
+{
+	//$Title "Doom Beta Demon Hand"
+	Radius 4
+	Height 4
+	Scale 1.0
+	States
+	{
+	Spawn:
+		BEST A -1
 		Stop
 	}
 }
