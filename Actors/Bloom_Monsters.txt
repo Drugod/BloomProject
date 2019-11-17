@@ -316,6 +316,7 @@ ACTOR ShotgunMonk : BloomHybrid_Base 18323
 	}
 }
 
+ACTOR ---------DEEPONES--------- {}
 ACTOR Deepones : BloomHybrid_Base 19052
 {
 	//$Title Deep One
@@ -437,6 +438,130 @@ ACTOR Deepones : BloomHybrid_Base 19052
 		FISH ONMLKJI 5
 		Goto See
 	}
+}
+
+ACTOR Deepones_Trident : BloomHybrid_Base 19054
+{
+	//$Title Deep One with trident
+	Health 60
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 8
+	PainChance 200
+	Monster
+	+FLOORCLIP
+	SeeSound "GillBeastSee"
+	PainSound "GillBeastPain"
+	DeathSound "GillBeastDie"
+	ActiveSound "GillBeastSee"	
+	HitObituary "$OB_IMPHIT"
+	Obituary "$OB_IMP"
+	States
+	{
+	Spawn:
+		TRID A 5 A_Look
+		Loop
+	See:
+		TRID AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+		TRID EF 8 A_FaceTarget
+		TRID G 6 A_CustomMeleeAttack(random(1, 5) * 3, "")
+		Goto See	
+	Missile:
+		TRIB AB 8 A_FaceTarget
+		TRIB C 6 A_CustomMissile("StoneGargBall",12.0, 0.0, 0, 1, 0)
+		Goto See
+	Pain:
+		TRID H 2
+		TRID H 2 A_Pain
+		Goto See
+	Death:
+		TNT1 A 0 A_Jump(64, "Death2")	
+		TRIC A 8
+		TRIC B 8 A_Scream
+		TNT1 A 0 A_Jump(192, 2)
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingFish",0,5,10,0)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)		
+		TRIC C 6
+		TRIC D 6 A_NoBlocking
+		TRIC EFGHI 6
+		TRIC J -1
+		Stop
+	Death2:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingFish",0,5,10,0)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)		
+		TRID I 5
+		TRID J 5 A_Scream
+		TRID K 5 A_NoBlocking
+		TRID L 5
+		TRID M 5
+		TRID N 5
+		TRID O 5
+		TRID P -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_Jump(192, 2)
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingFish",0,5,10,0)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		FISH A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)		
+	XDeath:
+		TRID Q 5
+		TRID R 5 A_XScream
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingFanatic",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)		
+		TRID S 5
+		TRID T 5 A_NoBlocking
+		TRID UVWX 5
+		TRID Y -1
+		Stop
+	Raise:
+		TRIC JI 8
+		TRIC HGFEDCBA 6
+		Goto See
+  }
 }
 
 ACTOR -------FANATIC_CHAINGUNNERS---------- {}
