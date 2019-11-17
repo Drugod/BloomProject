@@ -7034,7 +7034,7 @@ ACTOR KingCacoyle : BloomHybrid_Base 19053
 		CHEO H 6
 		Goto See
 	Death:
-		TNT1 A 0 A_Jump(256,"Death2")
+		TNT1 A 0 A_Jump(128,"Death2")
 		CHEO J 8 A_ChangeFlag("FLOATBOB",FALSE)
 		CHEO K 8 A_Scream
 		CHEO LM 8 A_Fall
