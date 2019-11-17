@@ -401,16 +401,38 @@ ACTOR BloodyChair : HeartColumn 3267
 	}
 }
 
-ACTOR LovingMemory : HeartColumn 3268
+ACTOR LovingMemory 3268
 {
 	//$Category "BlooM Ambient"
 	//$Title In Loving Memory
 	Height 35
+	Radius 16
 	Mass 5
+	Health 10
+	+DONTGIB
+	+NOBLOOD
+	+NOTAUTOAIMED
+	+SHOOTABLE
+	+SOLID
 	States
 	{
 	Spawn:
 		LOVI A -1
+		Stop
+	Death:
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
 		Stop
 	}
 }
