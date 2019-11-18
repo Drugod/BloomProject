@@ -1,5 +1,27 @@
 #include "BLOOMAPS.bm"
 
+//TESLA DEVS//
+FlickerLight2 TESLIT1
+{
+	Color 0.7 0.5 1.0
+	Size 44
+	SecondarySize 48
+	Interval 0.1
+	Offset 0 48 0
+	DontLightSelf 1
+}
+
+FlickerLight2 TESLIT2
+{
+	Color 0.6 0.4 1.0
+	Size 28
+	SecondarySize 32
+	Interval 0.1
+	Offset 0 32 0
+	DontLightSelf 1
+}
+
+//LIGHT SOURCES//
 PointLight ceillight
 {
 	Color 1.0 1.0 1.0

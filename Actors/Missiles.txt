@@ -984,6 +984,7 @@ ACTOR KingFX1 : IceGuyFX
 ACTOR KingFX2 : KingFX1 { Speed 40 }
 ACTOR KingFX3 : KingFX1 { Speed 50 }
 ACTOR KingFX4 : KingFX1 { Speed 60 }
+ACTOR DeepFX1 : KingFX1 { Speed 10 }
 
 ACTOR KingFXPuff : IceFXPuff {} //nothing new defined yet
 

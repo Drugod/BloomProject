@@ -432,6 +432,10 @@ grenades/grnbnce		GRNBNCE
 
 human/imonfire			dsburnme
 
+//Tesla Stuff
+tesla/active ELCLOOP
+$limit tesla/active 4
+
 //Ice attacks
 king/iceshot	DSICESHT
 king/icehit		DSICEHIT
