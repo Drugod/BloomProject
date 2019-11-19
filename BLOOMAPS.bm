@@ -1,5 +1,3 @@
-//BRIGHTMAPS
-
 //Props
 Brightmap sprite ZESLB0 {map "Brightmaps/ZESLB0.png"}
 Brightmap sprite ZESLC0 {map "Brightmaps/ZESLC0.png"}
@@ -192,6 +190,49 @@ Brightmap sprite ARNDI1		{map "Brightmaps/ARNDI1.png"}
 Brightmap sprite ARNDI2I8	{map "Brightmaps/ARNDI2I8.png"}
 Brightmap sprite ARNDI3I7	{map "Brightmaps/ARNDI3I7.png"}
 
+//Cacoyle
+Brightmap sprite CCLSD0		{map "Brightmaps/CCLSD0.png"}
+Brightmap sprite CYA2A1		{map "Brightmaps/CYA2A1.png"}
+Brightmap sprite CYA2A2A8	{map "Brightmaps/CYA2A2A8.png"}
+Brightmap sprite CYA2A3A7	{map "Brightmaps/CYA2A3A7.png"}
+Brightmap sprite CYA2B1		{map "Brightmaps/CYA2B1.png"}
+Brightmap sprite CYA2B2B8	{map "Brightmaps/CYA2B2B8.png"}
+Brightmap sprite CYA2B3B7	{map "Brightmaps/CYA2B3B7.png"}
+Brightmap sprite CYA2C1		{map "Brightmaps/CYA2C1.png"}
+Brightmap sprite CYA2C2C8	{map "Brightmaps/CYA2C2C8.png"}
+Brightmap sprite CYA2C3C7	{map "Brightmaps/CYA2C3C7.png"}
+Brightmap sprite CYA2D1		{map "Brightmaps/CYA2D1.png"}
+Brightmap sprite CYA2D2D8	{map "Brightmaps/CYA2D2D8.png"}
+Brightmap sprite CYA2D3D7	{map "Brightmaps/CYA2D3D7.png"}
+Brightmap sprite CYA2E1		{map "Brightmaps/CYA2E1.png"}
+Brightmap sprite CYA2E2E8	{map "Brightmaps/CYA2E2E8.png"}
+Brightmap sprite CYA2E3B7	{map "Brightmaps/CYA2E3B7.png"}
+Brightmap sprite CYADA1		{map "Brightmaps/CYADA1.png"}
+Brightmap sprite CYADA2A8	{map "Brightmaps/CYADA2A8.png"}
+Brightmap sprite CYADA3A7	{map "Brightmaps/CYADA3A7.png"}
+Brightmap sprite CYADB1		{map "Brightmaps/CYADB1.png"}
+Brightmap sprite CYADB2B8	{map "Brightmaps/CYADB2B8.png"}
+Brightmap sprite CYADB3B7	{map "Brightmaps/CYADB3B7.png"}
+Brightmap sprite CYADC1		{map "Brightmaps/CYADC1.png"}
+Brightmap sprite CYADC2C8	{map "Brightmaps/CYADC2C8.png"}
+Brightmap sprite CYADC3C7	{map "Brightmaps/CYADC3C7.png"}
+Brightmap sprite CYADD1		{map "Brightmaps/CYADD1.png"}
+Brightmap sprite CYADD2D8	{map "Brightmaps/CYADD2D8.png"}
+Brightmap sprite CYADD3D7	{map "Brightmaps/CYADD3D7.png"}
+Brightmap sprite CYADE1		{map "Brightmaps/CYADE1.png"}
+Brightmap sprite CYADE2E8	{map "Brightmaps/CYADE2E8.png"}
+Brightmap sprite CYADE3B7	{map "Brightmaps/CYADE3B7.png"}
+Brightmap sprite CYADF1		{map "Brightmaps/CYADF1.png"}
+Brightmap sprite CYADF2F8	{map "Brightmaps/CYADF2F8.png"}
+Brightmap sprite CYADF3F7	{map "Brightmaps/CYADF3F7.png"}
+Brightmap sprite CYADG1		{map "Brightmaps/CYADG1.png"}
+Brightmap sprite CYADG2G8	{map "Brightmaps/CYADG2G8.png"}
+Brightmap sprite CYADG3G7	{map "Brightmaps/CYADG3G7.png"}
+Brightmap sprite CYADO1		{map "Brightmaps/CYADO1.png"}
+Brightmap sprite CYADO2O8	{map "Brightmaps/CYADO2O8.png"}
+Brightmap sprite CYADO3O7	{map "Brightmaps/CYADO3O7.png"}
+
+//Gargodemon
 Brightmap sprite GARDA1		{map "Brightmaps/GARDA1.png"}
 Brightmap sprite GARDA2A8	{map "Brightmaps/GARDA2A8.png"}
 Brightmap sprite GARDA3A7	{map "Brightmaps/GARDA3A7.png"}
