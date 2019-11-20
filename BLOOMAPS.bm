@@ -72,6 +72,8 @@ Brightmap sprite ZIPFB0 {map "Brightmaps/ZIMMB0.png"}
 Brightmap sprite ZIPFC0 {map "Brightmaps/ZIMMC0.png"}
 
 //Enemies
+
+//Gargovile
 Brightmap sprite ARCFA1		{map "Brightmaps/ARCFA1.png"}
 Brightmap sprite ARCFA2A8	{map "Brightmaps/ARCFA2A8.png"}
 Brightmap sprite ARCFA3A7	{map "Brightmaps/ARCFA3A7.png"}
@@ -172,7 +174,7 @@ Brightmap sprite ARCSE0		{map "Brightmaps/ARCSE0.png"}
 Brightmap sprite ARNDA1D1	{map "Brightmaps/ARNDA1D1.png"}
 Brightmap sprite ARNDA2A8	{map "Brightmaps/ARNDA2A8.png"}
 Brightmap sprite ARNDA3A7	{map "Brightmaps/ARNDA3A7.png"}
-Brightmap sprite ARNDB1B1	{map "Brightmaps/ARNDB1B1.png"} //what? B1B1?!
+Brightmap sprite ARNDB1B1	{map "Brightmaps/ARNDB1B1.png"}
 Brightmap sprite ARNDB2B8	{map "Brightmaps/ARNDB2B8.png"}
 Brightmap sprite ARNDC1F1	{map "Brightmaps/ARNDC1F1.png"}
 Brightmap sprite ARNDC2C8	{map "Brightmaps/ARNDA2A8.png"}
@@ -189,6 +191,56 @@ Brightmap sprite ARNDG3G7	{map "Brightmaps/ARNDG3G7.png"}
 Brightmap sprite ARNDI1		{map "Brightmaps/ARNDI1.png"}
 Brightmap sprite ARNDI2I8	{map "Brightmaps/ARNDI2I8.png"}
 Brightmap sprite ARNDI3I7	{map "Brightmaps/ARNDI3I7.png"}
+
+//Cvltimps
+Brightmap sprite CI21A1		{map "Brightmaps/CI21A1.png"}
+Brightmap sprite CI21A2A8	{map "Brightmaps/CI21A2A8.png"}
+Brightmap sprite CI21A3A7	{map "Brightmaps/CI21A3A7.png"}
+Brightmap sprite CI21A4A6	{map "Brightmaps/CI21A4A6.png"}
+Brightmap sprite CI21A5		{map "Brightmaps/CI21A5.png"}
+Brightmap sprite CI21B1		{map "Brightmaps/CI21B1.png"}
+Brightmap sprite CI21B2B8	{map "Brightmaps/CI21B2B8.png"}
+Brightmap sprite CI21B3B7	{map "Brightmaps/CI21B3B7.png"}
+Brightmap sprite CI21B4B6	{map "Brightmaps/CI21B4B6.png"}
+Brightmap sprite CI21B5		{map "Brightmaps/CI21B5.png"}
+Brightmap sprite CI21C1		{map "Brightmaps/CI21C1.png"}
+Brightmap sprite CI21C2C8	{map "Brightmaps/CI21C2C8.png"}
+Brightmap sprite CI21C3C7	{map "Brightmaps/CI21C3C7.png"}
+Brightmap sprite CI21C4C6	{map "Brightmaps/CI21C4C6.png"}
+Brightmap sprite CI21C5		{map "Brightmaps/CI21C5.png"}
+Brightmap sprite CI21D1		{map "Brightmaps/CI21D1.png"}
+Brightmap sprite CI21D2D8	{map "Brightmaps/CI21D2D8.png"}
+Brightmap sprite CI21D3D7	{map "Brightmaps/CI21D3D7.png"}
+Brightmap sprite CI21D4D6	{map "Brightmaps/CI21D4D6.png"}
+Brightmap sprite CI21D5		{map "Brightmaps/CI21D5.png"}
+Brightmap sprite CI21E1		{map "Brightmaps/CI21E1.png"}
+Brightmap sprite CI21E2E8	{map "Brightmaps/CI21E2E8.png"}
+Brightmap sprite CI21E3E7	{map "Brightmaps/CI21E3E7.png"}
+Brightmap sprite CI21E4E6	{map "Brightmaps/CI21E4E6.png"}
+Brightmap sprite CI21E5		{map "Brightmaps/CI21E5.png"}
+Brightmap sprite CI2OA1		{map "Brightmaps/CI2OA1.png"}
+Brightmap sprite CI2OA2A8	{map "Brightmaps/CI2OA2A8.png"}
+Brightmap sprite CI2OA3A7	{map "Brightmaps/CI2OA3A7.png"}
+Brightmap sprite CI2OB1		{map "Brightmaps/CI2OB1.png"}
+Brightmap sprite CI2OB2B8	{map "Brightmaps/CI2OB2B8.png"}
+Brightmap sprite CI2OB3B7	{map "Brightmaps/CI2OB3B7.png"}
+Brightmap sprite CI2OC1		{map "Brightmaps/CI2OC1.png"}
+Brightmap sprite CI2OC2C8	{map "Brightmaps/CI2OC2C8.png"}
+Brightmap sprite CI2OC3C7	{map "Brightmaps/CI2OC3C7.png"}
+Brightmap sprite CI2OD1		{map "Brightmaps/CI2OD1.png"}
+Brightmap sprite CI2OD2D8	{map "Brightmaps/CI2OD2D8.png"}
+Brightmap sprite CI2OD3D7	{map "Brightmaps/CI2OD3D7.png"}
+Brightmap sprite CI2OE1		{map "Brightmaps/CI2OE1.png"}
+Brightmap sprite CI2OE2E8	{map "Brightmaps/CI2OE2E8.png"}
+Brightmap sprite CI2OE3E7	{map "Brightmaps/CI2OE3E7.png"}
+Brightmap sprite CI2OF1		{map "Brightmaps/CI2OF1.png"}
+Brightmap sprite CI2OF2F8	{map "Brightmaps/CI2OF2F8.png"}
+Brightmap sprite CI2OF3F7	{map "Brightmaps/CI2OF3F7.png"}
+Brightmap sprite CI2OG1		{map "Brightmaps/CI2OG1.png"}
+Brightmap sprite CI2OG2G8	{map "Brightmaps/CI2OG2G8.png"}
+Brightmap sprite CI2OG3G7	{map "Brightmaps/CI2OG3G7.png"}
+Brightmap sprite CI2OH1		{map "Brightmaps/CI2OH1.png"}
+Brightmap sprite CI2OH2H8	{map "Brightmaps/CI2OH2H8.png"}
 
 //Cacoyle
 Brightmap sprite CCLSD0		{map "Brightmaps/CCLSD0.png"}
