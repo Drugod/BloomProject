@@ -352,12 +352,15 @@ ACTOR Deepones : BloomHybrid_Base 19052
 	Memory:
 		"####" "#" 0 A_ClearTarget
   	Spawn:
-		TNT1 A 0
-		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.Wander")	
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Ground.Spawn")
 		FIWW ABCDABCDABCDABCD 4 A_Look
 	Loop
 	See:
-		TNT1 A 0 A_CheckSight("Forget")
+		TNT1 A 0
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",1)
+		FIWW A 1 ThrustThingZ(0,200,1,0)
+		TNT1 A 0
 		TNT1 A 0 A_UnSetFloorClip
 		TNT1 A 0 ThrustThingZ(0,5,0,0)
 		TNT1 A 0 A_ChangeFlag("NOGRAVITY",1)
@@ -418,8 +421,9 @@ ACTOR Deepones : BloomHybrid_Base 19052
 		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
 		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
 		TNT1 A 0 A_CheckSight("Forget")
-	Loop
+	Goto See+3
 	SwimAround:
+		TNT1 A 0
 		FIWW A 0 A_Recoil(-1)
 		FIWW A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
 		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
@@ -451,7 +455,7 @@ ACTOR Deepones : BloomHybrid_Base 19052
 		TNT1 A 0 ThrustThing(angle*256/360+frandom[DeepOnes](0,64),1,0,0)
 		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
 		TNT1 A 0 A_CheckSight("Forget")
-	Goto See
+	Goto See+3
 	Missile:
 		TNT1 A 0
         TNT1 A 0  A_JumpIf(waterlevel<1,"Ground.Missile")	
@@ -464,12 +468,12 @@ ACTOR Deepones : BloomHybrid_Base 19052
 		FIWW F 10 BRIGHT A_SPosAttackUseAtkSound
 		TNT1 A 0  ThrustThingZ(0,1,1,0)
 		FIWW E 10
-	Goto See
+	Goto See+3
 	Pain:
 		TNT1 A 0
 		FIWW D 3 A_JumpIf(waterlevel<1,"Ground.Pain")
 		FIWW D 3 A_Pain
-	Goto See
+	Goto See+3
 	Death:
 		TNT1 A 0 A_UnSetFloorClip
 		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
@@ -499,6 +503,7 @@ ACTOR Deepones : BloomHybrid_Base 19052
 		FISD H -1
 	Stop
 	XDeath:
+		TNT1 A 0 
 		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
 		TNT1 A 0 A_Scream
 		FISH H 5
@@ -560,23 +565,26 @@ ACTOR Deepones : BloomHybrid_Base 19052
 		FISH E 10 A_Look
 	Loop	
 	Ground.See:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(waterlevel>1,"See")	
 		TNT1 A 0 A_CheckSight("Forget")	
 		TNT1 A 0 A_SetFloorClip
 		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
 		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Ground.Wander")
-		TNT1 A 0 A_JumpIf(waterlevel>0,"See")		
 		FISH AABBCCDD 3 A_Chase("Ground.Missile","Ground.Missile",CHF_NOPLAYACTIVE)
-		TNT1 A 0 A_JumpIf(waterlevel>0,"See")		
+		TNT1 A 0 A_JumpIf(waterlevel>1,"See")		
 		FISH AABBCCDD 3 A_Chase("","")
 		TNT1 A 0 A_PlaySound("GillBeastAct")
 	Loop
 	Ground.Wander:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(waterlevel>1,"See")	
 		TNT1 A 0 A_SetFloorClip
 		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
-		TNT1 A 0 A_JumpIf(waterlevel>0,"See")				
 		FISH AABBCCDD 3 A_Wander
 	Goto Ground.See
 	Ground.Pain:
+		TNT1 A 0
 		TNT1 A 0 A_SetFloorClip
 		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
 		FISH G 3
@@ -584,7 +592,7 @@ ACTOR Deepones : BloomHybrid_Base 19052
 	Goto Ground.See
 	Ground.Missile:
 		TNT1 A 0
-		TNT1 A 0 A_JumpIf(waterlevel>0,"Missile")
+		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
 		TNT1 A 0 A_SetFloorClip
 		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
 		FISH E 10 A_FaceTarget
