@@ -8,6 +8,8 @@ ACTOR DoomEnemy_Base
 	Monster
 }
 
+ACTOR DoomMonsterTNT : GreenCultistTNT { +CANNOTPUSH }
+
 ACTOR ZombieMan_ : DoomEnemy_Base 19037
 {
 	//$Title ZombieMan (BlooM)
@@ -169,7 +171,13 @@ ACTOR ShotgunGuy_ : DoomEnemy_base 18999
 		SPOS E 10 A_FaceTarget
 		SPOS F 10 BRIGHT A_SPosAttackUseAtkSound
 		SPOS E 10
-		Goto See
+		TNT1 A 0 A_Jump(160,"See")
+	LaunchTnt:
+		TNOS A  5 A_FaceTarget
+		TNOS BC 5
+		TNT1 A  0 A_ThrowGrenade("DoomMonsterTNT",0,20,4,0)
+		TNOS D  5
+		Goto See	
 	Pain:
 		SPOS G 3
 		SPOS G 3 A_Pain
@@ -271,7 +279,14 @@ ACTOR ChaingunGuy_ : DoomEnemy_Base 18998
 		CPOS E 10 A_FaceTarget
 		CPOS FE 4 BRIGHT A_CPosAttack
 		CPOS F 1 A_CPosRefire
+		TNT1 A 0 A_Jump(95,"LaunchTnt")
 		Goto Missile+1
+	LaunchTnt:
+		CTNT A  5 A_FaceTarget
+		CTNT BC 5
+		TNT1 A  0 A_ThrowGrenade("DoomMonsterTNT",0,20,4,0)
+		CTNT D  5
+		Goto See			
 	Pain:
 		CPOS G 3
 		CPOS G 3 A_Pain

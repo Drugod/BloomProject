@@ -38,7 +38,13 @@ ACTOR Apocalyptic_NeoCvltist : BloomHybrid_Base 19001
 		WPOS E 10 A_FaceTarget
 		WPOS F 10 BRIGHT A_SPosAttackUseAtkSound
 		WPOS E 10
-		Goto See
+		TNT1 A 0 A_Jump(160,"See")
+	LaunchTnt:
+		WMTT A  5 A_FaceTarget
+		WMTT BC 5
+		TNT1 A  0 A_ThrowGrenade("HybridCultistTNT",0,20,4,0)
+		WMTT D  5
+		Goto See		
 	Pain:
 		WPOS G 3
 		WPOS G 3 A_Pain
@@ -139,7 +145,13 @@ ACTOR NeoCvltist : BloomHybrid_Base 19003
 		YPOS E 10 A_FaceTarget
 		YPOS F 10 BRIGHT A_SPosAttackUseAtkSound
 		YPOS E 10
-		Goto See
+		TNT1 A 0 A_Jump(160,"See")
+	LaunchTnt:
+		WNTT A  5 A_FaceTarget
+		WNTT BC 5
+		TNT1 A  0 A_ThrowGrenade("HybridCultistTNT",0,20,4,0)
+		WNTT D  5
+		Goto See	
 	Pain:
 		YPOS G 3
 		YPOS G 3 A_Pain
@@ -240,7 +252,13 @@ ACTOR ShotgunMonk : BloomHybrid_Base 18323
 	Missile:
 		MONK G 10 A_FaceTarget
 		MONK H 10 BRIGHT A_SPosAttackUseAtkSound
-		Goto See
+		TNT1 A 0 A_Jump(160,"See")
+	LaunchTnt:
+		WOTT A  5 A_FaceTarget
+		WOTT BC 5
+		TNT1 A  0 A_ThrowGrenade("HybridCultistTNT",0,20,4,0)
+		WOTT D  5
+		Goto See	
 	Pain:
 		MONK I 3
 		MONK I 3 A_Pain
@@ -315,6 +333,8 @@ ACTOR ShotgunMonk : BloomHybrid_Base 18323
 		Goto See
 	}
 }
+
+ACTOR HybridCultistTNT : GreenCultistTNT { +CANNOTPUSH }
 
 ACTOR ---------DEEPONES--------- {}
 
@@ -511,6 +531,12 @@ ACTOR DeepOne_Base
 	}
 }
 
+ACTOR DeepOnesChecks : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 28
+}
+
 ACTOR DeepOneShot : DeepOne_Base 19052
 {
 	//$Title Deep One (Shotgun)
@@ -691,12 +717,6 @@ ACTOR DeepOneShot : DeepOne_Base 19052
 		TNT1 A 0 A_Jump(256,"See")
 		Stop
 	}
-}
-
-ACTOR DeepOnesChecks : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 28
 }
 
 ACTOR DeepOneTri : DeepOne_Base 19054
