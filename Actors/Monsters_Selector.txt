@@ -61,7 +61,7 @@ ACTOR HybridShotgunSpawner
 		TNT1 A 0 A_SpawnItemEx("ShotgunMonk",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn4:
-		TNT1 A 0 A_SpawnItemEx("Deepones",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("DeepOneShot",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop		
 	}
 }
@@ -670,7 +670,7 @@ ACTOR Cvltimphybrid
 		TNT1 A 0 A_SpawnItemEx("Zombimps",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn4:
-		TNT1 A 0 A_SpawnItemEx("Deepones_Trident",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("DeepOneTri",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop		
 	}
 }
@@ -1059,7 +1059,7 @@ ACTOR --------DEEPONES_SELECTOR------------ {}
 ACTOR TheDeepones 19055
 {
     //$Category "Monsters Selectors"
-    //$Title Deepones
+    //$Title DeepOne Selector
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL //not necessary but here in case of future inheritances - ozy81
@@ -1107,10 +1107,10 @@ ACTOR TheDeeponesHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Deepones",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("DeepOneShot",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Deepones_Trident",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("DeepOneTri",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }

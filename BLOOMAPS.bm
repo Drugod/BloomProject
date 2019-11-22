@@ -332,6 +332,50 @@ Brightmap sprite CYADG3G7	{map "Brightmaps/CYADG3G7.png"}
 Brightmap sprite CYADO1		{map "Brightmaps/CYADO1.png"}
 Brightmap sprite CYADO2O8	{map "Brightmaps/CYADO2O8.png"}
 
+//DeepOnes - Shotgun
+Brightmap sprite FISHF1		{map "Brightmaps/FISHF1.png"}
+Brightmap sprite FISHF2F8	{map "Brightmaps/FISHF2F8.png"}
+Brightmap sprite FISHF3F7	{map "Brightmaps/FISHF3F7.png"}
+Brightmap sprite FISHF4F6	{map "Brightmaps/FISHF4F6.png"}
+Brightmap sprite FISHF5		{map "Brightmaps/FISHF5.png"}
+Brightmap sprite FIWWF1		{map "Brightmaps/FIWWF1.png"}
+Brightmap sprite FIWWF2F8	{map "Brightmaps/FIWWF2F8.png"}
+Brightmap sprite FIWWF3F7	{map "Brightmaps/FIWWF3F7.png"}
+Brightmap sprite FIWWF4F6	{map "Brightmaps/FIWWF4F6.png"}
+Brightmap sprite FIWWF5		{map "Brightmaps/FIWWF5.png"}
+
+//DeepOnes - Trident
+Brightmap sprite TRIBA1		{map "Brightmaps/TRIBA1.png"}
+Brightmap sprite TRIBA2A8	{map "Brightmaps/TRIBA2A8.png"}
+Brightmap sprite TRIBA3A7	{map "Brightmaps/TRIBA3A7.png"}
+Brightmap sprite TRIBA4A6	{map "Brightmaps/TRIBA4A6.png"}
+Brightmap sprite TRIBA5		{map "Brightmaps/TRIBA5.png"}
+Brightmap sprite TRIBB1		{map "Brightmaps/TRIBB1.png"}
+Brightmap sprite TRIBB2B8	{map "Brightmaps/TRIBB2B8.png"}
+Brightmap sprite TRIBB3B7	{map "Brightmaps/TRIBB3B7.png"}
+Brightmap sprite TRIBB4B6	{map "Brightmaps/TRIBB4B6.png"}
+Brightmap sprite TRIBB5		{map "Brightmaps/TRIBB5.png"}
+Brightmap sprite TRIBC1		{map "Brightmaps/TRIBC1.png"}
+Brightmap sprite TRIBC2C8	{map "Brightmaps/TRIBC2C8.png"}
+Brightmap sprite TRIBC3C7	{map "Brightmaps/TRIBC3C7.png"}
+Brightmap sprite TRIBC4C6	{map "Brightmaps/TRIBC4C6.png"}
+Brightmap sprite TRIBC5		{map "Brightmaps/TRIBC5.png"}
+Brightmap sprite TRSWH1		{map "Brightmaps/TRSWH1.png"}
+Brightmap sprite TRSWH2H8	{map "Brightmaps/TRSWH2H8.png"}
+Brightmap sprite TRSWH3H7	{map "Brightmaps/TRSWH3H7.png"}
+Brightmap sprite TRSWH4H6	{map "Brightmaps/TRSWH4H6.png"}
+Brightmap sprite TRSWH5		{map "Brightmaps/TRSWH5.png"}
+Brightmap sprite TRSWI1		{map "Brightmaps/TRSWI1.png"}
+Brightmap sprite TRSWI2I8	{map "Brightmaps/TRSWI2I8.png"}
+Brightmap sprite TRSWI3I7	{map "Brightmaps/TRSWI3I7.png"}
+Brightmap sprite TRSWI4I6	{map "Brightmaps/TRSWI4I6.png"}
+Brightmap sprite TRSWI5		{map "Brightmaps/TRSWI5.png"}
+Brightmap sprite TRSWJ1		{map "Brightmaps/TRSWJ1.png"}
+Brightmap sprite TRSWJ2J8	{map "Brightmaps/TRSWJ2J8.png"}
+Brightmap sprite TRSWJ3J7	{map "Brightmaps/TRSWJ3J7.png"}
+Brightmap sprite TRSWJ4J6	{map "Brightmaps/TRSWJ4J6.png"}
+Brightmap sprite TRSWJ5		{map "Brightmaps/TRSWJ5.png"}
+
 //Gargodemon
 Brightmap sprite GARDA1		{map "Brightmaps/GARDA1.png"}
 Brightmap sprite GARDA2A8	{map "Brightmaps/GARDA2A8.png"}
