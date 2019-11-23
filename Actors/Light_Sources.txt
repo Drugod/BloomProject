@@ -133,7 +133,7 @@ ACTOR FlameCult : SwitchableDecoration 3236
 	//$Arg0 "Sound"
 	//$Arg0Type 11
 	//$Arg0Enum { 0 = "Yes"; 1 = "No"; }
-	Radius 16
+	Radius 8
 	Height 54
 	Speed 12
 	Scale 0.8
