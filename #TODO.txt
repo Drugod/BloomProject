@@ -2,6 +2,7 @@ For Rolls, models which needs to be added:
 - nothing yet
 
 For All:
+- add flamethrower / freezethrower for Doomguy using beta sprites
 - Bloodjar and Bloodpile actors share the same behavior and sprite... What's the point?
 - fix glass debris and add more variant of debris
 - fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff

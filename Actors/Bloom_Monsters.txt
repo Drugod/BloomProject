@@ -1821,7 +1821,7 @@ ACTOR DemonhoundAlt : HellKnight 19026
 	Hunter:
 		HOU2 ABCDABCD 2 A_FaceTarget
 		HOU2 ABCDABCDABCD 1 A_Recoil(-1)
-		HOU2 ABCD 1 A_Recoil(-40)
+		HOU2 ABCD 1 A_Recoil(-20)
 		Goto Missile
 	Sunk:
 		TNT1 A 0 Thing_Damage(0,Health,0)
