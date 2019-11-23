@@ -1,4 +1,4 @@
-ACTOR 33----------------- {}
+ACTOR ---------HUMANS--------- {}
 ACTOR DoomEnemy_Base
 {
 	//$Category "Doom Monsters"
@@ -7,8 +7,6 @@ ACTOR DoomEnemy_Base
 	Speed 8
 	Monster
 }
-
-ACTOR DoomMonsterTNT : GreenCultistTNT { +CANNOTPUSH }
 
 ACTOR ZombieMan_ : DoomEnemy_Base 19037
 {
@@ -40,6 +38,12 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 		POSS E 10 A_FaceTarget
 		POSS F 8 A_PosAttack
 		POSS E 8
+		TNT1 A 0 A_Jump(160,"See")
+	LaunchTnt:
+		ZNOS A  5 A_FaceTarget
+		ZNOS BC 5
+		TNT1 A  0 A_ThrowGrenade("DoomMonsterTNT",0,20,4,0)
+		ZNOS D  5
 		Goto See
 	Pain:
 		POSS G 3
@@ -140,7 +144,6 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 	}
 }
 
-ACTOR 34----------------- {}
 ACTOR ShotgunGuy_ : DoomEnemy_base 18999
 {
 	//$Title ShotgunGuy (BlooM)
@@ -248,7 +251,6 @@ ACTOR ShotgunGuy_ : DoomEnemy_base 18999
 	}
 }
 
-ACTOR 35----------------- {}
 ACTOR ChaingunGuy_ : DoomEnemy_Base 18998
 {
 	//$Title ChaingunGuy (BlooM)
@@ -336,6 +338,8 @@ ACTOR ChaingunGuy_ : DoomEnemy_Base 18998
 		Stop
 	}
 }
+
+ACTOR DoomMonsterTNT : GreenCultistTNT { +CANNOTPUSH }
 
 ACTOR BurnFormerHuman
 {
@@ -507,7 +511,7 @@ ACTOR BurnFormerHuman
 	}
 }
 
-ACTOR 36----------------- {}
+ACTOR ---------DEMONS--------- {}
 ACTOR Demon_ : DoomEnemy_Base 19013
 {
 	//$Title Demon (BlooM)
@@ -631,7 +635,6 @@ ACTOR Spectre_ : Demon_ 19048
 	HitObituary "$OB_SPECTREHIT" // "%o was eaten by a spectre."
 }
 
-ACTOR 37----------------- {}
 ACTOR DoomImp_ : DoomEnemy_Base 19030
 {
 	//$Title Imp (BlooM)
