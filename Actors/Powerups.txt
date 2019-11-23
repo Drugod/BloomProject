@@ -134,6 +134,7 @@ ACTOR Berserk_ : CustomInventory replaces Berserk
 	Pickup:
 		TNT1 A 0 A_JumpIf(CheckClass("Caleb"), "Pickup2")
 		TNT1 A 0 A_GiveInventory("PowerStrength")
+		TNT1 A 0 A_SelectWeapon("Fist_") //act like on Doom as usual - ozy81
 		TNT1 A 0 HealThing(100, 0)
 		Stop
 	Pickup2:
