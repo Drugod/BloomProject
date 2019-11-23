@@ -44,6 +44,7 @@ TMBOA="TMBOA" {}
 //--------------------DECORATIONS-----------
 YCRSA="YCRSA" {}
 YCRWA="YCRWA" {}
+YCS2A="YCS2A" {}
 YCSSA="YCSSA" {}
 YLDDA="YLDDA" {}
 YLPBA="YLPBA" {}

@@ -794,8 +794,20 @@ ACTOR SkullCross : ChurchCross 3195
 ACTOR NoGravSkullCross : SkullCross 19056
 {
 	//$Category "BlooM Ambient/NoGravity"
-	//$Title "Grave, Float Skull Wooden Cross"
+	//$Title "Grave, NoGrav Inverted Skull Wooden Cross"
+	//$Sprite YCS2A0
 	+NOGRAVITY
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		YCS2 A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	}
 }
 
 ACTOR LapidaBlood 3196

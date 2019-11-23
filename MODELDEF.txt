@@ -1363,7 +1363,7 @@ Model skullcross
 Model nogravskullcross
 {
 	Path "models/Tombs"
-	Model 0 "skullcross.md3"
+	Model 0 "skullcross2.md3"
 	Scale 2.5 2.5 2.5
 	FrameIndex UNKN A 0 0
 }
