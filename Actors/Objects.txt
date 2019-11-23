@@ -791,17 +791,11 @@ ACTOR SkullCross : ChurchCross 3195
 	}
 }
 
-ACTOR FloatSkullCross : ChurchCross 19056
+ACTOR NoGravSkullCross : SkullCross 19056
 {
-	//$Sprite YCSSA0
+	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, Float Skull Wooden Cross"
 	+NOGRAVITY
-	States
-	{
-	Spawn:
-		YCSS A -1
-		Stop
-	}
 }
 
 ACTOR LapidaBlood 3196
