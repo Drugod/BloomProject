@@ -3640,7 +3640,7 @@ ACTOR Zombimp1
 	GibHealth 30
 	PainChance 200
 	Painchance "Flare", 0
-	Painchance Fire, 0
+	Painchance "Fire", 0
 	DamageFactor Fire, 3.35
 	DamageFactor "Flare", 3.5
 	Monster
@@ -4740,7 +4740,7 @@ ACTOR Ghoul_Base
 	Painchance 100 //The old annoying zombie faking spam
 	Painchance "LifeLeech", 192
 	Painchance "Tommy", 64//11 //Never seen them fake from this but oh well
-	Painchance Fire, 0
+	Painchance "Fire", 0
 	Painchance "Flare", 0
 	Painchance "PitchFork", 64
 	Painchance "Dynamite", 90
@@ -5002,15 +5002,15 @@ ACTOR Ghoul1 : Ghoul_Base
 		GH1S EFGH 3
 		GH1S I -1
 		Stop
+	Death.Dynamite:
+		GH1S I 0 A_Jump(190,"Death")
+		GH1S I 0 ThrustThingZ(0,frandom(25,45),0,0)
+		Goto Death
 	Raise:
 		GH1D FGHIJ 5
 		TNT1 A 0 A_ChangeFlag("SOLID",1)
 		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)
 		Goto See
-	Death.Dynamite:
-		GH1S I 0 A_Jump(190,"Death")
-		GH1S I 0 ThrustThingZ(0,frandom(25,45),0,0)
-		Goto Death
 	}
 }
 
