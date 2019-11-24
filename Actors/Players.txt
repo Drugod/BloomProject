@@ -65,7 +65,7 @@ ACTOR Caleb : PlayerPawn
 	Player.ColorSet 5, "Light Brown",   0x38, 0x47,  0x3A
 	Player.ColorSet 6, "Light Red",     0xB0, 0xBF,  0xB2
 	Player.ColorSet 7, "Light Blue",    0xC0, 0xCF,  0xC2
-	Player.CrouchSprite "PLYC"
+	Player.CrouchSprite "CALY"
 	Player.DisplayName "Caleb"
 	Player.Face "CTF"
 	Player.ForwardMove 0.88 0.82
@@ -100,7 +100,7 @@ ACTOR Caleb : PlayerPawn
 		Goto Spawn
 	Melee:
 		TNT1 A 0 A_JumpIfInventory("UsingPitchfork", 1, "Missile")
-		CALB GGGGGG 1 BRIGHT
+		CALB GGGGGG 1
 		Goto Missile
 	Pain.GOUPBOY:
 		CALB H 0 ThrustThingZ(0,70,0,1)
@@ -288,7 +288,7 @@ ACTOR DoomDude : PlayerPawn
 		PLAY E 12
 		Goto Spawn
 	Melee:
-		PLAY F 6 BRIGHT
+		PLAY F 6
 		Goto Missile
 	Pain:
 		PLAY G 4

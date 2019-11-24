@@ -10,6 +10,7 @@ Colored brightmaps by Ozymandias81
 Colt and single barrel Shotgun taken from Blood weapon mod
 Doom Models mainly from TheMacGyverArchiver
 Doom Voxels by Reikall (several)
+DoomGuy player sprites by Mark Quinn
 Some flats and general defs by SgtMarkIV
 Grenades/Playerclasses by SgtMarkIV, modified by Drugod
 Grenades/Snow/Rain/Steam/Fog effects by Tormentor667/Ghastly_dragon, modified by Drugod

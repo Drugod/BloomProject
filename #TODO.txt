@@ -1,5 +1,5 @@
 For Rolls, models which needs to be added:
-- nothing yet
+- add crouch frames for Caleb and swimming frames for both classes
 
 For All:
 - add flamethrower / freezethrower for Doomguy using beta sprites
@@ -7,6 +7,7 @@ For All:
 - fix glass debris and add more variant of debris
 - fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff
 - fix HUD statusbar for gzdoom 4+
+- fix LifeLeech: fire states originate some unknown flags messages, when actors like Archies or Ghouls gets hit
 - fix SpiderMother code
 - fix TERRAIN defs, lots of sounds needs to be defined and included
 - polish overall code
@@ -23,4 +24,3 @@ Coop problems:
 Zandro test required:
 - check always maps from Zandronum first :(
 - externalize KEYCONF between LANGUAGE and MENUDEF (if supported by zandro)
-- fix LifeLeech for Zandronum: fire states originate some unknown flags messages, probably cause by non-existent GunFlash calls or maybe Acs calls

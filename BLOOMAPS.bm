@@ -71,6 +71,49 @@ Brightmap sprite ZIPFA0 {map "Brightmaps/ZIMMA0.png"}
 Brightmap sprite ZIPFB0 {map "Brightmaps/ZIMMB0.png"}
 Brightmap sprite ZIPFC0 {map "Brightmaps/ZIMMC0.png"}
 
+//Players
+Brightmap sprite CALBA1		{map "Brightmaps/CALBA1.png"}
+Brightmap sprite CALBA2A8	{map "Brightmaps/CALBA2A8.png"}
+Brightmap sprite CALBA3A7	{map "Brightmaps/CALBA3A7.png"}
+Brightmap sprite CALBB1		{map "Brightmaps/CALBB1.png"}
+Brightmap sprite CALBB2B8	{map "Brightmaps/CALBB2B8.png"}
+Brightmap sprite CALBB3B7	{map "Brightmaps/CALBB3B7.png"}
+Brightmap sprite CALBC1		{map "Brightmaps/CALBC1.png"}
+Brightmap sprite CALBC2C8	{map "Brightmaps/CALBC2C8.png"}
+Brightmap sprite CALBC3C7	{map "Brightmaps/CALBC3C7.png"}
+Brightmap sprite CALBD1		{map "Brightmaps/CALBD1.png"}
+Brightmap sprite CALBD2D8	{map "Brightmaps/CALBD2D8.png"}
+Brightmap sprite CALBD3D7	{map "Brightmaps/CALBD3D7.png"}
+Brightmap sprite CALBE1		{map "Brightmaps/CALBE1.png"}
+Brightmap sprite CALBE2E8	{map "Brightmaps/CALBE2E8.png"}
+Brightmap sprite CALBE3E7	{map "Brightmaps/CALBE3E7.png"}
+Brightmap sprite CALBF1		{map "Brightmaps/CALBF1.png"}
+Brightmap sprite CALBF2F8	{map "Brightmaps/CALBF2F8.png"}
+Brightmap sprite CALBF3F7	{map "Brightmaps/CALBF3F7.png"}
+Brightmap sprite CALBG1		{map "Brightmaps/CALBG1.png"}
+Brightmap sprite CALBG2G8	{map "Brightmaps/CALBG2G8.png"}
+Brightmap sprite CALBG3G7	{map "Brightmaps/CALBG3G7.png"}
+Brightmap sprite CALBG4G6	{map "Brightmaps/CALBG4G6.png"}
+Brightmap sprite CALBG5		{map "Brightmaps/CALBG5.png"}
+Brightmap sprite CALBH1		{map "Brightmaps/CALBH1.png"}
+Brightmap sprite CALBH2H8	{map "Brightmaps/CALBH2H8.png"}
+Brightmap sprite CALBH3H7	{map "Brightmaps/CALBH3H7.png"}
+Brightmap sprite CALBI1		{map "Brightmaps/CALBI1.png"}
+Brightmap sprite CALXA0		{map "Brightmaps/CALXA0.png"}
+Brightmap sprite CALXG0		{map "Brightmaps/CALXG0.png"}
+Brightmap sprite CALXH0		{map "Brightmaps/CALXH0.png"}
+
+Brightmap sprite PLAYF1		{map "Brightmaps/PLAYF1.png"}
+Brightmap sprite PLAYF2F8	{map "Brightmaps/PLAYF2F8.png"}
+Brightmap sprite PLAYF3F7	{map "Brightmaps/PLAYF3F7.png"}
+Brightmap sprite PLAYF4F6	{map "Brightmaps/PLAYF4F6.png"}
+Brightmap sprite PLAYF5		{map "Brightmaps/PLAYF5.png"}
+Brightmap sprite PLYCF1		{map "Brightmaps/PLYCF1.png"}
+Brightmap sprite PLYCF2F8	{map "Brightmaps/PLYCF2F8.png"}
+Brightmap sprite PLYCF3F7	{map "Brightmaps/PLYCF3F7.png"}
+Brightmap sprite PLYCF4F6	{map "Brightmaps/PLYCF4F6.png"}
+Brightmap sprite PLYCF5		{map "Brightmaps/PLYCF5.png"}
+
 //Enemies
 
 //Gargovile
@@ -636,3 +679,35 @@ Brightmap sprite BGARH1		{map "Brightmaps/BMARH1.png"}
 Brightmap sprite BGARH8H2	{map "Brightmaps/BMARH8H2.png"}
 Brightmap sprite BGARI1		{map "Brightmaps/BMARI1.png"}
 Brightmap sprite BGARI8I2	{map "Brightmaps/BMARI8I2.png"}
+
+//Attacks
+Brightmap sprite BARFA1		{map "Brightmaps/BARFA1.png"}
+Brightmap sprite BARFA2A8	{map "Brightmaps/BARFA2A8.png"}
+Brightmap sprite BARFA3A7	{map "Brightmaps/BARFA3A7.png"}
+Brightmap sprite BARFA4A6	{map "Brightmaps/BARFA4A6.png"}
+Brightmap sprite BARFA5		{map "Brightmaps/BARFA5.png"}
+Brightmap sprite BARFB1		{map "Brightmaps/BARFB1.png"}
+Brightmap sprite BARFB2B8	{map "Brightmaps/BARFB2B8.png"}
+Brightmap sprite BARFB3B7	{map "Brightmaps/BARFB3B7.png"}
+Brightmap sprite BARFB4B6	{map "Brightmaps/BARFB4B6.png"}
+Brightmap sprite BARFB5		{map "Brightmaps/BARFB5.png"}
+Brightmap sprite BARFC1		{map "Brightmaps/BARFC1.png"}
+Brightmap sprite BARFC2C8	{map "Brightmaps/BARFC2C8.png"}
+Brightmap sprite BARFC3C7	{map "Brightmaps/BARFC3C7.png"}
+Brightmap sprite BARFC4C6	{map "Brightmaps/BARFC4C6.png"}
+Brightmap sprite BARFC5		{map "Brightmaps/BARFC5.png"}
+Brightmap sprite BARFD1		{map "Brightmaps/BARFD1.png"}
+Brightmap sprite BARFD2D8	{map "Brightmaps/BARFD2D8.png"}
+Brightmap sprite BARFD3D7	{map "Brightmaps/BARFD3D7.png"}
+Brightmap sprite BARFD4D6	{map "Brightmaps/BARFD4D6.png"}
+Brightmap sprite BARFD5		{map "Brightmaps/BARFD5.png"}
+Brightmap sprite BARFE1		{map "Brightmaps/BARFE1.png"}
+Brightmap sprite BARFE2E8	{map "Brightmaps/BARFE2E8.png"}
+Brightmap sprite BARFE3E7	{map "Brightmaps/BARFE3E7.png"}
+Brightmap sprite BARFE4E6	{map "Brightmaps/BARFE4E6.png"}
+Brightmap sprite BARFE5		{map "Brightmaps/BARFE5.png"}
+Brightmap sprite BARFF1		{map "Brightmaps/BARFF1.png"}
+Brightmap sprite BARFF2F8	{map "Brightmaps/BARFF2F8.png"}
+Brightmap sprite BARFF3F7	{map "Brightmaps/BARFF3F7.png"}
+Brightmap sprite BARFF4F6	{map "Brightmaps/BARFF4F6.png"}
+Brightmap sprite BARFF5		{map "Brightmaps/BARFF5.png"}
