@@ -7744,3 +7744,152 @@ ACTOR KingCacoyle : BloomHybrid_Base 19053
 		Stop
 	}
 }
+
+ACTOR CyberCheogh : BloomHybrid_Base 19057
+{
+	//$Title CyberCheogh
+	Spawnid 3
+	Health 4000
+	Radius 24
+	Height 64
+	Mass 1000
+	Speed 8
+	Scale 0.88
+	FloatSpeed  14
+	MeleeDamage 13
+	MeleeRange  80
+	PainChance 50
+	SeeSound "Cheogh/Roam"
+	PainSound "Cheogh/Pain"
+	DeathSound "Cheogh/Die"
+	ActiveSound "Cheogh/Roam"
+	MeleeSound "Cheogh/Slap"
+	Obituary "$OB_CHEOGH"
+	HitObituary "$HB_CHEOGH"
+	DamageType "Stun"
+	Species "CYCHoyles"
+	+FLOAT
+	+FLOORCLIP
+	+LONGMELEERANGE
+	+MISSILEMORE
+	+NOGRAVITY
+	+NOSPLASHALERT
+	+SHORTMISSILERANGE
+	+BOSS	
+	States
+	{
+	Spawn:
+		CYCH ABCD 9 A_Look
+		Loop
+	Idle:
+		CYCH ABCDABCDABCDABCD 9 A_Wander
+		TNT1 A 0 A_Look
+		Loop
+	See:
+		TNT1 A 0 A_SentinelBob
+		CYCH A 1 A_Chase
+		CYCH AA 1 A_ExtChase(0,0,1,0)
+		CYCH A 1 A_Chase
+		CYCH AA 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
+		CYCH A 1 A_Chase
+		CYCH AA 1 A_ExtChase(0,0,1,0)
+		CYCH B 1 A_Chase
+		CYCH BB 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
+		CYCH B 1 A_Chase
+		CYCH BB 1 A_ExtChase(0,0,1,0)
+		CYCH B 1 A_Chase
+		CYCH BB 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
+		CYCH C 1 A_Chase
+		CYCH CC 1 A_ExtChase(0,0,1,0)
+		CYCH C 1 A_Chase
+		CYCH CC 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
+		CYCH C 1 A_Chase
+		CYCH CC 1 A_ExtChase(0,0,1,0)
+		CYCH D 1 A_Chase
+		CYCH DD 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		CYCH D 1 A_Chase
+		CYCH D 0 A_pLAYsOUND("Cheogh/Roam",0)
+		CYCH DD 1 A_ExtChase(0,0,1,0)
+		CYCH D 1 A_Chase
+		CYCH DD 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		Loop
+	COME:
+		CYCH F  1 A_Recoil(-3)
+		CYCH FF 1 A_Chase
+		TNT1 A  0 ThrustThing(angle*256/360,1,0,0)		
+		CYCH F  1 A_Recoil(-3)
+		CYCH FF 1 A_Chase
+		TNT1 A  0 ThrustThing(angle*256/360,1,0,0)		
+		CYCH F  1 A_Recoil(-3)
+		CYCH FF 1 A_Chase
+		TNT1 A  0 ThrustThing(angle*256/360,1,0,0)		
+		CYCH F  1 A_Recoil(-3)
+		CYCH FF 1 A_Chase
+		TNT1 A  0 ThrustThing(angle*256/360,1,0,0)		
+		Goto See
+	Melee:
+		CYCH F 6 A_FaceTarget
+		CYCH G 5 A_Recoil(-1)
+		CYCH HH 3 A_CustomMeleeAttack (frandom(3,6)*7,"Cheogh/Slap","Cheogh/Slap", "GOUPBOY",1)
+		CYCH IJ 6
+		Goto See
+	Missile:
+		CYCJ A 6 A_FaceTarget
+		TNT1 A 0 A_JumpIfCloser(500,"COME")		
+		CYCJ B 12 A_CyberAttack
+		CYCJ A 12 A_FaceTarget
+		TNT1 A 0 A_JumpIfCloser(500,"COME")				
+		CYCJ B 12 A_CyberAttack
+		CYCJ A 12 A_FaceTarget
+		TNT1 A 0 A_JumpIfCloser(500,"COME")				
+		CYCJ B 12 A_CyberAttack
+	Goto See	
+	/*EyeMissile: //Pending attack
+		CYCH A 9 A_FaceTarget
+		TNT1 A 0 A_JumpIfCloser(250,"COME")
+		TNT1 A 0 BRIGHT A_CustomMissile ("StoneCYCHBall",42,10,0,1,0)
+		TNT1 A 0 BRIGHT A_CustomMissile ("StoneCYCHBall",42,-10,0,1,0)
+		CYCH L 10 BRIGHT
+		CYCH A 5
+		CYCH A 9 A_FaceTarget
+		TNT1 A 0 A_JumpIfCloser(250,"COME")
+		TNT1 A 0 BRIGHT A_CustomMissile ("StoneCYCHBall",42,10,0,1,0)
+		TNT1 A 0 BRIGHT A_CustomMissile ("StoneCYCHBall",42,-10,0,1,0)
+		CYCH L 10 BRIGHT
+		CYCH A 4
+		Goto See*/
+	Pain:
+		CYCH L 4
+		CYCH L 8 A_Pain
+		CYCH A 4
+		Goto See
+	Pain.Shock:
+		CYCH L 6 A_Pain
+		CYCH KKK 20
+		CYCH AAAAA 7
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0 A_Jump(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("potionHealth", frandom(0,1))
+		Goto See
+	Death:
+		CYCI A 8
+		CYCI B 8 A_Scream
+		CYCI C 8 A_Fall
+		CYCI DE 8
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		CYCI F -1 A_BossDeath
+		Stop
+	}
+}
