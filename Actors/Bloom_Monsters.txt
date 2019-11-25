@@ -7754,7 +7754,6 @@ ACTOR CyberCheogh : BloomHybrid_Base 19057
 	Height 64
 	Mass 1000
 	Speed 8
-	Scale 0.88
 	FloatSpeed  14
 	MeleeDamage 13
 	MeleeRange  80
@@ -7767,7 +7766,7 @@ ACTOR CyberCheogh : BloomHybrid_Base 19057
 	Obituary "$OB_CHEOGH"
 	HitObituary "$HB_CHEOGH"
 	DamageType "Stun"
-	Species "CYCHoyles"
+	Species "gargoyles"
 	+FLOAT
 	+FLOORCLIP
 	+LONGMELEERANGE
@@ -7786,56 +7785,48 @@ ACTOR CyberCheogh : BloomHybrid_Base 19057
 		TNT1 A 0 A_Look
 		Loop
 	See:
-		TNT1 A 0 A_SentinelBob
-		CYCH A 1 A_Chase
+		TNT1 A  0 A_SentinelBob
+		CYCH A  1 A_Chase
 		CYCH AA 1 A_ExtChase(0,0,1,0)
-		CYCH A 1 A_Chase
+		CYCH A  1 A_Chase
 		CYCH AA 1 A_ExtChase(0,0,1,0)
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
-		CYCH A 1 A_Chase
+		CYCH A  1 A_Chase
 		CYCH AA 1 A_ExtChase(0,0,1,0)
-		CYCH B 1 A_Chase
+		CYCH B  1 A_Chase
 		CYCH BB 1 A_ExtChase(0,0,1,0)
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
-		CYCH B 1 A_Chase
+		CYCH B  1 A_Chase
 		CYCH BB 1 A_ExtChase(0,0,1,0)
-		CYCH B 1 A_Chase
+		CYCH B  1 A_Chase
 		CYCH BB 1 A_ExtChase(0,0,1,0)
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
-		CYCH C 1 A_Chase
+		CYCH C  1 A_Chase
 		CYCH CC 1 A_ExtChase(0,0,1,0)
-		CYCH C 1 A_Chase
+		CYCH C  1 A_Chase
 		CYCH CC 1 A_ExtChase(0,0,1,0)
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
-		CYCH C 1 A_Chase
+		CYCH C  1 A_Chase
 		CYCH CC 1 A_ExtChase(0,0,1,0)
-		CYCH D 1 A_Chase
+		CYCH D  1 A_Chase
 		CYCH DD 1 A_ExtChase(0,0,1,0)
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		CYCH D 1 A_Chase
-		CYCH D 0 A_pLAYsOUND("Cheogh/Roam",0)
+		CYCH D  1 A_Chase
+		CYCH D  0 A_Playsound("Cheogh/Roam",0)
+		CYCH DD 1 A_ExtChase(0,0,1,0) 
+		CYCH D  1 A_Chase
 		CYCH DD 1 A_ExtChase(0,0,1,0)
-		CYCH D 1 A_Chase
-		CYCH DD 1 A_ExtChase(0,0,1,0)
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
 		Loop
 	COME:
+		TNT1 A  0 A_Facetarget
+		TNT1 A  0 ThrustThing(angle*256/360,1,0,0)	
 		CYCH F  1 A_Recoil(-3)
 		CYCH FF 1 A_Chase
-		TNT1 A  0 ThrustThing(angle*256/360,1,0,0)		
+		TNT1 A  0 A_Facetarget
 		CYCH F  1 A_Recoil(-3)
 		CYCH FF 1 A_Chase
-		TNT1 A  0 ThrustThing(angle*256/360,1,0,0)		
+		TNT1 A  0 A_Facetarget
+		TNT1 A  0 ThrustThing(angle*256/360,1,0,0)	
 		CYCH F  1 A_Recoil(-3)
 		CYCH FF 1 A_Chase
-		TNT1 A  0 ThrustThing(angle*256/360,1,0,0)		
+		TNT1 A  0 A_Facetarget
 		CYCH F  1 A_Recoil(-3)
 		CYCH FF 1 A_Chase
-		TNT1 A  0 ThrustThing(angle*256/360,1,0,0)		
 		Goto See
 	Melee:
 		CYCH F 6 A_FaceTarget
@@ -7844,15 +7835,14 @@ ACTOR CyberCheogh : BloomHybrid_Base 19057
 		CYCH IJ 6
 		Goto See
 	Missile:
-		CYCJ A 6 A_FaceTarget
-		TNT1 A 0 A_JumpIfCloser(500,"COME")		
-		CYCJ B 12 A_CyberAttack
+		TNT1 A 0 
+		TNT1 A 0  A_Jump(250,"COME")				
+		CYCJ A 6  A_FaceTarget
+		CYCJ B 12 A_CustomMissile("Rocket",20,-40,0,0)
 		CYCJ A 12 A_FaceTarget
-		TNT1 A 0 A_JumpIfCloser(500,"COME")				
-		CYCJ B 12 A_CyberAttack
+		CYCJ B 12 A_CustomMissile("Rocket",20,-40,0,0)
 		CYCJ A 12 A_FaceTarget
-		TNT1 A 0 A_JumpIfCloser(500,"COME")				
-		CYCJ B 12 A_CyberAttack
+		CYCJ B 12 A_CustomMissile("Rocket",20,-40,0,0)
 	Goto See	
 	/*EyeMissile: //Pending attack
 		CYCH A 9 A_FaceTarget
