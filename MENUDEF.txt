@@ -111,8 +111,8 @@ OptionMenu "BloomOptions"
 	Title  "Bloom options"
 	Statictext " "
 	StaticText "Gameplay Options", 1
-	Option "Hybrid Bloom monsters?", "hybridmonster", "YesOrNo"  
-	Option "Traps on iwad maps?", "traps", "YesOrNo"    
+	Option "Hybrid Bloom monsters?", "blm_hybrid", "YesOrNo"  
+	Option "Traps on iwad maps?", "blm_traps", "YesOrNo"    
 	StaticText " "  
 	StaticText "Performance Options", 1
 	//, "Do you want to disable models and voxels for weapons, objects & items?"
