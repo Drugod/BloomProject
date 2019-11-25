@@ -53,7 +53,6 @@ ACTOR RocketX: Rocket replaces Rocket
 	Speed 20
 	Damage 20
 	DamageType "Normal"
-	RenderStyle "Add"  
 	Projectile
 	+DEHEXPLOSION
 	+RANDOMIZE

@@ -1115,7 +1115,7 @@ ACTOR TheDeeponesHybrid
 	}
 }
 
-ACTOR --------BOSSES1------------ {}
+ACTOR --------BOSSES------------ {}
 ACTOR HybridBosses1 replaces Cyberdemon
 {
     //$Category "Monsters Selectors"

@@ -956,7 +956,7 @@ ACTOR SpiderMastermind_ replaces SpiderMastermind
 }
 
 ACTOR 41----------------- {}
-ACTOR Cyberdemon_ replaces Cyberdemon
+ACTOR Cyberdemon_ : DoomEnemy_base 19058
 {
 	//$Category "Doom Monsters"
 	//$Title Cyberdemon (BlooM)
