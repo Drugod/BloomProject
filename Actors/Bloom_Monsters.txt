@@ -688,8 +688,14 @@ ACTOR DeepOneShot : DeepOne_Base 19052
 		FISH E 10 A_FaceTarget
 		FISH F 10 A_SPosAttackUseAtkSound
 		FISH E 10
+		TNT1 A 0 A_Jump(160,"Ground.See")
+	LaunchTnt:
+		FITH A  5 A_FaceTarget
+		FITH BC 5
+		TNT1 A  0 A_ThrowGrenade("HybridCultistTNT",0,20,4,0)
+		FITH D  5
 		TNT1 A 0 A_Jump(256,"Ground.See")
-		Stop
+		Goto See
 	Ground.DeathSetup:
 		FISH H 5
 		FISH I 5 A_Scream
@@ -7812,7 +7818,7 @@ ACTOR CyberCheogh : BloomHybrid_Base 19057
 		CYCH D  1 A_Chase
 		CYCH DD 1 A_ExtChase(0,0,1,0)
 		Loop
-	COME:
+	Comming:
 		TNT1 A  0 A_Facetarget
 		TNT1 A  0 ThrustThing(angle*256/360,1,0,0)	
 		CYCH F  1 A_Recoil(-3)
@@ -7832,7 +7838,7 @@ ACTOR CyberCheogh : BloomHybrid_Base 19057
 		Goto See
 	Missile:
 		TNT1 A 0 
-		TNT1 A 0  A_Jump(128,"COME")				
+		TNT1 A 0  A_Jump(204,"Comming","EyeMissile","Wind","Missile2")				
 		CYCJ A 6  A_FaceTarget
 		CYCJ B 12 A_CustomMissile("Rocket",20,-40,0,0)
 		CYCJ A 12 A_FaceTarget
@@ -7840,20 +7846,127 @@ ACTOR CyberCheogh : BloomHybrid_Base 19057
 		CYCJ A 12 A_FaceTarget
 		CYCJ B 12 A_CustomMissile("Rocket",20,-40,0,0)
 	Goto See	
-	/*EyeMissile: //Pending attack
-		CYCH A 9 A_FaceTarget
-		TNT1 A 0 A_JumpIfCloser(250,"COME")
-		TNT1 A 0 BRIGHT A_CustomMissile ("StoneCYCHBall",42,10,0,1,0)
-		TNT1 A 0 BRIGHT A_CustomMissile ("StoneCYCHBall",42,-10,0,1,0)
-		CYCH L 10 BRIGHT
-		CYCH A 5
-		CYCH A 9 A_FaceTarget
-		TNT1 A 0 A_JumpIfCloser(250,"COME")
-		TNT1 A 0 BRIGHT A_CustomMissile ("StoneCYCHBall",42,10,0,1,0)
-		TNT1 A 0 BRIGHT A_CustomMissile ("StoneCYCHBall",42,-10,0,1,0)
-		CYCH L 10 BRIGHT
-		CYCH A 4
-		Goto See*/
+	EyeMissile:
+		CYCJ A 9 A_FaceTarget
+		CYCK A 9 
+		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,10,0,1,0)
+		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,-10,0,1,0)
+		CYCK B 10 BRIGHT
+		CYCJ A 5
+		CYCK A 9 A_FaceTarget
+		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,10,0,1,0)
+		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,-10,0,1,0)
+		CYCK B 10 BRIGHT
+		CYCJ A 4
+		Goto See
+	Wind:
+		CYCW ABC 4 A_SetInvulnerable
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+		CYCW ABC 4 A_FaceTarget
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+		CYCW ABC 4 A_FaceTarget
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
+		CYCW ABC 4 A_CustomMissile("KingTornado",0,0,0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
+		CYCW ABC 4 A_CustomMissile("KingTornado",0,0,0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
+		CYCW ABC 4 A_CustomMissile("KingTornado",0,0,0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
+		CYCW ABC 4 A_CustomMissile("KingTornado",0,0,0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
+		CYCW ABC 4 A_CustomMissile("KingTornado",0,0,0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
+		CYCW ABC 4 A_CustomMissile("KingTornado",0,0,0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
+		CYCW ABC 4 A_CustomMissile("KingTornado",0,0,0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Blast
+		TNT1 A 0 A_PlaySound("GargoyleFlap2")
+		CYCW ABC 4 A_CustomMissile("KingTornado",0,0,0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
+	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
+		TNT1 A 0 A_UnSetInvulnerable
+		Goto See
+	Missile2:
+		CYCJ A 3 BRIGHT A_FaceTarget
+		TNT1 A 0 A_PlaySound("king/iceshot",0)
+		CYKI A 3 BRIGHT A_CustomMissile("KingFX1",56.0, 0.0, 0, 1, 0)
+		CYKI B 3 BRIGHT
+		CYCJ A 3 BRIGHT A_FaceTarget
+		TNT1 A 0 A_PlaySound("king/iceshot",0)
+		CYKI A 3 BRIGHT A_CustomMissile("KingFX2",56.0, 0.0, 0, 1, 0)
+		CYKI B 3 BRIGHT
+		CYCJ A 3 BRIGHT A_FaceTarget
+		TNT1 A 0 A_PlaySound("king/iceshot",0)
+		CYKI A 3 BRIGHT A_CustomMissile("KingFX3",56.0, 0.0, 0, 1, 0)
+		CYKI B 3 BRIGHT
+		CYCJ A 3 BRIGHT A_FaceTarget
+		TNT1 A 0 A_PlaySound("king/iceshot",0)
+		CYKI A 3 BRIGHT A_CustomMissile("KingFX4",56.0, 0.0, 0, 1, 0)
+		CYKI B 3 BRIGHT
+		Goto See
 	Pain:
 		CYCH L 4
 		CYCH L 8 A_Pain
@@ -7870,12 +7983,23 @@ ACTOR CyberCheogh : BloomHybrid_Base 19057
 		TNT1 A 0 A_GiveToTarget("potionHealth", frandom(0,1))
 		Goto See
 	Death:
+		TNT1 A 0 
+		TNT1 A 0 A_Jump(128,"Death2")
 		CYCI A 8
 		CYCI B 8 A_Scream
 		CYCI C 8 A_Fall
 		CYCI DE 8
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		CYCI F -1 A_BossDeath
+		Stop
+	Death2:
+		CYCU A 10
+		CYCU B 10 A_Scream
+		CYCU CDE 10
+		CYCU F 10 A_NoBlocking
+		CYCU GH 10
+		CYCU I 30
+		CYCU I -1 A_BossDeath
 		Stop
 	}
 }
