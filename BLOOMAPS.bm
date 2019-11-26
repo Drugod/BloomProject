@@ -116,6 +116,42 @@ Brightmap sprite PLYCF5		{map "Brightmaps/PLYCF5.png"}
 
 //Enemies
 
+//BloodZombie (stand/buried)
+Brightmap sprite BZOMA1		{map "Brightmaps/BZOMA1.png"}
+Brightmap sprite BZOMA8A2	{map "Brightmaps/BZOMA8A2.png"}
+Brightmap sprite BZOMB1		{map "Brightmaps/BZOMB1.png"}
+Brightmap sprite BZOMB8B2	{map "Brightmaps/BZOMB8B2.png"}
+Brightmap sprite BZOMC1		{map "Brightmaps/BZOMC1.png"}
+Brightmap sprite BZOMC8C2	{map "Brightmaps/BZOMC8C2.png"}
+Brightmap sprite BZOMD1		{map "Brightmaps/BZOMD1.png"}
+Brightmap sprite BZOMD8D2	{map "Brightmaps/BZOMD8D2.png"}
+Brightmap sprite BZOME1		{map "Brightmaps/BZOME1.png"}
+Brightmap sprite BZOME8E2	{map "Brightmaps/BZOME8E2.png"}
+Brightmap sprite BZOMF1		{map "Brightmaps/BZOMF1.png"}
+Brightmap sprite BZOMF8F2	{map "Brightmaps/BZOMF8F2.png"}
+Brightmap sprite BZOMH1		{map "Brightmaps/BZOMH1.png"}
+Brightmap sprite BZOMH8H2	{map "Brightmaps/BZOMH8H2.png"}
+Brightmap sprite BZOMI1		{map "Brightmaps/BZOMI1.png"}
+Brightmap sprite BZOMI8I2	{map "Brightmaps/BZOMI8I2.png"}
+Brightmap sprite BZOMJ1		{map "Brightmaps/BZOMJ1.png"}
+Brightmap sprite BZOMJ8J2	{map "Brightmaps/BZOMJ8J2.png"}
+Brightmap sprite BZOMK1		{map "Brightmaps/BZOMK1.png"}
+Brightmap sprite BZOMK8K2	{map "Brightmaps/BZOMK8K2.png"}
+Brightmap sprite BZOML1		{map "Brightmaps/BZOML1.png"}
+Brightmap sprite BZOML8L2	{map "Brightmaps/BZOML8L2.png"}
+Brightmap sprite BZOMO1		{map "Brightmaps/BZOMO1.png"}
+Brightmap sprite BZOMO8O2	{map "Brightmaps/BZOMO8O2.png"}
+Brightmap sprite BZOSA0		{map "Brightmaps/BZOSA0.png"}
+Brightmap sprite UGZZD0		{map "Brightmaps/UGZZD0.png"}
+Brightmap sprite UGZZE0		{map "Brightmaps/UGZZE0.png"}
+Brightmap sprite UGZZF0		{map "Brightmaps/UGZZF0.png"}
+Brightmap sprite UGZZG0		{map "Brightmaps/UGZZG0.png"}
+Brightmap sprite ZOMZA1 	{map "Brightmaps/ZOMZA1.png"}
+Brightmap sprite ZOMZA5 	{map "Brightmaps/ZOMZA5.png"}
+Brightmap sprite ZOMZA6A4 	{map "Brightmaps/ZOMZA6A4.png"}
+Brightmap sprite ZOMZA7A3 	{map "Brightmaps/ZOMZA7A3.png"}
+Brightmap sprite ZOMZA8A2 	{map "Brightmaps/ZOMZA8A2.png"}
+
 //Gargovile
 Brightmap sprite ARCFA1		{map "Brightmaps/ARCFA1.png"}
 Brightmap sprite ARCFA2A8	{map "Brightmaps/ARCFA2A8.png"}

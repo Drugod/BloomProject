@@ -561,6 +561,7 @@ ACTOR TheArachnoids replaces Arachnotron
     //$Category "Monsters Selectors"
     //$Title The Arachnoids
     //$Color 3
+	//$Sprite B1ILD0
 	+NOTDMATCH
 	-COUNTKILL
 	States
@@ -573,15 +574,15 @@ ACTOR TheArachnoids replaces Arachnotron
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("Arachnoidhybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("ArachnoidHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("Arachnoidnormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("ArachnoidNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
 
-ACTOR Arachnoidnormal
+ACTOR ArachnoidNormal
 {
 	States
 	{
@@ -598,7 +599,7 @@ ACTOR Arachnoidnormal
 	}
 }
 
-ACTOR Arachnoidhybrid
+ACTOR ArachnoidHybrid
 {
 	States
 	{

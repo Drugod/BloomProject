@@ -1232,7 +1232,7 @@ ACTOR EWWW
 	States
 	{
 	Spawn:
-		BARF ABCDEFABCDEFABCDEF 3 LIGHT("GGLOW2") 
+		BARF ABCDEFABCDEFABCDEF 3 LIGHT("GGLOW2")
 	Death:
 		BARF AAAA 4 A_FadeOut(0.25)
 		Stop
@@ -2477,27 +2477,27 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 		BZOM DDDEEEFFF 1 A_Chase
 		BZOM A 0 A_Stop
 		BZOM AAAABBBBCCCC 1 A_Chase
-		BZOM A 0 A_Stop //Balance regain
+		BZOM A 0 A_Stop
 		BZOM DDDEEEFFF 1 A_Chase
 		BZOM A 0 A_Stop
 		BZOM AAAABBBBCCCC 1 A_Chase
-		BZOM A 0 A_Stop //Balance regain
+		BZOM A 0 A_Stop
 		BZOM DDDEEEFFF 1 A_Chase
 		BZOM A 0 A_Stop
 		BZOM AAAABBBBCCCC 1 A_Chase
-		BZOM A 0 A_Stop //Balance regain
+		BZOM A 0 A_Stop
 		BZOM DDDEEEFFF 1 A_Chase
 		BZOM A 0 A_Stop
 		BZOM AAAABBBBCCCC 1 A_Chase
-		BZOM A 0 A_Stop //Balance regain
+		BZOM A 0 A_Stop
 		BZOM DDDEEEFFF 1 A_Chase
 		BZOM A 0 A_Stop
 		BZOM AAAABBBBCCCC 1 A_Chase
-		BZOM A 0 A_Stop //Balance regain
+		BZOM A 0 A_Stop
 		BZOM DDDEEEFFF 1 A_Chase
 		BZOM A 0 A_Stop
 		BZOM AAAABBBBCCCC 1 A_Chase
-		BZOM A 0 A_Stop //Balance regain
+		BZOM A 0 A_Stop
 		BZOM DDDEEEFFF 1 A_Chase
 		BZOM A 0 A_Stop
 		BZOM A 0 A_Jump(150,1)
@@ -2524,7 +2524,6 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 		Goto See
 	Pain:
 		TNT1 A 0 A_JumpIfInventory("AmAlReadyFaking",1,"ContFake")
-		TNT1 A 0 A_ChangeFlag("GHOST",0)
 		TNT1 A 0 A_Jump (140, "Fake")
 		BZOM H 4 A_TakeInventory("AmAlReadyFaking",99)
 		Goto See
@@ -2532,9 +2531,8 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		BZOD A 1
 		BZOM N 0 A_UnSetSolid
-		BZOM N 0 //A_ChangeFlag("GHOST", 1)
 		BZOD AB 4
-		BZOD B 4  A_GiveInventory("AmAlReadyFaking",1)
+		BZOD B 4 A_GiveInventory("AmAlReadyFaking",1)
 		BZOD CDE 4
 	PainEL:
 	ContFake:
@@ -2546,7 +2544,6 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 		BZOD E 0 A_Jump(120,"PainEL")
 		BZOD E 5
 		BZOM N 0 A_ChangeFlag("THRUSPECIES",0)
-		BZOM O 0 A_ChangeFlag("GHOST", 0)
 		BZOM O 0 A_SetShootable
 		BZOM O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
 		BZOD E 0 A_PlaySound("Zombie/Fake")
@@ -2556,9 +2553,8 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 	HAHAHA:
 		BZOD E 0 A_TakeInventory("AmAlReadyFaking",99)
 		BZOD E 0 A_FaceTarget
-		BZOD E 1 //A_RadiusThrust(90,16,0) Same
+		BZOD E 1
 		BZOM O 0 A_SetSolid
-		BZOM O 0 A_Changeflag("GHOST",0)
 		BZOM O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
 		BZOD E 0 A_PlaySound("Zombie/Fake")
 		BZOD EDCBA 2 A_Recoil(-1)
@@ -2566,21 +2562,21 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 	Pain.Shock:
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		TNT1 A 0 A_Stop
-		TNT1 A 0 A_ClearTarget // Go dumb
-		ZOMZ A 7  A_ChangeFlag("GHOST",0)
-		ZOMZ A 7 BRIGHT
+		TNT1 A 0 A_ClearTarget
 		ZOMZ A 7
-		ZOMZ A 7 BRIGHT
 		ZOMZ A 7
-		ZOMZ A 7 BRIGHT
 		ZOMZ A 7
-		ZOMZ A 7 BRIGHT
+		ZOMZ A 7
+		ZOMZ A 7
+		ZOMZ A 7
+		ZOMZ A 7
+		ZOMZ A 7
 		Goto See
 	Pain.LifeLeech:
-		TNT1 A 0 A_ChangeFlag("GHOST",0)
+		TNT1 A 0
 		TNT1 A 0 A_Jump(64,1)
 		Goto See
-		TNT1 A 0 A_GiveToTarget("potionHealth", frandom(0,1))
+		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
 		Goto See
 	Death:
 		TNT1 A 0 A_Scream
@@ -2589,12 +2585,9 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 		BZOD A 8
 		BZOD B 8
 		BZOD C 4
-			//TNT1 A 0 A_Jump(128,3)
 		BZOD D 4 A_Fall
 		BZOD E 1 A_SpawnItemEx("DeadBloodZombie",0,0,0)
-			//BZOD E -1
 		Stop
-			//More BLOOD!!!!!
 		BZOM H 0 A_PlaySound("DSBDSPRY")
 		BZO2 A 0 A_ThrowGrenade("ZombieHead",0,5,10,0)
 		BZOD LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
