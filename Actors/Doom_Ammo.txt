@@ -213,8 +213,8 @@ ACTOR HandGrenades : DoomW
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
-		GRND H 1
-		GRND H -1 A_SpawnItemEx("HappyBundle",0,0,0)
+		PGRN D 1
+		PGRN D -1 A_SpawnItemEx("HappyBundle",0,0,0)
 		Stop
 	ModelSpawn:
 		UNKN A 1
@@ -402,7 +402,7 @@ ACTOR GrenadeBox : GrenadeAmmo
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
-		GRND H -1
+		PGRN D -1
 		Stop
 	ModelSpawn:
 		UNKN A -1

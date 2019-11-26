@@ -46,7 +46,6 @@ ACTOR BlooMClass : Inventory
 ACTOR -------PLAYERS--------- {}
 ACTOR Caleb : PlayerPawn
 {
-	+NOSKIN
 	Mass 35
 	XScale 0.6
 	YScale 0.52

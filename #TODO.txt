@@ -1,9 +1,11 @@
 For Rolls, models which needs to be added:
 - add crouch frames for Caleb and swimming frames for both classes
+- add pickup sprites for GrenadeBox plus voxel and 3d model
 
 For All:
 - add flamethrower / freezethrower for Doomguy using beta sprites
 - Bloodjar and Bloodpile actors share the same behavior and sprite... What's the point?
+- fix Doom paletted sprites, mainly HUD ones and Player
 - fix glass debris and add more variant of debris
 - fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff
 - fix HUD statusbar for gzdoom 4+

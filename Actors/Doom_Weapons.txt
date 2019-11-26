@@ -118,6 +118,7 @@ ACTOR Chainsaw_ : DoomW replaces Chainsaw
 		UNKN A -1 A_SpawnItemEx("Flaregun",0,0,0)
 		Stop
 	Ready:
+		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")
 		SAWG CD 4 A_WeaponReady
 		Loop
 	Deselect:
