@@ -304,7 +304,7 @@ ACTOR HybridHoundSpawner
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
 		Stop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("DemonHound",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
@@ -314,6 +314,66 @@ ACTOR HybridHoundSpawner
 		Stop
 	Spawn3:
 		TNT1 A 0 A_SpawnItemEx("Gargodemon",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("Ratdemon",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop		
+	}
+}
+
+ACTOR --------RAT_SELECTOR------------ {}
+ACTOR RatSpawner 19060
+{
+    //$Category "Monsters Selectors"
+    //$Title Ratdemon Spawner
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridRatdemonSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalRatdemonSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalRatdemonSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Demon_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BloodRat",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridRatdemonSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Ratdemon",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }

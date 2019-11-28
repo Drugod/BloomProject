@@ -2045,6 +2045,55 @@ ACTOR Gargodemon : BloomHybrid_Base 19051
 	}
 }
 
+ACTOR Ratdemon : BloomHybrid_Base 19059
+{
+	//$Title Demonhound
+	Health 150
+	PainChance 180
+	Speed 10
+	Radius 30
+	Height 56
+	Mass 400
+	Monster
+	+FLOORCLIP
+	SeeSound "Ratsee"
+	PainSound "RatPain"
+	DeathSound "Ratdie"
+	ActiveSound "Ratsee"
+	Obituary "%o was bit by a Ratdemon."
+	States
+	{
+	Spawn:
+		RATA AB 10 A_Look
+	Loop
+	See:
+		RATA AABBCCDD 2 Fast A_Chase
+	Loop
+	Melee:
+		RATA EF 8 Fast A_FaceTarget
+		RATA G 8 Fast A_SargAttack
+	Goto See
+	Pain:
+		RATA H 2 Fast
+		RATA H 2 Fast A_Pain
+	Goto See
+	Death:
+		RATA I 8
+		RATA J 8 A_Scream
+		RATA K 4
+		RATA L 4 A_NoBlocking
+		RATA M 4
+		RATA N 4
+		RATA O 4
+		RATA P -1		
+	Stop
+	Raise:
+		RATA N 5
+		RATA MLKJI 5
+	Goto See
+	}	
+}
+
 ACTOR ----------CACOYLES---------- {}
 ACTOR LivingCacoyleStatue 19035
 {
@@ -7948,7 +7997,7 @@ ACTOR CyberCheogh : BloomHybrid_Base 19057
 	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),64.0,Random(0,360),0,0)
 	    TNT1 A 0 A_CustomMissile("Leaves",Random(0,24),-64.0,Random(0,360),0,0)
 		TNT1 A 0 A_UnSetInvulnerable
-		Goto See
+		Goto Comming
 	Missile2:
 		CYCJ A 3 BRIGHT A_FaceTarget
 		TNT1 A 0 A_PlaySound("king/iceshot",0)
