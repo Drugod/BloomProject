@@ -3577,27 +3577,36 @@ ACTOR TeslaRifle : CalebW 3140
 		TNT1 AA 0 A_Lower
 		Loop
 	Fire:
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TEXX AB 2 A_WeaponReady(14)
 		TNT1 A 0 BRIGHT A_PlayWeaponSound("TESLFIR")
 		TNT1 A 0 A_FireCustomMissile("TeslaProjectile",0,1,5)
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL B 1 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_JumpIfNoAmmo("Finish")
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL BC 1 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 BRIGHT A_PlayWeaponSound("TESLFIR")
 		TNT1 A 0 A_FireCustomMissile("TeslaProjectile",0,1,5)
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL C 1 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_JumpIfNoAmmo("Finish")
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL D 2 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 BRIGHT A_PlayWeaponSound("TESLFIR")
 		TNT1 A 0 A_FireCustomMissile("TeslaProjectile",0,1,5)
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL E 1 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_JumpIfNoAmmo("Finish")
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL EF 1 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 BRIGHT A_PlayWeaponSound("TESLFIR")
 		TNT1 A 0 A_FireCustomMissile("TeslaProjectile",0,1,5)
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL F 1 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_JumpIfNoAmmo("Finish")
 		TNT1 A 0 BRIGHT A_Refire
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL G 2 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 BRIGHT A_PlayWeaponSound("TESLFIR")
 		TNT1 A 0 BRIGHT A_FireCustomMissile("TeslaProjectile",0,1,5)
@@ -3606,33 +3615,42 @@ ACTOR TeslaRifle : CalebW 3140
 		TNT1 A 0 A_GunFlash
 		Goto Ready
 	Hold: // The Tesla Coil will Stop if the player is not firing at this point
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL G 2 BRIGHT A_WeaponReady(14)
 		TESF A 0 BRIGHT A_PlayWeaponSound("TESLFIR")
 		TNT1 A 0 A_FireCustomMissile("TeslaProjectile",0,1,5)
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL B 1 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_JumpIfNoAmmo("Finish")
 		TESF A 0 BRIGHT A_JumpIf (ACS_NamedExecuteWithResult("ButtonCheck")==0, "Finish")
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL BC 1 BRIGHT A_WeaponReady(14)
 		TESF B 0 BRIGHT A_PlayWeaponSound("TESLFIR")
 		TNT1 A 0 A_FireCustomMissile("TeslaProjectile",0,1,5)
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL C 1 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_JumpIfNoAmmo("Finish")
 		TESF B 0 BRIGHT A_JumpIf (ACS_NamedExecuteWithResult("ButtonCheck")==0, "Finish")
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL D 2 BRIGHT A_WeaponReady(14)
 		TESF D 0 BRIGHT A_PlayWeaponSound("TESLFIR")
 		TNT1 A 0 A_FireCustomMissile("TeslaProjectile",0,1,5)
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL E 1 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_JumpIfNoAmmo("Finish")
 		TESF D 0 BRIGHT A_JumpIf (ACS_NamedExecuteWithResult("ButtonCheck")==0,"Finish")
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL EF 1 BRIGHT A_WeaponReady(14)
 		TESF E 0 BRIGHT A_PlayWeaponSound("TESLFIR")
 		TNT1 A 0 A_FireCustomMissile("TeslaProjectile",0,1,5)
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESL F 1 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_JumpIfNoAmmo("Finish")
 		TESF E 0 BRIGHT A_JumpIf (ACS_NamedExecuteWithResult("ButtonCheck")==0, "Finish")
 		TESF E 0 BRIGHT A_Refire
 		Goto Finish
 	Finish:
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_FireCustomMissile("TeslaSmoke",frandom(-8,8),0,1,8+frandom(-.1,.1),0)
 		TEXX BA 3 A_WeaponReady(14)
@@ -3643,19 +3661,26 @@ ACTOR TeslaRifle : CalebW 3140
 		TSMK ABC 2
 		Stop
 	AltFire:
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TNT1 A 0 A_JumpIfInventory("TeslaCharge", 35, 1)
 		Goto Fire
 		TESL A 0 A_PlayWeaponSound("TESLWI") // 1.2 seconds (38 Tics)
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TES2 KL 3 A_WeaponReady(14) // 6 Tics
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TES2 MNABCDEFGHIJ 1 A_WeaponReady(14) // 30 Tics
 		TES2 EFGHIJEFGHIJ 1 BRIGHT A_WeaponReady(14) // 36 Tics
 		TE2F A 0 BRIGHT A_PlayWeaponSound ("TESLWIX")
 		TE2F A 0 BRIGHT A_GunFlash
 		TNT1 A 0 A_FireCustomMissile ("TeslaBallBig",0,1,5)
 		TNT1 A 0 A_TakeInventory("TeslaCharge", 34)
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TE2F A 2 BRIGHT A_WeaponReady(14)
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TE2F BC 1 BRIGHT A_WeaponReady(14)
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TE2F D 1 A_WeaponReady(14)
+		TEXX A 0 A_JumpIf(waterlevel>= 2,"Suicide")
 		TESR ABCD 3 A_WeaponReady(14)
 		Goto Ready
 	AltFlash:
@@ -3664,6 +3689,22 @@ ACTOR TeslaRifle : CalebW 3140
 		TNT1 A 1 A_Light1
 		TNT1 A 1 A_Light0
 		Stop
+	Suicide:
+		TESR A 0 A_PlayWeaponSound ("TESLWI")
+		TESR A 0 A_SetBlend("Purple",0.25,5)
+		TESR A 2 A_SetBlend("Purple",0.75,5)
+		TESR B 2 A_SetBlend("Purple",1.25,5)
+		TESR C 2 A_SetBlend("Purple",2.75,5)
+		TESR A 0 A_PlayWeaponSound ("TESLWIX")
+		TESR D 1 A_SetBlend("White",3.25,5)
+		TESR E 2 A_SetBlend("White",4.75,5)
+		TESR F 2 A_SetBlend("White",5.25,5)
+		TESR A 2 A_SetBlend("White",6.75,5)
+		TESR B 1 A_SetBlend("White",7.25,5)
+		TESR C 0 A_GunFlash
+			//A_DamageSelf(9999999, "Shock", DMSS_FOILINVUL | DMSS_NOPROTECT, "Caleb") - fuck zandro
+		TESR CDEF 1 A_Explode(9999, 1024, 1) //full parameters doesn't work on zandro too, and damage doesn't apply when godmode
+		Goto Ready
 	}
 }
 

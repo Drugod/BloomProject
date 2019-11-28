@@ -116,6 +116,58 @@ Brightmap sprite PLYCF5		{map "Brightmaps/PLYCF5.png"}
 
 //Enemies
 
+//Deaths - Shock
+Brightmap sprite BBUZA1 	{map "Brightmaps/BBUZA1.png"}
+Brightmap sprite BBUZA5 	{map "Brightmaps/BBUZA5.png"}
+Brightmap sprite BBUZA6A4 	{map "Brightmaps/BBUZA6A4.png"}
+Brightmap sprite BBUZA7A3 	{map "Brightmaps/BBUZA7A3.png"}
+Brightmap sprite BBUZA8A2 	{map "Brightmaps/BBUZA8A2.png"}
+Brightmap sprite BCUZA1 	{map "Brightmaps/BCUZA1.png"}
+Brightmap sprite BCUZA5 	{map "Brightmaps/BCUZA5.png"}
+Brightmap sprite BCUZA6A4 	{map "Brightmaps/BCUZA6A4.png"}
+Brightmap sprite BCUZA7A3 	{map "Brightmaps/BCUZA7A3.png"}
+Brightmap sprite BCUZA8A2 	{map "Brightmaps/BCUZA8A2.png"}
+Brightmap sprite BEASA1 	{map "Brightmaps/BEASA1.png"}
+Brightmap sprite BEASA5 	{map "Brightmaps/BEASA5.png"}
+Brightmap sprite BEASA6A4 	{map "Brightmaps/BEASA6A4.png"}
+Brightmap sprite BEASA7A3 	{map "Brightmaps/BEASA7A3.png"}
+Brightmap sprite BEASA8A2 	{map "Brightmaps/BEASA8A2.png"}
+Brightmap sprite GSOKA1 	{map "Brightmaps/GSOKA1.png"}
+Brightmap sprite GSOKA5 	{map "Brightmaps/GSOKA5.png"}
+Brightmap sprite GSOKA6A4 	{map "Brightmaps/GSOKA6A4.png"}
+Brightmap sprite GSOKA7A3 	{map "Brightmaps/GSOKA7A3.png"}
+Brightmap sprite GSOKA8A2 	{map "Brightmaps/GSOKA8A2.png"}
+Brightmap sprite HFSSE1 	{map "Brightmaps/HFSSE1.png"}
+Brightmap sprite HFSSE5 	{map "Brightmaps/HFSSE5.png"}
+Brightmap sprite HFSSE6E4 	{map "Brightmaps/HFSSE6E4.png"}
+Brightmap sprite HFSSE7E3 	{map "Brightmaps/HFSSE7E3.png"}
+Brightmap sprite HFSSE8E2 	{map "Brightmaps/HFSSE8E2.png"}
+Brightmap sprite HSOKA1 	{map "Brightmaps/HSOKA1.png"}
+Brightmap sprite HSOKA5 	{map "Brightmaps/HSOKA5.png"}
+Brightmap sprite HSOKA6A4 	{map "Brightmaps/HSOKA6A4.png"}
+Brightmap sprite HSOKA7A3 	{map "Brightmaps/HSOKA7A3.png"}
+Brightmap sprite HSOKA8A2 	{map "Brightmaps/HSOKA8A2.png"}
+Brightmap sprite PSOKA1 	{map "Brightmaps/PSOKA1.png"}
+Brightmap sprite PSOKA5 	{map "Brightmaps/PSOKA5.png"}
+Brightmap sprite PSOKA6A4 	{map "Brightmaps/PSOKA6A4.png"}
+Brightmap sprite PSOKA7A3 	{map "Brightmaps/PSOKA7A3.png"}
+Brightmap sprite PSOKA8A2 	{map "Brightmaps/PSOKA8A2.png"}
+Brightmap sprite XARZA1 	{map "Brightmaps/XARZA1.png"}
+Brightmap sprite XARZA5 	{map "Brightmaps/XARZA5.png"}
+Brightmap sprite XARZA6A4 	{map "Brightmaps/XARZA6A4.png"}
+Brightmap sprite XARZA7A3 	{map "Brightmaps/XARZA7A3.png"}
+Brightmap sprite XARZA8A2 	{map "Brightmaps/XARZA8A2.png"}
+Brightmap sprite XERBA1 	{map "Brightmaps/XERBA1.png"}
+Brightmap sprite XERBA5 	{map "Brightmaps/XERBA5.png"}
+Brightmap sprite XERBA6A4 	{map "Brightmaps/XERBA6A4.png"}
+Brightmap sprite XERBA7A3 	{map "Brightmaps/XERBA7A3.png"}
+Brightmap sprite XERBA8A2 	{map "Brightmaps/XERBA8A2.png"}
+Brightmap sprite ZOMZA1 	{map "Brightmaps/ZOMZA1.png"}
+Brightmap sprite ZOMZA5 	{map "Brightmaps/ZOMZA5.png"}
+Brightmap sprite ZOMZA6A4 	{map "Brightmaps/ZOMZA6A4.png"}
+Brightmap sprite ZOMZA7A3 	{map "Brightmaps/ZOMZA7A3.png"}
+Brightmap sprite ZOMZA8A2 	{map "Brightmaps/ZOMZA8A2.png"}
+
 //BloodZombie (stand/buried)
 Brightmap sprite BZOMA1		{map "Brightmaps/BZOMA1.png"}
 Brightmap sprite BZOMA8A2	{map "Brightmaps/BZOMA8A2.png"}
@@ -146,11 +198,6 @@ Brightmap sprite UGZZD0		{map "Brightmaps/UGZZD0.png"}
 Brightmap sprite UGZZE0		{map "Brightmaps/UGZZE0.png"}
 Brightmap sprite UGZZF0		{map "Brightmaps/UGZZF0.png"}
 Brightmap sprite UGZZG0		{map "Brightmaps/UGZZG0.png"}
-Brightmap sprite ZOMZA1 	{map "Brightmaps/ZOMZA1.png"}
-Brightmap sprite ZOMZA5 	{map "Brightmaps/ZOMZA5.png"}
-Brightmap sprite ZOMZA6A4 	{map "Brightmaps/ZOMZA6A4.png"}
-Brightmap sprite ZOMZA7A3 	{map "Brightmaps/ZOMZA7A3.png"}
-Brightmap sprite ZOMZA8A2 	{map "Brightmaps/ZOMZA8A2.png"}
 
 //BloatedButcher
 Brightmap sprite BABDA0		{map "Brightmaps/BABDA0.png"}
@@ -218,18 +265,8 @@ Brightmap sprite BBUTO7O3	{map "Brightmaps/BBUTO7O3.png"}
 Brightmap sprite BBUTO8O2	{map "Brightmaps/BBUTO8O2.png"}
 Brightmap sprite BBUTP0		{map "Brightmaps/BBUTP0.png"}
 Brightmap sprite BBUTQ0		{map "Brightmaps/BBUTQ0.png"}
-Brightmap sprite BBUZA1 	{map "Brightmaps/BBUZA1.png"}
-Brightmap sprite BBUZA5 	{map "Brightmaps/BBUZA5.png"}
-Brightmap sprite BBUZA6A4 	{map "Brightmaps/BBUZA6A4.png"}
-Brightmap sprite BBUZA7A3 	{map "Brightmaps/BBUZA7A3.png"}
-Brightmap sprite BBUZA8A2 	{map "Brightmaps/BBUZA8A2.png"}
 
 //Beast
-Brightmap sprite BEASA1 	{map "Brightmaps/BEASA1.png"}
-Brightmap sprite BEASA5 	{map "Brightmaps/BEASA5.png"}
-Brightmap sprite BEASA6A4 	{map "Brightmaps/BEASA6A4.png"}
-Brightmap sprite BEASA7A3 	{map "Brightmaps/BEASA7A3.png"}
-Brightmap sprite BEASA8A2 	{map "Brightmaps/BEASA8A2.png"}
 Brightmap sprite BESCA1 	{map "Brightmaps/BESCA1.png"}
 Brightmap sprite BESCA7A3 	{map "Brightmaps/BESCA7A3.png"}
 Brightmap sprite BESCA8A2 	{map "Brightmaps/BESCA8A2.png"}
