@@ -116,6 +116,56 @@ Brightmap sprite PLYCF5		{map "Brightmaps/PLYCF5.png"}
 
 //Enemies
 
+//Deaths - Burning 1
+Brightmap sprite FGUYA1 	{map "Brightmaps/FGUYA1.png"}
+Brightmap sprite FGUYA5 	{map "Brightmaps/FGUYA5.png"}
+Brightmap sprite FGUYA6A4 	{map "Brightmaps/FGUYA6A4.png"}
+Brightmap sprite FGUYA7A3 	{map "Brightmaps/FGUYA7A3.png"}
+Brightmap sprite FGUYA8A2 	{map "Brightmaps/FGUYA8A2.png"}
+Brightmap sprite FGUYB1 	{map "Brightmaps/FGUYB1.png"}
+Brightmap sprite FGUYB5 	{map "Brightmaps/FGUYB5.png"}
+Brightmap sprite FGUYB6B4 	{map "Brightmaps/FGUYB6B4.png"}
+Brightmap sprite FGUYB7B3 	{map "Brightmaps/FGUYB7B3.png"}
+Brightmap sprite FGUYB8B2 	{map "Brightmaps/FGUYB8B2.png"}
+Brightmap sprite FGUYC1 	{map "Brightmaps/FGUYC1.png"}
+Brightmap sprite FGUYC5 	{map "Brightmaps/FGUYC5.png"}
+Brightmap sprite FGUYC6C4 	{map "Brightmaps/FGUYC6C4.png"}
+Brightmap sprite FGUYC7C3 	{map "Brightmaps/FGUYC7C3.png"}
+Brightmap sprite FGUYC8C2 	{map "Brightmaps/FGUYC8C2.png"}
+Brightmap sprite FGUYD1 	{map "Brightmaps/FGUYD1.png"}
+Brightmap sprite FGUYD5 	{map "Brightmaps/FGUYD5.png"}
+Brightmap sprite FGUYD6D4 	{map "Brightmaps/FGUYD6D4.png"}
+Brightmap sprite FGUYD7D3 	{map "Brightmaps/FGUYD7D3.png"}
+Brightmap sprite FGUYD8D2 	{map "Brightmaps/FGUYD8D2.png"}
+Brightmap sprite FGUYE1 	{map "Brightmaps/FGUYE1.png"}
+Brightmap sprite FGUYE5 	{map "Brightmaps/FGUYE5.png"}
+Brightmap sprite FGUYE6E4 	{map "Brightmaps/FGUYE6E4.png"}
+Brightmap sprite FGUYE7E3 	{map "Brightmaps/FGUYE7E3.png"}
+Brightmap sprite FGUYE8E2 	{map "Brightmaps/FGUYE8E2.png"}
+Brightmap sprite FGUYF1 	{map "Brightmaps/FGUYF1.png"}
+Brightmap sprite FGUYF5 	{map "Brightmaps/FGUYF5.png"}
+Brightmap sprite FGUYF6F4 	{map "Brightmaps/FGUYF6F4.png"}
+Brightmap sprite FGUYF7F3 	{map "Brightmaps/FGUYF7F3.png"}
+Brightmap sprite FGUYF8F2 	{map "Brightmaps/FGUYF8F2.png"}
+Brightmap sprite FGUYG0		{map "Brightmaps/FGUYG0.png"}
+Brightmap sprite FGUYH0		{map "Brightmaps/FGUYH0.png"}
+Brightmap sprite FGUYI0		{map "Brightmaps/FGUYI0.png"}
+Brightmap sprite FGUYJ0		{map "Brightmaps/FGUYJ0.png"}
+Brightmap sprite FGUYK0		{map "Brightmaps/FGUYK0.png"}
+Brightmap sprite FGUYL0		{map "Brightmaps/FGUYL0.png"}
+Brightmap sprite FGUYM0		{map "Brightmaps/FGUYM0.png"}
+Brightmap sprite FGUYN0		{map "Brightmaps/FGUYN0.png"}
+Brightmap sprite FGUYO0		{map "Brightmaps/FGUYO0.png"}
+Brightmap sprite FGUYP0		{map "Brightmaps/FGUYP0.png"}
+Brightmap sprite FGUYQ0		{map "Brightmaps/FGUYQ0.png"}
+Brightmap sprite FGUYR0		{map "Brightmaps/FGUYR0.png"}
+Brightmap sprite FGUYS0		{map "Brightmaps/FGUYS0.png"}
+Brightmap sprite FGUYU0		{map "Brightmaps/FGUYU0.png"}
+Brightmap sprite FGUYV0		{map "Brightmaps/FGUYV0.png"}
+Brightmap sprite FGUYW0		{map "Brightmaps/FGUYW0.png"}
+Brightmap sprite FGUYX0		{map "Brightmaps/FGUYX0.png"}
+Brightmap sprite FGUYY0		{map "Brightmaps/FGUYY0.png"}
+
 //Deaths - Shock
 Brightmap sprite BBUZA1 	{map "Brightmaps/BBUZA1.png"}
 Brightmap sprite BBUZA5 	{map "Brightmaps/BBUZA5.png"}
