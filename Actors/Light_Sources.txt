@@ -189,6 +189,98 @@ ACTOR FlameCult : SwitchableDecoration 3236
 	}
 }
 
+ACTOR BloomVases : SwitchableDecoration
+{
+	//$Category "BlooM Light Sources"
+	//$Color 17
+	//$Arg0 "Sound"
+	//$Arg0Type 11
+	//$Arg0Enum { 0 = "Yes"; 1 = "No"; }
+	Radius 8
+	Height 54
+	Scale 0.8
+	+NOGRAVITY
+	+RANDOMIZE
+	+SOLID
+}
+
+ACTOR BloomVase1 : BloomVases 3400
+{
+	//$Title Burning Vase, ACS Switchable
+	//$Sprite FLV1B0
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 1.0, TRUE)
+	SpawnCheck:
+		FLV1 BCDEFGHIJKLMNO 3 BRIGHT LIGHT("FLAMVAS1")
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		FLV1 A 1 A_PlaySound("SFX/FireDie", 7)
+		FLV1 A -1 A_StopSound(6)
+		Stop
+	}
+}
+
+ACTOR BloomVase2A : BloomVases 3401
+{
+	//$Title Burning Idol A, ACS Switchable
+	//$Sprite FLV2B0
+	Scale 0.65
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 1.0, TRUE)
+	SpawnCheck:
+		FLV2 BCDEFGHIJKLMNO 3 BRIGHT LIGHT("FLAMVAS1")
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		FLV2 A 1 A_PlaySound("SFX/FireDie", 7)
+		FLV2 A -1 A_StopSound(6)
+		Stop
+	}
+}
+
+ACTOR BloomVase2B : BloomVases 3402
+{
+	//$Title Burning Idol B, ACS Switchable
+	//$Sprite FLV3B0
+	Scale 0.65
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 1.0, TRUE)
+	SpawnCheck:
+		FLV3 BCDEFGHIJKLMNO 3 BRIGHT LIGHT("FLAMVAS1")
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		FLV3 A 1 A_PlaySound("SFX/FireDie", 7)
+		FLV3 A -1 A_StopSound(6)
+		Stop
+	}
+}
+
 ACTOR CaveTorch 3263
 {
 	//$Category "BlooM Light Sources"
