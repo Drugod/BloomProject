@@ -1,4 +1,4 @@
-ACTOR 2------------------ {}
+ACTOR ------BASES------ {}
 //base ACTOR shared among all classes which doesn't inherit anything - prevent multiple lines and assign a color on GZDBuilder
 ACTOR BloodEnemy_Base //ozy81
 {
@@ -7,6 +7,7 @@ ACTOR BloodEnemy_Base //ozy81
 	Monster
 }
 
+ACTOR ------HANDOFDOOM------ {}
 ACTOR ChokingHand : BloodEnemy_Base 6190
 {
 	//$Title Choking Hand
@@ -161,162 +162,7 @@ ACTOR FlyingHand
 	}
 }
 
-ACTOR 3------------------ {}
-ACTOR Cheogh : BloodEnemy_Base 3124
-{
-	//$Title Cheogh
-	Spawnid 3
-	Health 3000
-	Radius 24
-	Height 64
-	Mass 1000
-	Speed 8
-	Scale 0.88
-	FloatSpeed  14
-	MeleeDamage 13
-	MeleeRange  80
-	PainChance 50
-	PainChance "Tommy", 0
-	PainChance "SawedOff", 0
-	PainChance "SawedOff2", 0
-	PainChance "Fire", 0
-	PainChance "Flare", 0
-	PainChance "LifeLeech", 32
-	PainChance "PitchFork", 0
-	PainChance "Tesla", 0
-	PainChance "napalm", 0
-	PainChance "Blast", 0
-	PainChance "Dynamite", 0
-	PainChance "Blast", 0
-	PainChance "Shock", 192
-	PainChance "SawedoffLess", 0
-	PainChance "ZBloodBullet", 0
-	DamageFactor "Fire", 0.05
-	DamageFactor Flare, 1
-	DamageFactor "Napalm", 0.35
-	DamageFactor "Blast", 0.45
-	DamageFactor "Tesla", 2.15
-	DamageFactor "Dynamite", 0.6
-	DamageFactor "Shock", 2.3
-	DamageFactor "Tommy", 1.3
-	DamageFactor "Sawedoff", 1
-	DamageFactor "ZBloodBullet", 1
-	DamageFactor "GargoyleBlast", 0.0
-	DamageFactor "LifeLeech", 0.85
-	DamageFactor "Disintegrate", 2.8
-	DamageFactor "Stomping", 2
-	SeeSound "Cheogh/Roam"
-	PainSound "Cheogh/Pain"
-	DeathSound "Cheogh/Die"
-	ActiveSound "Cheogh/Roam"
-	MeleeSound "Cheogh/Slap"
-	Obituary "$OB_CHEOGH"
-	HitObituary "$HB_CHEOGH"
-	DamageType "Stun"
-	Species "Gargoyles"
-	+FLOAT
-	+FLOORCLIP
-	+LONGMELEERANGE
-	+MISSILEMORE
-	+NOGRAVITY
-	+NOSPLASHALERT
-	+SHORTMISSILERANGE
-	States
-	{
-	Spawn:
-		GARG ABCD 9 A_Look
-		Loop
-	Idle:
-		GARG ABCDABCDABCDABCD 9 A_Wander
-		GARG A 0 A_Look
-		Loop
-	See:
-		GARG A 0 A_SentinelBob
-		GARG A 1 A_Chase
-		GARG AA 1 A_ExtChase(0,0,1,0)
-		GARG A 1 A_Chase
-		GARG AA 1 A_ExtChase(0,0,1,0)
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
-		GARG A 1 A_Chase
-		GARG AA 1 A_ExtChase(0,0,1,0)
-		GARG B 1 A_Chase
-		GARG BB 1 A_ExtChase(0,0,1,0)
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
-		GARG B 1 A_Chase
-		GARG BB 1 A_ExtChase(0,0,1,0)
-		GARG B 1 A_Chase
-		GARG BB 1 A_ExtChase(0,0,1,0)
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
-		GARG C 1 A_Chase
-		GARG CC 1 A_ExtChase(0,0,1,0)
-		GARG C 1 A_Chase
-		GARG CC 1 A_ExtChase(0,0,1,0)
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
-		GARG C 1 A_Chase
-		GARG CC 1 A_ExtChase(0,0,1,0)
-		GARG D 1 A_Chase
-		GARG DD 1 A_ExtChase(0,0,1,0)
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		GARG D 1 A_Chase
-		GARG D 0 A_pLAYsOUND("Cheogh/Roam",0)
-		GARG DD 1 A_ExtChase(0,0,1,0)
-		GARG D 1 A_Chase
-		GARG DD 1 A_ExtChase(0,0,1,0)
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		Loop
-	COME:
-		GARG F 0 A_Recoil(-3)
-	Melee:
-		GARG F 6 A_FaceTarget
-		GARG G 5 A_Recoil(-1)
-		GARG HH 3 A_CustomMeleeAttack (frandom(3,6)*7,"Cheogh/Slap","Cheogh/Slap", "GOUPBOY",1)
-		GARG IJ 6
-		Goto See
-	Missile:
-		GARG A 9 A_FaceTarget
-		GARG A 0 A_JumpIfCloser(250,"COME")
-		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,10,0,1,0)
-		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,-10,0,1,0)
-		GARG L 10 BRIGHT
-		GARG A 5
-		GARG A 9 A_FaceTarget
-		GARG A 0 A_JumpIfCloser(250,"COME")
-		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,10,0,1,0)
-		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,-10,0,1,0)
-		GARG L 10 BRIGHT
-		GARG A 4
-		Goto See
-	Pain:
-		GARG K 4
-		GARG K 8 A_Pain
-		GARG A 4
-		Goto See
-	Pain.Shock:
-		GARG K 6 A_Pain
-		GARG KKK 20
-		GARG AAAAA 7
-		Goto See
-	Pain.LifeLeech:
-		TNT1 A 0 A_Jump(64,1)
-		Goto See
-		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
-		Goto See
-	Death:
-		GARG M 8
-		GARG N 8 A_Scream
-		GARG O 8 A_Fall
-		GARG PQ 8
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
-		GARG R -1 A_BossDeath
-		Stop
-	}
-}
-
-ACTOR 4------------------ {}
+ACTOR -------GARGOYLES----------- {}
 ACTOR BloodGargoyle : BloodEnemy_Base 3123
 {
 	//$Title Gargoyle
@@ -699,7 +545,7 @@ ACTOR GargBurn
 	}
 }
 
-ACTOR 5------------------ {}
+ACTOR ---------HELLFISH---------- {}
 ACTOR Hellfish : Cacodemon 3100//replaces Cacodemon 6142
 {
 	//$Category "BlooM Monsters"
@@ -832,7 +678,7 @@ ACTOR Hellfish : Cacodemon 3100//replaces Cacodemon 6142
 	}
 }
 
-ACTOR 6------------------ {}
+ACTOR ------BUTCHER-------- {}
 ACTOR BloatedButcher : BloodEnemy_Base 3122
 {
 	//$Title Bloated Butcher
@@ -1294,7 +1140,7 @@ ACTOR ButcherBarfSplash : CleaverTrail1
 	}
 }
 
-ACTOR 7------------------ {}
+ACTOR ------CULTIST------------ {}
 ACTOR GreyCultist : BloodEnemy_Base 3125
 {
 	//$Title Grey Cultist
@@ -1498,7 +1344,6 @@ ACTOR GreyCultist : BloodEnemy_Base 3125
 //Old BRIGHTer Translation, possible for a new cultist, napalm?
 //Translation "112:120=[224,160,64]:[192,48,20]","120:127=[120,24,10]:[16,0,0]","209:223=[192,160,128]:[128,80,64]"
 
-ACTOR 8------------------ {}
 ACTOR RedCultist : BloodEnemy_Base 10310
 {
 	//$Title Red Cultist
@@ -1658,7 +1503,6 @@ ACTOR RedCultist : BloodEnemy_Base 10310
 	}
 }
 
-ACTOR 9------------------ {}
 ACTOR GreenCultist : BloodEnemy_Base 3128
 {
 	//$Title Green Cultist
@@ -1963,7 +1807,6 @@ ACTOR GreenCultistTNT2 : GreenCultistTNT
 	}
 }
 
-ACTOR 10----------------- {}
 ACTOR BlueCultist : BloodEnemy_Base 10309
 {
 	//$Title Blue Cultist
@@ -2116,7 +1959,6 @@ ACTOR BlueCultist : BloodEnemy_Base 10309
 	}
 }
 
-ACTOR 11----------------- {}
 ACTOR BrownCultist : BloodEnemy_Base 3129
 {
 	//$Title Brown Cultist
@@ -3047,7 +2889,7 @@ ACTOR GillBeastChecks : Inventory
 	Inventory.MaxAmount 30
 }
 
-ACTOR 14----------------- {}
+ACTOR -----PHANTASM------- {}
 ACTOR Phantasm : BloodEnemy_Base  3134
 {
 	//$Title Phantasm
@@ -3318,7 +3160,7 @@ ACTOR Phantasm : BloodEnemy_Base  3134
 	}
 }
 
-ACTOR 15----------------- {}
+ACTOR ------HELLHOUND------- {}
 ACTOR HellHound : HellKnight 3130
 {
     //$Category "BlooM Monsters"
@@ -3481,7 +3323,7 @@ ACTOR HellHound : HellKnight 3130
 	}
 }
 
-ACTOR 16----------------- {}
+ACTOR ------WEREWOLF------- {}
 ACTOR BloodBeast : BloodEnemy_Base 6123
 {
 	//$Title Beast
@@ -3660,7 +3502,161 @@ ACTOR BeastStomp
 	}
 }
 
-ACTOR 17----------------- {}
+ACTOR ------BOSSES----------- {}
+ACTOR Cheogh : BloodEnemy_Base 3124
+{
+	//$Title Cheogh
+	Spawnid 3
+	Health 3000
+	Radius 24
+	Height 64
+	Mass 1000
+	Speed 8
+	Scale 0.88
+	FloatSpeed  14
+	MeleeDamage 13
+	MeleeRange  80
+	PainChance 50
+	PainChance "Tommy", 0
+	PainChance "SawedOff", 0
+	PainChance "SawedOff2", 0
+	PainChance "Fire", 0
+	PainChance "Flare", 0
+	PainChance "LifeLeech", 32
+	PainChance "PitchFork", 0
+	PainChance "Tesla", 0
+	PainChance "napalm", 0
+	PainChance "Blast", 0
+	PainChance "Dynamite", 0
+	PainChance "Blast", 0
+	PainChance "Shock", 192
+	PainChance "SawedoffLess", 0
+	PainChance "ZBloodBullet", 0
+	DamageFactor "Fire", 0.05
+	DamageFactor Flare, 1
+	DamageFactor "Napalm", 0.35
+	DamageFactor "Blast", 0.45
+	DamageFactor "Tesla", 2.15
+	DamageFactor "Dynamite", 0.6
+	DamageFactor "Shock", 2.3
+	DamageFactor "Tommy", 1.3
+	DamageFactor "Sawedoff", 1
+	DamageFactor "ZBloodBullet", 1
+	DamageFactor "GargoyleBlast", 0.0
+	DamageFactor "LifeLeech", 0.85
+	DamageFactor "Disintegrate", 2.8
+	DamageFactor "Stomping", 2
+	SeeSound "Cheogh/Roam"
+	PainSound "Cheogh/Pain"
+	DeathSound "Cheogh/Die"
+	ActiveSound "Cheogh/Roam"
+	MeleeSound "Cheogh/Slap"
+	Obituary "$OB_CHEOGH"
+	HitObituary "$HB_CHEOGH"
+	DamageType "Stun"
+	Species "Gargoyles"
+	+FLOAT
+	+FLOORCLIP
+	+LONGMELEERANGE
+	+MISSILEMORE
+	+NOGRAVITY
+	+NOSPLASHALERT
+	+SHORTMISSILERANGE
+	States
+	{
+	Spawn:
+		GARG ABCD 9 A_Look
+		Loop
+	Idle:
+		GARG ABCDABCDABCDABCD 9 A_Wander
+		GARG A 0 A_Look
+		Loop
+	See:
+		GARG A 0 A_SentinelBob
+		GARG A 1 A_Chase
+		GARG AA 1 A_ExtChase(0,0,1,0)
+		GARG A 1 A_Chase
+		GARG AA 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
+		GARG A 1 A_Chase
+		GARG AA 1 A_ExtChase(0,0,1,0)
+		GARG B 1 A_Chase
+		GARG BB 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
+		GARG B 1 A_Chase
+		GARG BB 1 A_ExtChase(0,0,1,0)
+		GARG B 1 A_Chase
+		GARG BB 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
+		GARG C 1 A_Chase
+		GARG CC 1 A_ExtChase(0,0,1,0)
+		GARG C 1 A_Chase
+		GARG CC 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
+		GARG C 1 A_Chase
+		GARG CC 1 A_ExtChase(0,0,1,0)
+		GARG D 1 A_Chase
+		GARG DD 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GARG D 1 A_Chase
+		GARG D 0 A_pLAYsOUND("Cheogh/Roam",0)
+		GARG DD 1 A_ExtChase(0,0,1,0)
+		GARG D 1 A_Chase
+		GARG DD 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		Loop
+	COME:
+		GARG F 0 A_Recoil(-3)
+	Melee:
+		GARG F 6 A_FaceTarget
+		GARG G 5 A_Recoil(-1)
+		GARG HH 3 A_CustomMeleeAttack (frandom(3,6)*7,"Cheogh/Slap","Cheogh/Slap", "GOUPBOY",1)
+		GARG IJ 6
+		Goto See
+	Missile:
+		GARG A 9 A_FaceTarget
+		GARG A 0 A_JumpIfCloser(250,"COME")
+		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,10,0,1,0)
+		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,-10,0,1,0)
+		GARG L 10 BRIGHT
+		GARG A 5
+		GARG A 9 A_FaceTarget
+		GARG A 0 A_JumpIfCloser(250,"COME")
+		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,10,0,1,0)
+		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,-10,0,1,0)
+		GARG L 10 BRIGHT
+		GARG A 4
+		Goto See
+	Pain:
+		GARG K 4
+		GARG K 8 A_Pain
+		GARG A 4
+		Goto See
+	Pain.Shock:
+		GARG K 6 A_Pain
+		GARG KKK 20
+		GARG AAAAA 7
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0 A_Jump(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Death:
+		GARG M 8
+		GARG N 8 A_Scream
+		GARG O 8 A_Fall
+		GARG PQ 8
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		GARG R -1 A_BossDeath
+		Stop
+	}
+}
+
 ACTOR SpiderMother : BloodEnemy_Base 3135 //THIS ACTOR NEEDS TWEAKS - ozy81
 {
 	//$Title Spider Mother
@@ -3913,7 +3909,6 @@ ACTOR IChecked : Inventory
 	Inventory.MaxAmount 1
 }
 
-ACTOR 18----------------- {}
 ACTOR Cerberus : BloodEnemy_Base 3127
 {
 	//$Title Cerberus
@@ -4107,7 +4102,6 @@ ACTOR LowerThanHP : Inventory
 	Inventory.MaxAmount 1
 }
 
-ACTOR 19----------------- {}
 ACTOR Tchernobog : BloodEnemy_Base 6134
 {
 	//$Title Tchernobog
@@ -4483,7 +4477,7 @@ ACTOR TchernoStomp
 	}
 }
 
-ACTOR 20----------------- {}
+ACTOR ------DEADLYPODS----------- {}
 ACTOR ChrysalidPod : BloodEnemy_Base 6147
 {
 	//$Title Chrysalid Pod
@@ -4809,7 +4803,6 @@ ACTOR Drt : BaseBramble
     }
 }
 
-ACTOR 21----------------- {}
 ACTOR LavaPod : ChrysalidPod 6148
 {
     //$Category "BlooM Monsters"
@@ -5043,13 +5036,30 @@ ACTOR HellroseBrambleRed : HellRoseBramble
 	}
 }
 
-ACTOR 22----------------- {}
-ACTOR BloodRatSpawner
+ACTOR ------VANILLA_RATS------ {}
+ACTOR BloodRatSpawner 19069
 {
+    //$Category "BlooM Monsters"
+	//$Color 5
+	-ISMONSTER
+	-COUNTKILL
 	States
 	{
 	Spawn:
-		TNT1 AAAA 1 A_SpawnItem("BloodRat")
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("BloodRat",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BloodRatBlack",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("BloodRatGrey",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",0,0,0,0,0,0,0,BLM_FLAGS1)
 		Stop
 	}
 }
@@ -5057,6 +5067,8 @@ ACTOR BloodRatSpawner
 ACTOR BloodRat : BloodEnemy_Base 3132
 {
 	//$Title Rat
+    //$Category "BlooM Monsters"
+	//$Color 5	
 	Tag "Rat"
 	Health 24
 	Radius 8
@@ -5172,7 +5184,286 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 	}
 }
 
-ACTOR 23----------------- {}
+ACTOR BloodRatBlack : BloodRat 19066
+{
+	//$Title Rat (Black)
+	Tag "Rat(Black)"	
+	States
+	{
+	Spawn:
+		RABW A 1 A_Look
+		Loop
+	See:
+		TNT1 A 0	
+		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
+		RABW A 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RABW B 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RABW C 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RABW D 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		TNT1 A 0 A_LoopActiveSound
+		TNT1 A 0 A_JumpIfTargetInLos(2, 160)
+		TNT1 A 0
+		Loop
+	See2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
+		TNT1 A 0 A_GiveInventory("Fighting", 1)
+		RABW AAAAAABBBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Fighting", 1)
+		RABW CCCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW AAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW DDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW AAAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_LoopActiveSound
+		Goto See
+	Wander:
+		TNT1 A 0	
+		TNT1 A 0 A_GiveInventory("Afraid", 1)
+		RABW AAAAAABBBBBCCCCCCDDDDAAAAABBBBCCCCCDDDDDAAAAAABBBBCCCCCDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Afraid", 1)
+		Goto See
+	Missile:
+	Melee:
+		RABW A 5 A_FaceTarget
+		TNT1 A 0 A_Playsound("RABBite")
+		RABW B 5  A_CustomMeleeAttack(frandom(4,9),"","none")
+		RABW C 5
+		Goto See
+	Pain:
+		RABW D 3
+		RABW D 3 A_Pain
+		Goto See
+	Death:
+		TNT1 A 0	
+		TNT1 A 0 A_Jump(224, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		RABW E 5 A_Scream
+		RABW F 5 A_Fall
+		RABW GHI 5
+		RABW J -1
+		Stop
+	Death.SpecialFire:
+	Burn:
+	Death.LifeLeech:
+	Death.Flare:
+		TNT1 A 0 
+		"####" A 1 A_JumpIf(waterlevel > 1, "Death")
+		RABB A 8 A_Scream
+		TNT1 A 0 A_GiveToTarget("DoRat", 1)
+		RABB B 7 A_Fall
+		RABB CBCBCBCBC 5
+		RABB CBCBCBCBCBCBCBCBCB 5
+		RABB G -1
+		Stop
+	}
+}
+
+ACTOR BloodRatGrey : BloodRat 19067
+{
+	//$Title Rat (Grey)
+	Tag "Rat(Grey)"	
+	States
+	{
+	Spawn:
+		RAGW A 1 A_Look
+		Loop
+	See:
+		TNT1 A 0	
+		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
+		RAGW A 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RAGW B 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RAGW C 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RAGW D 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		TNT1 A 0 A_LoopActiveSound
+		TNT1 A 0 A_JumpIfTargetInLos(2, 160)
+		TNT1 A 0
+		Loop
+	See2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
+		TNT1 A 0 A_GiveInventory("Fighting", 1)
+		RAGW AAAAAABBBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Fighting", 1)
+		RAGW CCCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW AAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW DDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW AAAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_LoopActiveSound
+		Goto See
+	Wander:
+		TNT1 A 0	
+		TNT1 A 0 A_GiveInventory("Afraid", 1)
+		RAGW AAAAAABBBBBCCCCCCDDDDAAAAABBBBCCCCCDDDDDAAAAAABBBBCCCCCDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Afraid", 1)
+		Goto See
+	Missile:
+	Melee:
+		RAGW A 5 A_FaceTarget
+		TNT1 A 0 A_Playsound("RAGBite")
+		RAGW B 5  A_CustomMeleeAttack(frandom(4,9),"","none")
+		RAGW C 5
+		Goto See
+	Pain:
+		RAGW D 3
+		RAGW D 3 A_Pain
+		Goto See
+	Death:
+		TNT1 A 0	
+		TNT1 A 0 A_Jump(224, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		RAGW E 5 A_Scream
+		RAGW F 5 A_Fall
+		RAGW GHI 5
+		RAGW J -1
+		Stop
+	Death.SpecialFire:
+	Burn:
+	Death.LifeLeech:
+	Death.Flare:
+		TNT1 A 0 
+		"####" A 1 A_JumpIf(waterlevel > 1, "Death")
+		RAGB A 8 A_Scream
+		TNT1 A 0 A_GiveToTarget("DoRat", 1)
+		RAGB B 7 A_Fall
+		RAGB CBCBCBCBC 5
+		RAGB CBCBCBCBCBCBCBCBCB 5
+		RAGB G -1
+		Stop
+	}
+}
+
+ACTOR BloodRatWhite : BloodRat 19068
+{
+	//$Title Rat (White)
+	Tag "Rat(White)"	
+	States
+	{
+	Spawn:
+		RAWW A 1 A_Look
+		Loop
+	See:
+		TNT1 A 0	
+		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
+		RAWW A 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RAWW B 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RAWW C 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RAWW D 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		TNT1 A 0 A_LoopActiveSound
+		TNT1 A 0 A_JumpIfTargetInLos(2, 160)
+		TNT1 A 0
+		Loop
+	See2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
+		TNT1 A 0 A_GiveInventory("Fighting", 1)
+		RAWW AAAAAABBBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Fighting", 1)
+		RAWW CCCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW AAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW DDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW AAAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_LoopActiveSound
+		Goto See
+	Wander:
+		TNT1 A 0	
+		TNT1 A 0 A_GiveInventory("Afraid", 1)
+		RAWW AAAAAABBBBBCCCCCCDDDDAAAAABBBBCCCCCDDDDDAAAAAABBBBCCCCCDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Afraid", 1)
+		Goto See
+	Missile:
+	Melee:
+		RAWW A 5 A_FaceTarget
+		TNT1 A 0 A_Playsound("RAWBite")
+		RAWW B 5  A_CustomMeleeAttack(frandom(4,9),"","none")
+		RAWW C 5
+		Goto See
+	Pain:
+		RAWW D 3
+		RAWW D 3 A_Pain
+		Goto See
+	Death:
+		TNT1 A 0	
+		TNT1 A 0 A_Jump(224, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		RAWW E 5 A_Scream
+		RAWW F 5 A_Fall
+		RAWW GHI 5
+		RAWW J -1
+		Stop
+	Death.SpecialFire:
+	Burn:
+	Death.LifeLeech:
+	Death.Flare:
+		TNT1 A 0 
+		"####" A 1 A_JumpIf(waterlevel > 1, "Death")
+		RAWB A 8 A_Scream
+		TNT1 A 0 A_GiveToTarget("DoRat", 1)
+		RAWB B 7 A_Fall
+		RAWB CBCBCBCBC 5
+		RAWB CBCBCBCBCBCBCBCBCB 5
+		RAWB G -1
+		Stop
+	}
+}
+
+ACTOR ----------SPIDERS--------- {}
 // Generalized Spider Translation
 // 48:79 - Forecolor
 // 128:151 - Midcolor
@@ -5456,7 +5747,6 @@ ACTOR NewRedSpider : NewSpiderRed
 
 ACTOR SpiderClimber : NewSpiderRed { -THRUSPECIES }
 
-ACTOR 24----------------- {}
 ACTOR SpiderGreen : NewSpiderRed 6191
 {
 	//$Category "BlooM Monsters"
@@ -5508,7 +5798,6 @@ ACTOR GreenSpider : SpiderGreen
 	}
 }
 
-ACTOR 25----------------- {}
 ACTOR SpiderBlue : SpiderRed 6192
 {
     //$Category "BlooM Monsters"
@@ -5544,7 +5833,6 @@ ACTOR BlueSpider : SpiderBlue
 	}
 }
 
-ACTOR 26----------------- {}
 ACTOR SpiderYellow : SpiderGreen 6164
 {
     //$Category "BlooM Monsters"
@@ -5576,7 +5864,6 @@ ACTOR YellowSpider : SpiderYellow
 	}
 }
 
-ACTOR 27----------------- {}
 ACTOR SpiderPurple : SpiderRed 6165
 {
     //$Category "BlooM Monsters"
@@ -5613,7 +5900,6 @@ ACTOR PurpleSpider : SpiderPurple
 	}
 }
 
-ACTOR 28----------------- {}
 ACTOR SpiderCyan : SpiderGreen 6166
 {
    	//$Category "BlooM Monsters"
@@ -5662,7 +5948,6 @@ ACTOR CurseNumbness : PowerupGiver
 	+INVENTORY.ADDITIVETIME
 }
 
-ACTOR 29----------------- {}
 ACTOR SpiderBlack : SpiderGreen 6167
 {
    	//$Category "BlooM Monsters"
@@ -5710,7 +5995,6 @@ ACTOR CurseFragility : PowerupGiver
 	+INVENTORY.ADDITIVETIME
 }
 
-ACTOR 30----------------- {}
 ACTOR SpiderWhite : SpiderRed 6168 // A mediocre version of spider mother
 {
 	//$Category "BlooM Monsters"
@@ -5759,7 +6043,6 @@ ACTOR WhiteSpider : SpiderWhite
 	}
 }
 
-ACTOR 31----------------- {}
 ACTOR BabySpiderSpawner //6140
 {
     //$Category "BlooM Monsters"
@@ -5809,7 +6092,6 @@ ACTOR BabySpiderSpawner //6140
 	}
 }
 
-ACTOR 32----------------- {}
 ACTOR BabySpiderSpawner2 : BabySpiderSpawner // For spidermother
 {
 	-COUNTKILL

@@ -200,6 +200,7 @@ OB_CACOYB = "%o wasn't enough strong to survive King Cacoyle's attack.";
 OB_DEMHOU = "%o was bit by a Demonhound.";
 OB_DEMHOU2 = "%o was incinerated by a DemonHound.";
 OB_DSHO = "%o was shotgunned suddenly by a DeepOne.";
+OB_DCHA = "%o was chaingunned suddenly by a DeepOne.";
 OB_DTRI = "%o was congealed to death by a DeepOne.";
 OB_EELCUB = "Carbonized by a Eelcubus.";
 OB_GARGD = "%o was bit by a Gargodemon.";

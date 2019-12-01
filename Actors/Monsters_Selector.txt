@@ -124,7 +124,7 @@ ACTOR HybridChaingunnerSpawner
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
 		Stop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("Fanatic_Chaingunner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
@@ -132,6 +132,9 @@ ACTOR HybridChaingunnerSpawner
 	Spawn2:
 		TNT1 A 0 A_SpawnItemEx("Fanatic_ChaingunnerAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("DeepOneChain",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop	
 	}
 }
 
@@ -316,13 +319,13 @@ ACTOR HybridHoundSpawner
 		TNT1 A 0 A_SpawnItemEx("Gargodemon",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn4:
-		TNT1 A 0 A_SpawnItemEx("Ratdemon",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		TNT1 A 0 A_SpawnItemEx("Ratdemons",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop				
 	}
 }
 
 ACTOR --------RAT_SELECTOR------------ {}
-ACTOR RatSpawner 19060
+ACTOR RatdemonSpawner 19060
 {
     //$Category "Monsters Selectors"
     //$Title Ratdemon Spawner
@@ -373,7 +376,7 @@ ACTOR HybridRatdemonSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Ratdemon",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("Ratdemons",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -1165,13 +1168,16 @@ ACTOR TheDeeponesHybrid
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
 		Stop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("DeepOneShot",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
 		TNT1 A 0 A_SpawnItemEx("DeepOneTri",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("DeepOneChain",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
