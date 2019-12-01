@@ -5037,6 +5037,13 @@ ACTOR HellroseBrambleRed : HellRoseBramble
 }
 
 ACTOR ------VANILLA_RATS------ {}
+
+ACTOR FleeCounter : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
 ACTOR BloodRatSpawner 19069
 {
     //$Category "BlooM Monsters"
@@ -5068,7 +5075,7 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 {
 	//$Title Rat
     //$Category "BlooM Monsters"
-	//$Color 5	
+	//$Color 5
 	Tag "Rat"
 	Health 24
 	Radius 8
@@ -5083,6 +5090,7 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 	MaxStepHeight 9
 	+FLOORCLIP
 	-CANUSEWALLS
+	-FRIGHTENED
 	Obituary "$OB_MOUS"
 	SeeSound "Ratsee"
 	PainSound "RatPain"
@@ -5099,7 +5107,15 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 	Spawn:
 		RATW A 1 A_Look
 		Loop
+	See.Flee:
+		RATW A 1 A_ChangeFlag("FRIGHTENED", TRUE)
+		TNT1 A 0 A_TakeInventory("FleeCounter", 999)
+		RATW A 1 A_Jump(256,"See")
+		Loop
 	See: // We check so rat doesnt really act like a retard moving at a wall...
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
+	See.Loop:
 		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
 		RATW A 4 A_Chase
 		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
@@ -5114,38 +5130,43 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 		TNT1 A 0
 		Loop
 	See2:
-		BSPI A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
-		BSPI A 0 A_GiveInventory("Fighting", 1)
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
+		TNT1 A 0 A_GiveInventory("Fighting", 1)
 		RATW AAAAAABBBBB 1 A_GiveInventory("A_ChaseXMelee",1)
-		BSPI A 0 A_TakeInventory("Fighting", 1)
+		TNT1 A 0 A_TakeInventory("Fighting", 1)
 		RATW CCCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
-		BSPI C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
 		RATW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
-		BSPI C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
 		RATW AAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
-		BSPI C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
 		RATW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
-		BSPI C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
 		RATW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
-		BSPI C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
 		RATW DDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
-		BSPI C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
 		RATW AAAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
-		BSPI C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
 		RATW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
-		BSPI C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
 		RATW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
-		BSPI C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
 		RATW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
 		TNT1 A 0 A_LoopActiveSound
 		Goto See
 	Wander:
-		BSPI A 0 A_GiveInventory("Afraid", 1)
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
+		TNT1 A 0 A_GiveInventory("Afraid", 1)
 		RATW AAAAAABBBBBCCCCCCDDDDAAAAABBBBCCCCCDDDDDAAAAAABBBBCCCCCDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
-		BSPI A 0 A_TakeInventory("Afraid", 1)
+		TNT1 A 0 A_TakeInventory("Afraid", 1)
 		Goto See
 	Missile:
 	Melee:
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		RATW A 5 A_FaceTarget
 			//these are for reflection power
 			//POSS F 0 A_JumpIfInTargetInventory("PowerInvulnerability",1,2)
@@ -5158,6 +5179,7 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 		RATW C 5
 		Goto See
 	Pain:
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		RATW D 3
 		RATW D 3 A_Pain
 		Goto See
@@ -5187,14 +5209,21 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 ACTOR BloodRatBlack : BloodRat 19066
 {
 	//$Title Rat (Black)
-	Tag "Rat(Black)"	
+	Tag "Rat(Black)"
 	States
 	{
 	Spawn:
 		RABW A 1 A_Look
 		Loop
-	See:
-		TNT1 A 0	
+	See.Flee:
+		RABW A 1 A_ChangeFlag("FRIGHTENED", TRUE)
+		TNT1 A 0 A_TakeInventory("FleeCounter", 999)
+		RABW A 1 A_Jump(256,"See")
+		Loop
+	See: // We check so rat doesnt really act like a retard moving at a wall...
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
+	See.Loop:
 		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
 		RABW A 4 A_Chase
 		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
@@ -5210,6 +5239,7 @@ ACTOR BloodRatBlack : BloodRat 19066
 		Loop
 	See2:
 		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
 		TNT1 A 0 A_GiveInventory("Fighting", 1)
 		RABW AAAAAABBBBB 1 A_GiveInventory("A_ChaseXMelee",1)
@@ -5236,24 +5266,27 @@ ACTOR BloodRatBlack : BloodRat 19066
 		TNT1 A 0 A_LoopActiveSound
 		Goto See
 	Wander:
-		TNT1 A 0	
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		TNT1 A 0 A_GiveInventory("Afraid", 1)
 		RABW AAAAAABBBBBCCCCCCDDDDAAAAABBBBCCCCCDDDDDAAAAAABBBBCCCCCDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
 		TNT1 A 0 A_TakeInventory("Afraid", 1)
 		Goto See
 	Missile:
 	Melee:
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		RABW A 5 A_FaceTarget
 		TNT1 A 0 A_Playsound("RABBite")
 		RABW B 5  A_CustomMeleeAttack(frandom(4,9),"","none")
 		RABW C 5
 		Goto See
 	Pain:
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		RABW D 3
 		RABW D 3 A_Pain
 		Goto See
 	Death:
-		TNT1 A 0	
+		TNT1 A 0
 		TNT1 A 0 A_Jump(224, 2)
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		RABW E 5 A_Scream
@@ -5265,7 +5298,7 @@ ACTOR BloodRatBlack : BloodRat 19066
 	Burn:
 	Death.LifeLeech:
 	Death.Flare:
-		TNT1 A 0 
+		TNT1 A 0
 		"####" A 1 A_JumpIf(waterlevel > 1, "Death")
 		RABB A 8 A_Scream
 		TNT1 A 0 A_GiveToTarget("DoRat", 1)
@@ -5280,14 +5313,21 @@ ACTOR BloodRatBlack : BloodRat 19066
 ACTOR BloodRatGrey : BloodRat 19067
 {
 	//$Title Rat (Grey)
-	Tag "Rat(Grey)"	
+	Tag "Rat(Grey)"
 	States
 	{
 	Spawn:
 		RAGW A 1 A_Look
 		Loop
-	See:
-		TNT1 A 0	
+	See.Flee:
+		RAGW A 1 A_ChangeFlag("FRIGHTENED", TRUE)
+		TNT1 A 0 A_TakeInventory("FleeCounter", 999)
+		RAGW A 1 A_Jump(256,"See")
+		Loop
+	See: // We check so rat doesnt really act like a retard moving at a wall...
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
+	See.Loop:
 		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
 		RAGW A 4 A_Chase
 		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
@@ -5303,6 +5343,7 @@ ACTOR BloodRatGrey : BloodRat 19067
 		Loop
 	See2:
 		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
 		TNT1 A 0 A_GiveInventory("Fighting", 1)
 		RAGW AAAAAABBBBB 1 A_GiveInventory("A_ChaseXMelee",1)
@@ -5329,24 +5370,27 @@ ACTOR BloodRatGrey : BloodRat 19067
 		TNT1 A 0 A_LoopActiveSound
 		Goto See
 	Wander:
-		TNT1 A 0	
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		TNT1 A 0 A_GiveInventory("Afraid", 1)
 		RAGW AAAAAABBBBBCCCCCCDDDDAAAAABBBBCCCCCDDDDDAAAAAABBBBCCCCCDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
 		TNT1 A 0 A_TakeInventory("Afraid", 1)
 		Goto See
 	Missile:
 	Melee:
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		RAGW A 5 A_FaceTarget
 		TNT1 A 0 A_Playsound("RAGBite")
 		RAGW B 5  A_CustomMeleeAttack(frandom(4,9),"","none")
 		RAGW C 5
 		Goto See
 	Pain:
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		RAGW D 3
 		RAGW D 3 A_Pain
 		Goto See
 	Death:
-		TNT1 A 0	
+		TNT1 A 0
 		TNT1 A 0 A_Jump(224, 2)
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		RAGW E 5 A_Scream
@@ -5358,7 +5402,7 @@ ACTOR BloodRatGrey : BloodRat 19067
 	Burn:
 	Death.LifeLeech:
 	Death.Flare:
-		TNT1 A 0 
+		TNT1 A 0
 		"####" A 1 A_JumpIf(waterlevel > 1, "Death")
 		RAGB A 8 A_Scream
 		TNT1 A 0 A_GiveToTarget("DoRat", 1)
@@ -5373,14 +5417,21 @@ ACTOR BloodRatGrey : BloodRat 19067
 ACTOR BloodRatWhite : BloodRat 19068
 {
 	//$Title Rat (White)
-	Tag "Rat(White)"	
+	Tag "Rat(White)"
 	States
 	{
 	Spawn:
 		RAWW A 1 A_Look
 		Loop
-	See:
-		TNT1 A 0	
+	See.Flee:
+		RAWW A 1 A_ChangeFlag("FRIGHTENED", TRUE)
+		TNT1 A 0 A_TakeInventory("FleeCounter", 999)
+		RAWW A 1 A_Jump(256,"See")
+		Loop
+	See: // We check so rat doesnt really act like a retard moving at a wall...
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
+	See.Loop:
 		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
 		RAWW A 4 A_Chase
 		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
@@ -5396,6 +5447,7 @@ ACTOR BloodRatWhite : BloodRat 19068
 		Loop
 	See2:
 		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
 		TNT1 A 0 A_GiveInventory("Fighting", 1)
 		RAWW AAAAAABBBBB 1 A_GiveInventory("A_ChaseXMelee",1)
@@ -5422,24 +5474,27 @@ ACTOR BloodRatWhite : BloodRat 19068
 		TNT1 A 0 A_LoopActiveSound
 		Goto See
 	Wander:
-		TNT1 A 0	
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		TNT1 A 0 A_GiveInventory("Afraid", 1)
 		RAWW AAAAAABBBBBCCCCCCDDDDAAAAABBBBCCCCCDDDDDAAAAAABBBBCCCCCDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
 		TNT1 A 0 A_TakeInventory("Afraid", 1)
 		Goto See
 	Missile:
 	Melee:
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		RAWW A 5 A_FaceTarget
 		TNT1 A 0 A_Playsound("RAWBite")
 		RAWW B 5  A_CustomMeleeAttack(frandom(4,9),"","none")
 		RAWW C 5
 		Goto See
 	Pain:
+		TNT1 A 0 A_JumpIfInventory("FleeCounter", 1, "See.Flee")
 		RAWW D 3
 		RAWW D 3 A_Pain
 		Goto See
 	Death:
-		TNT1 A 0	
+		TNT1 A 0
 		TNT1 A 0 A_Jump(224, 2)
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		RAWW E 5 A_Scream
@@ -5451,7 +5506,7 @@ ACTOR BloodRatWhite : BloodRat 19068
 	Burn:
 	Death.LifeLeech:
 	Death.Flare:
-		TNT1 A 0 
+		TNT1 A 0
 		"####" A 1 A_JumpIf(waterlevel > 1, "Death")
 		RAWB A 8 A_Scream
 		TNT1 A 0 A_GiveToTarget("DoRat", 1)
