@@ -730,7 +730,7 @@ ACTOR ChurchCross 3193
 	Height 30
 	Health 10
 	Scale 0.6
-	Mass 10000000
+	Mass 0x7ffffff
 	+NOBLOOD
 	+NOBLOODDECALS
 	+NOTAUTOAIMED
@@ -757,6 +757,25 @@ ACTOR ChurchCross 3193
 	}
 }
 
+ACTOR NoGravChurchCross : ChurchCross 19110
+{
+	//$Category "BlooM Ambient/NoGravity"
+	//$Title "Grave, NoGrav Inverted Church Cross"
+	//$Sprite YC2SA0
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		YC2S A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	}
+}
+
 ACTOR WoodCross : ChurchCross 3194
 {
 	//$Sprite YCRWA0
@@ -767,6 +786,25 @@ ACTOR WoodCross : ChurchCross 3194
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
 		YCRW A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR NoGravWoodCross : WoodCross 19111
+{
+	//$Category "BlooM Ambient/NoGravity"
+	//$Title "Grave, NoGrav Inverted Wooden Cross"
+	//$Sprite YC2WA0
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		YC2W A -1
 		Stop
 	ModelSpawn:
 		UNKN A -1
@@ -816,7 +854,7 @@ ACTOR LapidaBlood 3196
 	//$Title "Grave, KLK Stone"
 	//$Sprite YLPBA0
 	Height 30
-	Mass 10000000
+	Mass 0x7ffffff
 	Scale 0.6
 	+SOLID
 	States
@@ -825,6 +863,25 @@ ACTOR LapidaBlood 3196
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
 		YLPB A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR NoGravLapidaBlood : LapidaBlood 19112
+{
+	//$Category "BlooM Ambient/NoGravity"
+	//$Title "Grave, NoGrav Inverted KLK Stone"
+	//$Sprite YL2BA0
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		YL2B A -1
 		Stop
 	ModelSpawn:
 		UNKN A -1
@@ -849,6 +906,25 @@ ACTOR LapidaNormal : LapidaBlood 3197
 	}
 }
 
+ACTOR NoGravLapidaNormal : LapidaNormal 19113
+{
+	//$Category "BlooM Ambient/NoGravity"
+	//$Title "Grave, NoGrav Inverted Rip Stone"
+	//$Sprite YL2DA0
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		YL2D A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	}
+}
+
 ACTOR LapidaSkull : LapidaBlood 3198
 {
 	//$Sprite YLPSA0
@@ -866,6 +942,25 @@ ACTOR LapidaSkull : LapidaBlood 3198
 	}
 }
 
+ACTOR NoGravLapidaSkull : LapidaSkull 19114
+{
+	//$Category "BlooM Ambient/NoGravity"
+	//$Title "Grave, NoGrav Inverted Skull Stone"
+	//$Sprite YL2SA0
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		YL2S A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	}
+}
+
 ACTOR LapidaWood : LapidaBlood 3199
 {
 	//$Sprite YLPWA0
@@ -876,6 +971,25 @@ ACTOR LapidaWood : LapidaBlood 3199
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
 		YLPW A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR NoGravLapidaWood : LapidaWood 19115
+{
+	//$Category "BlooM Ambient/NoGravity"
+	//$Title "Grave, NoGrav Inverted Wood Sign"
+	//$Sprite YL2WA0
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		YL2W A -1
 		Stop
 	ModelSpawn:
 		UNKN A -1
@@ -906,7 +1020,7 @@ ACTOR ShortCol 3203
 	//$Title "Decorative Column A"
 	Height 50
 	Scale 0.6
-	Mass 10000000
+	Mass 0x7ffffff
 	+SOLID
 	States
 	{

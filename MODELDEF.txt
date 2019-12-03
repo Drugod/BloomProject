@@ -1344,10 +1344,26 @@ Model churchcross
 	FrameIndex UNKN A 0 0
 }
 
+Model nogravchurchcross
+{
+	Path "models/Tombs"
+	Model 0 "lapida5b.md3"
+	Scale 1.0 1.0 1.0
+	FrameIndex UNKN A 0 0
+}
+
 Model woodcross
 {
 	Path "models/Tombs"
 	Model 0 "lapida6.md3"
+	Scale 1.0 1.0 1.0
+	FrameIndex UNKN A 0 0
+}
+
+Model nogravwoodcross
+{
+	Path "models/Tombs"
+	Model 0 "lapida6b.md3"
 	Scale 1.0 1.0 1.0
 	FrameIndex UNKN A 0 0
 }
@@ -1376,10 +1392,26 @@ Model lapidablood
 	FrameIndex UNKN A 0 0
 }
 
+Model nogravlapidablood
+{
+	Path "models/Tombs"
+	Model 0 "lapida2b.md3"
+	Scale 1.5 1.5 1.5
+	FrameIndex UNKN A 0 0
+}
+
 Model lapidanormal
 {
 	Path "models/Tombs"
 	Model 0 "lapida4.md3"
+	Scale 1.0 1.0 1.0
+	FrameIndex UNKN A 0 0
+}
+
+Model nogravlapidanormal
+{
+	Path "models/Tombs"
+	Model 0 "lapida4b.md3"
 	Scale 1.0 1.0 1.0
 	FrameIndex UNKN A 0 0
 }
@@ -1392,10 +1424,26 @@ Model lapidaskull
 	FrameIndex UNKN A 0 0
 }
 
+Model nogravlapidaskull
+{
+	Path "models/Tombs"
+	Model 0 "lapida1b.md3"
+	Scale 1.0 1.0 1.0
+	FrameIndex UNKN A 0 0
+}
+
 Model lapidawood
 {
 	Path "models/Tombs"
 	Model 0 "lapida3.md3"
+	Scale 1.0 1.0 1.0
+	FrameIndex UNKN A 0 0
+}
+
+Model nogravlapidawood
+{
+	Path "models/Tombs"
+	Model 0 "lapida3b.md3"
 	Scale 1.0 1.0 1.0
 	FrameIndex UNKN A 0 0
 }
