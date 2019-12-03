@@ -722,6 +722,18 @@ ACTOR RipSpawner : RandomSpawner 3254
 	DropItem "LapidaDraven"
 }
 
+ACTOR RipSpawnerInverted : RandomSpawner 19134
+{
+	//$Category "BlooM Ambient/NoGravity"
+	DropItem "NoGravChurchCross"
+	DropItem "NoGravWoodCross"
+	DropItem "NoGravSkullCross"
+	DropItem "NoGravLapidaBlood"
+	DropItem "NoGravLapidaNormal"
+	DropItem "NoGravLapidaSkull"
+	DropItem "NoGravLapidaWood"
+}
+
 ACTOR ChurchCross 3193
 {
 	//$Category "BlooM Ambient"
