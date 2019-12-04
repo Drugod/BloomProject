@@ -774,6 +774,7 @@ ACTOR NoGravChurchCross : ChurchCross 19110
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted Church Cross"
 	//$Sprite YC2SA0
+	Height 1
 	+NOGRAVITY
 	States
 	{
@@ -810,6 +811,7 @@ ACTOR NoGravWoodCross : WoodCross 19111
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted Wooden Cross"
 	//$Sprite YC2WA0
+	Height 1
 	+NOGRAVITY
 	States
 	{
@@ -846,6 +848,7 @@ ACTOR NoGravSkullCross : SkullCross 19056
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted Skull Wooden Cross"
 	//$Sprite YCS2A0
+	Height 1
 	+NOGRAVITY
 	States
 	{
@@ -887,6 +890,7 @@ ACTOR NoGravLapidaBlood : LapidaBlood 19112
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted KLK Stone"
 	//$Sprite YL2BA0
+	Height 1
 	+NOGRAVITY
 	States
 	{
@@ -923,6 +927,7 @@ ACTOR NoGravLapidaNormal : LapidaNormal 19113
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted Rip Stone"
 	//$Sprite YL2DA0
+	Height 1
 	+NOGRAVITY
 	States
 	{
@@ -959,6 +964,7 @@ ACTOR NoGravLapidaSkull : LapidaSkull 19114
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted Skull Stone"
 	//$Sprite YL2SA0
+	Height 1
 	+NOGRAVITY
 	States
 	{
@@ -977,6 +983,7 @@ ACTOR LapidaWood : LapidaBlood 3199
 {
 	//$Sprite YLPWA0
 	//$Title "Grave, Wood Sign"
+	Height 34
 	States
 	{
 	Spawn:
@@ -995,6 +1002,7 @@ ACTOR NoGravLapidaWood : LapidaWood 19115
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted Wood Sign"
 	//$Sprite YL2WA0
+	Height 1
 	+NOGRAVITY
 	States
 	{

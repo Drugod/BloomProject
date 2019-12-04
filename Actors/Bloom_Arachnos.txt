@@ -1,0 +1,56 @@
+ACTOR ----------ARACHNOIDS---------- {}
+ACTOR Arachnoid : BloomHybrid_Base 19011
+{
+	//$Title Arachnoid
+	Health 150
+	PainChance 180
+	FastSpeed 12
+	Radius 30
+	Mass 80
+	+BOSSDEATH
+	+DROPOFF
+	Obituary "$OB_ACHNOID"
+	Attacksound "dsdolstb"
+	PainSound "SpiderPain"
+	DeathSound "baby/death"//DeathSound "SpiderDie"
+	ActiveSound "SpiderSee"
+	States
+	{
+	Spawn:
+		ARND A 5 A_Look
+		Loop
+	See:
+		ARND AAAAABBBBB 1 A_Chase
+		ARND CCCCCDDDDD 1 A_Chase
+		ARND A 0 A_JumpIfCloser(random(200,400),"Bounce")
+		ARND A 0 A_CheckFloor("Jump")
+		Loop
+	Bounce:
+		ARND A 0 A_FaceTarget
+		ARND A 0 A_Recoil(-4)
+		ARND AAA 1 ThrustThingZ(0,frandom(11,20),0,0)
+		ARND BBB 1 ThrustThing(angle*256/360,random(5,8),0,0)
+		Goto See
+	Jump:
+		ARND A 0 A_Recoil(-4)
+		ARND A 0 ThrustThingZ(0,frandom(11,20),0,0)
+		ARND A 0 ThrustThing(angle*256/360,random(5,8),0,0)
+		Goto See
+	Melee:
+		ARND F 3
+		ARND G 6 A_CustomMeleeAttack(frandom(1,2),"dsdolstb","none","Turner",true)
+		Goto See
+	Pain:
+		ARND I 3
+		ARND I 3 A_Pain
+		Goto See
+	XDeath:
+	Death:
+		ARND J 0 A_Scream
+		ARND JKLMNOP 3 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_NoBlocking
+		ARND P 1 A_SpawnDebris("FlyingBlood")
+		ARND P -1 A_BossDeath
+		Stop
+	}
+}

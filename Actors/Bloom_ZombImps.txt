@@ -1,0 +1,936 @@
+ACTOR -----ZOMBIMPS-------- {}
+ACTOR Zombimp1
+{
+	Health 150
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 8
+	GibHealth 30
+	PainChance 200
+	Painchance "Flare", 0
+	Painchance "Fire", 0
+	DamageFactor Fire, 3.35
+	DamageFactor "Flare", 3.5
+	Monster
+	+FLOORCLIP
+	SeeSound "imp/sight"
+	PainSound "imp/pain"
+	DeathSound "imp/death"
+	ActiveSound "imp/active"
+	HitObituary "$OB_IMPHIT"
+	Obituary "$OB_IMP"
+	States
+	{
+	Spawn:
+		ZI01 A 5 A_Look
+		Loop
+	See:
+		ZI01 AABBCCDD 3 A_Chase
+		Goto See
+	Melee:
+		ZI01 UVW 8 A_FaceTarget
+		ZI01 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(400,5)
+		ZI01 EFG 8 A_FaceTarget
+		ZI01 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See
+		TNT1 A 0
+		Goto See
+	Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		ZI01 I 4 A_TakeInventory("AmAlreadyFaking",99)
+		ZI01 I 2 A_Pain
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		ZI11 A 1
+		TNT1 A 0 A_UnSetSolid
+		ZI11 AB 4
+		ZI11 B 4 A_GiveInventory("AmAlreadyFaking",1)
+		ZI11 CDE 4
+	WaitFake:
+	ContFake:
+		ZI11 EEEE 20
+		ZI11 EEEE 20
+		ZI11 EEEEEEEE 20
+		TNT1 A 0 A_Jump(120,"WaitFake")
+		ZI11 E 5
+		TNT1 A 0 A_ChangeFlag("THRUSPECIES",0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_PlaySound("Zombie/Fake")
+		ZI11 EFGHIJK 4
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	Death:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Jump(100,"DeathKickableHead")
+		ZI01 J 8
+		ZI01 K 8
+		ZI01 L 6
+		ZI01 M 6 A_NoBlocking
+		ZI01 N -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp1",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		ZI01 A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+	DeathKickableHead:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp1",0,5,10,0)
+		ZI11 LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI11 MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI11 NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_Fall
+		ZI11 OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI11 PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI11 QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI11 R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI11 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI11 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		ZI11 S -1
+		Stop
+	XDeath:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI01 O 5 A_XScream
+		ZI01 P 5 A_NoBlocking
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp1",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		ZI01 QRS 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI01 T -1
+		Stop
+	Raise:
+		ZI01 NM 8
+		ZI01 LKJ 6
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)
+		Goto See
+	}
+}
+
+ACTOR Zombimp2: Zombimp1
+{
+	States
+	{
+	Spawn:
+		ZI02 A 5 A_Look
+		Loop
+	See:
+		ZI02 AABBCCDD 3 A_Chase
+		Goto See
+	Melee:
+		ZI02 UVW 8 A_FaceTarget
+		ZI02 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(400,5)
+		ZI02 EFG 8 A_FaceTarget
+		ZI02 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See
+		TNT1 A 0
+		Goto See
+	Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		ZI02 I 4 A_TakeInventory("AmAlreadyFaking",99)
+		ZI02 I 2 A_Pain
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		ZI12 A 1
+		TNT1 A 0 A_UnSetSolid
+		ZI12 AB 4
+		ZI12 B 4 A_GiveInventory("AmAlreadyFaking",1)
+		ZI12 CDE 4
+	WaitFake:
+	ContFake:
+		ZI12 EEEE 20
+		ZI12 EEEE 20
+		ZI12 EEEEEEEE 20
+		TNT1 A 0 A_Jump(120,"WaitFake")
+		ZI12 E 5
+		TNT1 A 0 A_ChangeFlag("THRUSPECIES",0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_PlaySound("Zombie/Fake")
+		ZI12 EFGHIJK 4
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	Death:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Jump(100,"DeathKickableHead")
+		ZI02 J 8
+		ZI02 K 8
+		ZI02 L 6
+		ZI02 M 6 A_NoBlocking
+		ZI02 N -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp2",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		ZI02 A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+	DeathKickableHead:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp2",0,5,10,0)
+		ZI12 LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI12 MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI12 NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_Fall
+		ZI12 OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI12 PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI12 QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI12 R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI12 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI12 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		ZI12 S -1
+		Stop
+	XDeath:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI02 O 5 A_XScream
+		ZI02 P 5 A_NoBlocking
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp2",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		ZI02 QRS 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI02 T -1
+		Stop
+	Raise:
+		ZI02 NM 8
+		ZI02 LKJ 6
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)
+		Goto See
+	}
+}
+
+ACTOR Zombimp3: Zombimp1
+{
+	States
+	{
+	Spawn:
+		ZI03 A 5 A_Look
+		Loop
+	See:
+		ZI03 AABBCCDD 3 A_Chase
+		Goto See
+	Melee:
+		ZI03 UVW 8 A_FaceTarget
+		ZI03 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(400,5)
+		ZI03 EFG 8 A_FaceTarget
+		ZI03 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See
+		TNT1 A 0
+		Goto See
+	Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		ZI03 I 4 A_TakeInventory("AmAlreadyFaking",99)
+		ZI03 I 2 A_Pain
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		ZI13 A 1
+		TNT1 A 0 A_UnSetSolid
+		ZI13 AB 4
+		ZI13 B 4 A_GiveInventory("AmAlreadyFaking",1)
+		ZI13 CDE 4
+	WaitFake:
+	ContFake:
+		ZI13 EEEE 20
+		ZI13 EEEE 20
+		ZI13 EEEEEEEE 20
+		TNT1 A 0 A_Jump(120,"WaitFake")
+		ZI13 E 5
+		TNT1 A 0 A_ChangeFlag("THRUSPECIES",0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_PlaySound("Zombie/Fake")
+		ZI13 EFGHIJK 4
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	Death:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Jump(100,"DeathKickableHead")
+		ZI03 J 8
+		ZI03 K 8
+		ZI03 L 6
+		ZI03 M 6 A_NoBlocking
+		ZI03 N -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp3",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		ZI03 A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+	DeathKickableHead:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp3",0,5,10,0)
+		ZI13 LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI13 MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI13 NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_Fall
+		ZI13 OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI13 PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI13 QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI13 R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI13 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI13 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		ZI13 S -1
+		Stop
+	XDeath:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI03 O 5 A_XScream
+		ZI03 P 5 A_NoBlocking
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp3",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		ZI03 QRS 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI03 T -1
+		Stop
+	Raise:
+		ZI03 NM 8
+		ZI03 LKJ 6
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)
+		Goto See
+	}
+}
+
+ACTOR Zombimp4: Zombimp1
+{
+	States
+	{
+	Spawn:
+		ZI04 A 5 A_Look
+		Loop
+	See:
+		ZI04 AABBCCDD 3 A_Chase
+		Goto See
+	Melee:
+		ZI04 WXY 8 A_FaceTarget
+		ZI04 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(400,5)
+		ZI04 EFG 8 A_FaceTarget
+		ZI04 H 6 A_CustomComboAttack("ZombimpBall", 32, 3 * random(1, 8), "imp/Melee")
+		Goto See
+		TNT1 A 0
+		Goto See
+	Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlreadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		ZI04 I 4 A_TakeInventory("AmAlreadyFaking",99)
+		ZI04 I 2 A_Pain
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		ZI14 A 1
+		TNT1 A 0 A_UnSetSolid
+		ZI14 AB 4
+		ZI14 B 4 A_GiveInventory("AmAlreadyFaking",1)
+		ZI14 CDE 4
+	WaitFake:
+	ContFake:
+		ZI14 EEEE 20
+		ZI14 EEEE 20
+		ZI14 EEEEEEEE 20
+		TNT1 A 0 A_Jump(120,"WaitFake")
+		ZI14 E 5
+		TNT1 A 0 A_ChangeFlag("THRUSPECIES",0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_PlaySound("Zombie/Fake")
+		ZI14 EFGHIJK 4
+		TNT1 A 0 A_TakeInventory("AmAlreadyFaking",99)
+		Goto See
+	Death:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Jump(100,"DeathKickableHead")
+		ZI04 J 8
+		ZI04 K 8
+		ZI04 L 6
+		ZI04 M 6 A_NoBlocking
+		ZI04 N -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp4",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		ZI04 A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+	DeathKickableHead:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp4",0,5,10,0)
+		ZI14 LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI14 MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI14 NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_Fall
+		ZI14 OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI14 PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI14 QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI14 R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI14 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI14 SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		ZI14 S -1
+		Stop
+	XDeath:
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI04 O 5 A_XScream
+		ZI04 P 5
+		ZI04 Q 5 A_NoBlocking
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp4",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		ZI04 RSTU 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI04 V -1
+		Stop
+	Raise:
+		ZI04 NM 8
+		ZI04 LKJ 6
+		TNT1 A 0 A_ChangeFlag("SOLID",1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)
+		Goto See
+	}
+}
+
+ACTOR Zombimp5
+{
+	Health 10
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 8
+	GibHealth 30
+	PainChance 200
+	Painchance "Flare", 0
+	Monster
+	+FLOORCLIP
+	SeeSound "imp/sight"
+	PainSound "imp/pain"
+	DeathSound "imp/death"
+	ActiveSound "imp/active"
+	HitObituary "$OB_IMPHIT"
+	Obituary "$OB_IMP"
+	States
+	{
+	Spawn:
+		ZI05 A 5 A_Look
+		Loop
+	See:
+		ZI05 AABBCCDD 3 A_Chase
+		Goto See
+	Melee:
+		ZI05 A 1
+		TNT1 A 0 A_Die
+		Goto See
+	Pain:
+		ZI05 A 1
+		ZI05 A 1 A_Pain
+		Goto See
+	Death:
+		TNT1 A 0 A_Quake(512,5,128,256)
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp2",0,5,10,0)
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(0,360)
+		ZI15 A 5 A_NoBlocking
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(0,360)
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")
+		ZI15 B 5 A_XScream
+		ZI15 C 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI15 D 5 A_NoBlocking
+		ZI15 EF 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI15 GH 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		ZI15 I -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombimp2",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		ZI05 A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+	Stop
+		XDeath:
+		TNT1 A 0 A_Quake(512,5,128,256)
+		TNT1 A 0 A_XScream
+		ZI05 N 5 A_NoBlocking
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombimp2",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		ZI05 O 8
+		ZI05 P 8
+		ZI05 Q 6
+		ZI05 RST 6 A_NoBlocking
+		ZI05 U -1
+		Stop
+	}
+}
+
+ACTOR ZombimpBall
+{
+	Radius 6
+	Height 8
+	Speed 25
+	Health 1
+	FastSpeed 20
+	Damage 3
+	Projectile
+	RenderStyle Add
+	Alpha 1
+	+NOTAUTOAIMED
+	+RANDOMIZE
+	+SHOOTABLE
+	-NOBLOCKMAP
+	States
+	{
+	Spawn:
+		ZAL1 AB 4
+		Loop
+	Death:
+		ZAL1 CDE 6
+		Stop
+	}
+}
+
+ACTOR BuriedZombimp1 : Zombimp1
+{
+	+NOTAUTOAIMED
+	-SHOOTABLE
+	-SOLID
+	States
+	{
+	Idle:
+		Goto Super::Spawn
+	Spawn:
+		OUTA A 320 A_Look
+		Loop
+	See:
+		OUTA A 0 A_ChangeFlag("SOLID",1)
+		OUTA A 0 A_ChangeFlag("SHOOTABLE",1)
+		OUTA A 0 A_ChangeFlag("NOTAUTOAIMED",0)
+		OUTA A 0 A_JumpifInventory("Chokeme",1,11)
+		OUTA A 0 A_GiveInventory("Chokeme",1)
+		OUTA A 0 A_PlaySound("Zombie/Raise")
+		OUTA ABCDEFGHIJ 4 A_FaceTarget
+		Goto Super::See
+	}
+}
+
+ACTOR BuriedZombimp2 : Zombimp2
+{
+	+NOTAUTOAIMED
+	-SHOOTABLE
+	-SOLID
+	States
+	{
+	Idle:
+		Goto Super::Spawn
+	Spawn:
+		OUT2 A 320 A_Look
+	Loop
+	See:
+		OUT2 A 0 A_ChangeFlag("SOLID",1)
+		OUTA A 0 A_ChangeFlag("SHOOTABLE",1)
+		OUTA A 0 A_ChangeFlag("NOTAUTOAIMED",0)
+		OUT2 A 0 A_JumpifInventory("Chokeme",1,11)
+		OUT2 A 0 A_GiveInventory("Chokeme",1)
+		OUT2 A 0 A_PlaySound("Zombie/Raise")
+		OUT2 ABCDEFGHIJ 4 A_FaceTarget
+		Goto Super::See
+	}
+}
+
+ACTOR BuriedZombimp3 : Zombimp3
+{
+	+NOTAUTOAIMED
+	-SHOOTABLE
+	-SOLID
+	States
+	{
+	Idle:
+		Goto Super::Spawn
+	Spawn:
+		OUT3 A 320 A_Look
+	Loop
+	See:
+		OUT3 A 0 A_ChangeFlag("SOLID",1)
+		OUTA A 0 A_ChangeFlag("SHOOTABLE",1)
+		OUT3 A 0 A_JumpifInventory("Chokeme",1,11)
+		OUT3 A 0 A_GiveInventory("Chokeme",1)
+		OUT3 A 0 A_PlaySound("Zombie/Raise")
+		OUT3 ABCDEFGHIJ 4 A_FaceTarget
+		Goto Super::See
+	}
+}
+
+ACTOR BuriedZombimp4 : Zombimp4
+{
+	+NOTAUTOAIMED
+	-SHOOTABLE
+	-SOLID
+	States
+	{
+	Idle:
+		Goto Super::Spawn
+	Spawn:
+		OUT4 A 320 A_Look
+	Loop
+	See:
+		OUT4 A 0 A_ChangeFlag("SOLID",1)
+		OUTA A 0 A_ChangeFlag("SHOOTABLE",1)
+		OUT4 A 0 A_JumpifInventory("Chokeme",1,11)
+		OUT4 A 0 A_GiveInventory("Chokeme",1)
+		OUT4 A 0 A_PlaySound("Zombie/Raise")
+		OUT4 ABCDEFGHIJ 4 A_FaceTarget
+		Goto Super::See
+	}
+}
+
+ACTOR BuriedZombimp5 : Zombimp5
+{
+	+NOTAUTOAIMED
+	-SHOOTABLE
+	-SOLID
+	States
+	{
+	Idle:
+		Goto Super::Spawn
+	Spawn:
+		OUT5 A 320 A_Look
+	Loop
+	See:
+		OUT5 A 0 A_ChangeFlag("SOLID",1)
+		OUTA A 0 A_ChangeFlag("SHOOTABLE",1)
+		OUT5 A 0 A_JumpifInventory("Chokeme",1,11)
+		OUT5 A 0 A_GiveInventory("Chokeme",1)
+		OUT5 A 0 A_PlaySound("Zombie/Raise")
+		OUT5 ABCDEFGHIJ 4 A_FaceTarget
+		Goto Super::See
+	}
+}
+
+ACTOR Zombimps: BuriedZombimp1 19033
+{
+	//$Category Bloom Hybrid Monsters
+	//$Title Zombimps
+	//$Color 3
+	-ISMONSTER
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 ACS_NamedExecuteAlways("FloorTextureCheck", 0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	NoGroundSpawner: //Summon a Randomspawner class for stand up zombimps
+		TNT1 A 0 A_SpawnItemEx("StandUpZombimpsSpawner",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	GroundSpawner: //Summon a Randomspawner class for buried zombimps
+		TNT1 A 0 A_SpawnItemEx("BuriedZombimpsSpawner",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	}
+}
+
+ACTOR StandUpZombimpsSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Zombimp1",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Zombimp2",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("Zombimp3",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("Zombimp4",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn5:
+		TNT1 A 0 A_SpawnItemEx("Zombimp5",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	}
+}
+
+ACTOR BuriedZombimpsSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("BuriedZombimp1",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BuriedZombimp2",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("BuriedZombimp3",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("BuriedZombimp4",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn5:
+		TNT1 A 0 A_SpawnItemEx("BuriedZombimp5",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	}
+}

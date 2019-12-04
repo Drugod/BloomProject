@@ -1,0 +1,324 @@
+ACTOR ---------NEOCVLTISTS--------- {}
+ACTOR Apocalyptic_NeoCvltist : BloomHybrid_Base 19001
+{
+	//$Title Apocalyptic Cvltist
+	+FLOORCLIP
+	SeeSound "NCultistSee"
+	PainSound "NCultistPain"
+	DeathSound "NCultistDie"
+	AttackSound "NCultistShotgun"
+	ActiveSound "NCultistAct"
+	Obituary "$OB_SHOTGUY"
+	DropItem "Shotgun_" 100
+	Dropitem "UselessStuff" 32
+	DropItem "GrenadeAmmo" 32
+	DropItem "HappyBundle" 32
+	States
+	{
+	Spawn:
+		WPOS E 10 A_Look
+		Loop
+	See:
+		WPOS AABBCCDD 3 A_Chase
+		Loop
+	Missile:
+		WPOS E 10 A_FaceTarget
+		WPOS F 10 BRIGHT A_SPosAttackUseAtkSound
+		WPOS E 10
+		TNT1 A 0 A_Jump(160,"See")
+	LaunchTnt:
+		WMTT A  5 A_FaceTarget
+		WMTT BC 5
+		TNT1 A  0 A_ThrowGrenade("HybridCultistTNT",0,20,4,0)
+		WMTT D  5
+		Goto See
+	Pain:
+		WPOS G 3
+		WPOS G 3 A_Pain
+		Goto See
+	Death:
+		WPOS H 5
+		WPOS I 5 A_Scream
+		WPOS J 5 A_NoBlocking
+		WPOS K 5
+		WPOS L -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingFanatic",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+	XDeath:
+		WPOS M 5
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingFanatic",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		WPOS N 5 A_XScream
+		WPOS O 5 A_NoBlocking
+		WPOS PQRST 5
+		WPOS U -1
+		Stop
+	Raise:
+		WPOS L 5
+		WPOS KJIH 5
+		Goto See
+	}
+}
+
+ACTOR NeoCvltist : BloomHybrid_Base 19003
+{
+	//$Title NeoCvltist
+	+FLOORCLIP
+	SeeSound "NCultistSee"
+	PainSound "NCultistPain"
+	DeathSound "NCultistDie"
+	AttackSound "NCultistShotgun"
+	ActiveSound "NCultistAct"
+	Obituary "$OB_SHOTGUY"
+	DropItem "Shotgun_" 100
+	Dropitem "UselessStuff" 32
+	DropItem "GrenadeAmmo" 32
+	DropItem "HappyBundle" 32
+	States
+	{
+	Spawn:
+		YPOS E 10 A_Look
+		Loop
+	See:
+		YPOS AABBCCDD 3 A_Chase
+		Loop
+	Missile:
+		YPOS E 10 A_FaceTarget
+		YPOS F 10 BRIGHT A_SPosAttackUseAtkSound
+		YPOS E 10
+		TNT1 A 0 A_Jump(160,"See")
+	LaunchTnt:
+		WNTT A  5 A_FaceTarget
+		WNTT BC 5
+		TNT1 A  0 A_ThrowGrenade("HybridCultistTNT",0,20,4,0)
+		WNTT D  5
+		Goto See
+	Pain:
+		YPOS G 3
+		YPOS G 3 A_Pain
+		Goto See
+	Death:
+		YPOS H 5
+		YPOS I 5 A_Scream
+		YPOS J 5 A_NoBlocking
+		YPOS K 5
+		YPOS L -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingFanatic",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		YPOS A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+	XDeath:
+		YPOS M 5
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingFanatic",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		YPOS N 5 A_XScream
+		YPOS O 5 A_NoBlocking
+		YPOS PQRST 5
+		YPOS U -1
+		Stop
+	Raise:
+		YPOS L 5
+		YPOS KJIH 5
+		Goto See
+	}
+}
+
+ACTOR ShotgunMonk : BloomHybrid_Base 18323
+{
+	//$Title Shotgun Monk
+	+FLOORCLIP
+	SeeSound "NCultistSee"
+	PainSound "NCultistPain"
+	DeathSound "NCultistDie"
+	AttackSound "NCultistShotgun"
+	ActiveSound "NCultistAct"
+	Obituary "$OB_SHOTGUY"
+	DropItem "Shotgun_" 100
+	Dropitem "UselessStuff" 32
+	DropItem "GrenadeAmmo" 32
+	DropItem "HappyBundle" 32
+	States
+	{
+	Spawn:
+		MONK G 10 A_Look
+		Loop
+	See:
+		MONK AABBCCDDEEFF 3 A_Chase
+		Loop
+	Missile:
+		MONK G 10 A_FaceTarget
+		MONK H 10 BRIGHT A_SPosAttackUseAtkSound
+		TNT1 A 0 A_Jump(160,"See")
+	LaunchTnt:
+		WOTT A  5 A_FaceTarget
+		WOTT BC 5
+		TNT1 A  0 A_ThrowGrenade("HybridCultistTNT",0,20,4,0)
+		WOTT D  5
+		Goto See
+	Pain:
+		MONK I 3
+		MONK I 3 A_Pain
+		Goto See
+	Death:
+		MONK J 5
+		MONK K 5 A_Scream
+		MONK L 5 A_NoBlocking
+		MONK MNOP 5
+		MONK Q -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingFanatic",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		MONK A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
+		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+	XDeath:
+		MONK R 5
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingFanatic",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		MONK S 5 A_XScream
+		MONK T 5 A_NoBlocking
+		MONK UVW 5
+		MONK X -1
+		Stop
+	Raise:
+		MONK Q 5
+		MONK PONMLKJ 5
+		Goto See
+	}
+}
+
+ACTOR HybridCultistTNT : GreenCultistTNT { +CANNOTPUSH }

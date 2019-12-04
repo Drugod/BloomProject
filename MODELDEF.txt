@@ -370,6 +370,110 @@ Model Modelcar5
 }
 
 //Rolls buildings
+Model VortexBuilding1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "vortexbuilding001.md2"
+   Skin 0 "VortexBuilding_1.png"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model VortexBuilding2
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "vortexbuilding002.md2"
+   Skin 0 "VortexBuilding_1.png"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model VortexBuilding3 //animated
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "vortexbuilding003.md2"
+   Skin 0 "VortexBuilding_1.png"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+   
+   Path "Models/Buildings/Rolls"
+   Model 0 "vortexbuilding003.md2"
+   Skin 0 "VortexBuilding_2.png"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN B 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model VortexBuilding4
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "vortexbuilding004.md2"
+   Skin 0 "VortexBuilding_1.png"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model VortexBuilding5
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "vortexbuilding005.md2"
+   Skin 0 "VortexBuilding_1.png"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model VortexBuilding6
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "vortexbuilding006.md2"
+   Skin 0 "VortexBuilding_1.png"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model VortexBuilding7 //animated
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "vortexbuilding007.md2"
+   Skin 0 "VortexBuilding_1.png"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+   
+   Path "Models/Buildings/Rolls"
+   Model 0 "vortexbuilding007.md2"
+   Skin 0 "VortexBuilding_2.png"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN B 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model VortexBricks1
+{
+   Path "Models/Buildings/Rolls"
+   Model 0 "vortexbuildingbricks.md2"
+   Skin 0 "VortexBuilding_1.png"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
 Model Building1
 {
    Path "Models/Buildings"
@@ -883,7 +987,7 @@ Model Room1
 Model Room2a
 {
    Path "Models/Buildings/Rolls"
-   Model 0 "Room2A.MD2"
+   Model 0 "Room2A.md2"
    Skin 0 "Room2.png"
    INHERITACTORROLL
    INHERITACTORPITCH
@@ -895,7 +999,7 @@ Model Room2a
 Model Room2b
 {
    Path "Models/Buildings/Rolls"
-   Model 0 "Room2B.MD2"
+   Model 0 "Room2B.md2"
    Skin 0 "Room2.png"
    INHERITACTORROLL
    INHERITACTORPITCH
@@ -1444,7 +1548,6 @@ Model nogravlapidawood
 {
 	Path "models/Tombs"
 	Model 0 "lapida3b.md3"
-	Scale 1.0 1.0 1.0
 	FrameIndex UNKN A 0 0
 }
 
@@ -2119,4 +2222,599 @@ Model VortexK
    Rotation-Speed -0.5
    FrameIndex UNKN A 0 0
    Scale 2.5 2.5 2.5
+}
+
+//Rolls TV
+Model CreepyTV1
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_000.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV1
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_001.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN B 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV1
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_002.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN C 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV1
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_003.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN D 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV1
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_004.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN E 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV1
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_005.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN F 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV1
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_006.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN G 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV1
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_007.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN H 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV1
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_008.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN I 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV1
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_009.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN J 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV2
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_000.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV2
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_001.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN B 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV2
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_002.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN C 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV2
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_003.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN D 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV2
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_004.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN E 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV2
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_005.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN F 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV2
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_006.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN G 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV2
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_007.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN H 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV2
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_008.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN I 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV2
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_009.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN J 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV3
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_001.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV3
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_002.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN B 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV3
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_003.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN C 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV3
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_004.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN D 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV3
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_005.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN E 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV3
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_006.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN F 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV3
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_007.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN G 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_000.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_001.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN B 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_002.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN C 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_003.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN D 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_004.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN E 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_005.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN F 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_006.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN G 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_007.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN H 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_008.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN I 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV001_009.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN J 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_000.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN K 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_001.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN L 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_002.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN M 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_003.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN N 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_004.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN O 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_005.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN P 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_006.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN Q 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_007.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN R 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_008.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN S 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV002_009.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN T 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_001.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN U 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_002.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN V 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_003.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN W 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_004.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN X 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_005.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN Y 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_006.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN Z 0 0
+   Scale 1.0 1.0 1.0
+}
+
+Model CreepyTV4
+{
+   Path "Models/TV"
+   Model 0 "CreepyTV.md3"
+   Skin 0 "TV003_007.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex POSS A 0 0
+   Scale 1.0 1.0 1.0
 }

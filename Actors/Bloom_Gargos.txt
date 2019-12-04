@@ -1,0 +1,93 @@
+ACTOR ---------GARGOYLESOULS----------- {}
+ACTOR GargoylSoul : BloomHybrid_Base 19005
+{
+	//$Title Gargoyle's Soul
+	Health 100
+	Radius 16
+	Mass 50
+	Damage 3
+	PainChance 256
+	+DONTFALL
+	+FLOAT
+	+MISSILEMORE
+	+NOGRAVITY
+	+NOICEDEATH
+	AttackSound "skull/Melee"
+	PainSound "skull/pain"
+	DeathSound "skull/death"
+	ActiveSound "skull/active"
+	RenderStyle SoulTrans
+	Obituary "$OB_GSOUL"
+	States
+	{
+	Spawn:
+		GKUL AB 10 BRIGHT A_Look
+		Loop
+	See:
+		GKUL AB 6 BRIGHT A_Chase
+		Loop
+	Missile:
+		GKUL C 10 BRIGHT A_FaceTarget
+		GKUL D 4 BRIGHT A_SkullAttack
+		GKUL CD 4 BRIGHT
+		Goto Missile+2
+	Pain:
+		GKUL E 3 BRIGHT
+		GKUL E 3 BRIGHT A_Pain
+		Goto See
+	Death:
+		GKUL F 6 BRIGHT
+		GKUL G 6 BRIGHT A_Scream
+		GKUL H 6 BRIGHT
+		GKUL I 6 BRIGHT A_NoBlocking
+		GKUL J 6
+		GKUL K 6
+		Stop
+	}
+}
+
+ACTOR ----------ELEMENTAL_GARGOYLES---------- {}
+ACTOR Elemental_Gargoyle : BloomHybrid_Base 19009
+{
+	//$Title Elemental Gargoyle
+	Health 400
+	Radius 31
+	Mass 400
+	PainChance 128
+	+FLOAT
+	+FLOATBOB
+	+NOGRAVITY
+	SeeSound "pain/sight"
+	PainSound "pain/pain"
+	DeathSound "pain/death"
+	ActiveSound "pain/active"
+	States
+	{
+	Spawn:
+		PGIN A 10 A_Look
+		Loop
+	See:
+		PGIN AABBCC 3 A_Chase
+		Loop
+	Missile:
+		PGIN D 5 A_FaceTarget
+		PGIN E 5 A_FaceTarget
+		PGIN F 5 BRIGHT A_FaceTarget
+		PGIN F 0 BRIGHT A_PainAttack("GargoylSoul")
+		Goto See
+	Pain:
+		PGIN G 6
+		PGIN G 6 A_Pain
+		Goto See
+	Death:
+		PGIN H 8 BRIGHT
+		PGIN I 8 BRIGHT A_Scream
+		PGIN JK 8 BRIGHT
+		PGIN L 8 BRIGHT A_PainDie("GargoylSoul")
+		PGIN M 8 BRIGHT
+		Stop
+	Raise:
+		PGIN MLKJIH 8
+		Goto See
+	}
+}

@@ -174,7 +174,103 @@ ACTOR BuildingPiece5: BuildingPiece1 18300
 	//$Title 3d Building Piece 5
 }
 
-ACTOR ---------LampS--------- {}
+ACTOR VortexBuilding1 18417
+{
+	//$Category BlooM Models
+	//$Title Vortex Building Piece 1
+	//$Color 9
+	Radius 128
+	Height 128
+	Mass 1000
+	+NOGRAVITY
+	+NOBLOCKMAP
+	-SOLID
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexBuilding2 : VortexBuilding1 18418
+{
+	//$Title Vortex Building Piece 2
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexBuilding3 : VortexBuilding1 18419
+{
+	//$Title Vortex Building Piece 3, Animated
+	States
+	{
+	Spawn:
+		UNKN AAAAABBABBBAAABAAAABBAA 35
+		Loop
+	}
+}
+
+ACTOR VortexBuilding4 : VortexBuilding1 18420
+{
+	//$Title Vortex Building Piece 4
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexBuilding5 : VortexBuilding1 18421
+{
+	//$Title Vortex Building Piece 5
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexBuilding6 : VortexBuilding1 18422
+{
+	//$Title Vortex Building Piece 6
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR VortexBuilding7 : VortexBuilding1 18423
+{
+	//$Title Vortex Building Piece 7, Animated
+	States
+	{
+	Spawn:
+		UNKN AAAAABBABBBAAABAAAABBAA 35
+		Loop
+	}
+}
+
+ACTOR VortexBricks1 : VortexBuilding1 18424
+{
+	//$Title Vortex Floating Bricks 1, Rotating
+	States
+	{
+	Spawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR ---------LAMPS--------- {}
 ACTOR RandomLamps : RandomSpawner 18288
 {
 	//$Category BlooM Models
@@ -881,6 +977,76 @@ ACTOR BigSignSpawner 18400
 	}
 }
 
+ACTOR ---------CREEPYSTUFF--------- {}
+ACTOR CreepyTVSpawner : RandomSpawner 18412
+{
+	//$Category BlooM Models
+	//$Title 3d Creepy TV, random
+	//$Color 9
+	Radius 32
+    Height 16
+	+NOGRAVITY
+	DropItem "CreepyTV1"
+	DropItem "CreepyTV2"
+	DropItem "CreepyTV3"
+	DropItem "CreepyTV4"
+}
+
+ACTOR CreepyTV1 18413
+{
+	//$Category BlooM Models
+	//$Title 3d Creepy TV 1
+	//$Color 9
+	Radius 32
+    Height 16
+	Mass 1000
+	+NOGRAVITY
+	+RANDOMIZE
+	+SOLID
+	States
+	{
+	Spawn:
+		UNKN ABCDEFGHIJ 6
+		Loop
+	}
+}
+
+ACTOR CreepyTV2 : CreepyTV1 18414
+{
+	//$Title 3d Creepy TV 2
+	States
+	{
+	Spawn:
+		UNKN ABCDEFGHIJ 6
+		Loop
+	}
+}
+
+ACTOR CreepyTV3 : CreepyTV1 18415
+{
+	//$Title 3d Creepy TV 3
+	States
+	{
+	Spawn:
+		UNKN ABCDEFG 6
+		Loop
+	}
+}
+
+ACTOR CreepyTV4 : CreepyTV1 18416
+{
+	//$Title 3d Creepy TV 4
+	States
+	{
+	Spawn:
+		UNKN ABCDEFGHIJKLMNOPQRSTUVWXYZ 6
+		POSS A 2
+		UNKN JIHGFEDCB 6
+		Loop
+	}
+}
+
+ACTOR ---------VORTEX--------- {}
 ACTOR VortexA 18401
 {
 	//$Category BlooM Models/Vortex

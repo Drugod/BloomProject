@@ -1,0 +1,314 @@
+ACTOR ----------WEREWOLVES_OF_HELL---------- {}
+ACTOR WereWolfOfHellAlt : BloomHybrid_Base 19031
+{
+	//$Title WereWolf of Hell Alternative
+	Radius 24
+	Height 64
+	Mass 1000
+	Health 1000
+	PainChance 50
+	GibHealth 30
+	Species "HellWolf"
+	+BOSSDEATH
+	+DONTHARMCLASS
+	+FLOORCLIP
+	SeeSound "baron/sight"
+	PainSound "baron/pain"
+	DeathSound "baron/death"
+	ActiveSound "baron/active"
+	Obituary "$OB_BARON"
+	HitObituary "$OB_BARONHIT"
+	States
+	{
+	Spawn:
+		BOS3 AB 10 A_Look
+		Loop
+	See:
+		BOS3 AABBCCDD 3 A_Chase
+		TNT1 A 0 A_JumpIfCloser(256, "Stomp")
+		Loop
+	Melee:
+	Missile:
+		BOS3 EF 8 A_FaceTarget
+		BOS3 G 8 A_BruisAttack
+		Goto See
+	Stomp:
+		BO13 A 10 A_FaceTarget
+		BO13 B 10 A_FaceTarget
+		BO13 C 10 A_FaceTarget
+		TNT1 A 0 A_Playsound("BeastStomp")
+		BO13 D 5 A_SpawnItemEx("BeastStomp")
+		BO13 E 6
+		Goto See
+	Pain:
+		BOS3 H 2
+		BOS3 H 2 A_Pain
+		Goto See
+	Death:
+		BOS3 I 8
+		BOS3 J 8 A_Scream
+		BOS3 K 8
+		BOS3 L 8 A_NoBlocking
+		BOS3 MN 8
+		BOS3 O -1 A_BossDeath
+		Stop
+	XDeath:
+		BOS3 P 8
+		BOS3 Q 8 A_XScream
+		BOS3 R 8
+		BOS3 S 8 A_NoBlocking
+		BOS3 TU 8
+		BOS3 V -1 A_BossDeath
+		Stop
+	Raise:
+		BOS3 O 8
+		BOS3 NMLKJI 8
+		Goto See
+	}
+}
+
+ACTOR WereWolfOfHell : WereWolfOfHellAlt 19032
+{
+	//$Title WereWolf of Hell
+	Speed 24
+	PainChance 50
+	MeleeDamage 10
+	MeleeRange 64
+	+DROPOFF
+	Species "HellWolf"
+	MeleeSound "baron/Melee"
+	SeeSound "knight/sight"
+	ActiveSound "knight/active"
+	PainSound "knight/pain"
+	DeathSound "knight/death"
+	Obituary "$OB_KNIGHT"
+	HitObituary "$OB_KNIGHTHIT"
+	States
+	{
+	Spawn:
+		BOS4 AB 10 A_Look
+		Loop
+	See:
+		BOS4 AABBCCDD 3 A_Chase
+		TNT1 A 0 A_JumpIfCloser(256,"Stomp")
+		Loop
+	Stomp:
+		BO14 G 10 A_FaceTarget
+		BO14 H 10 A_FaceTarget
+		BO14 I 10 A_FaceTarget
+		TNT1 A 0 A_Playsound("BeastStomp")
+		BO14 J 5 A_SpawnItemEx("BeastStomp")
+		BO14 K 6
+		Goto See
+	Missile:
+		Goto See
+	Melee:
+		BOS4 EF 8 A_FaceTarget
+		BOS4 GH 4 A_MeleeAttack
+		BOS4 IJ 8 A_FaceTarget
+		BOS4 KL 4 A_MeleeAttack
+		Goto See
+	Pain:
+		BOS4 V 2
+		BOS4 V 2 A_Pain
+		Goto See
+	Death:
+		BO14 A 8
+		BO14 B 8 A_Scream
+		BO14 C 8
+		BO14 D 8 A_NoBlocking
+		BO14 EF 8
+		BO14 F -1
+		Stop
+		XDeath:
+		BOS4 O 8
+		BOS4 P 8 A_Scream
+		BOS4 Q 8
+		BOS4 R 8 A_NoBlocking
+		BOS4 ST 8
+		BOS4 U -1
+		Stop
+	Raise:
+		BOS4 F 8
+		BOS4 FEDCBA 8
+		Goto See
+	}
+}
+
+ACTOR ----------HELLBUTCHER---------- {}
+ACTOR HellButcher : WereWolfOfHellAlt 19042
+{
+	//$Title HellButcher
+	Health 500
+	GibHealth 30
+	-BOSSDEATH
+	SeeSound "ButcherSee"
+	PainSound "ButcherPain"
+	DeathSound "ButcherDeath"
+	ActiveSound "ButcherAct"
+	HitObituary "$OB_KNIGHTHIT"
+	Obituary "$OB_KNIGHT"
+	States
+	{
+	Spawn:
+		FAUN AB 10 A_Look
+		Loop
+	See:
+		FAUN AABBCCDDEEFF 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(360,"Missile2")
+		TNT1 A 0 A_FaceTarget
+		FAUN H 8 A_FaceTarget
+		TNT1 A 0 A_PlaySound("ButcherVomit")
+		FAUN I 4
+		FAUN J 6 A_CustomMissile("ButcherVomit", 64)
+		FAUN K 14 A_FaceTarget
+		Goto See
+	Missile2:
+		FAUA AB 8 A_FaceTarget
+		FAUA C 8 A_BruisAttack
+		Goto See
+	Pain:
+		FAUN G 2
+		FAUN G 2 A_Pain
+		Goto See
+	Death:
+		FAUD AB 8
+		FAUD CD 8 A_Scream
+		FAUD EF 8
+		FAUD GH 8 A_NoBlocking
+		FAUD IJK 8
+		FAUD L -1
+		Stop
+	XDeath:
+		FAUN L 3
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("HeadBlood")
+		TNT1 A 0 A_SpawnItemEx("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnItemEx("Entrails",random(-50,50),random(-50,50),0)
+		FAUN M 3 A_XScream
+		FAUN N 4 A_SpawnDebris("FlyingBlood")
+		FAUN O 2 A_SpawnDebris("FlyingBlood")
+		FAUN P 2 A_NoBlocking
+		FAUN QR 1
+		FAUN S -1
+	Raise:
+		FAUD L 8
+		FAUD LKIHGFEDBA 8
+		Goto See
+	}
+}
+
+ACTOR HellButcherAlt : WereWolfOfHellAlt 19047
+{
+	//$Title HellButcher Alternative
+	Health 500
+	GibHealth 30
+	-BOSSDEATH
+	SeeSound "ButcherSee"
+	PainSound "ButcherPain"
+	DeathSound "ButcherDeath"
+	ActiveSound "ButcherAct"
+	HitObituary "$OB_KNIGHTHIT"
+	Obituary "$OB_KNIGHT"
+	States
+	{
+	Spawn:
+		F2UN A 10 A_Look
+		Loop
+	See:
+		F2UN AABBCCDDEEFF 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(360,"Missile2")
+		TNT1 A 0 A_FaceTarget
+		F2UN H 8 A_FaceTarget
+		TNT1 A 0 A_PlaySound("ButcherVomit")
+		F2UN I 4
+		F2UN J 6 A_CustomMissile("ButcherVomit", 64)
+		F2UN K 14 A_FaceTarget
+		Goto See
+	Missile2:
+		F2AN AB 8 A_FaceTarget
+		F2AN C 8 A_CustomComboAttack("HellButcherBall", 32, 10 * random(1, 8), "baron/melee")
+		Goto See
+	Pain:
+		F2UN G 2
+		F2UN G 2 A_Pain
+		Goto See
+	Death:
+		F2UD AB 8
+		F2UD CD 8 A_Scream
+		F2UD EF 8
+		F2UD GH 8 A_NoBlocking
+		F2UD IJK 8
+		F2UD L -1
+		Stop
+	XDeath:
+		F2AE A 3
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("HeadBlood")
+		TNT1 A 0 A_SpawnItemEx("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnItemEx("Entrails",random(-50,50),random(-50,50),0)
+		F2AE B 3 A_XScream
+		F2AE C 4 A_SpawnDebris("FlyingBlood")
+		F2AE D 2 A_SpawnDebris("FlyingBlood")
+		F2AE E 2 A_NoBlocking
+		F2AE FG 1
+		F2AE H -1
+	Raise:
+		F2UD L 8
+		F2UD LKIHGFEDBA 8
+		Goto See
+	}
+}
+
+ACTOR HellButcherBall
+{
+	Radius 6
+	Height 16
+	Speed 15
+	FastSpeed 20
+	Damage 8
+	Projectile
+	+RANDOMIZE
+	RenderStyle Add
+	Alpha 1
+	SeeSound "baron/attack"
+	DeathSound "baron/shotx"
+	Decal "BaronScorch"
+	States
+	{
+	Spawn:
+		SPAX AB 4 BRIGHT
+		Loop
+	Death:
+		SPAX CDE 6 BRIGHT
+		Stop
+	}
+}

@@ -1,0 +1,386 @@
+ACTOR ----------DEMONSHOUNDS---------- {}
+ACTOR Demonhound : BloomHybrid_Base 19012
+{
+	//$Title Demonhound
+	Health 150
+	PainChance 180
+	Speed 12
+	Radius 30
+	Mass 400
+	GibHealth 30
+	DamageType "Fire"
+	MaxTargetRange 192
+	MeleeRange 44
+	+ALWAYSFAST
+	+DROPOFF
+	SeeSound "demon/sight"
+	AttackSound "demon/Melee"
+	PainSound "demon/pain"
+	DeathSound "demon/death"
+	ActiveSound "demon/active"
+	Obituary "$OB_DEMHOU"
+	States
+	{
+	Spawn:
+		DHRG AB 10 A_Look
+		Loop
+	See:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_CheckFloor("Jump")
+		DHRG AABBCCDD 2 A_Chase
+		TNT1 A 0 A_Jump(4,1)
+		Loop
+		DHRG A 0 A_JumpIfCloser(random(200,400),"Bounce")
+		Goto See+2
+	Bounce:
+		DHRG A 0 A_FaceTarget
+		DHR2 A 8 A_Recoil(-4)
+		DHR2 B 8 ThrustThingZ(0,frandom(30,40),0,0)
+		DHR2 C 8 ThrustThing(angle*256/360,random(10,16),0,0)
+		Goto See
+	Jump:
+		TNT1 A 0 A_FaceTarget
+		DHR2 A 8 A_Recoil(-4)
+		DHR2 B 8 ThrustThingZ(0,frandom(30,40),0,0)
+		DHR2 C 8 ThrustThing(angle*256/360,random(10,16),0,0)
+		Goto See
+	Melee:
+		DHRG EF 8 Fast A_FaceTarget
+		DHRG GO 8 Fast A_SargAttack
+		Goto See
+	Missile:
+		DHRG P 1 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		DHRG P 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_JumpIfCloser(200,1)
+		Goto See
+		TNT1 AAAAAAAA 0 A_MonsterRefire(130, "See")
+		Goto Missile
+		Goto See
+	Pain:
+		DHRG H 2 Fast
+		DHRG H 2 Fast A_Pain
+		Goto See
+		Death:
+		DHRG I 8
+		DHRG J 8 A_Scream
+		DHRG K 4
+		DHRG L 4 A_NoBlocking
+		DHRG M 4
+		DHRG N -1
+		Stop
+	XDeath:
+		DHRG Q 4 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("HeadBlood")
+		TNT1 A 0 A_SpawnItemEx("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnItemEx("Entrails",random(-50,50),random(-50,50),0)
+		DHRG R 4 A_XScream
+		DHRG S 4 A_SpawnDebris("FlyingBlood")
+		DHRG T 4 A_SpawnDebris("FlyingBlood")
+		DHRG U 4 A_NoBlocking
+		DHRG V 4 A_SpawnDebris("FlyingBlood")
+		DHRG W 4 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		DHRG X 4 A_SpawnDebris("FlyingBlood")
+		DHRG Y -1
+		Stop
+	Raise:
+		DHRG N 5
+		DHRG MLKJI 5
+		Goto See
+	}
+}
+
+ACTOR DemonHoundAlt : HellKnight 19026
+{
+	//$Category Bloom Hybrid Monsters
+	//$Title DemonHound Alternative
+	//$Color 3
+	Radius 20
+	Height 32
+	Health 150
+	Mass 100
+	Speed 8
+	FastSpeed 8
+	MeleeDamage 4
+	Species "HellDog"
+	MaxTargetRange 256
+	MeleeRange 50
+	MeleeThreshold 128
+	MaxstepHeight 46
+	ProjectilePassHeight 40
+	DamageType "GOUPBOY"
+	+DROPOFF
+	PainSound "HellHoundPain"
+	DeathSound "HellHoundDie"
+	SeeSound "HellHoundSee"
+	ActiveSound "HellHoundSee"
+	MeleeSound "dsdolstb"
+	HitObituary "$HB_PUPPY"
+	Obituary "$OB_DEMHOU2"
+	States
+	{
+ 	Spawn:
+		HOU2 A 10 A_Look
+		Loop
+	See:
+		HOU2 A 0 A_Jump(30,"Hunter")
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Sunk")
+		HOU2 AAAABBBB 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,6,0,0)
+		HOU2 CCCCDDDD 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,6,0,0)
+		HOU2 EEEEFFFF 1 A_Chase
+		HOU2 E 0 A_Jump(112,"Sproink")
+		Loop
+	Hunter:
+		HOU2 ABCDABCD 2 A_FaceTarget
+		HOU2 ABCDABCDABCD 1 A_Recoil(-1)
+		HOU2 ABCD 1 A_Recoil(-20)
+		Goto Missile
+	Sunk:
+		TNT1 A 0 Thing_Damage(0,Health,0)
+		Loop
+	Sproink:
+		HOU2 C 2 ThrustThingZ(0,frandom(35,50),0,1)
+		HOU2 DDDD 1 A_Recoil(-6)
+		HOU2 EEEEFFFF 1
+	Fallin:
+		HOU2 FFFFFFFFFFFFFFFFF 3 A_CheckFloor("See")
+		Goto See
+	Wander:
+		HOU2 AAAAABBBBB 1 A_Wander
+		TNT1 A 0 ThrustThing(angle*256/360,2,0,0)
+		HOU2 CCCCCDDDDDD 1 A_Wander
+		TNT1 A 0 ThrustThing(angle*256/360,2,0,0)
+		HOU2 EEEEEFFFFF 1 A_Wander
+		Goto See
+	Melee:
+		HOU2 H 5 A_FaceTarget
+		HOU2 I 7 A_Recoil(-2)
+		TNT1 A 0 A_CustomMeleeAttack(frandom(4,20),"dsdolstb","HellHound/Bite")
+		TNT1 A 0 A_CustomMeleeAttack(frandom(2,12),"dsdolstb","HellHound/Bite")
+		HOU2 A 0 A_Jump(125,"Sproink")
+		HOU2 AAAAAAAA 1 A_Chase
+		Goto Spawn
+	MeleeFurious:
+		HOU2 H 3 A_FaceTarget
+		HOU2 I 5 A_Recoil(-12)
+		TNT1 A 0 A_CustomMeleeAttack(frandom(10,25),"dsdolstb","HellHound/Bite")
+		TNT1 A 0 A_CustomMeleeAttack(frandom(10,20),"dsdolstb","HellHound/Bite")
+		HOU2 H 4 A_JumpIfInTargetInventory("BurnTics",1,"MeleeFurious")
+		Goto See
+	Missile:
+		HOU3 I 6 A_JumpIfInTargetInventory("BurnTics",1,"MeleeFurious")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOU3 I 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_JumpIfCloser(200,1)
+		Goto See
+		HOU2 AAAAAAAA 0 A_SentinelRefire
+		Goto Missile+1
+	Pain:
+		HOU2 J 3
+		HOU2 J 5 A_Pain
+		HOU2 J 0 A_SetAngle(frandom(-90,90))
+		Goto Sproink
+	Pain.Fire:
+		TNT1 A 0 Healthing(1)
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0 A_Jump(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("potionHealth", frandom(0,1))
+		Goto See
+	Pain.Shock:
+		HSOK A 0 A_ChangeFlag("NoPain",1)
+		HSOK A 0 A_ScaleVelocity(.25)
+		HSOK A 0 A_Jump(192,1,2,3,4,5,6,7,8)
+		HSOK AAAAAAAAAAAAAAAAAAAAAAAA 1 BRIGHT
+		HSOK A 4 A_Pain
+		HSOK A 0 A_ChangeFlag("NoPain",0)
+		HSOK A 0 A_JumpIfHealthLower(64,2)
+		HSOK A 0 A_Jump(192,"See")
+		HSOK AAAAAAAAAAAAAAAAAAAAAAAA 1 BRIGHT
+		Goto See
+	Death:
+		HOU3 A 6
+		HOU3 B 5 A_Scream
+		HOU3 C 4
+		HOU3 D 4 A_NoBlocking
+		HOU3 EFGHGGGHGHGHHHG 4
+		HOU3 H -1
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		Stop
+	}
+}
+
+ACTOR SpectreHound : DemonHound 19049
+{
+	//$Title SpectreHound
+	+SHADOW
+	RenderStyle OptFuzzy
+	Alpha 0.5
+	SeeSound "spectre/sight"
+	AttackSound "spectre/melee"
+	PainSound "spectre/pain"
+	DeathSound "spectre/death"
+	ActiveSound "spectre/active"
+	HitObituary "$OB_SPEHOU"
+	States
+	{
+	Missile:
+		Goto See
+	}
+}
+
+ACTOR SpectreHoundAlt : DemonHoundAlt 19050
+{
+	//$Category Bloom Hybrid Monsters
+	//$Title SpectreHound Alternative
+	//$Color 3
+	+SHADOW
+	RenderStyle OptFuzzy
+	Alpha 0.5
+	SeeSound "spectre/sight"
+	AttackSound "spectre/melee"
+	PainSound "spectre/pain"
+	DeathSound "spectre/death"
+	ActiveSound "spectre/active"
+	HitObituary "$OB_SPEHOU"
+	States
+	{
+	Missile:
+		Goto See
+	}
+}
+
+ACTOR GargoDemon : BloomHybrid_Base 19051
+{
+	//$Title GargoDemon
+	Health 150
+	PainChance 180
+	Speed 10
+	Radius 30
+	Mass 400
+	MeleeThreshold 500
+	+FLOORCLIP
+	SeeSound "demon/sight"
+	AttackSound "demon/melee"
+	PainSound "demon/pain"
+	DeathSound "demon/death"
+	ActiveSound "demon/active"
+	Obituary "$OB_GARGD"
+	States
+	{
+	Spawn:
+		GARD A 1 A_Look
+		Loop
+	See:
+		GARD AABBCCDD 2 Fast A_Chase
+		Loop
+	Melee:
+		GARD EF 8 Fast A_FaceTarget
+		GARD GH 8 Fast A_SargAttack
+		Goto See
+	Missile:
+		GARD I 8 Fast A_FaceTarget
+		GARD J 8 Fast A_CustomMissile("ButcherVomit", 32)
+		GARD K 8
+		Goto See
+	Pain:
+		GARD L 2 Fast
+		GARD L 2 Fast A_Pain
+		Goto See
+	Death:
+		GARD L 8
+		GARD M 8 A_Scream
+		GARD N 4
+		GARD O 4 A_NoBlocking
+		GARD P 4
+		GARD Q -1
+		Stop
+	XDeath:
+		GARD R 8
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("HeadBlood")
+		TNT1 A 0 A_SpawnItemEx("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnItemEx("Entrails",random(-50,50),random(-50,50),0)
+		GARD S 8 A_XScream
+		GARD T 4 A_SpawnDebris("FlyingBlood")
+		GARD U 4 A_NoBlocking
+		GARD V 4 A_SpawnDebris("FlyingBlood")
+		GARD W 4 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		GARD X -1
+		Stop
+	Raise:
+		GARD Q 5
+		GARD PONML 5
+		Goto See
+	Ice:
+		GARF R 5 A_FreezeDeath
+		GARF R 1 A_FreezeDeathChunks
+		Wait
+	}
+}

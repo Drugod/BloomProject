@@ -1,4 +1,19 @@
 ///Here actors which are used by several things - ozy81
+
+ACTOR ------------------INHERITS----------------------{}
+ACTOR BloomHybrid_Base
+{
+	//$Category Bloom Hybrid Monsters
+	//$Color 3
+	Health 30
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 8
+	PainChance 170
+	Monster
+}
+
 ACTOR --------------------DEBRIS----------------------{}
 ACTOR Base_Debris
 {

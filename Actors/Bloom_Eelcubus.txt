@@ -1,0 +1,179 @@
+ACTOR ----------EELCUBUS---------- {}
+ACTOR Eelcubus : BloomHybrid_Base 19007
+{
+	//$Title Eelcubus
+	Health 600
+	Radius 48
+	Height 64
+	Mass 1000
+	PainChance 80
+	+BOSSDEATH
+	+FLOORCLIP
+	Species "Eelcubus"
+	BloodColor DarkRed
+	SeeSound "fatso/sight"
+	PainSound "fatso/pain"
+	DeathSound "fatso/death"
+	ActiveSound "fatso/active"
+	Obituary "$OB_EELCUB"
+	States
+	{
+	Spawn:
+		FSTT AB 15 A_Look
+		Loop
+	See:
+		FSTT AABBCCDDEEFF 4 A_Chase
+		Loop
+	Missile:
+		FSTT G 20 A_FatRaise
+		FSTT H 10 BRIGHT A_FatAttack1("FatFish")
+		FSTT IG 5 A_FaceTarget
+		FSTT H 10 BRIGHT A_FatAttack2("FatFish")
+		FSTT IG 5 A_FaceTarget
+		FSTT H 10 BRIGHT A_FatAttack3("FatFish")
+		FSTT IG 5 A_FaceTarget
+		Goto See
+	Pain:
+		FSTT J 3
+		FSTT J 3 A_Pain
+		Goto See
+	Death:
+		FSTT K 6
+		FSTT L 6 A_Scream
+		FSTT M 6 A_NoBlocking
+		FSTT NOPQRS 6
+		FSTT T -1 A_BossDeath
+		Stop
+	Raise:
+		FSTT R 5
+		FSTT QPONMLK 5
+		Goto See
+	}
+}
+
+ACTOR EelcubusAlt : BloomHybrid_Base 19008
+{
+	//$Title Eelcubus Alternative
+	Health 600
+	Radius 48
+	Height 64
+	Mass 1000
+	PainChance 80
+	+BOSSDEATH
+	+FLOORCLIP
+	Species "Eelcubus"
+	BloodColor DarkRed
+	SeeSound "fatso/sight"
+	PainSound "fatso/pain"
+	DeathSound "fatso/death"
+	ActiveSound "fatso/active"
+	Obituary "$OB_EELCUB"
+	States
+	{
+	Spawn:
+		FS2T AB 15 A_Look
+		Loop
+	See:
+		FS2T AABBCCDDEEFF 4 A_Chase
+		Loop
+	Missile:
+		FS2T G 20 A_FatRaise
+		FS2T H 10 BRIGHT A_FatAttack1("FatFish")
+		FS2T IG 5 A_FaceTarget
+		FS2T H 10 BRIGHT A_FatAttack2("FatFish")
+		FS2T IG 5 A_FaceTarget
+		FS2T H 10 BRIGHT A_FatAttack3("FatFish")
+		FS2T IG 5 A_FaceTarget
+		Goto See
+	Pain:
+		FS2T J 3
+		FS2T J 3 A_Pain
+		Goto See
+	Death:
+		FS2T K 6
+		FS2T L 6 A_Scream
+		FS2T M 6 A_NoBlocking
+		FS2T NOPQRS 6
+		FS2T T -1 A_BossDeath
+		Stop
+	Raise:
+		FS2T R 5
+		FS2T QPONMLK 5
+		Goto See
+	}
+}
+
+ACTOR Gillcubus : BloomHybrid_Base 19027
+{
+	//$Title Gillcubus
+	Health 600
+	Radius 48
+	Height 64
+	Mass 1000
+	PainChance 80
+	+BOSSDEATH
+	+FLOORCLIP
+	Species "Eelcubus"
+	BloodColor DarkRed
+	SeeSound "fatso/sight"
+	PainSound "fatso/pain"
+	DeathSound "fatso/death"
+	ActiveSound "fatso/active"
+	Obituary "$OB_GILLCUB"
+	States
+	{
+	Spawn:
+		FS3T A 15 A_Look
+		Loop
+	See:
+		FS3T AABBCCDD 4 A_Chase
+		Loop
+	Missile:
+		FS3T E 20 A_FatRaise
+		FS3T F 10 BRIGHT A_FatAttack1("FatFish")
+		FS3T G 5 A_FaceTarget
+		FS3T E 10 BRIGHT A_FatAttack2("FatFish")
+		FS3T FG 5 A_FaceTarget
+		FS3T E 10 BRIGHT A_FatAttack3("FatFish")
+		FS3T FG 5 A_FaceTarget
+		Goto See
+	Pain:
+		FS3T H 3
+		FS3T H 3 A_Pain
+		Goto See
+	Death:
+		FS3T J 6
+		FS3T K 6 A_Scream
+		FS3T L 6 A_NoBlocking
+		FS3T MN 6
+		FS3T N -1 A_BossDeath
+		Stop
+	Raise:
+		FS3T R 5
+		FS3T QPONMLK 5
+		Goto See
+	}
+}
+
+ACTOR FatFish
+{
+	Radius 6
+	Height 8
+	Speed 20
+	Damage 8
+	Projectile
+	+RANDOMIZE
+	SeeSound "fatso/attack"
+	DeathSound "fatso/shotx"
+	States
+	{
+	Spawn:
+		MELF AB 4 BRIGHT
+		Loop
+	Death:
+		MEL2 C 8 BRIGHT
+		MEL2 D 6 BRIGHT
+		MEL2 E 4 BRIGHT
+		Stop
+	}
+}
