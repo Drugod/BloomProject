@@ -57,6 +57,19 @@ ACTOR Base_Debris2
 	-NOGRAVITY
 }
 
+ACTOR BarrelFrags //from Blade of Agony - courtesy by Ozy81
+{
+	Scale 0.75
+	States
+	{
+	Spawn:
+		FRAG ABCDEFGHIJKLM 3
+	Death:
+		FRAG N -1
+		Stop
+	}
+}
+
 ACTOR WoodDebris : Base_Debris
 { 
 	Decal Scorch

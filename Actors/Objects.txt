@@ -78,6 +78,53 @@ ACTOR TortureSpike2 : HazardBase 3269
 	}
 }
 
+ACTOR TNTBarrel1 : ExplosiveBarrel 18425
+{
+	//$Category "BlooM Hazard"
+	//$Title TNT Barrel, Explosive
+	//$Color 19
+	Height 34
+	+CANPASS
+	States
+	{
+	Spawn:
+		BTNT A -1
+		Stop
+	Death:
+		DEXP A 2 BRIGHT A_SpawnItemEx("BarrelFrags")
+		"####" B 2 BRIGHT A_Scream
+		"####" CDEFG 2 BRIGHT
+		"####" H 2 BRIGHT A_Explode(100, 50)
+		"####" IJKLM 2 BRIGHT
+		"####" M 1050 BRIGHT A_BarrelDestroy
+		"####" M 5 A_Respawn
+		Wait
+	}
+}
+
+ACTOR TNTBarrel2 : TNTBarrel1 18426
+{
+	//$Title TNT Barrel, Filled with Gibs
+	States
+	{
+	Spawn:
+		BTNT B -1
+		Stop
+	Death:
+		TNT1 A 2 A_SpawnItemEx("BarrelFrags")
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Jump(32,2)
+		TNT1 A 0 A_SpawnDebris("Hand1")
+		TNT1 A 0 A_Jump(32,2)
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_Jump(32,2)
+		TNT1 AA 0 A_SpawnDebris("EyeGuts")
+		Stop
+	}
+}
+
 ACTOR TeslaLab1 : SwitchableDecoration 18612
 {
 	//$Category "BlooM Hazard"
