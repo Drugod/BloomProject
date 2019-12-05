@@ -1,3 +1,8 @@
+//Textures
+Brightmap texture BLANIM01 {map "Brightmaps/Textures/BLANIM01.png"}
+Brightmap texture BLANIM02 {map "Brightmaps/Textures/BLANIM02.png"}
+Brightmap texture BLANIM03 {map "Brightmaps/Textures/BLANIM03.png"}
+
 //Props
 Brightmap sprite ZESLB0 {map "Brightmaps/ZESLB0.png"}
 Brightmap sprite ZESLC0 {map "Brightmaps/ZESLC0.png"}
@@ -1112,6 +1117,70 @@ Brightmap sprite R2TWH2H8	{map "Brightmaps/RATAH2H8.png"}
 Brightmap sprite R2TWH3H7	{map "Brightmaps/RATAH3H7.png"}
 Brightmap sprite R2TWI0		{map "Brightmaps/RATAI0.png"}
 Brightmap sprite R2TWJ0		{map "Brightmaps/RATAJ0.png"}
+
+//Rats - Black
+Brightmap sprite RABWA1		{map "Brightmaps/RABWA1.png"}
+Brightmap sprite RABWA8A2	{map "Brightmaps/RABWA8A2.png"}
+Brightmap sprite RABWA7A3	{map "Brightmaps/RABWA7A3.png"}
+Brightmap sprite RABWB1		{map "Brightmaps/RABWB1.png"}
+Brightmap sprite RABWB8B2	{map "Brightmaps/RABWB8B2.png"}
+Brightmap sprite RABWB7B3	{map "Brightmaps/RABWB7B3.png"}
+Brightmap sprite RABWC1		{map "Brightmaps/RABWC1.png"}
+Brightmap sprite RABWC8C2	{map "Brightmaps/RABWC8C2.png"}
+Brightmap sprite RABWC7C3	{map "Brightmaps/RABWC7C3.png"}
+Brightmap sprite RABWD1		{map "Brightmaps/RABWD1.png"}
+Brightmap sprite RABWD8D2	{map "Brightmaps/RABWD8D2.png"}
+Brightmap sprite RABWD7D3	{map "Brightmaps/RABWD7D3.png"}
+Brightmap sprite RABBA0		{map "Brightmaps/RABBA0.png"}
+Brightmap sprite RABBB0C0	{map "Brightmaps/RABBB0C0.png"}
+
+//Rats - Grey
+Brightmap sprite RAGWA1		{map "Brightmaps/RABWA1.png"}
+Brightmap sprite RAGWA8A2	{map "Brightmaps/RABWA8A2.png"}
+Brightmap sprite RAGWA7A3	{map "Brightmaps/RABWA7A3.png"}
+Brightmap sprite RAGWB1		{map "Brightmaps/RABWB1.png"}
+Brightmap sprite RAGWB8B2	{map "Brightmaps/RABWB8B2.png"}
+Brightmap sprite RAGWB7B3	{map "Brightmaps/RABWB7B3.png"}
+Brightmap sprite RAGWC1		{map "Brightmaps/RABWC1.png"}
+Brightmap sprite RAGWC8C2	{map "Brightmaps/RABWC8C2.png"}
+Brightmap sprite RAGWC7C3	{map "Brightmaps/RABWC7C3.png"}
+Brightmap sprite RAGWD1		{map "Brightmaps/RABWD1.png"}
+Brightmap sprite RAGWD8D2	{map "Brightmaps/RABWD8D2.png"}
+Brightmap sprite RAGWD7D3	{map "Brightmaps/RABWD7D3.png"}
+Brightmap sprite RAGBA0		{map "Brightmaps/RABBA0.png"}
+Brightmap sprite RAGBB0C0	{map "Brightmaps/RABBB0C0.png"}
+
+//Rats - Brown
+Brightmap sprite RATWA1		{map "Brightmaps/RABWA1.png"}
+Brightmap sprite RATWA8A2	{map "Brightmaps/RABWA8A2.png"}
+Brightmap sprite RATWA7A3	{map "Brightmaps/RABWA7A3.png"}
+Brightmap sprite RATWB1		{map "Brightmaps/RABWB1.png"}
+Brightmap sprite RATWB8B2	{map "Brightmaps/RABWB8B2.png"}
+Brightmap sprite RATWB7B3	{map "Brightmaps/RABWB7B3.png"}
+Brightmap sprite RATWC1		{map "Brightmaps/RABWC1.png"}
+Brightmap sprite RATWC8C2	{map "Brightmaps/RABWC8C2.png"}
+Brightmap sprite RATWC7C3	{map "Brightmaps/RABWC7C3.png"}
+Brightmap sprite RATWD1		{map "Brightmaps/RABWD1.png"}
+Brightmap sprite RATWD8D2	{map "Brightmaps/RABWD8D2.png"}
+Brightmap sprite RATWD7D3	{map "Brightmaps/RABWD7D3.png"}
+Brightmap sprite RATBA0		{map "Brightmaps/RABBA0.png"}
+Brightmap sprite RATBB0C0	{map "Brightmaps/RABBB0C0.png"}
+
+//Rats - White
+Brightmap sprite RAWWA1		{map "Brightmaps/RABWA1.png"}
+Brightmap sprite RAWWA8A2	{map "Brightmaps/RABWA8A2.png"}
+Brightmap sprite RAWWA7A3	{map "Brightmaps/RABWA7A3.png"}
+Brightmap sprite RAWWB1		{map "Brightmaps/RABWB1.png"}
+Brightmap sprite RAWWB8B2	{map "Brightmaps/RABWB8B2.png"}
+Brightmap sprite RAWWB7B3	{map "Brightmaps/RABWB7B3.png"}
+Brightmap sprite RAWWC1		{map "Brightmaps/RABWC1.png"}
+Brightmap sprite RAWWC8C2	{map "Brightmaps/RABWC8C2.png"}
+Brightmap sprite RAWWC7C3	{map "Brightmaps/RABWC7C3.png"}
+Brightmap sprite RAWWD1		{map "Brightmaps/RABWD1.png"}
+Brightmap sprite RAWWD8D2	{map "Brightmaps/RABWD8D2.png"}
+Brightmap sprite RAWWD7D3	{map "Brightmaps/RABWD7D3.png"}
+Brightmap sprite RAWBA0		{map "Brightmaps/RABBA0.png"}
+Brightmap sprite RAWBB0C0	{map "Brightmaps/RABBB0C0.png"}
 
 //Attacks
 Brightmap sprite BARFA1		{map "Brightmaps/BARFA1.png"}
