@@ -39,7 +39,7 @@ ACTOR HangChickSpawner : RandomSpawner 3283
 	DropItem "HanginDeadChick3"
 }
 
-ACTOR BloodJar : HeartColumn 3242 //replaces HeartColumn
+ACTOR BloodJar 3242
 {
 	//$Category "BlooM Corpses"
 	//$Title Blood Jar, Shootable
@@ -134,7 +134,7 @@ ACTOR DeadBrownCultist : DeadBloodZombie
 	}
 }
 
-ACTOR TheShinning 3235
+ACTOR TheShining 3235
 {
 	//$Category "BlooM Eastereggs"
 	//$Title Jack from Shining, Shootable
@@ -818,6 +818,774 @@ ACTOR HatchedSkull : PileSkulls 3233
 	{
 	Spawn:
 		QSKL A -1
+		Stop
+	}
+}
+
+ACTOR --------------------BURNDEATHS----------------------{}
+ACTOR YouAreOnFireSir
+{
+	Speed 0
+	+NOBLOCKMAP
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+	Death:
+		TNT1 AA 0
+		TNT1 AAA 0 A_SpawnItemEx("BFireTrail",random(-10,10),random(-10,10),random(0,10))
+		TNT1 AA 2 A_SpawnItemEx("BFireTrail2",random(-10,10),random(-10,10),random(0,10))
+		TNT1 AAA 1 A_SpawnItemEx("BFireTrail",random(-10,10),random(-10,10),random(10,30))
+		TNT1 BB 1 A_SpawnItemEx("BFireTrail2",random(-10,10),random(-10,10),random(10,30))
+		TNT1 AAA 0 A_SpawnItemEx("BFireTrail",random(-10,10),random(-10,10),random(30,50))
+		TNT1 AA 1 A_SpawnItemEx("BFireTrail2",random(-10,10),random(-10,10),random(30,50))
+		TNT1 A 6
+		Stop
+	}
+}
+
+ACTOR BurnDeath1
+{
+	Radius 16
+	Height 56
+	Speed 4
+	Scale 0.5
+	+DONTSPLASH
+	+FIREDAMAGE
+	+FLOORCLIP
+	+LOOKALLAROUND
+	+RANDOMIZE
+	DamageType "SpecialFire"
+	Obituary "$OB_NEARF"
+	ActiveSound "Caleb/Burns"
+	States
+	{
+	Spawn:
+		FGUY A 0 A_KillMaster
+		FGUY A 3 A_Look
+		Goto See
+	See:
+		FGUY A 0 A_PlaySound("Caleb/Burns")
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode(4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode(4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode(4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode(4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode(4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode(4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode(4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode(4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode(4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0
+		FGUY A 0 A_Jump(160,"See")
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode(4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode(4,24,0)
+		Goto Death
+	Death:
+		FGUY G 0 A_StopSound
+		FGUY G 3 A_PlaySound("Caleb/Death")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("NapalmDebris")
+		FGUY G 0 A_Fall
+		FGUY GGHHII 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY A 0
+		FGUY A 0 A_SpawnItem("BurnDeathSmoke")
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY A 0
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY A 0
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY O 0
+		FGUY PPQQRRSS 3
+		FGUT T -1
+		Stop
+	}
+}
+
+ACTOR BurnDeathBBT
+{
+	XScale 0.6
+	YScale 0.51
+	Speed 3
+	DeathSound "ButcherBurn"
+	Radius 16
+	Height 56
+	+DONTSPLASH
+	+FIREDAMAGE
+	+FLOORCLIP
+	+LOOKALLAROUND
+	+RANDOMIZE
+	DamageType "SpecialFire"
+	Obituary "$OB_NEARF"
+	ActiveSound "DSBDYBRN"
+	States
+	{
+	Spawn:
+		FGUY A 0 A_KillMaster
+		FGUY A 3 A_Look
+		Goto See
+	See:
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_SpawnItem("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		Goto Death
+	Death:
+		TNT1 A 0 A_Scream
+		FGUY G 3 A_PlaySound("DSBDYBRN")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris ("NapalmDebris")
+		FGUY G 0 A_Fall
+		FGUY GGHHII 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY A 0 A_SpawnItem("BurnDeathSmoke")
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY PPQQRRSS 3
+		TNT1 A 0 A_StopSound
+		FGUT T -1
+		Stop
+	}
+}
+
+ACTOR BurnDeathZombie
+{
+	Scale 0.5
+	Speed 3
+	DeathSound "ZombieDeathB"
+	Radius 16
+	Height 56
+	+DROPOFF
+	+DONTSPLASH
+	+FIREDAMAGE
+	+FLOORCLIP
+	+LOOKALLAROUND
+	+RANDOMIZE
+	DamageType "SpecialFire"
+	Obituary "$OB_ZOMBFIRE"
+	ActiveSound "DSBDYBRN"
+	States
+	{
+	Spawn:
+		FGUY A 0 A_KillMaster
+		FGUY A 3 A_Look
+		FGUY A 0 A_PlaySound("demon/pain",2)
+		Goto See
+	See:
+		FGUY A 0 //A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 //A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 //A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 //A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 //A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_Jump(128,"See")
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		Goto Death
+	Death:
+		TNT1 A 0 A_Scream
+		FGUY G 3 A_PlaySound("DSBDYBRN")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris ("NapalmDebris")
+		FGUY G 0 A_Fall
+		FGUY GGHHII 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY A 0 A_SpawnItem ("BurnDeathSmoke")
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY PPQQRRSS 3
+		TNT1 A 0 A_StopSound
+		FGUT T -1
+		Stop
+	Kick_me:
+		TNT1 A 1 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris ("NapalmDebris")
+		FGUY G 0 A_Fall
+		FGUY GGHHII 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY A 0 A_SpawnItem ("BurnDeathSmoke")
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY PPQQRRSS 3
+		TNT1 A 0 A_StopSound
+		FGUT T -1
+		Stop
+	}
+}
+
+ACTOR BurnDeathMoron : BurnDeathZombie
+{
+	DeathSound "Moron/Crying"
+	Speed 3
+	DamageType "SpecialFire"
+	States
+	{
+	Death:
+		TNT1 A 0 A_Scream
+		FGUY G 3 A_PlaySound("DSBDYBRN")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris ("NapalmDebris")
+		FGUY G 0 A_Fall
+		FGUY GGHHII 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY A 0 A_SpawnItem ("BurnDeathSmoke")
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY PPQQRRSS 3
+		TNT1 A 0 A_StopSound
+		FGUT T -1
+		Stop
+	}
+}
+
+ACTOR BurnDeath2
+{
+	Radius 20
+	Height 56
+	Speed 4
+	Scale 0.5
+	RadiusDamageFactor 0
+	+DONTSPLASH
+	+FIREDAMAGE
+	+FLOORCLIP
+	+LOOKALLAROUND
+	+RANDOMIZE
+	DamageType "SpecialFire"
+	Obituary "$OB_HUGGFIRE"
+	ActiveSound "Cultist/Fire"
+	SeeSound "Cultist/Fire"
+	DeathSound "CultistDie"
+	States
+	{
+	Spawn:
+		FGUY A 0 A_KillMaster
+		FGUY A 3 A_Look
+		Goto See
+	See:
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_PlayWeaponSound("CultistFire")
+		FGUY A 0 A_SpawnItem ("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY A 0 A_Jump(128, 37)
+		FGUY A 0 A_Jump(128, 66)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUR A 0 A_Jump(110,"See")
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_SpawnItem ("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY AAA 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY BBB 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY CCC 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY DDD 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY EEE 1 A_Wander
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BFireTrail",8+random(-5,5),58+random(-5,5),0,0)
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY FFF 1 A_Wander
+		FGUY A 0 A_SpawnItem ("BurningAlive")
+		FGUY A 0 A_Explode (4,24,0)
+		FGUY A 0 A_Jump(128, 1)
+		Goto XDeath
+		FGUY F 0
+		Goto Death
+	Death:
+		FGUY U 0 A_StopSound
+		FGUY U 0 A_SpawnDebris ("NapalmDebris")
+		FGUY U 1 A_Scream
+		FGUY U 1
+		FGUY U 0 A_Fall
+		FGUY UUUUU 0 A_SpawnDebris("FlyingBlood")
+		FGUY UVW 6
+		FGUY XYZ 5
+		TNT1 A 0 A_StopSound
+		BCUL V -1
+		Stop
+	XDeath:
+		FGUY G 3 A_Scream
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris("FlyingBlood")
+		FGUY G 0 A_SpawnDebris ("NapalmDebris")
+		FGUY G 0 A_Fall
+		FGUY GGHHII 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY A 0 A_LoopActiveSound
+		FGUY A 0 A_SpawnItem ("BurnDeathSmoke")
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY A 0 A_LoopActiveSound
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY A 0 A_LoopActiveSound
+		FGUY JJKKLLMMNNOO 3 A_SpawnItem ("BFireTrail",8+random(-5,5),20+random(-5,5))
+		FGUY O 0 A_StopSound
+		FGUY PPQQRRSS 3
+		TNT1 A 0 A_StopSound
+		FGUT T -1
 		Stop
 	}
 }

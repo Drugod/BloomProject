@@ -1,12 +1,3 @@
-ACTOR ------BASES------ {}
-//base ACTOR shared among all classes which doesn't inherit anything - prevent multiple lines and assign a color on GZDBuilder
-ACTOR BloodEnemy_Base //ozy81
-{
-    //$Category "BlooM Monsters"
-	//$Color 5
-	Monster
-}
-
 ACTOR ------HANDOFDOOM------ {}
 ACTOR ChokingHand : BloodEnemy_Base 6190
 {
@@ -385,7 +376,7 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 		TNT1 A 0 A_PlaySound("GargoylePain")
 		TNT1 A 0 A_Stop
 		TNT1 A 0 A_ClearTarget
-		XARZ A 7 A_ChangeFlag("GHOST",0)
+		XARZ A 7
 		XARZ A 7
 		XARZ A 7
 		XARZ A 7
@@ -416,7 +407,7 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 		TNT1 A 0 A_Jump(128, 2)
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		BGAR J 5 A_XScream
-		TNT1 AAAA 0 A_SpawnDebris ("OrganDebris")
+		TNT1 AAAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 A 0 A_SpawnDebris("WingDebris")
 		TNT1 A 0 A_SpawnDebris("GargHed")
 		TNT1 AAA 0 A_SpawnDebris("Bloodliver")
@@ -431,43 +422,42 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 	Death.SpecialFire:
 	Death.Flare:
 		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
-		GARF A 8 BRIGHT A_Scream
-		GARF A 0 BRIGHT A_PlayWeaponSound("dsFRBALL")
-		GARF ABCDABCDABCDABCDABC 5 BRIGHT A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
-		GARF A 0 BRIGHT A_PlayWeaponSound("dsFRBALL")
-		GARF A 0 BRIGHT A_SpawnItem("BurnDeathSmoke")
-		GARF DABC 6 BRIGHT A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF A 8 A_Scream
+		GARF A 0 A_PlayWeaponSound("DSFRBALL")
+		GARF ABCDABCDABCDABCDABC 5 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF A 0 A_PlayWeaponSound("DSFRBALL")
+		GARF A 0 A_SpawnItem("BurnDeathSmoke")
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
 		GARF D 0 A_PlaySound("GarWing")
-		GARF DABC 6 BRIGHT A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
 		GARF D 0 A_PlaySound("GarWing")
-		GARF DABC 6 BRIGHT A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
 		GARF D 0 A_PlaySound("GarWing")
-		GARF DABC 6 BRIGHT A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
 		GARF D 0 A_PlaySound("GarWing")
-		GARF DABC 6 BRIGHT A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
 		GARF D 0 A_PlaySound("GarWing")
-		GARF DABC 6 BRIGHT A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
 		GARF D 0 A_PlaySound("GarWing")
-		GARF DABC 6 BRIGHT A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
 		GARF D 0 A_PlaySound("GarWing")
-		GARF DABC 6 BRIGHT A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
 		GARF D 0 A_PlaySound("GarWing")
-		GARF DABC 6 BRIGHT A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
 		GARF D 0 A_PlaySound("GarWing")
 		TNT1 A 0 A_PlaySound("GargoyleBurn")
-		GARF A 0 BRIGHT A_SpawnDebris ("NapalmDebris")
-		GARF A 4 BRIGHT
-		GARF B 4 BRIGHT
-		GARF C 4 BRIGHT A_Fall
-		GARF EFG 4 BRIGHT
-		GARF HIJIJHJIJIHIJHHIJHJHIHJHIJHIHJHIJIHIJ 4 BRIGHT
+		GARF A 0 A_SpawnDebris("NapalmDebris")
+		GARF A 4
+		GARF B 4
+		GARF C 4 A_Fall
+		GARF EFG 4
 		GARF HIJIJHJIJIHIJHHIJHJHIHJHIJHIHJHIJIHIJ 4
 		GARF K -1
 		Stop
 	}
 }
 
-ACTOR LivingGargStatue : HangTSkull 3270
+ACTOR LivingGargStatue 3270
 {
 	//$Category "BlooM Monsters"
 	//$Title Living Gargoyle Statue
@@ -480,15 +470,13 @@ ACTOR LivingGargStatue : HangTSkull 3270
 	+DROPPED
 	+FIXMAPTHINGPOS
 	+LOOKALLAROUND
+	+NOTAUTOAIMED
 	+SHOOTABLE
 	+SOLID
-	-NOBLOOD
-	-NOGRAVITY
-	-SPAWNCEILING
 	States
 	{
 	Spawn:
-		GRGS A 320 A_SetTics (frandom((Health / 20)+950,2100))
+		GRGS A 320 A_SetTics(frandom((Health / 20)+950,2100))
 		GRGS A 1 A_Look
 		Loop
 	See:
@@ -498,7 +486,7 @@ ACTOR LivingGargStatue : HangTSkull 3270
 	Unmorph:
 		XARG FGH 5 A_Facetarget
 		TNT1 A 0 A_UnSetSolid
-		XARG I 1 A_SpawnItemEx("BloodGargoyle",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION) // || SXF_TRANSFERPOINTERS)
+		XARG I 1 A_SpawnItemEx("BloodGargoyle",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		XARG I -1
 		Stop
 	}
@@ -517,7 +505,7 @@ ACTOR GargBurn
 	+RANDOMIZE
 	-DONTSPLASH
 	Obituary "$OB_GBURN"
-	ActiveSound "dsFRBALL"
+	ActiveSound "DSFRBALL"
 	ExplosionDamage 4
 	ExplosionRadius 40
 	States
@@ -3834,7 +3822,6 @@ ACTOR SpiderMother : BloodEnemy_Base 3135 //THIS ACTOR NEEDS TWEAKS - ozy81
 		SPDF A 0 A_Recoil(4)
 		SPDW AABBCCDD 2
 	Missile:
-		SPDW A 0 A_CposRefire
 		SPDW EE 4
 		SPDW E 0 A_Jump(255,"Missile.Spider1","Missile.Spider2","Missile.Spider3","Missile.Spider4","Missile.Spider5","Missile.Spider6","Missile.Spider7","Missile.Spider8","Missile.Spider9")
 	Missile.Spider1:
@@ -3896,7 +3883,7 @@ ACTOR SpiderMother : BloodEnemy_Base 3135 //THIS ACTOR NEEDS TWEAKS - ozy81
 		SPBD ABEGHFECABEGHFEC 5 BRIGHT
 		SPBD IJK 5 BRIGHT A_KillChildren
 		SPBD LMNLMNLMNLMNLMNLMNLMNLMNLMN 15 BRIGHT
-		SPBD O 0 A_NOBLOCKING
+		SPBD O 0 A_NoBlocking
 		SPBD O 0 A_Scream
 		SPBD O -1 A_BossDeath
 		Stop
@@ -4076,7 +4063,7 @@ ACTOR CerberusShot1
 	RenderStyle "Add"
 	Scale 0.5
 	SeeSound "dsnapalm"
-	ActiveSound "dsFRBALL"
+	ActiveSound "DSFRBALL"
 	DeathSound "DSEXPBRL"
 	PROJECTILE
 	+RANDOMIZE
@@ -5574,7 +5561,7 @@ ACTOR SpiderRed // Delirium Spider
 		SPBD ABEGHFECABEGHFEC 5 BRIGHT
 		SPBD IJK 5 BRIGHT
 		SPBD LMNLMNLMNLMNLMNLMNLMNLMNLMN 15 BRIGHT
-		SPBD O 0 A_NOBLOCKING
+		SPBD O 0 A_NoBlocking
 		SPBD O 0 A_Scream
 		SPBD O -1
 		Stop
@@ -5742,7 +5729,7 @@ ACTOR NewSpiderRed : BloodEnemy_Base 6161 // Delirium Spider
 		SPBD ABEGHFECABEGHFEC 5 BRIGHT
 		SPBD IJK 5 BRIGHT
 		SPBD LMNLMNLMNLMNLMNLMNLMNLMNLMN 15 BRIGHT
-		SPBD O 0 A_NOBLOCKING
+		SPBD O 0 A_NoBlocking
 		SPBD O 0 A_Scream
 		SPBD O -1
 	}
@@ -5820,7 +5807,7 @@ ACTOR GreenSpider : SpiderGreen
 	}
 }
 
-ACTOR SpiderBlue : SpiderRed 6192
+ACTOR SpiderBlue : SpiderGreen 6192
 {
     //$Category "BlooM Monsters"
 	//$Title Blue Spider (BlooM)
@@ -5828,7 +5815,6 @@ ACTOR SpiderBlue : SpiderRed 6192
 	Speed 13
 	FastSpeed 17
 	PoisonDamage 16
-	Damage 2
 	DamageFactor "Stomping", 0
 	Obituary "$OB_SPIDS5"
 	Translation "48:79=192:207","128:151=[48,64,160]:[16,16,64]","80:111=[32,32,128]:[0,0,32]","112:127=[96,96,192]:[16,16,64]"
@@ -5836,7 +5822,7 @@ ACTOR SpiderBlue : SpiderRed 6192
 	{
 	Melee:
 		YKUL G 3
-		YKUL I 7 A_CustomMeleeAttack(1,"dsdolstb","none")
+		YKUL I 7 A_CustomMeleeAttack(frandom[Spiders](1,2),"dsdolstb","none","PoisonCloud",TRUE)
 		YKUL I 5
 		Goto See+1
 	}

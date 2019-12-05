@@ -401,126 +401,122 @@ Script "AcsPowerupTimerDiving" (void){
 //Code needed for spiders - ozy81
 Script "PoisonCheck" (void) //Annoying spiders!! ADDITIVE
 {
-int k = CheckInventory("PoisonIntensity");
+	int health = GetActorProperty(0, APROP_HEALTH);
+	int k = CheckInventory("PoisonIntensity");
 	If(CheckInventory("PoisonIntensity")!=0)
 		{
-		GiveInventory("PoisonIntensity",60);
-//		Print(s:"The poison got worse");
-//			Print(d:CheckInventory("PoisonIntenity"));
-		Terminate;
+			GiveInventory("PoisonIntensity",60);
+			Terminate;
 		}
-//	Print(s:"You Feel Dizzy");
-		GiveInventory("PoisonIntensity",60);
-	//Print(d:CheckInventory("PoisonIntenity"));
-int Direction = 1; // How many seconds poison lasts, ADD 36 While poison is fading
-While ((CheckInventory("PoisonIntensity"))>0)
-{
-If((CheckInventory("PoisonIntensity"))<170)
-{
-	SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(6);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(6);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(6);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(6);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(6);
-}
-Else
-{
-	SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-		SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-	SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-	Delay(3);
-}
-	If(random(1,2)==1)
-	Direction = Direction*-1;
-	TakeInventory("PoisonIntensity",45);
-	If(CheckInventory("StrongPoison")<1)
-	SetActorState(0,"Dill",TRUE);
-}
-//	Print(s:"PoisoningOver");
-SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(2);
-SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(2);
-SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(2);
+	GiveInventory("PoisonIntensity",60);
+	int Direction = 1; // How many seconds poison lasts, ADD 36 While poison is fading
+	While ((CheckInventory("PoisonIntensity"))>0)
+	{
+		If((CheckInventory("PoisonIntensity"))<170)
+		{
+			SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+			SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+			Delay(6);
+			SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+			SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+			Delay(6);
+			SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+			SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+			Delay(6);
+			SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+			SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+			Delay(6);
+			SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+			SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+			Delay(6);
+		}
+		Else
+		{
+			If(health>0)
+			{
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
+				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
+				Delay(3);
+			}
+			TakeInventory("PoisonIntensity",999999); //fix death anim if we die when poisoned - ozy81
+			SetActorState(0,"Death",TRUE); //fix death anim if we die when poisoned - ozy81
+			Terminate; //fix death anim if we die when poisoned - ozy81
+		}
+		If(random(1,2)==1)
+		Direction = Direction*-1;
+		TakeInventory("PoisonIntensity",45);
+		If(CheckInventory("StrongPoison")<1)
+		SetActorState(0,"Dill",TRUE);
+	}
 	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
 	Delay(2);
 	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
@@ -532,12 +528,18 @@ SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
 	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
 	Delay(2);
 	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	Delay(2);
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
 	Delay(3);
 	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
 	Delay(3);
-SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
 	Delay(3);
-SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
+	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
 	Delay(3);
 	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
 	Delay(3);
@@ -551,6 +553,13 @@ SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
 	Delay(6);
 	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
 	Delay(8);
+}
+
+Script "StrongPoison" (Void)//Prevents red spiders poison color from overriding green spiders
+{
+	GiveInventory("StrongPoison",1);
+	Delay(190);
+	TakeInventory("StrongPoison",1);
 }
 
 Script "LimitSpiders" (void) //This script limits spammed spiders to 200
