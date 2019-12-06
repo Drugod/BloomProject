@@ -3760,47 +3760,55 @@ ACTOR SpiderMother : BloodEnemy_Base 3135 //THIS ACTOR NEEDS TWEAKS - ozy81
 		SPDF A 0 A_Recoil(-40)
 	Pain.Shock:
 	Jeroonemo:
-		//SPDF A 0 A_CposRefire
 		SPDF A 0 A_ActiveSound
 		SPDF A 0 A_SeTAngle(angle+frandom(-50,50))
 		SPDF A 0 A_Recoil(-19)
 		SPDF AAA 4 ThrustThingZ(0,22,0,0)
-		//SPDF A 0 A_SpawnItemEx("BabySpiderSpawner2",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
+		SPDF A 1 A_JumpIfInventory("IwasCounted",10,"Jeroneemo.End")
 		SPDF A 0 A_Jump(255,"Missile.Jeroneemo1","Missile.Jeroneemo2","Missile.Jeroneemo3","Missile.Jeroneemo4","Missile.Jeroneemo5","Missile.Jeroneemo6","Missile.Jeroneemo7","Missile.Jeroneemo8","Missile.Jeroneemo9")
 	Missile.Jeroneemo1:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("NewSpiderRed",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDF A 0 A_ActiveSound
 		Goto Jeroneemo.End
 	Missile.Jeroneemo2:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("SpiderClimber",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDF A 0 A_ActiveSound
 		Goto Jeroneemo.End
 	Missile.Jeroneemo3:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("GreenSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDF A 0 A_ActiveSound
 		Goto Jeroneemo.End
 	Missile.Jeroneemo4:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("BlueSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDF A 0 A_ActiveSound
 		Goto Jeroneemo.End
 	Missile.Jeroneemo5:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("YellowSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDF A 0 A_ActiveSound
 		Goto Jeroneemo.End
 	Missile.Jeroneemo6:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("PurpleSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDF A 0 A_ActiveSound
 		Goto Jeroneemo.End
 	Missile.Jeroneemo7:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("CyanSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDF A 0 A_ActiveSound
 		Goto Jeroneemo.End
 	Missile.Jeroneemo8:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("BlackSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDF A 0 A_ActiveSound
 		Goto Jeroneemo.End
 	Missile.Jeroneemo9:
-		TNT1 A 0 A_SpawnItemEx("WhiteSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
+		/*SHIA A 0 A_GiveInventory("IwasCounted",1)
+		TNT1 A 0 A_SpawnItemEx("WhiteSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)*/
 		SPDF A 0 A_ActiveSound
 		Goto Jeroneemo.End
 	Jeroneemo.End:
@@ -3823,46 +3831,56 @@ ACTOR SpiderMother : BloodEnemy_Base 3135 //THIS ACTOR NEEDS TWEAKS - ozy81
 		SPDW AABBCCDD 2
 	Missile:
 		SPDW EE 4
+		SPDW E 1 A_JumpIfInventory("IwasCounted",10,"See")
 		SPDW E 0 A_Jump(255,"Missile.Spider1","Missile.Spider2","Missile.Spider3","Missile.Spider4","Missile.Spider5","Missile.Spider6","Missile.Spider7","Missile.Spider8","Missile.Spider9")
 	Missile.Spider1:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("NewSpiderRed",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDW A 0 A_ActiveSound
 		Goto See
 	Missile.Spider2:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("SpiderClimber",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDW A 0 A_ActiveSound
 		Goto See
 	Missile.Spider3:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("GreenSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDW A 0 A_ActiveSound
 		Goto See
 	Missile.Spider4:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("BlueSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDW A 0 A_ActiveSound
 		Goto See
 	Missile.Spider5:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("YellowSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDW A 0 A_ActiveSound
 		Goto See
 	Missile.Spider6:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("PurpleSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDW A 0 A_ActiveSound
 		Goto See
 	Missile.Spider7:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("CyanSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDW A 0 A_ActiveSound
 		Goto See
 	Missile.Spider8:
+		SHIA A 0 A_GiveInventory("IwasCounted",1)
 		TNT1 A 0 A_SpawnItemEx("BlackSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
 		SPDW A 0 A_ActiveSound
 		Goto See
 	Missile.Spider9:
-		TNT1 A 0 A_SpawnItemEx("WhiteSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)
+		/*SHIA A 0 A_GiveInventory("IwasCounted",1)
+		TNT1 A 0 A_SpawnItemEx("WhiteSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_SETMASTER)*/
 		SPDW A 0 A_ActiveSound
 		Goto See
 	Pain:
 		SPDW A 2 A_Pain
-		SPDW A 0 A_DamageChildren(35)
+		//SPDW A 0 A_DamageChildren(35)
 		SPDW BCD 2 A_Chase
 		SPDW C 0 A_Jump(127,"See")
 		SPDW C 0 A_Jump(80,"IAMCRAB","IAMCRAB2")
@@ -3870,10 +3888,10 @@ ACTOR SpiderMother : BloodEnemy_Base 3135 //THIS ACTOR NEEDS TWEAKS - ozy81
 	Death:
 		SPDD AA 2 A_Scream
 		SPDD BB 1 A_NoBlocking
-		SPDD BB 1 A_KillChildren
+		//SPDD BB 1 A_KillChildren
 		TNT1 A 0 A_SpawnDebris ("OrganDebris")
 		TNT1 A 0 A_Burst("FlyingBlood")
-		SPDD CDE 2 A_KillChildren
+		SPDD CDE 2 //A_KillChildren
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		SPDD F -1 A_BossDeath
 		Stop
@@ -3881,7 +3899,7 @@ ACTOR SpiderMother : BloodEnemy_Base 3135 //THIS ACTOR NEEDS TWEAKS - ozy81
 		"####" A 1 A_JumpIf(waterlevel > 1, "Death")
 		SPBD A 0 A_PlaySound("SpiderBurn")
 		SPBD ABEGHFECABEGHFEC 5 BRIGHT
-		SPBD IJK 5 BRIGHT A_KillChildren
+		SPBD IJK 5 BRIGHT //A_KillChildren
 		SPBD LMNLMNLMNLMNLMNLMNLMNLMNLMN 15 BRIGHT
 		SPBD O 0 A_NoBlocking
 		SPBD O 0 A_Scream
@@ -5515,7 +5533,7 @@ ACTOR SpiderRed // Delirium Spider
 	-NODROPOFF
 	-NORADIUSDMG
 	-THRUSPECIES
-	Translation "48:79=16:47","128:151=16:39","80:111=48:79","112:127=[96,48,32]:[32,16,0]"
+	Translation "112:127=176:191","128:151=32:47","152:159=32:47","96:111=32:47","9:11=45:47"
 	Obituary "$OB_SPIDS2"
 	Species "Spiders"
 	States
@@ -5604,7 +5622,7 @@ ACTOR NewSpiderRed : BloodEnemy_Base 6161 // Delirium Spider
 	-CANUSEWALLS
 	-NODROPOFF
 	-NORADIUSDMG
-	Translation "80:95 = 220:223","96:111 = [255,128,0]:[0,0,0]"
+	Translation "112:127=176:191","128:151=32:47","152:159=32:47","96:111=32:47","9:11=45:47" //Translation "80:95 = 220:223","96:111 = [255,128,0]:[0,0,0]"
 	Obituary "$OB_SPIDS3"
 	States
 	{
@@ -5614,8 +5632,6 @@ ACTOR NewSpiderRed : BloodEnemy_Base 6161 // Delirium Spider
 	See:
 		SHIA A 0 A_JumpIfInventory("IwasCounted",1,2)
 		SHIA A 0 A_GiveInventory("IwasCounted",1)
-		//SHIA A 0 ACS_NamedExecuteAlways("LimitSpiders")
-		//SHIA A 20 A_JumpIfInTargetInventory("HoldingSpray",1,"RUN")
 		SHIA AAAAAAACCCCCCC 1 A_Chase
 		SHIA DDDDDDDEEEEEEE 1 A_Chase
 		SHIA A 0 A_Jump(16,"Bounce")
@@ -5738,7 +5754,7 @@ ACTOR NewSpiderRed : BloodEnemy_Base 6161 // Delirium Spider
 ACTOR IwasCounted : Inventory
 {
 	Inventory.Amount 1
-	Inventory.MaxAmount 1
+	Inventory.MaxAmount 10
 }
 
 ACTOR NewRedSpider : NewSpiderRed
@@ -5765,7 +5781,7 @@ ACTOR SpiderGreen : NewSpiderRed 6191
 	FastSpeed 6
 	PoisonDamage 4
 	Gravity .7
-	Damage (4)
+	Damage 4
 	DamageFactor "Stomping", 0.2
 	DamageType "BlindingPoison"
 	DamageFactor "Fire", 1.35
@@ -5780,7 +5796,6 @@ ACTOR SpiderGreen : NewSpiderRed 6191
 	See:
 		SHIA A 0 A_JumpIfInventory("IwasCounted",1,2)
 		SHIA A 0 A_GiveInventory("IwasCounted",1)
-		//SHIA A 0 ACS_NamedExecuteAlways("LimitSpiders")
 		SHIA A 5
 		SHIA AAAAACCCCC 1 A_Chase
 		SHIA DDDDDEEEEE 1 A_Chase
@@ -5788,7 +5803,7 @@ ACTOR SpiderGreen : NewSpiderRed 6191
 		Goto See+4
 	Melee:
 		SHIA A 3 A_Recoil(-1)
-		SHIA G 7 A_CustomMeleeAttack(frandom(2,3),"dsdolstb","none","BlindingPoison",true)
+		SHIA G 7 A_CustomMeleeAttack(frandom(3,5),"dsdolstb","none","BlindingPoison",true)
 		SHIA A 7
 		Goto See+4
 	}
@@ -5807,23 +5822,25 @@ ACTOR GreenSpider : SpiderGreen
 	}
 }
 
-ACTOR SpiderBlue : SpiderGreen 6192
+ACTOR SpiderBlue : NewSpiderRed 6192
 {
     //$Category "BlooM Monsters"
 	//$Title Blue Spider (BlooM)
 	//$Color 5
 	Speed 13
 	FastSpeed 17
+	Damage 2
 	PoisonDamage 16
 	DamageFactor "Stomping", 0
 	Obituary "$OB_SPIDS5"
-	Translation "48:79=192:207","128:151=[48,64,160]:[16,16,64]","80:111=[32,32,128]:[0,0,32]","112:127=[96,96,192]:[16,16,64]"
+	//Translation "112:127=197:207","128:151=197:207","152:159=197:207","96:111=192:207","9:11=240:247","64:79=240:247" - for YKUL
+	Translation "96:111=192:207", "80:95=192:207", "128:151=192:199", "64:79=192:200", "5:15=240:247", "0:2=204:207", "236:239=193:196"
 	States
 	{
 	Melee:
-		YKUL G 3
-		YKUL I 7 A_CustomMeleeAttack(frandom[Spiders](1,2),"dsdolstb","none","PoisonCloud",TRUE)
-		YKUL I 5
+		SHIA A 3
+		SHIA G 7 A_CustomMeleeAttack(frandom[Spiders](3,5),"dsdolstb","none","PoisonCloud",TRUE)
+		SHIA A 5
 		Goto See+1
 	}
 }
@@ -5834,8 +5851,8 @@ ACTOR BlueSpider : SpiderBlue
 	States
 	{
 	Spawn:
-		YKUL AAAABBBBCCCC 1 A_Chase
-		YKUL DDDDEEEEFFFF 1 A_Chase
+		SHIA AAAABBBBCCCC 1 A_Chase
+		SHIA DDDDEEEEFFFF 1 A_Chase
 		TNT1 A 0 A_SetSolid
 		Goto See
 	}
@@ -5845,16 +5862,17 @@ ACTOR SpiderYellow : SpiderGreen 6164
 {
     //$Category "BlooM Monsters"
 	//$Title Yellow Spider (BlooM)
-	Health 100
+	Health 50
 	DamageType "PoisonCloud"
 	Obituary "%OB_SPIDS6"
-	Translation "48:79=160:167","128:151=[160,160,64]:[64,64,32]","80:111=[128,128,32]:[32,32,0]","112:127=[192,192,96]:[64,64,12]"
+	//Translation "112:127=160:167","128:151=160:167","152:159=160:167","96:111=160:167","9:11=13:15" - for YKUL
+	Translation "96:111=160:167", "80:95=160:167", "128:151=160:167", "64:79=160:167", "5:15=236:239", "0:2=236:239", "236:239=161:164", "3:3=163:165"
 	States
 	{
 	Melee:
-		YKUL G 4
-		YKUL I 6 A_CustomMeleeAttack(frandom[Spiders](5,35),"dsdolstb","none")
-		YKUL I 8
+		SHIA A 4
+		SHIA G 6 A_CustomMeleeAttack(frandom[Spiders](5,35),"dsdolstb","none")
+		SHIA A 8
 		Goto See+1
 	}
 }
@@ -5865,32 +5883,34 @@ ACTOR YellowSpider : SpiderYellow
 	States
 	{
 	Spawn:
-		YKUL AAAABBBBCCCC 1 A_Chase
-		YKUL DDDDEEEEFFFF 1 A_Chase
+		SHIA AAAABBBBCCCC 1 A_Chase
+		SHIA DDDDEEEEFFFF 1 A_Chase
 		TNT1 A 0 A_SetSolid
 		Goto See
 	}
 }
 
-ACTOR SpiderPurple : SpiderRed 6165
+ACTOR SpiderPurple : NewSpiderRed 6165
 {
     //$Category "BlooM Monsters"
 	//$Title Purple Spider (BlooM)
 	//$Color 5
 	Speed 4
 	PoisonDamage 3
-	Damage (1)
+	Damage 2
 	Height 10
 	Radius 13
 	Scale 0.28
+	+BRIGHT
 	Obituary "$OB_SPIDS7"
-	Translation "48:79=250:254","128:151=[150,50,150]:[50,0,50]","80:111=[160,32,160]:[32,0,32]","112:127=[96,32,128]:[32,8,48]"
+	//Translation "48:79=250:254","128:151=[150,50,150]:[50,0,50]","80:111=[160,32,160]:[32,0,32]","112:127=[96,32,128]:[32,8,48]" - for YKUL
+	Translation "96:111=248:253", "80:95=248:253", "128:151=248:253", "64:79=248:253", "5:15=236:239", "0:2=236:239", "236:239=248:249", "3:3=248:249"
 	States
 	{
 	Melee:
-		YKUL G 2
-		YKUL II 1 A_CustomMeleeAttack((3),"dsdolstb","none")
-		YKUL A 2
+		SHIA A 2
+		SHIA GG 1 A_CustomMeleeAttack((3),"dsdolstb","none")
+		SHIA A 2
 		Goto See+1
 	}
 }
@@ -5901,8 +5921,8 @@ ACTOR PurpleSpider : SpiderPurple
 	States
 	{
 	Spawn:
-		YKUL AAAABBBBCCCC 1 A_Chase
-		YKUL DDDDEEEEFFFF 1 A_Chase
+		SHIA AAAABBBBCCCC 1 A_Chase
+		SHIA DDDDEEEEFFFF 1 A_Chase
 		TNT1 A 0 A_SetSolid
 		Goto See
 	}
@@ -5918,13 +5938,13 @@ ACTOR SpiderCyan : SpiderGreen 6166
 	Damage 1
 	DamageType "Numbness"
 	Obituary "$OB_SPIDS8"
-	Translation "48:79=[0,255,255]:[32,64,64]","128:151=[50,150,150]:[0,0,0]","80:111=[32,160,160]:[0,32,32]","112:127=[64,192,192]:[16,64,48]"
+	Translation "96:111=196:199", "80:95=196:198", "128:151=197:207", "64:79=197:201", "5:15=200:207", "0:2=199:201", "236:239=200:203"
 	States
 	{
 	Melee:
-		YKUL G 2
-		YKUL II 1 A_CustomMeleeAttack((3),"dsdolstb","none","Numbness")
-		YKUL A 6
+		SHIA A 2
+		SHIA GG 1 A_CustomMeleeAttack(frandom[Spiders](2,3),"dsdolstb","none","Numbness")
+		SHIA A 6
 		Goto See+1
 	}
 }
@@ -5935,8 +5955,8 @@ ACTOR CyanSpider : SpiderCyan
 	States
 	{
 	Spawn:
-		YKUL AAAABBBBCCCC 1 A_Chase
-		YKUL DDDDEEEEFFFF 1 A_Chase
+		SHIA AAAABBBBCCCC 1 A_Chase
+		SHIA DDDDEEEEFFFF 1 A_Chase
 		TNT1 A 0 A_SetSolid
 		Goto See
 	}
@@ -5970,9 +5990,9 @@ ACTOR SpiderBlack : SpiderGreen 6167
 	States
 	{
 	Melee:
-		YKUL G 2
-		YKUL II 1 A_CustomMeleeAttack((3),"dsdolstb","none","Fragility")
-		YKUL A 6
+		SHIA A 2
+		SHIA GG 1 A_CustomMeleeAttack((3),"dsdolstb","none","Fragility")
+		SHIA A 6
 		Goto See+1
 	}
 }
@@ -5983,8 +6003,8 @@ ACTOR BlackSpider : SpiderBlack
 	States
 	{
 	Spawn:
-		YKUL AAAABBBBCCCC 1 A_Chase
-		YKUL DDDDEEEEFFFF 1 A_Chase
+		SHIA AAAABBBBCCCC 1 A_Chase
+		SHIA DDDDEEEEFFFF 1 A_Chase
 		TNT1 A 0 A_SetSolid
 		Goto See
 	}
@@ -6008,10 +6028,10 @@ ACTOR SpiderWhite : SpiderRed 6168 // A mediocre version of spider mother
 	//$Category "BlooM Monsters"
 	//$Title White Spider (BlooM)
 	//$Color 5
+	Health 1000
 	Scale .5
 	PoisonDamage 0
 	Damage 0
-	Health 250
 	MeleeRange 128
 	MaxTargetRange 1024
 	+FRIGHTENED
