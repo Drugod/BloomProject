@@ -394,6 +394,23 @@ Brightmap sprite BESWF1 	{map "Brightmaps/BESWF1.png"}
 Brightmap sprite BESWF7F3 	{map "Brightmaps/BESWF7F3.png"}
 Brightmap sprite BESWF8F2 	{map "Brightmaps/BESWF8F2.png"}
 
+//Cultists
+Brightmap sprite BCULF1 	{map "Brightmaps/BCULF1.png"}
+Brightmap sprite BCULF5 	{map "Brightmaps/BCULF5.png"}
+Brightmap sprite BCULF6F4 	{map "Brightmaps/BCULF6F4.png"}
+Brightmap sprite BCULF7F3 	{map "Brightmaps/BCULF7F3.png"}
+Brightmap sprite BCULF8F2 	{map "Brightmaps/BCULF8F2.png"}
+Brightmap sprite CCULF1 	{map "Brightmaps/CCULF1.png"}
+Brightmap sprite CCULF5 	{map "Brightmaps/CCULF5.png"}
+Brightmap sprite CCULF6F4 	{map "Brightmaps/CCULF6F4.png"}
+Brightmap sprite CCULF7F3 	{map "Brightmaps/CCULF7F3.png"}
+Brightmap sprite CCULF8F2 	{map "Brightmaps/CCULF8F2.png"}
+Brightmap sprite YCUFB1 	{map "Brightmaps/YCUFB1.png"}
+Brightmap sprite YCUFB5 	{map "Brightmaps/YCUFB5.png"}
+Brightmap sprite YCUFB6B4 	{map "Brightmaps/YCUFB6B4.png"}
+Brightmap sprite YCUFB7B3 	{map "Brightmaps/YCUFB7B3.png"}
+Brightmap sprite YCUFB8B2 	{map "Brightmaps/YCUFB8B2.png"}
+
 //Gargovile
 Brightmap sprite ARCFA1		{map "Brightmaps/ARCFA1.png"}
 Brightmap sprite ARCFA2A8	{map "Brightmaps/ARCFA2A8.png"}
@@ -836,23 +853,6 @@ Brightmap sprite GARGL3L7 	{map "Brightmaps/MBMSL3L7.png"}
 Brightmap sprite GARGL4L6 	{map "Brightmaps/MBMSL4L6.png"}
 Brightmap sprite GARGL5 	{map "Brightmaps/MBMSL5.png"}
 
-Brightmap sprite SKULA1 	{map "Brightmaps/SKUMA1.png"}
-Brightmap sprite SKULA8A2 	{map "Brightmaps/SKUMA8A2.png"}
-Brightmap sprite SKULB1F1 	{map "Brightmaps/SKUMB1F1.png"}
-Brightmap sprite SKULB8B2 	{map "Brightmaps/SKUMB8B2.png"}
-Brightmap sprite SKULC1E1 	{map "Brightmaps/SKUMC1E1.png"}
-Brightmap sprite SKULC8C2 	{map "Brightmaps/SKUMC8C2.png"}
-Brightmap sprite SKULD1 	{map "Brightmaps/SKUMD1.png"}
-Brightmap sprite SKULD8D2 	{map "Brightmaps/SKUMD8D2.png"}
-Brightmap sprite SKULE8E2 	{map "Brightmaps/SKUME8E2.png"}
-Brightmap sprite SKULF8F2 	{map "Brightmaps/SKUMF8F2.png"}
-Brightmap sprite SKULG1 	{map "Brightmaps/SKUMG1.png"}
-Brightmap sprite SKULG2G8 	{map "Brightmaps/SKUMG2G8.png"}
-Brightmap sprite SKULH1 	{map "Brightmaps/SKUMH1.png"}
-Brightmap sprite SKULH2H8 	{map "Brightmaps/SKUMH2H8.png"}
-Brightmap sprite SKULI1 	{map "Brightmaps/SKUMI1.png"}
-Brightmap sprite SKULI2I8 	{map "Brightmaps/SKUMI2I8.png"}
-
 Brightmap sprite SBBQA0 {map "Brightmaps/SBBMA0.png"}
 Brightmap sprite SBBQB0 {map "Brightmaps/SBBMB0.png"}
 Brightmap sprite SBBQC0 {map "Brightmaps/SBBMC0.png"}
@@ -866,34 +866,33 @@ Brightmap sprite SBBQJ0 {map "Brightmaps/SBBMJ0.png"}
 Brightmap sprite SBBQK0 {map "Brightmaps/SBBMK0.png"}
 Brightmap sprite SBBQL0 {map "Brightmaps/SBBML0.png"}
 
-//Shial
-Brightmap sprite SHIAA1 	{map "Brightmaps/SHIMA1.png"}
-Brightmap sprite SHIAA8A2 	{map "Brightmaps/SHIMA8A2.png"}
-Brightmap sprite SHIAB1 	{map "Brightmaps/SHIMB1.png"}
-Brightmap sprite SHIAB8B2 	{map "Brightmaps/SHIMB8B2.png"}
-Brightmap sprite SHIAC1 	{map "Brightmaps/SHIMC1.png"}
-Brightmap sprite SHIAC8C2 	{map "Brightmaps/SHIMC8C2.png"}
-Brightmap sprite SHIAD1 	{map "Brightmaps/SHIMD1.png"}
-Brightmap sprite SHIAD8D2 	{map "Brightmaps/SHIMD8D2.png"}
-Brightmap sprite SHIAE1 	{map "Brightmaps/SHIME1.png"}
-Brightmap sprite SHIAE8E2 	{map "Brightmaps/SHIME8E2.png"}
-Brightmap sprite SHIAF1 	{map "Brightmaps/SHIMF1.png"}
-Brightmap sprite SHIAF8F2 	{map "Brightmaps/SHIMF8F2.png"}
-Brightmap sprite SHIAG1 	{map "Brightmaps/SHIMG1.png"}
-Brightmap sprite SHIAG8G2 	{map "Brightmaps/SHIMG8G2.png"}
-
-Brightmap sprite SPDFA1 	{map "Brightmaps/SMMFA1.png"}
-Brightmap sprite SPDFA8A2 	{map "Brightmaps/SMMFA8A2.png"}
-Brightmap sprite SPDWA1 	{map "Brightmaps/SMMWA1.png"}
-Brightmap sprite SPDWA8A2 	{map "Brightmaps/SMMWA8A2.png"}
-Brightmap sprite SPDWB1 	{map "Brightmaps/SMMWB1.png"}
-Brightmap sprite SPDWB8B2 	{map "Brightmaps/SMMWB8B2.png"}
-Brightmap sprite SPDWC1 	{map "Brightmaps/SMMWC1.png"}
-Brightmap sprite SPDWC8C2 	{map "Brightmaps/SMMWC8C2.png"}
-Brightmap sprite SPDWD1 	{map "Brightmaps/SMMWD1.png"}
-Brightmap sprite SPDWD8D2 	{map "Brightmaps/SMMWD8D2.png"}
-Brightmap sprite SPDWE1 	{map "Brightmaps/SMMWE1.png"}
-Brightmap sprite SPDWE8E2 	{map "Brightmaps/SMMWE8E2.png"}
+//SpiderMother and 
+Brightmap sprite SHIAA1 	{map "Brightmaps/SHIAA1.png"}
+Brightmap sprite SHIAA8A2 	{map "Brightmaps/SHIAA8A2.png"}
+Brightmap sprite SHIAB1 	{map "Brightmaps/SHIAB1.png"}
+Brightmap sprite SHIAB8B2 	{map "Brightmaps/SHIAB8B2.png"}
+Brightmap sprite SHIAC1 	{map "Brightmaps/SHIAC1.png"}
+Brightmap sprite SHIAC8C2 	{map "Brightmaps/SHIAC8C2.png"}
+Brightmap sprite SHIAD1 	{map "Brightmaps/SHIAD1.png"}
+Brightmap sprite SHIAD8D2 	{map "Brightmaps/SHIAD8D2.png"}
+Brightmap sprite SHIAE1 	{map "Brightmaps/SHIAE1.png"}
+Brightmap sprite SHIAE8E2 	{map "Brightmaps/SHIAE8E2.png"}
+Brightmap sprite SHIAF1 	{map "Brightmaps/SHIAF1.png"}
+Brightmap sprite SHIAF8F2 	{map "Brightmaps/SHIAF8F2.png"}
+Brightmap sprite SHIAG1 	{map "Brightmaps/SHIAG1.png"}
+Brightmap sprite SHIAG8G2 	{map "Brightmaps/SHIAG8G2.png"}
+Brightmap sprite SPDFA1 	{map "Brightmaps/SPDFA1.png"}
+Brightmap sprite SPDFA8A2 	{map "Brightmaps/SPDFA8A2.png"}
+Brightmap sprite SPDWA1 	{map "Brightmaps/SPDWA1.png"}
+Brightmap sprite SPDWA8A2 	{map "Brightmaps/SPDWA8A2.png"}
+Brightmap sprite SPDWB1 	{map "Brightmaps/SPDWB1.png"}
+Brightmap sprite SPDWB8B2 	{map "Brightmaps/SPDWB8B2.png"}
+Brightmap sprite SPDWC1 	{map "Brightmaps/SPDWC1.png"}
+Brightmap sprite SPDWC8C2 	{map "Brightmaps/SPDWC8C2.png"}
+Brightmap sprite SPDWD1 	{map "Brightmaps/SPDWD1.png"}
+Brightmap sprite SPDWD8D2 	{map "Brightmaps/SPDWD8D2.png"}
+Brightmap sprite SPDWE1 	{map "Brightmaps/SPDWE1.png"}
+Brightmap sprite SPDWE8E2 	{map "Brightmaps/SPDWE8E2.png"}
 
 //Phantasms
 Brightmap sprite PHANA1		{map "Brightmaps/PMANA1.png"}

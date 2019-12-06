@@ -1013,7 +1013,7 @@ ACTOR GreyCultist : BloodEnemy_Base 3125
 		BCUL E 2 A_FaceTarget
 		TNT1 A 0 A_PlaySound("chainguy/attack")
 		BCUL F 0 A_CustomMissile("TommygunCasing",30,4,24,1)
-		BCUL F 2 BRIGHT A_CustomBulletAttack(5.6,5.6,1,frandom(1,2),"ZBulletCultist")
+		BCUL F 2 A_CustomBulletAttack(5.6,5.6,1,frandom(1,2),"ZBulletCultist")
 		BCUL E 2
 		BCUL E 0 A_CPosRefire
 		BCUL E 2 A_FaceTarget
@@ -1031,9 +1031,9 @@ ACTOR GreyCultist : BloodEnemy_Base 3125
 		BCUL E 0 A_CPosRefire
 		TNT1 A 0 A_Jump(160,"see")
 	MissileCont:
-		BCUL F 2 BRIGHT A_CustomBulletAttack(5.6,5.6,1,frandom(5,7),"ZBulletCultist")
+		BCUL F 2 A_CustomBulletAttack(5.6,5.6,1,frandom(5,7),"ZBulletCultist")
 		TNT1 A 0 A_PlaySound("chainguy/attack")
-		YCUL A 0 A_AlertMonsters
+		BCUL A 0 A_AlertMonsters
 		BCUL F 0 A_CustomMissile("TommygunCasing",30,4,24,1)
 		BCUL E 3
 		BCUL E 0 A_CPosRefire
@@ -1113,7 +1113,7 @@ ACTOR GreyCultist : BloodEnemy_Base 3125
 		BCUL A 2 A_FaceTarget
 		Goto MissileCont
 	Pain.Tommy2:
-		YCUL A 0 A_Jump(127,"Pain.Tommy2")
+		BCUL A 0 A_Jump(127,"Pain.Tommy2")
 		BCUL A 0 A_FaceTarget
 		BCUL A 0 A_SetAngle(angle-90)
 		BCUL A 0 A_Recoil(-7)
@@ -1203,9 +1203,9 @@ ACTOR RedCultist : BloodEnemy_Base 10310
 	Missile:
 		BCUL A 0 A_Jump (192, 6)
 		BCUL E 10 A_FaceTarget
-		BCUL F 4 BRIGHT A_CustomBulletAttack(5.6,10.6,1,4,"ZBulletCultist")
+		BCUL F 4 A_CustomBulletAttack(5.6,10.6,1,4,"ZBulletCultist")
 		BCUL E 6 A_FaceTarget
-		BCUL F 4 BRIGHT A_CustomBulletAttack(5.6,10.6,1,4,"ZBulletCultist")
+		BCUL F 4 A_CustomBulletAttack(5.6,10.6,1,4,"ZBulletCultist")
 		BCUL E 1 A_SentinelRefire
 		Goto Missile+1
 		BCUL X 5 A_FaceTarget
@@ -1634,10 +1634,6 @@ ACTOR BlueCultist : BloodEnemy_Base 10309
 	Scale 0.53
 	States
 	{
-			/*  BCUL AAAABBBBCCCCDDDDEEEE 1 A_Wander
-			BCUL "\\\\" 1 A_Wander
-			BCUL AAAA 0 A_Look
-			Loop*/
 	Spawn:
 		BCUL E 10 A_Look
 		Goto Spawn
@@ -1666,11 +1662,11 @@ ACTOR BlueCultist : BloodEnemy_Base 10309
 		Loop
 	Missile:
 		TNT1 A 0 A_Jump(128,"Proximity")
-		YCUL A 0 A_AlertMonsters
+		BCUL A 0 A_AlertMonsters
 		TNT1 A 0 A_Stop
 		BCUL E 10 A_FaceTarget
 		TNT1 A 0 A_PlaySound("TESLFIR")
-		BCUL F 1 BRIGHT A_CustomMissile("CultistTesla", 28)
+		BCUL F 1 A_CustomMissile("CultistTesla", 28)
 		BCUL F 2 A_Wander
 		BCUL E 1 A_FaceTarget
 		BCUL E 0 A_CposRefire
@@ -1696,7 +1692,7 @@ ACTOR BlueCultist : BloodEnemy_Base 10309
 		Goto See
 	Death:
 		BCUL H 5
-		YCUL A 0 A_AlertMonsters
+		BCUL A 0 A_AlertMonsters
 		BCUL I 5 A_Scream
 		BCUL J 5 A_Fall
 		BCUL KLMN 5
@@ -1708,7 +1704,7 @@ ACTOR BlueCultist : BloodEnemy_Base 10309
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		BCUL P 0 A_Fall
 		BCUL P 5 A_XScream
-		YCUL A 0 A_AlertMonsters
+		BCUL A 0 A_AlertMonsters
 		BCUL P 0 A_SpawnDebris ("OrganDebris")
 		BCUL P 0 A_Jump(92,2)
 		BCUL P 0 A_SpawnDebris ("Bloodliver")
@@ -1733,7 +1729,7 @@ ACTOR BlueCultist : BloodEnemy_Base 10309
 		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
 		TNT1 A 0 A_Jump(128, 2)
 		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
-		YCUL A 0 A_AlertMonsters
+		BCUL A 0 A_AlertMonsters
 		BCUL I 0 A_HideThing
 		BCUL I 0 A_Fall
 		BCUL I 0 A_SpawnItem("BurnDeath2",1,0,0)
@@ -1875,7 +1871,7 @@ ACTOR BrownCultist : BloodEnemy_Base 3129
 	Missile:
 		YCUL E 0 A_Jump (107,10)
 		YCUF A 8 A_FaceTarget //A lot slower...
-		YCUF B 4 BRIGHT A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "ZBulletCultist", 0, CBAF_NORANDOM)
+		YCUF B 4 A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "ZBulletCultist", 0, CBAF_NORANDOM)
 		TNT1 A 0 A_PlaySound("CultistShotgun", CHAN_Body)
 		YCUL A 0 A_AlertMonsters
 		TNT1 A 0 A_Chase
@@ -1895,7 +1891,7 @@ ACTOR BrownCultist : BloodEnemy_Base 3129
 	Crouch.Missile2:
 		CCUL E 0 A_Jump (107,8)
 		CCUL C 8 A_FaceTarget
-		CCUL F 4 BRIGHT A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "ZBulletCultist", 0, CBAF_NORANDOM)
+		CCUL F 4 A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "ZBulletCultist", 0, CBAF_NORANDOM)
 		TNT1 A 0 A_PlaySound("CultistShotgun", CHAN_Body)
 		CCUL A 0 A_AlertMonsters
 		TNT1 A 0 A_Chase
