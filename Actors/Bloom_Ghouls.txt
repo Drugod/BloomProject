@@ -2241,9 +2241,3 @@ ACTOR FlareGhoul
 		Stop
 	}
 }
-
-ACTOR AlreadyFlare : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}

@@ -12,6 +12,7 @@ ACTOR Ratdemon_Brown : BloomHybrid_Base 19059
 	Mass 400
 	Monster
 	+FLOORCLIP
+	+JUMPDOWN
 	SeeSound "Ratsee"
 	PainSound "RatPain"
 	DeathSound "Ratdie"

@@ -20,28 +20,28 @@ LISTMENU "MainMenu"
 		{
 			Position 97, 87//64
 		}
-	}	
-	
+	}
+
 	IfGame(Doom)
 	{
-	    TextItem "      New Game", "n", "PlayerclassMenu"					
+	    TextItem "      New Game", "n", "PlayerclassMenu"
 		ifOption(SwapMenu)
 		{
-			TextItem "      Load Game", "l", "LoadGameMenu"						
-			TextItem "      Save Game", "s", "SaveGameMenu"				
-			TextItem "      Options", "o", "OptionsMenu"			
+			TextItem "      Load Game", "l", "LoadGameMenu"
+			TextItem "      Save Game", "s", "SaveGameMenu"
+			TextItem "      Options", "o", "OptionsMenu"
 		}
 		else
 		{
-			TextItem "      Options", "o", "OptionsMenu"			
-			TextItem "      Load Game", "l", "LoadGameMenu"						
-			TextItem "      Save Game", "s", "SaveGameMenu"									
+			TextItem "      Options", "o", "OptionsMenu"
+			TextItem "      Load Game", "l", "LoadGameMenu"
+			TextItem "      Save Game", "s", "SaveGameMenu"
 		}
 		ifOption(ReadThis)
 		{
 			TextItem "      Read me idiot", "r", "ReadThisMenu"
 		}
-		TextItem "      Quit Game", "r", "QuitMenu"		
+		TextItem "      Quit Game", "r", "QuitMenu"
 	}
 }
 
@@ -77,8 +77,8 @@ ListMenu "PlayerclassMenu"
 		PlayerDisplay 220, 63, "20 00 00", "80 00 40"
 		MouseWindow 0, 220
 		Selector "M_SKULL1", -32, -5
-		Linespacing 16		
-		Font "BigFont", "Black", "Red"				
+		Linespacing 16
+		Font "BigFont", "Black", "Red"
 	}
 }
 
@@ -111,20 +111,20 @@ OptionMenu "BloomOptions"
 	Title  "Bloom options"
 	Statictext " "
 	StaticText "Gameplay Options", 1
-	Option "Hybrid Bloom monsters?", "blm_hybrid", "YesOrNo"  
-	Option "Traps on iwad maps?", "blm_traps", "YesOrNo"    
-	StaticText " "  
+	Option "Hybrid Bloom monsters?", "blm_hybrid", "YesOrNo"
+	Option "Traps on iwad maps?", "blm_traps", "YesOrNo"
+	StaticText " "
 	StaticText "Performance Options", 1
 	//, "Do you want to disable models and voxels for weapons, objects & items?"
 	SafeCommand "Disable Models & Voxels", "vox_off-mod_off"
-	
+
 	//, "Do you want to enable models but not voxels for weapons, objects & items? This requires a game restart."
 	SafeCommand "Enable Models, restart required", "vox_off-mod_on"
-	
+
 	//, "Do you want to enable voxels but not models for weapons, objects & items? Restart not required."
 	SafeCommand "Enable Voxels", "vox_on-mod_off"
-	Option "Keep 3d blood on floor", "bloodremain", "bloodyremain"    
-	StaticText " "  
+	Option "Keep 3d blood on floor", "bloodremain", "bloodyremain"
+	StaticText " "
 	StaticText "Key config for advanced movements", 1
 	Control "Doomguy toss grenade", "grenadetoss"
 	//Control "Timer freeze", "timerfreeze"

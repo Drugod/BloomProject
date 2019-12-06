@@ -69,7 +69,7 @@ ACTOR RocketX: Rocket replaces Rocket
 		MISL B 8 BRIGHT A_Quake(4,12,0,600)
 		TNT1 A 0 A_Explode
 		MISL C 6 BRIGHT
-		MISL D 4 BRIGHT 
+		MISL D 4 BRIGHT
 		Stop
 	}
 }
@@ -82,7 +82,7 @@ ACTOR BFGBallX : BFGBall replaces BFGBall
 	Speed 25
 	Damage 100
 	DamageType "Flare"
-	DamageType "Fire"  
+	DamageType "Fire"
 	RenderStyle "Add"
 	Alpha 0.75
 	Projectile
@@ -108,9 +108,9 @@ ACTOR BFGExtraX : BFGExtra replaces BFGExtra
 	Alpha 0.75
 	DamageType "BFGSplash"
 	DamageType "Flare"
-	DamageType "Fire" 
+	DamageType "Fire"
 	+NOBLOCKMAP
-	+NOGRAVITY   
+	+NOGRAVITY
 	States
 	{
 	Spawn:

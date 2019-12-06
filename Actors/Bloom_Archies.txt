@@ -343,15 +343,3 @@ ACTOR VileSpawner
 		Stop
 	}
 }
-
-ACTOR CountToDeath : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 10
-}
-
-ACTOR CountZombie : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 10
-}

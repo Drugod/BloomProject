@@ -1,6 +1,6 @@
 ACTOR Moron 3241
 {
-    //$Category "BlooM Monsters"   
+    //$Category "BlooM Monsters"
 	Health 80
 	Monster
 	Radius 14
@@ -82,7 +82,7 @@ ACTOR fightmeIRLIDAREYOU
 		Stop
 	}
 }
-	
+
 ACTOR Pedestrian
 {
 	Health 30
@@ -130,4 +130,4 @@ ACTOR Pedestrian
 		WPOS KJIH 5
 		Goto See
 	}
-}	
+}

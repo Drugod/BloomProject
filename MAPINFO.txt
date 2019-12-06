@@ -19,7 +19,7 @@ map TITLEMAP lookup "BLM_TIT"
    levelnum = 5
    sky1 = "YTEXTH63", 0.05
    par = 120
-   cluster = 1   
+   cluster = 1
    sucktime = 1
    music = "d_dm2ttl"
    NoIntermission
@@ -34,7 +34,7 @@ map BLM01 lookup "BLM_M01"
    par = 120
    sucktime = 5
    music = "d_dead"
-   LIGHTNING   
+   LIGHTNING
 }
 
 map BLM02 lookup "BLM_M02"
@@ -50,9 +50,9 @@ map BLM02 lookup "BLM_M02"
 map BLM03 lookup "BLM_M03"
 {
    levelnum = 3
-   next = BLM04 //endsequence, BloomDemoEnd   
+   next = BLM04 //endsequence, BloomDemoEnd
    sky1 = "YTEXTH63", 0.05
-   sky2 = "YTEXTH63", 0.05   
+   sky2 = "YTEXTH63", 0.05
    par = 120
    sucktime = 10
    music = "d_countd"
@@ -63,11 +63,11 @@ map BLM04 lookup "BLM_M04"
    levelnum = 4
    next = INT00
    sky1 = "YTEXTH63", 0.05
-   sky2 = "YTEXTH63", 0.05   
+   sky2 = "YTEXTH63", 0.05
    par = 120
    sucktime = 10
    music = "d_ddtblu"
-   NoIntermission   
+   NoIntermission
 }
 
 map INT00 lookup "BLM_INT"
@@ -75,7 +75,7 @@ map INT00 lookup "BLM_INT"
    levelnum = 0
    sky1 = "YTEXTH63", 0.05
    par = 120
-   cluster = 1   
+   cluster = 1
    sucktime = 1
    music = "d_dm2ttl"
    NoIntermission
@@ -115,30 +115,30 @@ cluster 1
 	"Many members of the Cabala died",
 	" trying to subdue the demons.",
 	" Demons, and in particular the icon of sin,",
-	" only respond to his instincts of... ", 
+	" only respond to his instincts of... ",
 	" Chaos, death and destruction."
 }
 
 Intermission "BloomDemoEnd"
 {
-	TextScreen 
+	TextScreen
 	{
-		Background = "XTEX0118",1		
+		Background = "XTEX0118",1
 		TextDelay = 3
-		Time = 5	
+		Time = 5
 		Text = " ",
 		"               				        Conglaturations !!!",
 		" ",
 		"		                			    You have completed ",
 		"       		         		           BLOOM Demo!",
-		" ",                         
+		" ",
 		"				                    Now return to your coffin ",
 		"	              and await the complete version!"
-		
+
 	}
-	Wiper 
+	Wiper
 	{
-		WipeType = Crossfade	
+		WipeType = Crossfade
 	}
 	Link = BloomCast
 }
@@ -240,7 +240,7 @@ Cast
     CastName = "$CC_LOST"
     AttackSound = "Melee",1,"skull/melee"
 	}
-	
+
 Cast
 	{
     CastClass = "Cacodemon"
@@ -311,7 +311,7 @@ Cast
     {
     CastClass = "ChrysalidPod_Cast"
     CastName = "CHRYSALID POD"
-    AttackSound = "Melee", 1, "PodSpit"	
+    AttackSound = "Melee", 1, "PodSpit"
     AttackSound = "Missile", 1, ""
     }
 
@@ -328,14 +328,14 @@ Cast
     CastName = "CALEB"
     AttackSound = "Missile", 1, "weapons/sshotf"
     }
-	
+
 Cast
     {
     CastClass = "DoomDude"
     CastName = "DOOMGUY"
     AttackSound = "Missile", 1, "weapons/sshotf"
     }
-	
+
 Link = BloomCast
 }
 
@@ -469,10 +469,10 @@ map E1M8 "Phobos Anomaly"
 	sky1 = SKY1, 0
 	cluster = 1
 	par = 30
-	nointermission 
-	nosoundclipping 
-	baronspecial 
-	specialaction_lowerfloor 
+	nointermission
+	nosoundclipping
+	baronspecial
+	specialaction_lowerfloor
 	SPECIALACTION = "BaronOfHell_", "Floor_LowerToLowest", 666, 8
 	SPECIALACTION = "BaronofHellHybrid", "Floor_LowerToLowest", 666, 8
 	music = D_E1M8
@@ -576,10 +576,10 @@ map E2M8 "Tower of Babel"
 	sky1 = SKY2, 0
 	cluster = 2
 	par = 30
-	nointermission 
-	nosoundclipping 
-	cyberdemonspecial 
-	specialaction_exitlevel 
+	nointermission
+	nosoundclipping
+	cyberdemonspecial
+	specialaction_exitlevel
 	music = D_E2M8
 }
 
@@ -681,10 +681,10 @@ map E3M8 "Dis"
 	sky1 = SKY3, 0
 	cluster = 3
 	par = 30
-	nointermission 
-	nosoundclipping 
-	spidermastermindspecial 
-	specialaction_exitlevel 
+	nointermission
+	nosoundclipping
+	spidermastermindspecial
+	specialaction_exitlevel
 	music = D_E3M8
 }
 
@@ -757,8 +757,8 @@ map E4M6 "Against Thee Wickedly"
 	secretnext = E4M9
 	sky1 = SKY4, 0
 	cluster = 4
-	cyberdemonspecial 
-	specialaction_opendoor 
+	cyberdemonspecial
+	specialaction_opendoor
 	music = D_E2M4
 }
 
@@ -779,10 +779,10 @@ map E4M8 "Unto the Cruel"
 	secretnext = E4M9
 	sky1 = SKY4, 0
 	cluster = 4
-	nointermission 
-	nosoundclipping 
-	spidermastermindspecial 
-	specialaction_lowerfloor 
+	nointermission
+	nosoundclipping
+	spidermastermindspecial
+	specialaction_lowerfloor
 	music = D_E2M5
 }
 
@@ -1047,10 +1047,10 @@ map MAP07 lookup "dead simple"
 	cluster = 6
 	par = 120
 	map07special
-	SPECIALACTION = "OriginalFishMancubus","Floor_LowerToLowest",666,8 	
-	SPECIALACTION = "HybridFishMancubus","Floor_LowerToLowest",666,8 	
-	SPECIALACTION = "Arachnoidhybrid","Floor_RaiseByTexture",667,8 	
-	SPECIALACTION = "Arachnoidnormal","Floor_RaiseByTexture",667,8 	
+	SPECIALACTION = "OriginalFishMancubus","Floor_LowerToLowest",666,8
+	SPECIALACTION = "HybridFishMancubus","Floor_LowerToLowest",666,8
+	SPECIALACTION = "Arachnoidhybrid","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "Arachnoidnormal","Floor_RaiseByTexture",667,8
 	music = "$MUSIC_SHAWN"
 }
 
@@ -1363,14 +1363,14 @@ cluster 10
 
 clearskills
 // ================================================
-// Skill level: Easy 
+// Skill level: Easy
 // Still too young to die
 // ================================================
 skill ZB_Easy
-{			
+{
 name = "Still too young to die"
 textcolor = black
-acsreturn = 0		
+acsreturn = 0
 spawnfilter = "Easy"
 damagefactor = 0.3
 aggressiveness = 0.5

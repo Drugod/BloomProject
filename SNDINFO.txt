@@ -753,6 +753,7 @@ $Random BeastAct { BeastAct1 BeastAct2 BeastAct3 }
 $Random BeastSlash { BeastSlash1 BeastSlash2 BeastSlash3 }
 
 //SPIDERS
+Spider/Spit			SPIDSPIT
 SpiderSee			SPIDSEE
 SpiderAct			SPIDACT
 SpiderBurn			SPIDBURN

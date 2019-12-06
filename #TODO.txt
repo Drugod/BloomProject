@@ -1,4 +1,5 @@
 For Rolls, models which needs to be added:
+- add burning plus shock frames to RatDemons
 - add crouch frames for Caleb and swimming frames for both classes
 - add pickup sprites for GrenadeBox plus voxel and 3d model
 
@@ -6,11 +7,10 @@ For All:
 - add flamethrower / freezethrower for Doomguy using beta sprites
 - Bloodjar and Bloodpile actors share the same behavior and sprite... What's the point?
 - fix Doom paletted sprites, mainly HUD ones and Player
-- fix glass debris and add more variant of debris
 - fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff
 - fix HUD statusbar for gzdoom 4+
 - fix LifeLeech: fire states originate some unknown flags messages, when actors like Archies or Ghouls gets hit
-- fix SpiderMother code
+- fix spiders, rats and all those actors which may jump or fall over skies and not die (GargoDemon, RatDemons, SpiderMother)
 - fix TERRAIN defs, lots of sounds needs to be defined and included
 - polish overall code
 - reduce size of models skins, 1000x1000 is very engine intensive, 512x512 should be okay... We must figure how to not break quality though
@@ -20,8 +20,8 @@ For All:
 - verify if unified PNAMES works
 
 Coop problems:
-- verify Berserk_ behavior for Zandro coop: cruduxy/marinelol said that it crashes once you pick it up, so I guess we should call a script for Pickup2 state jump (we may set the Berserk_ with Doomy behavior and create another powerup which has a new sprite for the Beast form, and use it only in singleplayer [and said powerup if we choose DomGuy it gives to him QuadDamage, usign the HolyBible sprote as pickup])	
-- verify CultFire sounds for Zandro, marinelol said "server crashes about an infinite loop caused by fire cultists" (the actor has been fixed, needs tests)
+- verify Berserk_ behavior for Zandro	
+- verify CultFire sounds for Zandro
 
 Zandro test required:
 - check always maps from Zandronum first :(

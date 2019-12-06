@@ -14,14 +14,6 @@ ACTOR ActorFunction : CustomInventory
 	}
 }
 
-ACTOR Afraid : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-
-ACTOR Fighting : Afraid { }
-
 ACTOR A_ChaseX : ActorFunction //an improvised codepointer for movement not restricted to 8 primary directions
 {
 	States

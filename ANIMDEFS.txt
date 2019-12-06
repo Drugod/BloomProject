@@ -31,7 +31,7 @@ flat NUKAGE1
 	pic FHDS30 rand 2 2
 	pic FHDS31 rand 2 2
 	pic FHDS32 rand 2 2
-	
+
 flat NUKAGE2
     pic FHDS01 rand 2 2
 	pic FHDS02 rand 2 2
@@ -723,7 +723,7 @@ flat SLIME12
     pic SLIME12 rand 4 4
 	pic SLIME11 rand 4 4
 	pic SLIME10 rand 4 4
-	
+
 flat SLIME11
 	pic SLIME09 rand 4 4
 	pic SLIME10 rand 4 4
@@ -731,7 +731,7 @@ flat SLIME11
     pic SLIME12 rand 4 4
 	pic SLIME11 rand 4 4
 	pic SLIME10 rand 4 4
-	
+
 flat SLIME10
 	pic SLIME09 rand 4 4
 	pic SLIME10 rand 4 4
@@ -739,7 +739,7 @@ flat SLIME10
     pic SLIME12 rand 4 4
 	pic SLIME11 rand 4 4
 	pic SLIME10 rand 4 4
-	
+
 flat SLIME09
 	pic SLIME09 rand 4 4
 	pic SLIME10 rand 4 4
@@ -747,86 +747,86 @@ flat SLIME09
     pic SLIME12 rand 4 4
 	pic SLIME11 rand 4 4
 	pic SLIME10 rand 4 4
-	
+
 Texture BLODRIP1
     pic BLODRIP1 rand 3 3
 	pic BLODRIP2 rand 3 3
 	pic BLODRIP3 rand 3 3
 	pic BLODRIP4 rand 3 3
-	
+
 Texture BLODRIP2
     pic BLODRIP1 rand 3 3
 	pic BLODRIP2 rand 3 3
 	pic BLODRIP3 rand 3 3
 	pic BLODRIP4 rand 3 3
-	
+
 Texture BLODRIP3
     pic BLODRIP1 rand 3 3
 	pic BLODRIP2 rand 3 3
 	pic BLODRIP3 rand 3 3
 	pic BLODRIP4 rand 3 3
-	
+
 Texture BLODRIP4
     pic BLODRIP1 rand 3 3
 	pic BLODRIP2 rand 3 3
 	pic BLODRIP3 rand 3 3
 	pic BLODRIP4 rand 3 3
-	
+
 Texture GSTFONT1
     pic GSTFONT1 rand 3 3
 	pic GSTFONT2 rand 3 3
 	pic GSTFONT3 rand 3 3
-	
+
 Texture GSTFONT2
     pic GSTFONT1 rand 3 3
 	pic GSTFONT2 rand 3 3
 	pic GSTFONT3 rand 3 3
-	
+
 Texture GSTFONT3
     pic GSTFONT1 rand 3 3
 	pic GSTFONT2 rand 3 3
 	pic GSTFONT3 rand 3 3
-	
+
 Texture FIREWALL
     pic FIREWALL rand 3 3
 	pic FIREWALA rand 3 3
 	pic FIREWALB rand 3 3
-	
+
 Texture FIREWALA
     pic FIREWALL rand 3 3
 	pic FIREWALA rand 3 3
 	pic FIREWALB rand 3 3
-	
+
 Texture FIREWALB
     pic FIREWALL rand 3 3
 	pic FIREWALA rand 3 3
 	pic FIREWALB rand 3 3
-	
+
 Texture FIREMAG1
     pic FIREMAG1 rand 3 3
 	pic FIREMAG2 rand 3 3
 	pic FIREMAG3 rand 3 3
-	
+
 Texture FIREMAG2
     pic FIREMAG1 rand 3 3
 	pic FIREMAG2 rand 3 3
 	pic FIREMAG3 rand 3 3
-	
+
 Texture FIREMAG3
     pic FIREMAG1 rand 3 3
 	pic FIREMAG2 rand 3 3
 	pic FIREMAG3 rand 3 3
-	
+
 Texture FIRELAVA
     pic FIRELAVA rand 3 3
 	pic FIRELAV2 rand 3 3
 	pic FIRELAV3 rand 3 3
-	
+
 Texture FIRELAV2
     pic FIRELAVA rand 3 3
 	pic FIRELAV2 rand 3 3
 	pic FIRELAV3 rand 3 3
-	
+
 Texture FIRELAV3
     pic FIRELAVA rand 3 3
 	pic FIRELAV2 rand 3 3
@@ -840,7 +840,7 @@ flat XTEX0641
     pic XTEX0645 rand 4 4
 	pic XTEX0646 rand 4 4
 	pic XTEX0647 rand 4 4
-	
+
 flat XTEX0642
 	pic XTEX0641 rand 4 4
 	pic XTEX0642 rand 4 4
@@ -849,7 +849,7 @@ flat XTEX0642
     pic XTEX0645 rand 4 4
 	pic XTEX0646 rand 4 4
 	pic XTEX0647 rand 4 4
-	
+
 flat XTEX0643
 	pic XTEX0641 rand 4 4
 	pic XTEX0642 rand 4 4
@@ -858,7 +858,7 @@ flat XTEX0643
     pic XTEX0645 rand 4 4
 	pic XTEX0646 rand 4 4
 	pic XTEX0647 rand 4 4
-	
+
 flat XTEX0644
 	pic XTEX0641 rand 4 4
 	pic XTEX0642 rand 4 4
@@ -867,7 +867,7 @@ flat XTEX0644
     pic XTEX0645 rand 4 4
 	pic XTEX0646 rand 4 4
 	pic XTEX0647 rand 4 4
-	
+
 flat XTEX0645
 	pic XTEX0641 rand 4 4
 	pic XTEX0642 rand 4 4
@@ -876,7 +876,7 @@ flat XTEX0645
     pic XTEX0645 rand 4 4
 	pic XTEX0646 rand 4 4
 	pic XTEX0647 rand 4 4
-	
+
 flat XTEX0646
 	pic XTEX0641 rand 4 4
 	pic XTEX0642 rand 4 4
@@ -885,7 +885,7 @@ flat XTEX0646
     pic XTEX0645 rand 4 4
 	pic XTEX0646 rand 4 4
 	pic XTEX0647 rand 4 4
-	
+
 flat XTEX0647
 	pic XTEX0641 rand 4 4
 	pic XTEX0642 rand 4 4
@@ -894,7 +894,7 @@ flat XTEX0647
     pic XTEX0645 rand 4 4
 	pic XTEX0646 rand 4 4
 	pic XTEX0647 rand 4 4
-	
+
 flat XTEX0948
 	pic XTEX0949 rand 4 4
 	pic XTEX0950 rand 4 4
@@ -922,7 +922,7 @@ Texture BLANIM00
 	pic BLANIM03 rand 3 3
 	pic BLANIM02 rand 3 3
 	pic BLANIM01 rand 3 3
-	
+
 Texture BLANIM04
     pic BLANIM04 rand 3 3
 	pic BLANIM05 rand 3 3

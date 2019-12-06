@@ -1,40 +1,4 @@
 ACTOR ------COMMON-ELEMENTS---------- {}
-ACTOR BurnTics : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 300
-}
-
-ACTOR BurnSound : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 90
-}
-
-ACTOR Swimming : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-
-ACTOR PoisonIntensity : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 400
-}
-
-ACTOR StrongPoison : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 100
-}
-
-ACTOR isIntro : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-
 ACTOR BlooMClass : Inventory
 {
 	+IGNORESKILL

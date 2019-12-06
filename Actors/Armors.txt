@@ -2,7 +2,7 @@
 ACTOR ArmorPicker : PuzzleItem { Inventory.MaxAmount 2 -INVBAR }
 
 ACTOR BodyArmorPickup : CustomInventory 3155
-{	
+{
 	//$Category "BlooM Armor"
 	//$Sprite XRM1A0
 	Tag "Body Armor"
@@ -87,8 +87,8 @@ ACTOR SpiritArmorPickup : BodyArmorPickup 3157
 	}
 }
 
-ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160 
-{	
+ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160
+{
 	//$Category "BlooM Armor"
 	//$Sprite BARMA0
 	Tag "Basic Armor"
@@ -127,7 +127,7 @@ ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160
 }
 
 ACTOR BodyArmorPickupLower : CustomInventory
-{	
+{
 	//$Sprite XRM1A0
 	Scale 0.67
 	Inventory.PickupMessage "$LESA"
@@ -163,9 +163,9 @@ ACTOR BodyArmorPickupLower : CustomInventory
 
 ACTOR FireArmorPickupLower : BodyArmorPickupLower //6235
 {
-	//$Sprite ARMFA0	
+	//$Sprite ARMFA0
 	Inventory.PickupMessage "$FESA"
-	Translation "192:207=[255,255,255]:[255,32,0]","240:247=[255,32,0]:[64,16,0]" 
+	Translation "192:207=[255,255,255]:[255,32,0]","240:247=[255,32,0]:[64,16,0]"
 	States
 	{
 	Spawn:
@@ -195,10 +195,10 @@ ACTOR FireArmorPickupLower : BodyArmorPickupLower //6235
 }
 
 ACTOR SpiritArmorPickupLower : BodyArmorPickupLower //6237
-{	
+{
 	//$Sprite SARMA0
 	Inventory.PickupMessage "LESP"
-	Translation "192:207=[255,255,255]:[32,255,64]","240:247=[32,255,64]:[16,64,64]" 
+	Translation "192:207=[255,255,255]:[32,255,64]","240:247=[32,255,64]:[16,64,64]"
 	States
 	{
 	Spawn:
@@ -228,7 +228,7 @@ ACTOR SpiritArmorPickupLower : BodyArmorPickupLower //6237
 }
 
 ACTOR SuperArmorPickup : CustomInventory 3161//replaces BlueArmor 6234
-{	
+{
 	//$Category "BlooM Armor"
 	//$Sprite XRM2A0
 	Tag "Super Armor"
@@ -257,8 +257,8 @@ ACTOR SuperArmorPickup : CustomInventory 3161//replaces BlueArmor 6234
 	}
 }
 
-ACTOR BodyArmor : Inventory 
-{	
+ACTOR BodyArmor : Inventory
+{
 	Inventory.Amount 1
 	Inventory.MaxAmount 200
 	Inventory.PickupMessage "$BODA"
@@ -274,8 +274,8 @@ ACTOR BodyArmor : Inventory
 	}
 }
 
-ACTOR FireArmor : BodyArmor 
-{	
+ACTOR FireArmor : BodyArmor
+{
 	Inventory.PickupMessage "$FIRA"
 	States
 	{
@@ -285,8 +285,8 @@ ACTOR FireArmor : BodyArmor
 	}
 }
 
-ACTOR SpiritArmor : BodyArmor 
-{	
+ACTOR SpiritArmor : BodyArmor
+{
 	Inventory.PickupMessage "$SPIA"
 	States
 	{

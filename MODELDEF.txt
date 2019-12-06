@@ -401,7 +401,7 @@ Model VortexBuilding3 //animated
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
-   
+
    Path "Models/Buildings/Rolls"
    Model 0 "vortexbuilding003.md2"
    Skin 0 "VortexBuilding_2.png"
@@ -453,7 +453,7 @@ Model VortexBuilding7 //animated
    INHERITACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
-   
+
    Path "Models/Buildings/Rolls"
    Model 0 "vortexbuilding007.md2"
    Skin 0 "VortexBuilding_2.png"

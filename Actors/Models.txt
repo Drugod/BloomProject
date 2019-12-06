@@ -52,7 +52,7 @@ ACTOR Building1 18072
 }
 
 ACTOR Building2 : Building1 18073
-{ 
+{
 	//$Title 3d Building 2
 }
 
@@ -124,7 +124,7 @@ ACTOR FloorBase1 18298
 }
 
 ACTOR FloorBase2: FloorBase1 18299
-{ 
+{
 	//$Title 3d Floor Base 2
 }
 

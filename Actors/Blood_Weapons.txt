@@ -105,7 +105,7 @@ ACTOR BeastHands : Weapon
 	States
 	{
 	Select:
-		TNT1 A 1 Offset(0, 32) 
+		TNT1 A 1 Offset(0, 32)
 		TNT1 A 1 A_GunFlash("Select2", GFF_NOEXTCHANGE)
 		TNT1 A 17
 		BSSR AABBCCD 2
@@ -136,7 +136,7 @@ ACTOR BeastHands : Weapon
 		BSTL AABBCCDDEEFFGGHH 3
 		Stop
 	Fire:
-		TNT1 A 0 A_Jump(192, "Attack2", "Attack3", "Attack4")				
+		TNT1 A 0 A_Jump(192, "Attack2", "Attack3", "Attack4")
 		TNT1 A 1 A_Playsound("BeastSlash1")
 		BST1 A 1 A_GunFlash("", GFF_NOEXTCHANGE)
 		TNT1 A 0 A_CUSTOMPUNCH(1000)
@@ -1313,18 +1313,6 @@ ACTOR ProximityDynamite : CalebW
 	}
 }
 
-ACTOR TNT2 : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-
-ACTOR TNTCounter : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 3
-}
-
 ACTOR TNTSoundDelay : PowerDamage
 {
 	DamageFactor "Normal", 1.0
@@ -2031,18 +2019,6 @@ ACTOR ProxTNT : Ammo
 }
 
 //========== SPRAY CAN ==========//
-ACTOR BurnCheck : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 100
-}
-
-ACTOR HoldingSpray : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-
 ACTOR Spraycan : CalebW //replaces PlasmaRifle 2004
 {
 	//Spawnid 30
@@ -2299,30 +2275,6 @@ ACTOR Spraycan : CalebW //replaces PlasmaRifle 2004
 		SPRC ABCD 3 A_WeaponReady(14)
 		Goto Ready
 	}
-}
-
-ACTOR SpraySound : Inventory
-{
-	Inventory.MaxAmount 70
-	Inventory.Amount 1
-}
-
-ACTOR RemoveSpray : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-
-ACTOR RemoveProximity : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-
-ACTOR RemoveTNT : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
 }
 
 ACTOR --------SHOTGUNS------------ {}
@@ -2620,12 +2572,6 @@ ACTOR DoubleSawedoff : Sawedoff
 	}
 }
 
-ACTOR SawedOffCheck : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-
 ACTOR --------TOMMYGUN--------- {}
 ACTOR TommygunCasing
 {
@@ -2919,12 +2865,6 @@ ACTOR Tommygun : CalebW 3138 //replaces Chaingun 2002
 	}
 }
 
-ACTOR TommyCounter : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 8
-}
-
 ACTOR DoubleTommyGun : Tommygun
 {
 	Weapon.AmmoUse 1
@@ -3012,12 +2952,6 @@ ACTOR DoubleTommyGun : Tommygun
 }
 
 ACTOR --------NAPALMLAUNCHER--------- {}
-ACTOR RealFlash : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
-}
-
 ACTOR NapalmLauncher : CalebW 3139 // 2003
 {
 	//$Sprite NLAGA0
@@ -3526,13 +3460,6 @@ ACTOR NapalmKaboom
 }
 
 ACTOR --------TESLARIFLE--------- {}
-ACTOR TeslaCounterX : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 24
-	+IGNORESKILL
-}
-
 ACTOR TeslaRifle : CalebW 3140
 {
 	//$Sprite TSPIA0
@@ -3794,12 +3721,6 @@ ACTOR DoubleTesla : TeslaRifle
 		TNT1 A 0 A_TakeInventory("StopFiring", 1)
 		Stop
 	}
-}
-
-ACTOR StopFiring : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
 }
 
 ACTOR TeslaSmoke
@@ -4276,21 +4197,6 @@ ACTOR LifeLeechShot
 	}
 }
 
-ACTOR TwinkleHeal : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 10//10 max hands just for a horrible ending
-	+AUTOACTIVATE
-	+ALWAYSPICKUP
-	States
-	{
-	Use:
-	Pickup:
-		TNT1 A 1 A_SetBlend("Yellow",0.5,10)
-		Stop
-	}
-}
-
 ACTOR LifeLeechShot2 : LifeLeechShot
 {
 	DeathSound "LLFireExplode2"
@@ -4547,12 +4453,6 @@ ACTOR VoodooPuff2 : BulletPuff // Uses tid of it as ammo, in the script the tid 
 		TNT1 A 0 A_BFGSpray("VoodooPuff",tid,15)
 		Stop
 	}
-}
-
-ACTOR RemoveVodoo : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 1
 }
 
 ACTOR --------NOWEAPON--------- {}

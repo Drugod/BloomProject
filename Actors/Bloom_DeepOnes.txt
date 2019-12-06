@@ -193,12 +193,6 @@ ACTOR DeepOne_Base
 	}
 }
 
-ACTOR DeepOnesChecks : Inventory
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 28
-}
-
 ACTOR DeepOneShot : DeepOne_Base 19052
 {
 	//$Title Deep One (Shotgun)

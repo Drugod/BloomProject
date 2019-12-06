@@ -49,7 +49,7 @@ ACTOR LifeSeed : Health 3165
 
 ACTOR -------DEATHMASK---------- {}
 ACTOR Deathmask : PowerupGiver 3151
-{ 
+{
 	//$Category "BlooM Powerups"
 	//$Title Death mask
 	Inventory.PickupMessage "$MASK"
@@ -60,7 +60,7 @@ ACTOR Deathmask : PowerupGiver 3151
 	+FLOATBOB
 	scale 0.7
 	Powerup.color White 0.12
-	PowerUp.Type "Invulnerable"  
+	PowerUp.Type "Invulnerable"
 	States
 	{
 	Spawn:
@@ -71,7 +71,7 @@ ACTOR Deathmask : PowerupGiver 3151
 
 ACTOR -------GUNSAKIMBO---------- {}
 ACTOR GunsAkimbo : CustomInventory 3152
-{ 
+{
 	//$Category "BlooM Powerups"
 	//$Title Guns Akimbo
 	Scale 0.6
@@ -94,7 +94,7 @@ ACTOR GunsAkimbo : CustomInventory 3152
 
 ACTOR PowerGunsAkimbo : PowerupGiver
 {
-	Scale 0.6 
+	Scale 0.6
 	Inventory.MaxAmount 0
 	PowerUp.Type "WeaponLevel2"
 	PowerUp.Duration 1250
@@ -140,18 +140,18 @@ ACTOR Berserk_ : CustomInventory replaces Berserk
 	Pickup2:
 		TNT1 A 1 A_Playsound("dscult2")
 		TNT1 A 1 A_GiveInventory("Wolfme")
-		TNT1 A 0 HealThing(100, 0)		
+		TNT1 A 0 HealThing(100, 0)
 		Stop
 	}
 }
 
 ACTOR WolfMe : PowerupGiver
-{ 
+{
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	PowerUp.Duration 1050
 	Powerup.Color RedMap
-	PowerUp.Type "Wolf"	
+	PowerUp.Type "Wolf"
 }
 
 ACTOR PowerWolf : PowerMorph
@@ -171,4 +171,4 @@ ACTOR Wolfmorph //here how caleb transform into werewolf
 		TNT1 A 1
 		Stop
 	}
-} 
+}

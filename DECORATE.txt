@@ -3,6 +3,7 @@ Const Int BLM_FLAGS2 = SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANS
 Const Int BLM_FLAGS3 = SXF_SETMASTER | SXF_NOCHECKPOSITION;
 
 #include Actors/Shared.txt //load this always first! It must NOT contain anything that has a DoomEdNum defined - ozy81
+#include Actors/Counters.txt //and this as second! - ozy81
 #include Actors/Keys.txt
 #include Actors/Armors.txt
 #include Actors/Health.txt

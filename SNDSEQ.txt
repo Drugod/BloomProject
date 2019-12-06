@@ -6,11 +6,11 @@ end
 :CalebSpeech
 	slot CalebLaugh
 	playuntildone CalebSpeech1
-	playuntildone CalebSpeech2 
+	playuntildone CalebSpeech2
 	playuntildone CalebSpeech3
 	playuntildone CalebSpeech4
 	playuntildone CalebSpeech5
-	playuntildone CalebSpeech6 
+	playuntildone CalebSpeech6
 	playuntildone CalebSpeech7
 	playuntildone CalebSpeech8
 	playuntildone CalebSpeech9
@@ -33,13 +33,13 @@ end
 :SeqOldDoorOpen
 	Door 6
 	playrepeat OLDOR1
-	stopsound OLDORS	
+	stopsound OLDORS
 end
 
 //Open Coffin 7
 :SeqOldcoffinOpen
 	platform 7
-	playrepeat OLDOR1 
+	playrepeat OLDOR1
 end
 
 //Sector silence 8
@@ -50,14 +50,14 @@ end
 //Close Coffin2 9
 :SeqOldPlatformMove
 	platform 9
-	play OLDORS	
+	play OLDORS
 	stopsound OLDORS
 end
 
 //Moving platform 10
 :SeqOldcoffinOpen2
 	platform 10
-	playuntildone OLDOR1 
+	playuntildone OLDOR1
 	stopsound OLDORS
 end
 
@@ -77,7 +77,7 @@ end
 	stopsound ELSTOP2
 end
 
-//wood door1 
+//wood door1
 :seqWoodDoorOpen1
 	door 13
 	playuntildone DOOROPEN

@@ -180,7 +180,7 @@ ACTOR ShotgunGuy_ : DoomEnemy_base 18999
 		TNOS BC 5
 		TNT1 A  0 A_ThrowGrenade("DoomMonsterTNT",0,20,4,0)
 		TNOS D  5
-		Goto See	
+		Goto See
 	Pain:
 		SPOS G 3
 		SPOS G 3 A_Pain
@@ -288,7 +288,7 @@ ACTOR ChaingunGuy_ : DoomEnemy_Base 18998
 		CTNT BC 5
 		TNT1 A  0 A_ThrowGrenade("DoomMonsterTNT",0,20,4,0)
 		CTNT D  5
-		Goto See			
+		Goto See
 	Pain:
 		CPOS G 3
 		CPOS G 3 A_Pain

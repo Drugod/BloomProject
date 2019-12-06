@@ -5,7 +5,7 @@ statusbar fullscreen
 	{
 		//Hud
 		drawimage "BLUDLEF3", -180, 35;// -380, 35;
-		drawimage "BLUDRIG", 448, 135;//648, 135;	
+		drawimage "BLUDRIG", 448, 135;//648, 135;
 		drawselectedinventory INDEXFONT, 476,138,514,141;//676, 138, 714, 141;
 		drawmugshot 5, -162,70;//-362, 70;
 		drawnumber 6, SMALLFONT, RED, health, -153,135,0;//-353, 135,0;
@@ -13,23 +13,23 @@ statusbar fullscreen
 		//Armor
 		drawbar "REDABAR", "BLACKBAR",  FireArmor, horizontal, 450,137;//650, 137;
 		drawbar "BLUEBAR", "BLACKBAR",  BodyArmor, horizontal, 450,145;//650, 145;
-		drawbar "GRNABAR", "BLACKBAR",  SpiritArmor, horizontal, 450,153;//650, 153;	
+		drawbar "GRNABAR", "BLACKBAR",  SpiritArmor, horizontal, 450,153;//650, 153;
 		//TNT/Spray Can throw power
 		IsSelected Dynamite{
-			drawbar "TNTMTR01", "TNTMTR00", Ammo ThrowPower, horizontal, interpolate(50), 0, -35;	
+			drawbar "TNTMTR01", "TNTMTR00", Ammo ThrowPower, horizontal, interpolate(50), 0, -35;
 		}
 		IsSelected Spraycan{
-			drawbar "TNTMTR01", "TNTMTR00", Ammo ThrowPower, horizontal, interpolate(50), 0, -35;	
+			drawbar "TNTMTR01", "TNTMTR00", Ammo ThrowPower, horizontal, interpolate(50), 0, -35;
 		}
 		IsSelected RemoteDynamite{
-			drawbar "TNTMTR01", "TNTMTR00", Ammo ThrowPower, horizontal, interpolate(50), 0, -35;	
+			drawbar "TNTMTR01", "TNTMTR00", Ammo ThrowPower, horizontal, interpolate(50), 0, -35;
 		}
 		IsSelected ProximityDynamite{
-			drawbar "TNTMTR01", "TNTMTR00", Ammo ThrowPower, horizontal, interpolate(50), 0, -35;	
+			drawbar "TNTMTR01", "TNTMTR00", Ammo ThrowPower, horizontal, interpolate(50), 0, -35;
 		}
-		inInventory FireArmor 
+		inInventory FireArmor
 		{ drawnumber 4, BLUEFONT, white, FireArmor,  465, 138;}//665, 138;}
-		else 
+		else
 		{ 	drawbar "REDABAR", "BLACKBAR",  armor, horizontal, 450, 137;//650, 137;
 			drawnumber 4, BLUEFONT, white, armor , 465, 138;//665, 138;
 			drawbar "BLUEBAR", "BLACKBAR",  armor, horizontal, 450, 145;//650, 145;
@@ -37,18 +37,18 @@ statusbar fullscreen
 			drawbar "GRNABAR", "BLACKBAR",  armor, horizontal, 450, 153;//650, 153;
 			drawnumber 4, BLUEFONT, white, armor, 465, 154; //665, 154;
 		}
-		inInventory BodyArmor 
+		inInventory BodyArmor
 		{ drawnumber 4, BLUEFONT, white, BodyArmor, 465, 146; }//665, 146; }
 		inInventory SpiritArmor
-		{ drawnumber 4, BLUEFONT, white, SpiritArmor, 465, 154; }//665, 154; }	
+		{ drawnumber 4, BLUEFONT, white, SpiritArmor, 465, 154; }//665, 154; }
 		//Diving Suit
 		inInventory PowerAir, 1 {
 			DrawImage "SQ1", -525, -550, none, 320, 200, forcescale;
 			DrawImage "SQ2",  125, -550, none, 320, 200, forcescale;
 			DrawImage "SQ3", -525, -150, none, 320, 200, forcescale;
 			DrawImage "SQ4",  125, -150, none, 320, 200, forcescale;
-			DrawImage "REFLEX1",  -525, -550, none, 640, 480, forcescale;		
-			DrawImage "REFLEX2",  -425, -450, none, 640, 480, forcescale;				
+			DrawImage "REFLEX1",  -525, -550, none, 640, 480, forcescale;
+			DrawImage "REFLEX2",  -425, -450, none, 640, 480, forcescale;
 		}
 	}
 }
@@ -59,8 +59,8 @@ statusbar normal
 	inInventory not isIntro
 	{
 		//Hud
-		drawimage "BLUDBAR", -62, 145; 
-		drawmugshot 5, 143, 165;	
+		drawimage "BLUDBAR", -62, 145;
+		drawmugshot 5, 143, 165;
 		drawnumber 3, SMALLFONT, RED, health, 105, 181;
 		drawnumber 3, SMALLFONT, RED, ammo1, 236, 181;
 		//Keys
@@ -76,9 +76,9 @@ statusbar normal
 		drawbar "REDABAR", "BLACKBAR",  FireArmor, horizontal, 44, 175;
 		drawbar "BLUEBAR", "BLACKBAR",  BodyArmor, horizontal, 44, 183;
 		drawbar "GRNABAR", "BLACKBAR",  SpiritArmor, horizontal, 44, 191;
-		inInventory FireArmor 
+		inInventory FireArmor
 		{ drawnumber 4, BLUEFONT, white, FireArmor, 59, 176;}
-		else 
+		else
 		{ 	drawbar "REDABAR", "BLACKBAR",  armor, horizontal, 44, 175;
 			drawnumber 4, BLUEFONT, white, armor , 59, 176;
 			drawbar "BLUEBAR", "BLACKBAR",  armor, horizontal, 44, 183;
@@ -86,7 +86,7 @@ statusbar normal
 			drawbar "GRNABAR", "BLACKBAR",  armor, horizontal, 44, 191;
 			drawnumber 4, BLUEFONT, white, armor, 59, 192;
 		}
-		inInventory BodyArmor 
+		inInventory BodyArmor
 		{ drawnumber 4, BLUEFONT, white, BodyArmor, 59, 184; }
 		inInventory SpiritArmor
 		{ drawnumber 4, BLUEFONT, white, SpiritArmor, 59, 192; }
@@ -96,15 +96,15 @@ statusbar normal
 			DrawImage "SQ2",  125, -550, none, 320, 200, forcescale;
 			DrawImage "SQ3", -525, -150, none, 320, 200, forcescale;
 			DrawImage "SQ4",  125, -150, none, 320, 200, forcescale;
-			DrawImage "REFLEX1",  -525, -550, none, 640, 480, forcescale;		
-			DrawImage "REFLEX2",  -425, -450, none, 640, 480, forcescale;				
+			DrawImage "REFLEX1",  -525, -550, none, 640, 480, forcescale;
+			DrawImage "REFLEX2",  -425, -450, none, 640, 480, forcescale;
 		}
 		//Gamemodes
 		gamemode deathmatch, teamgame
 		{
 			drawnumber 2, HUDFONT_DOOM, untranslated, frags, 138, 171;
 		}
-		
+
 		gamemode cooperative, deathmatch, teamgame
 		{
 			drawimage translatable "STFBANY", 144, 169;
@@ -114,9 +114,9 @@ statusbar normal
 		PlayerClass Caleb
 		{
 			inInventory RemBombAmmo, 1
-			{ drawnumber 4, BLUEFONT, white, ammo RemBombAmmo, 315, 193; }	
+			{ drawnumber 4, BLUEFONT, white, ammo RemBombAmmo, 315, 193; }
 			inInventory ProxTNT, 1
-			{ drawnumber 4, BLUEFONT, white, ammo ProxTNT, 295, 193; }			
+			{ drawnumber 4, BLUEFONT, white, ammo ProxTNT, 295, 193; }
 		}
 	}
 }
