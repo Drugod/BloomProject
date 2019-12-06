@@ -276,7 +276,7 @@ ACTOR DeepOneShot : DeepOne_Base 19052
 		Stop
 	Missile.Setup:
 		FIWW E 10 A_FaceTarget
-		FIWW F 10 Bright A_SPosAttackUseAtkSound
+		FIWW F 10 A_SPosAttackUseAtkSound
 		FIWW E 10
 		TNT1 A 0 A_Jump(256,"See")
 		Stop
@@ -342,7 +342,7 @@ ACTOR DeepOneShot : DeepOne_Base 19052
 		Stop
 	Ground.MissileSetup:
 		FISH E 10 A_FaceTarget
-		FISH F 10 Bright A_SPosAttackUseAtkSound
+		FISH F 10 A_SPosAttackUseAtkSound
 		FISH E 10
 		TNT1 A 0 A_Jump(160,"Ground.See")
 	LaunchTnt:
