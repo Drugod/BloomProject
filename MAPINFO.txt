@@ -70,6 +70,18 @@ map BLM04 lookup "BLM_M04"
    NoIntermission
 }
 
+map BLM05 lookup "BLM_M05"
+{
+   levelnum = 4
+   next = INT00
+   sky1 = "YTEXTH63", 0.05
+   sky2 = "YTEXTH63", 0.05
+   par = 120
+   sucktime = 10
+   music = "d_ddtblu"
+   NoIntermission
+}
+
 map INT00 lookup "BLM_INT"
 {
    levelnum = 0
