@@ -1,6 +1,10 @@
-This repository belongs to BLOOM TEAM, I have just provided my knowledge into github 
-usage with permission to publish the project here, so we can have also a mutual
-workflow together (and possibly invite other people to contribute).
+This repository belongs to BLOOM TEAM, and it has been converted as Private repository since
+07/12/2019 due to some problems noticed with people sharing the project without our approval.
+
+Thanks to Ozymandias81 to have provide his knowledge to have this repository open and working
+as public for several months in order to release the Demo in time for Halloween.
+
+The old archived repository can be found at *INSERT LINK HERE*
 
 We have a website for this mod, check it asap: https://www.bloomteam666.com
 
