@@ -990,6 +990,7 @@ ACTOR CreepyTVSpawner : RandomSpawner 18412
 	DropItem "CreepyTV2"
 	DropItem "CreepyTV3"
 	DropItem "CreepyTV4"
+	DropItem "CreepyTV5"
 }
 
 ACTOR CreepyTV1 18413
@@ -1042,6 +1043,17 @@ ACTOR CreepyTV4 : CreepyTV1 18416
 		UNKN ABCDEFGHIJKLMNOPQRSTUVWXYZ 6
 		POSS A 2
 		UNKN JIHGFEDCB 6
+		Loop
+	}
+}
+
+ACTOR CreepyTV5 : CreepyTV1 18427
+{
+	//$Title 3d Creepy TV 5
+	States
+	{
+	Spawn:
+		UNKN ABCDEFGHIJKLMN 6
 		Loop
 	}
 }

@@ -933,6 +933,87 @@ Texture BLANIM04
 	pic BLANIM10 rand 3 3
 	pic BLANIM11 rand 3 3
 
+Texture SCR01_00
+    pic SCR01_00 rand 3 3
+    pic SCR01_01 rand 3 3
+	pic SCR01_02 rand 3 3
+	pic SCR01_03 rand 3 3
+	pic SCR01_04 rand 3 3
+    pic SCR01_05 rand 3 3
+	pic SCR01_06 rand 3 3
+	pic SCR01_07 rand 3 3
+	pic SCR01_08 rand 3 3
+	pic SCR01_09 rand 3 3
+	pic SCR01_10 rand 3 3
+	pic SCR01_11 rand 3 3
+	pic SCR01_12 rand 3 3
+	pic SCR01_13 rand 3 3
+
+Texture SCR02_00
+    pic SCR02_00 rand 3 3
+    pic SCR02_01 rand 3 3
+	pic SCR02_02 rand 3 3
+	pic SCR02_03 rand 3 3
+	pic SCR02_04 rand 3 3
+    pic SCR02_05 rand 3 3
+	pic SCR02_06 rand 3 3
+	pic SCR02_07 rand 3 3
+	pic SCR02_08 rand 3 3
+	pic SCR02_09 rand 3 3
+	pic SCR02_10 rand 3 3
+	pic SCR02_11 rand 3 3
+	pic SCR02_12 rand 3 3
+	pic SCR02_13 rand 3 3
+
+Texture SCR03_00
+    pic SCR03_00 rand 3 3
+    pic SCR03_01 rand 3 3
+	pic SCR03_02 rand 3 3
+	pic SCR03_03 rand 3 3
+	pic SCR03_04 rand 3 3
+    pic SCR03_05 rand 3 3
+	pic SCR03_06 rand 3 3
+	pic SCR03_07 rand 3 3
+	pic SCR03_08 rand 3 3
+	pic SCR03_09 rand 3 3
+	pic SCR03_10 rand 3 3
+	pic SCR03_11 rand 3 3
+	pic SCR03_12 rand 3 3
+	pic SCR03_13 rand 3 3
+
+Texture SCR04_00
+    pic SCR04_00 rand 3 3
+    pic SCR04_01 rand 3 3
+    pic SCR04_01 rand 3 3
+	pic SCR04_02 rand 3 3
+	pic SCR04_03 rand 3 3
+	pic SCR04_04 rand 3 3
+    pic SCR04_05 rand 3 3
+	pic SCR04_06 rand 3 3
+	pic SCR04_07 rand 3 3
+	pic SCR04_08 rand 3 3
+	pic SCR04_09 rand 3 3
+	pic SCR04_10 rand 3 3
+	pic SCR04_11 rand 3 3
+	pic SCR04_12 rand 3 3
+	pic SCR04_13 rand 3 3
+
+Texture SCR05_00
+    pic SCR05_00 rand 3 3
+    pic SCR05_01 rand 3 3
+	pic SCR05_02 rand 3 3
+	pic SCR05_03 rand 3 3
+	pic SCR05_04 rand 3 3
+    pic SCR05_05 rand 3 3
+	pic SCR05_06 rand 3 3
+	pic SCR05_07 rand 3 3
+	pic SCR05_08 rand 3 3
+	pic SCR05_09 rand 3 3
+	pic SCR05_10 rand 3 3
+	pic SCR05_11 rand 3 3
+	pic SCR05_12 rand 3 3
+	pic SCR05_13 rand 3 3
+
 Texture optional P_CALEB
 	PIC P_CALEB	    tics 1
 	PIC P_CALEB1	tics 1
