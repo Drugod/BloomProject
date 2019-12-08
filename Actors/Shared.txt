@@ -2,14 +2,23 @@
 ACTOR ------------------INHERITS----------------------{}
 ACTOR BloodEnemy_Base
 {
-    //$Category "BlooM Monsters"
+    //$Category "Blood Monsters"
 	//$Color 5
+	Monster
+}
+
+ACTOR DoomEnemy_Base
+{
+	//$Category "Doom Monsters"
+	//$Color 8
+	Height 56
+	Speed 8
 	Monster
 }
 
 ACTOR BloomHybrid_Base
 {
-	//$Category Bloom Hybrid Monsters
+	//$Category "BlooM Monsters"
 	//$Color 3
 	Health 30
 	Radius 20

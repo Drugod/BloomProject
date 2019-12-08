@@ -460,16 +460,6 @@ $Random SummonZombies { 13CHA 13CHU 13KILL 13DEATH }
 13KILL	13KILL
 13DEATH	13DEATH
 
-//BATS
-Bat/Ambience	BAT
-Bat/Die1	BATDIE1
-Bat/Die2	BATDIE2
-Bat/Die3	BATDIE3
-$Random Bat/Die	{Bat/Die1	Bat/Die2	Bat/Die3}
-Bat/Pain	BATPAIN
-Bat/Roam	BATROAM
-Bat/Spot	BATSPOT
-
 //EEL
 Eel/Die1	EELDIE1
 Eel/Die2	EELDIE2
@@ -656,6 +646,14 @@ PhantomWin PhaROAM
 $RollOff PhantomWin 2000 4000 //Creep factor
 Phantasm/Creepy	PHAROAM
 Phantasm/Skull	SKULAIR
+
+//BATS - From Blade of Agony, courtesy by Ozy81
+batfam/idle1 batidle1
+batfam/idle2 batidle2
+$random batfam/idle { batfam/idle1 batfam/idle2 }
+batfam/pain batpain
+batfam/death batdie
+batfam/crash batcrash
 
 //RATS
 RATB RTBRGR

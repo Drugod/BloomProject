@@ -223,6 +223,19 @@ Brightmap sprite ZOMZA6A4 	{map "Brightmaps/ZOMZA6A4.png"}
 Brightmap sprite ZOMZA7A3 	{map "Brightmaps/ZOMZA7A3.png"}
 Brightmap sprite ZOMZA8A2 	{map "Brightmaps/ZOMZA8A2.png"}
 
+//BloodBat
+Brightmap sprite BFAMA1		{map "Brightmaps/BFAMA1.png"}
+Brightmap sprite BFAMA2A8	{map "Brightmaps/BFAMA2A8.png"}
+Brightmap sprite BFAMA3A7	{map "Brightmaps/BFAMA3A7.png"}
+Brightmap sprite BFAMB1		{map "Brightmaps/BFAMB1.png"}
+Brightmap sprite BFAMB2B8	{map "Brightmaps/BFAMB2B8.png"}
+Brightmap sprite BFAMB3B7	{map "Brightmaps/BFAMB3B7.png"}
+Brightmap sprite BFAMC1		{map "Brightmaps/BFAMC1.png"}
+Brightmap sprite BFAMC2C8	{map "Brightmaps/BFAMC2C8.png"}
+Brightmap sprite BFAMC3C7	{map "Brightmaps/BFAMC3C7.png"}
+Brightmap sprite BFAMD0		{map "Brightmaps/BFAMD0.png"}
+Brightmap sprite BFAME0		{map "Brightmaps/BFAME0.png"}
+
 //BloodZombie (stand/buried)
 Brightmap sprite BZOMA1		{map "Brightmaps/BZOMA1.png"}
 Brightmap sprite BZOMA8A2	{map "Brightmaps/BZOMA8A2.png"}

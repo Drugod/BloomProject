@@ -452,7 +452,7 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 
 ACTOR LivingGargStatue 3270
 {
-	//$Category "BlooM Monsters"
+	//$Category "Blood Monsters"
 	//$Title Living Gargoyle Statue
 	//$Color 5
 	Scale 0.6
@@ -529,7 +529,7 @@ ACTOR GargBurn
 ACTOR ---------HELLFISH---------- {}
 ACTOR Hellfish : Cacodemon 3100//replaces Cacodemon 6142
 {
-	//$Category "BlooM Monsters"
+	//$Category "Blood Monsters"
 	//$Title HellFish
 	//$Color 5
 	Health 15
@@ -2348,7 +2348,7 @@ ACTOR BuriedZombie : BloodZombie 3121
 ACTOR -----GILLBEAST------- {}
 ACTOR GillBeast : Cacodemon 3126
 {
-	//$Category "BlooM Monsters"
+	//$Category "Blood Monsters"
 	//$Title Gill Beast
 	//$Color 5
 	Radius 20
@@ -2935,7 +2935,7 @@ ACTOR Phantasm : BloodEnemy_Base  3134
 ACTOR ------HELLHOUND------- {}
 ACTOR HellHound : HellKnight 3130
 {
-    //$Category "BlooM Monsters"
+    //$Category "Blood Monsters"
 	//$Title Hell Hound
 	//$Color 5
 	Radius 20
@@ -3546,7 +3546,7 @@ ACTOR SpiderMother : BloodEnemy_Base 3135
 		SPDF A 0 A_SeTAngle(angle+frandom(-50,50))
 		SPDF A 0 A_Recoil(-19)
 		SPDF AAA 4 ThrustThingZ(0,22,0,0)
-		SPDF A 1 A_JumpIfInventory("SpawnCounter",10,"Jeroneemo.End")
+		SPDF A 1 A_JumpIfInventory("SpawnCounter",8,"Jeroneemo.End")
 		SPDF A 0 A_Jump(255,"Missile.Jeroneemo1","Missile.Jeroneemo2","Missile.Jeroneemo3","Missile.Jeroneemo4","Missile.Jeroneemo5","Missile.Jeroneemo6","Missile.Jeroneemo7","Missile.Jeroneemo8")
 	Missile.Jeroneemo1:
 		SPDW A 0 A_GiveInventory("SpawnCounter",1)
@@ -3608,7 +3608,7 @@ ACTOR SpiderMother : BloodEnemy_Base 3135
 		SPDW AABBCCDD 2
 	Missile:
 		SPDW EE 4
-		SPDW E 1 A_JumpIfInventory("SpawnCounter",10,"Missile.Spit")
+		SPDW E 1 A_JumpIfInventory("SpawnCounter",8,"Missile.Spit")
 		SPDW E 0 A_Jump(64,"Missile.Spit") //sometimes change the kind of attack
 		SPDW E 0 A_Jump(255,"Missile.Spider1","Missile.Spider2","Missile.Spider3","Missile.Spider4","Missile.Spider5","Missile.Spider6","Missile.Spider7","Missile.Spider8")
 	Missile.Spider1:
@@ -4568,7 +4568,7 @@ ACTOR Drt : BaseBramble
 
 ACTOR LavaPod : ChrysalidPod 6148
 {
-    //$Category "BlooM Monsters"
+    //$Category "Blood Monsters"
 	//$Title Lava Pod
 	//$Color 5
   	Obituary "$OB_LAVPOD"
@@ -4799,6 +4799,99 @@ ACTOR HellroseBrambleRed : HellRoseBramble
 	}
 }
 
+ACTOR ------VANILLA_BAT------ {}
+ACTOR BatFamiliar : BloodEnemy_Base 18500
+{
+    //$Category "Blood Monsters"
+	//$Title Bat
+	//$Color 5
+	Health 4
+	Radius 16
+	Height 32
+	FloatSpeed 4.3
+	Speed 3.3
+	PainChance 200
+	Scale 0.57
+	Monster
+	+FLOAT
+	+NOGRAVITY
+	-CANPUSHWALLS
+	-CANUSEWALLS
+	Species "Spiders"
+	SeeSound "batfam/idle"
+	PainSound "batfam/pain"
+	DeathSound "batfam/death"
+	ActiveSound "batfam/idle"
+	HitObituary "$OB_BATS"
+	States
+	{
+	Spawn:
+		BFAM ABCB 3 A_Look
+		Loop
+	See:
+		BFAM A 1 A_Chase
+		"####" AA 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		"####" B 1 A_Chase
+		"####" BB 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		"####" C 1 A_Chase
+		"####" CC 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		"####" D 1 A_Chase
+		"####" DD 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		Loop
+	Melee:
+		BFAM A 3 A_FaceTarget
+		"####" A 0 A_Jump(64,"Missed")
+		"####" B 3 A_CustomMeleeAttack(random(3,8),"batfam/idle")
+		"####" CB 3 A_FaceTarget
+		Goto See
+	Missed: //here in order to avoid looping attacks, so the critter is less threatening
+		"####" B 3
+		"####" CB 3 A_FaceTarget
+		Goto See
+	Pain:
+		BFAM A 2
+		"####" A 2 A_Pain
+		Goto See
+	Pain.LifeLeech:
+		BFAM A 0 A_Jump(64,1)
+		Goto See
+		BFAM A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Death:
+		BFAM D 3 A_Scream
+		"####" D 2 A_UnSetSolid
+		"####" D 1 A_ChangeFlag("NOGRAVITY",0)
+		"####" D 1 A_NoBlocking
+		"####" EFD 5
+		"####" F 5
+		"####" G 5 A_Fall
+		"####" HI 5
+		"####" J -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.LifeLeech:
+	Death.Flare:
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		BATB A 1 A_Scream
+		"####" A 1 A_UnSetSolid
+		"####" A 1 A_NoBlocking
+		"####" B 2 A_SetSpeed(0)
+		"####" CBACBA 4 A_PlaySound("batfam/pain")
+		"####" DEFDEF 3 A_PlaySound("batfam/idle")
+		"####" F 1 A_ChangeFlag("NOGRAVITY",0)
+		"####" GH 2 A_PlaySound("batfam/pain")
+		"####" I -1
+		Stop
+	XDeath:
+		BFAM G 6 A_PlaySound("batfam/crash")
+		"####" H 7
+		"####" I 8
+		"####" J -1
+		Stop
+	}
+}
+
 ACTOR ------VANILLA_RATS------ {}
 ACTOR BloodRatSpawner 19069
 {
@@ -4829,8 +4922,8 @@ ACTOR BloodRatSpawner 19069
 
 ACTOR BloodRat : BloodEnemy_Base 3132
 {
-	//$Title Rat
-    //$Category "BlooM Monsters"
+    //$Category "Blood Monsters"
+	//$Title Blood Rat, Brown
 	//$Color 5
 	Tag "Rat"
 	Health 24
@@ -4949,8 +5042,7 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 
 ACTOR BloodRatBlack : BloodRat 19066
 {
-	//$Title Rat (Black)
-	Tag "Rat(Black)"
+	//$Title Blood Rat, Black
 	States
 	{
 	Spawn:
@@ -5046,8 +5138,7 @@ ACTOR BloodRatBlack : BloodRat 19066
 
 ACTOR BloodRatGrey : BloodRat 19067
 {
-	//$Title Rat (Grey)
-	Tag "Rat(Grey)"
+	//$Title Blood Rat, Grey
 	States
 	{
 	Spawn:
@@ -5143,8 +5234,7 @@ ACTOR BloodRatGrey : BloodRat 19067
 
 ACTOR BloodRatWhite : BloodRat 19068
 {
-	//$Title Rat (White)
-	Tag "Rat(White)"
+	//$Title Blood Rat, White
 	States
 	{
 	Spawn:
@@ -5498,9 +5588,7 @@ ACTOR SpiderClimber : NewSpiderRed { -THRUSPECIES }
 
 ACTOR SpiderGreen : NewSpiderRed 6191
 {
-	//$Category "BlooM Monsters"
 	//$Title Green Spider (BlooM)
-	//$Color 5
 	Speed 3
 	FastSpeed 6
 	PoisonDamage 4
@@ -5546,9 +5634,7 @@ ACTOR GreenSpider : SpiderGreen
 
 ACTOR SpiderBlue : NewSpiderRed 6192
 {
-    //$Category "BlooM Monsters"
 	//$Title Blue Spider (BlooM)
-	//$Color 5
 	Speed 13
 	FastSpeed 17
 	Damage 2
@@ -5581,7 +5667,6 @@ ACTOR BlueSpider : SpiderBlue
 
 ACTOR SpiderYellow : SpiderGreen 6164
 {
-    //$Category "BlooM Monsters"
 	//$Title Yellow Spider (BlooM)
 	Health 50
 	DamageType "PoisonCloud"
@@ -5612,9 +5697,7 @@ ACTOR YellowSpider : SpiderYellow
 
 ACTOR SpiderPurple : NewSpiderRed 6165
 {
-    //$Category "BlooM Monsters"
 	//$Title Purple Spider (BlooM)
-	//$Color 5
 	Speed 4
 	PoisonDamage 3
 	Damage 2
@@ -5648,7 +5731,6 @@ ACTOR PurpleSpider : SpiderPurple
 
 ACTOR SpiderCyan : SpiderGreen 6166
 {
-   	//$Category "BlooM Monsters"
 	//$Title Cyan Spider (BlooM)
 	Speed 15
 	FastSpeed 30
@@ -5696,7 +5778,6 @@ ACTOR CurseNumbness : PowerupGiver
 
 ACTOR SpiderBlack : SpiderGreen 6167
 {
-   	//$Category "BlooM Monsters"
 	//$Title Black Spider (BlooM)
 	Health 150
 	Gravity .3
@@ -5743,7 +5824,7 @@ ACTOR CurseFragility : PowerupGiver
 
 ACTOR SpiderWhite : SpiderRed 6168 // A mediocre version of spider mother
 {
-	//$Category "BlooM Monsters"
+	//$Category "Blood Monsters"
 	//$Title White Spider (BlooM)
 	//$Color 5
 	Health 250

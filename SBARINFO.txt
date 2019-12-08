@@ -5,7 +5,7 @@ statusbar fullscreen
 	{
 		//Hud
 		drawimage "BLUDLEF3", -180, 35;// -380, 35;
-		drawimage "BLUDRIG", 448, 135;//648, 135;
+		drawimage "BLUDRIG2", 448, 117;//648, 135;
 		drawselectedinventory INDEXFONT, 476,138,514,141;//676, 138, 714, 141;
 		drawmugshot 5, -162,70;//-362, 70;
 		drawnumber 6, SMALLFONT, RED, health, -153,135,0;//-353, 135,0;
@@ -14,6 +14,13 @@ statusbar fullscreen
 		drawbar "REDABAR", "BLACKBAR",  FireArmor, horizontal, 450,137;//650, 137;
 		drawbar "BLUEBAR", "BLACKBAR",  BodyArmor, horizontal, 450,145;//650, 145;
 		drawbar "GRNABAR", "BLACKBAR",  SpiritArmor, horizontal, 450,153;//650, 153;
+		//Keys
+		drawswitchableimage Key1, "nullimage", "FTKEYS4", 451,121;
+		drawswitchableimage Key2, "nullimage", "FTKEYS5", 461,121;
+		drawswitchableimage Key3, "nullimage", "FTKEYS3", 473,121;
+		drawswitchableimage Key4, "nullimage", "FTKEYS1", 486,121;
+		drawswitchableimage Key5, "nullimage", "FTKEYS0", 498,121;
+		drawswitchableimage Key6, "nullimage", "FTKEYS2", 509,121;
 		//TNT/Spray Can throw power
 		IsSelected Dynamite{
 			drawbar "TNTMTR01", "TNTMTR00", Ammo ThrowPower, horizontal, interpolate(50), 0, -35;

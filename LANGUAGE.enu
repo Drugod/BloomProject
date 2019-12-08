@@ -152,6 +152,7 @@ HB_BLOAT = "A butcher made mince meat out of %o.";
 HB_CHEOGH = "%o was owned by Cheogh.";
 HB_PUPPY = "%o got caught by a puppy.";
 HN_PHANT = "A Phantasm scared the hell out of %o.";
+OB_BATS = "%o was scratched by a Bat.";
 OB_BEAST = "%o was swept off %p feet by a Beast.";
 OB_BGARG = "%o was sniped by a Gargoyle.";
 OB_BLOAT = "%o was splattered by a Bloated Butcher.";
