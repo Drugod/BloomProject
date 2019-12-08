@@ -156,6 +156,14 @@ ACTOR SpiderSpit : Cleaver
 	}
 }
 
+ACTOR SpiderSpit2 : SpiderSpit
+{
+	Speed 20
+	Damage 3
+	Scale 0.8
+	PoisonDamage 10
+}
+
 ACTOR EWWW
 {
 	Height 2

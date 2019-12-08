@@ -3663,8 +3663,7 @@ ACTOR SpiderMother : BloodEnemy_Base 3135
 		Goto Jeroonemo
 	Death:
 		SPDD AA 2 A_Scream
-		SPDD BB 1 A_NoBlocking
-		SPDD B 1 A_ChangeFlag("FRIGHTENED", TRUE)
+		SPDD BB 2 A_NoBlocking
 		TNT1 A 0 A_SpawnDebris ("OrganDebris")
 		TNT1 A 0 A_Burst("FlyingBlood")
 		SPDD CDE 2
@@ -5283,11 +5282,7 @@ ACTOR SpiderRed
 	Spawn:
 		YKUL AB 10 A_Look
 		Loop
-	See.Flee:
-		YKUL A 0 A_ChangeFlag("FRIGHTENED", TRUE)
-		Goto See+2
 	See: // We check so rat doesnt really act like a retard moving at a wall...
-		YKUL A 0 A_CheckFlag("FRIGHTENED","See.Flee", AAPTR_MASTER)
 		YKUL A 20
 		YKUL AAAABBBBCCCC 1 A_Chase
 		YKUL DDDDEEEEFFFF 1 A_Chase
@@ -5372,11 +5367,7 @@ ACTOR NewSpiderRed : BloodEnemy_Base 6161
 	Spawn:
 		SHIA AC 10 A_Look
 		Loop
-	See.Flee:
-		SHIA A 0 A_ChangeFlag("FRIGHTENED", TRUE)
-		Goto See+2
 	See: // We check so rat doesnt really act like a retard moving at a wall...
-		SHIA A 0 A_CheckFlag("FRIGHTENED","See.Flee", AAPTR_MASTER)
 		SHIA AAAAAAACCCCCCC 1 A_Chase
 		SHIA DDDDDDDEEEEEEE 1 A_Chase
 		SHIA A 0 A_Jump(16,"Bounce")
@@ -5526,11 +5517,7 @@ ACTOR SpiderGreen : NewSpiderRed 6191
 	Spawn:
 		SHIA AA 10 A_Look
 		Loop
-	See.Flee:
-		SHIA A 0 A_ChangeFlag("FRIGHTENED", TRUE)
-		Goto See+2
 	See: // We check so rat doesnt really act like a retard moving at a wall...
-		SHIA A 0 A_CheckFlag("FRIGHTENED","See.Flee", AAPTR_MASTER)
 		SHIA A 5
 		SHIA AAAAACCCCC 1 A_Chase
 		SHIA DDDDDEEEEE 1 A_Chase
@@ -5775,14 +5762,21 @@ ACTOR SpiderWhite : SpiderRed 6168 // A mediocre version of spider mother
 		YKUL AB 10 A_Look
 		Loop
 	Missile:
-		YKUL I 2
+		YKUL I 1 A_JumpIfInventory("SpawnCounter",5,"Missile.Spit")
+		YKUL I 1
 		TNT1 A 0 A_Jump(240,"Red","Green")
 		Goto See
+	Missile.Spit:
+		YKUL II 4 A_FaceTarget
+		YKUL I 8 A_CustomMissile("SpiderSpit2",8.0, 0.0, 0, 2, 0)
+		Goto See
 	Red:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
 		YKUL I 6 A_SpawnItemEx("SpiderRed",16,0,0,0,0,0,frandom[Spiders](0,256),SXF_NOCHECKPOSITION)
 		YKUL A 4
 		Goto See+1
 	Green:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
 		YKUL I 4 A_SpawnItemEx("GreenSpider",16,0,0,0,0,0,frandom[Spiders](0,256),SXF_NOCHECKPOSITION)
 		YKUL A 6
 		Goto See+1
