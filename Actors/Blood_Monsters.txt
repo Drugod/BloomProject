@@ -4876,7 +4876,7 @@ ACTOR BatFamiliar : BloodEnemy_Base 18500
 		BATB A 1 A_Scream
 		"####" A 1 A_UnSetSolid
 		"####" A 1 A_NoBlocking
-		"####" B 2 A_SetSpeed(0)
+		"####" B 2
 		"####" CBACBA 4 A_PlaySound("batfam/pain")
 		"####" DEFDEF 3 A_PlaySound("batfam/idle")
 		"####" F 1 A_ChangeFlag("NOGRAVITY",0)

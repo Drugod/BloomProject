@@ -582,7 +582,7 @@ ACTOR TheSouls replaces LostSoul
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheSoulshybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("TheSoulsHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
 		TNT1 A 0 A_SpawnItemEx("TheSoulsNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
@@ -596,15 +596,18 @@ ACTOR TheSoulsNormal
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1")
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("LostSoul_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BatFamiliar",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
 	}
 }
 
-ACTOR TheSoulshybrid
+ACTOR TheSoulsHybrid
 {
 	States
 	{
