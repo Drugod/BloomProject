@@ -424,7 +424,6 @@ ACTOR TeslaProjectile : FastProjectile
 	RenderStyle "Add"
 	Damage (random(24,32))
 	DamageType "Shock"
-	DamageType "Tesla"
 	PROJECTILE
 	+BLOODLESSIMPACT //No more insane blood on wall
 	+FOILINVUL

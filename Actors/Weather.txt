@@ -366,8 +366,7 @@ ACTOR Thunder_Spark
 	+LOWGRAVITY
 	RenderStyle Add
 	DamageType "Fire"
-	DamageType "Flare"
-	DamageType "Tesla"
+	DamageType "Shock"
 	Scale 0.4
 	States
 	{

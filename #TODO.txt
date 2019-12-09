@@ -17,7 +17,6 @@ For All:
 - remove unused stuff
 - there are a couple of unused voxels yet, and possibly models
 - tweak special effects, bleeding effects and amount of used actors per maps
-- verify if unified PNAMES works
 
 Coop problems:
 - verify Berserk_ behavior for Zandro	

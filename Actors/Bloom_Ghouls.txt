@@ -173,18 +173,17 @@ ACTOR Ghoul1 : Ghoul_Base
 		GH1D EDCBA 2 A_Recoil(-1)
 		Goto Melee+2
 	Pain.Shock:
-	Pain.Tesla:
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		TNT1 A 0 A_Stop
 		TNT1 A 0 A_ClearTarget // Go dumb
 		GOMZ A 3 
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
 		Goto See
 	Pain.LifeLeech:
 		TNT1 A 0 A_ChangeFlag("GHOST",0)
@@ -237,19 +236,18 @@ ACTOR Ghoul1 : Ghoul_Base
 		GH1D S -1
 		Stop
 	Death.Shock:
-	Death.Tesla:
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 2)
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		TNT1 A 0 A_Stop
 		TNT1 A 0 A_ClearTarget // Go dumb
 		GOMZ A 3 
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
 		Goto Death //Well it looked goofy when they suddenly disappeared out of the world
 	XDeath:
 		TNT1 A 0 A_Jump(120,"XDeath.KickableAlt")
@@ -522,18 +520,17 @@ ACTOR Ghoul2 : Ghoul_Base
 		GH2D EDCBA 2 A_Recoil(-1)
 		Goto Melee+2
 	Pain.Shock:
-	Pain.Tesla:
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		TNT1 A 0 A_Stop
-		TNT1 A 0 A_ClearTarget // Go dumb
-		GOMZ A 3 A_ChangeFlag("GHOST",0)
-		GOMZ A 3 BRIGHT
+		TNT1 A 0 A_ClearTarget
+		GOMZ A 3 
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
 		Goto See
 	Pain.LifeLeech:
 		TNT1 A 0 A_ChangeFlag("Ghost",0)
@@ -586,20 +583,18 @@ ACTOR Ghoul2 : Ghoul_Base
 		GH2D S -1
 		Stop
 	Death.Shock:
-	Death.Tesla:
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 2)
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		TNT1 A 0 A_Stop
-		TNT1 A 0 A_ClearTarget // Go dumb
+		TNT1 A 0 A_ClearTarget
 		GOMZ A 3 
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
-		Goto Death //Well it looked goofy when they suddenly disappeared out of the world
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
+		Goto Death
 	XDeath:
 		TNT1 A 0 A_Jump(120,"XDeath.KickableAlt")
 		TNT1 A 0 A_Jump(128, 2)
@@ -913,18 +908,17 @@ ACTOR Ghoul3 : Ghoul_Base
 		GH3D EDCBA 2 A_Recoil(-1)
 		Goto Melee+2
 	Pain.Shock:
-	Pain.Tesla:
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		TNT1 A 0 A_Stop
-		TNT1 A 0 A_ClearTarget // Go dumb
-		GOMZ A 3 A_ChangeFlag("GHOST",0)
-		GOMZ A 3 BRIGHT
+		TNT1 A 0 A_ClearTarget
+		GOMZ A 3 
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
 		Goto See
 	Pain.LifeLeech:
 		TNT1 A 0 A_ChangeFlag("Ghost",0)
@@ -977,19 +971,17 @@ ACTOR Ghoul3 : Ghoul_Base
 		GH3D S -1
 		Stop
 	Death.Shock:
-	Death.Tesla:
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 2)
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		TNT1 A 0 A_Stop
-		TNT1 A 0 A_ClearTarget // Go dumb
+		TNT1 A 0 A_ClearTarget
 		GOMZ A 3 
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
 		Goto Death //Well it looked goofy when they suddenly disappeared out of the world
 	XDeath:
 		TNT1 A 0 A_Jump(120,"XDeath.KickableAlt")
@@ -1261,18 +1253,17 @@ ACTOR Ghoul4 : Ghoul_Base
 		GH4D EDCBA 2 A_Recoil(-1)
 		Goto Melee+2
 	Pain.Shock:
-	Pain.Tesla:
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		TNT1 A 0 A_Stop
-		TNT1 A 0 A_ClearTarget // Go dumb
-		GOMZ A 3 A_ChangeFlag("GHOST",0)
-		GOMZ A 3 BRIGHT
+		TNT1 A 0 A_ClearTarget
+		GOMZ A 3 
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
 		Goto See
 	Pain.LifeLeech:
 		TNT1 A 0 A_ChangeFlag("GH4ST",0)
@@ -1325,19 +1316,17 @@ ACTOR Ghoul4 : Ghoul_Base
 		GH4D S -1
 		Stop
 	Death.Shock:
-	Death.Tesla:
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 2)
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		TNT1 A 0 A_Stop
-		TNT1 A 0 A_ClearTarget // Go dumb
+		TNT1 A 0 A_ClearTarget
 		GOMZ A 3 
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
 		Goto Death //Well it looked goofy when they suddenly disappeared out of the world
 	XDeath:
 		TNT1 A 0 A_Jump(120,"XDeath.KickableAlt")
@@ -1609,18 +1598,17 @@ ACTOR Ghoul5: Ghoul_Base
 		GH5D EDCBA 2 A_Recoil(-1)
 		Goto Melee+2
 	Pain.Shock:
-	Pain.Tesla:
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		TNT1 A 0 A_Stop
-		TNT1 A 0 A_ClearTarget // Go dumb
-		GOMZ A 3 A_ChangeFlag("GHOST",0)
-		GOMZ A 3 BRIGHT
+		TNT1 A 0 A_ClearTarget
+		GOMZ A 3 
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
 		Goto See
 	Pain.LifeLeech:
 		TNT1 A 0 A_ChangeFlag("GH5ST",0)
@@ -1673,19 +1661,17 @@ ACTOR Ghoul5: Ghoul_Base
 		GH5D S -1
 		Stop
 	Death.Shock:
-	Death.Tesla:
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 2)
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		TNT1 A 0 A_Stop
-		TNT1 A 0 A_ClearTarget // Go dumb
+		TNT1 A 0 A_ClearTarget
 		GOMZ A 3 
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
 		Goto Death //Well it looked goofy when they suddenly disappeared out of the world
 	XDeath:
 		TNT1 A 0 A_Jump(120,"XDeath.KickableAlt")
@@ -1929,18 +1915,17 @@ ACTOR Ghoul6 : Ghoul_Base
 		GH6D EDCBA 2 A_Recoil(-1)
 		Goto Melee+2
 	Pain.Shock:
-	Pain.Tesla:
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		TNT1 A 0 A_Stop
-		TNT1 A 0 A_ClearTarget // Go dumb
-		GOMZ A 3 A_ChangeFlag("GHOST",0)
-		GOMZ A 3 BRIGHT
+		TNT1 A 0 A_ClearTarget
+		GOMZ A 3 
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
 		Goto See
 	Pain.LifeLeech:
 		TNT1 A 0 A_ChangeFlag("GH6ST",0)
@@ -1993,19 +1978,17 @@ ACTOR Ghoul6 : Ghoul_Base
 		GH6D S -1
 		Stop
 	Death.Shock:
-	Death.Tesla:
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 2)
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		TNT1 A 0 A_Stop
-		TNT1 A 0 A_ClearTarget // Go dumb
+		TNT1 A 0 A_ClearTarget
 		GOMZ A 3 
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
 		GOMZ A 3
-		GOMZ A 3 BRIGHT
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
+		GOMZ A 3
 		Goto Death //Well it looked goofy when they suddenly disappeared out of the world
 	XDeath:
 		TNT1 A 0 A_Jump(120,"XDeath.KickableAlt")

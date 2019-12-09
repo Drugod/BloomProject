@@ -10,7 +10,6 @@ Cultist
 CultistTNT
 Disintegrate
 Dynamite
-Electric
 Fire
 Flare
 Fragility
@@ -33,7 +32,6 @@ Stomping
 Stun
 StunningHead
 TchernoStomp
-Tesla
 Tommy
 Turner
 Voodoo

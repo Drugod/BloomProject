@@ -3466,7 +3466,6 @@ ACTOR TeslaRifle : CalebW 3140
 	Tag "Tesla Rifle"
 	Height 16
 	Scale 0.8
-	DamageType "Tesla"
 	DamageType "Shock"
 	Weapon.Selectionorder 75
 	Weapon.Kickback 4
@@ -3778,7 +3777,6 @@ ACTOR TeslaBallBig
 	XScale 1.55
 	Damage (random(84,188))
 	DamageType "Shock"
-	DamageType "Electric"
 	Decal ZBloodGarshot2
 	RenderStyle "Add"
 	Alpha 1

@@ -45,6 +45,19 @@ ACTOR Zombimp1
 		ZI01 I 4 A_TakeInventory("AmAlreadyFaking",99)
 		ZI01 I 2 A_Pain
 		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3 
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto See
 	Fake:
 		TNT1 A 0 A_PlaySound("imp/pain")
 		ZI11 A 1
@@ -74,6 +87,19 @@ ACTOR Zombimp1
 		ZI01 M 6 A_NoBlocking
 		ZI01 N -1
 		Stop
+	Death.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3 
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto XDeath
 	Burn:
 	Death.SpecialFire:
 	Death.Flare:
@@ -83,7 +109,7 @@ ACTOR Zombimp1
 		ZI01 A 1
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
-		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_PlaySound("imp/pain")
 		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
@@ -183,6 +209,19 @@ ACTOR Zombimp2: Zombimp1
 		ZI02 I 4 A_TakeInventory("AmAlreadyFaking",99)
 		ZI02 I 2 A_Pain
 		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3 
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto See
 	Fake:
 		TNT1 A 0 A_PlaySound("imp/pain")
 		ZI12 A 1
@@ -212,6 +251,19 @@ ACTOR Zombimp2: Zombimp1
 		ZI02 M 6 A_NoBlocking
 		ZI02 N -1
 		Stop
+	Death.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3 
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto XDeath
 	Burn:
 	Death.SpecialFire:
 	Death.Flare:
@@ -221,7 +273,7 @@ ACTOR Zombimp2: Zombimp1
 		ZI02 A 1
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
-		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_PlaySound("imp/pain")
 		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
@@ -321,6 +373,19 @@ ACTOR Zombimp3: Zombimp1
 		ZI03 I 4 A_TakeInventory("AmAlreadyFaking",99)
 		ZI03 I 2 A_Pain
 		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3 
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto See
 	Fake:
 		TNT1 A 0 A_PlaySound("imp/pain")
 		ZI13 A 1
@@ -350,6 +415,19 @@ ACTOR Zombimp3: Zombimp1
 		ZI03 M 6 A_NoBlocking
 		ZI03 N -1
 		Stop
+	Death.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3 
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto XDeath
 	Burn:
 	Death.SpecialFire:
 	Death.Flare:
@@ -359,7 +437,7 @@ ACTOR Zombimp3: Zombimp1
 		ZI03 A 1
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
-		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_PlaySound("imp/pain")
 		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
@@ -459,6 +537,19 @@ ACTOR Zombimp4: Zombimp1
 		ZI04 I 4 A_TakeInventory("AmAlreadyFaking",99)
 		ZI04 I 2 A_Pain
 		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3 
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto See
 	Fake:
 		TNT1 A 0 A_PlaySound("imp/pain")
 		ZI14 A 1
@@ -488,6 +579,19 @@ ACTOR Zombimp4: Zombimp1
 		ZI04 M 6 A_NoBlocking
 		ZI04 N -1
 		Stop
+	Death.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3 
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto XDeath
 	Burn:
 	Death.SpecialFire:
 	Death.Flare:
@@ -497,7 +601,7 @@ ACTOR Zombimp4: Zombimp1
 		ZI04 A 1
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
-		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_PlaySound("imp/pain")
 		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
 		Stop
@@ -605,6 +709,19 @@ ACTOR Zombimp5
 		ZI05 A 1
 		ZI05 A 1 A_Pain
 		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3 
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto See
 	Death:
 		TNT1 A 0 A_Quake(512,5,128,256)
 		TNT1 A 0 A_Scream
@@ -653,6 +770,19 @@ ACTOR Zombimp5
 		ZI15 GH 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
 		ZI15 I -1
 		Stop
+	Death.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3 
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto XDeath
 	Burn:
 	Death.SpecialFire:
 	Death.Flare:
@@ -662,11 +792,11 @@ ACTOR Zombimp5
 		ZI05 A 1
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
-		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_PlaySound("imp/pain")
 		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
 		TNT1 A 0 A_SpawnItem("BurnDeathZombie",1,0,0)
-	Stop
-		XDeath:
+		Stop
+	XDeath:
 		TNT1 A 0 A_Quake(512,5,128,256)
 		TNT1 A 0 A_XScream
 		ZI05 N 5 A_NoBlocking

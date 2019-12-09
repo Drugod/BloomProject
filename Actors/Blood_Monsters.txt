@@ -173,7 +173,6 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 	PainChance "Napalm", 0
 	PainChance "Dynamite", 0
 	PainChance "Blast", 0
-	PainChance "Tesla", 0
 	PainChance "Shock", 128
 	PainChance "SawedoffLess", 0
 	PainChance "ZBloodBullet", 0
@@ -185,7 +184,6 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 	DamageFactor "ZbloodBullet", 0.71
 	DamageFactor "SawedOff",0.8
 	DamageFactor "LifeLeech",1.49
-	DamageFactor "Tesla", 2.0
 	DamageFactor "Shock", 2.0
 	DamageFactor "Stomping", 0
 	DamageFactor "Tommy", 1.02
@@ -547,8 +545,8 @@ ACTOR Hellfish : Cacodemon 3100//replaces Cacodemon 6142
 	MaxTargetRange 25
 	BloodColor "DarkRed"
 	PainChance 200
-    PainChance "Tesla", 256
-    DamageFactor "Tesla", 0.1
+    PainChance "Shock", 256
+    DamageFactor "Shock", 0.1
 	Obituary "$OB_FISH"
 	HitObituary "$OB_FISH"
 	-NOTELEPORT
@@ -680,7 +678,6 @@ ACTOR BloatedButcher : BloodEnemy_Base 3122
 	PainChance "SawedOff", 64
 	PainChance "SawedoffLess", 0
 	PainChance "Disintegrate", 0
-	PainChance "Tesla", 0
 	PainChance "Shock", 255
 	PainChance "Blast", 16
 	PainChance "ZBloodBullet", 0
@@ -694,7 +691,6 @@ ACTOR BloatedButcher : BloodEnemy_Base 3122
 	DamageFactor "Napalm", 6.0
 	DamageFactor "Disintegrate", 1.75
 	DamageFactor "Dynamite", 4.2
-	DamageFactor "Tesla", 2.0
 	DamageFactor "Shock", 2.4
 	DamageFactor "Stomping", 0
 	DropItem "UselessStuff" 102
@@ -1608,10 +1604,8 @@ ACTOR BlueCultist : BloodEnemy_Base 10309
 	PainChance 80
 	PainChance "Fire", 0
 	PainChance "Flare", 0
-	PainChance "Tesla", 0
 	PainChance "Shock", 16
 	PainChance "Voodoo", 256
-	DamageFactor "Tesla", 0.0
 	DamageFactor "Dynamite",0.75
 	DamageFactor "Napalm",0.75
 	DamageFactor "Tommy",0.91
@@ -2380,7 +2374,6 @@ ACTOR GillBeast : Cacodemon 3126
 	PainChance "SawedoffLess", 0
 	PainChance "Shock", 255
 	PainChance "Shock",32
-	PainChance "Tesla", 0
 	PainChance "Tommy", 0
 	PainChance "Voodoo", 16
 	PainChance "ZBloodBullet", 0
@@ -2690,7 +2683,6 @@ ACTOR Phantasm : BloodEnemy_Base  3134
 	DamageFactor "Napalm", 1.0
 	DamageFactor "Shock", 1.0
 	DamageFactor "Stomping", 0
-	DamageFactor "Tesla", 1.0
 	PainChance "Disintegrate", 0
 	PainChance "Dynamite", 0
 	PainChance "Fire", 0
@@ -2700,7 +2692,6 @@ ACTOR Phantasm : BloodEnemy_Base  3134
 	PainChance "PitchFork", 0
 	PainChance "SawedoffLess", 0
 	PainChance "Shock", 128
-	PainChance "Tesla", 0
 	PainChance "Tommy", 0
 	PainChance "ZBloodBullet", 0
 	PainChance 60
@@ -2951,7 +2942,6 @@ ACTOR HellHound : HellKnight 3130
 	DamageFactor "Fire", 0
 	DamageFactor "Flare", 0.4
 	DamageFactor "Shock", 2.6
-	DamageFactor "Tesla", 2.6
 	DamageFactor "LifeLeech", 1.3
 	DamageFactor "Stomping", 0
 	DamageFactor "Tommy", 1.25
@@ -3119,7 +3109,6 @@ ACTOR BloodBeast : BloodEnemy_Base 6123
 	PainChance "SawedOff", 4
 	PainChance "SawedoffLess", 0
 	PainChance "Shock", 128
-	PainChance "Tesla", 0
 	PainChance "Tommy", 0
 	PainChance "ZBloodBullet", 0
 	PainChance "Disintegrate", 0
@@ -3301,7 +3290,6 @@ ACTOR Cheogh : BloodEnemy_Base 3124
 	DamageFactor "Sawedoff", 1
 	DamageFactor "Shock", 2.3
 	DamageFactor "Stomping", 2
-	DamageFactor "Tesla", 2.15
 	DamageFactor "Tommy", 1.3
 	DamageFactor "ZBloodBullet", 1
 	PainChance "Blast", 0
@@ -3314,7 +3302,6 @@ ACTOR Cheogh : BloodEnemy_Base 3124
 	PainChance "SawedOff2", 0
 	PainChance "SawedoffLess", 0
 	PainChance "Shock", 192
-	PainChance "Tesla", 0
 	PainChance "Tommy", 0
 	PainChance "ZBloodBullet", 0
 	PainChance "Napalm", 0
@@ -3462,7 +3449,6 @@ ACTOR Cerberus : BloodEnemy_Base 3127
 	DamageFactor "Napalm", 1.0
 	DamageFactor "Shock", 1.5
 	DamageFactor "Stomping", 0
-	DamageFactor "Tesla", 1.5
 	PainChance "Dynamite", 2
 	PainChance "Fire",0
 	PainChance "Flare", 0
@@ -3472,7 +3458,6 @@ ACTOR Cerberus : BloodEnemy_Base 3127
 	PainChance "Sawedoff2", 48
 	PainChance "SawedoffLess", 0
 	PainChance "Shock",28
-	PainChance "Tesla", 0
 	PainChance "Tommy", 0
 	PainChance "ZBloodBullet", 0
 	Species "HellDog"
@@ -3649,7 +3634,6 @@ ACTOR Tchernobog : BloodEnemy_Base 6134
 	DamageFactor "Napalm", 0.75
 	DamageFactor "Shock", 0.75
 	DamageFactor "Stomping", 0
-	DamageFactor "Tesla", 0.75
 	PainChance "Blast", 0
 	PainChance "Dynamite", 2
 	PainChance "Fire", 0
@@ -3660,7 +3644,6 @@ ACTOR Tchernobog : BloodEnemy_Base 6134
 	PainChance "Sawedoff2", 8
 	PainChance "SawedoffLess", 0
 	PainChance "Shock", 16
-	PainChance "Tesla", 0
 	PainChance "Tommy", 0
 	PainChance "ZBloodBullet", 0
 	States
@@ -5074,7 +5057,6 @@ ACTOR BloodRatWhite : BloodRat 19068
 }
 
 ACTOR ----------SPIDERS--------- {}
-
 ACTOR SpiderMother : BloodEnemy_Base 3135
 {
 	//$Title Spider Mother
@@ -5093,9 +5075,8 @@ ACTOR SpiderMother : BloodEnemy_Base 3135
 	DamageFactor "Napalm", 1.6
 	DamageFactor "PitchFork", 1.42
 	DamageFactor "SawedOff", 0.50
-	DamageFactor "Shock", 0.1
+	DamageFactor "Shock", 0.7
 	DamageFactor "Stomping", 0
-	DamageFactor "Tesla", 0.7
 	DamageFactor "Tommy", 0.73
 	DamageFactor "ZBloodBullet",0.46
 	PainChance "Blast", 0
@@ -5109,7 +5090,6 @@ ACTOR SpiderMother : BloodEnemy_Base 3135
 	PainChance "Sawedoff2", 3
 	PainChance "SawedoffLess", 3
 	PainChance "Shock", 255
-	PainChance "Tesla", 0
 	PainChance "Tommy", 2
 	PainChance "Voodoo", 16
 	PainChance "ZBloodBullet", 0
