@@ -6,7 +6,7 @@ Music by Buio Mondo & Drugod
 
 Bloom is based on ZBlood-ZBloodX Addon by IvanDobrovski/Cruduxy/Marinelol
 
-Colored brightmaps by Ozymandias81
+Colored brightmaps and Cobwebs variants (COBW## sprites) by Ozymandias81
 Colt and single barrel Shotgun taken from Blood weapon mod
 Doom Models mainly from TheMacGyverArchiver
 Doom Voxels by Reikall (several)

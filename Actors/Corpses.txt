@@ -39,42 +39,43 @@ ACTOR HangChickSpawner : RandomSpawner 3283
 	DropItem "HanginDeadChick3"
 }
 
-ACTOR BloodJar 3242
+ACTOR HangingBloodMeat 3242
 {
 	//$Category "BlooM Corpses"
-	//$Title Blood Jar, Shootable
+	//$Title Hanging Piece of Meat, Shootable
 	//$Color 15
 	Radius 16
-	Height 30
+	Height 66
 	Health 10
 	Scale 0.5
-	+DONTGIB
 	+NOBLOOD
+	+NOGRAVITY
 	+NOTAUTOAIMED
 	+RANDOMIZE
 	+SHOOTABLE
+	+SPAWNCEILING
 	+SOLID
 	DeathSound "DSCANDIE"
 	PainSound "DSCANDIE"
 	States
 	{
 	Spawn:
-		BJAR A -1
+		JAMO A -1
 		Stop
 	Death:
-		BJAR A 0 A_Pain
-		BJAR A 5
-		BJAR A 0 A_Fall
-		BJAR AAAAA 0 A_SpawnDebris("OrganDebris")
-		BJAR AAAAA 0 A_SpawnDebris("FlyingBlood")
-		BJAR A 0 A_XScream
-		BJAR A 0 A_Jump(32,2)
-		BJAR A 0 A_SpawnDebris("Hand1")
-		BJAR A 0 A_Jump(32,2)
-		BJAR A 0 A_SpawnDebris("Bloodliver")
-		BJAR A 0 A_Jump(32,2)
-		BJAR AA 0 A_SpawnDebris("EyeGuts")
-		BJAR A 0
+		JAMO A 0 A_Pain
+		JAMO A 5
+		JAMO A 0 A_Fall
+		JAMO AAAAA 0 A_SpawnDebris("OrganDebris")
+		JAMO AAAAA 0 A_SpawnDebris("FlyingBlood")
+		JAMO A 0 A_XScream
+		JAMO A 0 A_Jump(32,2)
+		JAMO A 0 A_SpawnDebris("Hand1")
+		JAMO A 0 A_Jump(32,2)
+		JAMO A 0 A_SpawnDebris("Bloodliver")
+		JAMO A 0 A_Jump(32,2)
+		JAMO AA 0 A_SpawnDebris("EyeGuts")
+		JAMO A 0
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		Stop
 	}
@@ -187,9 +188,7 @@ ACTOR DeadMoron 3174
 	Scale 0.8
 	+NOTAUTOAIMED
 	+SHOOTABLE
-	-DONTGIB
 	Translation "209:223=64:71","112:127=64:79"
-	DropItem None
 	States
 	{
 	Spawn:
@@ -211,20 +210,11 @@ ACTOR DeadMoron 3174
 	}
 }
 
-ACTOR DeadMoron2 : DeadZombieMan 3175
+ACTOR DeadMoron2 : DeadMoron 3175
 {
-	//$Category "BlooM Corpses"
 	//$Title Dead Moron 2, Shootable
-	//$Color 15
-	Game Doom
-	Skip_Super
-	Scale 0.8
 	Health 20
 	Radius 10
-	Height 10
-	+NOTAUTOAIMED
-	+SHOOTABLE
-	DropItem None
 	States
 	{
 	Spawn:
@@ -246,19 +236,13 @@ ACTOR DeadMoron2 : DeadZombieMan 3175
 	}
 }
 
-ACTOR DeadMoron3 3173
+ACTOR DeadMoron3 : DeadMoron 3173
 {
-	//$Category "BlooM Corpses"
 	//$Title Dead Moron 3, Shootable
-	//$Color 15
-	Game Doom
 	Height 30
 	Radius 15
 	Health 60
 	Scale 0.7
-	+NOTAUTOAIMED
-	+SHOOTABLE
-	-DONTGIB
 	States
 	{
 	Spawn:
@@ -491,7 +475,7 @@ ACTOR RedBrain : HeartColumn 3244
 ACTOR HangingMeat 3187
 {
 	//$Category "BlooM Corpses"
-	//$Title Hanging Meat, Shootable
+	//$Title Hanging Duke, Shootable
 	//$Color 15
 	Health 30
 	Radius 16
