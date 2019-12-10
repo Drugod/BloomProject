@@ -188,6 +188,7 @@ OB_STOMP = "%o danced with the stars.";
 OB_STOMP2 = "%o got too close to The-One-That-Binds.";
 OB_TCHERNO = "The-One-That-Binds didn't like the stupid look on %o's face.";
 OB_ZAXE = "%o got the Zombie's axe.";
+OB_ARAPOD = "%o was spat on by a Arachnopod.";
 
 //OBITUARIES - HYBRIDS
 HB_CACOY = "%o gets killed by a Cacoyle's bad breath ;)";
