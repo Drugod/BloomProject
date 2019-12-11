@@ -432,12 +432,6 @@ Object GargoyleBallLight
 // -- OLD DEFS --
 // ------------------
 
-PointLight NULL //this may haul the engine uselessly - ozy81
-{
-    Color 0.0 0.0 0.1
-    Size 16
-}
-
 // Bullet puff
 FlickerLight BPUFF1
 {
@@ -1197,7 +1191,7 @@ Object BlurSphere
 // Health Potion
 PulseLight HEALTHPOTION
 {
-    Color 0.0 0.0 1.0
+    Color 0.0 0.0 0.5
     Size 16
     SecondarySize 18
     Interval 2.0
@@ -1225,37 +1219,27 @@ Object ArmorBonus
 // Green armour
 PointLight GREENARMOR1
 {
-    Color 0.0 0.2 0.0
+    Color 0.0 0.0 0.0
     Size 48
 }
 
 PointLight GREENARMOR2
 {
-    Color 0.0 0.0 0.0
+    Color 0.0 0.2 0.0
     Size 32
-}
-
-Object GreenArmor
-{
-    frame ARM1A { light NULL }
 }
 
 // Blue armour
 PointLight BLUEARMOR1
 {
-    Color 0.1 0.1 0.1
+    Color 0.0 0.0 0.0
     Size 20
 }
 
 PointLight BLUEARMOR2
 {
-    Color 0.2 0.2 0.1
+    Color 0.0 0.0 0.2
     Size 32
-}
-
-Object BlueArmor
-{
-    frame ARM2A { light NULL }
 }
 
 PointLight LifeLeechSmallFlash
