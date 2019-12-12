@@ -29,11 +29,60 @@ Brightmap sprite ADYNI0 {map "Brightmaps/ADYNI0.png"}
 Brightmap sprite ADYNJ0 {map "Brightmaps/ADYNJ0.png"}
 Brightmap sprite ADYNK0 {map "Brightmaps/ADYNK0.png"}
 
-Brightmap sprite DPROA0 {map "Brightmaps/BRDPA0.png"}
-Brightmap sprite DPROB0 {map "Brightmaps/BRDPB0.png"}
-Brightmap sprite DPROC0 {map "Brightmaps/BRDPC0.png"}
-Brightmap sprite DPROD0 {map "Brightmaps/BRDPD0.png"}
-Brightmap sprite DPROE0 {map "Brightmaps/BRDPE0.png"}
+Brightmap sprite DPROA0 {map "Brightmaps/DPROA0.png"}
+Brightmap sprite DPROB0 {map "Brightmaps/DPROB0.png"}
+Brightmap sprite DPROC0 {map "Brightmaps/DPROC0.png"}
+Brightmap sprite DPROD0 {map "Brightmaps/DPROD0.png"}
+Brightmap sprite DPROE0 {map "Brightmaps/DPROE0.png"}
+
+Brightmap sprite DRDTA0 {map "Brightmaps/DRDTA0.png"}
+Brightmap sprite DRDTB0 {map "Brightmaps/DRDTB0.png"}
+
+Brightmap sprite DREMB0 {map "Brightmaps/DREMB0.png"}
+Brightmap sprite DREMC0 {map "Brightmaps/DREMC0.png"}
+Brightmap sprite DREMD0 {map "Brightmaps/DREMD0.png"}
+Brightmap sprite DREME0 {map "Brightmaps/DREME0.png"}
+
+Brightmap sprite DRNHB0 {map "Brightmaps/DRNHB0.png"}
+Brightmap sprite DRNHC0 {map "Brightmaps/DRNHC0.png"}
+Brightmap sprite DRNHD0 {map "Brightmaps/DRNHD0.png"}
+Brightmap sprite DRNHE0 {map "Brightmaps/DRNHE0.png"}
+Brightmap sprite DRNHF0 {map "Brightmaps/DRNHF0.png"}
+Brightmap sprite DRNHG0 {map "Brightmaps/DRNHG0.png"}
+
+Brightmap sprite DRTSB0 {map "Brightmaps/DRTSB0.png"}
+Brightmap sprite DRTSC0 {map "Brightmaps/DRTSC0.png"}
+Brightmap sprite DRTSD0 {map "Brightmaps/DRTSD0.png"}
+Brightmap sprite DRTSE0 {map "Brightmaps/DRTSE0.png"}
+
+Brightmap sprite DYNLA0 {map "Brightmaps/DYNLA0.png"}
+Brightmap sprite DYNLB0 {map "Brightmaps/DYNLB0.png"}
+Brightmap sprite DYNLC0 {map "Brightmaps/DYNLC0.png"}
+Brightmap sprite DYNLD0 {map "Brightmaps/DYNLD0.png"}
+Brightmap sprite DYNLE0 {map "Brightmaps/DYNLE0.png"}
+Brightmap sprite DYNLF0 {map "Brightmaps/DYNLF0.png"}
+Brightmap sprite DYNLG0 {map "Brightmaps/DYNLG0.png"}
+
+Brightmap sprite DYNNA0 {map "Brightmaps/DYNNA0.png"}
+Brightmap sprite DYNNB0 {map "Brightmaps/DYNNB0.png"}
+
+Brightmap sprite DYNOA0 {map "Brightmaps/DYNOA0.png"}
+Brightmap sprite DYNOB0 {map "Brightmaps/DYNOB0.png"}
+Brightmap sprite DYNOC0 {map "Brightmaps/DYNOC0.png"}
+Brightmap sprite DYNOD0 {map "Brightmaps/DYNOD0.png"}
+Brightmap sprite DYNOE0 {map "Brightmaps/DYNOE0.png"}
+Brightmap sprite DYNOF0 {map "Brightmaps/DYNOF0.png"}
+Brightmap sprite DYNOG0 {map "Brightmaps/DYNOG0.png"}
+Brightmap sprite DYNOH0 {map "Brightmaps/DYNOH0.png"}
+
+Brightmap sprite DYNRA0 {map "Brightmaps/DYNRA0.png"}
+Brightmap sprite DYNRB0 {map "Brightmaps/DYNRB0.png"}
+Brightmap sprite DYNRC0 {map "Brightmaps/DYNRC0.png"}
+
+Brightmap sprite DYNTA0 {map "Brightmaps/DYNTA0.png"}
+Brightmap sprite DYNTB0 {map "Brightmaps/DYNTB0.png"}
+Brightmap sprite DYNTC0 {map "Brightmaps/DYNTC0.png"}
+Brightmap sprite DYNUD0 {map "Brightmaps/DYNUD0.png"}
 
 Brightmap sprite NLANB0 {map "Brightmaps/MLANB0.png"}
 Brightmap sprite NLANC0 {map "Brightmaps/MLANC0.png"}
@@ -41,31 +90,63 @@ Brightmap sprite NLAND0 {map "Brightmaps/MLAND0.png"}
 Brightmap sprite NLANE0 {map "Brightmaps/MLANE0.png"}
 Brightmap sprite NLANM0 {map "Brightmaps/MLANM0.png"}
 
-Brightmap sprite PTNTI0 {map "Brightmaps/BMTNI0.png"}
-Brightmap sprite PTNTJ0 {map "Brightmaps/BMTNJ0.png"}
-Brightmap sprite PTNTK0 {map "Brightmaps/BMTNK0.png"}
+Brightmap sprite PTNTA0 {map "Brightmaps/PTNTA0.png"}
+Brightmap sprite PTNTB0 {map "Brightmaps/PTNTB0.png"}
+Brightmap sprite PTNTC0 {map "Brightmaps/PTNTC0.png"}
+Brightmap sprite PTNTD0 {map "Brightmaps/PTNTD0.png"}
+Brightmap sprite PTNTE0 {map "Brightmaps/PTNTE0.png"}
+Brightmap sprite PTNTF0 {map "Brightmaps/PTNTF0.png"}
+Brightmap sprite PTNTG0 {map "Brightmaps/PTNTG0.png"}
+Brightmap sprite PTNTH0 {map "Brightmaps/PTNTH0.png"}
+Brightmap sprite PTNTI0 {map "Brightmaps/PTNTI0.png"}
+Brightmap sprite PTNTJ0 {map "Brightmaps/PTNTJ0.png"}
+Brightmap sprite PTNTK0 {map "Brightmaps/PTNTK0.png"}
 
-Brightmap sprite SPAFA0 {map "Brightmaps/SPMMA0.png"}
-Brightmap sprite SPAFB0 {map "Brightmaps/SPMMB0.png"}
-Brightmap sprite SPAFC0 {map "Brightmaps/SPMMC0.png"}
-Brightmap sprite SPAFD0 {map "Brightmaps/SPMMD0.png"}
-Brightmap sprite SPAFE0 {map "Brightmaps/SPMME0.png"}
-Brightmap sprite SPAFF0 {map "Brightmaps/SPMMF0.png"}
-Brightmap sprite SPAFG0 {map "Brightmaps/SPMMG0.png"}
+Brightmap sprite RAIRC0 {map "Brightmaps/RAIRC0.png"}
+Brightmap sprite RAIRD0 {map "Brightmaps/RAIRD0.png"}
+Brightmap sprite RAIRE0 {map "Brightmaps/RAIRE0.png"}
+Brightmap sprite RAIRF0 {map "Brightmaps/RAIRF0.png"}
 
-Brightmap sprite SPLGA0 {map "Brightmaps/SPLMA0.png"}
-Brightmap sprite SPLGB0 {map "Brightmaps/SPLMB0.png"}
-Brightmap sprite SPLGC0 {map "Brightmaps/SPLMC0.png"}
-Brightmap sprite SPLGD0 {map "Brightmaps/SPLMD0.png"}
-Brightmap sprite SPLGE0 {map "Brightmaps/SPLME0.png"}
-Brightmap sprite SPLGF0 {map "Brightmaps/SPLMF0.png"}
-Brightmap sprite SPLGG0 {map "Brightmaps/SPLMG0.png"}
-Brightmap sprite SPLGH0 {map "Brightmaps/SPLMH0.png"}
-Brightmap sprite SPLGI0 {map "Brightmaps/SPLMI0.png"}
+Brightmap sprite SPAFA0 {map "Brightmaps/SPAFA0.png"}
+Brightmap sprite SPAFB0 {map "Brightmaps/SPAFB0.png"}
+Brightmap sprite SPAFC0 {map "Brightmaps/SPAFC0.png"}
+Brightmap sprite SPAFD0 {map "Brightmaps/SPAFD0.png"}
+Brightmap sprite SPAFE0 {map "Brightmaps/SPAFE0.png"}
+Brightmap sprite SPAFF0 {map "Brightmaps/SPAFF0.png"}
+Brightmap sprite SPAFG0 {map "Brightmaps/SPAFG0.png"}
 
-Brightmap sprite SPRRA0 {map "Brightmaps/SMMMA0.png"}
-Brightmap sprite SPRRB0 {map "Brightmaps/SMMMB0.png"}
-Brightmap sprite SPRRC0 {map "Brightmaps/SMMMC0.png"}
+Brightmap sprite SPLGA0 {map "Brightmaps/SPLGA0.png"}
+Brightmap sprite SPLGB0 {map "Brightmaps/SPLGB0.png"}
+Brightmap sprite SPLGC0 {map "Brightmaps/SPLGC0.png"}
+Brightmap sprite SPLGD0 {map "Brightmaps/SPLGD0.png"}
+Brightmap sprite SPLGE0 {map "Brightmaps/SPLGE0.png"}
+Brightmap sprite SPLGF0 {map "Brightmaps/SPLGF0.png"}
+Brightmap sprite SPLGG0 {map "Brightmaps/SPLGG0.png"}
+Brightmap sprite SPLGH0 {map "Brightmaps/SPLGH0.png"}
+Brightmap sprite SPLGI0 {map "Brightmaps/SPLGI0.png"}
+Brightmap sprite SPLGI0 {map "Brightmaps/SPLGJ0.png"}
+
+Brightmap sprite SPRFA0 {map "Brightmaps/SPRFA0.png"}
+Brightmap sprite SPRFB0 {map "Brightmaps/SPRFB0.png"}
+Brightmap sprite SPRFC0 {map "Brightmaps/SPRFC0.png"}
+Brightmap sprite SPRFD0 {map "Brightmaps/SPRFD0.png"}
+Brightmap sprite SPRFE0 {map "Brightmaps/SPRFE0.png"}
+Brightmap sprite SPRFF0 {map "Brightmaps/SPRFF0.png"}
+Brightmap sprite SPRFG0 {map "Brightmaps/SPRFG0.png"}
+Brightmap sprite SPRFH0 {map "Brightmaps/SPRFH0.png"}
+
+Brightmap sprite SPRRA0 {map "Brightmaps/SPRRA0.png"}
+Brightmap sprite SPRRB0 {map "Brightmaps/SPRRB0.png"}
+Brightmap sprite SPRRC0 {map "Brightmaps/SPRRC0.png"}
+
+Brightmap sprite STOSA0 {map "Brightmaps/STOSA0.png"}
+Brightmap sprite STOSB0 {map "Brightmaps/STOSB0.png"}
+Brightmap sprite STOSC0 {map "Brightmaps/STOSC0.png"}
+Brightmap sprite STOSD0 {map "Brightmaps/STOSD0.png"}
+Brightmap sprite STOSE0 {map "Brightmaps/STOSE0.png"}
+Brightmap sprite STOSF0 {map "Brightmaps/STOSF0.png"}
+Brightmap sprite STOSG0 {map "Brightmaps/STOSG0.png"}
+Brightmap sprite STOSH0 {map "Brightmaps/STOSH0.png"}
 
 Brightmap sprite TESRA0	{map "Brightmaps/TESRA0.png"}
 Brightmap sprite TESRB0	{map "Brightmaps/TESRB0.png"}
@@ -74,15 +155,56 @@ Brightmap sprite TESRD0	{map "Brightmaps/TESRD0.png"}
 Brightmap sprite TESRE0	{map "Brightmaps/TESRE0.png"}
 Brightmap sprite TESRF0	{map "Brightmaps/TESRF0.png"}
 
-Brightmap sprite TTNTA0 {map "Brightmaps/TTNBA0.png"}
-Brightmap sprite TTNTB0 {map "Brightmaps/TTNBA0.png"}
-Brightmap sprite TTNTC0 {map "Brightmaps/TTNBA0.png"}
-Brightmap sprite TTNTD0 {map "Brightmaps/TTNBA0.png"}
-Brightmap sprite TTNTE0 {map "Brightmaps/TTNBA0.png"}
+Brightmap sprite TNTFA0	{map "Brightmaps/TNTFA0.png"}
+Brightmap sprite TNTFB0	{map "Brightmaps/TNTFB0.png"}
+Brightmap sprite TNTFC0	{map "Brightmaps/TNTFC0.png"}
+Brightmap sprite TNTFD0	{map "Brightmaps/TNTFD0.png"}
+Brightmap sprite TNTFE0	{map "Brightmaps/TNTFE0.png"}
+Brightmap sprite TNTFF0	{map "Brightmaps/TNTFF0.png"}
+Brightmap sprite TNTFG0	{map "Brightmaps/TNTFG0.png"}
+Brightmap sprite TNTFG0	{map "Brightmaps/TNTFG0.png"}
+Brightmap sprite TNTFH0	{map "Brightmaps/TNTFH0.png"}
+Brightmap sprite TNTFI0	{map "Brightmaps/TNTFI0.png"}
+Brightmap sprite TNTFJ0	{map "Brightmaps/TNTFJ0.png"}
+Brightmap sprite TNTFK0	{map "Brightmaps/TNTFK0.png"}
+Brightmap sprite TNTFL0 {map "Brightmaps/TNTFL0.png"}
+Brightmap sprite TNTFM0	{map "Brightmaps/TNTFM0.png"}
+Brightmap sprite TNTFN0	{map "Brightmaps/TNTFN0.png"}
+Brightmap sprite TNTFO0 {map "Brightmaps/TNTFO0.png"}
+Brightmap sprite TNTFP0	{map "Brightmaps/TNTFP0.png"}
+Brightmap sprite TNTFQ0 {map "Brightmaps/TNTFQ0.png"}
+Brightmap sprite TNTFW0 {map "Brightmaps/TNTFW0.png"}
+Brightmap sprite TNTFY0 {map "Brightmaps/TNTFY0.png"}
 
-Brightmap sprite ZIPFA0 {map "Brightmaps/ZIMMA0.png"}
-Brightmap sprite ZIPFB0 {map "Brightmaps/ZIMMB0.png"}
-Brightmap sprite ZIPFC0 {map "Brightmaps/ZIMMC0.png"}
+Brightmap sprite TNTRA0 {map "Brightmaps/TNTRA0.png"}
+Brightmap sprite TNTRB0 {map "Brightmaps/TNTRB0.png"}
+Brightmap sprite TNTRC0 {map "Brightmaps/TNTRC0.png"}
+Brightmap sprite TNTRD0 {map "Brightmaps/TNTRD0.png"}
+Brightmap sprite TNTRE0 {map "Brightmaps/TNTRE0.png"}
+Brightmap sprite TNTRH0 {map "Brightmaps/TNTRH0.png"}
+Brightmap sprite TNTRI0 {map "Brightmaps/TNTRI0.png"}
+
+Brightmap sprite TTNTA0 {map "Brightmaps/TTNTA0.png"}
+Brightmap sprite TTNTB0 {map "Brightmaps/TTNTB0.png"}
+Brightmap sprite TTNTC0 {map "Brightmaps/TTNTC0.png"}
+Brightmap sprite TTNTD0 {map "Brightmaps/TTNTD0.png"}
+Brightmap sprite TTNTE0 {map "Brightmaps/TTNTE0.png"}
+Brightmap sprite TTNTH0 {map "Brightmaps/TTNTH0.png"}
+Brightmap sprite TTNTI0 {map "Brightmaps/TTNTI0.png"}
+Brightmap sprite TTNTJ0 {map "Brightmaps/TTNTJ0.png"}
+Brightmap sprite TTNTK0 {map "Brightmaps/TTNTK0.png"}
+
+Brightmap sprite XIPPB0 {map "Brightmaps/XIPPB0.png"}
+Brightmap sprite XIPPC0 {map "Brightmaps/XIPPC0.png"}
+
+Brightmap sprite ZIPFA0 {map "Brightmaps/ZIPFA0.png"}
+Brightmap sprite ZIPFB0 {map "Brightmaps/ZIPFB0.png"}
+Brightmap sprite ZIPFC0 {map "Brightmaps/ZIPFC0.png"}
+
+Brightmap sprite ZIPPG0 {map "Brightmaps/ZIPPG0.png"}
+Brightmap sprite ZIPPH0 {map "Brightmaps/ZIPPH0.png"}
+Brightmap sprite ZIPPI0 {map "Brightmaps/ZIPPI0.png"}
+Brightmap sprite ZIPPJ0 {map "Brightmaps/ZIPPJ0.png"}
 
 //Players
 Brightmap sprite CALBA1		{map "Brightmaps/CALBA1.png"}
