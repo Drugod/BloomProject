@@ -298,14 +298,16 @@ Script "SpeedCheck" (void){
 }
 
 Script "FloorTextureCheck" (void){//Checking if zombimp must be buried or not
+	bool found = false;
 	for(int i; i<=19; i++){		
 		if (CheckActorFloorTexture(0, FloorTextures[i]))
 		{
+			found = true;		
 			SetActorState(0,"GroundSpawner",true);
-			i = 666;
+			i = 666;//Exit from loop
 		}
 	}
-	if (i != 666) { SetActorState(0,"NoGroundSpawner",true);}
+	if (found == false) { SetActorState(0,"NoGroundSpawner",true);}
 }
 
 Script "Jokes" (int type){//Script for jokes

@@ -167,6 +167,12 @@ ACTOR CountZombie : Inventory
 	Inventory.MaxAmount 10
 }
 
+ACTOR CountBramble : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 10
+}
+
 ACTOR Afraid : Inventory
 {
 	Inventory.Amount 1

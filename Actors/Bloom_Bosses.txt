@@ -266,7 +266,7 @@ ACTOR CyberCheogh : BloomHybrid_Base 19057
 	FloatSpeed  14
 	MeleeDamage 13
 	MeleeRange  80
-	PainChance 8
+	PainChance 2
 	SeeSound "Cheogh/Roam"
 	PainSound "Cheogh/Pain"
 	DeathSound "Cheogh/Die"
