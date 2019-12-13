@@ -4130,20 +4130,19 @@ ACTOR HellroseBramble
 	Health 50
 	Mass 3000
 	MeleeDamage 2
-	DeathSound "TentacleExplode"
 	MeleeRange 52
-	BloodColor "10 70 10"
-	MeleeSound "TentacleSwipe"
 	PainChance 128
+	Scale 0.5
 	DamageFactor "Disintegrate",0
 	DamageFactor "Stomping", 0.5
+	DeathSound "TentacleExplode"
+	MeleeSound "TentacleSwipe"
+	BloodColor "10 70 10"
 	Obituary "$OB_BRAMB"
-	Scale 0.5
 	Monster
 	+DONTSPLASH
 	+FLOORCLIP
 	+LOOKALLAROUND
-	+NOICEDEATH
 	+NOTARGETSWITCH
 	+STRIFEDAMAGE
 	-COUNTKILL
@@ -4337,10 +4336,8 @@ ACTOR LavaPod : ChrysalidPod 6148
 		Loop
 	Missile:
 		LPOD A 0
-		//LPOD A 0 A_Jump(256,"Bramble","Barf2","Barf3","Barf2","Barf3")
 		LPOD A 0 A_Jump(256,"Bramble","Barf2","Barf3")
 	Bramble:
-		//LPOD B 1 A_SpawnItemEx("Hellrose_ReachTester", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER)
 		LPOD BBCC 2 A_JumpIfInventory("ProxScan",1,"DoBramble")
 		Goto Barf2
 	DoBramble:

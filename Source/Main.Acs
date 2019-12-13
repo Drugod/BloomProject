@@ -32,7 +32,13 @@ str FloorTextures[19]= {"XTEX0264", "XTEX017",  "XTEX0265", "XTEX0272",
 				  	    "XTEX0353", "XTEX0354", "XTEX0396", "XTEX043", 
 					    "XTEX0441", "XTEX0641", "XTEX0745", 
 					    "YTEX9T20", "RROCK16",  "FLAT5_6",  "RROCK09", 
-					    "RROCK17",  "RROCK18",  "RROCK19",  "RROCK20"};					   
+					    "RROCK17",  "RROCK18",  "RROCK19",  "RROCK20"};	
+str LavaTextures[8]= {"XTEX0503", "XTEX504",  "XTEX0505", "XTEX0506",
+				  	    "RROCK06", "YTEXTS22", "YTEXTT22", "YTEXTU22",};
+str IceTextures[15]= {"XTEX0649", "XTEX0903",  "XTEX0906", "XTEX0948",
+				  	    "XTEX0949", "XTEX0950", "XTEX0951", "XTEX0952", 
+					    "XTEX0953", "XTEX0954", "XTEX0955", "XTEX0956",
+						"XTEX0957", "YTEXTA15", "YTEXTA46"};
 					   
 function int degsin(int x){
 	int result;
@@ -308,6 +314,32 @@ Script "FloorTextureCheck" (void){//Checking if zombimp must be buried or not
 		}
 	}
 	if (found == false) { SetActorState(0,"NoGroundSpawner",true);}
+}
+
+Script "LavaTextureCheck" (void){
+	bool found2 = false;
+	for(int i; i<=19; i++){		
+		if (CheckActorFloorTexture(0, LavaTextures[i]))
+		{
+			found2 = true;		
+			SetActorState(0,"GroundSpawner",true);
+			i = 666;//Exit from loop
+		}
+	}
+	if (found2 == false) { SetActorState(0,"NoGroundSpawner",true);}
+}
+
+Script "IceTextureCheck" (void){
+	bool found3 = false;
+	for(int i; i<=19; i++){		
+		if (CheckActorFloorTexture(0, IceTextures[i]))
+		{
+			found3 = true;		
+			SetActorState(0,"GroundSpawner",true);
+			i = 666;//Exit from loop
+		}
+	}
+	if (found3 == false) { SetActorState(0,"NoGroundSpawner",true);}
 }
 
 Script "Jokes" (int type){//Script for jokes
