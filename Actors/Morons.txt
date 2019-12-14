@@ -1,4 +1,4 @@
-ACTOR Moron 3241
+	ACTOR Moron 3241
 {
     //$Category "BlooM Monsters"
 	Health 80
@@ -31,16 +31,16 @@ ACTOR Moron 3241
 	Ruuuun:
 		MORN AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Wander
 		MORN A 0 A_Jump(88,"Stand","NOPLACELIKEHOME")
-		MORN A 0 //A_CustomMissile("fightmeIRLIDAREYOU",30)
 		Loop
 	Stand:
 		MORS AA 40
 		Goto See
 	NOPLACELIKEHOME:
-		MORN A 0 A_Jump(128,2)
-		MORN A 0 A_PlaySound("Moron/Beg")
+		TNT1 A 0
+		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_PlaySound("Moron/Beg")
 		Goto Ruuuun
-		MORN A 0 A_PlaySound("Moron/Home")
+		TNT1 A 0 A_PlaySound("Moron/Home")
 		Goto Ruuuun
 	Pain:
 		MORN G 4 A_Pain
@@ -53,6 +53,75 @@ ACTOR Moron 3241
 		MORN MNO 4
 		MORN P -1
 		Stop
+    Burn:
+	Death.SpecialFire:
+  	Death.Flare:
+		TNT1 A 0
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_SpawnItem("BurnDeathMoron",1,0,0)
+		TNT1 A -1
+    Stop
+	}
+}
+
+ACTOR AberrationMoron 19073
+{
+    //$Category "BlooM Monsters"
+	Health 80
+	Monster
+	Radius 14
+	Height 64
+	Mass 60
+	Scale 0.5
+	Speed 6
+	PainChance 175
+	SeeSound "Moron/Cry1"
+	AttackSound ""
+	DeathSound "Moron/Crying"
+	ActiveSound "Moron/GoAway"
+	PainSound "Moron/Scream"
+	+DONTOVERLAP
+	+FLOORCLIP
+	+FRIENDLY
+	+NOSPLASHALERT
+	+RANDOMIZE
+	Obituary "$OB_MORON"
+	States
+	{
+	Spawn:
+		MORS AAAAA 4 A_Look
+		Loop
+	See:
+		MORS AAAAA 11	
+		MOR2 GGGGGHHHHHIIIIIJJJJJKKKKK 1
+	Ruuuun:
+		MOR2 AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Wander
+		TNT1 A 0 A_Jump(88,"Stand","NOPLACELIKEHOME")
+		TNT1 A 0
+		Loop
+	Stand:
+		MOR2 KKKKJJJJJIIIIIHHHHHGGGGG 1
+		MORS AAAA 40
+	Goto See
+	NOPLACELIKEHOME:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_PlaySound("Moron/Beg")
+	Goto Ruuuun
+		TNT1 A 0 A_PlaySound("Moron/Home")
+	Goto Ruuuun
+	Pain:
+		MORN G 4 A_Pain
+		MORN G 4 A_Jump(60,"NOPLACELIKEHOME")
+	Goto Ruuuun
+	Death:
+		MORN H 0 A_Scream
+		MORN HIJK 6
+		MORN L 6 A_Fall
+		MORN MNO 4
+		MORN P -1
+	Stop
     Burn:
 	Death.SpecialFire:
   	Death.Flare:
