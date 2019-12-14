@@ -1225,6 +1225,8 @@ ACTOR KingFX2 : KingFX1 { Speed 40 }
 ACTOR KingFX3 : KingFX1 { Speed 50 }
 ACTOR KingFX4 : KingFX1 { Speed 60 }
 ACTOR DeepFX1 : KingFX1 { Speed 10 }
+ACTOR BrambleFX : KingFX1 { Speed 6 Scale 0.85 Species "Bramble" +THRUSPECIES}
+ACTOR IcePodFX : KingFX1 { Speed 20 Species "Bramble" +THRUSPECIES}
 
 ACTOR KingFXPuff : IceFXPuff {} //nothing new defined yet
 

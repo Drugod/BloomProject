@@ -17,7 +17,6 @@ Const Int BLM_FLAGS3 = SXF_SETMASTER | SXF_NOCHECKPOSITION;
 #include Actors/ThrownStuff.txt
 #include Actors/Players.txt
 #include Actors/Terrain.txt
-#include Actors/Morons.txt
 #include Actors/Weather.txt
 #include Actors/Nature.txt
 #include Actors/Corpses.txt
@@ -42,6 +41,7 @@ Const Int BLM_FLAGS3 = SXF_SETMASTER | SXF_NOCHECKPOSITION;
 #include Actors/Bloom_Gargos.txt
 #include Actors/Bloom_GhostRevs.txt
 #include Actors/Bloom_Ghouls.txt
+#include Actors/Bloom_Morons.txt
 #include Actors/Bloom_NeoCvlts.txt
 #include Actors/Bloom_RatDems.txt
 #include Actors/Bloom_ZombImps.txt

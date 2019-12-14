@@ -1,4 +1,4 @@
-	ACTOR Moron 3241
+ACTOR Moron 3241
 {
     //$Category "BlooM Monsters"
 	Health 80

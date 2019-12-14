@@ -858,6 +858,7 @@ ACTOR WallBrok5 : WallBrok1 18342
 {
 	//$Title 3d Broken Walls 5
 }
+
 ACTOR ---------TRAPS--------- {}
 ACTOR FireTrap1 18343
 {
@@ -875,36 +876,36 @@ ACTOR FireTrap1 18343
 	{
 	Spawn:
 		UNKN ABCDEF 5
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
 		UNKN FEDCBA 5
 		Loop
 	}
 }
 
-ACTOR IceTrap1 : Firetrap1 18344 //placeholder code - ozy81
+ACTOR IceTrap1 : Firetrap1 18344
 {
 	//$Title 3d Ice Trap
 	States
 	{
 	Spawn:
 		UNKN ABCDEF 5
-		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("IceGuyFX", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
 		UNKN FEDCBA 5
 		Loop
 	}
@@ -935,22 +936,22 @@ ACTOR BloodPuke
 	}
 }
 
-ACTOR FleshTrap1 : FireTrap1 18345 //placeholder code - ozy81
+ACTOR FleshTrap1 : FireTrap1 18345
 {
 	//$Title 3d Flesh Trap
 	States
 	{
 	Spawn:
 		UNKN ABCDEF 5
-		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
-		UNKN F 5 BRIGHT A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
+		UNKN F 5 A_SpawnItemEx ("BloodPuke", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
 		UNKN FEDCBA 5
 		Loop
 	}
