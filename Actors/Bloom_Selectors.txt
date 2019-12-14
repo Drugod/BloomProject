@@ -654,7 +654,7 @@ ACTOR ArachnoidNormal
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
 		Stop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("Arachnotron_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
@@ -662,6 +662,12 @@ ACTOR ArachnoidNormal
 	Spawn2:
 		TNT1 A 0 A_SpawnItemEx("SpiderMother",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("ChrysalidPod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop		
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("LavaPod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop				
 	}
 }
 
@@ -671,11 +677,20 @@ ACTOR ArachnoidHybrid
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1")
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
 		Stop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("Arachnoid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Green_Arachnopod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("Magma_Arachnopod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("Ice_Arachnopod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop		
 	}
 }
 

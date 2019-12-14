@@ -1209,6 +1209,10 @@ warp flat LAVA1
 warp flat LAVA2
 warp flat LAVA3
 warp flat LAVA4
+warp flat LAV21
+warp flat LAV22
+warp flat LAV23
+warp flat LAV24
 warp flat SFLR6_1
 warp flat SFLR6_4
 
