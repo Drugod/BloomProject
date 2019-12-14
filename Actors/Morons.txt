@@ -94,42 +94,55 @@ ACTOR AberrationMoron 19073
 		Loop
 	See:
 		MORS AAAAA 11	
-		MOR2 GGGGGHHHHHIIIIIJJJJJKKKKK 1
+		MOTR AAAAABBBBBCCCCCDDDDDEEEEE 1 
+		TNT1 A 0 A_Setangle(180.0)
 	Ruuuun:
 		MOR2 AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Wander
-		TNT1 A 0 A_Jump(88,"Stand","NOPLACELIKEHOME")
-		TNT1 A 0
+		TNT1 A 0 A_Jump(192,"NOPLACELIKEVOID")
+		TNT1 A 0 A_Jump(200,"Stand","Jump")				
 		Loop
 	Stand:
-		MOR2 KKKKJJJJJIIIIIHHHHHGGGGG 1
+		TNT1 A 0 A_Setangle(180.0)			
+		MOTR EEEEEDDDDDCCCCCBBBBBAAAAA 1
 		MORS AAAA 40
 	Goto See
-	NOPLACELIKEHOME:
+	Jump:
+		MOR2 F 1 A_Chase
+		MOR2 FFGG 2 ThrustThingz(0,15,0,0)
+		MOR2 HHII 2 A_Recoil(-6)
+		MOR2 JJ 1
+	Goto Ruuuun
+	NOPLACELIKEVOID:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_Jump(128,26,63)
+		MOR2 NOPPONNOPPON 1
 		TNT1 A 0 A_PlaySound("Moron/Beg")
+		MOR2 NOPPONNOPPON 1		
 	Goto Ruuuun
-		TNT1 A 0 A_PlaySound("Moron/Home")
+		MOR2 NOPPONNOPPONNOPPON 1
+		TNT1 A 0 A_PlaySound("Moron/Home")			
+		MOR2 NOPPONNOPPONNOPPON 1
 	Goto Ruuuun
+		MOR2 NNNNNKKKKKLLLLLMMMMMNNNN 1
+	Goto Ruuuun	
 	Pain:
-		MORN G 4 A_Pain
-		MORN G 4 A_Jump(60,"NOPLACELIKEHOME")
+		MOR2 Q 4 A_Pain
+		MOR2 Q 4 A_Jump(60,"Stand")
 	Goto Ruuuun
 	Death:
-		MORN H 0 A_Scream
-		MORN HIJK 6
-		MORN L 6 A_Fall
-		MORN MNO 4
-		MORN P -1
+		MORD A 0 A_Scream
+		MORD BCDE 6
+		MORD F 6 A_Fall
+		MORD GHI 4
+		MORD J -1
 	Stop
     Burn:
 	Death.SpecialFire:
   	Death.Flare:
 		TNT1 A 1
-		BZOM I 0 A_Fall
-		BZOM I 0 A_Pain
-		BZOM I 0 A_SpawnItem("BurnDeathMoron",1,0,0)
-		TNT1 A -1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_SpawnItem("BurnDeathMoron",1,0,0)
     Stop
 	}
 }
