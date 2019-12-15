@@ -17,6 +17,9 @@ For All:
 - remove unused stuff
 - there are a couple of unused voxels yet, and possibly models
 - tweak special effects, bleeding effects and amount of used actors per maps
+- Add new ammo for flamethrower, actually uses spraycan
+- Add dropitem new ammo for flamethrower (fire cultimp) and the flamerthrower (mancubus/hybrids)
+- Improve flamethrower sprites
 
 Coop problems:
 - verify Berserk_ behavior for Zandro	

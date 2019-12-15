@@ -858,6 +858,42 @@ ACTOR DoublePlasmaRifle_ : PlasmaRifle_
 	}
 }
 
+ACTOR --------FLAMETHROWER------------ {}
+ACTOR FlameThrower_ : DoomW 19074
+{
+	Inventory.PickupMessage "$FTHRPICK"
+	Tag "FlameThrower"
+	Weapon.SelectionOrder 3000
+	Weapon.AmmoType "SprayCanister"
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 64
+	Obituary "OB_FTHRW"  
+	States
+	{
+	Ready:
+		PMAC A 1 A_WeaponReady
+    Loop
+	Deselect:
+		PMAC A 1 A_Lower
+    Loop
+	Select:
+		PMAC A 1 A_Raise
+    Loop
+	Fire:
+		PMAC AB 3 A_FireCustomMissile("SprayCanFire",0+frandom(-1,1),1,0+frandom(-1,1),4+frandom(-1,1))  
+		PMAC A 20 A_ReFire
+    Goto Ready
+	Flash://Pending
+		PSHO E 4 Bright A_Light1
+	Goto LightDone
+		PSHO F 4 Bright A_Light1
+    Goto LightDone
+	Spawn:
+		PLAS A -1
+    Stop
+  }
+}
+
 ACTOR --------BFG9000------------ {}
 ACTOR BFG9000_ : DoomW replaces BFG9000
 {

@@ -236,7 +236,7 @@ ACTOR DoomDude : PlayerPawn
 	Player.WeaponSlot 3, "Shotgun_", "SuperShotgun_"
 	Player.WeaponSlot 4, "Chaingun_"
 	Player.WeaponSlot 5, "RocketLauncher_"
-	Player.WeaponSlot 6, "PlasmaRifle_"
+	Player.WeaponSlot 6, "PlasmaRifle_", "FlameThrower_"
 	Player.WeaponSlot 7, "BFG9000_"
 	Player.WeaponSlot 8, "HandGrenades"
 	States

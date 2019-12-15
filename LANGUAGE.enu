@@ -80,6 +80,7 @@ SPRYPICK = "You got the spraycan!";
 TESLPICK = "Picked up tesla cannon.";
 TOMMPICK = "You got the tommy gun!";
 VODOPICK = "Voodoo doll! Find some victims!";
+FTHRPICK = "I like the flesh extra crispy";
 
 //PICKUPS MESSAGES
 AKIMBO = "Guns Akimbo!";
@@ -144,6 +145,7 @@ OB_VODO = "%o was tingled by %k's voodoo stings.";
 OB_SPIKE1 = "%o was grinded by a rolling spiked column.";
 OB_SPIKE2 = "%o was punctured to death from below.";
 OB_WBOMB = "%o got caught by an explosion.";
+OB_FTHRW = "%o was reduced to ashes by %k.";
 
 //OBITUARIES - BLOOD
 HB_BEAST = "%o was torn apart by a Beast.";
