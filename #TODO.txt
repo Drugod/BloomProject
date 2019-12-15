@@ -5,21 +5,20 @@ For Rolls, models which needs to be added:
 - add swimming frames and underwater attack frames to Doom humans enemies
 
 For All:
+- add dropitem new ammo for flamethrower (fire cultimp) and the flamerthrower (mancubus/hybrids)
 - add flamethrower / freezethrower for Doomguy using beta sprites
-- Bloodjar and Bloodpile actors share the same behavior and sprite... What's the point?
+- add new ammo for flamethrower, actually uses spraycan
 - fix Doom paletted sprites, mainly HUD ones and Player
 - fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff
 - fix HUD statusbar for gzdoom 4+
 - fix LifeLeech: fire states originate some unknown flags messages, when actors like Archies or Ghouls gets hit
 - fix TERRAIN defs, lots of sounds needs to be defined and included
+- improve flamethrower sprites
 - polish overall code
 - reduce size of models skins, 1000x1000 is very engine intensive, 512x512 should be okay... We must figure how to not break quality though
 - remove unused stuff
 - there are a couple of unused voxels yet, and possibly models
 - tweak special effects, bleeding effects and amount of used actors per maps
-- Add new ammo for flamethrower, actually uses spraycan
-- Add dropitem new ammo for flamethrower (fire cultimp) and the flamerthrower (mancubus/hybrids)
-- Improve flamethrower sprites
 
 Coop problems:
 - verify Berserk_ behavior for Zandro	
