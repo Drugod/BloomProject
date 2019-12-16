@@ -359,7 +359,7 @@ ACTOR SprayCanister : Ammo
 	VisibleToPlayerClass "Caleb"
 }
 
-ACTOR SprayCanisterPickup : CustomInventory 3144//replaces Cell
+ACTOR SprayCanisterPickup : CustomInventory 3144
 {
 	//$Category "BlooM Ammunitions"
 	//$Sprite SPRYA0
@@ -506,7 +506,7 @@ ACTOR Flare : Flares 20081
 	}
 }
 
-ACTOR ---TESLACHARGER------ {}
+ACTOR -----TESLACHARGER------ {}
 ACTOR TeslaCharge : Ammo 12002
 {
 	//$Category "BlooM Ammunitions"

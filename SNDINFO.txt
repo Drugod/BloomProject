@@ -372,7 +372,7 @@ PICKKEY     PICKKEY
 PICKMEGA    PICKMEGA
 PICKWEAP    PICKWEAP
 PICKQUAD	PICKQUAD
-PISTOL1     PISTOL1
+PISTOL     PISTOL
 items/heartpickup		HEARTPIC
 weapons/sawedoffload	SWSLOAD
 weapons/tommygun    	TOM1
@@ -435,6 +435,21 @@ human/imonfire			dsburnme
 //Tesla Stuff
 tesla/active ELCLOOP
 $limit tesla/active 4
+
+//Flamethrower
+flamethrower/Pick	FLMTPK
+flamethrower/Fire	FMTRFIRE
+flamethrower/Hit	FMTRHIT
+flamethrower/Flame	FMTRFLAM
+
+//Frostgun
+frostgun/Fire1	FROSHOT1
+frostgun/Fire2	FROSHOT2
+$Random frostgun/Fire {frostgun/Fire1 frostgun/Fire2}
+
+frostgun/Pick	FROSPK
+frostgun/Hit	FROSHIT
+frostgun/Ice	FROSFLY
 
 //Ice attacks
 king/iceshot	DSICESHT

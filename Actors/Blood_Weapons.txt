@@ -2074,7 +2074,7 @@ ACTOR Spraycan : CalebW
 		TNT1 AA 0 A_Raise
 		TNT1 A 0 A_GiveInventory("HoldingSpray",1)
 		SPRC AAAAAAAA 1 A_Raise
-		MISF A 0 A_PlayWeaponSound ("DSZIPCLS")
+		SPRC A 0 A_PlayWeaponSound ("DSZIPCLS")
 		SPRC BBCCDD 1 A_Raise
 		SPRR AA 1 A_Raise
 		Goto Select+18

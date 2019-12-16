@@ -6,8 +6,6 @@ For Rolls, models which needs to be added:
 
 For All:
 - add dropitem new ammo for flamethrower (fire cultimp) and the flamerthrower (mancubus/hybrids)
-- add flamethrower / freezethrower for Doomguy using beta sprites
-- add new ammo for flamethrower, actually uses spraycan
 - fix Doom paletted sprites, mainly HUD ones and Player
 - fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff
 - fix HUD statusbar for gzdoom 4+

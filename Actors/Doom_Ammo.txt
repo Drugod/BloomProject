@@ -409,3 +409,74 @@ ACTOR GrenadeBox : GrenadeAmmo
 		Stop
 	}
 }
+
+ACTOR FlameGas : Ammo 23001
+{
+	//$Category "BlooM Ammunitions"
+	//$Title "Flamethrower Canister"
+	//$Sprite AGASA0
+    +INVENTORY.RESTRICTABSOLUTELY
+	Inventory.Amount 24
+	Inventory.MaxAmount 240
+    VisibleToPlayerClass "DoomDude"
+    Inventory.ForbiddenTo "Caleb"
+	Ammo.BackpackAmount 24
+	Ammo.BackpackMaxAmount 480
+	Inventory.PickupMessage "$FLAGAS"
+	Inventory.Icon "AGASA0"
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		AGAS A -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR FlameBigGas : FlameGas 23002
+{
+	//$Title "Flamethrower Big Canister"
+	//$Sprite AGASB0
+	Inventory.Amount 120
+	Inventory.PickupMessage "$FLABIG"
+	Inventory.Icon "AGASB0"
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		AGAS B -1
+		Stop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR FrostAmmo : Ammo 23003
+{
+	//$Category "BlooM Ammunitions"
+	//$Title "Frostgun Ammo"
+	//$Sprite FROPA0
+	Inventory.Amount 25
+	Inventory.MaxAmount 200
+	Ammo.BackpackAmount 25
+	Ammo.BackpackMaxAmount 400
+	Inventory.PickupMessage "$FROSTA"
+	Inventory.Icon "FROPA0"
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		FROP AAAABCDCB 5 BRIGHT
+		Loop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	}
+}
