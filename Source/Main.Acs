@@ -391,6 +391,24 @@ Script "new_weapons_selection" (void){//Script for random weapon selection for d
 		break;		
 }}
 
+Script "new_ammos_selection" (void){//Script for random weapon selection for doomguy.
+	delay(5);
+	switch (whichweapon)
+	{
+		case 1:
+			SetActorState(0,"PlasmarifleSpawner",TRUE);
+		break;
+		case 2:
+			SetActorState(0,"FlamethrowerSpawner",TRUE);
+		break;		
+		case 3:
+			SetActorState(0,"TeslacannonSpawner",TRUE);
+		break;		
+		default:
+			SetActorState(0,"PlasmarifleSpawner",TRUE);
+		break;		
+}}
+
 Script "checkheight" (void){//Script for checking the height of the monster
 	if ((GetActorCeilingZ(0) - GetActorZ(0)) > 80.0) { SetActorState(0,"RandomHybrid",TRUE); }
 	else { SetActorState(0,"lowz",TRUE); }			

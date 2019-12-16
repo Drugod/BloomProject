@@ -995,19 +995,32 @@ ACTOR FlameThrower_ : DoomW 19074
 		Stop
 	Ready:
 		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")
-		PMAC A 1 A_WeaponReady
+		PMAC AAAABBBBCCCCDDDDEEEE 1 A_WeaponReady
 		Loop
+	/*Deselect:
+		PMAA CCBBAA 3 A_Lower
+		Loop*/
+	/*Select:
+		PMAA AABBCC 3 A_Raise
+		Loop*/
 	Deselect:
-		PMAC A 1 A_Lower
-		Loop
+		PMAA CCBBAA 1
+		UNMS A 0 A_StopSound(CHAN_BODY)						
+		TNT1 AAAAAAAAAA 0 A_Lower
+		TNT1 A 1 A_Lower
+		Wait			
 	Select:
-		PMAC A 1 A_Raise
-		Loop
+		TNT1 AAAAA 1 A_Raise
+		TNT1 AAAAAAAAAA 0 A_Raise
+		Goto SelectAnimation
+	SelectAnimation:
+		PMAA AABBCC 1 
+		Goto Ready		
 	Fire:
-		SPRC A 0 A_PlayWeaponSound ("flamethrower/Fire")
-		PMAC BC  3 A_FireCustomMissile("FlamethrowFire",0+frandom(-1,1),1,0+frandom(-1,1),4+frandom(-1,1))  
-		PMAC B 0 A_GunFlash
-		PMAC A 20 A_ReFire
+		TNT1 A 0 A_PlayWeaponSound ("flamethrower/Fire")
+		PMCC ABCDEFGHIJKLMN 1 A_FireCustomMissile("FlamethrowFire",0+frandom(-1,1),1,0+frandom(-1,1),4+frandom(-1,1))  
+		//TNT1 A 0 A_GunFlash
+		PMCR AABBCCDDEE 3 A_ReFire
 		Goto Ready
 	Flash:
 		TNT1 A 4 Bright A_Light1

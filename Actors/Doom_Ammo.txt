@@ -1,5 +1,55 @@
+ACTOR NewAmmos_little replaces Cell
+{
+    //$Category "Ammo"
+    //$Title PlasmaRifle/FlameThrower/Teslacannon Spawner
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("new_ammos_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	PlasmarifleSpawner:
+		TNT1 A 0 A_SpawnItemEx("Cell_",0,0,0,0,0,0,0)
+		Stop
+	FlamethrowerSpawner:
+		TNT1 A 0 A_SpawnItemEx("FlameGas",0,0,0,0,0,0,0)
+		Stop
+	TeslacannonSpawner:
+		TNT1 A 0 A_SpawnItemEx("TeslaCharge",0,0,0,0,0,0,0)
+		Stop		
+	}
+}
+
+ACTOR NewAmmos_Big replaces CellPack
+{
+    //$Category "Ammo"
+    //$Title PlasmaRifle/FlameThrower/Teslacannon Spawner
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("new_ammos_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	PlasmarifleSpawner:
+		TNT1 A 0 A_SpawnItemEx("CellPack_",0,0,0,0,0,0,0)
+		Stop
+	FlamethrowerSpawner:
+		TNT1 A 0 A_SpawnItemEx("FlameBigGas",0,0,0,0,0,0,0)
+		Stop
+	TeslacannonSpawner:
+		TNT1 A 0 A_SpawnItemEx("TeslaChargeBox",0,0,0,0,0,0,0)
+		Stop		
+	}
+}
+
 ACTOR -------CELLPACKS------------ {}
-ACTOR Cell_ : Cell Replaces Cell
+ACTOR Cell_ : Cell
 {
 	//$Sprite CELLA0
 	+INVENTORY.RESTRICTABSOLUTELY
@@ -26,7 +76,7 @@ ACTOR Cell_ : Cell Replaces Cell
 	}
 }
 
-ACTOR CellPack_ : Cell_ replaces CellPack
+ACTOR CellPack_ : Cell_
 {
 	//$Sprite CELPA0
 	Inventory.PickupMessage "$GOTCELLBOX" // "Picked up an energy cell pack."
@@ -410,6 +460,7 @@ ACTOR GrenadeBox : GrenadeAmmo
 	}
 }
 
+ACTOR ------FLAMETHROWER_AMMO------------- {}
 ACTOR FlameGas : Ammo 23001
 {
 	//$Category "BlooM Ammunitions"
@@ -457,6 +508,7 @@ ACTOR FlameBigGas : FlameGas 23002
 	}
 }
 
+ACTOR ------FROSTGUN_AMMO------------- {}
 ACTOR FrostAmmo : Ammo 23003
 {
 	//$Category "BlooM Ammunitions"
