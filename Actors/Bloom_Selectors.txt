@@ -156,10 +156,10 @@ ACTOR Eelmonsters replaces Fatso
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("HybridFishMancubus",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("HybridFishMancubus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("OriginalFishMancubus",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("OriginalFishMancubus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -712,10 +712,10 @@ ACTOR TheCvltimpZombimps replaces DoomImp
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("Cvltimphybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("Cvltimphybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("Cvltimpnormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("Cvltimpnormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -775,10 +775,10 @@ ACTOR TheWolfKnights replaces BaronOfHell
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("BaronofHellHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("BaronofHellHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("BaronofHellNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("BaronofHellNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -837,10 +837,10 @@ ACTOR TheGhoulsZombies replaces ZombieMan
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("GhoulZombieHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("GhoulZombieHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("GhoulZombieNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("GhoulZombieNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -898,10 +898,10 @@ ACTOR TheArchZombies replaces Archvile
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("ArchZombieHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("ArchZombieHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("ArchZombieNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("ArchZombieNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -955,10 +955,10 @@ ACTOR TheHellButchers replaces HellKnight
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheHellButchersHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("TheHellButchersHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheHellButchersNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("TheHellButchersNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -1015,10 +1015,10 @@ ACTOR TheGargolLivingStatue 19044
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheGargolsStatueHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("TheGargolsStatueHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheGargolsStatueNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("TheGargolsStatueNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -1069,10 +1069,10 @@ ACTOR TheGargolStatue 19045
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheStatueHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("TheStatueHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheStatueNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("TheStatueNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -1155,10 +1155,10 @@ ACTOR TheDeepones 19055
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheDeeponesHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("TheDeeponesHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("TheDeeponesNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		TNT1 A 0 A_SpawnItemEx("TheDeeponesNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
