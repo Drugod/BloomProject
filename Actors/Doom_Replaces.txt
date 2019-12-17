@@ -25,8 +25,7 @@ ACTOR PlasmaBallX : PlasmaBall replaces PlasmaBall
 	Height 8
 	Speed 25
 	Damage 5
-	DamageType "Flare"
-	DamageType "Fire"
+	DamageType "Normal"	
 	RenderStyle "Add"
 	Alpha 0.75
 	Projectile
@@ -81,8 +80,7 @@ ACTOR BFGBallX : BFGBall replaces BFGBall
 	Height 8
 	Speed 25
 	Damage 100
-	DamageType "Flare"
-	DamageType "Fire"
+	DamageType "Normal"
 	RenderStyle "Add"
 	Alpha 0.75
 	Projectile

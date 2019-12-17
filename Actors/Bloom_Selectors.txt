@@ -156,10 +156,10 @@ ACTOR Eelmonsters replaces Fatso
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("HybridFishMancubus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("HybridFishMancubus",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("OriginalFishMancubus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("OriginalFishMancubus",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	}
 }
@@ -173,10 +173,10 @@ ACTOR OriginalFishMancubus
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("GillBeast",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("GillBeast",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Fatso_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("Fatso_",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	}
 }
@@ -190,13 +190,13 @@ ACTOR HybridFishMancubus
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Eelcubus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("Eelcubus",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("EelcubusAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("EelcubusAlt",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("Gillcubus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("Gillcubus",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
 		Stop
 	}
 }
@@ -775,10 +775,8 @@ ACTOR TheWolfKnights replaces BaronOfHell
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("BaronofHellHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("BaronofHellNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -792,10 +790,8 @@ ACTOR BaronofHellNormal
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("BaronOfHell_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("BloodBeast",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -809,10 +805,8 @@ ACTOR BaronofHellHybrid
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("WereWolfOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("WereWolfOfHellAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
