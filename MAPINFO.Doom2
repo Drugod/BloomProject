@@ -1,0 +1,406 @@
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////DOOM II//////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+episode map01
+{
+	name = "$BLM_DM2"
+	key = "h"
+	optional
+}
+
+episode level01
+{
+	name = "$TXT_D2E2"
+	key = "n"
+	optional
+}
+
+map MAP01 lookup "entryway"
+{
+	next = "MAP02"
+	secretnext = "MAP02"
+	sky1 = "SKY1"
+	cluster = 5
+	par = 30
+	music = "$MUSIC_RUNNIN"
+}
+
+map MAP02 lookup "underhalls"
+{
+	next = "MAP03"
+	secretnext = "MAP03"
+	sky1 = "SKY1"
+	cluster = 5
+	par = 90
+	music = "$MUSIC_STALKS"
+}
+
+map MAP03 lookup "the gantlet"
+{
+	next = "MAP04"
+	secretnext = "MAP04"
+	sky1 = "SKY1"
+	cluster = 5
+	par = 120
+	music = "$MUSIC_COUNTD"
+}
+
+map MAP04 lookup "the focus"
+{
+	next = "MAP05"
+	secretnext = "MAP05"
+	sky1 = "SKY1"
+	cluster = 5
+	par = 120
+	music = "$MUSIC_BETWEE"
+}
+
+map MAP05 lookup "the waste tunnels"
+{
+	next = "MAP06"
+	secretnext = "MAP06"
+	sky1 = "SKY1"
+	cluster = 5
+	par = 90
+	music = "$MUSIC_DOOM"
+}
+
+map MAP06 lookup "the crusher"
+{
+	next = "MAP07"
+	secretnext = "MAP07"
+	sky1 = "SKY1"
+	cluster = 5
+	par = 150
+	sucktime = 1
+	music = "$MUSIC_THE_DA"
+}
+
+map MAP07 lookup "dead simple"
+{
+	next = "MAP08"
+	secretnext = "MAP08"
+	sky1 = "SKY1"
+	cluster = 6
+	par = 120
+	map07special
+	SPECIALACTION = "OriginalFishMancubus","Floor_LowerToLowest",666,8
+	SPECIALACTION = "GillBeast","Floor_LowerToLowest",666,8
+	SPECIALACTION = "Fatso_","Floor_LowerToLowest",666,8
+	SPECIALACTION = "HybridFishMancubus","Floor_LowerToLowest",666,8
+	SPECIALACTION = "Eelcubus","Floor_LowerToLowest",666,8
+	SPECIALACTION = "EelcubusAlt","Floor_LowerToLowest",666,8
+	SPECIALACTION = "Gillcubus","Floor_LowerToLowest",666,8
+	SPECIALACTION = "Arachnoidhybrid","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "Arachnoid","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "Green_Arachnopod","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "Magma_Arachnopod","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "Ice_Arachnopod","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "Arachnoidnormal","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "Arachnotron_","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "SpiderMother","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "ChrysalidPod","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "LavaPod","Floor_RaiseByTexture",667,8
+	music = "$MUSIC_SHAWN"
+}
+
+map MAP08 lookup "tricks and traps"
+{
+	next = "MAP09"
+	secretnext = "MAP09"
+	sky1 = "SKY1"
+	cluster = 6
+	par = 120
+	music = "$MUSIC_DDTBLU"
+}
+
+map MAP09 lookup "the pit"
+{
+	next = "MAP10"
+	secretnext = "MAP10"
+	sky1 = "SKY1"
+	cluster = 6
+	par = 270
+	music = "$MUSIC_IN_CIT"
+}
+
+map MAP10 lookup "refueling base"
+{
+	next = "MAP11"
+	secretnext = "MAP11"
+	sky1 = "SKY1"
+	cluster = 6
+	par = 90
+	music = "$MUSIC_DEAD"
+}
+
+map MAP11 lookup "'o' of destruction!"
+{
+	next = "MAP12"
+	secretnext = "MAP12"
+	sky1 = "SKY1"
+	cluster = 6
+	par = 210
+	music = "$MUSIC_STLKS2"
+}
+
+map MAP12 lookup "the factory"
+{
+	next = "MAP13"
+	secretnext = "MAP13"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 150
+	music = "$MUSIC_THEDA2"
+}
+
+map MAP13 lookup "downtown"
+{
+	next = "MAP14"
+	secretnext = "MAP14"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 150
+	music = "$MUSIC_DOOM2"
+}
+
+map MAP14 lookup "the inmost dens"
+{
+	next = "MAP15"
+	secretnext = "MAP15"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 150
+	music = "$MUSIC_DDTBL2"
+}
+
+map MAP15 lookup "industrial zone"
+{
+	next = "MAP16"
+	secretnext = "MAP31"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 210
+	music = "$MUSIC_RUNNI2"
+}
+
+map MAP16 lookup "suburbs"
+{
+	next = "MAP17"
+	secretnext = "MAP17"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 150
+	music = "$MUSIC_DEAD2"
+}
+
+map MAP17 lookup "tenements"
+{
+	next = "MAP18"
+	secretnext = "MAP18"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 420
+	music = "$MUSIC_STLKS3"
+}
+
+map MAP18 lookup "the courtyard"
+{
+	next = "MAP19"
+	secretnext = "MAP19"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 150
+	music = "$MUSIC_ROMERO"
+}
+
+map MAP19 lookup "the citadel"
+{
+	next = "MAP20"
+	secretnext = "MAP20"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 210
+	music = "$MUSIC_SHAWN2"
+}
+
+map MAP20 lookup "gotcha!"
+{
+	next = "MAP21"
+	secretnext = "MAP21"
+	sky1 = "SKY2"
+	cluster = 7
+	par = 150
+	music = "$MUSIC_MESSAG"
+}
+
+map MAP21 lookup "nirvana"
+{
+	next = "MAP22"
+	secretnext = "MAP22"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 240
+	music = "$MUSIC_COUNT2"
+}
+
+map MAP22 lookup "the catacombs"
+{
+	next = "MAP23"
+	secretnext = "MAP23"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 150
+	music = "$MUSIC_DDTBL3"
+}
+
+map MAP23 lookup "barrels o' fun"
+{
+	next = "MAP24"
+	secretnext = "MAP24"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 180
+	music = "$MUSIC_AMPIE"
+}
+
+map MAP24 lookup "the chasm"
+{
+	next = "MAP25"
+	secretnext = "MAP25"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 150
+	music = "$MUSIC_THEDA3"
+}
+
+map MAP25 lookup "bloodfalls"
+{
+	next = "MAP26"
+	secretnext = "MAP26"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 150
+	music = "$MUSIC_ADRIAN"
+}
+
+map MAP26 lookup "the abandoned mines"
+{
+	next = "MAP27"
+	secretnext = "MAP27"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 300
+	music = "$MUSIC_MESSG2"
+}
+
+map MAP27 lookup "monster condo"
+{
+	next = "MAP28"
+	secretnext = "MAP28"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 330
+	music = "$MUSIC_ROMER2"
+}
+
+map MAP28 lookup "the spirit world"
+{
+	next = "MAP29"
+	secretnext = "MAP29"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 420
+	music = "$MUSIC_TENSE"
+}
+
+map MAP29 lookup "the living end"
+{
+	next = "MAP30"
+	secretnext = "MAP30"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 300
+	music = "$MUSIC_SHAWN3"
+}
+
+map MAP30 lookup "icon of sin"
+{
+	next = "EndGameC"
+	secretnext = "EndGameC"
+	sky1 = "SKY3"
+	cluster = 8
+	par = 180
+	allowmonstertelefrags
+	music = "$MUSIC_OPENIN"
+}
+
+map MAP31 lookup "wolfenstein"
+{
+	next = "MAP16"
+	secretnext = "MAP32"
+	sky1 = "SKY3"
+	cluster = 9
+	par = 120
+	music = "$MUSIC_EVIL"
+}
+
+map MAP32 lookup "grosse"
+{
+	next = "MAP16"
+	secretnext = "MAP16"
+	sky1 = "SKY3"
+	cluster = 10
+	par = 30
+	music = "$MUSIC_ULTIMA"
+}
+
+// DOOM II first cluster (up thru level 6)
+cluster 5
+{
+	flat = "$BGFLAT06"
+	music = "$MUSIC_READ_M"
+	exittext = lookup, "C1TEXT"
+
+}
+
+// DOOM II second cluster (up thru level 11)
+cluster 6
+{
+	flat = "$BGFLAT11"
+	music = "$MUSIC_READ_M"
+	exittext = lookup, "C2TEXT"
+
+}
+
+// DOOM II third cluster (up thru level 20)
+cluster 7
+{
+	flat = "$BGFLAT20"
+	music = "$MUSIC_READ_M"
+	exittext = lookup, "C3TEXT"
+}
+
+// DOOM II fourth cluster (up thru level 30)
+cluster 8
+{
+	flat = "$BGFLAT30"
+	music = "$MUSIC_READ_M"
+	exittext = lookup, "C4TEXT"
+}
+
+// DOOM II fifth cluster (level 31)
+cluster 9
+{
+	flat = "$BGFLAT15"
+	music = "$MUSIC_READ_M"
+	entertext = lookup, "C5TEXT"
+}
+
+// DOOM II sixth cluster (level 32)
+cluster 10
+{
+	flat = "$BGFLAT31"
+	music = "$MUSIC_READ_M"
+	entertext = lookup, "C6TEXT"
+}

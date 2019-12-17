@@ -1,0 +1,359 @@
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////BLOOM////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+clearepisodes
+
+defaultmap
+{
+	lightmode = 0 //set lightmode to Standard
+}
+
+episode BLM01
+{
+   name = "$BLM_EP1"
+   key = "t"
+}
+
+map TITLEMAP lookup "BLM_TIT"
+{
+   levelnum = 5
+   sky1 = "YTEXTH63", 0.05
+   par = 120
+   cluster = 1
+   sucktime = 1
+   music = "d_dm2ttl"
+   NoIntermission
+   LIGHTNING
+}
+
+map BLM01 lookup "BLM_M01"
+{
+   levelnum = 1
+   next = BLM02
+   sky1 = "YTEXTH63", 0.05
+   par = 120
+   sucktime = 5
+   music = "d_dead"
+   LIGHTNING
+}
+
+map BLM02 lookup "BLM_M02"
+{
+   levelnum = 2
+   next = BLM03
+   sky1 = "YTEXTH63", 0.05
+   par = 120
+   sucktime = 5
+   music = "d_in_cit"
+}
+
+map BLM03 lookup "BLM_M03"
+{
+   levelnum = 3
+   next = BLM04 //endsequence, BloomDemoEnd
+   sky1 = "YTEXTH63", 0.05
+   sky2 = "YTEXTH63", 0.05
+   par = 120
+   sucktime = 10
+   music = "d_countd"
+}
+
+map BLM04 lookup "BLM_M04"
+{
+   levelnum = 4
+   next = INT00
+   sky1 = "YTEXTH63", 0.05
+   sky2 = "YTEXTH63", 0.05
+   par = 120
+   sucktime = 10
+   music = "d_ddtblu"
+   NoIntermission
+}
+
+map BLM05 lookup "BLM_M05"
+{
+   levelnum = 4
+   next = INT00
+   sky1 = "YTEXTH63", 0.05
+   sky2 = "YTEXTH63", 0.05
+   par = 120
+   sucktime = 10
+   music = "d_ddtblu"
+   NoIntermission
+}
+
+map INT00 lookup "BLM_INT"
+{
+   levelnum = 0
+   sky1 = "YTEXTH63", 0.05
+   par = 120
+   cluster = 1
+   sucktime = 1
+   music = "d_dm2ttl"
+   NoIntermission
+   LIGHTNING
+}
+
+map TESTMAP lookup "BLM_TM1"
+{
+   levelnum = 98
+   sky1 = "YTEXTH63", 0.05
+}
+
+map TESTMAP2 lookup "BLM_TM2"
+{
+   levelnum = 99
+   sky1 = "YTEXTH63", 0.05
+}
+
+cluster 1
+{
+   flat = "XTEX0118"
+   exittext = "10 years after the incident,",
+	"in the UAC facility on Mars.",
+	"Cabal Co, heirs of the ancient cult the Cabala,",
+	"combined the result of investigations" ,
+	"Betruger and arcane knowledge",
+	"with the sole purpose of re-opening the gates to hell",
+	"and can thus bring back Tchernobog.",
+	" ",
+	"During the opening process something went wrong,",
+	"causing not only the portal opened,",
+	" but collapsed hell with the dimension",
+	" that had trapped the Tchernobog.",
+	" Bringing back not only him but all the demons",
+	" banished in the incidents of Mars.",
+	" ",
+	"Many members of the Cabala died",
+	" trying to subdue the demons.",
+	" Demons, and in particular the icon of sin,",
+	" only respond to his instincts of... ",
+	" Chaos, death and destruction."
+}
+
+Intermission "BloomDemoEnd"
+{
+	TextScreen
+	{
+		Background = "XTEX0118",1
+		TextDelay = 3
+		Time = 5
+		Text = " ",
+		"               				        Congratulations !!!",
+		" ",
+		"		                			    You have completed ",
+		"       		         		           BLOOM Demo!",
+		" ",
+		"				                    Now return to your coffin ",
+		"	              and await the complete version!"
+
+	}
+	Wiper
+	{
+		WipeType = Crossfade
+	}
+	Link = BloomCast
+}
+
+Intermission "BloomCast" //Demo cast
+{
+
+Image
+    {
+    Background = "INTERPIC"
+    Time = -1
+    Music = "d_read_m"
+	}
+
+Cast
+    {
+    CastClass = "BloodZombie_Cast"
+    CastName = "ZOMBIE"
+    AttackSound = "Missile", 1, "misc/chat"
+    }
+
+Cast
+   {
+   CastClass = "Zombieman"
+   CastName = "$CC_ZOMBIE"
+   AttackSound = "Missile",1,"grunt/attack"
+   }
+
+Cast
+    {
+    CastClass = "BrownCultist_Cast"
+    CastName = "CVLTIST"
+    AttackSound = "Missile", 1, "CultistShotgun"
+    }
+
+Cast
+   {
+      CastClass = "ShotgunGuy"
+      CastName = "$CC_SHOTGUN"
+      AttackSound = "Missile",1,"shotguy/attack"
+   }
+
+Cast
+    {
+	CastClass = "GreyCultist_Cast"
+	CastName = "FANATIC"
+	AttackSound = "Missile",1,"chainguy/attack"
+	AttackSound = "Missile",2,"chainguy/attack"
+	AttackSound = "Missile",3,"chainguy/attack"
+    }
+
+Cast
+   {
+	CastClass = "ChaingunGuy"
+	CastName = "$CC_HEAVY"
+	AttackSound = "Missile",1,"chainguy/attack"
+	AttackSound = "Missile",2,"chainguy/attack"
+	AttackSound = "Missile",3,"chainguy/attack"
+   }
+
+Cast
+    {
+	CastClass = "BloatedButcher_Cast"
+	CastName = "BUTCHER"
+    AttackSound = "Missile", 1, "ButcherVomit"
+    }
+
+Cast
+	{
+	CastClass = "DoomImp"
+	CastName = "$CC_IMP"
+	AttackSound = "Missile",2,"imp/attack"
+	}
+
+Cast
+    {
+    CastClass = "BloodGargoyle_Cast"
+    CastName = "GARGOYLE"
+    AttackSound = "Melee", 1, "GargoyleMelee"
+    }
+
+Cast
+	{
+	CastClass = "Demon"
+	CastName = "$CC_DEMON"
+	AttackSound = "Melee",1,"demon/melee"
+	}
+
+Cast
+    {
+    CastClass = "ChokingHand_Cast"
+    CastName = "THE HAND"
+    AttackSound = "Jump", 1, "Hand/Spot"
+    }
+
+Cast
+	{
+    CastClass = "LostSoul"
+    CastName = "$CC_LOST"
+    AttackSound = "Melee",1,"skull/melee"
+	}
+
+Cast
+	{
+    CastClass = "Cacodemon"
+    CastName = "$CC_CACO"
+    AttackSound = "Missile",1,"caco/attack"
+	}
+
+Cast
+    {
+    CastClass = "HellHound_Cast"
+    CastName = "HELL HOUND"
+    AttackSound = "Melee", 1, "HellHound/Bite"
+    }
+
+Cast
+	{
+    CastClass = "HellKnight"
+	CastName = "$CC_HELL"
+	AttackSound = "Missile",1,"baron/attack"
+	}
+
+Cast
+    {
+    CastClass = "GillBeast_Cast"
+    CastName = "GILLBEAST"
+    AttackSound = "Melee", 1, "dsdolstb"
+    }
+
+Cast
+	{
+	CastClass = "BaronOfHell"
+	CastName = "$CC_BARON"
+	AttackSound = "Missile",1,"baron/attack"
+	}
+
+Cast
+    {
+    CastClass = "GreenCultist_Cast"
+    CastName = "ACOLYTE"
+    AttackSound = "Missile", 1, ""
+    }
+
+Cast
+    {
+    CastClass = "RedCultist_Cast"
+    CastName = "PRIEST"
+    AttackSound = "Missile", 1, "CultistShotgun"
+    }
+
+Cast
+	{
+	CastClass = "Revenant"
+	CastName = "$CC_REVEN"
+	AttackSound = "Missile",1,"skeleton/attack"
+	AttackSound = "Melee",1,"skeleton/swing"
+	AttackSound = "Melee",3,"skeleton/melee"
+	}
+
+Cast
+    {
+    CastClass = "BloodBeast_Cast"
+    CastName = "BEAST"
+    AttackSound = "Melee", 1, "BeastSlash"
+	AttackSound = "Missile", 36, "BeastStomp"
+    }
+
+Cast
+    {
+    CastClass = "ChrysalidPod_Cast"
+    CastName = "CHRYSALID POD"
+    AttackSound = "Melee", 1, "PodSpit"
+    AttackSound = "Missile", 1, ""
+    }
+
+Cast
+    {
+    CastClass = "BloodRat_Cast"
+    CastName = "RAT"
+    AttackSound = "Melee", 1, "RatBite"
+    }
+
+Cast
+    {
+    CastClass = "Caleb_Cast"
+    CastName = "CALEB"
+    AttackSound = "Missile", 1, "weapons/sshotf"
+    }
+
+Cast
+    {
+    CastClass = "DoomDude"
+    CastName = "DOOMGUY"
+    AttackSound = "Missile", 1, "weapons/sshotf"
+    }
+
+Link = BloomCast
+}
+
+Gameinfo
+{
+	NoRandomPlayerClass = true
+	drawreadthis = true
+	infopage  = "HELP01", "HELP02", "HELP03", "HELP04", "HELP05", "HELP06", "HELP07", "HELP08", "HELP09", "HELP10", "HELP11", "HELP12", "HELP13", "HELP14", "HELP15"
+}
