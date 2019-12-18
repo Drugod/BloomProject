@@ -3116,6 +3116,7 @@ ACTOR BloodBeast : BloodEnemy_Base 6123
 	SeeSound "BeastSee"
 	PainSound "BeastPain"
 	DeathSound "BeastDie"
+	+BOSSDEATH
 	+FLOORCLIP
 	+MISSILEEVENMORE
 	+MISSILEMORE
@@ -3202,9 +3203,10 @@ ACTOR BloodBeast : BloodEnemy_Base 6123
 		BEAS A 7
 		BEAS A 7
 		Goto See
+	XDeath:
 	Death:
 		BESD A 7 A_Scream
-		BESD B 6
+		BESD B 6 A_BossDeath
 		BESD C 5 A_NoBlocking
 		BESD DE 4
 		BESD FFFFFFFF 4 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
@@ -3226,7 +3228,7 @@ ACTOR BloodBeast : BloodEnemy_Base 6123
 		BABD ABCDEFGH 8 A_SpawnItem("YouAreOnFireSir")
 		BABD I 20 A_Fall
 		BABD IJKLMNOP 6
-		BABD Q -1
+		BABD Q -1 A_BossDeath
 		Stop
 	Jump:
 		BESS DDD 2 A_Chase

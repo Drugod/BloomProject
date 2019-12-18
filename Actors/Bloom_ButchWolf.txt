@@ -71,7 +71,6 @@ ACTOR WereWolfOfHell : WereWolfOfHellAlt 19032
 {
 	//$Title WereWolf of Hell
 	Speed 24
-	PainChance 50
 	MeleeDamage 10
 	MeleeRange 64
 	+DROPOFF
@@ -118,15 +117,15 @@ ACTOR WereWolfOfHell : WereWolfOfHellAlt 19032
 		BO14 C 8
 		BO14 D 8 A_NoBlocking
 		BO14 EF 8
-		BO14 F -1
+		BO14 F -1 A_BossDeath
 		Stop
-		XDeath:
+	XDeath:
 		BOS4 O 8
 		BOS4 P 8 A_Scream
 		BOS4 Q 8
 		BOS4 R 8 A_NoBlocking
 		BOS4 ST 8
-		BOS4 U -1
+		BOS4 U -1 A_BossDeath
 		Stop
 	Raise:
 		BOS4 F 8
