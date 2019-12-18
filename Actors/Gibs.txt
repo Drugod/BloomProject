@@ -453,7 +453,6 @@ ACTOR KickableFlyingZombimp1: ZombimpHead1
 
 ACTOR KickableHeadZombimp1
 {
-	Monster
 	Health 5
 	Mass 15
 	Height 8
@@ -471,7 +470,6 @@ ACTOR KickableHeadZombimp1
 	+SLIDESONWALLS
 	+SOLID
 	+WINDTHRUST
-	-COUNTKILL
 	-NOBLOCKMAP
 	Speed 1
 	DamageFactor "Normal",0.4

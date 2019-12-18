@@ -227,7 +227,7 @@ ACTOR SpiritArmorPickupLower : BodyArmorPickupLower //6237
 	}
 }
 
-ACTOR SuperArmorPickup : CustomInventory 3161//replaces BlueArmor 6234
+ACTOR SuperArmorPickup : CustomInventory 3161
 {
 	//$Category "BlooM Armor"
 	//$Sprite XRM2A0

@@ -1154,7 +1154,7 @@ ACTOR StoneGargFX
 	}
 }
 
-ACTOR BloodFire : ArchvileFire //replaces ArchvileFire
+ACTOR BloodFire : ArchvileFire
 {
 	Alpha 0.0
 	RenderStyle "Add"

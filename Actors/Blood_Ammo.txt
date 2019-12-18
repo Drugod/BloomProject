@@ -97,7 +97,7 @@ ACTOR Shell2 : Ammo
 	Ammo.BackpackMaxAmount 100
 }
 
-ACTOR BloodShellBox : Shell2 3168//replaces Shellbox
+ACTOR BloodShellBox : Shell2 3168
 {
 	//$Sprite SBEXA0
 	Tag "Shell Box"
@@ -117,7 +117,7 @@ ACTOR BloodShellBox : Shell2 3168//replaces Shellbox
 	}
 }
 
-ACTOR BloodShells : Shell2 3169//replaces Shell
+ACTOR BloodShells : Shell2 3169
 {
 	//$Sprite SHEXA0
 	Tag "Shells"
@@ -307,7 +307,7 @@ ACTOR DTNTBox : CustomInventory 3248
 }
 
 ACTOR -------VOODOODOLL------------ {}
-ACTOR VoodooDollPickup : CustomInventory 3167//replaces Chainsaw
+ACTOR VoodooDollPickup : CustomInventory 3167
 {
 	//$Category "BlooM Ammunitions"
 	//$Sprite VDLFA0

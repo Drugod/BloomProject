@@ -2320,7 +2320,7 @@ ACTOR ShotgunCasing
 	}
 }
 
-ACTOR SawedOff : CalebW 3137// replaces SuperShotgun 82
+ACTOR SawedOff : CalebW 3137
 {
 	//$Sprite SOSPA0
 	Tag "Sawed-Off"
@@ -2616,7 +2616,7 @@ ACTOR TommygunCasing
 	}
 }
 
-ACTOR Tommygun : CalebW 3138 //replaces Chaingun 2002
+ACTOR Tommygun : CalebW 3138
 {
 	//$Sprite TOMPA0
 	Tag "Tommy-Gun"
@@ -3053,7 +3053,7 @@ ACTOR NapalmLauncher : CalebW 3139 // 2003
 	}
 }
 
-ACTOR WallBomb //replaces Rocket
+ACTOR WallBomb
 {
 	Decal Scorch
 	Spawnid 127
@@ -3966,7 +3966,7 @@ ACTOR BoltShrink9 : BoltShrink1
 }
 
 ACTOR --------LIFELEECH--------- {}
-ACTOR LifeLeech : CalebW 3141 //replaces BFG9000 2006 - this weapon needs a primary fire mode - ozy81
+ACTOR LifeLeech : CalebW 3141 //this weapon needs a primary fire mode - ozy81
 {
 	//$Sprite LLSPA0
 	Tag "Life Leech"

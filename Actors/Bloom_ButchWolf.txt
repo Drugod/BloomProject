@@ -44,6 +44,19 @@ ACTOR WereWolfOfHellAlt : BloomHybrid_Base 19031
 		BOS3 H 2
 		BOS3 H 2 A_Pain
 		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("BeastPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		Goto See
 	Death:
 		BOS3 I 8
 		BOS3 J 8 A_Scream
@@ -52,6 +65,16 @@ ACTOR WereWolfOfHellAlt : BloomHybrid_Base 19031
 		BOS3 MN 8
 		BOS3 O -1 A_BossDeath
 		Stop
+	Death.Shock:
+		TNT1 A 0 A_PlaySound("BeastPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		Goto XDeath+1
 	XDeath:
 		BOS3 P 8
 		BOS3 Q 8 A_XScream
@@ -111,6 +134,19 @@ ACTOR WereWolfOfHell : WereWolfOfHellAlt 19032
 		BOS4 V 2
 		BOS4 V 2 A_Pain
 		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("BeastPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		Goto See
 	Death:
 		BO14 A 8
 		BO14 B 8 A_Scream
@@ -119,6 +155,16 @@ ACTOR WereWolfOfHell : WereWolfOfHellAlt 19032
 		BO14 EF 8
 		BO14 F -1 A_BossDeath
 		Stop
+	Death.Shock:
+		TNT1 A 0 A_PlaySound("BeastPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		Goto XDeath+1
 	XDeath:
 		BOS4 O 8
 		BOS4 P 8 A_Scream
@@ -295,6 +341,7 @@ ACTOR HellButcherBall
 	FastSpeed 20
 	Damage 8
 	Projectile
+	+BRIGHT
 	+RANDOMIZE
 	RenderStyle Add
 	Alpha 1
@@ -304,10 +351,10 @@ ACTOR HellButcherBall
 	States
 	{
 	Spawn:
-		SPAX AB 4 BRIGHT
+		SPAX AB 4
 		Loop
 	Death:
-		SPAX CDE 6 BRIGHT
+		SPAX CDE 6
 		Stop
 	}
 }

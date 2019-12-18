@@ -115,6 +115,16 @@ ACTOR FlyingGargovile : BloomHybrid_Base 18322
 		ARCF J 5
 		ARCF J 5 A_Pain
 		Goto Summon
+	Death:
+		TNT1 A 0 A_ChangeFlag("FLOAT",0)
+		TNT1 A 0 A_ChangeFlag("FLOATBOB",0)
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+		ARCH P 7
+		ARCH Q 7 A_Scream
+		ARCH R 7 A_NoBlocking
+		ARCH STUVW 7
+		ARCH X -1
+		Stop
 	}
 }
 
