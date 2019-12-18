@@ -307,43 +307,43 @@ Script "SpeedCheck" (void){
    SetActorProperty(0, APROP_Speed, 2.75);
 }
 
-Script "FloorTextureCheck" (void){//Checking if zombimp must be buried or not
+Script "FloorTextureCheck" (int tid){//Checking if zombimp must be buried or not
 	bool found = false;
 	for(int i; i<=19; i++){		
-		if (CheckActorFloorTexture(0, FloorTextures[i]))
+		if (CheckActorFloorTexture(tid, FloorTextures[i]))
 		{
 			found = true;		
-			SetActorState(0,"GroundSpawner",true);
+			SetActorState(tid,"GroundSpawner",true);
 			i = 666;//Exit from loop
 		}
 	}
-	if (found == false) { SetActorState(0,"NoGroundSpawner",true);}
+	if (found == false) { SetActorState(tid,"NoGroundSpawner",true);}
 }
 
-Script "LavaTextureCheck" (void){
+Script "LavaTextureCheck" (int tid){
 	bool found2 = false;
 	for(int i; i<=19; i++){		
-		if (CheckActorFloorTexture(0, LavaTextures[i]))
+		if (CheckActorFloorTexture(tid, LavaTextures[i]))
 		{
 			found2 = true;		
-			SetActorState(0,"GroundSpawner",true);
+			SetActorState(tid,"GroundSpawner",true);
 			i = 666;//Exit from loop
 		}
 	}
-	if (found2 == false) { SetActorState(0,"NoGroundSpawner",true);}
+	if (found2 == false) { SetActorState(tid,"NoGroundSpawner",true);}
 }
 
-Script "IceTextureCheck" (void){
+Script "IceTextureCheck" (int tid){
 	bool found3 = false;
 	for(int i; i<=19; i++){		
-		if (CheckActorFloorTexture(0, IceTextures[i]))
+		if (CheckActorFloorTexture(tid, IceTextures[i]))
 		{
 			found3 = true;		
-			SetActorState(0,"GroundSpawner",true);
+			SetActorState(tid,"GroundSpawner",true);
 			i = 666;//Exit from loop
 		}
 	}
-	if (found3 == false) { SetActorState(0,"NoGroundSpawner",true);}
+	if (found3 == false) { SetActorState(tid,"NoGroundSpawner",true);}
 }
 
 Script "Jokes" (int type){//Script for jokes

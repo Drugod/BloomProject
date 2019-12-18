@@ -116,7 +116,7 @@ ACTOR Green_Arachnopod : BloomHybrid_Base 19070
 	DoBramble:
 		TNT1 A 0 A_GiveInventory("CountBramble",1)	
 		TNT1 A 0 A_PlaySound("TentacleUp")
-		APOX A 3 A_SpawnItemEx("GreenArachnoBramble",frandom(32.0,64.0), frandom(32.0,64.0), 0.0, 0.0, 0.0, 0.0, 0.0, SXF_SETMASTER)
+		APOX A 3 A_SpawnItemEx("GreenArachnoBramble",frandom(32.0,64.0), frandom(32.0,64.0), 0.0, 0.0, 0.0, 0.0, 0.0, SXF_SETMASTER,0,tid)
 		APOX ABBCC 3 A_Chase
 		APOX D 3 A_BabyMetal
 		APOX DBBCC 3 A_Chase		
@@ -145,7 +145,7 @@ ACTOR GreenArachnoBramble : HellroseBramble
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 ACS_NamedExecuteAlways("FloorTextureCheck", 0)
+		TNT1 A 0 ACS_NamedExecuteAlways("FloorTextureCheck", 0,tid)
 	Deciding:
 		TNT1 A 1
 		Loop
@@ -249,7 +249,7 @@ ACTOR Magma_Arachnopod : Green_Arachnopod 19071 //needs proper attacks
 		TNT1 A 0 A_GiveInventory("CountBramble",1)	
 		TNT1 A 0 A_PlaySound("TentacleUp")
 		TNT1 AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
-		MPOX A 3 A_SpawnItemEx("MagmaBramble",frandom(32.0,64.0), frandom(32.0,64.0), 0.0, 0.0, 0.0, 0.0, 0.0, SXF_SETMASTER)
+		MPOX A 3 A_SpawnItemEx("MagmaBramble",frandom(32.0,64.0), frandom(32.0,64.0), 0.0, 0.0, 0.0, 0.0, 0.0, SXF_SETMASTER,0,tid)
 		TNT1 AAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
 		MPOX ABBCC 3 A_Chase
 		TNT1 AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
@@ -286,7 +286,7 @@ ACTOR MagmaBramble : HellroseBramble
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 ACS_NamedExecuteAlways("LavaTextureCheck", 0)
+		TNT1 A 0 ACS_NamedExecuteAlways("LavaTextureCheck", 0,tid)
 	Deciding:
 		TNT1 A 1
 		Loop
@@ -379,7 +379,7 @@ ACTOR Ice_Arachnopod : Green_Arachnopod 19072 //needs proper attacks
 	DoBramble:
 		TNT1 A 0 A_GiveInventory("CountBramble",1)	
 		TNT1 A 0 A_PlaySound("TentacleUp")
-		IPOX A 3 A_SpawnItemEx("IceBramble",frandom(32.0,64.0), frandom(32.0,64.0), 0.0, 0.0, 0.0, 0.0, 0.0, SXF_SETMASTER)
+		IPOX A 3 A_SpawnItemEx("IceBramble",frandom(32.0,64.0), frandom(32.0,64.0), 0.0, 0.0, 0.0, 0.0, 0.0, SXF_SETMASTER,0,tid)
 		IPOX ABBCC 3 A_Chase
 		IPOX D 3 A_BabyMetal
 		IPOX DBBCC 3 A_Chase		
@@ -412,7 +412,7 @@ ACTOR IceBramble : HellroseBramble
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 ACS_NamedExecuteAlways("IceTextureCheck", 0)
+		TNT1 A 0 ACS_NamedExecuteAlways("IceTextureCheck", 0,tid)
 	Deciding:
 		TNT1 A 1
 		Loop
