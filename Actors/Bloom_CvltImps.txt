@@ -14,6 +14,7 @@ ACTOR Cvltimp : BloomHybrid_Base 19028
 	Obituary "$OB_IMP"
 	DropItem "Flaregun" 16
 	DropItem "Flare" 64
+	DropItem "FlameGas" 8	
 	Dropitem "UselessStuff" 16
 	States
 	{

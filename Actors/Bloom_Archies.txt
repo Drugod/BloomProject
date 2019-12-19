@@ -19,6 +19,8 @@ ACTOR Gargovile : BloomHybrid_Base 19040
 	ActiveSound "vile/active"
 	MeleeSound "vile/Stop"
 	Obituary "$OB_VILE"
+	DropItem "FlameBigGas" 32			
+	DropItem "FlameThrower_" 8		
 	States
 	{
 	Spawn:
@@ -84,6 +86,8 @@ ACTOR FlyingGargovile : BloomHybrid_Base 18322
 	ActiveSound "vile/active"
 	MeleeSound "vile/Stop"
 	Obituary "$OB_VILE"
+	DropItem "FlameBigGas" 32			
+	DropItem "FlameThrower_" 8		
 	States
 	{
 	Spawn:

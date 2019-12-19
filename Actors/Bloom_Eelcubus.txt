@@ -16,6 +16,8 @@ ACTOR Eelcubus : BloomHybrid_Base 19007
 	DeathSound "fatso/death"
 	ActiveSound "fatso/active"
 	Obituary "$OB_EELCUB"
+	DropItem "FlameBigGas" 32			
+	DropItem "FlameThrower_" 8				
 	States
 	{
 	Spawn:
@@ -68,6 +70,8 @@ ACTOR EelcubusAlt : BloomHybrid_Base 19008
 	DeathSound "fatso/death"
 	ActiveSound "fatso/active"
 	Obituary "$OB_EELCUB"
+	DropItem "FlameBigGas" 32			
+	DropItem "FlameThrower_" 8		
 	States
 	{
 	Spawn:
@@ -120,6 +124,8 @@ ACTOR Gillcubus : BloomHybrid_Base 19027
 	DeathSound "fatso/death"
 	ActiveSound "fatso/active"
 	Obituary "$OB_GILLCUB"
+	DropItem "FlameBigGas" 32			
+	DropItem "FlameThrower_" 8		
 	States
 	{
 	Spawn:
