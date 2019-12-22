@@ -518,10 +518,10 @@ ACTOR FrostAmmo : Ammo 23003
 	//$Category "BlooM Ammunitions"
 	//$Title "Frostgun Ammo"
 	//$Sprite FROPA0
-	Inventory.Amount 25
-	Inventory.MaxAmount 200
-	Ammo.BackpackAmount 25
-	Ammo.BackpackMaxAmount 400
+	Inventory.Amount 4
+	Inventory.MaxAmount 50
+	Ammo.BackpackAmount 4
+	Ammo.BackpackMaxAmount 100
 	Inventory.PickupMessage "$FROSTA"
 	Inventory.Icon "FROPA0"
 	States
