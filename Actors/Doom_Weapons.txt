@@ -988,39 +988,39 @@ ACTOR FlameThrower_ : DoomW 19074
 	BaseSpawn:
 		PMAW A 1
 		PMAW A -1 A_SpawnItemEx("Spraycan",0,0,0)
-	Stop
+		Stop
 	ModelSpawn:
 		UNKN A 1
 		UNKN A -1 A_SpawnItemEx("Spraycan",0,0,0)
-	Stop
+		Stop
 	Ready:
 		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")
 		PMAC AAAABBBBCCCCDDDDEEEE 1 A_WeaponReady
-	Loop
+		Loop
 	Deselect:
 		PMAA HHGGFFEEDDCCBBAA 1
-		UNMS A 0 A_StopSound(CHAN_BODY)						
+		PMAA A 0 A_StopSound(CHAN_BODY)						
 		TNT1 AAAAAAAAAA 0 A_Lower
 		TNT1 A 1 A_Lower
-	Wait			
+		Wait			
 	Select:
 		TNT1 AAAAA 1 A_Raise
 		TNT1 AAAAAAAAAA 0 A_Raise
-	Goto SelectAnimation
+		Goto SelectAnimation
 	SelectAnimation:
 		PMAA AABBCCDDEEFFGGHH 1 
-	Goto Ready		
+		Goto Ready		
 	Fire:
 		TNT1 A 0 A_PlayWeaponSound ("flamethrower/Fire")
 		PMCC ABCDEFGHIJKLMN 1 A_FireCustomMissile("FlamethrowFire",0+frandom(-1,1),1,0+frandom(-1,1),4+frandom(-1,1))  
 		PMCR AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHH 1 A_ReFire
-	Goto Ready
+		Goto Ready
 	TossGrenade:
 		TNT1 A 0
 		TNT1 A 0 A_ZoomFactor(1.0)
 		TNT1 A 0 A_TakeInventory("TossGrenade", 1)
 		TNT1 A 0 A_JumpIfInventory("GrenadeAmmo", 1, 1)
-	Goto NoGrenade
+		Goto NoGrenade
 		HNDG ABCD 1
 		TNT1 A 0 A_GiveInventory("FiredGrenade", 1)
 		TNT1 A 0 A_Playsound ("GRNPIN")
@@ -1033,11 +1033,11 @@ ACTOR FlameThrower_ : DoomW 19074
 		HNDG JKLM 1
 		TNT1 A 1
 		TNT1 A 0 A_TakeInventory("TossGrenade", 1)
-	Goto Ready
+		Goto Ready
 	NoGrenade:
 		TNT1 A 0
 		TNT1 A 0 A_Print("$NOGREN")
-	Goto Ready
+		Goto Ready
   }
 }
 
@@ -1067,20 +1067,26 @@ ACTOR Frostgun_ : DoomW 19076 //highly inspired to UAC Plasmatic Rifle
 		Stop
 	Ready:
 		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")
-		FROS A 1 A_WeaponReady
+		FRST ABCDEFGHIJ 1 A_WeaponReady
 		Loop
 	Deselect:
-		FROS A 1 A_Lower
-		Loop
+		FRST JIHGFEDCBA 1
+		FRST A 0 A_StopSound(CHAN_BODY)						
+		TNT1 AAAAAAAAAA 0 A_Lower
+		TNT1 A 1 A_Lower
+		Wait			
 	Select:
-		FROS A 1 A_Raise
-		Loop
+		TNT1 A 1 A_Raise
+		TNT1 AAAAAAAAAA 0 A_Raise
+		Goto SelectAnimation
+	SelectAnimation:
+		FRST ABCDEFGHIJ 1
+		Goto Ready		
 	Fire:
-		FROS A 0 A_PlayWeaponSound ("frostgun/Fire")
-		FROS A 0 A_FireCustomMissile("FrostPlasma",0,1,0,0)
-		FROS EFGH 2 BRIGHT
-		FROS D 2
-		FROS CB 3 A_ReFire
+		FRSF A 0 A_PlayWeaponSound ("frostgun/Fire")
+		FRSF ABCDEFGHIJ 1 
+		TNT1 A 0 A_FireCustomMissile("FrostPlasma",0,1,0,0)
+		FRSR AABBCCDDEEFFGGHHIIJJKKLL 1 A_ReFire
 		Goto Ready
 	TossGrenade:
 		TNT1 A 0
