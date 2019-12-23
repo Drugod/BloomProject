@@ -343,6 +343,8 @@ ACTOR Ice_Arachnopod : Green_Arachnopod 19072 //needs proper attacks
 	DamageFactor "Fire", 2.0
 	DamageFactor "Flare", 1.5
 	DamageFactor "SpecialFire", 1.5
+	DropItem "Frostgun_" 8	
+	DropItem "FrostAmmo" 16	
 	States
 	{
 	Spawn:

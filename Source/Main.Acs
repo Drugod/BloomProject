@@ -96,7 +96,7 @@ function int dist (int tid1, int tid2){
 }
 
 Script "OpenMap" OPEN
-{	whichweapon = random (1,3); }
+{	whichweapon = random (1,4); }
 
 Script "EnterTheGame" Enter //Start Script
 {
@@ -386,6 +386,9 @@ Script "new_weapons_selection" (void){//Script for random weapon selection for d
 		case 3:
 			SetActorState(0,"TeslacannonSpawner",TRUE);
 		break;		
+		case 4:
+			SetActorState(0,"FrostgunSpawner",TRUE);
+		break;			
 		default:
 			SetActorState(0,"PlasmarifleSpawner",TRUE);
 		break;		
@@ -403,6 +406,9 @@ Script "new_ammos_selection" (void){//Script for random weapon selection for doo
 		break;		
 		case 3:
 			SetActorState(0,"TeslacannonSpawner",TRUE);
+		break;
+		case 4:
+			SetActorState(0,"FrostgunSpawner",TRUE);
 		break;		
 		default:
 			SetActorState(0,"PlasmarifleSpawner",TRUE);

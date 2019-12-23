@@ -3,7 +3,7 @@ ACTOR FrostPlasma
 	Radius 13
 	Height 8
 	Speed 100
-	Damage 48
+	Damage 32
 	DamageType "Ice"
 	Decal DoomImpScorch
 	Projectile

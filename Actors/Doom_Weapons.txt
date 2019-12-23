@@ -711,10 +711,10 @@ ACTOR DoubleRocketLauncher_ : RocketLauncher_
 }
 
 ACTOR --------NEW_WEAPONS_SELECTOR------------ {}
-ACTOR NewWeapons_ replaces PlasmaRifle
+ACTOR NewWeapons_Plasma replaces PlasmaRifle
 {
     //$Category "Weapons"
-    //$Title PlasmaRifle/FlameThrower/Teslacannon Spawner
+    //$Title PlasmaRifle/FlameThrower/Teslacannon/Frostgun Spawner
 	States
 	{
 	Spawn:
@@ -732,7 +732,10 @@ ACTOR NewWeapons_ replaces PlasmaRifle
 		Stop
 	TeslacannonSpawner:
 		TNT1 A 0 A_SpawnItemEx("Teslacannon_",0,0,0,0,0,0,0)
-		Stop		
+		Stop
+	FrostgunSpawner:
+		TNT1 A 0 A_SpawnItemEx("Frostgun_",0,0,0,0,0,0,0)
+		Stop			
 	}
 }
 
@@ -1063,25 +1066,19 @@ ACTOR Frostgun_ : DoomW 19076 //highly inspired to UAC Plasmatic Rifle
 		UNKN A -1
 		Stop
 	Spawn:
-		FROW A -1
+		FROS A -1
 		Stop
 	Ready:
 		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")
 		FRST ABCDEFGHIJ 1 A_WeaponReady
 		Loop
 	Deselect:
-		FRST JIHGFEDCBA 1
+		FRST JJIIHHGGFFEEDDCCBBAA 1 A_Lower
 		FRST A 0 A_StopSound(CHAN_BODY)						
-		TNT1 AAAAAAAAAA 0 A_Lower
-		TNT1 A 1 A_Lower
 		Wait			
 	Select:
-		TNT1 A 1 A_Raise
-		TNT1 AAAAAAAAAA 0 A_Raise
-		Goto SelectAnimation
-	SelectAnimation:
-		FRST ABCDEFGHIJ 1
-		Goto Ready		
+		FRST AABBCCDDEEFFGGHHIIJJ 1 A_Raise
+		Goto Ready	
 	Fire:
 		FRSF AB 1 A_PlayWeaponSound ("frostgun/Fire")
 		FRSF C  1 A_FireCustomMissile("FrostPlasma",0,1,0,0)

@@ -19,6 +19,9 @@ ACTOR NewAmmos_little replaces Cell
 		Stop
 	TeslacannonSpawner:
 		TNT1 A 0 A_SpawnItemEx("TeslaCharge",0,0,0,0,0,0,0)
+		Stop	
+	FrostgunSpawner:
+		TNT1 A 0 A_SpawnItemEx("FrostAmmo",0,0,0,0,0,0,0)
 		Stop		
 	}
 }
@@ -44,7 +47,10 @@ ACTOR NewAmmos_Big replaces CellPack
 		Stop
 	TeslacannonSpawner:
 		TNT1 A 0 A_SpawnItemEx("TeslaChargeBox",0,0,0,0,0,0,0)
-		Stop		
+		Stop
+	FrostgunSpawner:
+		TNT1 A 0 A_SpawnItemEx("FrostAmmo",0,0,0,0,0,0,0)
+		Stop			
 	}
 }
 

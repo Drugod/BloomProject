@@ -26,6 +26,8 @@ ACTOR DeepOne_Base
 	PainSound "GillBeastPain"
 	DeathSound "GillBeastDie"
 	ActiveSound "GillBeastSee"
+	DropItem "Frostgun_" 16	
+	DropItem "FrostAmmo" 32		
 	States
 	{
 	Forget:

@@ -20,6 +20,8 @@ ACTOR KingCacoyle : BloomHybrid_Base 19053
 	ActiveSound "caco/active"
 	Obituary "$OB_CACOYB"
 	HitObituary "HB_CACOYB"
+	DropItem "Frostgun_"	
+	DropItem "FrostAmmo"			
 	States
 	{
 	Spawn:
@@ -284,6 +286,8 @@ ACTOR CyberCheogh : BloomHybrid_Base 19057
 	+NOSPLASHALERT
 	+SHORTMISSILERANGE
 	+BOSS
+	DropItem "Frostgun_"	
+	DropItem "FrostAmmo"	
 	States
 	{
 	Spawn:
