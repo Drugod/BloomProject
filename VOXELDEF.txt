@@ -13,6 +13,7 @@ TNTFA="TNTFA" {Spin = 50}
 TOMPA="TOMPA" {Spin = 50}
 TSPIA="TSPIA" {Spin = 50}
 VDLFA="VDLFA" {Spin = 50}
+FROSA="FROSA" {Spin = 50}
 
 //--------------------ARMOR----------------
 ARMFA="ARMFA" {Spin = 50}
