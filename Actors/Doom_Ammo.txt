@@ -535,7 +535,7 @@ ACTOR FrostAmmo : Ammo 23003
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
-		FROP AAAABCDCB 5 BRIGHT
+		FROP A 1//AAABCDCB 5 BRIGHT
 		Loop
 	ModelSpawn:
 		UNKN A -1

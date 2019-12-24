@@ -41,6 +41,7 @@ TBOXA="TBOXA" {}
 TESCA="TESCA" {}
 TESCB="TESCB" {Scale = 0.65}
 TMBOA="TMBOA" {}
+FROPA="FROPA" {Scale = 0.65}
 
 //--------------------DECORATIONS-----------
 CHA2A="CHA2A" {}

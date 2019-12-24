@@ -1060,7 +1060,7 @@ ACTOR Frostgun_ : DoomW 19076 //highly inspired to UAC Plasmatic Rifle
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
-		FROW A -1
+		FROS A -1
 		Stop
 	ModelSpawn:
 		UNKN A -1
@@ -1082,6 +1082,7 @@ ACTOR Frostgun_ : DoomW 19076 //highly inspired to UAC Plasmatic Rifle
 	Fire:
 		FRSF AB 1 A_PlayWeaponSound ("frostgun/Fire")
 		FRSF C  1 A_FireCustomMissile("FrostPlasma",0,1,0,0)
+		TNT1 A  0 A_Quake(2,6,0,100)		
 		FRSF DEFGHIJ 1
 		FRSR AAAABBBBCCCCDDDDEEEEFFFFGGGGHHIIJJKKLL 1 
 		FRSF A 5 A_ReFire
