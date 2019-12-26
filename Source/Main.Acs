@@ -373,6 +373,34 @@ Script "hybrid_selection" (void){//Script for enemy selection.
 	if (GetCvar("blm_hybrid") == FALSE) { SetActorState(0,"NormalSpawner",TRUE); }		
 }
 
+Script "chk_actspecial" (void){
+	delay(5);
+	int map = GetLevelInfo(LEVELINFO_LEVELNUM);
+	int spawner = random(1,4); 
+	print(s:"esto en el mapa: " ,d: map);
+	if ( map == 7 ){
+	    SetActorState(0,"Spawn1",TRUE);
+	}else{
+		switch (spawner){
+		Case 1:
+			SetActorState(0,"Spawn1",TRUE);		
+		break;		
+		Case 2:		
+			SetActorState(0,"Spawn2",TRUE);		
+		break;		
+		Case 3:
+			SetActorState(0,"Spawn3",TRUE);		
+		break;		
+		Case 4:
+			SetActorState(0,"Spawn4",TRUE);		
+		break;
+		Default:
+			SetActorState(0,"Spawn1",TRUE);				
+		break;
+		}
+	}
+}
+
 Script "new_weapons_selection" (void){//Script for random weapon selection for doomguy.
 	delay(5);
 	switch (whichweapon)

@@ -1045,6 +1045,23 @@ map MAP07 lookup "PHUSTR_7"
 	cluster = 6
 	par = 120
 	map07special
+	SPECIALACTION = "OriginalFishMancubus","Floor_LowerToLowest",666,8
+	SPECIALACTION = "GillBeast","Floor_LowerToLowest",666,8
+	SPECIALACTION = "Fatso_","Floor_LowerToLowest",666,8
+	SPECIALACTION = "HybridFishMancubus","Floor_LowerToLowest",666,8
+	SPECIALACTION = "Eelcubus","Floor_LowerToLowest",666,8
+	SPECIALACTION = "EelcubusAlt","Floor_LowerToLowest",666,8
+	SPECIALACTION = "Gillcubus","Floor_LowerToLowest",666,8
+	SPECIALACTION = "Arachnoidhybrid","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "Arachnoid","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "Green_Arachnopod","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "Magma_Arachnopod","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "Ice_Arachnopod","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "Arachnoidnormal","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "Arachnotron_","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "SpiderMother","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "ChrysalidPod","Floor_RaiseByTexture",667,8
+	SPECIALACTION = "LavaPod","Floor_RaiseByTexture",667,8	
 	music = "$MUSIC_SHAWN"
 }
 

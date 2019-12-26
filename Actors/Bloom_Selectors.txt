@@ -654,8 +654,11 @@ ACTOR ArachnoidNormal
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
-		Stop
+		TNT1 A 1 ACS_NamedExecuteAlways("chk_actspecial",0)		
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("Arachnotron_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
@@ -677,8 +680,11 @@ ACTOR ArachnoidHybrid
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
-		Stop
+		TNT1 A 1 ACS_NamedExecuteAlways("chk_actspecial",0)		
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("Arachnoid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop

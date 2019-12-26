@@ -487,11 +487,11 @@ ACTOR FlameGas : Ammo 23001
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
 		AGAS A 1	
-		AGAS A -1 A_SpawnItemEx("Spraycan",0,0,0)		
+		AGAS A -1 A_SpawnItemEx("SprayCanisterPickup",0,0,0)		
 		Stop
 	ModelSpawn:
 		UNKN A 1	
-		UNKN A -1 A_SpawnItemEx("Spraycan",0,0,0)		
+		UNKN A -1 A_SpawnItemEx("SprayCanisterPickup",0,0,0)		
 		Stop
 	}
 }
