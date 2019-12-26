@@ -13,7 +13,6 @@ TNTFA="TNTFA" {Spin = 50}
 TOMPA="TOMPA" {Spin = 50}
 TSPIA="TSPIA" {Spin = 50}
 VDLFA="VDLFA" {Spin = 50}
-FROSA="FROSA" {Spin = 50}
 
 //--------------------ARMOR----------------
 ARMFA="ARMFA" {Spin = 50}
@@ -41,7 +40,6 @@ TBOXA="TBOXA" {}
 TESCA="TESCA" {}
 TESCB="TESCB" {Scale = 0.65}
 TMBOA="TMBOA" {}
-FROPA="FROPA" {Scale = 0.45}
 
 //--------------------DECORATIONS-----------
 CHA2A="CHA2A" {}
@@ -98,3 +96,13 @@ CLIPA = "CLIPA" {DroppedSpin = 25}
 ROCKA = "ROCKA" {DroppedSpin = 25}
 SBOXA = "SBOXA" {DroppedSpin = 25}
 SHELA = "SHELA" {Scale = 0.19 DroppedSpin = 25}
+
+//==========================================
+//------------BlooM Exclusives--------------
+//==========================================
+AGASA="AGASA" {}
+AGASB="AGASB" {}
+FROPA="FROPA" {Scale = 0.45}
+FROSA="FROSA" {Spin = 50}
+PMAWA="PMAWA" {Spin = 50}
+//TEDWA="TEDWA" {Spin = 50}

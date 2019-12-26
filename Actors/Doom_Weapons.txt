@@ -1045,7 +1045,7 @@ ACTOR FlameThrower_ : DoomW 19074
 }
 
 ACTOR --------FROSTGUN------------ {}
-ACTOR Frostgun_ : DoomW 19076 //highly inspired to UAC Plasmatic Rifle
+ACTOR Frostgun_ : DoomW 19076
 {
 	Inventory.PickupMessage "$FROSPICK"
 	Inventory.PickupSound "frostgun/Pick"
@@ -1060,10 +1060,12 @@ ACTOR Frostgun_ : DoomW 19076 //highly inspired to UAC Plasmatic Rifle
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
-		FROS A -1
+		FROS A 1
+		FROS A -1 A_SpawnItemEx("TeslaRifle",0,0,0)
 		Stop
 	ModelSpawn:
-		UNKN A -1
+		UNKN A 1
+		UNKN A -1 A_SpawnItemEx("TeslaRifle",0,0,0)
 		Stop
 	Spawn:
 		FROS A -1
@@ -1128,7 +1130,7 @@ ACTOR TeslaCannon_ : DoomW 19075 //uses teslacharge atm yet - ozy81
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
-		TEDW A  1
+		TEDW A 1
 		TEDW A -1 A_SpawnItemEx("TeslaRifle",0,0,0)
 		Stop
 	ModelSpawn:
