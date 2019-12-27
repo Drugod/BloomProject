@@ -69,6 +69,7 @@ ACTOR RainSpawner 3249
 		TNT1 A 2 A_SpawnItemEx("RainDrop", frandom(-Args[0], Args[0]), 0, -2, 0, 0, 0, frandom(0, 360), 128, Args[1])
 	NoSound:
 		TNT1 A 0 A_Jumpif(Args[3] > 0, "NoSoundCircle")
+		TNT1 A 0 A_JumpIf(Args[4] == 1, "NoSoundBloodRain")		
 		TNT1 A 2 A_SpawnItemEx("RainDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
 		Loop
 	NoSoundCircle:
@@ -81,7 +82,7 @@ ACTOR RainSpawner 3249
 	BloodRain:
 		TNT1 A 0 A_PlaySoundEx("Ambient/Rain", "SoundSlot7",1, 0)
 		TNT1 A 1 A_SpawnItemEx("BloodDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
-		TNT1 A 1 A_SpawnItemEx("FlyingBloodrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
+/*		TNT1 A 1 A_SpawnItemEx("FlyingBloodrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
 		TNT1 A 1 A_SpawnItemEx("BloodDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
 		TNT1 A 1 A_SpawnItemEx("FlyingBloodrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
 		TNT1 A 1 A_SpawnItemEx("BloodDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
@@ -111,7 +112,10 @@ ACTOR RainSpawner 3249
 		TNT1 A 1 A_SpawnItemEx("BloodDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
 		TNT1 A 1 A_SpawnItemEx("FlyingBloodrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
 		TNT1 A 1 A_SpawnItemEx("BloodDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
-		TNT1 A 1 A_SpawnItemEx("FlyingBloodrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
+		TNT1 A 1 A_SpawnItemEx("FlyingBloodrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])*/
+		Loop
+	NoSoundBloodRain:
+		TNT1 A 1 A_SpawnItemEx("BloodDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
 		Loop
 	}
 }

@@ -1100,7 +1100,7 @@ TRAINMOVE       TRAIN1
 SIREN1 SIREN1
 DSEMPTY DSEMPTY
 
-$ambient 2 drips point random 1.0 5.0 64
+$ambient 2 drips point random 5.0 10.0 64
 $ambient 3 temple point continuous 0.1
 $ambient 4 chamber point continuous 127
 $ambient 5 elect point continuous 0.1
