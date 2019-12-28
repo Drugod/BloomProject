@@ -1,7 +1,7 @@
 ACTOR --------COMMON_ATTRIBUTES_BLOOD------------ {}
 ACTOR CalebW : Weapon
 {
-	//$Category "BlooM Weapons"
+	//$Category "Blood Weapons"
 	//$Color 14
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.RestrictedTo "Caleb"
@@ -893,7 +893,7 @@ ACTOR Colt : CalebW 31370
 ACTOR --------SINGLESHOTGUN------------ {}
 ACTOR SingleShotgun : CalebW 31371
 {
-	//$Category "BlooM Weapons"
+	//$Category "Blood Weapons"
 	//$Sprite SBSSA0
 	Weapon.SelectionOrder 1300
 	Tag "Single barrel shotgun"
@@ -975,7 +975,7 @@ ACTOR SingleShotgun : CalebW 31371
 ACTOR --------DYNAMITES------------ {}
 ACTOR RemoteDynamite : CalebW
 {
-    //$Category "BlooM Weapons"
+    //$Category "Blood Weapons"
 	//$Sprite REMOA0
 	Tag "Remote Dynamite"
 	Height 16
