@@ -1625,22 +1625,6 @@ Model RocketBox_
    FrameIndex UNKN A 0 0
 }
 
-Model HandGrenades
-{
-   Path "Models/Weapons/"
-   Model 0 "grenade.md3"
-   Scale 10.0 10.0 10.0
-   FrameIndex UNKN A 0 0
-}
-
-Model GrenadeAmmo
-{
-   Path "Models/Weapons/"
-   Model 0 "grenade.md3"
-   Scale 10.0 10.0 10.0
-   FrameIndex UNKN A 0 0
-}
-
 Model Chainsaw_
 {
    Path "Models/Doom/Chainsaw/"
@@ -1954,6 +1938,71 @@ Model TeslaRifle
    Path "Models/Blood/Weapons/"
    Model 0 "w_tesla.md3"
    Scale 1.0 1.0 1.0
+   FrameIndex UNKN A 0 0
+}
+
+//Bloom Weapons and Ammo - Exclusive new content by Rolls
+Model HandGrenades //by Ozy81
+{
+   Path "Models/Bloom/"
+   Model 0 "grenade.md3"
+   Scale 10.0 10.0 10.0
+   FrameIndex UNKN A 0 0
+}
+
+Model GrenadeAmmo //by Ozy81
+{
+   Path "Models/Bloom/"
+   Model 0 "grenade.md3"
+   Scale 10.0 10.0 10.0
+   FrameIndex UNKN A 0 0
+}
+
+Model Flamethrower_
+{
+   Path "Models/Bloom/"
+   Model 0 "teslagun.md2"
+   Scale 0.2 0.2 0.2
+   FrameIndex UNKN A 0 0
+}
+
+Model FlameGas
+{
+   Path "Models/Bloom/"
+   Model 0 "teslagun.md2"
+   Scale 0.2 0.2 0.2
+   FrameIndex UNKN A 0 0
+}
+
+Model FlameBigGas
+{
+   Path "Models/Bloom/"
+   Model 0 "teslagun.md2"
+   Scale 0.2 0.2 0.2
+   FrameIndex UNKN A 0 0
+}
+
+Model Frostgun_
+{
+   Path "Models/Bloom/"
+   Model 0 "frostgun.md2"
+   Scale 0.2 0.2 0.2
+   FrameIndex UNKN A 0 0
+}
+
+Model FrostAmmo
+{
+   Path "Models/Bloom/"
+   Model 0 "teslagun.md2"
+   Scale 0.2 0.2 0.2
+   FrameIndex UNKN A 0 0
+}
+
+Model TeslaCannon_
+{
+   Path "Models/Bloom/"
+   Model 0 "teslagun.md2"
+   Scale 0.2 0.2 0.2
    FrameIndex UNKN A 0 0
 }
 

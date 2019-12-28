@@ -7,7 +7,7 @@ ACTOR Randombullets: RandomSpawner
 
 ACTOR TommyClip : Ammo
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	Radius 20
 	+IGNORESKILL
 	+INVENTORY.RESTRICTABSOLUTELY
@@ -84,7 +84,7 @@ ACTOR Bullets : TommyClip 3149
 ACTOR -------SAWEDOFF---------- {}
 ACTOR Shell2 : Ammo
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	Radius 20
 	+IGNORESKILL
 	+INVENTORY.RESTRICTABSOLUTELY
@@ -140,7 +140,7 @@ ACTOR BloodShells : Shell2 3169
 ACTOR -------TNTAMMO------------ {}
 ACTOR TNTAmmo : Ammo
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	Radius 20
 	+IGNORESKILL
 	+INVENTORY.RESTRICTABSOLUTELY
@@ -154,7 +154,7 @@ ACTOR TNTAmmo : Ammo
 
 ACTOR TNTAmmoBox : CustomInventory 3166
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	//$Sprite TBOXA0
 	Tag "TNT Box"
 	Radius 20
@@ -186,7 +186,7 @@ ACTOR TNTAmmoBox : CustomInventory 3166
 
 ACTOR TNTBundle : CustomInventory 3145
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	//$Sprite TBNDA0
 	Tag "TNT Bundle"
 	Radius 20
@@ -231,7 +231,7 @@ ACTOR RTNTAmmo : Ammo
 
 ACTOR RTNTBox : CustomInventory 3170
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	//$Sprite REPKA0
 	Tag "Remote TNT"
 	Radius 20
@@ -276,7 +276,7 @@ ACTOR DTNTAmmo : Ammo
 
 ACTOR DTNTBox : CustomInventory 3248
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	//$SPrite PROXA0
 	Tag "Proximity TNT"
 	Radius 20
@@ -309,7 +309,7 @@ ACTOR DTNTBox : CustomInventory 3248
 ACTOR -------VOODOODOLL------------ {}
 ACTOR VoodooDollPickup : CustomInventory 3167
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	//$Sprite VDLFA0
 	Tag "Voodoo Doll"
 	Radius 20
@@ -349,7 +349,7 @@ ACTOR HappyBundle : RandomSpawner
 ACTOR ----SPRAYCANISTER------- {}
 ACTOR SprayCanister : Ammo
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.Amount 1
 	Inventory.MaxAmount 288
@@ -361,7 +361,7 @@ ACTOR SprayCanister : Ammo
 
 ACTOR SprayCanisterPickup : CustomInventory 3144
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	//$Sprite SPRYA0
 	Tag "Spray Canister"
 	Radius 20
@@ -394,7 +394,7 @@ ACTOR SprayCanisterPickup : CustomInventory 3144
 ACTOR -------GASOLINECAN------------ {}
 ACTOR GasolineCan : Ammo 3146
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	//$Sprite GASOA0
 	Tag "Gasoline Can"
 	Radius 20
@@ -449,7 +449,7 @@ ACTOR MiniGasolineCan : GasolineCan 20083
 ACTOR -----FLARES------- {}
 ACTOR Flares : Ammo 20080
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	//$Sprite FGRDA0
 	Tag "Flares"
 	Radius 20
@@ -509,7 +509,7 @@ ACTOR Flare : Flares 20081
 ACTOR -----TESLACHARGER------ {}
 ACTOR TeslaCharge : Ammo 12002
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	//$Sprite TESCA0
 	Tag "Tesla Charge"
 	Radius 20
@@ -561,7 +561,7 @@ ACTOR TeslaChargeBox : TeslaCharge 20082
 ACTOR ------ESSENCEPOWER--------- {}
 ACTOR EssencePower : Ammo 12004 // 17
 {
-	//$Category "BlooM Ammunitions"
+	//$Category "Blood Ammunitions"
 	Tag "Essence Power"
 	SpawnID 142
 	Radius 20
