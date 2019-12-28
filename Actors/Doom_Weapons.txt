@@ -1121,8 +1121,10 @@ ACTOR TeslaCannon_ : DoomW 19075 //uses teslacharge atm yet - ozy81
 	Inventory.PickupMessage "$TESLPICK"
 	Tag "Teslacannon"
 	Weapon.SelectionOrder 3000
-	Weapon.AmmoType "TeslaCharge"
-	Weapon.AmmoUse 1
+	Weapon.AmmoType1 "TeslaCharge"
+	Weapon.AmmoUse1 1
+	Weapon.AmmoType2 "TeslaCharge"
+	Weapon.AmmoUse2 1	
 	Weapon.AmmoGive 64
 	Obituary "OB_TESDM"  
 	States
@@ -1138,20 +1140,54 @@ ACTOR TeslaCannon_ : DoomW 19075 //uses teslacharge atm yet - ozy81
 		UNKN A -1 A_SpawnItemEx("TeslaRifle",0,0,0)
 		Stop
 	Ready:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(64,"Ready2","Ready3","Ready4")
 		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")
-		TEDM ABCDEFGHIJ 1 A_WeaponReady
+		TEDM ABCDEFGHIJKLMNOPQRSTUVWXYZYXWVUTSRQPONMLKJIHGFEDCBA 1 A_WeaponReady
 		Loop
+	Ready2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")	
+		TEDM ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 A_WeaponReady	
+		TEDN ABCDEFGH 1 A_WeaponReady	
+		Goto Ready	
+	Ready3:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")	
+		TEDO ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 A_WeaponReady	
+		Goto Ready	
+	Ready4:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")	
+		TEDO ZYXWVUTSRQPONMLKJIHGFEDCBA 1 A_WeaponReady
+		Goto Ready	
 	Deselect:
-		TEDM ABCDEFGHIJ 1 A_Lower
+		TEDM ABCDEFGHIJKLMNOPQRSTUVWXYZYXWVUTSRQPONMLKJIHGFEDCBA 1 A_Lower
 		Loop
 	Select:
-		TEDM ABCDEFGHIJ 1 A_Raise
+		TEDM ABCDEFGHIJKLMNOPQRSTUVWXYZYXWVUTSRQPONMLKJIHGFEDCBA 1 A_Raise
 		Loop
-	Fire:
-		TEDM OPQR 3 A_FireCustomMissile("TeslaProjectile",0.0,1,0.0)
-		TNT1 A 0 A_JumpIf(waterlevel>= 2,"Suicide")		
-		TEDM ABCDEFGHIJ 1 A_ReFire
+	AltFire:
+		TEDQ ABCDEFGHIJKLMNOPQRST 1 Bright A_Quake(2,6,0,100)
+ 		TNT1 A 0 A_Quake(2,6,0,100)
+		TNT1 A 0 A_JumpIf(waterlevel>= 2,"Suicide")				
+		TEDR ABCDEFGHIJKLMNOPQRST 1 Bright A_FireCustomMissile("TeslaProjectile",0.0,1,0.0)
+		TEDO ZYXWVUTSRQPONMLKJIHGFEDCBA 1 A_ReFire
 		Goto Ready
+	Fire:
+		TEDQ A 1 Bright A_FireCustomMissile("TeslaProjectile",0.0,1,0.0)
+		TNT1 A 0 A_JumpIf(waterlevel>= 2,"Suicide")				
+		TEDQ BCD 1 Bright A_Quake(2,6,0,100)	
+		TEDQ E 1 Bright A_FireCustomMissile("TeslaProjectile",0.0,1,0.0)
+		TEDQ FGH 1 Bright A_Quake(2,6,0,100)	
+		TEDQ I 1 Bright A_FireCustomMissile("TeslaProjectile",0.0,1,0.0)
+		TEDQ JKL 1 Bright A_Quake(2,6,0,100)	
+		TEDQ M 1 Bright A_FireCustomMissile("TeslaProjectile",0.0,1,0.0)
+		TEDQ NOP 1 Bright A_Quake(2,6,0,100)	
+		TEDQ Q 1 Bright A_FireCustomMissile("TeslaProjectile",0.0,1,0.0)
+		TEDQ RST 1 Bright A_Quake(2,6,0,100)	
+		TEDO ZYXWVUTSRQPONMLKJIHGFEDCBA 1		
+		Goto Ready		
 	Flash:
 		TNT1 A 4 BRIGHT A_Light1
 		Goto LightDone
