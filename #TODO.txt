@@ -11,7 +11,6 @@ For All:
 - fix HUD statusbar for gzdoom 4+
 - fix LifeLeech: fire states originate some unknown flags messages, when actors like Archies or Ghouls gets hit
 - fix TERRAIN defs, lots of sounds needs to be defined and included
-- improve flamethrower sprites
 - polish overall code
 - reduce size of models skins, 1000x1000 is very engine intensive, 512x512 should be okay... We must figure how to not break quality though
 - remove unused stuff
