@@ -106,6 +106,8 @@ ACTOR Apocalyptic_NeoCvltist : BloomHybrid_Base 19001
 	}
 }
 
+ACTOR Pedestrian: Apocalyptic_NeoCvltist { +FRIENDLY }
+
 ACTOR NeoCvltist : BloomHybrid_Base 19003
 {
 	//$Title NeoCvltist
