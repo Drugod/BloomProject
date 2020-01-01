@@ -2590,6 +2590,238 @@ ACTOR KickableHeadFish
 	}
 }
 
+ACTOR MoronHead
+{
+	Health 5
+	Radius 8
+	Height 16
+	Speed 10
+	Mass 1
+	Scale 0.5	
+	PROJECTILE
+	+BOUNCEONACTORS
+	+CANBOUNCEWATER
+	+DOOMBOUNCE
+	+FLOORCLIP
+	+PUSHABLE
+	+RANDOMIZE
+	-NOGRAVITY
+	SeeSound "DSHEDBON"
+	States
+	{
+	Spawn:
+		MOHE A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		MOHE A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
+		MOHE B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
+		MOHE C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
+		MOHE D 3 A_CustomMissile("HeadBlood", 10, 0, 30, 2, 45)
+		MOHE E 3 A_CustomMissile("HeadBlood", 10, 0, 40, 2, 45)
+		MOHE F 3 A_CustomMissile("HeadBlood", 10, 0, 50, 2, 45)
+		MOHE G 3 A_CustomMissile("HeadBlood", 10, 0, 60, 2, 45)
+		MOHE H 3 A_CustomMissile("HeadBlood", 10, 0, 70, 2, 45)
+		MOHE I 3 A_CustomMissile("HeadBlood", 10, 0, 80, 2, 45)
+		MOHE J 3 A_CustomMissile("HeadBlood", 10, 0, 90, 2, 45)
+		MOHE K 3 A_CustomMissile("HeadBlood", 10, 0, 100, 2, 45)
+		MOHE L 3 A_CustomMissile("HeadBlood", 10, 0, 110, 2, 45)
+		MOHE M 3 A_CustomMissile("HeadBlood", 10, 0, 120, 2, 45)
+		MOHE N 3 A_CustomMissile("HeadBlood", 10, 0, 130, 2, 45)
+		MOHE O 3 A_CustomMissile("HeadBlood", 10, 0, 140, 2, 45)
+		MOHE P 3 A_CustomMissile("HeadBlood", 10, 0, 150, 2, 45)
+		MOHE A 3 A_CustomMissile("HeadBlood", 10, 0, 160, 2, 45)
+		MOHE B 3 A_CustomMissile("HeadBlood", 10, 0, 170, 2, 45)
+		MOHE C 3 A_CustomMissile("HeadBlood", 10, 0, 180, 2, 45)
+		MOHE D 3 A_CustomMissile("HeadBlood", 10, 0, 190, 2, 45)
+		MOHE E 3 A_CustomMissile("HeadBlood", 10, 0, 200, 2, 45)
+		MOHE F 3 A_CustomMissile("HeadBlood", 10, 0, 210, 2, 45)
+		MOHE G 3 A_CustomMissile("HeadBlood", 10, 0, 220, 2, 45)
+		MOHE H 3 A_CustomMissile("HeadBlood", 10, 0, 230, 2, 45)
+		MOHE I 3 A_CustomMissile("HeadBlood", 10, 0, 240, 2, 45)
+		MOHE J 3 A_CustomMissile("HeadBlood", 10, 0, 250, 2, 45)
+		MOHE K 3 A_CustomMissile("HeadBlood", 10, 0, 260, 2, 45)
+		MOHE L 3 A_CustomMissile("HeadBlood", 10, 0, 270, 2, 45)
+		MOHE M 3 A_CustomMissile("HeadBlood", 10, 0, 280, 2, 45)
+		MOHE N 3 A_CustomMissile("HeadBlood", 10, 0, 290, 2, 45)
+		MOHE O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
+		MOHE P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
+		TNT1 A 0 A_Jump(127, "Death")
+		Goto Spawn+1
+	Death:
+		MOHE A 0 A_Jump(240,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+		MOHE B -1 //No A.. that is only for kickable!
+		Stop
+		MOHE B -1
+		Stop
+		MOHE C -1
+		Stop
+		MOHE D -1
+		Stop
+		MOHE E -1
+		Stop
+		MOHE F -1
+		Stop
+		MOHE G -1
+		Stop
+		MOHE H -1
+		Stop
+		MOHE I -1
+		Stop
+		MOHE J -1
+		Stop
+		MOHE K -1
+		Stop
+		MOHE L -1
+		Stop
+		MOHE M -1
+		Stop
+		MOHE N -1
+		Stop
+		MOHE O -1
+		Stop
+		MOHE P -1
+		Stop
+	}
+}
+
+ACTOR KickableFlyingMoron: MoronHead
+{
+	Damage(5)
+	Gravity 0.87
+	BounceCount 4
+	DamageType "StunningHead"
+	Scale 0.5	
+	+NOEXTREMEDEATH
+	States
+	{
+	Spawn:
+		MOHE A 0 A_Jump(248,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)
+		MOHE A 3 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
+		MOHE B 3 A_CustomMissile("HeadBlood", 10, 0, 10, 2, 45)
+		MOHE C 3 A_CustomMissile("HeadBlood", 10, 0, 20, 2, 45)
+		MOHE D 3 A_CustomMissile("HeadBlood", 10, 0, 30, 2, 45)
+		MOHE E 3 A_CustomMissile("HeadBlood", 10, 0, 40, 2, 45)
+		MOHE F 3 A_CustomMissile("HeadBlood", 10, 0, 50, 2, 45)
+		MOHE G 3 A_CustomMissile("HeadBlood", 10, 0, 60, 2, 45)
+		MOHE H 3 A_CustomMissile("HeadBlood", 10, 0, 70, 2, 45)
+		MOHE I 3 A_CustomMissile("HeadBlood", 10, 0, 80, 2, 45)
+		MOHE AA 5 A_SetSolid
+		MOHE J 3 A_CustomMissile("HeadBlood", 10, 0, 90, 2, 45)
+		MOHE K 3 A_CustomMissile("HeadBlood", 10, 0, 100, 2, 45)
+		MOHE L 3 A_CustomMissile("HeadBlood", 10, 0, 110, 2, 45)
+		MOHE M 3 A_CustomMissile("HeadBlood", 10, 0, 120, 2, 45)
+		MOHE N 3 A_CustomMissile("HeadBlood", 10, 0, 130, 2, 45)
+		MOHE O 3 A_CustomMissile("HeadBlood", 10, 0, 140, 2, 45)
+		MOHE P 3 A_CustomMissile("HeadBlood", 10, 0, 150, 2, 45)
+		MOHE A 3 A_CustomMissile("HeadBlood", 10, 0, 160, 2, 45)
+		MOHE B 3 A_CustomMissile("HeadBlood", 10, 0, 170, 2, 45)
+		MOHE C 3 A_CustomMissile("HeadBlood", 10, 0, 180, 2, 45)
+		MOHE D 3 A_CustomMissile("HeadBlood", 10, 0, 190, 2, 45)
+		MOHE E 3 A_CustomMissile("HeadBlood", 10, 0, 200, 2, 45)
+		MOHE F 3 A_CustomMissile("HeadBlood", 10, 0, 210, 2, 45)
+		MOHE G 3 A_CustomMissile("HeadBlood", 10, 0, 220, 2, 45)
+		MOHE H 3 A_CustomMissile("HeadBlood", 10, 0, 230, 2, 45)
+		MOHE I 3 A_CustomMissile("HeadBlood", 10, 0, 240, 2, 45)
+		MOHE J 3 A_CustomMissile("HeadBlood", 10, 0, 250, 2, 45)
+		MOHE K 3 A_CustomMissile("HeadBlood", 10, 0, 260, 2, 45)
+		MOHE L 3 A_CustomMissile("HeadBlood", 10, 0, 270, 2, 45)
+		MOHE M 3 A_CustomMissile("HeadBlood", 10, 0, 280, 2, 45)
+		MOHE N 3 A_CustomMissile("HeadBlood", 10, 0, 290, 2, 45)
+		MOHE O 3 A_CustomMissile("HeadBlood", 10, 0, 300, 2, 45)
+		MOHE P 3 A_CustomMissile("HeadBlood", 10, 0, 310, 2, 45)
+		TNT1 A 0 A_JumpIf(waterlevel > 2, "Death")
+		Goto Spawn+3
+	Death:
+		MOHE AA 1
+		MOHE A 2
+		TNT1 A 0 A_SpawnItemEX("KickableHeadMoron")
+	Boom:
+		MOHE A 1
+		MOHE AAAAAA 0 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
+		Stop
+	}
+}
+
+ACTOR KickableHeadMoron
+{
+	Monster
+	Health 5
+	Mass 15
+	Height 8
+	Radius 4
+	Scale 0.5	
+	+BLOCKEDBYSOLIDACTORS
+	+BOUNCEONACTORS
+	+BOUNCEONACTORS
+	+BOUNCEONCEILINGS
+	+BOUNCEONFLOORS
+	+BOUNCEONWALLS
+	+DOOMBOUNCE
+	+NOTAUTOAIMED
+	+PUSHABLE
+	+SHOOTABLE
+	+SLIDESONWALLS
+	+SOLID
+	+WINDTHRUST
+	-COUNTKILL
+	-NOBLOCKMAP
+	Speed 1
+	DamageFactor "Normal",0.4
+	DamageFactor "Dynamite",3
+	PainChance "Normal",0
+	PainChance "Stomping",255
+	PainChance "Melee",255
+	PainChance "Lowkick",255
+	PainChance "kick",255
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256, "SPAWN1", "SPAWN2", "SPAWN3", "SPAWN4", "SPAWN5")
+	Spawn1:
+		MOHE A 30
+		Loop
+	Spawn2:
+		MOHE B 30
+		Loop
+	Spawn3:
+		MOHE C 30
+		Loop
+	Spawn4:
+		MOHE D 30
+		Loop
+	Spawn5:
+		MOHE E 30
+		Loop
+	Pain.PitchFork:
+	Pain.Stomping:
+	Pain.Melee:
+	Pain.Lowkick:
+	Pain.Kick:
+	Pain.Fist:
+	Pain.Normal:
+		MOHE A 0 A_PlaySound("DSHEDKCK")
+		MOHE A 0 A_FaceTarget
+		MOHE A 0 A_SetAngle(angle+90)
+		MOHE A 0 A_SpawnItemEX("KickableFlyingMoron",0,0,6,0,frandom(9,28),frandom(5,15))
+		Stop
+	Death.PitchFork:
+	Death.Melee:
+	Death.Lowkick:
+	Death.Kick:
+	Death.Stomping:
+		MOHE A 0 A_PlaySound("DSHEDKCK")
+		MOHE A 0 A_FaceTarget
+		MOHE A 0 A_SetAngle(angle+90)
+		MOHE A 0 A_SpawnItemEX("KickableFlyingMoron",0,0,6,0,frandom(9,28),frandom(5,15))
+		Stop
+	Death:
+		MOHE B 1
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	}
+}
+
 ACTOR --------------------OTHERS-GORE-STUFF----------------------{}
 ACTOR FlyingBlood
 {
