@@ -680,6 +680,17 @@ Model Buildingpiece5
    Zoffset 1
 }
 
+Model Cloaca1
+{
+   Path "Models/Buildings"
+   Model 0 "Cloaca.md2"
+   Skin 0 "Cloaca_TX.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+}
+
 Model lamp1
 {
    Path "Models/Buildings/Rolls"

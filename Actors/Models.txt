@@ -270,6 +270,11 @@ ACTOR VortexBricks1 : VortexBuilding1 18424
 	}
 }
 
+ACTOR Cloaca1: BuildingBase1 18700
+{
+	//$Title 3d Floating Cloaca 1
+}
+
 ACTOR ---------LAMPS--------- {}
 ACTOR RandomLamps : RandomSpawner 18288
 {

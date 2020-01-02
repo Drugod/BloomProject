@@ -289,35 +289,35 @@ ACTOR fightmeIRLIDAREYOU
 	}
 }
 
-ACTOR MoronTrap: SwitchingDecoration 
+ACTOR MoronTrap : SwitchingDecoration 
 {
 	Radius 14
 	Height 56
 	Scale 0.5	
 	Activation THINGSPEC_Activate
-	+SOLID
-	+USESPECIAL 
 	+BLOODSPLATTER
 	+SHOOTABLE
+	+SOLID
+	+USESPECIAL 
 	States
 	{
 	Spawn:
 		MORS A 10
-    Loop
+		Loop
 	Active:
 		TNT1 A 0
 		TNT1 A 0 A_Jump(64,"Active1","Active2")
 		MORS A 10
-    Goto Active+2
+		Goto Active+2
 	Active1:
 		MORS A random(105,350)
 		TNT1 A 0 A_Changeflag("SOLID",FALSE)	
 		TNT1 A 0 A_SpawnitemEx("AberrationMoron",0,0,0)
-	Stop
+		Stop
 	Active2:
 		MORS A random(105,350)	
 		TNT1 A 0 A_Changeflag("SOLID",FALSE)
 		TNT1 A 0 A_SpawnitemEx("AberrationMoron2",0,0,0)
-	Stop
-  }	
+		Stop
+	}	
 }
