@@ -273,6 +273,8 @@ ACTOR VortexBricks1 : VortexBuilding1 18424
 ACTOR Cloaca1: BuildingBase1 18700
 {
 	//$Title 3d Floating Cloaca 1
+	Radius 8
+	Height 8	
 }
 
 ACTOR ---------LAMPS--------- {}
