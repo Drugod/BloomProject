@@ -179,7 +179,7 @@ ACTOR horror : PowerupGiver
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	PowerUp.Duration 0x7FFFFFFD
-	Powerup.Colormap 0.5, 0.5, 0.5
+	Powerup.Colormap 0.25, 0.25, 0.25
 	PowerUp.Type "horror"	
 }
 
