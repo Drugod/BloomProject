@@ -1740,8 +1740,8 @@ ACTOR CobwebBody 18800
 	Height 92
 	Health 25
 	Scale 0.75
+	Mass 0x7ffffff
 	+DONTFALL
-	+DONTTHRUST
 	+NOBLOOD
 	+NOBLOODDECALS
 	+NOGRAVITY

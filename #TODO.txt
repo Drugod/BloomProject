@@ -6,7 +6,7 @@ For Rolls, models which needs to be added:
 
 For All:
 - add dropitem new ammo for flamethrower (fire cultimp) and the flamerthrower (mancubus/hybrids)
-- fix Doom paletted sprites, mainly HUD ones and Player
+- fix Doomguy skin palette
 - fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff
 - fix HUD statusbar for gzdoom 4+
 - fix LifeLeech: fire states originate some unknown flags messages, when actors like Archies or Ghouls gets hit

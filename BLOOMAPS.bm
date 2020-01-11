@@ -1,7 +1,18 @@
 //Textures
-Brightmap texture BLANIM01 {map "Brightmaps/Textures/BLANIM01.png"}
-Brightmap texture BLANIM02 {map "Brightmaps/Textures/BLANIM02.png"}
-Brightmap texture BLANIM03 {map "Brightmaps/Textures/BLANIM03.png"}
+Brightmap texture BLANIM01 {map "Brightmaps/textures/BLANIM01.png"}
+Brightmap texture BLANIM02 {map "Brightmaps/textures/BLANIM02.png"}
+Brightmap texture BLANIM03 {map "Brightmaps/textures/BLANIM03.png"}
+
+//Models
+Brightmap Texture "Models/Traps/f6.jpg"		{ Map "Brightmaps/models/f6.png" }
+Brightmap Texture "Models/Traps/f7.jpg"		{ Map "Brightmaps/models/f7.png" }
+Brightmap Texture "Models/Traps/f8.jpg"		{ Map "Brightmaps/models/f8.png" }
+Brightmap Texture "Models/Traps/i6.jpg"		{ Map "Brightmaps/models/i6.png" }
+Brightmap Texture "Models/Traps/m6.jpg"		{ Map "Brightmaps/models/m6.png" }
+Brightmap Texture "Models/Traps/m7.jpg"		{ Map "Brightmaps/models/m7.png" }
+Brightmap Texture "Models/Traps/m8.jpg"		{ Map "Brightmaps/models/m8.png" }
+Brightmap Texture "Models/Traps/m9.jpg"		{ Map "Brightmaps/models/m9.png" }
+Brightmap Texture "Models/Traps/m10.jpg"	{ Map "Brightmaps/models/m10.png" }
 
 //Props
 Brightmap sprite ZESLB0 {map "Brightmaps/ZESLB0.png"}

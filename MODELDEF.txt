@@ -1206,8 +1206,8 @@ Model WallBrok5
 Model firetrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
-   Skin 0 "t1.jpg"
+   Model 0 "traps.md2"
+   Skin 0 "f1.jpg"
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1216,8 +1216,8 @@ Model firetrap1
 Model firetrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
-   Skin 0 "t2.jpg"
+   Model 0 "traps.md2"
+   Skin 0 "f2.jpg"
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1226,8 +1226,8 @@ Model firetrap1
 Model firetrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
-   Skin 0 "t3.jpg"
+   Model 0 "traps.md2"
+   Skin 0 "f3.jpg"
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1236,8 +1236,8 @@ Model firetrap1
 Model firetrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
-   Skin 0 "t4.jpg"
+   Model 0 "traps.md2"
+   Skin 0 "f4.jpg"
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1246,8 +1246,8 @@ Model firetrap1
 Model firetrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
-   Skin 0 "t5.jpg"
+   Model 0 "traps.md2"
+   Skin 0 "f5.jpg"
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1256,9 +1256,49 @@ Model firetrap1
 Model firetrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
-   Skin 0 "t6.jpg"
+   Model 0 "traps.md2"
+   Skin 0 "f6.jpg"
    FrameIndex UNKN F 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model firetrap1
+{
+   Path "Models/Traps"
+   Model 0 "traps.md2"
+   Skin 0 "f7.jpg"
+   FrameIndex UNKN G 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model firetrap1
+{
+   Path "Models/Traps"
+   Model 0 "traps.md2"
+   Skin 0 "f8.jpg"
+   FrameIndex UNKN H 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model firetrap1
+{
+   Path "Models/Traps"
+   Model 0 "traps.md2"
+   Skin 0 "f9.jpg"
+   FrameIndex UNKN I 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model firetrap1
+{
+   Path "Models/Traps"
+   Model 0 "traps.md2"
+   Skin 0 "f10.jpg"
+   FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
 }
@@ -1266,8 +1306,8 @@ Model firetrap1
 Model icetrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
-   Skin 0 "i1.jpg"
+   Model 0 "traps.md2"
+   Skin 0 "f1.jpg"
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1276,7 +1316,7 @@ Model icetrap1
 Model icetrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
+   Model 0 "traps.md2"
    Skin 0 "i2.jpg"
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
@@ -1286,7 +1326,7 @@ Model icetrap1
 Model icetrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
+   Model 0 "traps.md2"
    Skin 0 "i3.jpg"
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
@@ -1296,7 +1336,7 @@ Model icetrap1
 Model icetrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
+   Model 0 "traps.md2"
    Skin 0 "i4.jpg"
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
@@ -1306,7 +1346,7 @@ Model icetrap1
 Model icetrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
+   Model 0 "traps.md2"
    Skin 0 "i5.jpg"
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
@@ -1316,9 +1356,49 @@ Model icetrap1
 Model icetrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
+   Model 0 "traps.md2"
    Skin 0 "i6.jpg"
    FrameIndex UNKN F 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model icetrap1
+{
+   Path "Models/Traps"
+   Model 0 "traps.md2"
+   Skin 0 "f7.jpg"
+   FrameIndex UNKN G 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model icetrap1
+{
+   Path "Models/Traps"
+   Model 0 "traps.md2"
+   Skin 0 "f8.jpg"
+   FrameIndex UNKN H 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model icetrap1
+{
+   Path "Models/Traps"
+   Model 0 "traps.md2"
+   Skin 0 "f9.jpg"
+   FrameIndex UNKN I 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model icetrap1
+{
+   Path "Models/Traps"
+   Model 0 "traps.md2"
+   Skin 0 "f10.jpg"
+   FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
 }
@@ -1326,8 +1406,8 @@ Model icetrap1
 Model fleshtrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
-   Skin 0 "m1.jpg"
+   Model 0 "traps.md2"
+   Skin 0 "f1.jpg"
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1336,7 +1416,7 @@ Model fleshtrap1
 Model fleshtrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
+   Model 0 "traps.md2"
    Skin 0 "m2.jpg"
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
@@ -1346,7 +1426,7 @@ Model fleshtrap1
 Model fleshtrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
+   Model 0 "traps.md2"
    Skin 0 "m3.jpg"
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
@@ -1356,7 +1436,7 @@ Model fleshtrap1
 Model fleshtrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
+   Model 0 "traps.md2"
    Skin 0 "m4.jpg"
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
@@ -1366,7 +1446,7 @@ Model fleshtrap1
 Model fleshtrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
+   Model 0 "traps.md2"
    Skin 0 "m5.jpg"
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
@@ -1376,9 +1456,59 @@ Model fleshtrap1
 Model fleshtrap1
 {
    Path "Models/Traps"
-   Model 0 "Tramp.md2"
+   Model 0 "traps.md2"
    Skin 0 "m6.jpg"
    FrameIndex UNKN F 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model fleshtrap1
+{
+   Path "Models/Traps"
+   Model 0 "traps.md2"
+   Skin 0 "m7.jpg"
+   FrameIndex UNKN G 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model fleshtrap1
+{
+   Path "Models/Traps"
+   Model 0 "traps.md2"
+   Skin 0 "m8.jpg"
+   FrameIndex UNKN H 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model fleshtrap1
+{
+   Path "Models/Traps"
+   Model 0 "traps.md2"
+   Skin 0 "m9.jpg"
+   FrameIndex UNKN I 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model fleshtrap1
+{
+   Path "Models/Traps"
+   Model 0 "traps.md2"
+   Skin 0 "m10.jpg"
+   FrameIndex UNKN J 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model fleshtrap1
+{
+   Path "Models/Traps"
+   Model 0 "traps.md2"
+   Skin 0 "m11.jpg"
+   FrameIndex UNKN K 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
 }

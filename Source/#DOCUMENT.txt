@@ -49,7 +49,7 @@ Spiders
 Trap
 ZombieFall
 
-//SpawnIDs - Zandronum doesn't suppor them inside Mapinfo, so gonna list them here for keep track of them - ozy81
+//SpawnIDs - Zandronum doesn't support them inside Mapinfo, so gonna list them here for keep track of them - ozy81
 1 = BrownCultist
 2 = GreyCultist
 3 = Cheogh
