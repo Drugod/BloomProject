@@ -271,6 +271,159 @@ ACTOR AberrationMoron2: AberrationMoron 19077
 	}
 }
 
+ACTOR AberrationMoron3 19078
+{
+    //$Category "BlooM Monsters"
+	Health 80
+	Monster
+	Radius 14
+	Height 56
+	Mass 60
+	Scale 0.5
+	Speed 6
+	PainChance 175
+	SeeSound "Moron/Cry1"
+	AttackSound ""
+	DeathSound "Moron/Crying"
+	ActiveSound "Moron/GoAway"
+	PainSound "Moron/Scream"
+	+DONTOVERLAP
+	+FLOORCLIP
+	+NOSPLASHALERT
+	+RANDOMIZE
+	Obituary "$OB_MORON"
+	States
+	{
+	Spawn:
+		MORS AAAAA 4 A_Look
+		Loop
+	See:
+		MORS AAAAA 11	
+		MOTR AAAAABBBBBCCCCCDDDDDEEEEE 1 
+		MOTR EEEEE 11
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)		
+		MOS4 AAAAABBBBBCCCCCDDDDDEEEEE 1
+		TNT1 A 0 A_Setangle(180.0)
+		TNT1 A 0 A_Jump(64,"Ruuuun")
+	See2:
+		MOR4 AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Chase
+		TNT1 A 0 A_Jump(64,"Ruuuun")
+		Loop
+	Ruuuun:
+		MOR4 AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Wander
+		TNT1 A 0 A_Jump(192,"NOPLACELIKEVOID")
+		TNT1 A 0 A_Jump(200,"Jump")				
+		Loop
+	Melee:
+		MOR4 KKKKLLLLMMMMNNNN 1 A_CustomMeleeAttack(random(1, 2) * 2, "skeleton/melee")
+		TNT1 A 0 A_Jump(64,"Ruuuun")
+	Goto See2
+	Jump:
+		MOR4 F 1 A_Chase
+		MOR4 FFGG 2 ThrustThingz(0,15,0,0)
+		MOR4 HHII 2 A_Recoil(-6)
+		MOR4 JJ 1
+	Goto Ruuuun
+	NOPLACELIKEVOID:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(128,27,64)
+		MOR4 KLMMLKKLMMLK 1
+		TNT1 A 0 A_PlaySound("Moron/Beg")
+		MOR4 KLMMLKKLMMLK 1		
+		TNT1 A 0 A_Jump(64,"See2")		
+	Goto Ruuuun
+		MOR4 KLMMLKKLMMLKKLMMLK 1
+		TNT1 A 0 A_PlaySound("Moron/Home")			
+		MOR4 KLMMLKKLMMLKKLMMLK 1
+		TNT1 A 0 A_Jump(64,"See2")				
+	Goto Ruuuun
+		MOR4 NNNNNKKKKKLLLLLMMMMMNNNN 1
+	Goto Ruuuun	
+	Death:
+		MORD A 0 A_Scream
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)				
+		MORD BCDE 6
+		MORD F 6 A_Fall
+		MORD GHI 4
+		MORD J -1
+	Stop
+    Burn:
+	Death.SpecialFire:
+  	Death.Flare:
+		TNT1 A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_SpawnItem("BurnDeathMoron",1,0,0)
+    Stop
+	}
+}
+
 ACTOR fightmeIRLIDAREYOU
 {
 	Damage 1
@@ -306,7 +459,7 @@ ACTOR MoronTrap : SwitchingDecoration
 		Loop
 	Active:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(64,"Active1","Active2")
+		TNT1 A 0 A_Jump(64,"Active1","Active2","Active3")
 		MORS A 10
 		Goto Active+2
 	Active1:
@@ -319,5 +472,10 @@ ACTOR MoronTrap : SwitchingDecoration
 		TNT1 A 0 A_Changeflag("SOLID",FALSE)
 		TNT1 A 0 A_SpawnitemEx("AberrationMoron2",0,0,0)
 		Stop
+	Active3:
+		MORS A random(105,350)	
+		TNT1 A 0 A_Changeflag("SOLID",FALSE)
+		TNT1 A 0 A_SpawnitemEx("AberrationMoron3",0,0,0)
+		Stop		
 	}	
 }
