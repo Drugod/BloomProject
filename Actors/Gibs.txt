@@ -3212,28 +3212,28 @@ ACTOR TentacleSkulls
     Height 12
     Speed 6
 	Mass 1
+	Scale 0.6
 	BounceFactor 0.4
 	+DOOMBOUNCE
-    +NOBLOCKMAP
 	+MISSILE
-    +NOTELEPORT
-    +MOVEWITHSECTOR
     +CLIENTSIDEONLY
     +FORCEXYBILLBOARD
+    +MOVEWITHSECTOR
+    +NOBLOCKMAP
+    +NOTELEPORT
 	-EXPLODEONWATER
-	Scale 0.6
 	States
     {
     Spawn:
 		TNT1 A 0
 		TNT1 A 0 A_Jump(127,13)
 		MTED ABCDEFGHIJKL 8
-    Loop		
+		Loop		
 		MTED LKJIHGFEDCBA 8
-    Loop
+		Loop
     Death:   
 		MTED B 8		
-	Goto Rest
+		Goto Rest
 	Rest:
 		TNT1 A 0
 		TNT1 A 0 A_QueueCorpse
@@ -3241,11 +3241,11 @@ ACTOR TentacleSkulls
 	Rest1:
         MTED I 800
         MTED I -1
-	Stop		
+		Stop		
 	Rest2:
 		MTED D 800
 		MTED D -1
-	Stop
+		Stop
     }
 }
 

@@ -504,6 +504,10 @@ Moron/Cry1	ICRYING
 Moron/Cry2	ICRYING2
 $Random Moron/Crying	{Moron/Cry1	Moron/Cry2}
 
+Moron/Chew1	MORATK1
+Moron/Chew2	MORATK2
+$Random Moron/Attacks	{Moron/Chew1 Moron/Chew2}
+
 Moron/NOHURT	IDONHME
 Moron/GoAway1	IGOAWAY2
 Moron/GoAway2	IGOAWAY3

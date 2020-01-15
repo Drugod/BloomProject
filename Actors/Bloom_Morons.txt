@@ -1,81 +1,15 @@
-/*ACTOR Moron 3241
-{
-    //$Category "BlooM Monsters"
-	Health 80
-	Monster
-	Radius 14
-	Height 56
-	Mass 60
-	Scale 0.5
-	Speed 6
-	PainChance 175
-	SeeSound "Moron/Cry1"
-	AttackSound ""
-	DeathSound "Moron/Crying"
-	ActiveSound "Moron/GoAway"
-	PainSound "Moron/Scream"
-	DamageFactor "CALINOimmune",0
-	+DONTOVERLAP
-	+FLOORCLIP
-	+FRIENDLY
-	+NOSPLASHALERT
-	+RANDOMIZE
-	Obituary "$OB_MORON"
-	States
-	{
-	Spawn:
-		MORS A 4 A_Look
-		Loop
-	See:
-		MORS A 11
-	Ruuuun:
-		MORN AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Wander
-		MORN A 0 A_Jump(88,"Stand","NOPLACELIKEHOME")
-		Loop
-	Stand:
-		MORS AA 40
-		Goto See
-	NOPLACELIKEHOME:
-		TNT1 A 0
-		TNT1 A 0 A_Jump(128,2)
-		TNT1 A 0 A_PlaySound("Moron/Beg")
-		Goto Ruuuun
-		TNT1 A 0 A_PlaySound("Moron/Home")
-		Goto Ruuuun
-	Pain:
-		MORN G 4 A_Pain
-		MORN G 4 A_Jump(60,"NOPLACELIKEHOME")
-		Goto Ruuuun
-	Death:
-		MORN H 0 A_Scream
-		MORN HIJK 6
-		MORN L 6 A_Fall
-		MORN MNO 4
-		MORN P -1
-		Stop
-    Burn:
-	Death.SpecialFire:
-  	Death.Flare:
-		TNT1 A 0
-		TNT1 A 0 A_Fall
-		TNT1 A 0 A_Pain
-		TNT1 A 0 A_SpawnItem("BurnDeathMoron",1,0,0)
-		TNT1 A -1
-    Stop
-	}
-}*/
-
 ACTOR Moron 3241
 {
     //$Category "BlooM Monsters"
+	//$Title Moron, Friendly
 	Health 80
-	Monster
 	Radius 14
 	Height 56
 	Mass 60
 	Scale 0.5
 	Speed 6
 	PainChance 175
+	Monster
 	SeeSound "Moron/Cry1"
 	AttackSound ""
 	DeathSound "Moron/Crying"
@@ -86,6 +20,7 @@ ACTOR Moron 3241
 	+FRIENDLY
 	+NOSPLASHALERT
 	+RANDOMIZE
+	-COUNTKILL
 	Obituary "$OB_MORON"
 	States
 	{
@@ -122,7 +57,8 @@ ACTOR Moron 3241
 		MORN P -1
 		Stop
 	Morphing:
-		TNT1 A 0 A_Changeflag("FRIENDLY",FALSE)
+		TNT1 A 0 A_ChangeFlag("FRIENDLY", FALSE)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", TRUE)
 		TNT1 A 0 A_Jump(192,2,3,4)
 		TNT1 A 0 A_SpawnItemEx("AberrationMoron",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
@@ -131,7 +67,7 @@ ACTOR Moron 3241
 		TNT1 A 0 A_SpawnItemEx("AberrationMoron3",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 		TNT1 A 0 A_SpawnItemEx("AberrationMoron4",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
     Burn:
 	Death.SpecialFire:
   	Death.Flare:
@@ -144,79 +80,65 @@ ACTOR Moron 3241
 	}
 }
 
-ACTOR AberrationMoron 19073
+ACTOR AberrationMoron : Moron 19073
 {
-    //$Category "BlooM Monsters"
-	Health 80
-	Monster
-	Radius 14
-	Height 56
-	Mass 60
-	Scale 0.5
-	Speed 6
-	PainChance 175
-	SeeSound "Moron/Cry1"
-	AttackSound ""
-	DeathSound "Moron/Crying"
-	ActiveSound "Moron/GoAway"
-	PainSound "Moron/Scream"
-	+DONTOVERLAP
-	+FLOORCLIP
-	+NOSPLASHALERT
-	+RANDOMIZE
-	Obituary "$OB_MORON"
+	//$Title Moron, Aberration 1
+	+COUNTKILL
+	+NOTARGETSWITCH
+	-FRIENDLY
 	States
 	{
 	Spawn:
 		MORS AAAAA 4 A_Look
 		Loop
 	See:
-		MORS A 1	
-		MOTR AAAAABBBBBCCCCCDDDDDEEEEE 1 
-		TNT1 A 0 A_Setangle(180.0)
-		TNT1 A 0 A_Jump(64,"Ruuuun")
+		MORS A 1
+		MOTR AAAAABBBBBCCCCCDDDDDEEEEE 1
+		TNT1 A 0 A_SetAngle(180.0)
+		TNT1 A 0 A_Jump(64,"Flee")
 	See2:
 		MOR2 AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Chase
-		TNT1 A 0 A_Jump(64,"Ruuuun")
+		TNT1 A 0 A_Jump(64,"Flee")
 		Loop
-	Ruuuun:
+	Flee:
 		MOR2 AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Wander
 		TNT1 A 0 A_Jump(192,"NOPLACELIKEVOID")
-		TNT1 A 0 A_Jump(200,"Stand","Jump")				
+		TNT1 A 0 A_Jump(200,"Stand","Jump")
 		Loop
 	Stand:
-		TNT1 A 0 A_Setangle(180.0)			
+		TNT1 A 0 A_SetAngle(180.0)
 		MOTR EEEEEDDDDDCCCCCBBBBBAAAAA 1
 		MORS AAAA 40
-	Goto See
+		Goto See
 	Melee:
-		MOR2 KKKKLLLLMMMMNNNN 1 A_CustomMeleeAttack(random(1, 2) * 2, "skeleton/melee")
-		TNT1 A 0 A_Jump(64,"Ruuuun")
-	Goto See2
+		TNT1 A 0 A_PlaySound("moron/attacks")
+		MOR2 KKKKLLLLMMMMNNNN 1 A_CustomMeleeAttack(random(1, 2) * 2)
+		TNT1 A 0 A_Jump(64,"Flee")
+		Goto See2
 	Jump:
 		MOR2 F 1 A_Chase
 		MOR2 FFGG 2 ThrustThingz(0,15,0,0)
 		MOR2 HHII 2 A_Recoil(-6)
 		MOR2 JJ 1
-	Goto Ruuuun
+		Goto Flee
 	NOPLACELIKEVOID:
 		TNT1 A 0
 		TNT1 A 0 A_Jump(128,27,64)
 		MOR2 NOPPONNOPPON 1
 		TNT1 A 0 A_PlaySound("Moron/Beg")
-		MOR2 NOPPONNOPPON 1		
-		TNT1 A 0 A_Jump(64,"See2")		
-	Goto Ruuuun
+		MOR2 NOPPONNOPPON 1
+		TNT1 A 0 A_Jump(64,"See2")
+		Goto Flee
 		MOR2 NOPPONNOPPONNOPPON 1
-		TNT1 A 0 A_PlaySound("Moron/Home")			
+		TNT1 A 0 A_PlaySound("Moron/Home")
 		MOR2 NOPPONNOPPONNOPPON 1
-		TNT1 A 0 A_Jump(64,"See2")				
-	Goto Ruuuun
+		TNT1 A 0 A_Jump(64,"See2")
+		Goto Flee
 		MOR2 NNNNNKKKKKLLLLLMMMMMNNNN 1
-	Goto Ruuuun	
+		Goto Flee
 	Pain:
 		MOR2 Q 4 A_Pain
-	Goto Ruuuun
+		Goto Flee
 	Death:
 		MORD A 0 A_Scream
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
@@ -252,12 +174,12 @@ ACTOR AberrationMoron 19073
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)				
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
 		MORD BCDE 6
 		MORD F 6 A_Fall
 		MORD GHI 4
 		MORD J -1
-	Stop
+		Stop
     Burn:
 	Death.SpecialFire:
   	Death.Flare:
@@ -265,12 +187,14 @@ ACTOR AberrationMoron 19073
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Pain
 		TNT1 A 0 A_SpawnItem("BurnDeathMoron",1,0,0)
-    Stop
+		Stop
 	}
 }
 
-ACTOR AberrationMoron2: AberrationMoron 19077
+ACTOR AberrationMoron2 : AberrationMoron 19077
 {
+	//$Title Moron, Aberration 2
+	+COUNTKILL
 	+NOPAIN
 	MeleeThreshold 192
 	States
@@ -281,11 +205,11 @@ ACTOR AberrationMoron2: AberrationMoron 19077
 	Idle:
 		MO3S AAAAAAAABBBBBBBB 16 A_Look
 		MOR3 AAAABBBBCCCCDDDDEEEEFFFF 1 A_Wander
-		Loop	
+		Loop
 	See:
 		MOR3 KKKK 1
-		TNT1 A 0 A_ThrowGrenade ("KickableFlyingMoron",0,5,10,0)			
-		MOR3 LLLLMMMMNNNN 1		
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingMoron",0,5,10,0)
+		MOR3 LLLLMMMMNNNN 1
 		MOR3 AAAABBBBCCCCDDDDEEEEFFFF 1 A_Chase
 		TNT1 A 0 A_Jump(128,2)
 		TNT1 A 0 A_PlaySound("Moron/Beg")
@@ -293,7 +217,8 @@ ACTOR AberrationMoron2: AberrationMoron 19077
 		TNT1 A 0 A_PlaySound("Moron/Home")
 		Goto See+17
 	Melee:
-		MOR3 GGGGHHHHIIIIJJJJ 1 A_CustomMeleeAttack(random(1, 2) * 2, "skeleton/melee")
+		TNT1 A 0 A_PlaySound("moron/attacks")
+		MOR3 GGGGHHHHIIIIJJJJ 1 A_CustomMeleeAttack(random(1, 2) * 2)
 		Goto See+17
 	Death:
 		MOD3 A 0 A_Scream
@@ -331,26 +256,19 @@ ACTOR AberrationMoron2: AberrationMoron 19077
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)				
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
 		MOD3 BCDE 6
-		MOD3 F 6 
+		MOD3 F 6
 		MOD3 GHI 4
 		MOD3 I -1
 		Stop
-    Burn:
-	Death.SpecialFire:
-  	Death.Flare:
-		TNT1 A 0
-		TNT1 A 0 A_Fall
-		TNT1 A 0 A_Pain
-		TNT1 A 0 A_SpawnItem("BurnDeathMoron",1,0,0)
-		TNT1 A -1
-    Stop
 	}
 }
 
-ACTOR AberrationMoron3: AberrationMoron 19078
+ACTOR AberrationMoron3 : AberrationMoron 19078
 {
+	//$Title Moron, Aberration 3
+	+COUNTKILL
 	+NOPAIN
 	MeleeThreshold 192
 	States
@@ -359,8 +277,8 @@ ACTOR AberrationMoron3: AberrationMoron 19078
 		MORS AAAAA 4 A_Look
 		Loop
 	See:
-		MORS A 1	
-		MOTR AAAAABBBBBCCCCCDDDDDEEEEE 1 
+		MORS A 1
+		MOTR AAAAABBBBBCCCCCDDDDDEEEEE 1
 		MOTR E 1
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnDebris ("EyeGuts")
@@ -395,56 +313,57 @@ ACTOR AberrationMoron3: AberrationMoron 19078
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)		
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
 		MOS4 AAAAABBBBBCCCCCDDDDDEEEEE 1
-		TNT1 A 0 A_Setangle(180.0)
-		TNT1 A 0 A_Jump(64,"Ruuuun")
+		TNT1 A 0 A_SetAngle(180.0)
+		TNT1 A 0 A_Jump(64,"Flee")
 	See2:
 		MOR4 AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Chase
-		TNT1 A 0 A_Jump(64,"Ruuuun")
+		TNT1 A 0 A_Jump(64,"Flee")
 		Loop
-	Ruuuun:
+	Flee:
 		MOR4 AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Wander
 		TNT1 A 0 A_Jump(192,"NOPLACELIKEVOID")
-		TNT1 A 0 A_Jump(200,"Jump")				
+		TNT1 A 0 A_Jump(200,"Jump")
 		Loop
 	Melee:
-		MOR4 KKKKLLLLMMMMNNNN 1 A_CustomMeleeAttack(random(1, 2) * 2, "skeleton/melee")
-		TNT1 A 0 A_Jump(64,"Ruuuun")
-	Goto See2
+		TNT1 A 0 A_PlaySound("moron/attacks")
+		MOR4 KKKKLLLLMMMMNNNN 1 A_CustomMeleeAttack(random(1, 2) * 2)
+		TNT1 A 0 A_Jump(64,"Flee")
+		Goto See2
 	Jump:
 		MOR4 F 1 A_Chase
 		MOR4 FFGG 2 ThrustThingz(0,15,0,0)
 		MOR4 HHII 2 A_Recoil(-6)
 		MOR4 JJ 1
-	Goto Ruuuun
+		Goto Flee
 	NOPLACELIKEVOID:
 		TNT1 A 0
 		TNT1 A 0 A_Jump(128,27,64)
 		MOR4 KLMMLKKLMMLK 1
 		TNT1 A 0 A_PlaySound("Moron/Beg")
-		MOR4 KLMMLKKLMMLK 1		
-		TNT1 A 0 A_Jump(64,"See2")		
-	Goto Ruuuun
+		MOR4 KLMMLKKLMMLK 1
+		TNT1 A 0 A_Jump(64,"See2")
+		Goto Flee
 		MOR4 KLMMLKKLMMLKKLMMLK 1
-		TNT1 A 0 A_PlaySound("Moron/Home")			
+		TNT1 A 0 A_PlaySound("Moron/Home")
 		MOR4 KLMMLKKLMMLKKLMMLK 1
-		TNT1 A 0 A_Jump(64,"See2")				
-	Goto Ruuuun
+		TNT1 A 0 A_Jump(64,"See2")
+		Goto Flee
 		MOR4 NNNNNKKKKKLLLLLMMMMMNNNN 1
-	Goto Ruuuun	
+		Goto Flee
 	Death:
 		MORD A 0 A_Scream
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnDebris ("EyeGuts")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))		
-		TNT1 A 0 A_ThrowGrenade("TentacleSkulls",5,5+frandom(-3,3),10+frandom(-4,4),0)		
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))		
-		TNT1 A 0 A_ThrowGrenade("TentacleSkulls",5,5+frandom(-3,3),10+frandom(-4,4),0)		
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))		
-		TNT1 A 0 A_ThrowGrenade("TentacleSkulls",5,5+frandom(-3,3),10+frandom(-4,4),0)		
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))		
-		TNT1 A 0 A_ThrowGrenade("TentacleSkulls",5,5+frandom(-3,3),10+frandom(-4,4),0)		
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade("TentacleSkulls",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade("TentacleSkulls",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade("TentacleSkulls",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade("TentacleSkulls",5,5+frandom(-3,3),10+frandom(-4,4),0)
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnDebris ("Bloodliver")
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
@@ -476,25 +395,19 @@ ACTOR AberrationMoron3: AberrationMoron 19078
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)				
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
 		MORD BCDE 6
 		MORD F 6 A_Fall
 		MORD GHI 4
 		MORD J -1
-	Stop
-    Burn:
-	Death.SpecialFire:
-  	Death.Flare:
-		TNT1 A 1
-		TNT1 A 0 A_Fall
-		TNT1 A 0 A_Pain
-		TNT1 A 0 A_SpawnItem("BurnDeathMoron",1,0,0)
-    Stop
+		Stop
 	}
 }
 
-ACTOR AberrationMoron4: AberrationMoron 19079
+ACTOR AberrationMoron4 : AberrationMoron 19079
 {
+	//$Title Moron, Aberration 4
+	+COUNTKILL
 	+NOPAIN
 	MeleeThreshold 192
 	States
@@ -505,12 +418,12 @@ ACTOR AberrationMoron4: AberrationMoron 19079
 	Idle:
 		MO3S AAAAAAAABBBBBBBB 16 A_Look
 		MOR3 AAAABBBBCCCCDDDDEEEEFFFF 1 A_Wander
-		Loop	
+		Loop
 	See:
 		MO5T AAAA 1
-		TNT1 A 0 A_ThrowGrenade ("KickableFlyingMoron",0,5,10,0)			
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingMoron",0,5,10,0)
 		MO5T AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIII 1
-		MOR5 AAAABBBBCCCCDDDD 1		
+		MOR5 AAAABBBBCCCCDDDD 1
 		MOR5 EEEEFFFFGGGGHHHHIIIIJJJJ 1 A_Chase
 		TNT1 A 0 A_Jump(128,2)
 		TNT1 A 0 A_PlaySound("Moron/Beg")
@@ -518,7 +431,8 @@ ACTOR AberrationMoron4: AberrationMoron 19079
 		TNT1 A 0 A_PlaySound("Moron/Home")
 		Goto See+57
 	Melee:
-		MOR5 LLLLMMMMNNNNOOOO 1 A_CustomMeleeAttack(random(1, 2) * 2, "skeleton/melee")
+		TNT1 A 0 A_PlaySound("moron/attacks")
+		MOR5 LLLLMMMMNNNNOOOO 1 A_CustomMeleeAttack(random(1, 2) * 2)
 		Goto See+57
 	Death:
 		MOR5 A 0 A_Scream
@@ -556,25 +470,59 @@ ACTOR AberrationMoron4: AberrationMoron 19079
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)				
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
 		MOD3 BCDE 6
-		MOD3 F 6 
+		MOD3 F 6
 		MOD3 GHI 4
 		MOD3 I -1
 		Stop
-    Burn:
-	Death.SpecialFire:
-  	Death.Flare:
-		TNT1 A 0
-		TNT1 A 0 A_Fall
-		TNT1 A 0 A_Pain
-		TNT1 A 0 A_SpawnItem("BurnDeathMoron",1,0,0)
-		TNT1 A -1
-    Stop
 	}
 }
 
-ACTOR fightmeIRLIDAREYOU
+ACTOR MoronTrap : SwitchingDecoration
+{
+	Radius 14
+	Height 56
+	Scale 0.5
+	Activation THINGSPEC_Activate
+	+BLOODSPLATTER
+	+SHOOTABLE
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		MORS A 10
+		Loop
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(64,"Active1","Active2","Active3","Active4")
+		MORS A 10
+		Goto Active+2
+	Active1:
+		MORS A random(105,350)
+		TNT1 A 0 A_Changeflag("SOLID",FALSE)
+		TNT1 A 0 A_SpawnitemEx("AberrationMoron",0,0,0)
+		Stop
+	Active2:
+		MORS A random(105,350)
+		TNT1 A 0 A_Changeflag("SOLID",FALSE)
+		TNT1 A 0 A_SpawnitemEx("AberrationMoron2",0,0,0)
+		Stop
+	Active3:
+		MORS A random(105,350)
+		TNT1 A 0 A_Changeflag("SOLID",FALSE)
+		TNT1 A 0 A_SpawnitemEx("AberrationMoron3",0,0,0)
+		Stop
+	Active4:
+		MORS A random(105,350)
+		TNT1 A 0 A_Changeflag("SOLID",FALSE)
+		TNT1 A 0 A_SpawnitemEx("AberrationMoron4",0,0,0)
+		Stop
+	}
+}
+
+ACTOR fightmeIRLIDAREYOU //unused yet - ozy81
 {
 	Damage 1
 	Speed 1
@@ -590,47 +538,4 @@ ACTOR fightmeIRLIDAREYOU
 		TNT1 AA 0 A_Explode(5,400,0)
 		Stop
 	}
-}
-
-ACTOR MoronTrap : SwitchingDecoration 
-{
-	Radius 14
-	Height 56
-	Scale 0.5	
-	Activation THINGSPEC_Activate
-	+BLOODSPLATTER
-	+SHOOTABLE
-	+SOLID
-	+USESPECIAL 
-	States
-	{
-	Spawn:
-		MORS A 10
-		Loop
-	Active:
-		TNT1 A 0
-		TNT1 A 0 A_Jump(64,"Active1","Active2","Active3","Active4")
-		MORS A 10
-		Goto Active+2
-	Active1:
-		MORS A random(105,350)
-		TNT1 A 0 A_Changeflag("SOLID",FALSE)	
-		TNT1 A 0 A_SpawnitemEx("AberrationMoron",0,0,0)
-		Stop
-	Active2:
-		MORS A random(105,350)	
-		TNT1 A 0 A_Changeflag("SOLID",FALSE)
-		TNT1 A 0 A_SpawnitemEx("AberrationMoron2",0,0,0)
-		Stop
-	Active3:
-		MORS A random(105,350)	
-		TNT1 A 0 A_Changeflag("SOLID",FALSE)
-		TNT1 A 0 A_SpawnitemEx("AberrationMoron3",0,0,0)
-		Stop		
-	Active4:
-		MORS A random(105,350)	
-		TNT1 A 0 A_Changeflag("SOLID",FALSE)
-		TNT1 A 0 A_SpawnitemEx("AberrationMoron4",0,0,0)
-		Stop				
-	}	
 }
