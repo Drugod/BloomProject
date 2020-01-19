@@ -3,7 +3,7 @@ ACTOR Backpack_ : BackpackItem replaces Backpack
 {
 	//$Sprite BPAKA0
 	Height 26
-	Inventory.PickupMessage "$GOTBACKPACK" // "Picked up a backpack full of ammo!"
+	Inventory.PickupMessage "$GOTBACKPACK"
 	States
 	{
 	Spawn:
@@ -13,6 +13,24 @@ ACTOR Backpack_ : BackpackItem replaces Backpack
 		Stop
 	ModelSpawn:
 		UNKN A -1
+		Stop
+	}
+}
+
+ACTOR Medikit_ : Health replaces Medikit
+{
+	Inventory.Amount 25
+	Inventory.PickupMessage "$GOTMEDIKIT"
+	Health.LowMessage 25, "$GOTMEDINEED"
+	States
+	{
+	Spawn:
+		MEDI A 1 A_SpawnItemEx("Moron",frandom(45.0,75.0),frandom(45.0,75.0),Height,0,0,0,frandom(0.0,360.0))
+		MEDI A 1 A_SpawnItemEx("Moron",frandom(-45.0,-75.0),frandom(45.0,75.0),Height,0,0,0,frandom(0.0,360.0))
+		MEDI A 1 A_SpawnItemEx("Moron",frandom(-45.0,-75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))
+		MEDI A 1 A_SpawnItemEx("Moron",frandom(45.0,75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))
+	Spawn2:
+		MEDI A -1	
 		Stop
 	}
 }
@@ -30,7 +48,7 @@ ACTOR PlasmaBallX : PlasmaBall replaces PlasmaBall
 	Alpha 0.75
 	Projectile
 	+RANDOMIZE
-	Obituary "$OB_MPPLASMARIFLE" // "%o was melted by %k's plasma gun."
+	Obituary "$OB_MPPLASMARIFLE"
 	SeeSound "weapons/plasmaf"
 	DeathSound "weapons/plasmax"
 	States
@@ -56,7 +74,7 @@ ACTOR RocketX: Rocket replaces Rocket
 	+DEHEXPLOSION
 	+RANDOMIZE
 	+ROCKETTRAIL
-	Obituary "$OB_MPROCKET" // "%o rode %k's rocket."
+	Obituary "$OB_MPROCKET"
 	SeeSound "weapons/rocklf"
 	DeathSound "weapons/rocklx"
 	States

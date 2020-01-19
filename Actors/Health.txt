@@ -152,21 +152,3 @@ ACTOR MedicinePouch : Health
 		Stop
 	}
 }
-
-ACTOR Medikit_ : Health replaces Medikit
-{
-	Inventory.Amount 25
-	Inventory.PickupMessage "$GOTMEDIKIT" // "Picked up a medikit."
-	Health.LowMessage 25, "$GOTMEDINEED" // "Picked up a medikit that you REALLY need!"
-	States
-	{
-	Spawn:
-		MEDI A 1 A_SpawnItemEx("Moron",frandom(45.0,75.0),frandom(45.0,75.0),0,0,0,0,frandom(0.0,360.0))
-		MEDI A 1 A_SpawnItemEx("Moron",frandom(-45.0,-75.0),frandom(45.0,75.0),0,0,0,0,frandom(0.0,360.0))
-		MEDI A 1 A_SpawnItemEx("Moron",frandom(-45.0,-75.0),frandom(-45.0,-75.0),0,0,0,0,frandom(0.0,360.0))
-		MEDI A 1 A_SpawnItemEx("Moron",frandom(45.0,75.0),frandom(-45.0,-75.0),0,0,0,0,frandom(0.0,360.0))
-	Spawn2:
-		MEDI A -1	
-	Stop
-	}
-}
