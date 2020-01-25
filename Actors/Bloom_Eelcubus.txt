@@ -8,22 +8,22 @@ ACTOR Eelcubus_Base
 	Radius 48
 	Height 64
 	Mass 1000
-	PainChance 80	
+	PainChance 80
 	Speed 8
 	FastSpeed 3
 	FloatSpeed 10
-	Monster	
+	Monster
 	+BOSSDEATH
 	+DROPOFF
-	+FLOAT	
+	+FLOAT
 	Species "Eelcubus"
 	BloodColor DarkRed
 	SeeSound "fatso/sight"
 	PainSound "fatso/pain"
 	DeathSound "fatso/death"
 	ActiveSound "fatso/active"
-	DropItem "FlameBigGas" 32			
-	DropItem "FlameThrower_" 8	
+	DropItem "FlameBigGas" 32
+	DropItem "FlameThrower_" 8
 	States
 	{
 	Forget:
@@ -118,7 +118,7 @@ ACTOR Eelcubus_Base
 	}
 }
 
-ACTOR Eelcubus : BloomHybrid_Base 19007
+ACTOR Eelcubus : Eelcubus_Base 19007
 {
 	//$Title Eelcubus
 	Health 600
@@ -135,17 +135,112 @@ ACTOR Eelcubus : BloomHybrid_Base 19007
 	DeathSound "fatso/death"
 	ActiveSound "fatso/active"
 	Obituary "$OB_EELCUB"
-	DropItem "FlameBigGas" 32			
-	DropItem "FlameThrower_" 8				
+	DropItem "FlameBigGas" 32
+	DropItem "FlameThrower_" 8
 	States
 	{
 	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.Spawn")
 		FSTT AB 15 A_Look
 		Loop
-	See:
-		FSTT AABBCCDDEEFF 4 A_Chase
+	See.Setup:
+		FW2W A 1 A_Chase("","")
+		FW2W A 1
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		FW2W A 1 A_Chase("","")
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		FW2W B 1 A_Chase
+		FW2W B 1
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		FW2W B 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		FW2W C 1 A_Chase("","")
+		FW2W C 1
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		FW2W C 1 A_Chase("","")
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		FW2W D 1 A_Chase
+		FW2W D 1
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		FW2W D 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.See")
+		TNT1 A 0 A_Jump(16,2)
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+		TNT1 A 0 A_CheckSight("Forget")
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+	SwimAround.Setup:
+		FW2W A 0 A_Recoil(-1)
+		FW2W A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		FW2W A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		FW2W A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		FW2W B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 A_Playsound("GillBeastSee")
+		FW2W B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		FW2W B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		FW2W C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		FW2W C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		FW2W C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+frandom[DeepOnes](0,64),1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
+		FW2W D 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		FW2W D 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		FW2W D 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+frandom[DeepOnes](0,64),1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
+		TNT1 A 0 A_Jump(16,2)
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+		TNT1 A 0 A_CheckSight("Forget")
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+	Missile.Setup:
+		FW2W F 20 A_FatRaise
+		FW2W G 10 BRIGHT A_FatAttack1("FatFish")
+		FW2W F 5 A_FaceTarget
+		FW2W G 10 BRIGHT A_FatAttack2("FatFish")
+		FW2W F 5 A_FaceTarget
+		FW2W G 10 BRIGHT A_FatAttack3("FatFish")
+		FW2W F 5 A_FaceTarget
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+	Pain.Setup:
+		FW2W E 3
+		FW2W E 3 A_Pain
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+	Death.Setup:
+		FSTT K 6
+		FSTT L 6 A_Scream
+		FSTT M 6 A_NoBlocking
+		FSTT NOPQRS 6
+		FSTT T -1 A_BossDeath
+		Stop
+		Stop
+	Ground.SpawnSetup:
+		FSTT AB 15 A_Look
 		Loop
-	Missile:
+	Ground.SeeSetup:
+		FSTT AABBCCDDEEFF 4 A_Chase("Ground.Missile","Ground.Missile",CHF_NOPLAYACTIVE)
+		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
+		FSTT AABBCCDDEEFF 4 A_Chase("","")
+		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
+		TNT1 A 0 A_PlaySound("GillBeastAct")
+		TNT1 A 0 A_Jump(16,2)
+		TNT1 A 0 A_Jump(256,"Ground.See")
+		Stop
+		TNT1 A 0 A_CheckSight("Forget")
+		TNT1 A 0 A_Jump(256,"Ground.See")
+		Stop
+	Ground.MissileSetup:
 		FSTT G 20 A_FatRaise
 		FSTT H 10 BRIGHT A_FatAttack1("FatFish")
 		FSTT IG 5 A_FaceTarget
@@ -153,19 +248,21 @@ ACTOR Eelcubus : BloomHybrid_Base 19007
 		FSTT IG 5 A_FaceTarget
 		FSTT H 10 BRIGHT A_FatAttack3("FatFish")
 		FSTT IG 5 A_FaceTarget
-		Goto See
-	Pain:
+		TNT1 A 0 A_Jump(256,"Ground.See")
+		Stop
+	Ground.Painsetup:
 		FSTT J 3
 		FSTT J 3 A_Pain
-		Goto See
-	Death:
+		TNT1 A 0 A_Jump(256,"Ground.See+5")
+		Stop
+	Ground.DeathSetup:
 		FSTT K 6
 		FSTT L 6 A_Scream
 		FSTT M 6 A_NoBlocking
 		FSTT NOPQRS 6
 		FSTT T -1 A_BossDeath
 		Stop
-	Raise:
+	Raise.Setup:
 		FSTT R 5
 		FSTT QPONMLK 5
 		Goto See
@@ -175,7 +272,7 @@ ACTOR Eelcubus : BloomHybrid_Base 19007
 ACTOR EelcubusAlt : Eelcubus_Base 19008
 {
 	//$Title Eelcubus Alternative
-	Obituary "$OB_EELCUB"	
+	Obituary "$OB_EELCUB"
 	States
 	{
   	Spawn:
@@ -271,14 +368,14 @@ ACTOR EelcubusAlt : Eelcubus_Base 19008
 		FS2T AABBCCDDEEFF 4 A_Chase("Ground.Missile","Ground.Missile",CHF_NOPLAYACTIVE)
 		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
 		FS2T AABBCCDDEEFF 4 A_Chase("","")
-		TNT1 A 0 A_JumpIf(waterlevel>1,"See")		
+		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
 		TNT1 A 0 A_PlaySound("GillBeastAct")
 		TNT1 A 0 A_Jump(16,2)
 		TNT1 A 0 A_Jump(256,"Ground.See")
 		Stop
 		TNT1 A 0 A_CheckSight("Forget")
 		TNT1 A 0 A_Jump(256,"Ground.See")
-		Stop		
+		Stop
 	Ground.MissileSetup:
 		FS2T G 20 A_FatRaise
 		FS2T H 10 BRIGHT A_FatAttack1("FatFish")
@@ -292,7 +389,7 @@ ACTOR EelcubusAlt : Eelcubus_Base 19008
 	Ground.Painsetup:
 		FS2T J 3
 		FS2T J 3 A_Pain
-		TNT1 A 0 A_Jump(256,"Ground.See+5")		
+		TNT1 A 0 A_Jump(256,"Ground.See+5")
 		Stop
 	Ground.DeathSetup:
 		FS2T K 6
@@ -311,12 +408,12 @@ ACTOR EelcubusAlt : Eelcubus_Base 19008
 ACTOR Gillcubus : Eelcubus_Base 19027
 {
 	//$Title Gillcubus
-	Obituary "$OB_GILLCUB"
+	Obituary "$OB_GILLC"
 	States
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.Spawn")	
+		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.Spawn")
 		FS3W AABBCCDD 4 A_Look
 		Loop
 	See.Setup:
@@ -388,8 +485,8 @@ ACTOR Gillcubus : Eelcubus_Base 19027
 		TNT1 A 0 A_Jump(256,"See")
 		Stop
 	Pain.Setup:
-		FS3W H 3
-		FS3W H 3 A_Pain
+		FS3W G 3
+		FS3W G 3 A_Pain
 		TNT1 A 0 A_Jump(256,"See")
 		Stop
 	Death.Setup:
@@ -405,19 +502,19 @@ ACTOR Gillcubus : Eelcubus_Base 19027
 		TNT1 A 0 A_Jump(256,"See")
 	Ground.SpawnSetup:
 		FS3T A 15 A_Look
-		Loop	
+		Loop
 	Ground.SeeSetup:
 		FS3T AABBCCDD 4 A_Chase("Ground.Missile","Ground.Missile",CHF_NOPLAYACTIVE)
 		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
 		FS3T AABBCCDD 4 A_Chase("","")
-		TNT1 A 0 A_JumpIf(waterlevel>1,"See")		
+		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
 		TNT1 A 0 A_PlaySound("GillBeastAct")
 		TNT1 A 0 A_Jump(16,2)
 		TNT1 A 0 A_Jump(256,"Ground.See")
 		Stop
 		TNT1 A 0 A_CheckSight("Forget")
 		TNT1 A 0 A_Jump(256,"Ground.See")
-		Stop			
+		Stop
 	Ground.MissileSetup:
 		FS3T E 20 A_FatRaise
 		FS3T F 10 BRIGHT A_FatAttack1("FatFish")
@@ -431,7 +528,7 @@ ACTOR Gillcubus : Eelcubus_Base 19027
 	Ground.Painsetup:
 		FS3T H 3
 		FS3T H 3 A_Pain
-		TNT1 A 0 A_Jump(256,"Ground.See+5")			
+		TNT1 A 0 A_Jump(256,"Ground.See+5")
 		Stop
 	Death.Setup:
 		FS3T J 6
@@ -439,7 +536,7 @@ ACTOR Gillcubus : Eelcubus_Base 19027
 		FS3T L 6 A_NoBlocking
 		FS3T MN 6
 		FS3T N -1 A_BossDeath
-		Stop		
+		Stop
 	}
 }
 
@@ -450,127 +547,19 @@ ACTOR FatFish
 	Speed 20
 	Damage 8
 	Projectile
+	+BRIGHT
 	+RANDOMIZE
 	SeeSound "fatso/attack"
 	DeathSound "fatso/shotx"
 	States
 	{
 	Spawn:
-		MELF AB 4 BRIGHT
+		MELF AB 4
 		Loop
 	Death:
-		MEL2 C 8 BRIGHT
-		MEL2 D 6 BRIGHT
-		MEL2 E 4 BRIGHT
+		MEL2 C 8
+		MEL2 D 6
+		MEL2 E 4
 		Stop
 	}
 }
-
-//oldcode
-/*ACTOR EelcubusAlt : BloomHybrid_Base 19008
-{
-	//$Title Eelcubus Alternative
-	Health 600
-	Radius 48
-	Height 64
-	Mass 1000
-	PainChance 80
-	+BOSSDEATH
-	+FLOORCLIP
-	Species "Eelcubus"
-	BloodColor DarkRed
-	SeeSound "fatso/sight"
-	PainSound "fatso/pain"
-	DeathSound "fatso/death"
-	ActiveSound "fatso/active"
-	Obituary "$OB_EELCUB"
-	DropItem "FlameBigGas" 32			
-	DropItem "FlameThrower_" 8		
-	States
-	{
-	Spawn:
-		FS2T AB 15 A_Look
-		Loop
-	See:
-		FS2T AABBCCDDEEFF 4 A_Chase
-		Loop
-	Missile:
-		FS2T G 20 A_FatRaise
-		FS2T H 10 BRIGHT A_FatAttack1("FatFish")
-		FS2T IG 5 A_FaceTarget
-		FS2T H 10 BRIGHT A_FatAttack2("FatFish")
-		FS2T IG 5 A_FaceTarget
-		FS2T H 10 BRIGHT A_FatAttack3("FatFish")
-		FS2T IG 5 A_FaceTarget
-		Goto See
-	Pain:
-		FS2T J 3
-		FS2T J 3 A_Pain
-		Goto See
-	Death:
-		FS2T K 6
-		FS2T L 6 A_Scream
-		FS2T M 6 A_NoBlocking
-		FS2T NOPQRS 6
-		FS2T T -1 A_BossDeath
-		Stop
-	Raise:
-		FS2T R 5
-		FS2T QPONMLK 5
-		Goto See
-	}
-}*/
-
-/*ACTOR Gillcubus : BloomHybrid_Base 19027
-{
-	//$Title Gillcubus
-	Health 600
-	Radius 48
-	Height 64
-	Mass 1000
-	PainChance 80
-	+BOSSDEATH
-	+FLOORCLIP
-	Species "Eelcubus"
-	BloodColor DarkRed
-	SeeSound "fatso/sight"
-	PainSound "fatso/pain"
-	DeathSound "fatso/death"
-	ActiveSound "fatso/active"
-	Obituary "$OB_GILLCUB"
-	DropItem "FlameBigGas" 32			
-	DropItem "FlameThrower_" 8		
-	States
-	{
-	Spawn:
-		FS3T A 15 A_Look
-		Loop
-	See:
-		FS3T AABBCCDD 4 A_Chase
-		Loop
-	Missile:
-		FS3T E 20 A_FatRaise
-		FS3T F 10 BRIGHT A_FatAttack1("FatFish")
-		FS3T G 5 A_FaceTarget
-		FS3T E 10 BRIGHT A_FatAttack2("FatFish")
-		FS3T FG 5 A_FaceTarget
-		FS3T E 10 BRIGHT A_FatAttack3("FatFish")
-		FS3T FG 5 A_FaceTarget
-		Goto See
-	Pain:
-		FS3T H 3
-		FS3T H 3 A_Pain
-		Goto See
-	Death:
-		FS3T J 6
-		FS3T K 6 A_Scream
-		FS3T L 6 A_NoBlocking
-		FS3T MN 6
-		FS3T N -1 A_BossDeath
-		Stop
-	Raise:
-		FS3T R 5
-		FS3T QPONMLK 5
-		Goto See
-	}
-}*/
