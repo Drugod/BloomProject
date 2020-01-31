@@ -2,6 +2,9 @@
 Brightmap texture BLANIM01 {map "Brightmaps/textures/BLANIM01.png"}
 Brightmap texture BLANIM02 {map "Brightmaps/textures/BLANIM02.png"}
 Brightmap texture BLANIM03 {map "Brightmaps/textures/BLANIM03.png"}
+Brightmap texture XTEX075 {map "Brightmaps/textures/XTEX075.png"}
+Brightmap texture XTEX076 {map "Brightmaps/textures/XTEX076.png"}
+Brightmap texture XTEX077 {map "Brightmaps/textures/XTEX077.png"}
 
 //Models
 Brightmap Texture "Models/Traps/f6.jpg"		{ Map "Brightmaps/models/f6.png" }
