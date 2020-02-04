@@ -540,6 +540,147 @@ ACTOR Gillcubus : Eelcubus_Base 19027
 	}
 }
 
+ACTOR Eeldercubus : Eelcubus_Base 19083
+{
+	//$Title Eeldercubus
+	Obituary "$OB_GILLE"
+	Health 1800
+	Radius 48
+	Height 96
+	Mass 3000	
+	DropItem "FlameBigGas" 128
+	DropItem "FlameThrower_" 128	
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.Spawn")
+		ANSW AABBCCDD 4 A_Look
+		Loop
+	See.Setup:
+		ANSW A 1 A_Chase("","")
+		ANSW A 1
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		ANSW A 1 A_Chase("","")
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		ANSW B 1 A_Chase
+		ANSW B 1
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		ANSW B 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		ANSW C 1 A_Chase("","")
+		ANSW C 1
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		ANSW C 1 A_Chase("","")
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		ANSW D 1 A_Chase
+		ANSW D 1
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		ANSW D 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.See")
+		TNT1 A 0 A_Jump(16,2)
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+		TNT1 A 0 A_CheckSight("Forget")
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+	SwimAround.Setup:
+		ANSW A 0 A_Recoil(-1)
+		ANSW A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		ANSW A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		ANSW A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		ANSW B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 A_Playsound("GillBeastSee")
+		ANSW B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		ANSW B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		ANSW C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		ANSW C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		ANSW C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+frandom[DeepOnes](0,64),1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
+		ANSW D 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		ANSW D 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		ANSW D 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+frandom[DeepOnes](0,64),1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
+		TNT1 A 0 A_Jump(16,2)
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+		TNT1 A 0 A_CheckSight("Forget")
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+	Missile.Setup:
+		ANSW E 20 A_FatRaise
+		ANSW FGHIJK 2 BRIGHT A_FatAttack1("FatFish")
+		ANSW E 5 A_FaceTarget
+		ANSW FGHIJK 2 BRIGHT A_FatAttack2("FatFish")
+		ANSW E 5 A_FaceTarget
+		ANSW FGHIJK 2 BRIGHT A_FatAttack3("FatFish")
+		ANSW E 5 A_FaceTarget
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+	Pain.Setup:
+		ANSW G 3
+		ANSW G 3 A_Pain
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+	Death.Setup:
+		ANTT O 6
+		ANTT P 6 A_Scream
+		ANTT Q 6 A_NoBlocking
+		ANTT RSTUVWX 6
+		ANTT X -1 A_BossDeath
+		Stop
+	Raise.Setup:
+		ANTT R 5
+		ANTT QPONMLK 5
+		TNT1 A 0 A_Jump(256,"See")
+	Ground.SpawnSetup:
+		ANTT A 15 A_Look
+		Loop
+	Ground.SeeSetup:
+		ANTT AABBCCDDEEFF 4 A_Chase("Ground.Missile","Ground.Missile",CHF_NOPLAYACTIVE)
+		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
+		ANTT AABBCCDDEEFF 4 A_Chase("","")
+		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
+		TNT1 A 0 A_PlaySound("GillBeastAct")
+		TNT1 A 0 A_Jump(16,2)
+		TNT1 A 0 A_Jump(256,"Ground.See")
+		Stop
+		TNT1 A 0 A_CheckSight("Forget")
+		TNT1 A 0 A_Jump(256,"Ground.See")
+		Stop
+	Ground.MissileSetup:
+		ANTT G 20 A_FatRaise
+		ANTT HIJKL 2 BRIGHT A_FatAttack1("FatFish")
+		ANTT MG 5 A_FaceTarget
+		ANTT HIJKL 2 BRIGHT A_FatAttack2("FatFish")
+		ANTT MG 5 A_FaceTarget
+		ANTT HIJKL 2 BRIGHT A_FatAttack3("FatFish")
+		ANTT MG 5 A_FaceTarget
+		TNT1 A 0 A_Jump(256,"Ground.See")
+		Stop
+	Ground.Painsetup:
+		ANTT N 3
+		ANTT N 3 A_Pain
+		TNT1 A 0 A_Jump(256,"Ground.See+5")
+		Stop
+	Death.Setup:
+		ANTT O 6
+		ANTT P 6 A_Scream
+		ANTT Q 6 A_NoBlocking
+		ANTT RSTUVWX 6
+		ANTT X -1 A_BossDeath
+		Stop
+	}
+}
+
 ACTOR FatFish
 {
 	Radius 6

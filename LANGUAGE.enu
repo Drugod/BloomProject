@@ -184,6 +184,7 @@ OB_EELCUB = "%o understood how delicious were Eelcubus rockets.";
 OB_GBURN = "%o was near a Gargoyle in flames.";
 OB_GILLB = "A Gill Beast ate %o.";
 OB_GILLC = "%o sunk down by a Gillcubus fishy rocket.";
+OB_GILLE = "%o sunk down by a Eeldercubus fishy rocket.";
 OB_GRENCUL = "%o got outplayed by an Acolyte!!";
 OB_GREYCUL = "%o wasn't much liked by a Fanatic.";
 OB_HFISH = "Hellfish ate %o.";
