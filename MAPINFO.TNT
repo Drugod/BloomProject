@@ -1,6 +1,6 @@
 episode map01
 {
-	name = "TNT: Evilution"
+	name = "$DM2_TNT"
 	key = "t"
 }
 

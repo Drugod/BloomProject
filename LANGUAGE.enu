@@ -29,7 +29,7 @@ REQ_COMB2 = "That requires Dagger plus Skull Keys.";
 REQ_COMB3 = "That requires Moon plus Spider Keys.";
 
 //MAPINFO STUFF
-BLM_DM2 = "Hell On Earth"; //here for Zandro
+DM2_TNT = "Play Chosen IWAD"; //here for Zandro
 BLM_EP1 = "The Way Of Doomed Flesh";
 BLM_INT = "Thank You For Playing BlooM!";
 BLM_M01 = "Entryway To Grave";
