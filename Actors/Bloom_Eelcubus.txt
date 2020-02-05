@@ -547,7 +547,7 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 	Health 1800
 	Radius 48
 	Height 96
-	Mass 3000
+	Mass 100
 	PainChance 32
 	DropItem "FlameBigGas" 128
 	DropItem "FlameThrower_" 128
@@ -619,15 +619,15 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 	Missile.Setup:
 		ANSW EF 20 A_FatRaise
 		ANSW G 2 BRIGHT
-		ANSW G 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANSW G 0 BRIGHT A_FatAttack3("MiniFatFish")
 		ANSW H 2 BRIGHT
-		ANSW H 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANSW H 0 BRIGHT A_FatAttack3("MiniFatFish")
 		ANSW I 2 BRIGHT
-		ANSW I 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANSW I 0 BRIGHT A_FatAttack3("MiniFatFish")
 		ANSW J 2 BRIGHT
-		ANSW J 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANSW J 0 BRIGHT A_FatAttack3("MiniFatFish")
 		ANSW K 2 BRIGHT
-		ANSW K 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANSW K 0 BRIGHT A_FatAttack3("MiniFatFish")
 		ANSW EF 5 A_FaceTarget
 		ANSW G 2 BRIGHT
 		ANSW G 0 BRIGHT A_FatAttack3("MiniFatFish")
@@ -674,6 +674,7 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 		TNT1 A 0 A_Jump(256,"Ground.See")
 		Stop
 	Ground.MissileSetup:
+		TNT1 A 0 A_JumpIfCloser(300,"Ground.FlameThrowerSetup")	
 		ANTT MG 20 A_FatRaise
 		ANTT H 2 BRIGHT
 		ANTT H 0 BRIGHT A_FatAttack3("NapalmEnemy")
@@ -687,18 +688,25 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 		ANTT L 0 BRIGHT A_FatAttack3("NapalmEnemy")
 		ANTT MG 5 A_FaceTarget
 		ANTT H 2 BRIGHT
-		ANTT H 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANTT H 0 BRIGHT A_FatAttack3("NapalmEnemy")
 		ANTT I 2 BRIGHT
-		ANTT I 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANTT I 0 BRIGHT A_FatAttack3("NapalmEnemy")
 		ANTT J 2 BRIGHT
-		ANTT J 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANTT J 0 BRIGHT A_FatAttack3("NapalmEnemy")
 		ANTT K 2 BRIGHT
-		ANTT K 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANTT K 0 BRIGHT A_FatAttack3("NapalmEnemy")
 		ANTT L 2 BRIGHT
-		ANTT L 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANTT L 0 BRIGHT A_FatAttack3("NapalmEnemy")		
 		ANTT MG 5 A_FaceTarget
 		TNT1 A 0 A_Jump(256,"Ground.See")
 		Stop
+	Ground.FlameThrowerSetup:
+		ANTT H 1 A_FaceTarget
+		ANTT HHHHHHHHHHHHHH 1 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_JumpIfCloser(300,2)
+		TNT1 A 0 A_Jump(256,"Ground.See")
+		TNT1 AAAAAAAA 0 A_MonsterRefire(130, "Ground.See")
+		Goto Ground.FlameThrowerSetup
 	Ground.PainSetup:
 		ANTT N 3
 		ANTT N 3 A_Pain
