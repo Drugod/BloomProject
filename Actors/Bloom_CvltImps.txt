@@ -14,7 +14,7 @@ ACTOR Cvltimp : BloomHybrid_Base 19028
 	Obituary "$OB_IMP"
 	DropItem "Flaregun" 16
 	DropItem "Flare" 64
-	DropItem "FlameGas" 8	
+	DropItem "FlameGas" 8
 	Dropitem "UselessStuff" 16
 	States
 	{
@@ -77,7 +77,7 @@ ACTOR Cvltimp : BloomHybrid_Base 19028
 		TNT1 A 0 A_PlaySound("imp/pain")
 		TNT1 A 0 A_Stop
 		TNT1 A 0 A_ClearTarget
-		GCUZ A 3 
+		GCUZ A 3
 		GCUZ A 3
 		GCUZ A 3
 		GCUZ A 3
@@ -97,7 +97,7 @@ ACTOR Cvltimp : BloomHybrid_Base 19028
 		TNT1 A 0 A_PlaySound("imp/pain")
 		TNT1 A 0 A_Stop
 		TNT1 A 0 A_ClearTarget
-		GCUZ A 3 
+		GCUZ A 3
 		GCUZ A 3
 		GCUZ A 3
 		GCUZ A 3
@@ -210,7 +210,7 @@ ACTOR CvltimpAlt : BloomHybrid_Base 19029
 		TNT1 A 0 A_PlaySound("imp/pain")
 		TNT1 A 0 A_Stop
 		TNT1 A 0 A_ClearTarget
-		GCUZ A 3 
+		GCUZ A 3
 		GCUZ A 3
 		GCUZ A 3
 		GCUZ A 3
@@ -231,7 +231,7 @@ ACTOR CvltimpAlt : BloomHybrid_Base 19029
 		TNT1 A 0 A_PlaySound("imp/pain")
 		TNT1 A 0 A_Stop
 		TNT1 A 0 A_ClearTarget
-		GCUZ A 3 
+		GCUZ A 3
 		GCUZ A 3
 		GCUZ A 3
 		GCUZ A 3

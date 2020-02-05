@@ -18,7 +18,7 @@ For All:
 - tweak special effects, bleeding effects and amount of used actors per maps
 
 Coop problems:
-- verify Berserk_ behavior for Zandro	
+- verify Berserk_ behavior for Zandro
 - verify CultFire sounds for Zandro
 
 Zandro test required:

@@ -3,7 +3,7 @@ ACTOR ---------DEEPONES--------- {}
 //Inheritances implies that at least one Missile attack exists, this is why Trident has its Melee state defined inside the actor itself, otherwise it forces the search for Melee state too
 //Jump states are needed to let inheritances work properly, Goto doesn't work
 //Setup states variants exists in order to make inheritances versatile among different actors
-//To replicate the beahvior, simple use the one present on DeepOneShot and inherit the following actor, then adjust stuff accordingly to new actor
+//To replicate the behavior, simply use the one present on DeepOneShot and inherit the following actor, then adjust stuff accordingly to new actor
 //Transfer frames are used to not break frames used during state change
 
 ACTOR DeepOne_Base
@@ -573,8 +573,8 @@ ACTOR DeepOneTri : DeepOne_Base 19054
 	Obituary "$OB_DTRI"
 	DropItem "GrenadeAmmo" 32
 	DropItem "HappyBundle" 32
-	DropItem "Frostgun_" 32	
-	DropItem "FrostAmmo" 64		
+	DropItem "Frostgun_" 32
+	DropItem "FrostAmmo" 64
 	States
 	{
   	Spawn:

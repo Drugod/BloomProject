@@ -689,7 +689,7 @@ Model Cloaca1
    INHERITACTORPITCH
    ROTATING
    Rotation-Speed 0.05
-   Rotation-Vector 1.0 0.0 0.0   
+   Rotation-Vector 1.0 0.0 0.0
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }

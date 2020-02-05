@@ -643,7 +643,7 @@ ACTOR DoomImp_ : DoomEnemy_Base 19030
 	DropItem "Flaregun" 16
 	DropItem "Flare" 64
 	Dropitem "UselessStuff" 32
-	DropItem "FlameGas" 8			
+	DropItem "FlameGas" 8
 	States
 	{
 	Spawn:
@@ -1071,8 +1071,8 @@ ACTOR Fatso_ : DoomEnemy_Base 19006
 	DeathSound "fatso/death"
 	ActiveSound "fatso/active"
 	Obituary "$OB_FATSO"
-	DropItem "FlameBigGas" 32			
-	DropItem "FlameThrower_" 8		
+	DropItem "FlameBigGas" 32
+	DropItem "FlameThrower_" 8
 	States
 	{
 	Spawn:
@@ -1328,8 +1328,8 @@ ACTOR Archvile_ : DoomEnemy_Base 19038
 	ActiveSound "vile/active"
 	MeleeSound "vile/Stop"
 	Obituary "$OB_VILE"
-	DropItem "FlameBigGas" 32			
-	DropItem "FlameThrower_" 8		
+	DropItem "FlameBigGas" 32
+	DropItem "FlameThrower_" 8
 	States
 	{
 	Spawn:

@@ -84,10 +84,10 @@ ACTOR Green_Arachnopod : BloomHybrid_Base 19070
 		APOD A 5 A_Look
 		Loop
 	See:
-		TNT1 A 0 	
+		TNT1 A 0
 		APOD A 20 A_Jump(230,3)
 		TNT1 A 0 A_JumpIfCloser(400.0,"Bounce")
-		TNT1 A 0 A_CheckFloor("Jump")	
+		TNT1 A 0 A_CheckFloor("Jump")
 		TNT1 A 0 A_Jumpif(waterlevel> 0, "JUMP")
 		APOD A 3 A_BabyMetal
 		APOD ABBCC 3 A_Chase
@@ -111,16 +111,16 @@ ACTOR Green_Arachnopod : BloomHybrid_Base 19070
 		APOD A 5 A_Jump(128,"DoBramble")
 		APOD G 4 A_FaceTarget
 		APOD H 4 A_CustomMissile("ButcherVomit", 58)
-		APOD I 1 
+		APOD I 1
 		Goto See
 	DoBramble:
-		TNT1 A 0 A_GiveInventory("CountBramble",1)	
+		TNT1 A 0 A_GiveInventory("CountBramble",1)
 		TNT1 A 0 A_PlaySound("TentacleUp")
 		APOX A 3 A_SpawnItemEx("GreenArachnoBramble",frandom(32.0,64.0), frandom(32.0,64.0), 0.0, 0.0, 0.0, 0.0, 0.0, SXF_SETMASTER,0,tid)
 		APOX ABBCC 3 A_Chase
 		APOX D 3 A_BabyMetal
-		APOX DBBCC 3 A_Chase		
-		Goto See	
+		APOX DBBCC 3 A_Chase
+		Goto See
 	Pain:
 		APOD J 3
 		APOD J 3 A_Pain
@@ -155,16 +155,16 @@ ACTOR GreenArachnoBramble : HellroseBramble
 	GroundSpawner:
 		TNT1 A 0
 		TNT1 A 0 ACS_NamedSuspend("FloorTextureCheck", 0)
-		TNT1 A 1 A_Look	
-		Loop	
+		TNT1 A 1 A_Look
+		Loop
 	See:
-		TNT1 A 1 A_Warp(AAPTR_TARGET,frandom(40.0,60.0),frandom(40.0,60.0),0.0,0.0,0,"Raising")	
+		TNT1 A 1 A_Warp(AAPTR_TARGET,frandom(40.0,60.0),frandom(40.0,60.0),0.0,0.0,0,"Raising")
 		Loop
 	Raising:
-		TNT1 AAAA 8 A_SpawnItemEx("Drt", 0, 0, 0, frandom(-3.0,3.0), frandom(-3.0,3.0), 3.0, 0.0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
-		GVIN RQPONMLK 4 A_SpawnItemEx("Drt", 0.0, 0.0, 0.0, frandom(-3.0,3.0), frandom(-3.0,3.0), 3.0, 0.0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)	
+		TNT1 AAAA 8 A_SpawnItemEx("Drt", 0, 0, 0, frandom(-3.0,3.0), frandom(-3.0,3.0), 3.0, 0.0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RQPONMLK 4 A_SpawnItemEx("Drt", 0.0, 0.0, 0.0, frandom(-3.0,3.0), frandom(-3.0,3.0), 3.0, 0.0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		TNT1 A 0 A_SetShootable
-		TNT1 A 0 A_SetSolid	
+		TNT1 A 0 A_SetSolid
 		Goto See2
 	See2:
 		TNT1 A 0 A_Facetarget
@@ -179,7 +179,7 @@ ACTOR GreenArachnoBramble : HellroseBramble
 		GVIN LMNOPQR 3
 		Goto See2
 	Death:
-		TNT1 A 0 A_TakeInventory("CountBramble",1,0,AAPTR_MASTER)	
+		TNT1 A 0 A_TakeInventory("CountBramble",1,0,AAPTR_MASTER)
 		GVIN S 5
 		GVIN T 5 A_Scream
 		GVIN U 5 A_Fall
@@ -195,27 +195,27 @@ ACTOR Magma_Arachnopod : Green_Arachnopod 19071 //needs proper attacks
 	DamageFactor "Fire", 0.0
 	DamageFactor "Flare", 0.0
 	DamageFactor "SpecialFire", 0.0
-	DropItem "FlameBigGas" 64			
-	DropItem "FlameThrower_" 32		
+	DropItem "FlameBigGas" 64
+	DropItem "FlameThrower_" 32
 	States
 	{
 	Spawn:
 		MPOD A 5 A_Look
 		Loop
 	See:
-		TNT1 A 0 	
+		TNT1 A 0
 		MPOD A 20 A_Jump(230,3)
 		TNT1 A 0 A_JumpIfCloser(400.0,"Bounce")
-		TNT1 A 0 A_CheckFloor("Jump")	
+		TNT1 A 0 A_CheckFloor("Jump")
 		TNT1 A 0 A_Jumpif(waterlevel> 0, "JUMP")
 		MPOD A 3 A_BabyMetal
 		TNT1 AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		MPOD ABBCC 3 A_Chase
-		TNT1 AAA   0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
+		TNT1 AAA   0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		MPOD D 3 A_BabyMetal
-		TNT1 AAAA  0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
+		TNT1 AAAA  0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		MPOD DEEFF 3 A_Chase
-		TNT1 AAAAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
+		TNT1 AAAAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		Goto See+2
 	Bounce:
 		MPOD J 5 A_FaceTarget
@@ -233,33 +233,33 @@ ACTOR Magma_Arachnopod : Green_Arachnopod 19071 //needs proper attacks
 		TNT1 A 0 A_JumpIfInventory("CountBramble",10,2)
 		MPOD A 5 A_Jump(128,"DoBramble")
 		MPOD G 4 A_FaceTarget
-		TNT1 AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
-		TNT1 AAAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
+		TNT1 AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AAAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		TNT1 AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		MPOD HI 4 A_FaceTarget
 		TNT1 A 0 A_Playsound ("PodSpit")
-		TNT1 AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
-		TNT1 AAAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
+		TNT1 AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AAAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		TNT1 AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
-		MPOD JK 4 A_CustomMissile("LavaBarf",40,0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40))		
-		TNT1 AAAAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
-		TNT1 AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)				
-		TNT1 AAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)				
-		MPOD H 1 
+		MPOD JK 4 A_CustomMissile("LavaBarf",40,0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40))
+		TNT1 AAAAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		MPOD H 1
 		Goto See
 	DoBramble:
-		TNT1 A 0 A_GiveInventory("CountBramble",1)	
+		TNT1 A 0 A_GiveInventory("CountBramble",1)
 		TNT1 A 0 A_PlaySound("TentacleUp")
-		TNT1 AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
+		TNT1 AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		MPOX A 3 A_SpawnItemEx("MagmaBramble",frandom(32.0,64.0), frandom(32.0,64.0), 0.0, 0.0, 0.0, 0.0, 0.0, SXF_SETMASTER,0,tid)
-		TNT1 AAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
+		TNT1 AAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		MPOX ABBCC 3 A_Chase
-		TNT1 AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
+		TNT1 AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		MPOX D 3 A_BabyMetal
-		TNT1 AAAAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
-		MPOX DBBCC 3 A_Chase		
-		TNT1 AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
-		Goto See	
+		TNT1 AAAAA 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		MPOX DBBCC 3 A_Chase
+		TNT1 AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Goto See
 	Pain:
 		MPOD J 3
 		MPOD J 3 A_Pain
@@ -298,16 +298,16 @@ ACTOR MagmaBramble : HellroseBramble
 	GroundSpawner:
 		TNT1 A 0
 		TNT1 A 0 ACS_NamedSuspend("LavaTextureCheck", 0)
-		TNT1 A 1 A_Look	
-		Loop	
+		TNT1 A 1 A_Look
+		Loop
 	See:
-		TNT1 A 1 A_Warp(AAPTR_TARGET,frandom(40.0,60.0),frandom(40.0,60.0),0.0,0.0,0,"Raising")	
+		TNT1 A 1 A_Warp(AAPTR_TARGET,frandom(40.0,60.0),frandom(40.0,60.0),0.0,0.0,0,"Raising")
 		Loop
 	Raising:
-		TNT1 AAAA 8 A_SpawnItemEx("Drt", 0, 0, 0, frandom(-3.0,3.0), frandom(-3.0,3.0), 3.0, 0.0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)		
-		LVIN RQPONMLK 4 A_SpawnItemEx("Drt", 0.0, 0.0, 0.0, frandom(-3.0,3.0), frandom(-3.0,3.0), 3.0, 0.0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)	
+		TNT1 AAAA 8 A_SpawnItemEx("Drt", 0, 0, 0, frandom(-3.0,3.0), frandom(-3.0,3.0), 3.0, 0.0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LVIN RQPONMLK 4 A_SpawnItemEx("Drt", 0.0, 0.0, 0.0, frandom(-3.0,3.0), frandom(-3.0,3.0), 3.0, 0.0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		TNT1 A 0 A_SetShootable
-		TNT1 A 0 A_SetSolid	
+		TNT1 A 0 A_SetSolid
 		Goto See2
 	See2:
 		TNT1 A 0 A_Facetarget
@@ -327,7 +327,7 @@ ACTOR MagmaBramble : HellroseBramble
 		LVIN LMNOPQR 3
 		Goto See2
 	Death:
-		TNT1 A 0 A_TakeInventory("CountBramble",1,0,AAPTR_MASTER)	
+		TNT1 A 0 A_TakeInventory("CountBramble",1,0,AAPTR_MASTER)
 		LVIN S 5
 		LVIN T 5 A_Scream
 		LVIN U 5 A_Fall
@@ -343,18 +343,18 @@ ACTOR Ice_Arachnopod : Green_Arachnopod 19072 //needs proper attacks
 	DamageFactor "Fire", 2.0
 	DamageFactor "Flare", 1.5
 	DamageFactor "SpecialFire", 1.5
-	DropItem "Frostgun_" 8	
-	DropItem "FrostAmmo" 16	
+	DropItem "Frostgun_" 8
+	DropItem "FrostAmmo" 16
 	States
 	{
 	Spawn:
 		IPOD A 5 A_Look
 		Loop
 	See:
-		TNT1 A 0 	
+		TNT1 A 0
 		IPOD A 20 A_Jump(230,3)
 		TNT1 A 0 A_JumpIfCloser(400.0,"Bounce")
-		TNT1 A 0 A_CheckFloor("Jump")	
+		TNT1 A 0 A_CheckFloor("Jump")
 		TNT1 A 0 A_Jumpif(waterlevel> 0, "JUMP")
 		IPOD A 3 A_BabyMetal
 		IPOD ABBCC 3 A_Chase
@@ -378,16 +378,16 @@ ACTOR Ice_Arachnopod : Green_Arachnopod 19072 //needs proper attacks
 		IPOD A 5 A_Jump(128,"DoBramble")
 		IPOD G 4 A_FaceTarget
 		IPOD HIJKJI 4 A_CustomMissile("IcePodFX", 58)
-		IPOD I 1 
+		IPOD I 1
 		Goto See
 	DoBramble:
-		TNT1 A 0 A_GiveInventory("CountBramble",1)	
+		TNT1 A 0 A_GiveInventory("CountBramble",1)
 		TNT1 A 0 A_PlaySound("TentacleUp")
 		IPOX A 3 A_SpawnItemEx("IceBramble",frandom(32.0,64.0), frandom(32.0,64.0), 0.0, 0.0, 0.0, 0.0, 0.0, SXF_SETMASTER,0,tid)
 		IPOX ABBCC 3 A_Chase
 		IPOX D 3 A_BabyMetal
-		IPOX DBBCC 3 A_Chase		
-		Goto See	
+		IPOX DBBCC 3 A_Chase
+		Goto See
 	Pain:
 		IPOD J 3
 		IPOD J 3 A_Pain
@@ -426,16 +426,16 @@ ACTOR IceBramble : HellroseBramble
 	GroundSpawner:
 		TNT1 A 0
 		TNT1 A 0 ACS_NamedSuspend("IceTextureCheck", 0)
-		TNT1 A 1 A_Look	
-		Loop	
+		TNT1 A 1 A_Look
+		Loop
 	See:
-		TNT1 A 1 A_Warp(AAPTR_TARGET,frandom(40.0,60.0),frandom(40.0,60.0),0.0,0.0,0,"Raising")	
+		TNT1 A 1 A_Warp(AAPTR_TARGET,frandom(40.0,60.0),frandom(40.0,60.0),0.0,0.0,0,"Raising")
 		Loop
 	Raising:
-		TNT1 AAAA 8 A_SpawnItemEx("Drt", 0, 0, 0, frandom(-3.0,3.0), frandom(-3.0,3.0), 3.0, 0.0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE|SXF_TRANSFERTRANSLATION)		
-		GVIN RQPONMLK 4 A_SpawnItemEx("Drt", 0.0, 0.0, 0.0, frandom(-3.0,3.0), frandom(-3.0,3.0), 3.0, 0.0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE|SXF_TRANSFERTRANSLATION)	
+		TNT1 AAAA 8 A_SpawnItemEx("Drt", 0, 0, 0, frandom(-3.0,3.0), frandom(-3.0,3.0), 3.0, 0.0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE|SXF_TRANSFERTRANSLATION)
+		GVIN RQPONMLK 4 A_SpawnItemEx("Drt", 0.0, 0.0, 0.0, frandom(-3.0,3.0), frandom(-3.0,3.0), 3.0, 0.0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE|SXF_TRANSFERTRANSLATION)
 		TNT1 A 0 A_SetShootable
-		TNT1 A 0 A_SetSolid	
+		TNT1 A 0 A_SetSolid
 		Goto See2
 	See2:
 		TNT1 A 0 A_Facetarget
@@ -458,7 +458,7 @@ ACTOR IceBramble : HellroseBramble
 		GVIN LMNOPQR 3
 		Goto See2
 	Death:
-		TNT1 A 0 A_TakeInventory("CountBramble",1,0,AAPTR_MASTER)	
+		TNT1 A 0 A_TakeInventory("CountBramble",1,0,AAPTR_MASTER)
 		GVIN S 5
 		GVIN T 5 A_Scream
 		GVIN U 5 A_Fall

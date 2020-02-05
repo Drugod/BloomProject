@@ -100,7 +100,7 @@ map MAP07 lookup "PHUSTR_7"
 	SPECIALACTION = "Arachnotron_","Floor_RaiseByTexture",667,8
 	SPECIALACTION = "SpiderMother","Floor_RaiseByTexture",667,8
 	SPECIALACTION = "ChrysalidPod","Floor_RaiseByTexture",667,8
-	SPECIALACTION = "LavaPod","Floor_RaiseByTexture",667,8	
+	SPECIALACTION = "LavaPod","Floor_RaiseByTexture",667,8
 	music = "$MUSIC_SHAWN"
 }
 

@@ -2597,7 +2597,7 @@ ACTOR MoronHead
 	Height 16
 	Speed 10
 	Mass 1
-	Scale 0.5	
+	Scale 0.5
 	PROJECTILE
 	+BOUNCEONACTORS
 	+CANBOUNCEWATER
@@ -2688,7 +2688,7 @@ ACTOR KickableFlyingMoron: MoronHead
 	Gravity 0.87
 	BounceCount 4
 	DamageType "StunningHead"
-	Scale 0.5	
+	Scale 0.5
 	+NOEXTREMEDEATH
 	States
 	{
@@ -2747,7 +2747,7 @@ ACTOR KickableHeadMoron
 	Mass 15
 	Height 8
 	Radius 4
-	Scale 0.5	
+	Scale 0.5
 	+BLOCKEDBYSOLIDACTORS
 	+BOUNCEONACTORS
 	+BOUNCEONACTORS
@@ -3228,11 +3228,11 @@ ACTOR TentacleSkulls
 		TNT1 A 0
 		TNT1 A 0 A_Jump(127,13)
 		MTED ABCDEFGHIJKL 8
-		Loop		
+		Loop
 		MTED LKJIHGFEDCBA 8
 		Loop
-    Death:   
-		MTED B 8		
+    Death:
+		MTED B 8
 		Goto Rest
 	Rest:
 		TNT1 A 0
@@ -3241,7 +3241,7 @@ ACTOR TentacleSkulls
 	Rest1:
         MTED I 800
         MTED I -1
-		Stop		
+		Stop
 	Rest2:
 		MTED D 800
 		MTED D -1

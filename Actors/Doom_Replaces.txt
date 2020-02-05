@@ -30,7 +30,7 @@ ACTOR Medikit_ : Health replaces Medikit
 		MEDI A 1 A_SpawnItemEx("Moron",frandom(-45.0,-75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))
 		MEDI A 1 A_SpawnItemEx("Moron",frandom(45.0,75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))
 	Spawn2:
-		MEDI A -1	
+		MEDI A -1
 		Stop
 	}
 }
@@ -43,7 +43,7 @@ ACTOR PlasmaBallX : PlasmaBall replaces PlasmaBall
 	Height 8
 	Speed 25
 	Damage 5
-	DamageType "Normal"	
+	DamageType "Normal"
 	RenderStyle "Add"
 	Alpha 0.75
 	Projectile

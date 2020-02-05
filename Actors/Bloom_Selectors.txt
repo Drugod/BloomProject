@@ -654,7 +654,7 @@ ACTOR ArachnoidNormal
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 1 ACS_NamedExecuteAlways("chk_actspecial",0)		
+		TNT1 A 1 ACS_NamedExecuteAlways("chk_actspecial",0)
 		TNT1 A 1 A_Jump(256,"Deciding")
 	Deciding:
 		TNT1 A 1
@@ -667,10 +667,10 @@ ACTOR ArachnoidNormal
 		Stop
 	Spawn3:
 		TNT1 A 0 A_SpawnItemEx("ChrysalidPod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
 	Spawn4:
 		TNT1 A 0 A_SpawnItemEx("LavaPod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop				
+		Stop
 	}
 }
 
@@ -680,7 +680,7 @@ ACTOR ArachnoidHybrid
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 1 ACS_NamedExecuteAlways("chk_actspecial",0)		
+		TNT1 A 1 ACS_NamedExecuteAlways("chk_actspecial",0)
 		TNT1 A 1 A_Jump(256,"Deciding")
 	Deciding:
 		TNT1 A 1
@@ -696,7 +696,7 @@ ACTOR ArachnoidHybrid
 		Stop
 	Spawn4:
 		TNT1 A 0 A_SpawnItemEx("Ice_Arachnopod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
 	}
 }
 
@@ -1268,7 +1268,7 @@ ACTOR TheMoronHybrid
 		Stop
 	Spawn4:
 		TNT1 A 0 A_SpawnItemEx("AberrationMoron4",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
 	}
 }
 
@@ -1334,7 +1334,7 @@ ACTOR HybridBoss1Spawner
 		Stop
 	Spawn3:
 		TNT1 A 0 A_SpawnItemEx("Eeldercubus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
 	}
 }
 

@@ -19,7 +19,7 @@ ACTOR Demonhound : BloomHybrid_Base 19012
 	DeathSound "demon/death"
 	ActiveSound "demon/active"
 	Obituary "$OB_DEMHOU"
-	DropItem "FlameGas" 8		
+	DropItem "FlameGas" 8
 	States
 	{
 	Spawn:
@@ -149,7 +149,7 @@ ACTOR DemonHoundAlt : HellKnight 19026
 	MeleeSound "dsdolstb"
 	HitObituary "$HB_PUPPY"
 	Obituary "$OB_DEMHOU2"
-	DropItem "FlameGas" 8			
+	DropItem "FlameGas" 8
 	States
 	{
  	Spawn:
@@ -279,7 +279,7 @@ ACTOR SpectreHound : DemonHound 19049
 	DeathSound "spectre/death"
 	ActiveSound "spectre/active"
 	HitObituary "$OB_SPEHOU"
-	DropItem "FlameGas" 8			
+	DropItem "FlameGas" 8
 	States
 	{
 	Missile:
@@ -301,7 +301,7 @@ ACTOR SpectreHoundAlt : DemonHoundAlt 19050
 	DeathSound "spectre/death"
 	ActiveSound "spectre/active"
 	HitObituary "$OB_SPEHOU"
-	DropItem "FlameGas" 8			
+	DropItem "FlameGas" 8
 	States
 	{
 	Missile:

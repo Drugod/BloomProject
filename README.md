@@ -17,7 +17,7 @@ There are also threads on ZDoom Forums and Doomworld, check 'em out and give us 
 
 You need GZDoom 3.2.1 minimum or Zandronum 2.8+ to run this mod, within any Doom IWAD files though, plus
 a compatible gpu with 3.3 GL shaders minimum. It also works on GZDoom 3.7.2, LZDoom 3.82 (you can't throw
-grenades), QZDoom 2.1pre-4493 (you can't throw grenades and performance is bad with models/voxels) and 
+grenades), QZDoom 2.1pre-4493 (you can't throw grenades and performance is bad with models/voxels) and
 new versions of Zandronum most probably.
 
 Check SOURCE folder for a complete and exhaustive list of materials used on this mod,

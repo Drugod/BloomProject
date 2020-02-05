@@ -41,8 +41,8 @@ ACTOR RainSpawner : SwitchableDecoration 3249
 		Loop
 	NoSound:
 		TNT1 A 0 A_Jumpif(Args[3] == 1, "NoSoundCircle")
-		TNT1 A 0 A_JumpIf(Args[4] == 1, "NoSoundBloodRain")	
-		TNT1 A 0 A_JumpIf(Args[4] == 2, "NoSoundAcidRain")		
+		TNT1 A 0 A_JumpIf(Args[4] == 1, "NoSoundBloodRain")
+		TNT1 A 0 A_JumpIf(Args[4] == 2, "NoSoundAcidRain")
 		TNT1 A 2 A_SpawnItemEx("RainDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
 		Loop
 	NoSoundCircle:
@@ -93,8 +93,8 @@ ACTOR RainSpawnerUpwards : RainSpawner 23249
 		Loop
 	NoSoundUp:
 		TNT1 A 0 A_Jumpif(Args[3] == 1, "NoSoundCircleUp")
-		TNT1 A 0 A_JumpIf(Args[4] == 1, "NoSoundBloodRainUp")	
-		TNT1 A 0 A_JumpIf(Args[4] == 2, "NoSoundAcidRainUp")		
+		TNT1 A 0 A_JumpIf(Args[4] == 1, "NoSoundBloodRainUp")
+		TNT1 A 0 A_JumpIf(Args[4] == 2, "NoSoundAcidRainUp")
 		TNT1 A 2 A_SpawnItemEx("RainDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), 2, (0.1)*random(0, 4), 0, random(35, 40), 0, 128, Args[1])
 		Loop
 	NoSoundCircleUp:
