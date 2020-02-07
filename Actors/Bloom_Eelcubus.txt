@@ -544,7 +544,7 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 {
 	//$Title Eeldercubus
 	Obituary "$OB_GILLE"
-	Health 1800
+	Health 4000
 	Radius 48
 	Height 96
 	Mass 100
@@ -560,7 +560,7 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 		Loop
 	See.Setup:
 		ANSW A 1 A_Chase("","")
-		ANSW A 1
+		ANSW A 1 A_SetMass(100)
 		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
 		ANSW A 1 A_Chase("","")
 		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
@@ -662,6 +662,7 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 		ANTT A 15 A_Look
 		Loop
 	Ground.SeeSetup:
+		TNT1 A 0 A_SetMass(3000)
 		ANTT AABBCCDDEEFF 4 A_Chase("Ground.Missile","Ground.Missile",CHF_NOPLAYACTIVE)
 		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
 		ANTT AABBCCDDEEFF 4 A_Chase("","")
