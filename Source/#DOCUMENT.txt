@@ -1,6 +1,7 @@
 //DamageTypes present in BlooM
 BFGSPlash
 BeastStomp
+SonicAttack
 Blast
 BlindingPoison
 CALINOImmune
