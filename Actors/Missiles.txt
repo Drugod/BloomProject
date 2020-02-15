@@ -1346,3 +1346,78 @@ ACTOR KingTornado
 		Stop
 	}
 }
+
+ACTOR FatFish
+{
+	Radius 6
+	Height 8
+	Speed 20
+	Damage 8
+	Projectile
+	+BRIGHT
+	+RANDOMIZE
+	SeeSound "fatso/attack"
+	DeathSound "fatso/shotx"
+	States
+	{
+	Spawn:
+		MELF AB 4
+		Loop
+	Death:
+		MEL2 C 8
+		MEL2 D 6
+		MEL2 E 4
+		Stop
+	}
+}
+
+ACTOR MiniFatFish : FatFish
+{
+	Radius 4
+	Height 4
+	Speed 24
+	Damage 4
+	Scale 0.65
+}
+
+ACTOR SonicBeam
+{
+	Radius 20
+	Height 20
+	Speed 40
+	Damage 20
+	RenderStyle Add
+	Alpha 1
+	DeathSound "weapons/bfgx"
+	Projectile
+	+BRIGHT
+	+RIPPER
+	States
+	{
+	Spawn:
+		SONB ABCDEFGHIJKLMNOP 8
+		Loop
+	Death:
+		KAXP B 2 A_Quake(4,12,0,400)
+		KAXP B 1 A_Explode(70,400,0)
+		KAXP CDEFGHIJKLM 3 A_Quake(2,12,0,800)
+		Stop
+	}
+}
+
+ACTOR BeamFlash : CustomInventory
+{
+	+INVENTORY.QUIET
+	+INVENTORY.UNDROPPABLE
+	+INVENTORY.ALWAYSPICKUP
+	+INVENTORY.AUTOACTIVATE
+	+COUNTITEM
+	Inventory.Amount 1
+	Inventory.MaxAmount 0
+	States
+	{
+	Pickup:
+		TNT1 A 1 A_SetBlend("green",1,100)
+		Stop
+	}
+}
