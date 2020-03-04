@@ -10,7 +10,7 @@ Const Int BLM_FLAGS3 = SXF_SETMASTER | SXF_NOCHECKPOSITION;
 #include Actors/Items.txt
 #include Actors/Powerups.txt
 #include Actors/Objects.txt
-#Include Actors/Light_Sources.txt
+#Include Actors/Lights.txt
 #include Actors/Gibs.txt
 #include Actors/Missiles.txt
 #include Actors/Chase.txt

@@ -216,17 +216,17 @@ ACTOR SlimeParticleX : WaterParticleX
 	States
 	{
 	Spawn:
-	TNT1 A 1
-	TNT1 A 0 A_ChangeFlag(DOOMBOUNCE, 0)
-	TNT1 A 1
-	Goto Stand
+		TNT1 A 1
+		TNT1 A 0 A_ChangeFlag(DOOMBOUNCE, 0)
+		TNT1 A 1
+		Goto Stand
 	Stand:
-	SLIM ABCD 4
-	Stop
+		SLIM ABCD 4
+		Stop
 	Death:
-	TNT1 A 1
-	TNT1 A 0
-	Stop
+		TNT1 A 1
+		TNT1 A 0
+		Stop
 	}
 }
 

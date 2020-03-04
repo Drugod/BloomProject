@@ -174,13 +174,13 @@ ACTOR Wolfmorph //here how caleb transform into werewolf
 }
 
 ACTOR -------BLACKANDWHITEHORROR---------- {}
-ACTOR horror : PowerupGiver
+ACTOR Horror : PowerupGiver
 {
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	PowerUp.Duration 0x7FFFFFFD
 	Powerup.Colormap 0.25, 0.25, 0.25
-	PowerUp.Type "horror"
+	PowerUp.Type "Horror"
 }
 
 ACTOR Powerhorror: PowerMorph

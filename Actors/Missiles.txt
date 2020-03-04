@@ -86,7 +86,6 @@ ACTOR SpitTrail : CleaverTrail1
 		SPIT A 1 A_FadeOut(0.04)
 		Loop
 	}
-
 }
 
 ACTOR CleaverTrail2 : CleaverTrail1
@@ -1049,27 +1048,27 @@ ACTOR FlamethrowFire : SprayCanFire
 		SPFI AABBCCDD 1 BRIGHT A_SpawnItem ("BFireTrail",8+random(-7,7),8+random(-7,7),0,0)
 		TNT1 A 0 ThrustThingZ(0, 4, 0, 1)
 		SPFI EFGHI 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-7,7),0,0)
-	Goto Death
+		Goto Death
 		SPFI A 0 A_PlaySound("flamethrower/Flame")
 		SPFI ABCD 2 A_SpawnItem ("BFireTrail",8+random(-5,5),8+random(-7,7),0,0)
 		TNT1 A 0 ThrustThingZ(0, 4, 0, 1)
 		SPFI EF 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-5,5),0,0)
-	Goto Death
+		Goto Death
 		NSMK G 0
-	Goto XDeath
+		Goto XDeath
 	Death:
 		NSMK A 0 A_Scream
 		NSMK A 0 A_Jump(128,15)
 		SPFI GHI 2 BRIGHT A_SpawnItem ("BFireTrail",8+random(-5,5),8+random(-5,5),0,0)
 		SFIR ABCDEFGH 2 BRIGHT
-	Stop
+		Stop
 		SPFI GHI 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-5,5),0,0)
 		SFIR IJKLMNOP 2 BRIGHT
-	Stop
+		Stop
 	XDeath:
 		FTRL H 0 A_Scream
 		FTRL H 0 BRIGHT
-	Stop
+		Stop
 	}
 }
 
@@ -1151,7 +1150,6 @@ ACTOR StoneGargFX
 	Death:
 		EYEP F 5 A_FadeOut(0.1)
 		Loop
-		Stop
 	}
 }
 

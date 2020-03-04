@@ -757,50 +757,12 @@ ACTOR PlayerTNT1
 		PTNT E 0 A_Countdown
 		PTNT D 1 A_LoopActiveSound
 		Loop
-			//XDeath: Turns this into an op as shit attack lol
-			//PTNT I 0 A_Explode (128,160)
-			//PTNT B 1 A_Pain
-			//PTNT B 0 A_SpawnItem("FloorKaboom",-16)
-			//TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
-			//TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
-			//Stop
 	Death:
 		PTNT A 0 A_Recoil(-14) //Le classic slide
 		PTNT AAA 1
 		PTNT A 1 A_Stop
 		PTNT A 0 A_CustomMissile("ClassicoTNT",0,0,0,CMF_TRACKOWNER)
 		TNT1 A 0 A_Stopsound(0)
-			/*PTNT A 0 a_SpawnItemex("ClassicoTNT")
-			PTNT A 0 A_LoopActiveSound
-			PTNT EIJK 4
-			PTNT A 0 A_LoopActiveSound
-			PTNT IJK 4
-			PTNT A 0 A_LoopActiveSound
-			PTNT IJK 4
-			PTNT A 0 A_LoopActiveSound
-			PTNT IJK 4
-			PTNT A 0 A_LoopActiveSound
-			PTNT IJK 4
-			PTNT A 0 A_LoopActiveSound
-			PTNT IJK 4
-			PTNT A 0 A_LoopActiveSound
-			PTNT IJK 4
-			PTNT A 0 A_LoopActiveSound
-			PTNT IJK 4
-			PTNT A 0 A_LoopActiveSound
-			PTNT IJK 4
-			PTNT A 0 A_LoopActiveSound
-			PTNT IJK 4
-			PTNT A 0 A_LoopActiveSound
-			PTNT IJK 4
-			PTNT A 0 A_LoopActiveSound
-			PTNT IJK 4
-			PTNT I 0 A_Explode (128,160)
-			PTNT B 1 A_Pain
-			PTNT B 0 A_SpawnItem("FloorKaboom",-16)
-			TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
-			TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
-			Stop*/
 		Stop
 	}
 }

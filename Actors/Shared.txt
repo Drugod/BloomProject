@@ -680,9 +680,6 @@ ACTOR RainBlood
 	Death:
 	See:
 		BLD2 FGHI 7
-			//RABL B 0 A_SpawnItem("BloodPool")
-			//RABL C 9
-			//RABL A 0 A_SpawnItem("BloodPool") //Lagfest
 		Stop
 	}
 }
