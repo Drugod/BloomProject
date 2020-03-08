@@ -90,7 +90,7 @@ ACTOR SpiritArmorPickup : BodyArmorPickup 3157
 ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160
 {
 	//$Category "BlooM Armor"
-	//$Sprite BARMA0
+	//$Sprite XARMA0
 	Tag "Basic Armor"
 	Inventory.PickupMessage "$BASA"
 	Inventory.PickupSound "misc/armor_pkup"
@@ -99,7 +99,7 @@ ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
-		BARM A -1
+		XARM A -1
 		Stop
 	ModelSpawn:
 		UNKN A -1
@@ -121,7 +121,7 @@ ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160
 		XRM1 A 0 A_JumpIfInventory("SpiritArmor",100,"DontPick")
 		Goto Pick
 	DontPick:
-		BARM A 1 //Don't pick if all already at 100
+		XARM A 1 //Don't pick if all already at 100
 		Fail
 	}
 }
