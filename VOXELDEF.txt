@@ -16,7 +16,7 @@ VDLFA="VDLFA" {Spin = 50}
 
 //--------------------ARMOR----------------
 ARMFA="ARMFA" {Spin = 50}
-BARMA="BARMA" {Spin = 50}
+XARMA="XARMA" {Spin = 50}
 SARMA="SARMA" {Spin = 50}
 SPRYA="SPRYA" {Spin = 50}
 XRM1A="XRM1A" {Spin = 50}

@@ -48,3 +48,4 @@ Const Int BLM_FLAGS3 = SXF_SETMASTER | SXF_NOCHECKPOSITION;
 #include Actors/Bloom_ZombImps.txt
 #include Actors/Bloom_Selectors.txt
 #include Actors/Cast.txt
+#include Actors/Doom_Objects.txt
