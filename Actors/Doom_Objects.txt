@@ -1,33 +1,6 @@
 //OBJECTS//
-ACTOR ExplosiveBarrel_
+ACTOR ExplosiveBarrel_ : ExplosiveBarrel 20035
 {
 	//$Category "BlooM Ambient"
 	//$Title Doom Barrel
-	Health 20
-	Radius 10
-	Height 42
-	+SOLID
-	+SHOOTABLE
-	+NOBLOOD
-	+ACTIVATEMCROSS
-	+DONTGIB
-	+NOICEDEATH
-	+OLDRADIUSDMG
-	DeathSound "world/barrelx"
-	Obituary "$OB_BARREL" // "%o went boom."
-	States
-	{
-	Spawn:
-		BAR1 AB 6
-	Loop
-	Death:
-		BEXP A 5 Bright
-		BEXP B 5 Bright A_Scream
-		BEXP C 5 Bright
-		BEXP D 5 Bright A_Explode
-		BEXP E 10 Bright
-		TNT1 A 1050 Bright A_BarrelDestroy
-		TNT1 A 5 A_Respawn
-	Wait
-	}
 }

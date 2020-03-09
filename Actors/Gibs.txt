@@ -3247,6 +3247,54 @@ ACTOR TentacleSkulls
     }
 }
 
+ACTOR FlyingLegs : TentacleSkulls
+{
+	States
+    {
+    Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(127,3)
+		LEGM ABCDEF 6
+		Loop
+    Death:
+		LEGM A 3
+		Goto Rest
+	Rest:
+		TNT1 A 0
+		TNT1 A 0 A_QueueCorpse
+        LEGM A 400
+        LEGM A -1
+		Stop
+    }
+}
+
+ACTOR FlyingArms : TentacleSkulls
+{
+	States
+    {
+    Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(127,4)
+		MARM ABCDEFGH 7
+		Loop
+    Death:
+		MARM B 4
+		Goto Rest
+	Rest:
+		TNT1 A 0
+		TNT1 A 0 A_QueueCorpse
+		TNT1 A 0 A_Jump(255, "Rest1", "Rest2")
+	Rest1:
+        MARM C 400
+        MARM C -1
+		Stop
+	Rest2:
+		MARM E 400
+		MARM E -1
+		Stop
+    }
+}
+
 ACTOR ----------VANILLA_GIBS------------- {}
 ACTOR Intestines
 {
