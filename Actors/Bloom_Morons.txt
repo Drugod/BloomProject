@@ -931,13 +931,16 @@ ACTOR ExplosiveMoron2 : ExplosiveMoron_Base 19085
 		BARN G 4 A_Jump(60,"NoPlaceLikeHome")
 		Goto Run
 	Death:
-		BARN I 5 Bright A_Scream
-		BARN J 5 Bright A_Fall
-		BARN K 5 Bright A_Explode
+		TNT1 A 0 A_Explode(300, 150)
+		TNT1 A 0 A_SpawnItem("Kaboom",0,-15+random(-2,2))
+		TNT1 A 0 A_CustomMissile("FloorKaboom",0,0,0)		
+		BARM I 5 Bright A_Scream
+		BARM J 5 Bright A_Fall
+		BARM K 5 Bright	
 		Goto Death.Sequence1
 	Death.End:
-		BARN L 5 Bright
-		BARN MNOP 4
+		BARM L 5 Bright
+		BARM MNOP 4
 		TNT1 A 0 A_Jump(128,2)
 		TNT1 A 0 A_SpawnItemEx("Morons_Legs",0,0,0,0,0,0,0)
 		Stop
@@ -969,13 +972,16 @@ ACTOR ExplosiveMoron3 : ExplosiveMoron_Base 19086
 		BARP G 4 A_Jump(60,"NoPlaceLikeHome")
 		Goto Run
 	Death:
-		BARP I 5 Bright A_Scream
-		BARP J 5 Bright A_Fall
-		BARP K 5 Bright A_Explode
+		TNT1 A 0 A_Explode(300, 150)
+		TNT1 A 0 A_SpawnItem("Kaboom",0,-15+random(-2,2))
+		TNT1 A 0 A_CustomMissile("FloorKaboom",0,0,0)		
+		BARM I 5 Bright A_Scream
+		BARM J 5 Bright A_Fall
+		BARM K 5 Bright	
 		Goto Death.Sequence1
 	Death.End:
-		BARP L 5 Bright
-		BARP MNOP 4
+		BARM L 5 Bright
+		BARM MNOP 4
 		TNT1 A 0 A_Jump(128,2)
 		TNT1 A 0 A_SpawnItemEx("Morons_Legs",0,0,0,0,0,0,0)
 		Stop
@@ -1007,13 +1013,16 @@ ACTOR ExplosiveMoron4 : ExplosiveMoron_Base 19087
 		BARQ G 4 A_Jump(60,"NoPlaceLikeHome")
 		Goto Run
 	Death:
-		BARQ I 5 Bright A_Scream
-		BARQ J 5 Bright A_Fall
-		BARQ K 5 Bright A_Explode
+		TNT1 A 0 A_Explode(300, 150)
+		TNT1 A 0 A_SpawnItem("Kaboom",0,-15+random(-2,2))
+		TNT1 A 0 A_CustomMissile("FloorKaboom",0,0,0)		
+		BARM I 5 Bright A_Scream
+		BARM J 5 Bright A_Fall
+		BARM K 5 Bright
 		Goto Death.Sequence1
 	Death.End:
-		BARQ L 5 Bright
-		BARQ MNOP 4
+		BARM L 5 Bright
+		BARM MNOP 4
 		TNT1 A 0 A_Jump(128,2)
 		TNT1 A 0 A_SpawnItemEx("Morons_Legs",0,0,0,0,0,0,0)
 		Stop
