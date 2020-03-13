@@ -129,115 +129,6 @@ ACTOR Moron 3241
 	}
 }
 
-ACTOR ExplosiveMoron 19084
-{
-    //$Category "BlooM Monsters"
-	//$Title Explosive Moron, Friendly
-	Health 20
-	Radius 14
-	Height 56
-	Mass 60
-	Scale 0.5
-	Speed 6
-	PainChance 175
-	Monster
-	SeeSound "Moron/Cry1"
-	AttackSound ""
-	DeathSound "Moron/Crying"
-	ActiveSound "Moron/GoAway"
-	PainSound "Moron/Scream"
-	+DONTOVERLAP
-	+DROPPED
-	+FLOORCLIP
-	+FRIENDLY
-	+NOSPLASHALERT
-	+RANDOMIZE
-	-COUNTKILL
-	Obituary "$OB_MORON"
-	States
-	{
-	Spawn:
-		BARM H 4 A_Look
-		Loop
-	See:
-		BARM H Random(11,110)
-	Run:
-		BARM AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Wander
-		BARM A 0 A_Jump(88,"Stand","NoPlaceLikeHome")
-		Loop
-	Stand:
-		BARM HH 40
-		Goto See
-	NoPlaceLikeHome:
-		TNT1 A 0
-		TNT1 A 0 A_Jump(128,2)
-		TNT1 A 0 A_PlaySound("Moron/Beg")
-		Goto Run
-		TNT1 A 0 A_PlaySound("Moron/Home")
-		Goto Run
-	Pain:
-		BARM G 4 A_Pain
-		BARM G 4 A_Jump(60,"NoPlaceLikeHome")
-		Goto Run
-	Death:
-		BARM I 5 Bright A_Scream
-		BARM J 5 Bright A_Fall
-		BARM K 5 Bright A_Explode
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("EyeGuts")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("Bloodliver")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("HeadBlood")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("Hand1")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("Hand1")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_ThrowGrenade("FlyingLegs",5,5+frandom(-3,3),10+frandom(-4,4),0)
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_ThrowGrenade("FlyingLegs",5,5+frandom(-3,3),10+frandom(-4,4),0)
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_ThrowGrenade("FlyingArms",5,5+frandom(-3,3),10+frandom(-4,4),0)
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_ThrowGrenade("FlyingArms",5,5+frandom(-3,3),10+frandom(-4,4),0)
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_ThrowGrenade ("KickableFlyingMoron",0,5,10,0)
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("Bloodliver")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("OrganDebris")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("Bloodliver")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("Bloodliver")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
-		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
-		BARM L 5 Bright
-		BARM MNOP 4
-		TNT1 A 0 A_Jump(128,2)
-		TNT1 A 0 A_SpawnItemEx("Morons_Legs",0,0,0,0,0,0,0)
-		Stop
-		MLEI ABCDEFGHI 3
-		MLEI I -1
-		Stop
-	}
-}
-
 ACTOR AberrationMoron : Moron 19073
 {
 	//$Title Moron, Aberration 1
@@ -814,35 +705,7 @@ ACTOR MoronTrap : SwitchingDecoration
 	}
 }
 
-ACTOR MoronSpawner 19081
-{
-	+NOTDMATCH
-	-COUNTKILL
-	States
-	{
-	Spawn:
-		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5")
-		Stop
-	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("AberrationMoron",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop
-	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("AberrationMoron2",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop
-	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("AberrationMoron3",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop
-	Spawn4:
-		TNT1 A 0 A_SpawnItemEx("AberrationMoron4",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop
-	Spawn5:
-		TNT1 A 0 A_SpawnItemEx("AberrationMoron5",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop
-	}
-}
-
-Actor Morons_Legs
+ACTOR Morons_Legs
 {
 	Health 10
 	Speed 6
@@ -889,5 +752,300 @@ Actor Morons_Legs
 		MLEI ABCDEFGHI 3 A_NoBlocking
 		MLEI I -1
 	Stop
+	}
+}
+
+ACTOR MoronSpawner 19081
+{
+    //$Category "BlooM Monsters"
+	//$Title Moron Aberration Spawner
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("AberrationMoron",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("AberrationMoron2",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("AberrationMoron3",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("AberrationMoron4",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn5:
+		TNT1 A 0 A_SpawnItemEx("AberrationMoron5",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+//Explosive Morons//
+ACTOR ExplosiveMoron_Base
+{
+    //$Category "BlooM Monsters"
+	Health 20
+	Radius 14
+	Height 56
+	Mass 60
+	Scale 0.5
+	Speed 6
+	PainChance 175
+	Monster
+	SeeSound "Moron/Cry1"
+	AttackSound ""
+	DeathSound "Moron/Crying"
+	ActiveSound "Moron/GoAway"
+	PainSound "Moron/Scream"
+	+DONTOVERLAP
+	+DROPPED
+	+FLOORCLIP
+	+FRIENDLY
+	+NOSPLASHALERT
+	+RANDOMIZE
+	-COUNTKILL
+	Obituary "$OB_MORON"
+	States
+	{
+	NoPlaceLikeHome:
+		TNT1 A 0
+		"####" A 0 A_Jump(128,4)
+		"####" A 0 A_PlaySound("Moron/Beg")
+		"####" A 0 A_Jump(256,"Run")
+		Stop
+		TNT1 A 0 A_PlaySound("Moron/Home")
+		"####" A 0 A_Jump(256,"Run")
+		Stop
+	Death.Sequence1:
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("EyeGuts")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("Bloodliver")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("HeadBlood")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("Hand1")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("Hand1")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_ThrowGrenade("FlyingLegs",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_ThrowGrenade("FlyingLegs",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_ThrowGrenade("FlyingArms",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_ThrowGrenade("FlyingArms",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_ThrowGrenade ("KickableFlyingMoron",0,5,10,0)
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("OrganDebris2")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("Bloodliver")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("FlyingBlood")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("OrganDebris")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("Bloodliver")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("FlyingBlood")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("OrganDebris2")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("Bloodliver")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnDebris ("FlyingBlood")
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		"####" A 0 A_SetAngle(frandom(0.0,360.0))
+		"####" A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		"####" A 0 A_Jump(256,"Death.End")
+		Stop
+	}
+}
+
+ACTOR ExplosiveMoron : ExplosiveMoron_Base 19084
+{
+	//$Title Explosive Moron 1, Friendly
+	States
+	{
+	Spawn:
+		BARM H 4 A_Look
+		Loop
+	See:
+		BARM H Random(11,110)
+	Run:
+		BARM AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Wander
+		BARM A 0 A_Jump(88,"Stand","NoPlaceLikeHome")
+		Loop
+	Stand:
+		BARM HH 40
+		Goto See
+	Pain:
+		BARM G 4 A_Pain
+		BARM G 4 A_Jump(60,"NoPlaceLikeHome")
+		Goto Run
+	Death:
+		BARM I 5 Bright A_Scream
+		BARM J 5 Bright A_Fall
+		BARM K 5 Bright A_Explode
+		Goto Death.Sequence1
+	Death.End:
+		BARM L 5 Bright
+		BARM MNOP 4
+		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_SpawnItemEx("Morons_Legs",0,0,0,0,0,0,0)
+		Stop
+		MLEI ABCDEFGHI 3
+		MLEI I -1
+		Stop
+	}
+}
+
+ACTOR ExplosiveMoron2 : ExplosiveMoron_Base 19085
+{
+	//$Title Explosive Moron 2, Friendly
+	States
+	{
+	Spawn:
+		BARN H 4 A_Look
+		Loop
+	See:
+		BARN H Random(11,110)
+	Run:
+		BARN AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Wander
+		BARN A 0 A_Jump(88,"Stand","NoPlaceLikeHome")
+		Loop
+	Stand:
+		BARN HH 40
+		Goto See
+	Pain:
+		BARN G 4 A_Pain
+		BARN G 4 A_Jump(60,"NoPlaceLikeHome")
+		Goto Run
+	Death:
+		BARN I 5 Bright A_Scream
+		BARN J 5 Bright A_Fall
+		BARN K 5 Bright A_Explode
+		Goto Death.Sequence1
+	Death.End:
+		BARN L 5 Bright
+		BARN MNOP 4
+		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_SpawnItemEx("Morons_Legs",0,0,0,0,0,0,0)
+		Stop
+		MLEI ABCDEFGHI 3
+		MLEI I -1
+		Stop
+	}
+}
+
+ACTOR ExplosiveMoron3 : ExplosiveMoron_Base 19086
+{
+	//$Title Explosive Moron 3, Friendly
+	States
+	{
+	Spawn:
+		BARP H 4 A_Look
+		Loop
+	See:
+		BARP H Random(11,110)
+	Run:
+		BARP AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Wander
+		BARP A 0 A_Jump(88,"Stand","NoPlaceLikeHome")
+		Loop
+	Stand:
+		BARP HH 40
+		Goto See
+	Pain:
+		BARP G 4 A_Pain
+		BARP G 4 A_Jump(60,"NoPlaceLikeHome")
+		Goto Run
+	Death:
+		BARP I 5 Bright A_Scream
+		BARP J 5 Bright A_Fall
+		BARP K 5 Bright A_Explode
+		Goto Death.Sequence1
+	Death.End:
+		BARP L 5 Bright
+		BARP MNOP 4
+		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_SpawnItemEx("Morons_Legs",0,0,0,0,0,0,0)
+		Stop
+		MLEI ABCDEFGHI 3
+		MLEI I -1
+		Stop
+	}
+}
+
+ACTOR ExplosiveMoron4 : ExplosiveMoron_Base 19087
+{
+	//$Title Explosive Moron 4, Friendly
+	States
+	{
+	Spawn:
+		BARQ H 4 A_Look
+		Loop
+	See:
+		BARQ H Random(11,110)
+	Run:
+		BARQ AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Wander
+		BARQ A 0 A_Jump(88,"Stand","NoPlaceLikeHome")
+		Loop
+	Stand:
+		BARQ HH 40
+		Goto See
+	Pain:
+		BARQ G 4 A_Pain
+		BARQ G 4 A_Jump(60,"NoPlaceLikeHome")
+		Goto Run
+	Death:
+		BARQ I 5 Bright A_Scream
+		BARQ J 5 Bright A_Fall
+		BARQ K 5 Bright A_Explode
+		Goto Death.Sequence1
+	Death.End:
+		BARQ L 5 Bright
+		BARQ MNOP 4
+		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_SpawnItemEx("Morons_Legs",0,0,0,0,0,0,0)
+		Stop
+		MLEI ABCDEFGHI 3
+		MLEI I -1
+		Stop
+	}
+}
+
+ACTOR ExplosiveMoronSpawner 19088
+{
+    //$Category "BlooM Monsters"
+	//$Title Explosive Moron Spawner
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("ExplosiveMoron",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("ExplosiveMoron2",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("ExplosiveMoron3",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("ExplosiveMoron4",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
 	}
 }
