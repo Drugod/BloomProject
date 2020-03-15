@@ -979,6 +979,17 @@ ACTOR ExplosiveMoron3 : ExplosiveMoron_Base 19086
 		TNT1 A 0 A_SpawnItemEx("GreenFloorfog",frandom(-45.0,-75.0),frandom(45.0,75.0),Height,0,0,0,frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("GreenFloorfog",frandom(-45.0,-75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("GreenFloorfog",frandom(45.0,75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))			
+//Blood zombie inside the barrel
+		TNT1 AAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_ThrowGrenade("ZombieHead",0,5,10,0)
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("Hand1")
+		TNT1 A 0 A_SpawnItemEx("Intestines",frandom(-50,50),frandom(-50,50),0)
+		TNT1 A 0 A_SpawnItemEx("Entrails",frandom(-50,50),frandom(-50,50),0)
+		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAAAA 0 A_SpawnItemEx("Blood_",frandom(-20,20),frandom(-20,20),frandom(-20,20),frandom(0,15),frandom(0,15),frandom(0,15),frandom(0,360),0,120)
+//		
 		BARM K 5 Bright	
 		Goto Death.Sequence1
 	Death.End:
