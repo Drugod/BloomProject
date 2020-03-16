@@ -255,7 +255,7 @@ ACTOR PossesedShotgunguy 19089
 {
     //$Category "BlooM Monsters"
 	//$Title Possesed Shotgunguy	
-	Health 80
+	Health 120
 	Radius 14
 	Height 56
 	Mass 60
@@ -290,8 +290,6 @@ ACTOR PossesedShotgunguy 19089
 		HAND GGGGGHHHHHIIIIIJJJJJ 1
 		Goto See
 	Missile:
-		TNT1 A 0
-		TNT1 A 0 A_Jump(160,"Flee")
 		HAND K 10 A_FaceTarget
 		HAND L 10 BRIGHT A_SPosAttackUseAtkSound
 		HAND K 10
