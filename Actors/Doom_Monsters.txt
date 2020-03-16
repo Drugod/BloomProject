@@ -176,10 +176,8 @@ ACTOR ShotgunGuy_ : DoomEnemy_base 18999
 		Goto See
 	Pain.ChokeEM:
 	Death.ChokeEM:
-		TNT1 A 0
-		TNT1 A 1 A_NoBlocking
-		TNT1 A 1 A_Fall
-		TNT1 A 1 A_SpawnItemEx("PossesedShotgunguy",0,0,0,0)
+		SPOS A 1 A_UnSetSolid
+		SPOS G 1 A_SpawnItemEx("PossesedShotgunguy",0,0,0,0)
 		Stop		
 	Pain:
 		SPOS G 3
