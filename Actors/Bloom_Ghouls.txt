@@ -2158,6 +2158,16 @@ ACTOR GhoulsZombies: BuriedGhoul2 19036
 	}
 }
 
+ACTOR GreenFogGhoulsZombies: GhoulsZombies 
+{
+	States
+	{
+	NoGroundSpawner://If there's no ground floor texture then dont summon anything
+		TNT1 A 0
+		Stop
+	}
+}
+
 ACTOR StandUpGhoulsSpawner
 {
 	-ISMONSTER
