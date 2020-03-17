@@ -146,10 +146,6 @@ ACTOR Caleb : PlayerPawn
 	Pain.Axe:
 		CALB H 0 ACS_NamedExecuteAlways("PlSndDamageMelee",0,21)
 		Goto Pain
-	Pain.ChokeEM:
-		PLAY G 1 A_GiveInventory("ChokeMe",1)
-		TNT1 A 1 A_PlaySound("Hand/Choke")
-		Goto See
 	Pain.Silently:
 		PLAY G 1 A_PlaySound("Null")
 		Goto See
@@ -290,10 +286,6 @@ ACTOR DoomDude : PlayerPawn
 		PLAY STUVWX 5
 		PLAY Y -1
 		Stop
-	Pain.ChokeEM:
-		PLAY G 1 A_GiveInventory("ChokeMe",1)
-		TNT1 A 1 A_PlaySound("Hand/Choke")
-		Goto See
 	Pain.Silently:
 		PLAY G 1 A_PlaySound("Null")
 		Goto See
