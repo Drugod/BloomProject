@@ -29,26 +29,6 @@ ACTOR BloomHybrid_Base
 	Monster
 }
 
-ACTOR BloomPossessed_Base
-{
-    //$Category "BlooM Monsters"
-	//$Color 3
-	Health 120
-	Radius 14
-	Height 56
-	Mass 60
-	Speed 6
-	PainChance 175
-	Monster
-	+COUNTKILL
-	+DONTOVERLAP
-	+DROPPED
-	+FLOORCLIP
-	+NOSPLASHALERT
-	+RANDOMIZE
-	
-}
-
 ACTOR --------------------DEBRIS----------------------{}
 ACTOR Base_Debris
 {
