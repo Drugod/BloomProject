@@ -13,6 +13,11 @@ ACTOR BloomPossessed_Base
 	Monster
 	+DROPOFF
 	+FLOAT
+	AttackSound "shotguy/attack"	
+	SeeSound "Sand/Roam"
+	DeathSound "Sand/Die"
+	ActiveSound "Sand/Spot"
+	PainSound "Sand/Pain"	
 	States
 	{
 	Forget:
@@ -208,11 +213,6 @@ ACTOR BloomPossessed_Base
 ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 {
 	//$Title Possesed Shotgunguy
-	SeeSound "Moron/Cry1"
-	AttackSound "shotguy/attack"
-	DeathSound "Moron/Crying"
-	ActiveSound "Moron/GoAway"
-	PainSound "Moron/Scream"
 	States
 	{
   	Spawn:
@@ -222,7 +222,7 @@ ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 		Loop
 	See.Setup:
 		HAS2 A 1 A_Chase("","")
-		HAS2 A 1
+		HAS2 A 1 A_ActiveSound
 		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
 		HAS2 A 1 A_Chase("","")
 		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
@@ -302,6 +302,7 @@ ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 		Loop
 	Ground.SeeSetup:
 		HAND AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Chase("Ground.Missile","Ground.Missile",CHF_NOPLAYACTIVE)
+		TNT1 A 0 A_ActiveSound
 		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
 		HAND AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Chase("","")
 		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
@@ -314,7 +315,7 @@ ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 		TNT1 A 0 A_Jump(256,"Ground.See")
 		Stop
 	Ground.StandSetup:
-		HAND GGGGGHHHHHIIIIIJJJJJ 1
+		HAND GGGGGHHHHHIIIIIJJJJJ 1 A_ActiveSound
 		TNT1 A 0 A_Jump(256,"Ground.See")
 		Stop
 	Ground.MissileSetup:
@@ -350,11 +351,6 @@ ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 {
 	//$Title Possesed NeoCultist
-	SeeSound "Moron/Cry1"
-	AttackSound "shotguy/attack"
-	DeathSound "Moron/Crying"
-	ActiveSound "Moron/GoAway"
-	PainSound "Moron/Scream"
 	States
 	{
   	Spawn:
@@ -364,7 +360,7 @@ ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 		Loop
 	See.Setup:
 		HBS2 A 1 A_Chase("","")
-		HBS2 A 1
+		HBS2 A 1 A_ActiveSound
 		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
 		HBS2 A 1 A_Chase("","")
 		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
@@ -456,7 +452,7 @@ ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 		TNT1 A 0 A_Jump(256,"Ground.See")
 		Stop
 	Ground.StandSetup:
-		HBND GGGGGHHHHHIIIIIJJJJJ 1
+		HBND GGGGGHHHHHIIIIIJJJJJ 1 A_ActiveSound
 		TNT1 A 0 A_Jump(256,"Ground.See")
 		Stop
 	Ground.MissileSetup:

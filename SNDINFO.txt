@@ -498,6 +498,15 @@ Hand/Spot	HANDSPOT
 Hand/Roam	HANDROAM
 Hand/Choke	UNDCHOKE
 
+Sand/Die1	SANDDIE1
+Sand/Die2	SANDDIE2
+Sand/Die3	SANDDIE3
+$Random Sand/Die	{Sand/Die1	Sand/Die2	Sand/Die3}
+Sand/Pain	SANDPAIN
+Sand/Roam	SANDROAM
+Sand/Spot	SANDSPOT
+Sand/Roam	SANDROAM
+
 //MORON
 Moron/Inhale	INHALE
 Moron/Home		INOPLACE
