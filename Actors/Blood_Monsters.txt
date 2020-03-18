@@ -33,16 +33,16 @@ ACTOR ChokingHand : BloodEnemy_Base 6190
 	SeeNOFriendly:
 		TNT1 A 0 A_ChangeFlag("FRIENDLY",FALSE)	
 	See:
-		TNT1 A 0 A_CheckSightOrRange(300.0,"DontChase",FALSE)//If theres no players in sight, he will just play his original see animation		
-		TNT1 A 0 A_Facetarget
+		TNT1 A 0 A_Facetarget		
+		TNT1 A 0 A_CheckRange(300.0,"DontChase",FALSE)
 		WHAN ABCDEABCDEABCDE 1 A_Chase
 		TNT1 A 0 A_JumpIfInTargetInventory("Chokeme",1,"Idle")				
 		TNT1 A 0 A_JumpIfCloser(250.0, "Jump")
 		Loop		
 	DontChase:
 		WHAN A 1 A_ChangeFlag("FRIENDLY", TRUE)
-		WHAN ABCDEABCDEABCDE 1 A_Wander 
-		TNT1 A 0 A_Look		
+		TNT1 A 0 A_ClearTarget
+		WHAN ABCDEABCDEABCDE 1 A_Chase
 		WHAN C 1 A_JumpIfTargetInLOS("See")
 		Goto SeeNofriendly
 	Jump:
