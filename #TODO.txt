@@ -17,7 +17,6 @@ For All:
 - there are a couple of unused voxels yet, and possibly models
 - tweak special effects, bleeding effects and amount of used actors per maps
 - Filter Choking hand possession only human species not possessed yet
-- Add swiming behaviour to possessed monsters
 
 Coop problems:
 - verify Berserk_ behavior for Zandro
