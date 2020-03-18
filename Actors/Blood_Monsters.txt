@@ -34,7 +34,7 @@ ACTOR ChokingHand : BloodEnemy_Base 6190
 		TNT1 A 0 A_ChangeFlag("FRIENDLY",FALSE)	
 	See:
 		TNT1 A 0 A_Facetarget		
-		TNT1 A 0 A_CheckRange(300.0,"DontChase",FALSE)
+		TNT1 A 0 A_CheckRange(300.0,"DontChase") //,FALSE) - doesn't work on Zandro - ozy81
 		WHAN ABCDEABCDEABCDE 1 A_Chase
 		TNT1 A 0 A_JumpIfInTargetInventory("Chokeme",1,"Idle")				
 		TNT1 A 0 A_JumpIfCloser(250.0, "Jump")
