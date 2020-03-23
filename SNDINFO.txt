@@ -468,6 +468,13 @@ thunder/hit2 THNDS02
 Steam/Loop	STEMLOOP
 Steam/Fire	STEMFIRE
 
+//CHTON
+Chton/Attack	CHATK
+Chton/Death		CHDEATH
+Chton/Pain		CHPAIN
+Chton/Rise		CHRISE
+Chton/Walk		CHSEE
+
 //ZOMBIES
 $Random SummonZombies { 13CHA 13CHU 13KILL 13DEATH }
 13CHA	13CHA
