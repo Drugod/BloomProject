@@ -419,21 +419,21 @@ ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 		TNT1 A 0 A_Jump(256,"See")
 		Stop
 	Death.Setup:
-		WPOS H 5
-		WPOS I 5 A_Scream
-		WPOS J 5 A_NoBlocking
-		WPOS K 5
-		WPOS L -1
+		YPOS H 5
+		YPOS I 5 A_Scream
+		YPOS J 5 A_NoBlocking
+		YPOS K 5
+		YPOS L -1
 		Stop
 	XDeath.Setup:
-		WPOS M 5
+		YPOS M 5
 		TNT1 A 0 A_Jump(256,"XDeath.Gibs2")
 		Stop
 	XDeath.End:
-        WPOS N 5 A_XScream
-		WPOS O 5 A_NoBlocking
-		WPOS PQRST 5
-		WPOS U -1
+        YPOS N 5 A_XScream
+		YPOS O 5 A_NoBlocking
+		YPOS PQRST 5
+		YPOS U -1
 		Stop
 	Ground.SpawnSetup:	//OUT OF WATER
 		HBND GGGGGHHHHHIIIIIJJJJJ 1 A_Look
@@ -472,15 +472,15 @@ ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 		TNT1 A 0 A_Jump(256,"Ground.Flee+5")
 		Stop
 	Ground.DeathSetup:
-		WPOS H 5
-		WPOS I 5 A_Scream
-		WPOS J 5 A_NoBlocking
-		WPOS K 5
-		WPOS L -1
+		YPOS H 5
+		YPOS I 5 A_Scream
+		YPOS J 5 A_NoBlocking
+		YPOS K 5
+		YPOS L -1
 		Stop
 	Raise.Setup:
-		WPOS L 5
-		WPOS KJIH 5
+		YPOS L 5
+		YPOS KJIH 5
 		Goto See
 	}
 }
@@ -618,6 +618,143 @@ ACTOR PossesedZombieMan: BloomPossessed_Base 19091
 	Raise.Setup:
 		POSS L 5
 		POSS KJIH 5
+		Goto See
+	}
+}
+
+ACTOR PossesedApocalypticNeoCultist: BloomPossessed_Base 19092
+{
+	//$Title Possesed Apocalyptic NeoCultist
+	States
+	{
+  	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.Spawn")
+		HDS2 ABCABCABCABC 4 A_Look
+		Loop
+	See.Setup:
+		HDS2 A 1 A_Chase("","")
+		HDS2 A 1 A_ActiveSound
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		HDS2 A 1 A_Chase("","")
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		HDS2 B 1 A_Chase
+		HDS2 B 1
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		HDS2 B 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		HDS2 C 1 A_Chase("","")
+		HDS2 C 1
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		HDS2 C 1 A_Chase("","")
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.See")
+		TNT1 A 0 A_Jump(16,2)
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+		TNT1 A 0 A_CheckSight("Forget")
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+	SwimAround.Setup:
+		HDS2 A 0 A_Recoil(-1)
+		HDS2 A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		HDS2 A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		HDS2 A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		HDS2 B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		HDS2 B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		HDS2 B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		HDS2 B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		HDS2 C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		HDS2 C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+frandom[DeepOnes](0,64),1,0,0)
+		HDS2 C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		HDS2 C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+frandom[DeepOnes](0,64),1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
+		TNT1 A 0 A_Jump(16,2)
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+		TNT1 A 0 A_CheckSight("Forget")
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+	Missile.Setup:
+		HDS2 D 10 A_FaceTarget
+		HDS2 E 10 A_SPosAttackUseAtkSound
+		HDS2 D 10
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+	Pain.Setup:
+		HDS2 A 3
+		HDS2 A 3 A_Pain
+		TNT1 A 0 A_Jump(256,"See")
+		Stop
+	Death.Setup:
+		WPOS H 5
+		WPOS I 5 A_Scream
+		WPOS J 5 A_NoBlocking
+		WPOS K 5
+		WPOS L -1
+		Stop
+	XDeath.Setup:
+		WPOS M 5
+		TNT1 A 0 A_Jump(256,"XDeath.Gibs2")
+		Stop
+	XDeath.End:
+        WPOS N 5 A_XScream
+		WPOS O 5 A_NoBlocking
+		WPOS PQRST 5
+		WPOS U -1
+		Stop
+	Ground.SpawnSetup:	//OUT OF WATER
+		HDND GGGGGHHHHHIIIIIJJJJJ 1 A_Look
+		Loop
+	Ground.SeeSetup:
+		HDND AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Chase("Ground.Missile","Ground.Missile",CHF_NOPLAYACTIVE)
+		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
+		HDND AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Chase("","")
+		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
+		TNT1 A 0 A_Jump(64,"Ground.FleeSetup")
+		TNT1 A 0 A_Jump(256,"Ground.See")
+		Stop
+	Ground.FleeSetup:
+		HDND AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBCCCCDDDDEEEEFFFF 1 A_Wander
+		TNT1 A 0 A_Jump(200,"Ground.StandSetup")
+		TNT1 A 0 A_Jump(256,"Ground.See")
+		Stop
+	Ground.StandSetup:
+		HDND GGGGGHHHHHIIIIIJJJJJ 1 A_ActiveSound
+		TNT1 A 0 A_Jump(256,"Ground.See")
+		Stop
+	Ground.MissileSetup:
+		HDND K 10 A_FaceTarget
+		HDND L 10 BRIGHT A_SPosAttackUseAtkSound
+		HDND K 10
+		TNT1 A 0 A_Jump(160,"Ground.FleeSetup")
+	LaunchTnt:
+		HDTN A 5 A_FaceTarget
+		HDTN BC 5
+		HDTN A 0 A_ThrowGrenade("DoomMonsterTNT",0,20,4,0)
+		HDTN D 5
+		TNT1 A 0 A_Jump(256,"Ground.See")
+		Stop
+	Ground.PainSetup:
+		HDND M 4 A_Pain
+		TNT1 A 0 A_Jump(256,"Ground.Flee+5")
+		Stop
+	Ground.DeathSetup:
+		WPOS H 5
+		WPOS I 5 A_Scream
+		WPOS J 5 A_NoBlocking
+		WPOS K 5
+		WPOS L -1
+		Stop
+	Raise.Setup:
+		WPOS L 5
+		WPOS KJIH 5
 		Goto See
 	}
 }
