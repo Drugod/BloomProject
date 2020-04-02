@@ -13,6 +13,8 @@ ACTOR Apocalyptic_NeoCvltist : BloomHybrid_Base 19001
 	Dropitem "UselessStuff" 32
 	DropItem "GrenadeAmmo" 32
 	DropItem "HappyBundle" 32
+	PainChance "ChokeEM", 255
+	DamageFactor "ChokeEM", 2.0	
 	States
 	{
 	Spawn:
@@ -32,6 +34,11 @@ ACTOR Apocalyptic_NeoCvltist : BloomHybrid_Base 19001
 		TNT1 A  0 A_ThrowGrenade("HybridCultistTNT",0,20,4,0)
 		WMTT D  5
 		Goto See
+	Pain.ChokeEM:
+	Death.ChokeEM:
+		WPOS G 1 A_UnSetSolid
+		WPOS G 1 A_SpawnItemEx("PossesedApocalypticNeoCultist",0,0,0,0)
+		Stop	
 	Pain:
 		WPOS G 3
 		WPOS G 3 A_Pain
@@ -156,8 +163,8 @@ ACTOR NeoCvltist : BloomHybrid_Base 19003
 		Stop
 	Pain.ChokeEM:
 	Death.ChokeEM:
-		SPOS A 1 A_UnSetSolid
-		SPOS G 1 A_SpawnItemEx("PossesedNeoCultist",0,0,0,0)
+		YPOS G 1 A_UnSetSolid
+		YPOS G 1 A_SpawnItemEx("PossesedNeoCultist",0,0,0,0)
 		Stop			
 	Burn:
 	Death.SpecialFire:

@@ -999,13 +999,13 @@ ACTOR ExplosiveMoron3 : ExplosiveMoron_Base 19086
 		TNT1 A 0 A_SpawnItemEx("Entrails",frandom(-50,50),frandom(-50,50),0)
 		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
 		TNT1 AAAAAAA 0 A_SpawnItemEx("Blood_",frandom(-20,20),frandom(-20,20),frandom(-20,20),frandom(0,15),frandom(0,15),frandom(0,15),frandom(0,360),0,120)
-		TNT1 A 0 A_SpawnItemEx("ChokingHand",0,0,0,0,0,0)				
 		BARM K 5 Bright	
 		Goto Death.Sequence1
 	Death.End:
 		BARM L 5 Bright
 		BARM MNOP 4
 		TNT1 A 0 A_ChangeFlag("FRIENDLY",FALSE)
+		TNT1 A 0 A_SpawnItemEx("ChokingHand",frandom(75.0,75.0),frandom(75.0,75.0),Height,0,0,0,frandom(0.0,360.0))
 		TNT1 A 0 A_Jump(128,2)
 		TNT1 A 0 A_SpawnItemEx("Morons_Legs",0,0,0,0,0,0,0)
 		TNT1 A 0 A_SpawnItemEx("GreenFogGhoulsZombies",frandom(45.0,75.0),frandom(45.0,75.0),Height,0,0,0,frandom(0.0,360.0))
