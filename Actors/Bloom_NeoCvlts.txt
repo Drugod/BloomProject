@@ -557,6 +557,11 @@ ACTOR Apocalyptic_NeoCvltist : NeoCvltist_Base 19001
 		WPOS KJIH 5
 		TNT1 A 0 A_Jump(256,"See")
 		Stop
+	Pain.ChokeEM:
+	Death.ChokeEM:
+		WPOS G 1 A_UnSetSolid
+		WPOS G 1 A_SpawnItemEx("PossesedApocalypticNeoCultist",0,0,0,0)
+		Stop		
 	}
 }
 
@@ -711,6 +716,11 @@ ACTOR NeoCvltist : NeoCvltist_Base 19003
 		YPOS KJIH 5
 		TNT1 A 0 A_Jump(256,"See")
 		Stop
+	Pain.ChokeEM:
+	Death.ChokeEM:
+		YPOS G 1 A_UnSetSolid
+		YPOS G 1 A_SpawnItemEx("PossesedNeoCultist",0,0,0,0)
+		Stop			
 	}
 }
 
