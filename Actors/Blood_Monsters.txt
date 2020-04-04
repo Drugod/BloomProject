@@ -2,8 +2,8 @@ ACTOR ------HANDOFDOOM------ {}
 ACTOR ChokingHand : BloodEnemy_Base 6190
 {
 	//$Title Choking Hand
-	Height 8
-	Radius 8
+	Height 12
+	Radius 12
 	Speed 12
 	Health 11
 	MeleeRange 60
@@ -17,23 +17,24 @@ ACTOR ChokingHand : BloodEnemy_Base 6190
 	PainSound "Hand/Pain"
 	Scale 0.56
 	Obituary "$OB_CHOKE"
+	Species "Possessed"
 	+DROPOFF
 	+FLOORCLIP
 	-FRIENDLY
 	States
 	{
 	Idle:
-		TNT1 A 0 A_ChangeFlag("FRIENDLY",FALSE)												
+		TNT1 A 0 A_ChangeFlag("FRIENDLY",FALSE)											
 		WHAN ABCDEABCDEABCDE 1 A_Wander 
 		TNT1 A 0 A_Look
 		Loop
 	Spawn:
 		WHAN A 4 A_Look
 		Loop
-	SeeNOFriendly:
-		TNT1 A 0 A_ChangeFlag("FRIENDLY",FALSE)	
+	SeeNoFriendly:
+		TNT1 A 0 A_ChangeFlag("FRIENDLY",FALSE)
 	See:
-		TNT1 A 0 A_Facetarget		
+		TNT1 A 0 A_FaceTarget	
 		TNT1 A 0 A_CheckRange(300.0,"DontChase") //,FALSE) - doesn't work on Zandro - ozy81
 		WHAN ABCDEABCDEABCDE 1 A_Chase
 		TNT1 A 0 A_JumpIfInTargetInventory("Chokeme",1,"Idle")				
@@ -44,7 +45,7 @@ ACTOR ChokingHand : BloodEnemy_Base 6190
 		TNT1 A 0 A_ClearTarget
 		WHAN ABCDEABCDEABCDE 1 A_Chase
 		WHAN C 1 A_JumpIfTargetInLOS("See")
-		Goto SeeNofriendly
+		Goto SeeNoFriendly
 	Jump:
 		TNT1 A 0 A_Facetarget		
 		WHAN FG 1 A_Chase
@@ -98,7 +99,7 @@ ACTOR ChokeMe : Weapon
     Select:
 		WHAX A 1 A_SetDamageType("ChokeEM")
 		WHAX ABCDEFGABCDEFG 3 A_Raise
-		TNT1 A 1 A_PRINT("HOLD ALTFIRE TO THROW")
+		TNT1 A 1 A_PRINT("$HANDMSG")
 		Loop
 	Deselect:
 		WHAX ABCDEFGABCDEFG 3
@@ -108,9 +109,9 @@ ACTOR ChokeMe : Weapon
 		WHAX A 0 A_PlaySound("Hand/Choke",TRUE)
 		Goto Ready
 	AltFire:
-		WHAX A 1 A_FireCustomMissile("flyinghand",0)
+		WHAX A 1 A_FireCustomMissile("FlyingHand",0)
 	    TNT1 A 1 A_TakeInventory("Chokeme",1)
-		TNT1 A 1 A_Stopsound(1)
+		TNT1 A 1 A_StopSound(1)
 		Goto Ready
 	}
 }
@@ -134,15 +135,16 @@ ACTOR FlyingHand
 	+RANDOMIZE
 	-NOGRAVITY
 	DamageType "ChokeEM"
+	Species "Possessed"
 	States
 	{
-		Spawn:
+	Spawn:
 		WHAN A 1
 	Fire:
 		WHAN AABBCCDDEE 1
 		Loop
 	Death:
-		WHAN A 1 A_SpawnItemEx("Chokinghand",0,0,0,0,0,0,-180)
+		WHAN A 1 A_SpawnItemEx("ChokingHand",0,0,0,0,0,0,-180,SXF_NOCHECKPOSITION | SXF_TRANSFERPOINTERS)
 		Stop
 	}
 }

@@ -18,15 +18,21 @@ QUITMSG13 = "If you quit this game away, I'll have to kill you.";
 QUITMSG14 = "Press Y If you're going to quit this game for a good reason, for example commit suicide.";
 
 //KEYS MESSAGES
-REQ_EYE = "That requires an Eye Key.";
-REQ_DAG = "That requires a Dagger Key.";
-REQ_MON = "That requires a Moon Key.";
-REQ_SKU = "That requires a Skull Key.";
-REQ_FIR = "That requires a Fire Key.";
-REQ_SPI = "That requires a Spider Key.";
+DAGKEY = "You got the Dagger Key.";
+EYEKEY = "You got the Eye Key.";
+FIRKEY = "You got the Fire Key.";
+MONKEY = "You got the Moon Key.";
 REQ_COMB1 = "That requires Eye plus Fire Keys.";
 REQ_COMB2 = "That requires Dagger plus Skull Keys.";
 REQ_COMB3 = "That requires Moon plus Spider Keys.";
+REQ_DAG = "That requires a Dagger Key.";
+REQ_EYE = "That requires an Eye Key.";
+REQ_FIR = "That requires a Fire Key.";
+REQ_MON = "That requires a Moon Key.";
+REQ_SKU = "That requires a Skull Key.";
+REQ_SPI = "That requires a Spider Key.";
+SKUKEY = "You got the Skull Key.";
+SPIKEY = "You got the Spider Key.";
 
 //MAPINFO STUFF
 DM2_TNT = "Play Chosen IWAD"; //here for Zandro
@@ -127,13 +133,8 @@ SEED = "Picked up Life Seed.";
 SPIA = "Picked up Spirit Armor.";
 SUPA = "Picked up Super Armor!";
 
-//KEYS MESSAGES
-DAGKEY = "You got the Dagger Key.";
-EYEKEY = "You got the Eye Key.";
-FIRKEY = "You got the Fire Key.";
-MONKEY = "You got the Moon Key.";
-SKUKEY = "You got the Skull Key.";
-SPIKEY = "You got the Spider Key.";
+//OTHER MESSAGES
+HANDMSG = "HOLD ALT-FIRE TO THROW HAND";
 
 //OBITUARIES - WEAPONS
 OB_COLT = "%o was been shoot to the head by %k.";
@@ -180,19 +181,17 @@ OB_CERB = "%o didn't approach Cerberus the right way.";
 OB_CHEOGH = "%o stood no chance against Cheogh.";
 OB_CHOKE = "%o was punched in the face by a living Hand.";
 OB_CRYPOD = "%o was spat on by a Chrysalid Pod.";
-OB_EELCUB = "%o understood how delicious were Eelcubus rockets.";
 OB_GBURN = "%o was near a Gargoyle in flames.";
 OB_GILLB = "A Gill Beast ate %o.";
-OB_GILLC = "%o sunk down by a Gillcubus fishy rocket.";
-OB_GILLE = "%o sunk down by a Eeldercubus fishy rocket.";
 OB_GRENCUL = "%o got outplayed by an Acolyte!!";
 OB_GREYCUL = "%o wasn't much liked by a Fanatic.";
 OB_HFISH = "Hellfish ate %o.";
 OB_LAVPOD = "%o was charred by a Lava Pod.";
 OB_MOUS = "%o was plagued by a little cute Mouse.";
 OB_PHANT = "%o was harvested by a Phantasm.";
+OB_POSSSH = "%o was frantically shot in the head by a possessed Sergeant.";
+OB_POSSZO = "%o was manually killed by a possessed Zombieman.";
 OB_PUPPY = "%o was incinerated by a Hell Hound.";
-OB_RATDEM = "%o was painfully bitten by a RatDemon.";
 OB_REDCUL = "%o was punctured by a Priest.";
 OB_SPIDS = "%o will now rage-quit thanks to Spiders.";
 OB_SPIDS2 = "%o got bitten by a little Spider.";
@@ -207,7 +206,6 @@ OB_STOMP = "%o danced with the stars.";
 OB_STOMP2 = "%o got too close to The-One-That-Binds.";
 OB_TCHERNO = "The-One-That-Binds didn't like the stupid look on %o's face.";
 OB_ZAXE = "%o got the Zombie's axe.";
-OB_ARAPOD = "%o was spat on by a Arachnopod.";
 
 //OBITUARIES - HYBRIDS
 HB_CACOY = "%o gets killed by a Cacoyle's bad breath ;)";
@@ -217,18 +215,27 @@ HB_DTRI = "%o felt cold by a DeepOne trident attack.";
 HB_GHOREV = "A Ghost Revenant scared the hell out of %o.";
 HB_TERREV = "%o was punched by a Ghost Revenant.";
 OB_ACHNOID = "%o killed by an Arachnoid.";
+OB_APOCN = "%o was shotgunned off by a crazy Apocalyptic NeoCultist.";
+OB_ARAPOD = "%o was spat on by a Arachnopod.";
 OB_CACOY = "%o didn't survive Cacoyle attack.";
 OB_CACOYB = "%o wasn't enough strong to survive King Cacoyle's attack.";
+OB_DCHA = "%o was chaingunned suddenly by a DeepOne.";
 OB_DEMHOU = "%o was bit by a Demonhound.";
 OB_DEMHOU2 = "%o was incinerated by a DemonHound.";
 OB_DSHO = "%o was shotgunned suddenly by a DeepOne.";
-OB_DCHA = "%o was chaingunned suddenly by a DeepOne.";
 OB_DTRI = "%o was congealed to death by a DeepOne.";
-OB_EELCUB = "Carbonized by a Eelcubus.";
+OB_EELCUB = "%o understood how delicious were Eelcubus rockets.";
+OB_FLVILE = "%o was winged out by an flying Gargovile.";
 OB_GARGD = "%o was bit by a Gargodemon.";
+OB_GAVILE = "%o was incinerated by an hybrid Gargovile.";
 OB_GHOREV = "%o couldn't dodge a Ghost Revenant's fireball.";
-OB_GILLCUB = "Carbonized by a Gillcubus.";
+OB_GILLC = "%o sunk down by a Gillcubus fishy rocket.";
+OB_GILLE = "%o sunk down by a Eeldercubus fishy rocket.";
 OB_GSOUL = "%o was spooked by a Gargoyle's soul.";
+OB_NORMN = "%o was frantically shot-off by a NeoCultist.";
+OB_POSAPC = "%o was manually shotgunned off by a paranoid possessed Apocalyptic NeoCultist.";
+OB_POSSNC = "%o was frantically shot-off by a possessed confused NeoCultist.";
+OB_RATDEM = "%o was painfully bitten by a RatDemon.";
 OB_SPEHOU = "%o was eaten by a SpectreHound.";
 
 //OBITUARIES - MISC

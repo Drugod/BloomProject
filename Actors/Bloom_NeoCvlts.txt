@@ -248,7 +248,6 @@ ACTOR NeoCvltist_Base
 	DeathSound "NCultistDie"
 	AttackSound "NCultistShotgun"
 	ActiveSound "NCultistAct"
-	Obituary "$OB_SHOTGUY"
 	DropItem "Shotgun_" 100
 	Dropitem "UselessStuff" 32
 	DropItem "GrenadeAmmo" 32
@@ -409,6 +408,7 @@ ACTOR NeoCvltist_Base
 ACTOR Apocalyptic_NeoCvltist : NeoCvltist_Base 19001
 {
 	//$Title Apocalyptic Cvltist
+	Obituary "$OB_APOCN"
 	States
 	{
   	Spawn:
@@ -568,6 +568,7 @@ ACTOR Apocalyptic_NeoCvltist : NeoCvltist_Base 19001
 ACTOR NeoCvltist : NeoCvltist_Base 19003
 {
 	//$Title NeoCvltist
+	Obituary "$OB_NORMN"
 	States
 	{
   	Spawn:
