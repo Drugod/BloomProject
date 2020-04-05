@@ -20,7 +20,9 @@ ACTOR ChokingHand : BloodEnemy_Base 6190
 	Species "Possessed"
 	+DROPOFF
 	+FLOORCLIP
+	-COUNTKILL
 	-FRIENDLY
+	-ISMONSTER
 	States
 	{
 	Idle:
@@ -37,7 +39,7 @@ ACTOR ChokingHand : BloodEnemy_Base 6190
 		TNT1 A 0 A_FaceTarget	
 		TNT1 A 0 A_CheckRange(300.0,"DontChase") //,FALSE) - doesn't work on Zandro - ozy81
 		WHAN ABCDEABCDEABCDE 1 A_Chase
-		TNT1 A 0 A_JumpIfInTargetInventory("Chokeme",1,"Idle")				
+		TNT1 A 0 A_JumpIfInTargetInventory("ChokeMe",1,"Idle")				
 		TNT1 A 0 A_JumpIfCloser(250.0, "Jump")
 		Loop		
 	DontChase:
@@ -56,8 +58,8 @@ ACTOR ChokingHand : BloodEnemy_Base 6190
 	Melee:
 		TNT1 A  0 A_FaceTarget	
 		WHAN AB 1 A_CustomMeleeAttack(10,"","","ChokeEM")
-		TNT1 A  0 A_JumpIfInTargetInventory("Chokeme",1,"Idle")
-		TNT1 A  0 A_GiveToTarget("Chokeme",1)				
+		TNT1 A  0 A_JumpIfInTargetInventory("ChokeMe",1,"Idle")
+		TNT1 A  0 A_GiveToTarget("ChokeMe",1)				
 		WHAN CD 1
 		Stop
 	Death:
@@ -82,10 +84,10 @@ ACTOR ChokingHand : BloodEnemy_Base 6190
 
 ACTOR ChokeMe : Weapon
 {
-	+WEAPON.CHEATNOTWEAPON
-	+INVENTORY.UNDROPPABLE
-	+AUTOACTIVATE
 	+ALWAYSPICKUP
+	+AUTOACTIVATE
+	+INVENTORY.UNDROPPABLE
+	+WEAPON.CHEATNOTWEAPON
 	Inventory.Amount 1
 	Inventory.MaxAmount 1
 	States
@@ -93,7 +95,7 @@ ACTOR ChokeMe : Weapon
 	Ready:
 		TNT1 A 1 A_Explode(5, 1)
 		WHAX A 0 A_PlaySound("Hand/Choke",TRUE)
-		WHAX A 1 A_WeaponReady
+		WHAX A 1 A_WeaponReady(WRF_DISABLESWITCH)
 		WHAX ABCDEFGABCDEFG 3
 		Loop
     Select:
@@ -110,7 +112,7 @@ ACTOR ChokeMe : Weapon
 		Goto Ready
 	AltFire:
 		WHAX A 1 A_FireCustomMissile("FlyingHand",0)
-	    TNT1 A 1 A_TakeInventory("Chokeme",1)
+	    TNT1 A 1 A_TakeInventory("ChokeMe",1)
 		TNT1 A 1 A_StopSound(1)
 		Goto Ready
 	}
@@ -2333,8 +2335,8 @@ ACTOR BuriedZombie : BloodZombie 3121
 		UGZZ A 0 A_ChangeFlag("SOLID",1)
 		UGZZ A 0 A_ChangeFlag("SHOOTABLE",1)
 		UGZZ A 0 A_ChangeFlag("NOTAUTOAIMED",0)
-		UGZZ A 0 A_JumpifInventory("Chokeme",1,11)
-		UGZZ A 0 A_GiveInventory("Chokeme",1)
+		UGZZ A 0 A_JumpifInventory("ChokeMe",1,11)
+		UGZZ A 0 A_GiveInventory("ChokeMe",1)
 		UGZZ A 0 A_PlaySound("Zombie/Raise")
 		UGZZ ABCDEFGHI 4 A_FaceTarget
 		Goto Super::See
