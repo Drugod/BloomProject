@@ -14,12 +14,13 @@ ACTOR BloomPossessed_Base
 	+DONTHARMSPECIES
 	+DROPOFF
 	+FLOAT
-	+NOINFIGHTSPECIES
+	//+NOINFIGHTSPECIES
 	AttackSound "shotguy/attack"	
 	SeeSound "Sand/Roam"
 	DeathSound "Sand/Die"
 	ActiveSound "Sand/Spot"
 	PainSound "Sand/Pain"	
+	Species "Possessed"	
 	States
 	{
 	Forget:
@@ -165,6 +166,7 @@ ACTOR BloomPossessed_Base
 		Stop
 	Ground.Spawn:
 		"####" A 0 //here just to exist
+		"####" A 0 A_GiveInventory("isPossessed",1)				
 		"####" A 0 A_Jump(256,"Ground.SpawnSetup")
 		Stop
 	Ground.See:
@@ -221,6 +223,7 @@ ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 	{
   	Spawn:
 		TNT1 A 0
+		TNT1 A 0 A_GiveInventory("isPossessed",1)				
 		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.Spawn")
 		HAS2 ABCABCABCABC 4 A_Look
 		Loop
@@ -302,6 +305,7 @@ ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
         SPOS U -1
 		Stop
 	Ground.SpawnSetup:	//OUT OF WATER
+		TNT1 A 0 A_GiveInventory("isPossessed",1)			
 		HAND GGGGGHHHHHIIIIIJJJJJ 1 A_Look
 		Loop
 	Ground.SeeSetup:
@@ -361,6 +365,7 @@ ACTOR PossesedZombieMan: BloomPossessed_Base 19091
 	{
   	Spawn:
 		TNT1 A 0
+		TNT1 A 0 A_GiveInventory("isPossessed",1)						
 		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.Spawn")
 		HCS2 ABCABCABCABC 4 A_Look
 		Loop
@@ -442,6 +447,7 @@ ACTOR PossesedZombieMan: BloomPossessed_Base 19091
 		POSS U -1
 		Stop
 	Ground.SpawnSetup:	//OUT OF WATER
+		TNT1 A 0 A_GiveInventory("isPossessed",1)					
 		HCND GGGGGHHHHHIIIIIJJJJJ 1 A_Look
 		Loop
 	Ground.SeeSetup:
@@ -500,6 +506,7 @@ ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 	{
   	Spawn:
 		TNT1 A 0
+		TNT1 A 0 A_GiveInventory("isPossessed",1)						
 		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.Spawn")
 		HBS2 ABCABCABCABC 4 A_Look
 		Loop
@@ -581,6 +588,7 @@ ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 		YPOS U -1
 		Stop
 	Ground.SpawnSetup:	//OUT OF WATER
+		TNT1 A 0 A_GiveInventory("isPossessed",1)							
 		HBND GGGGGHHHHHIIIIIJJJJJ 1 A_Look
 		Loop
 	Ground.SeeSetup:
@@ -639,6 +647,7 @@ ACTOR PossesedApocalypticNeoCultist: BloomPossessed_Base 19092
 	{
   	Spawn:
 		TNT1 A 0
+		TNT1 A 0 A_GiveInventory("isPossessed",1)				
 		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.Spawn")
 		HDS2 ABCABCABCABC 4 A_Look
 		Loop
@@ -720,6 +729,7 @@ ACTOR PossesedApocalypticNeoCultist: BloomPossessed_Base 19092
 		WPOS U -1
 		Stop
 	Ground.SpawnSetup:	//OUT OF WATER
+		TNT1 A 0 A_GiveInventory("isPossessed",1)			
 		HDND GGGGGHHHHHIIIIIJJJJJ 1 A_Look
 		Loop
 	Ground.SeeSetup:
