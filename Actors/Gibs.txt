@@ -221,7 +221,6 @@ ACTOR KickableFlying : ZombieHead
 
 ACTOR KickableHead
 {
-	Monster
 	Health 5
 	Mass 15
 	Height 8
@@ -249,7 +248,7 @@ ACTOR KickableHead
 	PainChance "Stomping",255
 	PainChance Melee,255
 	PainChance "Lowkick",255
-	PainChance "kick",255
+	PainChance "Kick",255
 	States
 	{
 	Spawn:
@@ -679,7 +678,6 @@ ACTOR KickableFlyingZombimp2: ZombimpHead2
 
 ACTOR KickableHeadZombimp2
 {
-	Monster
 	Health 5
 	Mass 15
 	Height 8
@@ -907,7 +905,6 @@ ACTOR KickableFlyingZombimp3: ZombimpHead3
 
 ACTOR KickableHeadZombimp3
 {
-	Monster
 	Health 5
 	Mass 15
 	Height 8
@@ -1136,7 +1133,6 @@ ACTOR KickableFlyingZombimp4: ZombimpHead4
 
 ACTOR KickableHeadZombimp4
 {
-	Monster
 	Health 5
 	Mass 15
 	Height 8
@@ -1365,7 +1361,6 @@ ACTOR KickableFlyingGhoul1: GhoulHead1
 
 ACTOR KickableHeadGhoul1
 {
-	Monster
 	Health 5
 	Mass 15
 	Height 8
@@ -1594,7 +1589,6 @@ ACTOR KickableFlyingGhoul2: GhoulHead2
 
 ACTOR KickableHeadGhoul2
 {
-	Monster
 	Health 5
 	Mass 15
 	Height 8
@@ -1823,7 +1817,6 @@ ACTOR KickableFlyingGhoul3: GhoulHead3
 
 ACTOR KickableHeadGhoul3
 {
-	Monster
 	Health 5
 	Mass 15
 	Height 8
@@ -2052,7 +2045,6 @@ ACTOR KickableFlyingFanatic: FanaticHead
 
 ACTOR KickableHeadFanatic
 {
-	Monster
 	Health 5
 	Mass 15
 	Height 8
@@ -2280,7 +2272,6 @@ ACTOR KickableFlyingGhoul6: GhoulHead6
 
 ACTOR KickableHeadGhoul6
 {
-	Monster
 	Health 5
 	Mass 15
 	Height 8
@@ -2509,7 +2500,6 @@ ACTOR KickableFlyingFish: FishHead
 
 ACTOR KickableHeadFish
 {
-	Monster
 	Health 5
 	Mass 15
 	Height 8
@@ -2740,7 +2730,6 @@ ACTOR KickableFlyingMoron: MoronHead
 
 ACTOR KickableHeadMoron
 {
-	Monster
 	Health 5
 	Mass 15
 	Height 8
