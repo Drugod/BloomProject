@@ -4648,6 +4648,82 @@ ACTOR BatFamiliar : BloodEnemy_Base 18500
 	}
 }
 
+ACTOR DaisyBat : BatFamiliar 18501 //here for inheritances
+{
+	//$Category "BlooM Monsters"
+	//$Title Daisy Vampire
+	//$Color 3
+	FloatSpeed 5.3
+	Speed 4.3
+	States
+	{
+	Spawn:
+		DAYS ABCB 3 A_Look
+		Loop
+	See:
+		DAYS A 1 A_Chase
+		"####" AA 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		"####" B 1 A_Chase
+		"####" BB 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		"####" C 1 A_Chase
+		"####" CC 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		"####" D 1 A_Chase
+		"####" DD 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		Loop
+	Melee:
+		DAYS A 3 A_FaceTarget
+		"####" A 0 A_Jump(64,"Missed")
+		"####" B 3 A_CustomMeleeAttack(random(3,8),"batfam/idle")
+		"####" CB 3 A_FaceTarget
+		Goto See
+	Missed: //here in order to avoid looping attacks, so the critter is less threatening
+		"####" B 3
+		"####" CB 3 A_FaceTarget
+		Goto See
+	Pain:
+		DAYS A 2
+		"####" A 2 A_Pain
+		Goto See
+	Pain.LifeLeech:
+		DAYS A 0 A_Jump(64,1)
+		Goto See
+		DAYS A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Death:
+		DAYS D 3 A_Scream
+		"####" D 2 A_UnSetSolid
+		"####" D 1 A_ChangeFlag("NOGRAVITY",0)
+		"####" D 1 A_NoBlocking
+		"####" EFD 5
+		"####" F 5
+		"####" G 5 A_Fall
+		"####" HI 5
+		"####" J -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.LifeLeech:
+	Death.Flare:
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		BATB A 1 A_Scream
+		"####" A 1 A_UnSetSolid
+		"####" A 1 A_NoBlocking
+		"####" B 2
+		"####" CBACBA 4 A_PlaySound("batfam/pain")
+		"####" DEFDEF 3 A_PlaySound("batfam/idle")
+		"####" F 1 A_ChangeFlag("NOGRAVITY",0)
+		"####" GH 2 A_PlaySound("batfam/pain")
+		"####" I -1
+		Stop
+	XDeath:
+		DAYS G 6 A_PlaySound("batfam/crash")
+		"####" H 7
+		"####" I 8
+		"####" J -1
+		Stop
+	}
+}
+
 ACTOR ------VANILLA_RATS------ {}
 ACTOR BloodRatSpawner 19069
 {
