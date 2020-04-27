@@ -1219,7 +1219,7 @@ Object ArmorBonus
 // Green armour
 PointLight GREENARMOR1
 {
-    Color 0.0 0.0 0.0
+    Color 0.0 0.01 0.0
     Size 48
 }
 
@@ -1232,7 +1232,7 @@ PointLight GREENARMOR2
 // Blue armour
 PointLight BLUEARMOR1
 {
-    Color 0.0 0.0 0.0
+    Color 0.0 0.0 0.01
     Size 20
 }
 

@@ -352,7 +352,6 @@ DSGIB3		DSGIB3
 DSGIB4		DSGIB4
 DSHEDBON	DSCLBDET
 DSHEDKCK	DSHEDKCK
-DSMUZAK		DSMUZAK
 DSNAPALM	DSNAPALM
 DSNAPLM2	DSNAPLM2
 DSPFWOOD	DSPFWOOD
@@ -381,7 +380,10 @@ $limit DSPFWOOD 1
 SARGBLST	SARGBLST
 SARGFX		SARGFX
 
-$pitchshift DSMUZAK 0
+annoy/music	DSMUZAK
+$rolloff annoy/music 250 1250
+$pitchshift annoy/music 0
+$limit annoy/music 1
 
 $Random fireguy/run 	{dsCULTF1 dsCULTF2 dsCULTF3}
 $Random Shoot/Bullet 	{DSRICO1 DSRICO2 DSRICO3 dsblank dsblank dsblank}
@@ -460,6 +462,9 @@ ftrap/death 	DSBLDPUK
 
 //RAIN
 Ambient/Rain	AMBRAIN
+$rolloff Ambient/Rain 250 1250
+$pitchshift Ambient/Rain 0
+$limit Ambient/Rain 2
 
 $random thunder/hit { thunder/hit1 thunder/hit2 }
 thunder/hit1 THNDS01
