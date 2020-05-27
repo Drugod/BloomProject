@@ -142,7 +142,7 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 	}
 }
 
-ACTOR ShotgunGuy_ : DoomEnemy_base 18999
+ACTOR ShotgunGuy_ : DoomEnemy_Base 18999
 {
 	//$Title ShotgunGuy (BlooM)
 	Health 30

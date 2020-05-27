@@ -1,8 +1,8 @@
 ﻿======================================================================================
 Title                   : BlooM
-Version					: Demo
+Version					: Full
 Filename                : bloom.pk3
-Date Finished           : 31/10/19
+Date Finished           : TBD
 Author                  : Drugod
 Web Page                : bloomteam.666.com
 Previous Work			: Hyperion
@@ -28,8 +28,8 @@ Credits					:
 
 * Play Information *
 
-Maps                    : 4 plus Titlemap, INT00 and 2 Testmaps
-Source Port				: GZDoom 3.0.0+ or Zandronum 2.8+
+Maps                    : 8 plus Titlemap, INT00 and 2 Testmaps
+Source Port				: GZDoom 3.7.2+ or Zandronum 2.8+
 Single Player           : Yes
 Cooperative 2-8 Player  : Starts are there
 Deathmatch 2-8 Player   : No
@@ -45,7 +45,7 @@ Base                    : ZBlood/ZBloodX
 Build Time              : 
 Editor(s) used          : Audacity, Photoshop, GIMP, GZDoomBuilder, ACC, Slade3, LameXP, 
 						HxD Hex Editor, Maverick3d, poly2vox, Slab6, MagicaVoxel
-Known Bugs              : None
+Known Bugs              : On Zandronum you may encounter some undesired effects, please tell us if something bad happen!
 
 
 * Other Information *

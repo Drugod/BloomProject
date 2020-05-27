@@ -1,4 +1,5 @@
 #include "BLOOMAPS.bm"
+#include "VANILLA.bm"
 
 //TESLA DEVS//
 FlickerLight2 TESLIT1

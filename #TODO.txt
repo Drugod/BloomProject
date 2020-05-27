@@ -9,7 +9,6 @@ For All:
 - fix Doomguy skin palette
 - fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff
 - fix HUD statusbar for gzdoom 4+
-- fix LifeLeech: fire states originate some unknown flags messages, when actors like Archies or Ghouls gets hit
 - fix TERRAIN defs, lots of sounds needs to be defined and included
 - polish overall code
 - reduce size of models skins, 1000x1000 is very engine intensive, 512x512 should be okay... We must figure how to not break quality though
@@ -25,10 +24,11 @@ Coop problems:
 Zandro test required:
 - check always maps from Zandronum first :(
 - externalize KEYCONF between LANGUAGE and MENUDEF (if supported by zandro)
+- fix LifeLeech: fire states originate some unknown flags messages, when actors like Archies or Ghouls gets hit
 
 Reminder for actors behaviour:
 - All bodies which fall over skies should fade immediately
 - Bats, spiders and rats shouldn't be able to swim underwater
-- BatSouls also shouldn't be able to swim
+- BatSouls also shouldn't be able to swim (the actor doesn't exist yet)
 - Creatures which are able to jump shouldn't swim as well, beside RatDemons
 - Jumping creatures and little ones such as spiders or rats should die immediately over skies (GargoDemon, RatDemons, SpiderMother too)

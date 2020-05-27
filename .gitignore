@@ -9,8 +9,3 @@
 *.zip
 *.mtl
 _toadd/
-mm3drc
-dock.dat
-keycfg.in
-keycfg.out
-ssh-agent.exe.stackdump
