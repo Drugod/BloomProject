@@ -236,22 +236,21 @@ $Playercompat	DoomDude	other	*fist		DoomDude/cyborg/fist
 
 doomdude/punch	SWPUNCH
 
-//INHERITANCES - following doesn't apply from gzdbuilder, listed here for track them - ozy81
-
-//"demon/pain"
-//"grunt/pain"
-//"misc/gibbed"
-//"misc/teleport"
-//"grunt/sight1"
-//"grunt/sight3"
-//"demon/melee"
-//"vile/active"
-//"misc/p_pkup"
-//"brain/cube"
-//"skeleton/swing"
-//"knight/death"
-//"baby/active"
-
+//INHERITANCES from vanilla defs - ozy81
+baby/active		dsbspact
+baron/sight		dsbrssit
+brain/cube		dsboscub
+demon/melee		dssgtatk
+demon/pain		dsdmpain
+grunt/pain		dspopain
+grunt/sight1	dsposit1
+grunt/sight3	dsposit3
+knight/death	dskntdth
+misc/gibbed		dsslop
+misc/p_pkup		dsgetpow
+misc/teleport	dstelept
+skeleton/swing	dsskeswg
+vile/active		dsvilact
 $rollOff baron/sight 1200 1400
 
 //DOORS
