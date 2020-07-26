@@ -4,8 +4,6 @@ This repository belongs to BLOOM TEAM, and it has been converted as Private repo
 Thanks to Ozymandias81 to have provide his knowledge to have this repository open and working
 as public for several months in order to release the Demo in time for Halloween.
 
-The old archived repository can be found at *INSERT LINK HERE*
-
 We have a website for this mod, check it asap: https://www.bloomteam666.com
 
 Also exists a ModDB page for it too: https://www.moddb.com/mods/bloom-doomblood-crossover
