@@ -35,6 +35,8 @@ map BLM01 lookup "BLM_M01"
    sucktime = 5
    music = "d_dead"
    LIGHTNING
+   exitpic = "$IN_E4"
+   enterpic = "$IN_E4"   
 }
 
 map BLM02 lookup "BLM_M02"
@@ -78,6 +80,7 @@ map BLM05 lookup "BLM_M05"
    par = 120
    sucktime = 10
    music = "d_ddtblu"
+   
 }
 
 map BLM06 lookup "BLM_M06"
