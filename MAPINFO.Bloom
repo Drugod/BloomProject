@@ -47,6 +47,8 @@ map BLM02 lookup "BLM_M02"
    par = 120
    sucktime = 5
    music = "d_in_cit"
+   exitpic = "$IN_E4"
+   enterpic = "$IN_E4"      
 }
 
 map BLM03 lookup "BLM_M03"
@@ -58,6 +60,8 @@ map BLM03 lookup "BLM_M03"
    par = 120
    sucktime = 10
    music = "d_countd"
+   exitpic = "$IN_E4"
+   enterpic = "$IN_E4"      
 }
 
 map BLM04 lookup "BLM_M04"
@@ -69,6 +73,8 @@ map BLM04 lookup "BLM_M04"
    par = 120
    sucktime = 10
    music = "d_ddtblu"
+   exitpic = "$IN_E4"
+   enterpic = "$IN_E4"      
 }
 
 map BLM05 lookup "BLM_M05"
@@ -80,7 +86,8 @@ map BLM05 lookup "BLM_M05"
    par = 120
    sucktime = 10
    music = "d_ddtblu"
-   
+   exitpic = "$IN_E4"
+   enterpic = "$IN_E4"      
 }
 
 map BLM06 lookup "BLM_M06"
@@ -92,6 +99,8 @@ map BLM06 lookup "BLM_M06"
    sucktime = 5
    music = "d_dead"
    LIGHTNING
+   exitpic = "$IN_E4"
+   enterpic = "$IN_E4"      
 }
 /*
 map BLM07 lookup "BLM_M07"

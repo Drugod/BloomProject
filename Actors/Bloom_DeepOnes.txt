@@ -505,7 +505,7 @@ ACTOR DeepOneChain : DeepOne_Base 19061
 		FIGU T -1
 		Stop
 	Ground.SpawnSetup: //OUT OF WATER CODE
-		FIGU E 10 A_Look
+		FIGU G 10 A_Look
 		Loop
 	Ground.SeeSetup:
 		FIGU AABBCCDD 3 A_Chase("Ground.Missile","Ground.Missile",CHF_NOPLAYACTIVE)
