@@ -87,7 +87,8 @@ map BLM05 lookup "BLM_M05"
    sucktime = 10
    music = "d_ddtblu"
    exitpic = "$IN_E4"
-   enterpic = "$IN_E4"      
+   enterpic = "$IN_E4"  
+   LIGHTNING   
 }
 
 map BLM06 lookup "BLM_M06"

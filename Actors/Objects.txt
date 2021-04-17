@@ -1376,3 +1376,31 @@ ACTOR Belial 3245
 		Stop
 	}
 }
+
+ACTOR GhostGenerator : SwitchableDecoration 3403
+{
+	//$Category "BlooM Eastereggs"
+	//$Title Ghost generator switchable	
+	Scale 0.5
+	Height 100
+	Radius 20
+	RenderStyle "Translucent"
+	Alpha 0.6
+	+NOBLOOD
+	+NODAMAGE
+	+NOGRAVITY
+	+SPAWNCEILING
+	+USESPECIAL
+	-SOLID
+	Activation THINGSPEC_Activate
+	States
+	{
+	Spawn:
+	Active:	
+		MORS AAA 4
+		Wait
+	Inactive:
+		TNT1 A -1
+		Stop
+	}
+}
