@@ -508,3 +508,28 @@ ACTOR LampPost : Techlamp2 3290
 		Stop
 	}
 }
+
+ACTOR BloomHiTorch : BloomVases 3404
+{
+	//$Title Burning High Torch, ACS Switchable
+	//$Sprite TORAA0
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 1.0, TRUE)
+	SpawnCheck:
+		TORA BCDEFGHIJKLMNO 3 BRIGHT LIGHT("FLAMVAS1")
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		TORA A 1 A_PlaySound("SFX/FireDie", 7)
+		TORA A -1 A_StopSound(6)
+		Stop
+	}
+}
