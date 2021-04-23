@@ -128,6 +128,18 @@ ACTOR FloorBase2: FloorBase1 18299
 	//$Title 3d Floor Base 2
 }
 
+ACTOR FloorBase3: FloorBase1 18346
+{
+	//$Title 3d Floor Base 3
+	Height 8
+}
+
+ACTOR FloorBase4: FloorBase1 18347
+{
+	//$Title 3d Floor Base 4
+	Height 8
+}
+
 ACTOR ---------BUILDINGS-------- {}
 ACTOR BuildingPiece1 18278
 {

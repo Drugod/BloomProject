@@ -606,6 +606,30 @@ Model Floorbase2
    Zoffset 1
 }
 
+Model Floorbase3
+{
+   Path "Models/Carnival"
+   Model 0 "Floor1.md2"
+   Skin 0 "Floor.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model Floorbase4
+{
+   Path "Models/Carnival"
+   Model 0 "Floor2.md2"
+   Skin 0 "Floor.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
 Model Buildingpiece1
 {
    Path "Models/Buildings/Rolls"
