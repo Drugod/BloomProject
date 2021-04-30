@@ -1385,7 +1385,7 @@ ACTOR GhostGenerator : SwitchableDecoration 3403
 	Height 100
 	Radius 20
 	RenderStyle "Translucent"
-	Alpha 0.6
+	Alpha 0.7
 	+NOBLOOD
 	+NODAMAGE
 	+NOGRAVITY
@@ -1397,7 +1397,7 @@ ACTOR GhostGenerator : SwitchableDecoration 3403
 	{
 	Spawn:
 	Active:	
-		MORS AAA 4
+		MOBS AAA 4
 		Wait
 	Inactive:
 		TNT1 A -1

@@ -878,6 +878,17 @@ ACTOR WallBrok5 : WallBrok1 18342
 	//$Title 3d Broken Walls 5
 }
 
+ACTOR WallBrok6 : WallBrok1 18350
+{
+	//$Title 3d Broken Walls 6
+}
+
+ACTOR WallBrok7 : WallBrok1 18351
+{
+	//$Title 3d Broken Walls 7
+}
+
+
 ACTOR ---------TRAPS--------- {}
 ACTOR FireTrap1 : SwitchableDecoration 18343
 {

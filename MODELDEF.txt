@@ -1226,6 +1226,30 @@ Model WallBrok5
    Zoffset 1
 }
 
+Model WallBrok6
+{
+   Path "Models/Carnival"
+   Model 0 "WALY1.md2"
+   Skin 0 "WALY_TX.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
+Model WallBrok7
+{
+   Path "Models/Carnival"
+   Model 0 "WALY2.md2"
+   Skin 0 "WALY_TX.jpg"
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}
+
 //traps
 Model firetrap1
 {
