@@ -881,11 +881,23 @@ ACTOR WallBrok5 : WallBrok1 18342
 ACTOR WallBrok6 : WallBrok1 18350
 {
 	//$Title 3d Broken Walls 6
+	Radius 16
+	Height 8
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	-SOLID		
 }
 
 ACTOR WallBrok7 : WallBrok1 18351
 {
 	//$Title 3d Broken Walls 7
+	Radius 16
+	Height 8
+	Scale 1.0
+	Mass 1000
+	+NOGRAVITY
+	-SOLID	
 }
 
 
