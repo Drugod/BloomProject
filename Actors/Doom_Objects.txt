@@ -4,3 +4,47 @@ ACTOR ExplosiveBarrel_ : ExplosiveBarrel 20035
 	//$Category "BlooM Ambient"
 	//$Title Doom Barrel
 }
+
+ACTOR TechPillar_ replaces TechPillar
+{
+	//$Category "BlooM Ambient"
+	//$Title Doom Tech Pillar
+	Radius 16
+	Height 128
+	ProjectilePassHeight -16
+	+SOLID
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn3","Spawn4","Spawn5","Spawn6","Spawn7","Spawn8","Spawn9")
+		Stop
+	Spawn1:
+		ELEC A -1
+		Stop
+	Spawn2:
+		ELEC B -1
+		Stop	
+	Spawn3:
+		ELEC C -1
+		Stop	
+	Spawn4:
+		ELEC D -1
+		Stop	
+	Spawn5:
+		ELEC E -1
+		Stop	
+	Spawn6:
+		ELEC F -1
+		Stop			
+	Spawn7:
+		ELEC G -1
+		Stop			
+	Spawn8:
+		ELEC H -1
+		Stop			
+	Spawn9:
+		ELEC I -1
+		Stop					
+	}
+}
