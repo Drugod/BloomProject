@@ -1469,6 +1469,7 @@ ACTOR Monitor1 18354
     Height 24
 	Mass 1000
 	Scale 16.1
+	+FLOATBOB
 	+NOGRAVITY
 	+RANDOMIZE
 	+SOLID

@@ -3222,6 +3222,7 @@ Model Monitor1
    Skin 0 "MONITOR1.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3233,6 +3234,7 @@ Model Monitor2
    Skin 0 "MONITOR200.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3244,6 +3246,7 @@ Model Monitor2
    Skin 0 "MONITOR201.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3255,6 +3258,7 @@ Model Monitor2
    Skin 0 "MONITOR202.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3266,6 +3270,7 @@ Model Monitor2
    Skin 0 "MONITOR203.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3277,6 +3282,7 @@ Model Monitor2
    Skin 0 "MONITOR204.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3288,6 +3294,7 @@ Model Monitor2
    Skin 0 "MONITOR205.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN F 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3300,6 +3307,7 @@ Model Monitor2
    Skin 0 "MONITOR206.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN G 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3311,6 +3319,7 @@ Model Monitor2
    Skin 0 "MONITOR207.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN H 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3322,6 +3331,7 @@ Model Monitor2
    Skin 0 "MONITOR208.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN I 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3333,6 +3343,7 @@ Model Monitor2
    Skin 0 "MONITOR209.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3344,6 +3355,7 @@ Model Monitor2
    Skin 0 "MONITOR210.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN K 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3355,6 +3367,7 @@ Model Monitor2
    Skin 0 "MONITOR211.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN L 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3366,6 +3379,7 @@ Model Monitor2
    Skin 0 "MONITOR212.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN M 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3377,6 +3391,7 @@ Model Monitor2
    Skin 0 "MONITOR213.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN N 0 0
    Scale 1.0 1.0 1.0
 } 
@@ -3388,6 +3403,7 @@ Model Monitor3
    Skin 0 "Monitor300.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3399,6 +3415,7 @@ Model Monitor3
    Skin 0 "Monitor301.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3410,6 +3427,7 @@ Model Monitor3
    Skin 0 "Monitor302.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3421,6 +3439,7 @@ Model Monitor3
    Skin 0 "Monitor303.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3432,6 +3451,7 @@ Model Monitor3
    Skin 0 "Monitor304.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3443,6 +3463,7 @@ Model Monitor3
    Skin 0 "Monitor305.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN F 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3455,6 +3476,7 @@ Model Monitor3
    Skin 0 "Monitor306.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN G 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3466,6 +3488,7 @@ Model Monitor3
    Skin 0 "Monitor307.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN H 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3477,6 +3500,7 @@ Model Monitor3
    Skin 0 "Monitor308.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN I 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3488,6 +3512,7 @@ Model Monitor3
    Skin 0 "Monitor309.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3499,6 +3524,7 @@ Model Monitor3
    Skin 0 "Monitor310.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN K 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3510,6 +3536,7 @@ Model Monitor3
    Skin 0 "Monitor311.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN L 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3521,6 +3548,7 @@ Model Monitor3
    Skin 0 "Monitor312.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN M 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3532,6 +3560,7 @@ Model Monitor3
    Skin 0 "Monitor313.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN N 0 0
    Scale 1.0 1.0 1.0
 } 
@@ -3543,6 +3572,7 @@ Model Monitor4
    Skin 0 "Monitor400.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3554,6 +3584,7 @@ Model Monitor4
    Skin 0 "Monitor401.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3565,6 +3596,7 @@ Model Monitor4
    Skin 0 "Monitor402.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3576,6 +3608,7 @@ Model Monitor4
    Skin 0 "Monitor403.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3587,6 +3620,7 @@ Model Monitor4
    Skin 0 "Monitor404.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3598,6 +3632,7 @@ Model Monitor4
    Skin 0 "Monitor405.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN F 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3610,6 +3645,7 @@ Model Monitor4
    Skin 0 "Monitor406.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN G 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3621,6 +3657,7 @@ Model Monitor4
    Skin 0 "Monitor407.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN H 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3632,6 +3669,7 @@ Model Monitor4
    Skin 0 "Monitor408.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN I 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3643,6 +3681,7 @@ Model Monitor4
    Skin 0 "Monitor409.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3654,6 +3693,7 @@ Model Monitor4
    Skin 0 "Monitor410.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN K 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3665,6 +3705,7 @@ Model Monitor4
    Skin 0 "Monitor411.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN L 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3676,6 +3717,7 @@ Model Monitor4
    Skin 0 "Monitor412.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN M 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3687,6 +3729,7 @@ Model Monitor4
    Skin 0 "Monitor413.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN N 0 0
    Scale 1.0 1.0 1.0
 } 
@@ -3698,6 +3741,7 @@ Model Monitor5
    Skin 0 "Monitor500.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING   
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3709,6 +3753,7 @@ Model Monitor5
    Skin 0 "Monitor501.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3720,6 +3765,7 @@ Model Monitor5
    Skin 0 "Monitor502.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3731,6 +3777,7 @@ Model Monitor5
    Skin 0 "Monitor503.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3742,6 +3789,7 @@ Model Monitor5
    Skin 0 "Monitor504.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3753,6 +3801,7 @@ Model Monitor5
    Skin 0 "Monitor505.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN F 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3765,6 +3814,7 @@ Model Monitor5
    Skin 0 "Monitor506.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN G 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3776,6 +3826,7 @@ Model Monitor5
    Skin 0 "Monitor507.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN H 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3787,6 +3838,7 @@ Model Monitor5
    Skin 0 "Monitor508.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN I 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3798,6 +3850,7 @@ Model Monitor5
    Skin 0 "Monitor509.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3809,6 +3862,7 @@ Model Monitor5
    Skin 0 "Monitor510.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN K 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3820,6 +3874,7 @@ Model Monitor5
    Skin 0 "Monitor511.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN L 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3831,6 +3886,7 @@ Model Monitor5
    Skin 0 "Monitor512.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN M 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3842,6 +3898,7 @@ Model Monitor5
    Skin 0 "Monitor513.png"
    INHERITACTORROLL
    INHERITACTORPITCH
+   ROTATING      
    FrameIndex UNKN N 0 0
    Scale 1.0 1.0 1.0
 } 
