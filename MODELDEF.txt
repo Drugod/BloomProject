@@ -3902,7 +3902,7 @@ Model Monitor5
    FrameIndex UNKN N 0 0
    Scale 1.0 1.0 1.0
 } 
-      
+
 //3d Bosses - Chton
 Model ChtonBloom
 {
@@ -3957,7 +3957,7 @@ Model ChtonBloom
 	FrameIndex CHT2 W 0 39
 	FrameIndex CHT2 X 0 40
 	FrameIndex CHT2 Y 0 41
-	FrameIndex CHT2 Z 0 42
+	FrameIndex CHT2 Z 0 42	
 	FrameIndex CHT3 A 0 43
 	FrameIndex CHT3 B 0 44
 	FrameIndex CHT3 C 0 45
@@ -4032,3 +4032,15 @@ Model ChtonBloom
 	FrameIndex CHT8 I 0 104
 	FrameIndex CHT8 J 0 105
 }
+
+Model Lavaball
+{
+   Path "Models\Quake"
+   Model 0 "Lavaball.md2"
+   Skin 0 "skin0.pcx"   
+   FrameIndex UNKN A 0 0
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   ROTATING   
+   Scale 1.0 1.0 1.0
+} 
