@@ -1004,7 +1004,7 @@ ACTOR TheHellButchersHybrid
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
 		Stop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("HellButcher",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
@@ -1012,6 +1012,9 @@ ACTOR TheHellButchersHybrid
 	Spawn2:
 		TNT1 A 0 A_SpawnItemEx("HellButcherAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("HoundKnightOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop		
 	}
 }
 

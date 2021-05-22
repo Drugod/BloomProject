@@ -358,3 +358,109 @@ ACTOR HellButcherBall
 		Stop
 	}
 }
+
+ACTOR HoundKnightOfHell : WereWolfOfHellAlt 19093
+{
+	//$Title Hound Knight of Hell
+	Health 500	
+	+DROPOFF
+	Species "HoundHell"
+	MeleeSound "baron/Melee"
+	SeeSound "knight/sight"
+	ActiveSound "knight/active"
+	PainSound "knight/pain"
+	DeathSound "knight/death"
+	Obituary "$OB_KNIGHT"
+	HitObituary "$OB_KNIGHTHIT"
+	States
+	{
+	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_Jump(128,"Spawn2")
+		HOMS B 10 A_Look
+		Loop
+	Spawn2:
+		HOMS D 10 A_Look
+		Loop	
+	See:
+		HOMS AABBCCDD 3 A_Chase
+		Loop
+	Jump:
+		TNT1 A 0 A_FaceTarget
+		HOMJ A 8 A_Recoil(-4)
+		HOMJ B 8 ThrustThingZ(0,frandom(30,40),0,0)
+		HOMJ C 8 ThrustThing(angle*256/360,random(10,16),0,0)
+		Goto See		
+	Melee:		
+	Missile:
+		TNT1 A 0 
+		TNT1 A 0 A_Jump(256,"Missile1","Missile2","Missile3","Missile4")		
+		Goto See
+	Missile1:		
+		HOMA A 3 A_FaceTarget
+		HOMA A 1 A_Jump(64,1)
+		Loop 
+		HOMA B 4 A_FaceTarget		
+		HOMA C 3 A_CustomComboAttack("BaronBall", 32, 10 * random(1, 8), "baron/melee")
+		HOMA C 1 A_Jump(32,"Missile3")		
+		Goto See
+	Missile2:		
+		HOM2 AB 8 A_FaceTarget
+		HOM2 C 4 A_CustomMissile("NapalmEnemy",32,0,0)
+		Goto See
+	Missile3:		
+		HOM3 A 3 A_FaceTarget
+		HOM3 A 1 A_Jump(64,1)				
+		Loop
+		HOM3 B 4 A_FaceTarget		
+		HOM3 C 4 A_CustomComboAttack("BaronBall", 32, 10 * random(1, 8), "baron/melee")
+		Goto See		
+	Missile4:	
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIfCloser(192,1)	
+		Goto See
+		HOM4 AB 8 A_FaceTarget
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget	
+		TNT1 A 0 A_JumpIfCloser(192,1)
+		Goto See
+		TNT1 AAAAAAAA 0 A_MonsterRefire(64, "See")
+		Goto Missile
+		Goto See		
+	Pain:
+		HOMP A 2
+		HOMP A 2 A_Pain
+		Goto See
+	Death:
+		HOMD A  8
+		HOMD B  8 A_Scream
+		HOMD C  8
+		HOMD D  8 A_NoBlocking
+		HOMD EF 8
+		HOMD G -1
+		Stop
+	Raise:
+		HOMD G 8
+		HOMD FEDCBA  8
+		Goto See
+	}
+}
