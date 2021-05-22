@@ -359,6 +359,7 @@ ACTOR HellButcherBall
 	}
 }
 
+ACTOR ----------HOUNDKNIGHT---------- {}
 ACTOR HoundKnightOfHell : WereWolfOfHellAlt 19093
 {
 	//$Title Hound Knight of Hell
@@ -397,23 +398,20 @@ ACTOR HoundKnightOfHell : WereWolfOfHellAlt 19093
 		TNT1 A 0 A_Jump(256,"Missile1","Missile2","Missile3","Missile4")		
 		Goto See
 	Missile1:		
-		HOMA A 3 A_FaceTarget
-		HOMA A 1 A_Jump(64,1)
-		Loop 
+		HOMA A 4 A_FaceTarget
 		HOMA B 4 A_FaceTarget		
-		HOMA C 3 A_CustomComboAttack("BaronBall", 32, 10 * random(1, 8), "baron/melee")
-		HOMA C 1 A_Jump(32,"Missile3")		
+		HOMA C 3 A_CustomComboAttack("HoundKnightBall", 32, 10 * random(1, 8), "baron/melee")
+		HOMA C 1 A_Jump(128,"Missile3")		
 		Goto See
 	Missile2:		
 		HOM2 AB 8 A_FaceTarget
 		HOM2 C 4 A_CustomMissile("NapalmEnemy",32,0,0)
 		Goto See
 	Missile3:		
-		HOM3 A 3 A_FaceTarget
-		HOM3 A 1 A_Jump(64,1)				
-		Loop
+		HOM3 A 4 A_FaceTarget
 		HOM3 B 4 A_FaceTarget		
-		HOM3 C 4 A_CustomComboAttack("BaronBall", 32, 10 * random(1, 8), "baron/melee")
+		HOM3 C 3 A_CustomComboAttack("HoundKnightBall", 32, 10 * random(1, 8), "baron/melee")
+		HOMA C 1 A_Jump(128,"Missile1")				
 		Goto See		
 	Missile4:	
 		TNT1 A 0 
@@ -463,4 +461,29 @@ ACTOR HoundKnightOfHell : WereWolfOfHellAlt 19093
 		HOMD FEDCBA  8
 		Goto See
 	}
+}
+
+ACTOR HoundKnightBall
+{
+  Radius 6
+  Height 16
+  Speed 15
+  FastSpeed 20
+  Damage 8
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 1
+  SeeSound "baron/attack"
+  DeathSound "baron/shotx"
+  Decal "BaronScorch"
+  States
+  {
+  Spawn:
+    HAL7 AB 4 Bright
+    Loop
+  Death:
+    HAL7 CDE 6 Bright
+    Stop
+  }
 }

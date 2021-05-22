@@ -142,6 +142,16 @@ Object CaveTorch
 	Frame TORCD { light TorchCavelight }
 }
 
+Object FlameQuake
+{
+	Frame FLQ1A { light TorchCavelight }
+	Frame FLQ1B { light TorchCavelight }
+	Frame FLQ1C { light TorchCavelight }
+	Frame FLQ1D { light TorchCavelight }
+	Frame FLQ1E { light TorchCavelight }
+	Frame FLQ1F { light TorchCavelight }	
+}
+
 FlickerLight GrandTorchCavelight
 {
 	Color 1.0 1.0 0.5

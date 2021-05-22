@@ -472,12 +472,17 @@ thunder/hit2 THNDS02
 Steam/Loop	STEMLOOP
 Steam/Fire	STEMFIRE
 
+//QUAKE
 //CHTON
 Chton/Attack	CHATK
 Chton/Death		CHDEATH
 Chton/Pain		CHPAIN
 Chton/Rise		CHRISE
 Chton/Walk		CHSEE
+//AMBIENCE HOUSE OF CHTON
+wind1           wind
+mplat1          medplat1
+mplat2	    	medplat2
 
 //ZOMBIES
 $Random SummonZombies { 13CHA 13CHU 13KILL 13DEATH }
@@ -1134,3 +1139,4 @@ $ambient 5 elect point continuous 0.1
 $ambient 6 waterfall point continuous 127
 $ambient 7 swamp point continuous 0.1
 $ambient 8 TRAINMOVE point continuous 127
+$ambient 9 wind1 point continuous 255

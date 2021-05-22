@@ -3903,6 +3903,7 @@ Model Monitor5
    Scale 1.0 1.0 1.0
 } 
 
+//Quake Stuff
 //3d Bosses - Chton
 Model ChtonBloom
 {
@@ -4044,3 +4045,18 @@ Model Lavaball
    ROTATING   
    Scale 1.0 1.0 1.0
 } 
+
+//3d Torch
+Model FlameQuake
+{
+	Path "Models\Quake"
+	Model 0 "flame.md3"
+	Skin 0 "skin0.png"
+	FrameIndex FLQ1 A 0 0
+	FrameIndex FLQ1 B 0 1
+	FrameIndex FLQ1 C 0 2
+	FrameIndex FLQ1 D 0 3
+	FrameIndex FLQ1 E 0 4
+	FrameIndex FLQ1 F 0 5	
+	Scale 1.0 1.0 1.0	
+}

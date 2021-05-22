@@ -90,3 +90,10 @@ end
 	playuntildone DORCREAK
 	stopsound DOORCLOS
 end
+
+//quake platform
+:seqQuakePlatform
+	door 15
+	playrepeat mplat1
+	stopsound mplat2
+end
