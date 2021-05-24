@@ -81,6 +81,7 @@ map BLM05 lookup "BLM_M05"
 {
    levelnum = 5
    next = BLM06
+   secretnext = BLM09   
    sky1 = "YTEXTH63", 0.05
    sky2 = "YTEXTH63", 0.05
    par = 120
@@ -94,8 +95,7 @@ map BLM05 lookup "BLM_M05"
 map BLM06 lookup "BLM_M06"
 {
    levelnum = 6
-   //next = BLM07
-   secretnext = BLM09
+   next = BLM07
    sky1 = "YTEXTH63", 0.05
    par = 120
    sucktime = 5

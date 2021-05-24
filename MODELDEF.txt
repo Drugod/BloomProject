@@ -4072,3 +4072,18 @@ Model FlameQuake
 	FrameIndex FLQ1 F 0 5	
 	Scale 1.0 1.0 1.0	
 }
+
+//3d Rune
+Model RuneQuake
+{
+   Path "Models/Quake"
+   Model 0 "END1.md2"
+   Skin 0 "end1.pcx"   
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   ROTATING
+   Rotation-Speed 1.0
+   FrameIndex UNKN A 0 0
+   Scale 1.0 1.0 1.0
+   Zoffset 1
+}

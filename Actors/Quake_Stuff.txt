@@ -104,6 +104,24 @@ ACTOR Lavaball
 	}
 }
 
+ACTOR FlameQuake 3406
+{
+	//$Category "Quake Stuff "
+	//$Title Flame Torch
+	//$Color 13
+	Radius 8
+	Height 35
+	+BRIGHT
+	+NOGRAVITY
+	Scale 1.5
+	States
+	{
+	Spawn:
+		TNT1 A 0 	
+		FLQ1 ABCDEF 4
+		Loop
+	}
+}
 
 ACTOR QuakeColums 3407
 {
@@ -122,21 +140,26 @@ ACTOR QuakeColums 3407
 	}
 }
 
-ACTOR FlameQuake 3406
+ACTOR RuneQuake : CustomInventory 3408
 {
 	//$Category "Quake Stuff "
-	//$Title Flame Torch
+	//$Title Rune
 	//$Color 13
-	Radius 8
-	Height 35
-	+BRIGHT
-	+NOGRAVITY
-	Scale 1.5
+	Inventory.PickupMessage "$DIVESUIT"
+	Inventory.PickupSound "misc/p_pkup"
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	+COUNTITEM
+	+DONTSPLASH
+	+INVENTORY.FANCYPICKUPSOUND
 	States
 	{
 	Spawn:
-		TNT1 A 0 	
-		FLQ1 ABCDEF 4
-		Loop
+		TNT1 A 0 		
+		UNKN A -1
+		Stop
+	Use:	
+		UNKN A 1
+		Fail
 	}
 }

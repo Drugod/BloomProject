@@ -483,6 +483,7 @@ Chton/Walk		CHSEE
 wind1           wind
 mplat1          medplat1
 mplat2	    	medplat2
+drone           drone6
 
 //ZOMBIES
 $Random SummonZombies { 13CHA 13CHU 13KILL 13DEATH }
@@ -1140,3 +1141,4 @@ $ambient 6 waterfall point continuous 127
 $ambient 7 swamp point continuous 0.1
 $ambient 8 TRAINMOVE point continuous 127
 $ambient 9 wind1 point continuous 255
+$ambient 10 drone point continuous 255
