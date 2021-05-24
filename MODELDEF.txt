@@ -4046,6 +4046,18 @@ Model Lavaball
    Scale 1.0 1.0 1.0
 } 
 
+Model QuakeColums
+{
+   Path "Models\Quake"
+   Model 0 "Quake.md2"
+   Skin 0 "Quake_TX.jpg"   
+   FrameIndex UNKN A 0 0
+   INHERITACTORROLL
+   INHERITACTORPITCH
+   ROTATING   
+   Scale 1.0 1.0 1.0
+} 
+
 //3d Torch
 Model FlameQuake
 {

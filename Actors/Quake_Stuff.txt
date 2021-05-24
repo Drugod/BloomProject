@@ -104,6 +104,24 @@ ACTOR Lavaball
 	}
 }
 
+
+ACTOR QuakeColums 3407
+{
+	//$Category "Quake Stuff "
+	//$Title Colums Of Chton
+	//$Color 13
+	Radius 11
+	Height 8
+	+NOGRAVITY	
+	States
+	{
+	Spawn:
+		TNT1 A 0 
+		UNKN A -1
+		Stop
+	}
+}
+
 ACTOR FlameQuake 3406
 {
 	//$Category "Quake Stuff "
