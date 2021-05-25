@@ -1544,6 +1544,10 @@ Object HoundBaronBall
     frame DMFXE{ light BARONBALL_X3 }
 }
 
+Object NapalmEnemy
+{
+    frame VAPP { light BARONBALL }
+}
 
 // Mancubus Fireball
 Object FatShot

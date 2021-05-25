@@ -490,10 +490,10 @@ ACTOR HoundKnightBall
   }
 }
 
-ACTOR HoundBaronOfHell : WereWolfOfHellAlt 19094
+ACTOR HoundBaronOfHell: BloomHybrid_Base 19094
 {
 	//$Title Hound Baron of Hell
-	Health 5000	
+	Health 6000	
 	Radius 40
 	Height 135
 	Mass 1000
@@ -507,6 +507,10 @@ ACTOR HoundBaronOfHell : WereWolfOfHellAlt 19094
 	DeathSound "knight/death"
 	Obituary "$OB_KNIGHT"
 	HitObituary "$OB_KNIGHTHIT"
+	PainChance 50
+	+BOSSDEATH
+	+DONTHARMCLASS
+	+FLOORCLIP
 	States
 	{
 	Spawn:
@@ -518,13 +522,35 @@ ACTOR HoundBaronOfHell : WereWolfOfHellAlt 19094
 		HKHS D 10 A_Look
 		Loop	
 	See:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIfHealthLower (2500, "Morph")
 		HKHS AABBCCDD 3 A_Chase
 		Loop
+	Morph:
+		HKHT AABBCC 3 
+		TNT1 A 0 A_Setspeed(35.0)
+	See4:
+		TNT1 A 0 
+		TNT1 A 0 A_Jump(64,"Sproink")
+		HKHU AABBCCDD 3 A_Chase
+		Loop
+	Sproink:
+		HKHU ABCDABCD 2 A_FaceTarget
+		HKHU ABCDABCDABCD 1 A_Recoil(-1)
+		HKHU ABCD 1 A_Recoil(-20)
+		HKHU A 4
+		Goto Missile
 	Melee:		
 	Missile:
 		TNT1 A 0 
+		TNT1 A 0 A_JumpIfHealthLower (2500, "MorphAttack")		
 		TNT1 A 0 A_Jump(256,"Missile1","Missile2","Missile3")		
 		Goto See
+	MorphAttack:
+		HKHV B 4 A_FaceTarget
+		HKHV A 4 BRIGHT A_CustomMissile("NapalmGreen",64,0,0.0)	
+		HKHV B 4 
+		Goto See4
 	Missile1:		
 		HKHA A 4 A_FaceTarget
 		HKHA B 4 A_FaceTarget		
@@ -539,21 +565,25 @@ ACTOR HoundBaronOfHell : WereWolfOfHellAlt 19094
 		Goto See		
 	Missile3:		
 		TNT1 A 0 
-		TNT1 A 0 A_Jump(64,"Missile4")				
+		TNT1 A 0 A_Jump(92,"Missile4")				
 		HKH3 AB 8 A_FaceTarget
 		HKH3 C 1 BRIGHT
-		HKH3 C 1 BRIGHT A_CustomMissile("HoundBaronBall",72,0,0.0)
-		HKH3 C 1 BRIGHT A_CustomMissile("HoundBaronBall",72,0,15.5)		
-		HKH3 C 1 BRIGHT A_CustomMissile("HoundBaronBall",72,0,-15.5)				
+		HKH3 C 1 BRIGHT A_CustomMissile("NapalmGreen",72,0,0.0)
+		HKH3 C 1 BRIGHT A_CustomMissile("NapalmGreen",72,0,15.5)		
+		HKH3 C 1 BRIGHT A_CustomMissile("NapalmGreen",72,0,7.5)		
+		HKH3 C 1 BRIGHT A_CustomMissile("NapalmGreen",72,0,-15.5)				
+		HKH3 C 1 BRIGHT A_CustomMissile("NapalmGreen",72,0,-7.5)				
 		Goto See
 	Missile4:	
 		HKH4 A 8 A_FaceTarget
 		HKH4 B 8 A_FaceTarget		
 		TNT1 A 0 A_PlaySound("ELBEAM",CHAN_AUTO,1,0,0)
 		TNT1 A 0 A_GiveToTarget("BeamFlash")		
-		HKH4 C 4 BRIGHT A_CustomMissile("SonicBeam",32,0,0)
+		HKH4 CCCCCCC 4 BRIGHT A_CustomMissile("SonicBeam",32,0,0)
 		Goto See
 	Pain:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIfHealthLower (2500, "See4")				
 		HKHP A 2
 		HKHP A 2 A_Pain
 		Goto See
@@ -571,7 +601,7 @@ ACTOR HoundBaronOfHell : WereWolfOfHellAlt 19094
 
 ACTOR HoundBaronBall:  HoundKnightBall
 {
-	Damage 16
+	Damage 24
 	States
 	{
 	Spawn:
@@ -579,6 +609,42 @@ ACTOR HoundBaronBall:  HoundKnightBall
 		Loop
 	Death:
 		DMFX CDEFGH 6 Bright
+		Stop
+	}
+}
+
+ACTOR NapalmGreen
+{
+	Decal Scorch
+	Radius 11
+	Height 8
+	Speed 24
+	RenderStyle "Add"
+	Damage 32
+	DamageType "Napalm"
+	PROJECTILE
+	+DONTSPLASH
+	+EXTREMEDEATH
+	+NOGRAVITY
+	+RANDOMIZE
+	DeathSound "LargeExplosions"
+	ActiveSound "Old/DSNAPALM"
+	States
+	{
+	Spawn:
+		VAPP A 1
+		TNT1 A 0 A_LoopActiveSound
+	Fire:
+		TNT1 A 0 A_JumpIf(waterlevel>0,"AltFire")
+		VAPP AABBCCDDEEFF 1 BRIGHT A_SpawnItem ("BSmokeTrail",0+frandom(-1,1),0+frandom(-1,1),0,0)
+		Loop
+	AltFire:
+		VAPP AABBCCDDEE 1 BRIGHT A_SpawnItemEx("SmokeTrailSmall")
+		Goto Fire
+	Death:
+		VAPP A 1 BRIGHT A_Explode
+		TNT1 A 0 A_SpawnItemEx("Kaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		VAPX ABCDEFGHIJKLM 2 BRIGHT A_Quake(4,12,0,128)
 		Stop
 	}
 }
