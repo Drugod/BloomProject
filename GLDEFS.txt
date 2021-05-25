@@ -1495,6 +1495,56 @@ Object HellButcherBall
 	frame SPAXE { light BARONBALL_X1 }
 }
 
+// HOUND BARON/HOUND KNIGHT BALL
+PointLight HOUNDBALL
+{
+    Color 1.0 0.5 0.0
+    Size 64
+}
+
+FlickerLight HOUNDBALL_X1
+{
+    Color 1.0 0.5 0.0
+    Size 80
+    SecondarySize 110
+    Chance 0.25
+}
+
+FlickerLight HOUNDBALL_X2
+{
+    Color 1.0 0.5 0.0
+    Size 96
+    SecondarySize 104
+    Chance 0.25
+}
+
+FlickerLight HOUNDBALL_X3
+{
+    Color 1.0 0.5 0.0
+    Size 112
+    SecondarySize 120
+    Chance 0.25
+}
+
+Object HoundKnightBall
+{
+    frame HAL7A { light HOUNDBALL }
+    frame HAL7B { light HOUNDBALL }
+    frame HAL7C { light HOUNDBALL_X1 }
+    frame HAL7D { light HOUNDBALL_X2 }
+    frame HAL7E { light HOUNDBALL_X3 }
+}
+
+Object HoundBaronBall
+{
+    frame DMFXA{ light BARONBALL }
+    frame DMFXB{ light BARONBALL }
+    frame DMFXC{ light BARONBALL_X1 }
+    frame DMFXD{ light BARONBALL_X2 }
+    frame DMFXE{ light BARONBALL_X3 }
+}
+
+
 // Mancubus Fireball
 Object FatShot
 {
@@ -2420,6 +2470,11 @@ Object BloodGargoyle
 }
 
 Object NapalmRocket
+{
+    frame NAPP { light FIREBALL }
+}
+
+Object NapalmEnemy
 {
     frame NAPP { light FIREBALL }
 }
