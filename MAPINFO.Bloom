@@ -67,7 +67,7 @@ map BLM03 lookup "BLM_M03"
 map BLM04 lookup "BLM_M04"
 {
    levelnum = 4
-   next = BLM05
+   next = INT00
    sky1 = "YTEXTH63", 0.05
    sky2 = "YTEXTH63", 0.05
    par = 120
@@ -142,7 +142,8 @@ map INT00 lookup "BLM_INT"
    levelnum = 0
    sky1 = "YTEXTH63", 0.05
    par = 120
-   cluster = 1
+   next = BLM05
+   //cluster = 1
    sucktime = 1
    music = "d_dm2ttl"
    NoIntermission

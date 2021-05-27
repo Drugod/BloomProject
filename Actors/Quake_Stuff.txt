@@ -156,10 +156,10 @@ ACTOR RuneQuake : CustomInventory 3408
 	{
 	Spawn:
 		TNT1 A 0 		
-		UNKN A -1
+		UNKN  A -1 BRIGHT
 		Stop
 	Use:	
-		UNKN A 1
+		UNKN A 1 BRIGHT
 		Fail
 	}
 }
