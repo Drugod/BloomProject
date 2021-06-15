@@ -821,7 +821,7 @@ ACTOR BaronofHellHybrid
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
 		Stop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("WereWolfOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
@@ -829,6 +829,9 @@ ACTOR BaronofHellHybrid
 	Spawn2:
 		TNT1 A 0 A_SpawnItemEx("WereWolfOfHellAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("Zombarons",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop		
 	}
 }
 
