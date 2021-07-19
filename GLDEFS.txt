@@ -1624,13 +1624,13 @@ Object ArachnotronPlasma
 // Revenant tracer
 PointLight TRACER
 {
-    Color 0.0 0.3 0.0
+    Color 0.3 0.3 0.0
     Size 48
 }
 
 FlickerLight TRACER_X1
 {
-    Color 0.0 0.2 0.0
+    Color 0.2 0.2 0.0
     Size 64
     SecondarySize 72
     Chance 0.25
@@ -1638,7 +1638,7 @@ FlickerLight TRACER_X1
 
 FlickerLight TRACER_X2
 {
-    Color 0.0 0.2 0.0
+    Color 0.2 0.2 0.0
     Size 80
     SecondarySize 88
     Chance 0.25
@@ -1646,7 +1646,7 @@ FlickerLight TRACER_X2
 
 FlickerLight TRACER_X3
 {
-    Color 0.0 0.1 0.0
+    Color 0.1 0.1 0.0
     Size 96
     SecondarySize 104
     Chance 0.25

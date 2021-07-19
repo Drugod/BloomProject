@@ -359,113 +359,6 @@ ACTOR HellButcherBall
 	}
 }
 
-ACTOR ----------ZOOMBARON---------- {}
-ACTOR ZoombaronOfHell : WereWolfOfHellAlt 19095
-{
-	//$Title Zoombaron of Hell
-	Health 500	
-	+DROPOFF
-	-BOSSDEATH	
-	Species "Zoombaron"
-	MeleeSound "baron/Melee"
-	SeeSound "knight/sight"
-	ActiveSound "knight/active"
-	PainSound "knight/pain"
-	DeathSound "knight/death"
-	Obituary "$OB_KNIGHT"
-	HitObituary "$OB_KNIGHTHIT"
-	States
-	{
-	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_Jump(128,"Spawn2")
-		HOMS B 10 A_Look
-		Goto Spawn+2
-	Spawn2:
-		HOMS D 10 A_Look
-		Loop	
-	See:
-		XBAR AABBCCDDEEFF 3 A_Chase
-		Loop
-	Jump:
-		TNT1 A 0 A_FaceTarget
-		HOMJ A 8 A_Recoil(-4)
-		HOMJ B 8 ThrustThingZ(0,frandom(30,40),0,0)
-		HOMJ C 8 ThrustThing(angle*256/360,random(10,16),0,0)
-		Goto See		
-	Melee:		
-	Missile:
-		TNT1 A 0 
-		TNT1 A 0 A_Jump(256,"Missile1","Missile2","Missile3","Missile4")		
-		Goto See
-	Missile1:		
-		HOMA A 4 A_FaceTarget
-		HOMA B 4 A_FaceTarget		
-		HOMA C 3 BRIGHT A_CustomComboAttack("HoundKnightBall", 32, 10 * random(1, 8), "baron/melee")
-		HOMA C 1 A_Jump(128,"Missile3")		
-		Goto See
-	Missile2:		
-		HOM2 AB 8 A_FaceTarget
-		HOM2 C 4 BRIGHT A_CustomMissile("NapalmEnemy",32,0,0)
-		Goto See
-	Missile3:		
-		HOM3 A 4 A_FaceTarget
-		HOM3 B 4 A_FaceTarget		
-		HOM3 C 3 BRIGHT A_CustomComboAttack("HoundKnightBall", 32, 10 * random(1, 8), "baron/melee")
-		HOMA C 1 A_Jump(128,"Missile1")				
-		Goto See		
-	Missile4:	
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIfCloser(192,1)	
-		Goto See
-		HOM4 AB 8 A_FaceTarget
-		TNT1 A 0 A_FaceTarget
-		HOM4 C 4 BRIGHT A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
-		TNT1 A 0 A_FaceTarget
-		HOM4 C 4 BRIGHT A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
-		TNT1 A 0 A_FaceTarget
-		HOM4 C 4 BRIGHT A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
-		TNT1 A 0 A_FaceTarget
-		HOM4 C 4 BRIGHT A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
-		TNT1 A 0 A_FaceTarget
-		HOM4 C 4 BRIGHT A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
-		TNT1 A 0 A_FaceTarget
-		HOM4 C 4 BRIGHT A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
-		TNT1 A 0 A_FaceTarget
-		HOM4 C 4 BRIGHT A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
-		TNT1 A 0 A_FaceTarget
-		HOM4 C 4 BRIGHT A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
-		TNT1 A 0 A_FaceTarget
-		HOM4 C 4 BRIGHT A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
-		TNT1 A 0 A_FaceTarget
-		HOM4 C 4 BRIGHT A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
-		TNT1 A 0 A_FaceTarget	
-		TNT1 A 0 A_JumpIfCloser(192,1)
-		Goto See
-		TNT1 AAAAAAAA 0 A_MonsterRefire(64, "See")
-		Goto Missile
-		Goto See		
-	Pain:
-		XBAT A 2
-		XBAT A 2 A_Pain
-		Goto See
-	Death:
-	XDeath:
-		XBBD A  8
-		XBBD B  8 A_Scream
-		XBBD C  8
-		XBBD D  8 A_NoBlocking
-		XBBD EFG 8
-		XBBD H -1
-		Stop
-	Raise:
-		HOMD H 8
-		HOMD GFEDCBA  8
-		Goto See
-	}
-}
-
-
 ACTOR ----------HOUNDKNIGHT---------- {}
 ACTOR HoundKnightOfHell : WereWolfOfHellAlt 19093
 {
@@ -757,8 +650,7 @@ ACTOR NapalmGreen
 }
 
 ACTOR ----------ZOMBARON---------- {}
-
-ACTOR ZombaronOfHell : BloomHybrid_Base 
+ACTOR ZombaronOfHell : BloomHybrid_Base  19098
 {
 	//$Title Zombaron of Hell
 	Radius 16
@@ -880,9 +772,9 @@ ACTOR ZombaronOfHell : BloomHybrid_Base
 	}
 }
 
-ACTOR AxeZombaronOfHell : ZombaronOfHell 
+ACTOR AxeZombaronOfHell : ZombaronOfHell 19097 
 {
-	//$Title Axe Zombaron of Hell
+	//$Title Zombaron of Hell with Axe
 	Speed 16
 	MeleeThreshold 196
 	MeleeRange 48
@@ -1037,11 +929,8 @@ ACTOR BuriedAxeZombaronOfHell : AxeZombaronOfHell
 	}
 }
 
-ACTOR Zombarons: BuriedZombaronOfHell 19094
+ACTOR Zombarons: BuriedZombaronOfHell
 {
-	//$Category Bloom Hybrid Monsters
-	//$Title Zombarons of Hell
-	//$Color 3
 	-ISMONSTER
 	-COUNTKILL
 	States
