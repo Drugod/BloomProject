@@ -1145,15 +1145,76 @@ ACTOR RevenantMoron 19096
 		REVP A 5 A_Pain
 		Goto See
 	  Death:
-		SKEL LM 7
-		SKEL N 7 A_Scream
-		SKEL O 7 A_NoBlocking
-		SKEL P 7
-		SKEL Q -1
+		REFD AB 7
+		REFD C 7 A_Scream
+		REFD D 7 A_NoBlocking
+		REFD E 7
+		REFD F -1
 		Stop
 	  Raise:
-		SKEL Q 5
-		SKEL PONML 5
+		REFD F 5
+		REFD ABCDE 5
+		Goto See
+	  }
+}
+
+ACTOR RevenantMoronAlt 19097
+{
+	  //$Category "BlooM Monsters"
+	  //$Title Revenant Moron Alternative
+	  //$Color 3		  
+	  Health 300
+	  Radius 20
+	  Height 56
+	  Mass 60
+	  Speed 12
+	  PainChance 100
+	  Monster
+	  MeleeThreshold 196
+	  +FLOORCLIP
+	  MeleeSound "skeleton/melee"
+	  SeeSound "Moron/Cry1"
+	  DeathSound "Moron/Crying"
+	  ActiveSound "Moron/GoAway"
+	  PainSound "Moron/Scream"	  
+	  HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
+	  Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+	  States
+	  {
+	  Spawn:
+		RE2N AA 10 A_Look
+		Loop
+	  See:
+		RE2N AAAABBBBCCCCDDDDEEEEAAAABBBBCCCCDDDDEEEEAAAABBBBCCCCDDDDEEEEAAAABBBCCCCDDDDEEEE 1 A_Chase
+		Loop
+	  Melee:
+		RE2M A 0 A_FaceTarget
+		RE2M A 6 A_SkelWhoosh
+		RE2M B 6 A_FaceTarget
+		RE2M C 6 A_SkelFist
+		Goto See
+	  Missile:
+		TNT1 A 0
+		TNT1 A 0 A_Jump (160,"See")
+		RE2A A 0 Bright A_FaceTarget
+		RE2A A 10 Bright A_FaceTarget
+		RE2A B 10 A_SkelMissile
+		RE2A B 10 A_FaceTarget
+		Goto See
+	  Pain:
+		RE2P A 5
+		RE2P A 5 A_Pain
+		Goto See
+	  Death:
+		RE2D AB 7
+		RE2D C 7 A_Scream
+		RE2D D 7 A_NoBlocking
+		RE2D E 7
+		RE2D F -1
+		Stop
+	  Raise:
+		RE2D F 5
+		RE2D ABCDE 5
 		Goto See
 	  }
 }
