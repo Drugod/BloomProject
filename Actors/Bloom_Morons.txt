@@ -1218,3 +1218,64 @@ ACTOR RevenantMoronAlt 19097
 		Goto See
 	  }
 }
+
+ACTOR RevenantMoronAlt2 19098
+{
+	  //$Category "BlooM Monsters"
+	  //$Title Revenant Moron Alternative 2
+	  //$Color 3		  
+	  Health 300
+	  Radius 20
+	  Height 56
+	  Mass 60
+	  Speed 12
+	  PainChance 100
+	  Monster
+	  MeleeThreshold 196
+	  +FLOORCLIP
+	  MeleeSound "skeleton/melee"
+	  SeeSound "Moron/Cry1"
+	  DeathSound "Moron/Crying"
+	  ActiveSound "Moron/GoAway"
+	  PainSound "Moron/Scream"	  
+	  HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
+	  Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+	  States
+	  {
+	  Spawn:
+		RE3N AA 10 A_Look
+		Loop
+	  See:
+		RE3N AAAABBBBCCCCDDDDEEEEAAAABBBBCCCCDDDDEEEEAAAABBBBCCCCDDDDEEEEAAAABBBCCCCDDDDEEEE 1 A_Chase
+		Loop
+	  Melee:
+		RE3M A 0 A_FaceTarget
+		RE3M A 6 A_SkelWhoosh
+		RE3M B 6 A_FaceTarget
+		RE3M C 6 A_SkelFist
+		Goto See
+	  Missile:
+		TNT1 A 0
+		TNT1 A 0 A_Jump (160,"See")
+		RE3A A 0 Bright A_FaceTarget
+		RE3A A 10 Bright A_FaceTarget
+		RE3A B 10 A_SkelMissile
+		RE3A B 10 A_FaceTarget
+		Goto See
+	  Pain:
+		RE3P A 5
+		RE3P A 5 A_Pain
+		Goto See
+	  Death:
+		RE3D AB 7
+		RE3D C 7 A_Scream
+		RE3D D 7 A_NoBlocking
+		RE3D E 7
+		RE3D F -1
+		Stop
+	  Raise:
+		RE3D F 5
+		RE3D ABCDE 5
+		Goto See
+	  }
+}
