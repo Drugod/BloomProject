@@ -1424,7 +1424,7 @@ ACTOR HybridBoss1Spawner
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
 		Stop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("KingCacoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
@@ -1435,6 +1435,9 @@ ACTOR HybridBoss1Spawner
 	Spawn3:
 		TNT1 A 0 A_SpawnItemEx("Eeldercubus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("Cyberbog",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop		
 	}
 }
 

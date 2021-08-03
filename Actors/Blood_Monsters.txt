@@ -4424,12 +4424,12 @@ ACTOR LavaPod : ChrysalidPod 6148
 
 ACTOR LavaBarf : NapalmRocketAlt1
 {
-	Scale .75
 	Speed 20
 	Gravity 0.75
 	Scale 0.5
 	DamageType "Fire"
     BounceCount 4
+	RenderStyle "Add"
 	+DONTSPLASH
 	-NOGRAVITY
 	DeathSound "dsexpbrl"

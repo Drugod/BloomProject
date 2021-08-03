@@ -1549,6 +1549,11 @@ Object NapalmEnemy
     frame VAPP { light BARONBALL }
 }
 
+Object LavaBarf
+{
+    frame NAPP { light FIREBALL }
+}
+
 // Mancubus Fireball
 Object FatShot
 {
