@@ -52,3 +52,4 @@ Const Int BLM_FLAGS3 = SXF_SETMASTER | SXF_NOCHECKPOSITION;
 #include Actors/Bloom_Possessed.txt
 #include Actors/Quake_Stuff.txt
 #include Actors/Bloom_Cyberbog.txt
+#include Actors/Bloom_Mimes.txt

@@ -1,0 +1,190 @@
+ACTOR ----------Revenant_Mime---------- {}
+ACTOR RevenantMime 19099
+{
+	  //$Category "BlooM Monsters"
+	  //$Title Revenant Mime
+	  //$Color 3		  
+	  Health 300
+	  Radius 20
+	  Height 56
+	  Mass 60
+	  Speed 12
+	  PainChance 100
+	  Monster
+	  MeleeThreshold 196
+	  +FLOORCLIP
+	  MeleeSound "skeleton/melee"
+	  SeeSound "Moron/Cry1"
+	  DeathSound "Moron/Crying"
+	  ActiveSound "Moron/GoAway"
+	  PainSound "Moron/Scream"	  
+	  HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
+	  Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+	  States
+	  {
+	  Spawn:
+		RM1W AA 10 A_Look
+		Loop
+	  See:
+		RM1W AAAABBBBCCCCAAAABBBBCCCCAAAABBBBCCCCAAAABBBCCCC 1 A_Chase
+		Loop
+	  Melee:
+		RM1F A 0 A_FaceTarget
+		RM1F A 6 A_SkelWhoosh
+		RM1F B 6 A_FaceTarget
+		RM1F C 6 A_SkelFist
+		Goto See
+	  Missile:
+		TNT1 A 0
+		TNT1 A 0 A_Jump (160,"See","Missile2")
+		RM1A A 0 Bright A_FaceTarget
+		RM1A A 10 Bright A_FaceTarget
+		RM1A B 10 A_SkelMissile
+		RM1A B 10 A_FaceTarget
+		Goto See
+	  Missile2:	
+		RM1S A 0 Bright A_FaceTarget
+		RM1S A 10 Bright A_FaceTarget
+		RM1A B 10 A_CustomMissile("SupermimeMissile", 48, 0)
+		RM1A B 10 A_FaceTarget
+		Goto See	  
+	  Pain:
+		RM1P A 5
+		RM1P A 5 A_Pain
+		Goto See
+	  Death:
+		TNT1 A 0 A_Jump(128,1)
+		TNT1 A 0 A_SpawnItemEx("Mimehead",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		RM1D AB 7
+		RM1D C 7 A_Scream
+		RM1D D 7 A_NoBlocking
+		RM1D E -1
+		Stop
+	  Raise:
+		RM1D E 5
+		RM1D ABCD 5
+		Goto See
+	  }
+}
+
+ACTOR RevenantMimeAlt: RevenantMime 19100
+{
+	  //$Title Revenant Mime Alternative
+	  States
+	  {
+	  Spawn:
+		RM2W AA 10 A_Look
+		Loop
+	  See:
+		RM2W AAAABBBBCCCCAAAABBBBCCCCAAAABBBBCCCCAAAABBBCCCC 1 A_Chase
+		Loop
+	  Melee:
+		RM2F A 0 A_FaceTarget
+		RM2F A 6 A_SkelWhoosh
+		RM2F B 6 A_FaceTarget
+		RM2F C 6 A_SkelFist
+		Goto See
+	  Missile:
+		TNT1 A 0
+		TNT1 A 0 A_Jump (160,"See","Missile2")
+		RM2A A 0 Bright A_FaceTarget
+		RM2A A 10 Bright A_FaceTarget
+		RM2A B 10 A_SkelMissile
+		RM2A B 10 A_FaceTarget
+		Goto See
+	  Missile2:	
+		RM2S A 0 Bright A_FaceTarget
+		RM2S A 10 Bright A_FaceTarget
+		RM2A B 10 A_CustomMissile("SupermimeMissile", 48, 0)
+		RM2A B 10 A_FaceTarget
+		Goto See			
+	  Pain:
+		RM2P A 5
+		RM2P A 5 A_Pain
+		Goto See
+	  Death:
+		RM2D AB 7
+		RM2D C 7 A_Scream
+		RM2D D 7 A_NoBlocking
+		RM2D E -1
+		Stop
+	  Raise:
+		RM2D E 5
+		RM2D ABCD 5
+		Goto See
+	  }
+}
+
+ACTOR RevenantMimeAlt2: RevenantMime 19101
+{
+	  //$Title Revenant Mime Alternative 2
+	  States
+	  {
+	  Spawn:
+		RM3W AA 10 A_Look
+		Loop
+	  See:
+		RM3W AAAABBBBCCCCAAAABBBBCCCCAAAABBBBCCCCAAAABBBCCCC 1 A_Chase
+		Loop
+	  Melee:
+		RM3F A 0 A_FaceTarget
+		RM3F A 6 A_SkelWhoosh
+		RM3F B 6 A_FaceTarget
+		RM3F C 6 A_SkelFist
+		Goto See
+	  Missile:
+		TNT1 A 0
+		TNT1 A 0 A_Jump (160,"See","Missile2")
+		RM3A A 0 Bright A_FaceTarget
+		RM3A A 10 Bright A_FaceTarget
+		RM3A B 10 A_SkelMissile
+		RM3A B 10 A_FaceTarget
+		Goto See
+	  Missile2:	
+		RM3S A 0 Bright A_FaceTarget
+		RM3S A 10 Bright A_FaceTarget
+		RM3A B 10 A_CustomMissile("SupermimeMissile", 48, 0)
+		RM3A B 10 A_FaceTarget
+		Goto See			
+	  Pain:
+		RM3P A 5
+		RM3P A 5 A_Pain
+		Goto See
+	  Death:
+		RM3D AB 7
+		RM3D C 7 A_Scream
+		RM3D D 7 A_NoBlocking
+		RM3D E -1
+		Stop
+	  Raise:
+		RM3D E 5
+		RM3D ABCD 5
+		Goto See
+	  }
+}
+
+ACTOR SupermimeMissile
+{
+	Decal Scorch
+	Radius 16
+	Height 9
+	XScale 0.65
+	YScale 0.55
+	Speed 20
+	RenderStyle "Add"
+	Damage (frandom(10,16))
+	PROJECTILE
+	+DONTSPLASH
+	DamageType "Fire"
+	DeathSound "world/barrelx"
+	States
+	{
+	Spawn:
+		TROK AAAABBBBCCCCDDDDEEEE 1 A_SpawnItem ("TfireTrail2",0+frandom(-1,1),0+frandom(-1,1),0,0)
+		Loop
+	Death:
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)	
+		TNT1 A 1 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		Stop
+	}
+}

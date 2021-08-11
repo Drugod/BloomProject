@@ -2698,11 +2698,20 @@ Object TchernobogKaboom
     frame MISL[ { light TKROCKET_X9 }
 }
 
-
 Object TchernobogMissile
 {
-    frame BAL7A { light BARONBALL }
-    frame BAL7B { light BARONBALL }
+    frame TROKA { light TKROCKET_X1 }
+    frame TROKB { light TKROCKET_X2 }
+    frame TROKC { light TKROCKET_X3 }
+    frame TROKD { light TKROCKET_X4 }
+}
+
+Object SupermimeMissile
+{
+    frame TROKA { light TKROCKET_X1 }
+    frame TROKB { light TKROCKET_X2 }
+    frame TROKC { light TKROCKET_X3 }
+    frame TROKD { light TKROCKET_X4 }
 }
 
 Object Cyberdemon

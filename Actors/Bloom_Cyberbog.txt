@@ -30,7 +30,14 @@ ACTOR Cyberbog
     BOGC ABBCC 3 A_Chase
     BOGC D 3 A_Metal
     BOGC D 3 A_Chase
+	TNT1 A 0 A_JumpIfCloser(300, "Stomp")	
     Loop
+  Stomp:
+	TNT1 A 0 A_Facetarget
+	BOGS AB 2 A_Playsound("BeastStomp")
+	BOGS CD 2 A_SpawnItemEx("BeastStomp")
+	BOGS EFGH 4
+	Goto See	
   Missile:
 	TNT1 A 0
 	TNT1 A 0 A_Jump(128,"Missile5")

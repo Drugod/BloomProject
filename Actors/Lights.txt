@@ -533,28 +533,3 @@ ACTOR BloomHiTorch : BloomVases 3404
 		Stop
 	}
 }
-
-ACTOR BloomSkullTorch : BloomVases 3800
-{
-	//$Title Burning Skull Torch, ACS Switchable
-	//$Sprite STORA0
-	States
-	{
-	Spawn:
-		TNT1 A 0
-		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
-	Active:
-		TNT1 A 0
-		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
-	ActiveCheck:
-		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 1.0, TRUE)
-	SpawnCheck:
-		STOR BCDEFGHIJKLMNO 3 BRIGHT LIGHT("FLAMVAS1")
-		Goto SpawnCheck
-	Inactive:
-		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
-		STOR A 1 A_PlaySound("SFX/FireDie", 7)
-		STOR A -1 A_StopSound(6)
-		Stop
-	}
-}

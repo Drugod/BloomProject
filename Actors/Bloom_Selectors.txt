@@ -556,7 +556,7 @@ ACTOR HybridGhostandRevenants
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5","Spawn6","Spawn7")
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5","Spawn6","Spawn7","Spawn8","Spawn9","Spawn10")
 		Stop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("GhostRevenantTerrain",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
@@ -578,6 +578,15 @@ ACTOR HybridGhostandRevenants
 		Stop		
 	Spawn7:
 		TNT1 A 0 A_SpawnItemEx("RevenantMoronAlt2",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop				
+	Spawn8:
+		TNT1 A 0 A_SpawnItemEx("RevenantMime",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop				
+	Spawn9:
+		TNT1 A 0 A_SpawnItemEx("RevenantMimeAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop				
+	Spawn10:
+		TNT1 A 0 A_SpawnItemEx("RevenantMimeAlt2",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop				
 	}
 }
