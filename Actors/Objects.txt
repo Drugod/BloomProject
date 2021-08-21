@@ -546,6 +546,22 @@ ACTOR BloodyChair : HeartColumn 3267
 	}
 }
 
+ACTOR BloodyTable : HeartColumn 19095
+{
+	//$Category "BlooM Ambient"
+	//$Title Blood Table
+	Height 12
+	Mass 5
+	Scale 0.5
+	+PUSHABLE
+	States
+	{
+	Spawn:
+		TABL A -1
+		Stop
+	}
+}
+
 ACTOR LovingMemory 3268
 {
 	//$Category "BlooM Ambient"
