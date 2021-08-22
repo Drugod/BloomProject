@@ -2488,6 +2488,11 @@ Object NapalmEnemy
     frame NAPP { light FIREBALL }
 }
 
+Object CerberusShot1
+{
+    frame NAPP { light FIREBALL }
+}
+
 Object Spraycanfire
 {
     frame SPFI { light CANFIRE }

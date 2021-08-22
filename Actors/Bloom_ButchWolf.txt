@@ -650,7 +650,7 @@ ACTOR NapalmGreen
 }
 
 ACTOR ----------ZOMBARON---------- {}
-ACTOR ZombaronOfHell : BloomHybrid_Base  19098
+ACTOR ZombaronOfHell : BloomHybrid_Base  19105
 {
 	//$Title Zombaron of Hell
 	Radius 16
@@ -772,7 +772,7 @@ ACTOR ZombaronOfHell : BloomHybrid_Base  19098
 	}
 }
 
-ACTOR AxeZombaronOfHell : ZombaronOfHell 19097 
+ACTOR AxeZombaronOfHell : ZombaronOfHell 19104 
 {
 	//$Title Zombaron of Hell with Axe
 	Speed 16
