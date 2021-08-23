@@ -652,3 +652,56 @@ ACTOR Pinkberus : BloomHybrid_Base 19103
 		Stop
 	}
 }
+
+ACTOR Sloth: BloomHybrid_Base 19104
+{
+	//$Title Sloth
+	Health 1000
+	Radius 40
+	Height 110
+	Mass 1000
+	Speed 16
+	PainChance 20
+	Monster
+	MinMissileChance 160
+	+BOSS
+	+MISSILEMORE
+	+FLOORCLIP
+	+NORADIUSDMG
+	+DONTMORPH
+	+BOSSDEATH
+	SeeSound "cyber/sight"
+	PainSound "cyber/pain"
+	DeathSound "cyber/death"
+	ActiveSound "cyber/active"
+	Obituary "$OB_CYBORG"
+	States
+	{
+	Spawn:
+		SLTS A 10 A_Look
+	Loop
+	See:
+		SLTS AABBCCDD 3 A_Chase
+	Loop
+    Missile:
+		SLTA A 3 
+		SLTA B 6 A_FaceTarget
+		SLTA C 6 BRIGHT A_CustomMissile("NapalmEnemy",62,-17.0,0)
+		SLTA D 6 A_FaceTarget
+		TNT1 A 0 A_CustomMissile("NapalmEnemy",62,-17.0,0)
+		SLTA E 6 BRIGHT A_CustomMissile("NapalmEnemy",62,17.0,0)
+	Goto See
+	Pain:
+		SLTP A 10 A_Pain
+	Goto See
+	Death:
+		SLTD A 10
+		SLTD B 10 A_Scream
+		SLTD CDE 10
+		SLTD F 10 A_NoBlocking
+		SLTD GH 10
+		SLTD I 30
+		SLTD I -1 A_BossDeath
+	Stop
+	}
+}
