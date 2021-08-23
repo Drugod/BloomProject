@@ -650,7 +650,7 @@ ACTOR NapalmGreen
 }
 
 ACTOR ----------ZOMBARON---------- {}
-ACTOR ZombaronOfHell : BloomHybrid_Base  19105
+ACTOR ZombaronOfHell : BloomHybrid_Base  
 {
 	//$Title Zombaron of Hell
 	Radius 16
@@ -772,7 +772,7 @@ ACTOR ZombaronOfHell : BloomHybrid_Base  19105
 	}
 }
 
-ACTOR AxeZombaronOfHell : ZombaronOfHell 19104 
+ACTOR AxeZombaronOfHell : ZombaronOfHell  
 {
 	//$Title Zombaron of Hell with Axe
 	Speed 16
@@ -929,8 +929,11 @@ ACTOR BuriedAxeZombaronOfHell : AxeZombaronOfHell
 	}
 }
 
-ACTOR Zombarons: BuriedZombaronOfHell
+ACTOR Zombarons: BuriedZombaronOfHell 19104
 {
+	//$Category Bloom Hybrid Monsters
+	//$Title Zombarons
+	//$Color 3
 	-ISMONSTER
 	-COUNTKILL
 	States
