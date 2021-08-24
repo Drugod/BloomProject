@@ -29,6 +29,19 @@ ACTOR BloomHybrid_Base
 	Monster
 }
 
+ACTOR BloomBossHybrid_Base
+{
+	//$Category "BlooM Bosses"
+	//$Color 9
+	Health 30
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 8
+	PainChance 170
+	Monster
+}
+
 ACTOR --------------------DEBRIS----------------------{}
 ACTOR Base_Debris
 {

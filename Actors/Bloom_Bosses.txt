@@ -1,5 +1,5 @@
 ACTOR ----------BOSSES---------- {}
-ACTOR KingCacoyle : BloomHybrid_Base 19053
+ACTOR KingCacoyle : BloomBossHybrid_Base 19053
 {
 	//$Title King Cacoyle
 	Health 4000
@@ -256,7 +256,7 @@ ACTOR KingCacoyle : BloomHybrid_Base 19053
 	}
 }
 
-ACTOR CyberCheogh : BloomHybrid_Base 19057
+ACTOR CyberCheogh : BloomBossHybrid_Base 19057
 {
 	//$Title CyberCheogh
 	Spawnid 3
@@ -511,7 +511,7 @@ ACTOR CyberCheogh : BloomHybrid_Base 19057
 	}
 }
 
-ACTOR Pinkberus : BloomHybrid_Base 19103
+ACTOR Pinkberus : BloomBossHybrid_Base 19103
 {
 	//$Title Pinkberus
 	Spawnid 112
@@ -653,7 +653,7 @@ ACTOR Pinkberus : BloomHybrid_Base 19103
 	}
 }
 
-ACTOR Sloth: BloomHybrid_Base 19107
+ACTOR Sloth: BloomBossHybrid_Base 19107
 {
 	//$Title Sloth
 	Health 1000
@@ -674,7 +674,7 @@ ACTOR Sloth: BloomHybrid_Base 19107
 	PainSound "cyber/pain"
 	DeathSound "cyber/death"
 	ActiveSound "cyber/active"
-	Obituary "$OB_CYBORG"
+	Obituary "$OB_SLOTH"
 	States
 	{
 	Spawn:
@@ -706,7 +706,7 @@ ACTOR Sloth: BloomHybrid_Base 19107
 	}
 }
 
-ACTOR Tchernodemon : BloomHybrid_Base 19105
+ACTOR Tchernodemon : BloomBossHybrid_Base 19105
 {
 	//$Title Tchernodemon
 	Obituary "$OB_TCHERNO"
@@ -867,5 +867,178 @@ ACTOR Tchernodemon : BloomHybrid_Base 19105
 		TNT1 A 0 A_GiveToTarget("TchernobogDead", 1)
 		TCDP E 2 A_Fadeout(0.1)
 		Wait
+	}
+}
+
+ACTOR Cyberbog: BloomBossHybrid_Base 19108
+{
+  Health 4000
+  Radius 40
+  Height 110
+  Mass 1000
+  Speed 16
+  PainChance 20
+  Monster
+  MinMissileChance 160
+  +BOSS
+  +MISSILEMORE
+  +FLOORCLIP
+  +NORADIUSDMG
+  +DONTMORPH
+  +BOSSDEATH
+  SeeSound "cyber/sight"
+  PainSound "cyber/pain"
+  DeathSound "cyber/death"
+  ActiveSound "cyber/active"
+  Obituary "$OB_CYBORG"
+  States
+  {
+  Spawn:
+    BOGC AB 10 A_Look
+    Loop
+  See:
+    BOGC A 3 A_Hoof
+    BOGC ABBCC 3 A_Chase
+    BOGC D 3 A_Metal
+    BOGC D 3 A_Chase
+	TNT1 A 0 A_JumpIfCloser(300, "Stomp")	
+    Loop
+  Stomp:
+	TNT1 A 0 A_Facetarget
+	BOGS AB 2 A_Playsound("BeastStomp")
+	BOGS CD 2 A_SpawnItemEx("BeastStomp")
+	BOGS EFGH 4
+	Goto See	
+  Missile:
+	TNT1 A 0
+	TNT1 A 0 A_Jump(128,"Missile5")
+	TNT1 A 0 A_Jump(256,"Missile1","Missile2","Missile3","Missile4")
+  Missile1:	
+    BOGC E 3 A_FaceTarget
+    BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+    BOGC E 6 A_FaceTarget
+    BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+    BOGC E 6 A_FaceTarget
+    BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+    Goto See
+  Missile2:
+    BOGC E 3 A_FaceTarget
+    BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+    BOGC E 6 A_FaceTarget
+    BOGC F 6 BRIGHT A_CustomMissile("NapalmEnemy",62,-17.0,0)
+    BOGC E 6 A_FaceTarget
+    BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+    Goto See	
+  Missile3:
+    BOGC E 3 A_FaceTarget
+    BOGC F 6 BRIGHT A_CustomMissile("NapalmEnemy",62,-17.0,0)
+    BOGC E 6 A_FaceTarget
+    BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+    BOGC E 6 A_FaceTarget
+    BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+    Goto See	
+  Missile4:
+    BOGC E 3 A_FaceTarget
+    BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+    BOGC E 6 A_FaceTarget
+    BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+    BOGC E 6 A_FaceTarget
+    BOGC F 6 BRIGHT A_CustomMissile("NapalmEnemy",62,-17.0,0)
+    Goto See	
+  Missile5:
+    BOGC P 6 BRIGHT
+    BOGC Q 3 BRIGHT A_FaceTarget
+	BOGC R 1 BRIGHT A_CustomMissile("TchernobogMissile2", 92, 0)
+    Goto See	
+ Pain:
+    BOGC G 10 A_Pain
+    Goto See
+  Death:
+    BOGC H 10
+    BOGC I 10 A_Scream
+    BOGC JKL 10
+    BOGC M 10 A_NoBlocking
+    BOGC NO 10
+    BOGC O 30
+    BOGC O -1 A_BossDeath
+    Stop
+  }
+}
+
+
+ACTOR JOJO: BloomBossHybrid_Base 19109
+{
+	//$Title Jojo The Idiot Circus Boy
+	Health 2000
+	Radius 40
+	Height 110
+	Mass 200
+	Speed 32
+	PainChance 20
+	MeleeRange 100
+	Scale 0.6
+	Monster
+	+BOSS
+	+FLOORCLIP
+	+BOSSDEATH
+	/*SeeSound "cyber/sight"
+	PainSound "cyber/pain"
+	DeathSound "cyber/death"
+	ActiveSound "cyber/active"*/
+	Obituary "$OB_JOJO"
+	States
+	{
+	Spawn:
+		JOJW A 10 A_Look
+	Loop
+	See:
+		JOJW AABBCCDDEEFF 3 A_Chase
+	Loop
+    Melee:
+		JOJA A 10
+		JOJA B 8 A_FaceTarget 
+		JOJA C 6
+		JOJA D 4
+		TNT1 A 0 A_Playsound("BeastStomp")						
+		TNT1 A 0 A_SpawnItemEx("JojoStomp")		
+		JOJA E 20
+	Goto See
+	Pain:
+		JOJP A 10 A_Pain
+	Goto See
+	Death:
+		JOJD A 2
+		JOJD B 2 A_Scream
+		JOJD CDE 6
+		JOJD FGH 6 A_NoBlocking
+		JOJD IJK 6
+		JOJD LMN 6
+		JOJD O -1 A_BossDeath
+	Stop
+	}
+}
+
+ACTOR JojoStomp
+{
+	Radius 1
+	Height 1
+	Damage 0
+	DamageType "BeastStomp"
+	+BLOODLESSIMPACT
+	+DONTSPLASH
+	+NODAMAGETHRUST
+	+NOTIMEFREEZE
+	+PAINLESS
+	Obituary "$OB_JOJO"
+    States
+	{
+	Spawn:
+		TNT1 A 1
+		Goto Death
+	Death:
+		TNT1 A 0 A_Explode(70,150,0)	
+		TNT1 A 5 A_Quake(4,12,0,400)
+		TNT1 A 10 A_Quake(2,12,0,800)
+		Stop
 	}
 }

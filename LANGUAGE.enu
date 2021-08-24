@@ -238,6 +238,8 @@ OB_POSAPC = "%o was manually shotgunned off by a paranoid possessed Apocalyptic 
 OB_POSSNC = "%o was frantically shot-off by a possessed confused NeoCultist.";
 OB_RATDEM = "%o was painfully bitten by a RatDemon.";
 OB_SPEHOU = "%o was eaten by a SpectreHound.";
+OB_JOJO = "%o laughed at his diet, Jojo laughs at his funeral";
+OB_SLOTH = "%o has died laughing";
 
 //OBITUARIES - MISC
 OB_BBARL = "%o went boom.";
