@@ -687,6 +687,12 @@ Script "BroodCheck" (void) // Called by spider spawners, if they return 1 the sp
 	Terminate;
 }
 
+Script "SuperSpeed" (void)
+{
+	SetActorProperty(0, APROP_Speed, 35.0);
+	Terminate;
+}
+
 /* //unused code yet - ozy81
 Script 503 Enter{
     Thing_ChangeTID(0, 1000 + PlayerNumber());
