@@ -653,7 +653,7 @@ ACTOR Pinkberus : BloomHybrid_Base 19103
 	}
 }
 
-ACTOR Sloth: BloomHybrid_Base 19104
+ACTOR Sloth: BloomHybrid_Base 19107
 {
 	//$Title Sloth
 	Health 1000
