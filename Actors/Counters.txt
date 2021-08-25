@@ -223,3 +223,9 @@ ACTOR isPossessed : Inventory
 	Inventory.Amount 1
 	Inventory.MaxAmount 1
 }
+
+ACTOR SuperGatling : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}

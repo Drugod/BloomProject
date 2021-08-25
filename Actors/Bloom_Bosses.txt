@@ -965,11 +965,10 @@ ACTOR Cyberbog: BloomBossHybrid_Base 19108
   }
 }
 
-
-ACTOR JOJO: BloomBossHybrid_Base 19109
+ACTOR Jojo: BloomBossHybrid_Base 19109
 {
 	//$Title Jojo The Idiot Circus Boy
-	Health 2000
+	Health 3000
 	Radius 40
 	Height 110
 	Mass 200
@@ -989,12 +988,43 @@ ACTOR JOJO: BloomBossHybrid_Base 19109
 	States
 	{
 	Spawn:
-		JOJW A 10 A_Look
+		JO2W A 10 A_Look
 	Loop
 	See:
-		JOJW AABBCCDDEEFF 3 A_Chase
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIfInventory("SuperGatling", 1, "See2")
+		JO2W AABBCCDDEEFF 3 A_Chase
+	Loop
+	See2:
+		JOJW AABBCCDDEEFF 3 A_Chase	
 	Loop
     Melee:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("SuperGatling", 1, "SuperMelee")
+	Missile:
+		TNT1 A 0 A_JumpIfInventory("SuperGatling", 1, "See2")
+		JO2A A 10 A_FaceTarget	
+		JO2A BCDEBCDEBCDEBCDEBCDE 1 A_CPosAttack
+		TNT1 A 0 A_CustomMissile("JojoCasing",32+frandom(-8,8), frandom(5.0,10.0), random (0, 90), 2, random (0, 45))		
+		TNT1 A 0 A_CustomMissile("JojoCasing",32+frandom(-8,8), frandom(5.0,10.0), random (0, 90), 2, random (0, 45))		
+		TNT1 A 0 A_CustomMissile("JojoCasing",32+frandom(-8,8), frandom(5.0,10.0), random (0, 90), 2, random (0, 45))		
+		TNT1 A 0 A_CustomMissile("JojoCasing",32+frandom(-8,8), frandom(5.0,10.0), random (0, 90), 2, random (0, 45))				
+		TNT1 A 0 A_CustomMissile("JojoCasing",32+frandom(-8,8), frandom(5.0,10.0), random (0, 90), 2, random (0, 45))		
+		TNT1 A 0 A_CustomMissile("JojoCasing",32+frandom(-8,8), frandom(5.0,10.0), random (0, 90), 2, random (0, 45))		
+		TNT1 A 0 A_CustomMissile("JojoCasing",32+frandom(-8,8), frandom(5.0,10.0), random (0, 90), 2, random (0, 45))		
+		TNT1 A 0 A_CustomMissile("JojoCasing",32+frandom(-8,8), frandom(5.0,10.0), random (0, 90), 2, random (0, 45))				
+		TNT1 A 0 A_Jump(64,"See")
+		JO2A E 1 A_CPosRefire
+		Goto Missile+1
+	SuperMelee:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Hammer","Kick")
+	Kick:				
+		JOJK AABBCCDD 2 A_FaceTarget
+		TNT1 A 0 A_RadiusThrust(15000,128,RTF_NOTMISSILE)		
+		JOJK EEFF 1 A_CustomMeleeAttack(random(1, 5) * 3, "")
+		Goto "See2"
+	Hammer:		
 		JOJA A 10
 		JOJA B 8 A_FaceTarget 
 		JOJA C 6
@@ -1002,17 +1032,63 @@ ACTOR JOJO: BloomBossHybrid_Base 19109
 		TNT1 A 0 A_Playsound("BeastStomp")						
 		TNT1 A 0 A_SpawnItemEx("JojoStomp")		
 		JOJA E 20
-	Goto See
+	Goto "See2"
 	Pain:
-		JOJP A 10 A_Pain
-	Goto See
+		TNT1 A 0 A_JumpIfHealthLower(1500, "Pain1")				
+		JO2P A 10 A_Pain
+	Goto See		
+	Pain1:
+		TNT1 A 0 A_JumpIfInventory("SuperGatling", 1, "Pain2")		
+		TNT1 A 0 A_CustomMissile("JojoGatling",32, frandom(-10.0,10.0), random (0, 180), 2, random (0, 45))
+		TNT1 A 0 A_GiveInventory("SuperGatling", 1)				
+	Pain2:	
+		JOJP A 10 A_Pain		
+	Goto "See2"
 	Death:
+		TNT1 A 0 A_CustomMissile("JojoHammer",32, frandom(-10.0,10.0), random (0, 180), 2, random (0, 45))			
 		JOJD A 2
 		JOJD B 2 A_Scream
-		JOJD CDE 6
-		JOJD FGH 6 A_NoBlocking
-		JOJD IJK 6
-		JOJD LMN 6
+		JOJD CDE 6 A_NoBlocking
+		TNT1 A 0 A_Quake(512,5,128,256)
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		TNT1 A 0 A_PlaySound("DSBDSPRY")		
+		JOJD FGH 3 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		JOJD IJK 3 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		JOJD LMN 3 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
 		JOJD O -1 A_BossDeath
 	Stop
 	}
@@ -1041,4 +1117,89 @@ ACTOR JojoStomp
 		TNT1 A 10 A_Quake(2,12,0,800)
 		Stop
 	}
+}
+
+ACTOR JojoGatling
+{
+	Radius 8
+	Height 12
+	Speed 14
+	Mass 1
+	BounceFactor 0.4
+	+CLIENTSIDEONLY
+	+DOOMBOUNCE
+	+FORCEXYBILLBOARD
+	+MISSILE
+	+MOVEWITHSECTOR
+	+NOBLOCKMAP
+	+NOTELEPORT
+	-EXPLODEONWATER
+	Scale 0.5
+	States
+    {
+    Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(127,7)
+		GATL ABCDEF 3
+		Loop
+		GATL FEDCBA 3
+		Loop
+    Death:
+		GATL F 8
+		Goto Rest
+	Rest:
+		TNT1 A 0
+		TNT1 A 0 A_QueueCorpse
+		TNT1 A 0 A_Jump(255, "Rest1", "Rest2")
+	Rest1:
+        GATL A 800
+        GATL A -1
+		Stop
+	Rest2:
+		GATL F 800
+		GATL F -1
+		Stop
+    }
+}
+
+ACTOR JojoHammer
+{
+	Radius 8
+	Height 12
+	Speed 14
+	Mass 1
+	BounceFactor 0.4
+	+CLIENTSIDEONLY
+	+DOOMBOUNCE
+	+FORCEXYBILLBOARD
+	+MISSILE
+	+MOVEWITHSECTOR
+	+NOBLOCKMAP
+	+NOTELEPORT
+	-EXPLODEONWATER
+	Scale 0.5
+	States
+    {
+    Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(127,7)
+		HAMM ABCDEFGHI 3
+		Loop
+		HAMM IHGFEDCBA 3
+		Loop
+    Death:
+		HAMM F 8
+		Goto Rest
+	Rest:
+		TNT1 A 0
+		TNT1 A 0 A_QueueCorpse
+		HAMM I 800
+		HAMM I -1
+		Stop
+    }
+}
+
+Actor JojoCasing: TommygunCasing
+{
+	-SOLID
 }
