@@ -32,3 +32,4 @@ Reminder for actors behaviour:
 - BatSouls also shouldn't be able to swim (the actor doesn't exist yet)
 - Creatures which are able to jump shouldn't swim as well, beside RatDemons
 - Jumping creatures and little ones such as spiders or rats should die immediately over skies (GargoDemon, RatDemons, SpiderMother too)
+- Some randomizers like to spawn enemies in the void or in the sky, noticeable on BLM01 sometimes
