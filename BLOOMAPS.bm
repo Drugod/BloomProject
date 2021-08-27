@@ -208,17 +208,25 @@ Brightmap sprite TTNTI0 {map "Brightmaps/TTNTI0.png"}
 Brightmap sprite TTNTJ0 {map "Brightmaps/TTNTJ0.png"}
 Brightmap sprite TTNTK0 {map "Brightmaps/TTNTK0.png"}
 
-Brightmap sprite XIPPB0 {map "Brightmaps/XIPPB0.png"}
-Brightmap sprite XIPPC0 {map "Brightmaps/XIPPC0.png"}
-
-Brightmap sprite ZIPFA0 {map "Brightmaps/ZIPFA0.png"}
-Brightmap sprite ZIPFB0 {map "Brightmaps/ZIPFB0.png"}
-Brightmap sprite ZIPFC0 {map "Brightmaps/ZIPFC0.png"}
-
 Brightmap sprite ZIPPG0 {map "Brightmaps/ZIPPG0.png"}
 Brightmap sprite ZIPPH0 {map "Brightmaps/ZIPPH0.png"}
 Brightmap sprite ZIPPI0 {map "Brightmaps/ZIPPI0.png"}
 Brightmap sprite ZIPPJ0 {map "Brightmaps/ZIPPJ0.png"}
+
+//Frostgun
+Brightmap sprite FROPA0 {map "Brightmaps/FROPA0.png"}
+Brightmap sprite FROPB0 {map "Brightmaps/FROPB0.png"}
+Brightmap sprite FROPC0 {map "Brightmaps/FROPC0.png"}
+Brightmap sprite FROPD0 {map "Brightmaps/FROPD0.png"}
+Brightmap sprite FROSA0 {map "Brightmaps/FROSA0.png"}
+Brightmap sprite FRSRE0 {map "Brightmaps/FRSRE0.png"}
+Brightmap sprite FRSRF0 {map "Brightmaps/FRSRF0.png"}
+Brightmap sprite FRSRG0 {map "Brightmaps/FRSRG0.png"}
+Brightmap sprite FRSRH0 {map "Brightmaps/FRSRH0.png"}
+Brightmap sprite FRSRI0 {map "Brightmaps/FRSRI0.png"}
+Brightmap sprite FRSRJ0 {map "Brightmaps/FRSRJ0.png"}
+Brightmap sprite FRSRK0 {map "Brightmaps/FRSRK0.png"}
+Brightmap sprite FRSRL0 {map "Brightmaps/FRSRL0.png"}
 
 //Players
 Brightmap sprite CALBA1		{map "Brightmaps/CALBA1.png"}
