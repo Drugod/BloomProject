@@ -388,3 +388,53 @@ ACTOR GargoDemon : BloomHybrid_Base 19051
 		Wait
 	}
 }
+
+ACTOR PinkGargoyle : BloomHybrid_Base 19135
+{
+	  //$Title Pink Gargoyle
+      Health 400
+	  Radius 31
+	  Height 56
+	  Mass 400
+	  Speed 32
+	  PainChance 128
+	  Monster
+	  +FLOAT
+	  +NOGRAVITY
+	  SeeSound "demon/sight"
+	  AttackSound "demon/melee"
+	  PainSound "demon/pain"
+	  DeathSound "demon/death"
+	  ActiveSound "demon/active"
+	  Obituary "$OB_DEMONHIT" // "%o was bit by a demon."
+	  States
+	  {
+	  Spawn:
+		SARF AABBCCBB 3  A_Look
+		Loop
+	  See:
+		SARF AABBCCBB 3 A_Chase
+		Loop
+	  Missile:
+		SARF DE 5 A_FaceTarget
+		SARF F 3 Bright A_CustomComboAttack("CacodemonBall", 28, 10 * random(1, 6))
+		SARF G 2
+		Goto See
+	  Pain:
+		SARF D 3
+		SARF H 3 A_Pain
+		SARF H 6
+		Goto See
+	  Death:
+		SARF I 8
+		SARF J 8 A_Scream
+		SARF KL 8
+		SARF M 8 A_NoBlocking
+		SARF N -1 A_SetFloorClip
+		Stop
+	  Raise:
+		SARF N 8 A_UnSetFloorClip
+		SARF MLKJI 8
+		Goto See
+	  }
+}
