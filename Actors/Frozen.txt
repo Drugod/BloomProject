@@ -1,0 +1,216 @@
+ACTOR CongealedBase
+{
+	//$Category "BlooM Frozen Stuff"
+	//$Color 18
+	Health 2
+	+DONTCORPSE
+	+NOBLOOD
+	+NOTELESTOMP
+	+SOLID
+	+SHOOTABLE
+	States
+	{
+	Death:
+		"####" "#" 10 A_FreezeDeathChunks
+		Stop
+	XDeath:
+		"####" "#" 5 A_IceGuyDie
+		Stop
+	}
+}
+
+ACTOR CongealedBody1 : CongealedBase 23700
+{
+	//$Title Congealed Butcher
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FBUT O -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody2 : CongealedBase 23701
+{
+	//$Title Congealed Cultist
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FCUL G -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody3 : CongealedBase 23702
+{
+	//$Title Congealed Beast
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FESP A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody4 : CongealedBase 23703
+{
+	//$Title Congealed Gargoyle
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FGAR J -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody5 : CongealedBase 23704
+{
+	//$Title Congealed Ghost
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FHAF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody6 : CongealedBase 23705
+{
+	//$Title Congealed GillBeast
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FILF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody7 : CongealedBase 23706
+{
+	//$Title Congealed Spider
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FKUF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody8 : CongealedBase 23707
+{
+	//$Title Congealed Moron
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FORF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody9 : CongealedBase 23708
+{
+	//$Title Congealed Hell Hound
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FOUF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody10 : CongealedBase 23709
+{
+	//$Title Congealed Pod
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FPOF A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody11 : CongealedBase 23710
+{
+	//$Title Congealed Pod Tendril A
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FVIF A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody12 : CongealedBase 23711
+{
+	//$Title Congealed Pod Tendril B
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FVIF B -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody13 : CongealedBase 23712
+{
+	//$Title Congealed Zombie
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FZOM H -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody14 : CongealedBase 23713
+{
+	//$Title Congealed Rat
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FRAT R -1
+		Stop
+	}
+}
