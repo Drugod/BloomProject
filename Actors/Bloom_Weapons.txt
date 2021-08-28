@@ -449,8 +449,8 @@ ACTOR FrostAmmo : Ammo 23003 //requires Caleb replacement codewise yet
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
-		FROP A -1
-		Stop
+		FROP DDAABBCC 4
+		Loop
 	ModelSpawn:
 		UNKN A -1
 		Stop

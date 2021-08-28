@@ -227,6 +227,11 @@ Brightmap sprite FRSRI0 {map "Brightmaps/FRSRI0.png"}
 Brightmap sprite FRSRJ0 {map "Brightmaps/FRSRJ0.png"}
 Brightmap sprite FRSRK0 {map "Brightmaps/FRSRK0.png"}
 Brightmap sprite FRSRL0 {map "Brightmaps/FRSRL0.png"}
+Brightmap sprite FRSTA0 {map "Brightmaps/FRSTA0.png"}
+Brightmap sprite FRSTB0 {map "Brightmaps/FRSTB0.png"}
+Brightmap sprite FRSTC0 {map "Brightmaps/FRSTC0.png"}
+Brightmap sprite FRSTD0 {map "Brightmaps/FRSTD0.png"}
+Brightmap sprite FRSTE0 {map "Brightmaps/FRSTE0.png"}
 
 //Players
 Brightmap sprite CALBA1		{map "Brightmaps/CALBA1.png"}
