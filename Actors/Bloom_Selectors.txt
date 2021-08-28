@@ -316,7 +316,7 @@ ACTOR HybridHoundSpawner
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5")
 		Stop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("DemonHound",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
@@ -329,6 +329,9 @@ ACTOR HybridHoundSpawner
 		Stop
 	Spawn4:
 		TNT1 A 0 A_SpawnItemEx("Ratdemons",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn5:
+		TNT1 A 0 A_SpawnItemEx("PinkGargoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
