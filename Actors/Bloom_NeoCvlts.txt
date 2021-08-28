@@ -14,7 +14,7 @@ ACTOR ---------NEOCVLTISTS--------- {}
 	DropItem "GrenadeAmmo" 32
 	DropItem "HappyBundle" 32
 	PainChance "ChokeEM", 255
-	DamageFactor "ChokeEM", 2.0	
+	DamageFactor "ChokeEM", 2.0
 	States
 	{
 	Spawn:
@@ -38,7 +38,7 @@ ACTOR ---------NEOCVLTISTS--------- {}
 	Death.ChokeEM:
 		WPOS G 1 A_UnSetSolid
 		WPOS G 1 A_SpawnItemEx("PossesedApocalypticNeoCultist",0,0,0,0)
-		Stop	
+		Stop
 	Pain:
 		WPOS G 3
 		WPOS G 3 A_Pain
@@ -128,7 +128,7 @@ ACTOR ---------NEOCVLTISTS--------- {}
 	DropItem "GrenadeAmmo" 32
 	DropItem "HappyBundle" 32
 	PainChance "ChokeEM", 255
-	DamageFactor "ChokeEM", 2.0	
+	DamageFactor "ChokeEM", 2.0
 	States
 	{
 	Spawn:
@@ -163,7 +163,7 @@ ACTOR ---------NEOCVLTISTS--------- {}
 	Death.ChokeEM:
 		YPOS G 1 A_UnSetSolid
 		YPOS G 1 A_SpawnItemEx("PossesedNeoCultist",0,0,0,0)
-		Stop			
+		Stop
 	Burn:
 	Death.SpecialFire:
 	Death.Flare:
@@ -253,7 +253,7 @@ ACTOR NeoCvltist_Base
 	DropItem "GrenadeAmmo" 32
 	DropItem "HappyBundle" 32
 	PainChance "ChokeEM", 255
-	DamageFactor "ChokeEM", 2.0	
+	DamageFactor "ChokeEM", 2.0
 	States
 	{
 	Forget:
@@ -561,7 +561,7 @@ ACTOR Apocalyptic_NeoCvltist : NeoCvltist_Base 19001
 	Death.ChokeEM:
 		WPOS G 1 A_UnSetSolid
 		WPOS G 1 A_SpawnItemEx("PossesedApocalypticNeoCultist",0,0,0,0)
-		Stop		
+		Stop
 	}
 }
 
@@ -721,7 +721,7 @@ ACTOR NeoCvltist : NeoCvltist_Base 19003
 	Death.ChokeEM:
 		YPOS G 1 A_UnSetSolid
 		YPOS G 1 A_SpawnItemEx("PossesedNeoCultist",0,0,0,0)
-		Stop			
+		Stop
 	}
 }
 

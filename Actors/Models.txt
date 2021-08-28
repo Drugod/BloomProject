@@ -886,7 +886,7 @@ ACTOR WallBrok6 : WallBrok1 18350
 	Scale 1.0
 	Mass 1000
 	+NOGRAVITY
-	-SOLID		
+	-SOLID
 }
 
 ACTOR WallBrok7 : WallBrok1 18351
@@ -897,7 +897,7 @@ ACTOR WallBrok7 : WallBrok1 18351
 	Scale 1.0
 	Mass 1000
 	+NOGRAVITY
-	-SOLID	
+	-SOLID
 }
 
 

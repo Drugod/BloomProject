@@ -402,10 +402,10 @@ ACTOR Frostgun_ : BlooMW 19076
 		FRSF C  1 A_FireCustomMissile("FrostPlasma",0,1,0,0)
 		TNT1 A  0 A_Quake(2,6,0,100)
 		FRSF C  1 A_FireCustomMissile("FrostPlasma",0,1,0,0)
-		TNT1 A  0 A_Quake(2,6,0,100)		
+		TNT1 A  0 A_Quake(2,6,0,100)
 		FRSF DEFGHIJ 1
 		FRSR AAAABBBBCCCCDDDDEEEEFFFFGGGGHHIIJJKKLL 1
-		FRSF A 5 A_ReFire
+		FRST A 5 A_ReFire
 		Goto Ready
 	TossGrenade:
 		TNT1 A 0

@@ -219,6 +219,12 @@ Brightmap sprite FROPB0 {map "Brightmaps/FROPB0.png"}
 Brightmap sprite FROPC0 {map "Brightmaps/FROPC0.png"}
 Brightmap sprite FROPD0 {map "Brightmaps/FROPD0.png"}
 Brightmap sprite FROSA0 {map "Brightmaps/FROSA0.png"}
+Brightmap sprite FRSFA0 {map "Brightmaps/FRSFA0.png"}
+Brightmap sprite FRSFB0 {map "Brightmaps/FRSFB0.png"}
+Brightmap sprite FRSFC0 {map "Brightmaps/FRSFC0.png"}
+Brightmap sprite FRSFD0 {map "Brightmaps/FRSFD0.png"}
+Brightmap sprite FRSFE0 {map "Brightmaps/FRSFE0.png"}
+Brightmap sprite FRSFF0 {map "Brightmaps/FRSFF0.png"}
 Brightmap sprite FRSRE0 {map "Brightmaps/FRSRE0.png"}
 Brightmap sprite FRSRF0 {map "Brightmaps/FRSRF0.png"}
 Brightmap sprite FRSRG0 {map "Brightmaps/FRSRG0.png"}
@@ -232,6 +238,12 @@ Brightmap sprite FRSTB0 {map "Brightmaps/FRSTB0.png"}
 Brightmap sprite FRSTC0 {map "Brightmaps/FRSTC0.png"}
 Brightmap sprite FRSTD0 {map "Brightmaps/FRSTD0.png"}
 Brightmap sprite FRSTE0 {map "Brightmaps/FRSTE0.png"}
+Brightmap sprite FRSTF0 {map "Brightmaps/FRSTF0.png"}
+Brightmap sprite FRSTG0 {map "Brightmaps/FRSTG0.png"}
+Brightmap sprite FRSTH0 {map "Brightmaps/FRSTH0.png"}
+Brightmap sprite FRSTI0 {map "Brightmaps/FRSTI0.png"}
+Brightmap sprite FRSTJ0 {map "Brightmaps/FRSTJ0.png"}
+Brightmap Texture "Models/Bloom/Frostgun.jpg"		{ Map "Brightmaps/models/FROSTGUN.png" }
 
 //Players
 Brightmap sprite CALBA1		{map "Brightmaps/CALBA1.png"}

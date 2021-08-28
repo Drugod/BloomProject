@@ -18,7 +18,7 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 	DropItem "HappyBundle" 32
 	DamageFactor "Fire",2
 	PainChance "ChokeEM", 255
-	DamageFactor "ChokeEM", 2.0		
+	DamageFactor "ChokeEM", 2.0
 	States
 	{
 	Spawn:
@@ -53,7 +53,7 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 	Death.ChokeEM:
 		POSS G 1 A_UnSetSolid
 		POSS G 1 A_SpawnItemEx("PossesedZombieMan",0,0,0,0)
-		Stop			
+		Stop
 	XDeath:
 		POSS M 5
 		TNT1 A 0 A_SpawnDebris ("EyeGuts")
@@ -161,7 +161,7 @@ ACTOR ShotgunGuy_ : DoomEnemy_Base 18999
 	DropItem "GrenadeAmmo" 32
 	DropItem "HappyBundle" 32
 	PainChance "ChokeEM", 255
-	DamageFactor "ChokeEM", 2.0	
+	DamageFactor "ChokeEM", 2.0
 	States
 	{
 	Spawn:
@@ -185,7 +185,7 @@ ACTOR ShotgunGuy_ : DoomEnemy_Base 18999
 	Death.ChokeEM:
 		SPOS G 1 A_UnSetSolid
 		SPOS G 1 A_SpawnItemEx("PossesedShotgunguy",0,0,0,0)
-		Stop		
+		Stop
 	Pain:
 		SPOS G 3
 		SPOS G 3 A_Pain

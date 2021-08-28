@@ -3,7 +3,7 @@ ACTOR Moron 3241
 {
     //$Category "BlooM Monsters"
 	//$Title Moron, Friendly
-	//$Color 3	
+	//$Color 3
 	Health 80
 	Radius 14
 	Height 56
@@ -330,7 +330,7 @@ ACTOR AberrationMoron2 : Moron
 	}
 }
 
-ACTOR AberrationMoron3 : Moron 
+ACTOR AberrationMoron3 : Moron
 {
 	//$Title Moron, Aberration 3
 	+COUNTKILL
@@ -492,7 +492,7 @@ ACTOR AberrationMoron3 : Moron
 	}
 }
 
-ACTOR AberrationMoron4 : Moron 
+ACTOR AberrationMoron4 : Moron
 {
 	//$Title Moron, Aberration 4
 	+COUNTKILL
@@ -579,7 +579,7 @@ ACTOR AberrationMoron4 : Moron
 	}
 }
 
-ACTOR AberrationMoron5 : Moron 
+ACTOR AberrationMoron5 : Moron
 {
 	//$Title Moron, Aberration 5
 	Health 300
@@ -761,7 +761,7 @@ ACTOR MoronSpawner 19081
 {
     //$Category "BlooM Monsters"
 	//$Title Moron Aberration Spawner
-	//$Color 3	
+	//$Color 3
 	+NOTDMATCH
 	-COUNTKILL
 	States
@@ -792,7 +792,7 @@ ACTOR ----------Explosive_Morons---------- {}
 ACTOR ExplosiveMoron_Base
 {
     //$Category "BlooM Monsters"
-	//$Color 3		
+	//$Color 3
 	Health 20
 	Radius 14
 	Height 56
@@ -875,7 +875,7 @@ ACTOR ExplosiveMoron_Base
 	}
 }
 
-ACTOR ExplosiveMoron : ExplosiveMoron_Base 
+ACTOR ExplosiveMoron : ExplosiveMoron_Base
 {
 	//$Title Explosive Moron 1, Friendly
 	States
@@ -913,7 +913,7 @@ ACTOR ExplosiveMoron : ExplosiveMoron_Base
 	}
 }
 
-ACTOR ExplosiveMoron2 : ExplosiveMoron_Base 
+ACTOR ExplosiveMoron2 : ExplosiveMoron_Base
 {
 	//$Title Explosive Moron 2, Friendly
 	States
@@ -937,10 +937,10 @@ ACTOR ExplosiveMoron2 : ExplosiveMoron_Base
 	Death:
 		TNT1 A 0 A_Explode
 		TNT1 A 0 A_SpawnItem("Kaboom",0,-15+random(-2,2))
-		TNT1 A 0 A_CustomMissile("FloorKaboom",0,0,0)		
+		TNT1 A 0 A_CustomMissile("FloorKaboom",0,0,0)
 		BARM I 5 Bright A_Scream
 		BARM J 5 Bright A_Fall
-		BARM K 5 Bright	
+		BARM K 5 Bright
 		Goto Death.Sequence1
 	Death.End:
 		BARM L 5 Bright
@@ -954,7 +954,7 @@ ACTOR ExplosiveMoron2 : ExplosiveMoron_Base
 	}
 }
 
-ACTOR ExplosiveMoron3 : ExplosiveMoron_Base 
+ACTOR ExplosiveMoron3 : ExplosiveMoron_Base
 {
 	//$Title Explosive Moron 3, Friendly
 	States
@@ -982,18 +982,18 @@ ACTOR ExplosiveMoron3 : ExplosiveMoron_Base
 		//metal pieces flying
 		TNT1 A 0 A_CustomMissile("ArmourPiece_1",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))
 		TNT1 A 0 A_CustomMissile("ArmourPiece_2",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))
-		TNT1 A 0 A_CustomMissile("ArmourPiece_2",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))		
+		TNT1 A 0 A_CustomMissile("ArmourPiece_2",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))
 		TNT1 A 0 A_CustomMissile("ArmourPiece_4",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))
 		TNT1 A 0 A_CustomMissile("ArmourPiece_5",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))
 		TNT1 A 0 A_CustomMissile("ArmourPiece_6",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))
 		TNT1 A 0 A_CustomMissile("ArmourPiece_7",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))
 		TNT1 A 0 A_CustomMissile("ArmourPiece_8",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))
-		TNT1 A 0 A_CustomMissile("ArmourPiece_8",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))	
+		TNT1 A 0 A_CustomMissile("ArmourPiece_8",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))
 		//Resurrection fog
 		TNT1 A 0 A_SpawnItemEx("GreenFloorfog",frandom(45.0,75.0),frandom(45.0,75.0),Height,0,0,0,frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("GreenFloorfog",frandom(-45.0,-75.0),frandom(45.0,75.0),Height,0,0,0,frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("GreenFloorfog",frandom(-45.0,-75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnItemEx("GreenFloorfog",frandom(45.0,75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx("GreenFloorfog",frandom(45.0,75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))
 		//Blood zombie inside the barrel
 		TNT1 AAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 A 0 A_SpawnDebris("OrganDebris2")
@@ -1003,7 +1003,7 @@ ACTOR ExplosiveMoron3 : ExplosiveMoron_Base
 		TNT1 A 0 A_SpawnItemEx("Entrails",frandom(-50,50),frandom(-50,50),0)
 		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
 		TNT1 AAAAAAA 0 A_SpawnItemEx("Blood_",frandom(-20,20),frandom(-20,20),frandom(-20,20),frandom(0,15),frandom(0,15),frandom(0,15),frandom(0,360),0,120)
-		BARM K 5 Bright	
+		BARM K 5 Bright
 		Goto Death.Sequence1
 	Death.End:
 		BARM L 5 Bright
@@ -1015,19 +1015,19 @@ ACTOR ExplosiveMoron3 : ExplosiveMoron_Base
 		TNT1 A 0 A_SpawnItemEx("GreenFogGhoulsZombies",frandom(45.0,75.0),frandom(45.0,75.0),Height,0,0,0,frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("GreenFogGhoulsZombies",frandom(-45.0,-75.0),frandom(45.0,75.0),Height,0,0,0,frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("GreenFogGhoulsZombies",frandom(-45.0,-75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnItemEx("GreenFogGhoulsZombies",frandom(45.0,75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))	
+		TNT1 A 0 A_SpawnItemEx("GreenFogGhoulsZombies",frandom(45.0,75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))
 		Stop
 		MLEI ABCDEFGHI 3
 		TNT1 A 0 A_SpawnItemEx("GreenFogGhoulsZombies",frandom(45.0,75.0),frandom(45.0,75.0),Height,0,0,0,frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("GreenFogGhoulsZombies",frandom(-45.0,-75.0),frandom(45.0,75.0),Height,0,0,0,frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("GreenFogGhoulsZombies",frandom(-45.0,-75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))
-		TNT1 A 0 A_SpawnItemEx("GreenFogGhoulsZombies",frandom(45.0,75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))			
+		TNT1 A 0 A_SpawnItemEx("GreenFogGhoulsZombies",frandom(45.0,75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))
 		MLEI I -1
 		Stop
 	}
 }
 
-ACTOR ExplosiveMoron4 : ExplosiveMoron_Base 
+ACTOR ExplosiveMoron4 : ExplosiveMoron_Base
 {
 	//$Title Explosive Moron 4, Friendly
 	States
@@ -1051,7 +1051,7 @@ ACTOR ExplosiveMoron4 : ExplosiveMoron_Base
 	Death:
 		TNT1 A 0 A_Explode
 		TNT1 A 0 A_SpawnItem("Kaboom",0,-15+random(-2,2))
-		TNT1 A 0 A_CustomMissile("FloorKaboom",0,0,0)		
+		TNT1 A 0 A_CustomMissile("FloorKaboom",0,0,0)
 		BARM I 5 Bright A_Scream
 		BARM J 5 Bright A_Fall
 		BARM K 5 Bright
@@ -1072,7 +1072,7 @@ ACTOR ExplosiveMoronSpawner 19088
 {
     //$Category "BlooM Monsters"
 	//$Title Explosive Moron Spawner
-	//$Color 3		
+	//$Color 3
 	+NOTDMATCH
 	-COUNTKILL
 	States
@@ -1120,7 +1120,7 @@ ACTOR RevenantMoron 19096
 {
 	  //$Category "BlooM Monsters"
 	  //$Title Revenant Moron
-	  //$Color 3		  
+	  //$Color 3
 	  Health 300
 	  Radius 20
 	  Height 56
@@ -1134,7 +1134,7 @@ ACTOR RevenantMoron 19096
 	  SeeSound "Moron/Cry1"
 	  DeathSound "Moron/Crying"
 	  ActiveSound "Moron/GoAway"
-	  PainSound "Moron/Scream"	  
+	  PainSound "Moron/Scream"
 	  HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
 	  Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
 	  States
@@ -1181,7 +1181,7 @@ ACTOR RevenantMoronAlt 19097
 {
 	  //$Category "BlooM Monsters"
 	  //$Title Revenant Moron Alternative
-	  //$Color 3		  
+	  //$Color 3
 	  Health 300
 	  Radius 20
 	  Height 56
@@ -1195,7 +1195,7 @@ ACTOR RevenantMoronAlt 19097
 	  SeeSound "Moron/Cry1"
 	  DeathSound "Moron/Crying"
 	  ActiveSound "Moron/GoAway"
-	  PainSound "Moron/Scream"	  
+	  PainSound "Moron/Scream"
 	  HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
 	  Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
 	  States
@@ -1242,7 +1242,7 @@ ACTOR RevenantMoronAlt2 19098
 {
 	  //$Category "BlooM Monsters"
 	  //$Title Revenant Moron Alternative 2
-	  //$Color 3		  
+	  //$Color 3
 	  Health 300
 	  Radius 20
 	  Height 56
@@ -1256,7 +1256,7 @@ ACTOR RevenantMoronAlt2 19098
 	  SeeSound "Moron/Cry1"
 	  DeathSound "Moron/Crying"
 	  ActiveSound "Moron/GoAway"
-	  PainSound "Moron/Scream"	  
+	  PainSound "Moron/Scream"
 	  HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
 	  Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
 	  States

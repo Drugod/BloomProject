@@ -1396,7 +1396,7 @@ ACTOR Belial 3245
 ACTOR GhostGenerator : SwitchableDecoration 3403
 {
 	//$Category "BlooM Eastereggs"
-	//$Title Ghost generator switchable	
+	//$Title Ghost generator switchable
 	Scale 0.5
 	Height 100
 	Radius 20
@@ -1412,7 +1412,7 @@ ACTOR GhostGenerator : SwitchableDecoration 3403
 	States
 	{
 	Spawn:
-	Active:	
+	Active:
 		MOBS AAA 4
 		Wait
 	Inactive:

@@ -17,7 +17,7 @@ ACTOR HangCorpseSpawner : RandomSpawner 3252
 	DropItem "HanginDeadChick3"
 	DropItem "HangingExBaron"
 	DropItem "HangingExHybrinBaron"
-	
+
 }
 
 ACTOR HangSkeletonSpawner : RandomSpawner 3282

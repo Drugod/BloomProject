@@ -559,7 +559,7 @@ ACTOR TeslaChargeBox : TeslaCharge 20082
 }
 
 ACTOR ------ESSENCEPOWER--------- {}
-ACTOR EssencePower : Ammo 12004 // 17
+ACTOR EssencePower : Ammo 12004
 {
 	//$Category "Blood Ammunitions"
 	Tag "Essence Power"
@@ -571,7 +571,7 @@ ACTOR EssencePower : Ammo 12004 // 17
 	+INVENTORY.IGNORESKILL
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.Amount 12
-	Inventory.MaxAmount 100// Not 120
+	Inventory.MaxAmount 100
 	Inventory.PickupMessage "$ESSENCE"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Icon "ESSEA0"

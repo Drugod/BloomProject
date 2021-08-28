@@ -35,11 +35,11 @@ ACTOR Medikit_ : Health replaces Medikit
 	}
 }
 
-ACTOR TechPillar_ replaces TechPillar 
+ACTOR TechPillar_ replaces TechPillar
 {
 	//$Category "BlooM Ambient"
 	//$Title Doom Tech Pillar
-	//$Sprite ELECF0	
+	//$Sprite ELECF0
 	Radius 16
 	Height 128
 	ProjectilePassHeight -16
@@ -55,22 +55,22 @@ ACTOR TechPillar_ replaces TechPillar
 		Stop
 	Spawn2:
 		ELEC B -1
-		Stop	
+		Stop
 	Spawn3:
 		ELEC C -1
-		Stop	
+		Stop
 	Spawn4:
 		ELEC D -1
-		Stop	
+		Stop
 	Spawn5:
 		ELEC E -1
-		Stop	
+		Stop
 	Spawn6:
 		ELEC F -1
-		Stop			
+		Stop
 	Spawn7:
 		ELEC H -1
-		Stop			
+		Stop
 	}
 }
 
@@ -78,7 +78,7 @@ ACTOR Double_TechPillar_ : TechPillar_ 18352
 {
 	//$Category "BlooM Ambient"
 	//$Title Doom Double Tech Pillar
-	//$Sprite ELECG0		
+	//$Sprite ELECG0
 	Radius 16
 	Height 128
 	ProjectilePassHeight -16
@@ -91,13 +91,13 @@ ACTOR Double_TechPillar_ : TechPillar_ 18352
 		Stop
 	Spawn1:
 		ELEC G -1
-		Stop			
+		Stop
 	Spawn2:
 		ELEC I -1
-		Stop			
+		Stop
 	Spawn3:
 		ELEC J -1
-		Stop					
+		Stop
 	}
 }
 

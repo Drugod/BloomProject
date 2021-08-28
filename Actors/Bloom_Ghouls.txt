@@ -2158,7 +2158,7 @@ ACTOR GhoulsZombies: BuriedGhoul2 19036
 	}
 }
 
-ACTOR GreenFogGhoulsZombies: GhoulsZombies 
+ACTOR GreenFogGhoulsZombies: GhoulsZombies
 {
 	States
 	{

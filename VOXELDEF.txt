@@ -103,6 +103,9 @@ SHELA = "SHELA" {Scale = 0.19 DroppedSpin = 25}
 AGASA="AGASA" {}
 AGASB="AGASB" {}
 FROPA="FROPA" {Scale = 0.45}
+FROPB="FROPA" {Scale = 0.45}
+FROPC="FROPA" {Scale = 0.45}
+FROPD="FROPA" {Scale = 0.45}
 FROSA="FROSA" {Spin = 50}
 PMAWA="PMAWA" {Spin = 50}
-//TEDWA="TEDWA" {Spin = 50}
+//TEDWA="TEDWA" {Spin = 50} //TeslaCannon_

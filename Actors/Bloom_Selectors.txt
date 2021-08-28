@@ -65,7 +65,7 @@ ACTOR HybridShotgunSpawner
 		Stop
 	Spawn5:
 		TNT1 A 0 A_SpawnItemEx("PossesedShotgunguy",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop	
+		Stop
 	Spawn6:
 		TNT1 A 0 A_SpawnItemEx("PossesedNeoCultist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
@@ -572,7 +572,7 @@ ACTOR HybridGhostandRevenants
 		Stop
 	Spawn4:
 		TNT1 A 0 A_SpawnItemEx("RevenantMimeSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop				
+		Stop
 	}
 }
 
@@ -834,7 +834,7 @@ ACTOR BaronofHellHybrid
 		Stop
 	Spawn3:
 		TNT1 A 0 A_SpawnItemEx("Zombarons",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
 	}
 }
 
@@ -1020,7 +1020,7 @@ ACTOR TheHellButchersHybrid
 		Stop
 	Spawn3:
 		TNT1 A 0 A_SpawnItemEx("HoundKnightOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
 	}
 }
 
@@ -1297,7 +1297,7 @@ ACTOR --------BARRELS------------ {}
 ACTOR HybridBarrels replaces ExplosiveBarrel
 {
     //$Category "Monsters Selectors"
-    //$Title Hybrid Barrels 
+    //$Title Hybrid Barrels
     //$Color 3
 	//$Sprite BARMA1
 	Scale 0.5 //needed for gzdb - ozy81
@@ -1334,13 +1334,13 @@ ACTOR OriginalBarrelsSpawner
 		Stop
 	Spawn2:
 		TNT1 A 0 A_SpawnItemEx("BloodExBarrel",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
 	Spawn3:
 		TNT1 A 0 A_SpawnItemEx("TNTBarrel1",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn4:
 		TNT1 A 0 A_SpawnItemEx("ExplosiveBarrel_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop			
+		Stop
 	}
 }
 
@@ -1357,13 +1357,13 @@ ACTOR HybridBarrelsSpawner
 		Stop
 	Spawn2:
 		TNT1 A 0 A_SpawnItemEx("BloodExBarrel",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
 	Spawn3:
 		TNT1 A 0 A_SpawnItemEx("TNTBarrel1",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn4:
 		TNT1 A 0 A_SpawnItemEx("ExplosiveBarrel_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
 	}
 }
 
@@ -1428,10 +1428,10 @@ ACTOR HybridBoss1Spawner
 		Stop
 	Spawn2:
 		TNT1 A 0 A_SpawnItemEx("Cyberbog",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
 	Spawn3:
 		TNT1 A 0 A_SpawnItemEx("Tchernodemon",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
 	}
 }
 
