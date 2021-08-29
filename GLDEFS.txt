@@ -1431,6 +1431,16 @@ Object CacodemonBall
     frame BAL2H { light CACOBALL_X6 }
 }
 
+Object PinkGargBall
+{
+    frame SRBLA { light CACOBALL }
+    frame SRBLB { light CACOBALL }
+
+    frame SRBLC { light CACOBALL_X1 }
+    frame SRBLD { light CACOBALL_X2 }
+    frame SRBLE { light CACOBALL_X3 }
+}
+
 // Baron / Hell Knight fireball
 PointLight BARONBALL
 {

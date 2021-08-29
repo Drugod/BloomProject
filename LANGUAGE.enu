@@ -241,6 +241,7 @@ OB_SPEHOU = "%o was eaten by a SpectreHound.";
 OB_JOJO = "%o laughed at his diet, Jojo laughs at his funeral";
 OB_SLOTH = "%o has died laughing";
 OB_ROMTRON = "%o is happy to have been killed by the almighty Romertron";
+OB_PINKGARG = "%o gets killed by a Pink Gargoyle's dead breath ;(";
 
 //OBITUARIES - MISC
 OB_BBARL = "%o went boom.";

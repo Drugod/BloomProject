@@ -406,7 +406,7 @@ ACTOR PinkGargoyle : BloomHybrid_Base 19135
 	  PainSound "demon/pain"
 	  DeathSound "demon/death"
 	  ActiveSound "demon/active"
-	  Obituary "$OB_DEMONHIT" // "%o was bit by a demon."
+	  Obituary "$OB_PINKGARG"
 	  States
 	  {
 	  Spawn:
@@ -417,7 +417,7 @@ ACTOR PinkGargoyle : BloomHybrid_Base 19135
 		Loop
 	  Missile:
 		SARF DE 5 A_FaceTarget
-		SARF F 3 Bright A_CustomComboAttack("CacodemonBall", 28, 10 * random(1, 6))
+		SARF F 3 Bright A_CustomComboAttack("PinkGargBall", 28, 10 * random(1, 6))
 		SARF G 2
 		Goto See
 	  Pain:
@@ -437,4 +437,18 @@ ACTOR PinkGargoyle : BloomHybrid_Base 19135
 		SARF MLKJI 8
 		Goto See
 	  }
+}
+
+ACTOR PinkGargBall: CacodemonBall
+{
+  Scale 0.6
+  States
+  {
+  Spawn:
+    SRBL AB 4 Bright
+    Loop
+  Death:
+    SRBL CDE 6 Bright
+   Stop
+  }
 }
