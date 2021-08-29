@@ -466,3 +466,53 @@ ACTOR IceBramble : HellroseBramble
 		Stop
 	}
 }
+
+ACTOR Romerotron : BloomHybrid_Base 19137
+{
+	//$Title Romerotron
+    Health 500
+    Radius 64
+    Height 88
+    Mass 600
+    Speed 36
+    PainChance 128
+    Monster
+    +FLOORCLIP
+    +BOSSDEATH
+	+JUMPDOWN
+    SeeSound "baby/sight"
+    PainSound "baby/pain"
+    DeathSound "baby/death"
+    ActiveSound "baby/active"
+	AttackSound "chainguy/attack"	
+	Obituary "$OB_ROMTRON"
+	States
+	{
+	Spawn:
+		RSPI A 5 A_Look
+		Loop
+	See:
+		RSPI A 20
+		RSPI A 3 A_BabyMetal
+		RSPI ABBCC 3 A_Chase
+		RSPI D 3 A_BabyMetal
+		RSPI DEE 3 A_Chase
+		Goto See+1
+	Missile:
+		RSPI G 10 A_FaceTarget
+		RSPI HG 4 BRIGHT A_CposAttack
+		RSPI H 1 A_MonsterRefire(128,"see")
+		Goto Missile+1
+	Pain:
+		RSPI I 3
+		RSPI I 3 A_Pain
+		Goto See
+	XDeath:
+	Death:
+		RSPI J 20 A_Scream
+		RSPI K 7 A_NoBlocking
+		RSPI LMNOP 7 A_KillChildren
+		RSPI P -1 A_BossDeath
+		Stop
+	}
+}
