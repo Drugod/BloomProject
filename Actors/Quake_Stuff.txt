@@ -1,7 +1,7 @@
 //3d bosses
 Actor ChtonBloom 3405
 {
-	//$Category "Quake Stuff "
+	//$Category "Quake Stuff"
 	//$Title Chton
 	//$Color 13
 	Height 128
@@ -106,7 +106,7 @@ ACTOR Lavaball
 
 ACTOR FlameQuake 3406
 {
-	//$Category "Quake Stuff "
+	//$Category "Quake Stuff"
 	//$Title Flame Torch
 	//$Color 13
 	Radius 8
@@ -123,10 +123,10 @@ ACTOR FlameQuake 3406
 	}
 }
 
-ACTOR QuakeColums 3407
+ACTOR QuakeColumns 3407
 {
-	//$Category "Quake Stuff "
-	//$Title Colums Of Chton
+	//$Category "Quake Stuff"
+	//$Title Columns Of Chton
 	//$Color 13
 	Radius 11
 	Height 8
@@ -142,7 +142,7 @@ ACTOR QuakeColums 3407
 
 ACTOR RuneQuake : CustomInventory 3408
 {
-	//$Category "Quake Stuff "
+	//$Category "Quake Stuff"
 	//$Title Rune
 	//$Color 13
 	Inventory.PickupMessage "$DIVESUIT"
@@ -156,7 +156,7 @@ ACTOR RuneQuake : CustomInventory 3408
 	{
 	Spawn:
 		TNT1 A 0
-		UNKN  A -1 BRIGHT
+		UNKN A -1 BRIGHT
 		Stop
 	Use:
 		UNKN A 1 BRIGHT

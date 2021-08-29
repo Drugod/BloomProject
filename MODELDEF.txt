@@ -4046,7 +4046,7 @@ Model Lavaball
    Scale 1.0 1.0 1.0
 } 
 
-Model QuakeColums
+Model QuakeColumns
 {
    Path "Models\Quake"
    Model 0 "Quake.md2"
