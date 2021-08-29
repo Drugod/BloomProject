@@ -213,6 +213,41 @@ Brightmap sprite ZIPPH0 {map "Brightmaps/ZIPPH0.png"}
 Brightmap sprite ZIPPI0 {map "Brightmaps/ZIPPI0.png"}
 Brightmap sprite ZIPPJ0 {map "Brightmaps/ZIPPJ0.png"}
 
+//Flamethrower
+Brightmap sprite PMAAB0 {map "Brightmaps/PMAAB0.png"}
+Brightmap sprite PMAAC0 {map "Brightmaps/PMAAC0.png"}
+Brightmap sprite PMAAD0 {map "Brightmaps/PMAAD0.png"}
+Brightmap sprite PMAAE0 {map "Brightmaps/PMAAE0.png"}
+Brightmap sprite PMAAF0 {map "Brightmaps/PMAAF0.png"}
+Brightmap sprite PMAAG0 {map "Brightmaps/PMAAG0.png"}
+Brightmap sprite PMAAH0 {map "Brightmaps/PMAAH0.png"}
+Brightmap sprite PMACA0 {map "Brightmaps/PMACA0.png"}
+Brightmap sprite PMACB0 {map "Brightmaps/PMACB0.png"}
+Brightmap sprite PMACC0 {map "Brightmaps/PMACC0.png"}
+Brightmap sprite PMACD0 {map "Brightmaps/PMACD0.png"}
+Brightmap sprite PMACE0 {map "Brightmaps/PMACE0.png"}
+Brightmap sprite PMCCA0 {map "Brightmaps/PMCCA0.png"}
+Brightmap sprite PMCCB0 {map "Brightmaps/PMCCB0.png"}
+Brightmap sprite PMCCC0 {map "Brightmaps/PMCCC0.png"}
+Brightmap sprite PMCCD0 {map "Brightmaps/PMCCD0.png"}
+Brightmap sprite PMCCE0 {map "Brightmaps/PMCCE0.png"}
+Brightmap sprite PMCCF0 {map "Brightmaps/PMCCF0.png"}
+Brightmap sprite PMCCG0 {map "Brightmaps/PMCCG0.png"}
+Brightmap sprite PMCCH0 {map "Brightmaps/PMCCH0.png"}
+Brightmap sprite PMCCI0 {map "Brightmaps/PMCCI0.png"}
+Brightmap sprite PMCCJ0 {map "Brightmaps/PMCCJ0.png"}
+Brightmap sprite PMCCK0 {map "Brightmaps/PMCCK0.png"}
+Brightmap sprite PMCCL0 {map "Brightmaps/PMCCL0.png"}
+Brightmap sprite PMCCM0 {map "Brightmaps/PMCCM0.png"}
+Brightmap sprite PMCCN0 {map "Brightmaps/PMCCN0.png"}
+Brightmap sprite PMCRA0 {map "Brightmaps/PMCRA0.png"}
+Brightmap sprite PMCRB0 {map "Brightmaps/PMCRB0.png"}
+Brightmap sprite PMCRD0 {map "Brightmaps/PMCRD0.png"}
+Brightmap sprite PMCRE0 {map "Brightmaps/PMCRE0.png"}
+Brightmap sprite PMCRF0 {map "Brightmaps/PMCRF0.png"}
+Brightmap sprite PMCRG0 {map "Brightmaps/PMCRG0.png"}
+Brightmap sprite PMCRH0 {map "Brightmaps/PMCRH0.png"}
+
 //Frostgun
 Brightmap sprite FROPA0 {map "Brightmaps/FROPA0.png"}
 Brightmap sprite FROPB0 {map "Brightmaps/FROPB0.png"}

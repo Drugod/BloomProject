@@ -3,12 +3,13 @@ For Rolls, models which needs to be added:
 - add crouch frames for Caleb and swimming frames for both classes
 - add pickup sprites for GrenadeBox plus voxel and 3d model
 - add swimming frames and underwater attack frames to Doom humans enemies
+- add voxel for TeslaCannon
 
 For All:
 - add dropitem new ammo for flamethrower (fire cultimp) and the flamerthrower (mancubus/hybrids)
 - fix Doomguy skin palette
 - fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff
-- fix HUD statusbar for gzdoom 4+
+- fix HUD statusbar for gzdoom 4+, or use GZDoom 3.7.2
 - fix TERRAIN defs, lots of sounds needs to be defined and included
 - polish overall code
 - reduce size of models skins, 1000x1000 is very engine intensive, 512x512 should be okay... We must figure how to not break quality though
@@ -29,7 +30,9 @@ Zandro test required:
 Reminder for actors behaviour:
 - All bodies which fall over skies should fade immediately
 - Bats, spiders and rats shouldn't be able to swim underwater
-- BatSouls also shouldn't be able to swim (the actor doesn't exist yet)
 - Creatures which are able to jump shouldn't swim as well, beside RatDemons
 - Jumping creatures and little ones such as spiders or rats should die immediately over skies (GargoDemon, RatDemons, SpiderMother too)
 - Some randomizers like to spawn enemies in the void or in the sky, noticeable on BLM01 sometimes
+
+Minor things:
+- Test BlooM under GLesZDoom
