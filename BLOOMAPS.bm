@@ -325,6 +325,26 @@ Brightmap sprite TEDOG0 {map "Brightmaps/TEDOG0.png"}
 Brightmap sprite TEDOH0 {map "Brightmaps/TEDOH0.png"}
 Brightmap sprite TEDOI0 {map "Brightmaps/TEDOI0.png"}
 Brightmap sprite TEDOJ0 {map "Brightmaps/TEDOJ0.png"}
+Brightmap sprite TEMEC0 {map "Brightmaps/TEMEC0.png"}
+Brightmap sprite TEMED0 {map "Brightmaps/TEMED0.png"}
+Brightmap sprite TEMEE0 {map "Brightmaps/TEMEE0.png"}
+Brightmap sprite TEMEF0 {map "Brightmaps/TEMEF0.png"}
+Brightmap sprite TEMEG0 {map "Brightmaps/TEMEG0.png"}
+Brightmap sprite TEMEH0 {map "Brightmaps/TEMEH0.png"}
+Brightmap sprite TEMEI0 {map "Brightmaps/TEMEI0.png"}
+Brightmap sprite TEMEJ0 {map "Brightmaps/TEMEJ0.png"}
+Brightmap sprite TEMEK0 {map "Brightmaps/TEMEK0.png"}
+Brightmap sprite TEMEL0 {map "Brightmaps/TEMEL0.png"}
+Brightmap sprite TEMFC0 {map "Brightmaps/TEMFC0.png"}
+Brightmap sprite TEMFD0 {map "Brightmaps/TEMFD0.png"}
+Brightmap sprite TEMFE0 {map "Brightmaps/TEMFE0.png"}
+Brightmap sprite TEMFF0 {map "Brightmaps/TEMFF0.png"}
+Brightmap sprite TEMFG0 {map "Brightmaps/TEMFG0.png"}
+Brightmap sprite TEMFH0 {map "Brightmaps/TEMFH0.png"}
+Brightmap sprite TEMFI0 {map "Brightmaps/TEMFI0.png"}
+Brightmap sprite TEMFJ0 {map "Brightmaps/TEMFJ0.png"}
+Brightmap sprite TEMFK0 {map "Brightmaps/TEMFK0.png"}
+Brightmap sprite TEMFL0 {map "Brightmaps/TEMFL0.png"}
 
 //Players
 Brightmap sprite CALBA1		{map "Brightmaps/CALBA1.png"}
