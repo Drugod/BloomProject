@@ -249,6 +249,7 @@ Brightmap sprite PMCRG0 {map "Brightmaps/PMCRG0.png"}
 Brightmap sprite PMCRH0 {map "Brightmaps/PMCRH0.png"}
 
 //Frostgun
+Brightmap Texture "Models/Bloom/Frostgun.jpg"	{ Map "Brightmaps/models/FROSTGUN.png" }
 Brightmap sprite FROPA0 {map "Brightmaps/FROPA0.png"}
 Brightmap sprite FROPB0 {map "Brightmaps/FROPB0.png"}
 Brightmap sprite FROPC0 {map "Brightmaps/FROPC0.png"}
@@ -278,7 +279,19 @@ Brightmap sprite FRSTG0 {map "Brightmaps/FRSTG0.png"}
 Brightmap sprite FRSTH0 {map "Brightmaps/FRSTH0.png"}
 Brightmap sprite FRSTI0 {map "Brightmaps/FRSTI0.png"}
 Brightmap sprite FRSTJ0 {map "Brightmaps/FRSTJ0.png"}
-Brightmap Texture "Models/Bloom/Frostgun.jpg"		{ Map "Brightmaps/models/FROSTGUN.png" }
+
+//TeslaCannon
+Brightmap sprite TEDMA0 {map "Brightmaps/TEDMA0.png"}
+Brightmap sprite TEDMB0 {map "Brightmaps/TEDMB0.png"}
+Brightmap sprite TEDMC0 {map "Brightmaps/TEDMC0.png"}
+Brightmap sprite TEDMD0 {map "Brightmaps/TEDMD0.png"}
+Brightmap sprite TEDME0 {map "Brightmaps/TEDME0.png"}
+Brightmap sprite TEDMF0 {map "Brightmaps/TEDMF0.png"}
+Brightmap sprite TEDMG0 {map "Brightmaps/TEDMG0.png"}
+Brightmap sprite TEDMH0 {map "Brightmaps/TEDMH0.png"}
+Brightmap sprite TEDMI0 {map "Brightmaps/TEDMI0.png"}
+Brightmap sprite TEDMJ0 {map "Brightmaps/TEDMJ0.png"}
+Brightmap sprite TEDMK0 {map "Brightmaps/TEDMK0.png"}
 
 //Players
 Brightmap sprite CALBA1		{map "Brightmaps/CALBA1.png"}
