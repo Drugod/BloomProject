@@ -213,6 +213,28 @@ Brightmap sprite ZIPPH0 {map "Brightmaps/ZIPPH0.png"}
 Brightmap sprite ZIPPI0 {map "Brightmaps/ZIPPI0.png"}
 Brightmap sprite ZIPPJ0 {map "Brightmaps/ZIPPJ0.png"}
 
+//LifeLeech
+Brightmap sprite LLS2C0 {map "Brightmaps/LLS2C0.png"}
+Brightmap sprite LLS2G0 {map "Brightmaps/LLS2G0.png"}
+Brightmap sprite LLSAC0 {map "Brightmaps/LLSAC0.png"}
+Brightmap sprite LLSTC0 {map "Brightmaps/LLSTC0.png"}
+Brightmap sprite LLSTD0 {map "Brightmaps/LLSTD0.png"}
+Brightmap sprite LLSTG0 {map "Brightmaps/LLSTG0.png"}
+Brightmap sprite LLSTK0 {map "Brightmaps/LLSTK0.png"}
+Brightmap sprite LLSTL0 {map "Brightmaps/LLSTL0.png"}
+Brightmap sprite LLSTM0 {map "Brightmaps/LLSTM0.png"}
+Brightmap sprite LLSTN0 {map "Brightmaps/LLSTN0.png"}
+Brightmap sprite LLSTP0 {map "Brightmaps/LLSTP0.png"}
+Brightmap sprite LLSTQ0 {map "Brightmaps/LLSTQ0.png"}
+Brightmap sprite LLSTR0 {map "Brightmaps/LLSTR0.png"}
+Brightmap sprite LLSTS0 {map "Brightmaps/LLSTS0.png"}
+Brightmap sprite LLSTT0 {map "Brightmaps/LLSTT0.png"}
+Brightmap sprite LLSTU0 {map "Brightmaps/LLSTU0.png"}
+Brightmap sprite LLSTW0 {map "Brightmaps/LLSTW0.png"}
+Brightmap sprite LLSTX0 {map "Brightmaps/LLSTX0.png"}
+Brightmap sprite LLSTY0 {map "Brightmaps/LLSTY0.png"}
+Brightmap sprite LLSTZ0 {map "Brightmaps/LLSTZ0.png"}
+
 //Flamethrower
 Brightmap sprite PMAAB0 {map "Brightmaps/PMAAB0.png"}
 Brightmap sprite PMAAC0 {map "Brightmaps/PMAAC0.png"}
