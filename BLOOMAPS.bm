@@ -837,6 +837,19 @@ Brightmap sprite BESWE8E2 	{map "Brightmaps/BESWE8E2.png"}
 Brightmap sprite BESWF1 	{map "Brightmaps/BESWF1.png"}
 Brightmap sprite BESWF7F3 	{map "Brightmaps/BESWF7F3.png"}
 Brightmap sprite BESWF8F2 	{map "Brightmaps/BESWF8F2.png"}
+//For morphed players
+Brightmap sprite XESCA1 	{map "Brightmaps/XESCA1.png"}
+Brightmap sprite XESCA7A3 	{map "Brightmaps/XESCA7A3.png"}
+Brightmap sprite XESCA8A2 	{map "Brightmaps/XESCA8A2.png"}
+Brightmap sprite XESCB1 	{map "Brightmaps/XESCB1.png"}
+Brightmap sprite XESCB7B3 	{map "Brightmaps/XESCB7B3.png"}
+Brightmap sprite XESCB8B2 	{map "Brightmaps/XESCB8B2.png"}
+Brightmap sprite XESCC1 	{map "Brightmaps/XESCC1.png"}
+Brightmap sprite XESCC7C3 	{map "Brightmaps/XESCC7C3.png"}
+Brightmap sprite XESCC8C2 	{map "Brightmaps/XESCC8C2.png"}
+Brightmap sprite XESCD1 	{map "Brightmaps/XESCD1.png"}
+Brightmap sprite XESCD7D3 	{map "Brightmaps/XESCD7D3.png"}
+Brightmap sprite XESCD8D2 	{map "Brightmaps/XESCD8D2.png"}
 
 //Cerberus
 Brightmap sprite CERBA1		{map "Brightmaps/CERBA1.png"}
@@ -1794,6 +1807,43 @@ Brightmap sprite RAWBB0C0	{map "Brightmaps/RABBB0C0.png"}
 Brightmap sprite RATND0		{map "Brightmaps/RATND0.png"}
 Brightmap sprite RATNE0		{map "Brightmaps/RATNE0.png"}
 Brightmap sprite RATNF0		{map "Brightmaps/RATNF0.png"}
+
+//Pink Gargoyle
+Brightmap sprite SARFA1 	{map "Brightmaps/SARFA1.png"}
+Brightmap sprite SARFA2A8 	{map "Brightmaps/SARFA2A8.png"}
+Brightmap sprite SARFA3A7 	{map "Brightmaps/SARFA3A7.png"}
+Brightmap sprite SARFB1 	{map "Brightmaps/SARFB1.png"}
+Brightmap sprite SARFB2B8 	{map "Brightmaps/SARFB2B8.png"}
+Brightmap sprite SARFB3B7 	{map "Brightmaps/SARFB3B7.png"}
+Brightmap sprite SARFC1 	{map "Brightmaps/SARFC1.png"}
+Brightmap sprite SARFC2C8 	{map "Brightmaps/SARFC2C8.png"}
+Brightmap sprite SARFC3C7 	{map "Brightmaps/SARFC3C7.png"}
+Brightmap sprite SARFD1 	{map "Brightmaps/SARFD1.png"}
+Brightmap sprite SARFD2D8 	{map "Brightmaps/SARFD2D8.png"}
+Brightmap sprite SARFD3D7 	{map "Brightmaps/SARFD3D7.png"}
+Brightmap sprite SARFE1 	{map "Brightmaps/SARFE1.png"}
+Brightmap sprite SARFE2E8 	{map "Brightmaps/SARFE2E8.png"}
+Brightmap sprite SARFE3E7 	{map "Brightmaps/SARFE3E7.png"}
+Brightmap sprite SARFF1 	{map "Brightmaps/SARFF1.png"}
+Brightmap sprite SARFF2F8 	{map "Brightmaps/SARFF2F8.png"}
+Brightmap sprite SARFF3F7 	{map "Brightmaps/SARFF3F7.png"}
+Brightmap sprite SARFG1 	{map "Brightmaps/SARFG1.png"}
+Brightmap sprite SARFG2G8 	{map "Brightmaps/SARFG2G8.png"}
+Brightmap sprite SARFG3G7 	{map "Brightmaps/SARFG3G7.png"}
+Brightmap sprite SARFG4G6 	{map "Brightmaps/SARFG4G6.png"}
+Brightmap sprite SARFG5 	{map "Brightmaps/SARFG5.png"}
+Brightmap sprite SARFH1 	{map "Brightmaps/SARFH1.png"}
+Brightmap sprite SARFH2H8 	{map "Brightmaps/SARFH2H8.png"}
+Brightmap sprite SARFH3H7 	{map "Brightmaps/SARFH3H7.png"}
+Brightmap sprite SARFH4H6 	{map "Brightmaps/SARFH4H6.png"}
+Brightmap sprite SARFI0 	{map "Brightmaps/SARFI0.png"}
+
+//Shotgun Monk
+Brightmap sprite MONKH1		{map "Brightmaps/MONKH1.png"}
+Brightmap sprite MONKH2H8	{map "Brightmaps/MONKH2H8.png"}
+Brightmap sprite MONKH3H7	{map "Brightmaps/MONKH3H7.png"}
+Brightmap sprite MONKH4H6	{map "Brightmaps/MONKH4H6.png"}
+Brightmap sprite MONKH5		{map "Brightmaps/MONKH5.png"}
 
 //Attacks
 Brightmap sprite BARFA1		{map "Brightmaps/BARFA1.png"}

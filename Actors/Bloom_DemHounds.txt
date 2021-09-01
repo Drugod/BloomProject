@@ -410,7 +410,7 @@ ACTOR PinkGargoyle : BloomHybrid_Base 19135
 	States
 	{
 	Spawn:
-		SARF AABBCCBB 3  A_Look
+		SARF AABBCCBB 3 A_Look
 		Loop
 	See:
 		SARF AABBCCBB 3 A_Chase
@@ -441,19 +441,5 @@ ACTOR PinkGargoyle : BloomHybrid_Base 19135
 		SARF N 8 A_UnSetFloorClip
 		SARF MLKJI 8
 		Goto See
-	}
-}
-
-ACTOR PinkGargBall: CacodemonBall
-{
-	Scale 0.6
-	States
-	{
-	Spawn:
-		SRBL AB 4 Bright
-		Loop
-	Death:
-		SRBL CDE 6 Bright
-		Stop
 	}
 }

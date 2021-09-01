@@ -131,7 +131,7 @@ ACTOR Fanatic_ChaingunnerAlt : BloomHybrid_Base 19046
 		BUOS AABBCCDD 3 A_Chase
 		Loop
 	Melee:
-		BUOK A 10 A_Facetarget
+		BUOK A 10 A_FaceTarget
 		BUOK BC 4 A_SkelFist
 		Goto See
 	Missile:
@@ -142,7 +142,7 @@ ACTOR Fanatic_ChaingunnerAlt : BloomHybrid_Base 19046
 		TNT1 A 0 A_Jump(32,"See")
 		Goto Missile+2
 	Axe:
-		BUOK A 10 A_Facetarget
+		BUOK A 10 A_FaceTarget
 		BUOK BC 4 A_CustomMissile ("Cleaver",30,7,0,1,0)
 		Goto See
 	Pain:

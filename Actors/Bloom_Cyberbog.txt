@@ -33,7 +33,7 @@ ACTOR Cyberbog
 	TNT1 A 0 A_JumpIfCloser(300, "Stomp")
     Loop
   Stomp:
-	TNT1 A 0 A_Facetarget
+	TNT1 A 0 A_FaceTarget
 	BOGS AB 2 A_Playsound("BeastStomp")
 	BOGS CD 2 A_SpawnItemEx("BeastStomp")
 	BOGS EFGH 4

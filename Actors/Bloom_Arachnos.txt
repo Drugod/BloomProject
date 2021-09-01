@@ -167,11 +167,11 @@ ACTOR GreenArachnoBramble : HellroseBramble
 		TNT1 A 0 A_SetSolid
 		Goto See2
 	See2:
-		TNT1 A 0 A_Facetarget
+		TNT1 A 0 A_FaceTarget
 		GVIN ABCDEFGHIJKL 8 A_Chase
 		Goto See2
 	Melee:
-		GVIN AB 4 A_Facetarget
+		GVIN AB 4 A_FaceTarget
 		GVIN C 4 A_MeleeAttack
 		GVIN DEF 4
 		Goto See2
@@ -310,16 +310,16 @@ ACTOR MagmaBramble : HellroseBramble
 		TNT1 A 0 A_SetSolid
 		Goto See2
 	See2:
-		TNT1 A 0 A_Facetarget
+		TNT1 A 0 A_FaceTarget
 		LVIN ABCDEFGHIJKL 8 A_Chase
 		Goto See2
 	Melee:
-		LVIN AB 4 A_Facetarget
+		LVIN AB 4 A_FaceTarget
 		LVIN C 4 A_MeleeAttack
 		LVIN DEF 4
 		Goto See2
 	Missile:
-		LVIN GF 4 A_Facetarget
+		LVIN GF 4 A_FaceTarget
 		LVIN E 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
 		LVIN FG 4
 		Goto See2
@@ -438,19 +438,19 @@ ACTOR IceBramble : HellroseBramble
 		TNT1 A 0 A_SetSolid
 		Goto See2
 	See2:
-		TNT1 A 0 A_Facetarget
+		TNT1 A 0 A_FaceTarget
 		GVIN ABCDEFGHIJKL 8 A_Chase
 		Goto See2
 	Melee:
-		GVIN AB 4 A_Facetarget
+		GVIN AB 4 A_FaceTarget
 		GVIN C 4 A_MeleeAttack
 		GVIN DEF 4
 		Goto See2
 	Missile:
-		GVIN GF 4 A_Facetarget
+		GVIN GF 4 A_FaceTarget
 		GVIN E 4 A_CustomMissile("BrambleFX", 38)
 		GVIN FG 4
-		GVIN GF 4 A_Facetarget
+		GVIN GF 4 A_FaceTarget
 		GVIN E 4 A_CustomMissile("BrambleFX", 38)
 		GVIN FG 4
 		Goto See2
