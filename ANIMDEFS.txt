@@ -1,3 +1,12 @@
+flat XTEX0740
+    pic XTEX0740 rand 6 6
+	pic XTEX0741 rand 6 6
+	pic XTEX0742 rand 6 6
+	pic XTEX0743 rand 6 6
+	pic XTEX0744 rand 6 6
+	pic XTEX0745 rand 6 6
+	pic XTEX0746 rand 6 6
+
 flat NUKAGE1
     pic FHDS01 rand 2 2
 	pic FHDS02 rand 2 2
@@ -1395,3 +1404,10 @@ warp2 flat XTEX0646
 warp2 flat XTEX0647
 warp2 flat XTEX0650
 warp2 flat XTEX0750
+warp2 flat XTEX0740 
+warp2 flat XTEX0741 
+warp2 flat XTEX0742 
+warp2 flat XTEX0743 
+warp2 flat XTEX0744 
+warp2 flat XTEX0745
+warp2 flat XTEX0746  
