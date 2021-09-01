@@ -720,11 +720,11 @@ ACTOR ArachnoidHybrid
 	}
 }
 
-ACTOR --------CVLTIMPS_ZOMBIMPS_SELECTOR------------ {}
-ACTOR TheCvltimpZombimps replaces DoomImp
+ACTOR --------CVLTIMPS_ZombImpS_SELECTOR------------ {}
+ACTOR TheCvltimpZombImps replaces DoomImp
 {
     //$Category "Monsters Selectors"
-    //$Title The Cvltimps and Zombimps
+    //$Title The Cvltimps and ZombImps
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL
@@ -775,7 +775,7 @@ ACTOR Cvltimphybrid
 		TNT1 A 0 A_SpawnItemEx("CvltimpAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("Zombimps",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("ZombImps",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn4:
 		TNT1 A 0 A_SpawnItemEx("DeepOneTri",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)

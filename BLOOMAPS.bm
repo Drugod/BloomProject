@@ -1265,6 +1265,33 @@ Brightmap sprite TRSWJ3J7	{map "Brightmaps/TRSWJ3J7.png"}
 Brightmap sprite TRSWJ4J6	{map "Brightmaps/TRSWJ4J6.png"}
 Brightmap sprite TRSWJ5		{map "Brightmaps/TRSWJ5.png"}
 
+//Ghouls
+Brightmap sprite GH12C1		{map "Brightmaps/GH12C1.png"}
+Brightmap sprite GH12C2C8	{map "Brightmaps/GH12C2C8.png"}
+Brightmap sprite GH12C3C7	{map "Brightmaps/GH12C3C7.png"}
+Brightmap sprite GH12C4C6	{map "Brightmaps/GH12C4C6.png"}
+Brightmap sprite GH12C5		{map "Brightmaps/GH12C5.png"}
+Brightmap sprite GH22C1		{map "Brightmaps/GH22C1.png"}
+Brightmap sprite GH22C2C8	{map "Brightmaps/GH22C2C8.png"}
+Brightmap sprite GH22C3C7	{map "Brightmaps/GH22C3C7.png"}
+Brightmap sprite GH22C4C6	{map "Brightmaps/GH22C4C6.png"}
+Brightmap sprite GH22C5		{map "Brightmaps/GH22C5.png"}
+Brightmap sprite GH32C1		{map "Brightmaps/GH32C1.png"}
+Brightmap sprite GH32C2C8	{map "Brightmaps/GH32C2C8.png"}
+Brightmap sprite GH32C3C7	{map "Brightmaps/GH32C3C7.png"}
+Brightmap sprite GH32C4C6	{map "Brightmaps/GH32C4C6.png"}
+Brightmap sprite GH32C5		{map "Brightmaps/GH32C5.png"}
+Brightmap sprite GH42C1		{map "Brightmaps/GH42C1.png"}
+Brightmap sprite GH42C2C8	{map "Brightmaps/GH42C2C8.png"}
+Brightmap sprite GH42C3C7	{map "Brightmaps/GH42C3C7.png"}
+Brightmap sprite GH42C4C6	{map "Brightmaps/GH42C4C6.png"}
+Brightmap sprite GH42C5		{map "Brightmaps/GH42C5.png"}
+Brightmap sprite GH52C1		{map "Brightmaps/GH52C1.png"}
+Brightmap sprite GH52C2C8	{map "Brightmaps/GH52C2C8.png"}
+Brightmap sprite GH52C3C7	{map "Brightmaps/GH52C3C7.png"}
+Brightmap sprite GH52C4C6	{map "Brightmaps/GH52C4C6.png"}
+Brightmap sprite GH52C5		{map "Brightmaps/GH52C5.png"}
+
 //HellHound
 Brightmap sprite HOUNA1		{map "Brightmaps/HOUNA1.png"}
 Brightmap sprite HOUNA7A3	{map "Brightmaps/HOUNA7A3.png"}
@@ -1844,6 +1871,38 @@ Brightmap sprite MONKH2H8	{map "Brightmaps/MONKH2H8.png"}
 Brightmap sprite MONKH3H7	{map "Brightmaps/MONKH3H7.png"}
 Brightmap sprite MONKH4H6	{map "Brightmaps/MONKH4H6.png"}
 Brightmap sprite MONKH5		{map "Brightmaps/MONKH5.png"}
+
+//ZombImps
+Brightmap sprite OUT2E0		{map "Brightmaps/OUT2E0.png"}
+Brightmap sprite OUT2F0		{map "Brightmaps/OUT2F0.png"}
+Brightmap sprite OUT2G0		{map "Brightmaps/OUT2G0.png"}
+Brightmap sprite OUT2H0		{map "Brightmaps/OUT2H0.png"}
+Brightmap sprite OUT2I0		{map "Brightmaps/OUT2I0.png"}
+Brightmap sprite OUT2J0		{map "Brightmaps/OUT2J0.png"}
+Brightmap sprite OUT3E0		{map "Brightmaps/OUT3E0.png"}
+Brightmap sprite OUT3F0		{map "Brightmaps/OUT3F0.png"}
+Brightmap sprite OUT3G0		{map "Brightmaps/OUT3G0.png"}
+Brightmap sprite OUT3H0		{map "Brightmaps/OUT3H0.png"}
+Brightmap sprite OUT3I0		{map "Brightmaps/OUT3I0.png"}
+Brightmap sprite OUT3J0		{map "Brightmaps/OUT3J0.png"}
+Brightmap sprite OUT4E0		{map "Brightmaps/OUT4E0.png"}
+Brightmap sprite OUT4F0		{map "Brightmaps/OUT4F0.png"}
+Brightmap sprite OUT4G0		{map "Brightmaps/OUT4G0.png"}
+Brightmap sprite OUT4H0		{map "Brightmaps/OUT4H0.png"}
+Brightmap sprite OUT4I0		{map "Brightmaps/OUT4I0.png"}
+Brightmap sprite OUT4J0		{map "Brightmaps/OUT4J0.png"}
+Brightmap sprite OUT5E0		{map "Brightmaps/OUT5E0.png"}
+Brightmap sprite OUT5F0		{map "Brightmaps/OUT5F0.png"}
+Brightmap sprite OUT5G0		{map "Brightmaps/OUT5G0.png"}
+Brightmap sprite OUT5H0		{map "Brightmaps/OUT5H0.png"}
+Brightmap sprite OUT5I0		{map "Brightmaps/OUT5I0.png"}
+Brightmap sprite OUT5J0		{map "Brightmaps/OUT5J0.png"}
+Brightmap sprite OUTAE0		{map "Brightmaps/OUTAE0.png"}
+Brightmap sprite OUTAF0		{map "Brightmaps/OUTAF0.png"}
+Brightmap sprite OUTAG0		{map "Brightmaps/OUTAG0.png"}
+Brightmap sprite OUTAH0		{map "Brightmaps/OUTAH0.png"}
+Brightmap sprite OUTAI0		{map "Brightmaps/OUTAI0.png"}
+Brightmap sprite OUTAJ0		{map "Brightmaps/OUTAJ0.png"}
 
 //Attacks
 Brightmap sprite BARFA1		{map "Brightmaps/BARFA1.png"}

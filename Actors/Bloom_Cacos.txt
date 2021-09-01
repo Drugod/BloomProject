@@ -265,7 +265,7 @@ ACTOR CacoyleBall2 : CacoyleBall
 		ZHE2 ABCDEFGHIJKLMNOP 8
 		Loop
 	Death:
-		ZHE2 A 1 A_ThrowGrenade("KickableFlyingZombimp2",-30,-20,0,0)
+		ZHE2 A 1 A_ThrowGrenade("KickableFlyingZombImp2",-30,-20,0,0)
 		Stop
 	XDeath:
 		ZHE2 B 1
@@ -284,7 +284,7 @@ ACTOR CacoyleBall3 : CacoyleBall
 		ZHE3 ABCDEFGHIJKLMNOP 8
 		Loop
 	Death:
-		ZHE3 A 1 A_ThrowGrenade("KickableFlyingZombimp3",-30,-20,0,0)
+		ZHE3 A 1 A_ThrowGrenade("KickableFlyingZombImp3",-30,-20,0,0)
 		Stop
 	XDeath:
 		ZHE3 B 1
@@ -303,7 +303,7 @@ ACTOR CacoyleBall4 : CacoyleBall
 		ZHE4 ABCDEFGHIJKLMNOP 8
 		Loop
 	Death:
-		ZHE4 A 1 A_ThrowGrenade("KickableFlyingZombimp4",-30,-20,0,0)
+		ZHE4 A 1 A_ThrowGrenade("KickableFlyingZombImp4",-30,-20,0,0)
 		Stop
 	XDeath:
 		ZHE4 B 1

@@ -300,7 +300,7 @@ ACTOR KickableHead
 	}
 }
 
-ACTOR ZombimpHead1 : ZombieHead
+ACTOR ZombImpHead1 : ZombieHead
 {
 	Health 5
 	Radius 8
@@ -391,7 +391,7 @@ ACTOR ZombimpHead1 : ZombieHead
 	}
 }
 
-ACTOR KickableFlyingZombimp1: ZombimpHead1
+ACTOR KickableFlyingZombImp1: ZombImpHead1
 {
 	Damage(5)
 	Gravity 0.87
@@ -440,7 +440,7 @@ ACTOR KickableFlyingZombimp1: ZombimpHead1
 	Death:
 		ZHE1 AA 1
 		ZHE1 A 2
-		TNT1 A 0 A_SpawnItemEX("KickableHeadZombimp1")
+		TNT1 A 0 A_SpawnItemEX("KickableHeadZombImp1")
 	Boom:
 		ZHE1 A 1
 		ZHE1 AAAAAA 0 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
@@ -448,7 +448,7 @@ ACTOR KickableFlyingZombimp1: ZombimpHead1
 	}
 }
 
-ACTOR KickableHeadZombimp1
+ACTOR KickableHeadZombImp1
 {
 	Health 5
 	Mass 15
@@ -506,7 +506,7 @@ ACTOR KickableHeadZombimp1
 		ZHE1 A 0 A_PlaySound("DSHEDKCK")
 		ZHE1 A 0 A_FaceTarget
 		ZHE1 A 0 A_SetAngle(angle+90)
-		ZHE1 A 0 A_SpawnItemEX("KickableFlyingZombimp1",0,0,6,0,frandom(9,28),frandom(5,15))
+		ZHE1 A 0 A_SpawnItemEX("KickableFlyingZombImp1",0,0,6,0,frandom(9,28),frandom(5,15))
 		Stop
 	Death.PitchFork:
 	Death.Melee:
@@ -516,7 +516,7 @@ ACTOR KickableHeadZombimp1
 		ZHE1 A 0 A_PlaySound("DSHEDKCK")
 		ZHE1 A 0 A_FaceTarget
 		ZHE1 A 0 A_SetAngle(angle+90)
-		ZHE1 A 0 A_SpawnItemEX("KickableFlyingZombimp1",0,0,6,0,frandom(9,28),frandom(5,15))
+		ZHE1 A 0 A_SpawnItemEX("KickableFlyingZombImp1",0,0,6,0,frandom(9,28),frandom(5,15))
 		Stop
 	Death:
 		ZHE1 B 1
@@ -527,7 +527,7 @@ ACTOR KickableHeadZombimp1
 	}
 }
 
-ACTOR ZombimpHead2
+ACTOR ZombImpHead2
 {
 	Health 5
 	Radius 8
@@ -618,7 +618,7 @@ ACTOR ZombimpHead2
 	}
 }
 
-ACTOR KickableFlyingZombimp2: ZombimpHead2
+ACTOR KickableFlyingZombImp2: ZombImpHead2
 {
 	Damage(5)
 	Gravity 0.87
@@ -667,7 +667,7 @@ ACTOR KickableFlyingZombimp2: ZombimpHead2
 	Death:
 		ZHE2 AA 1
 		ZHE2 A 2
-		TNT1 A 0 A_SpawnItemEX("KickableHeadZombimp2")
+		TNT1 A 0 A_SpawnItemEX("KickableHeadZombImp2")
 		Stop
 	Boom:
 		ZHE2 A 1
@@ -676,7 +676,7 @@ ACTOR KickableFlyingZombimp2: ZombimpHead2
 	}
 }
 
-ACTOR KickableHeadZombimp2
+ACTOR KickableHeadZombImp2
 {
 	Health 5
 	Mass 15
@@ -735,7 +735,7 @@ ACTOR KickableHeadZombimp2
 		ZHE2 A 0 A_PlaySound("DSHEDKCK")
 		ZHE2 A 0 A_FaceTarget
 		ZHE2 A 0 A_SetAngle(angle+90)
-		ZHE2 A 0 A_SpawnItemEX("KickableFlyingZombimp2",0,0,6,0,frandom(9,28),frandom(5,15))
+		ZHE2 A 0 A_SpawnItemEX("KickableFlyingZombImp2",0,0,6,0,frandom(9,28),frandom(5,15))
 		Stop
 	Death.PitchFork:
 	Death.Melee:
@@ -745,7 +745,7 @@ ACTOR KickableHeadZombimp2
 		ZHE2 A 0 A_PlaySound("DSHEDKCK")
 		ZHE2 A 0 A_FaceTarget
 		ZHE2 A 0 A_SetAngle(angle+90)
-		ZHE2 A 0 A_SpawnItemEX("KickableFlyingZombimp2",0,0,6,0,frandom(9,28),frandom(5,15))
+		ZHE2 A 0 A_SpawnItemEX("KickableFlyingZombImp2",0,0,6,0,frandom(9,28),frandom(5,15))
 		Stop
 	Death:
 		ZHE2 B 1
@@ -756,7 +756,7 @@ ACTOR KickableHeadZombimp2
 	}
 }
 
-ACTOR ZombimpHead3
+ACTOR ZombImpHead3
 {
 	Health 5
 	Radius 8
@@ -847,7 +847,7 @@ ACTOR ZombimpHead3
 	}
 }
 
-ACTOR KickableFlyingZombimp3: ZombimpHead3
+ACTOR KickableFlyingZombImp3: ZombImpHead3
 {
 	Damage(5)
 	Gravity 0.87
@@ -895,7 +895,7 @@ ACTOR KickableFlyingZombimp3: ZombimpHead3
 	Death:
 		ZHE3 AA 1
 		ZHE3 A 2
-		TNT1 A 0 A_SpawnItemEX("KickableHeadZombimp3")
+		TNT1 A 0 A_SpawnItemEX("KickableHeadZombImp3")
 	Boom:
 		ZHE3 A 1
 		ZHE3 AAAAAA 0 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
@@ -903,7 +903,7 @@ ACTOR KickableFlyingZombimp3: ZombimpHead3
 	}
 }
 
-ACTOR KickableHeadZombimp3
+ACTOR KickableHeadZombImp3
 {
 	Health 5
 	Mass 15
@@ -962,7 +962,7 @@ ACTOR KickableHeadZombimp3
 		ZHE3 A 0 A_PlaySound("DSHEDKCK")
 		ZHE3 A 0 A_FaceTarget
 		ZHE3 A 0 A_SetAngle(angle+90)
-		ZHE3 A 0 A_SpawnItemEX("KickableFlyingZombimp3",0,0,6,0,frandom(9,28),frandom(5,15))
+		ZHE3 A 0 A_SpawnItemEX("KickableFlyingZombImp3",0,0,6,0,frandom(9,28),frandom(5,15))
 		Stop
 	Death.PitchFork:
 	Death.Melee:
@@ -972,7 +972,7 @@ ACTOR KickableHeadZombimp3
 		ZHE3 A 0 A_PlaySound("DSHEDKCK")
 		ZHE3 A 0 A_FaceTarget
 		ZHE3 A 0 A_SetAngle(angle+90)
-		ZHE3 A 0 A_SpawnItemEX("KickableFlyingZombimp3",0,0,6,0,frandom(9,28),frandom(5,15))
+		ZHE3 A 0 A_SpawnItemEX("KickableFlyingZombImp3",0,0,6,0,frandom(9,28),frandom(5,15))
 		Stop
 	Death:
 		ZHE3 B 1
@@ -983,7 +983,7 @@ ACTOR KickableHeadZombimp3
 	}
 }
 
-ACTOR ZombimpHead4
+ACTOR ZombImpHead4
 {
 	Health 5
 	Radius 8
@@ -1074,7 +1074,7 @@ ACTOR ZombimpHead4
 	}
 }
 
-ACTOR KickableFlyingZombimp4: ZombimpHead4
+ACTOR KickableFlyingZombImp4: ZombImpHead4
 {
 	Damage(5)
 	Gravity 0.87
@@ -1123,7 +1123,7 @@ ACTOR KickableFlyingZombimp4: ZombimpHead4
 	Death:
 		ZHE4 AA 1
 		ZHE4 A 2
-		TNT1 A 0 A_SpawnItemEX("KickableHeadZombimp4")
+		TNT1 A 0 A_SpawnItemEX("KickableHeadZombImp4")
 	Boom:
 		ZHE4 A 1
 		ZHE4 AAAAAA 0 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
@@ -1131,7 +1131,7 @@ ACTOR KickableFlyingZombimp4: ZombimpHead4
 	}
 }
 
-ACTOR KickableHeadZombimp4
+ACTOR KickableHeadZombImp4
 {
 	Health 5
 	Mass 15
@@ -1190,7 +1190,7 @@ ACTOR KickableHeadZombimp4
 		ZHE4 A 0 A_PlaySound("DSHEDKCK")
 		ZHE4 A 0 A_FaceTarget
 		ZHE4 A 0 A_SetAngle(angle+90)
-		ZHE4 A 0 A_SpawnItemEX("KickableFlyingZombimp4",0,0,6,0,frandom(9,28),frandom(5,15))
+		ZHE4 A 0 A_SpawnItemEX("KickableFlyingZombImp4",0,0,6,0,frandom(9,28),frandom(5,15))
 		Stop
 	Death.PitchFork:
 	Death.Melee:
@@ -1200,7 +1200,7 @@ ACTOR KickableHeadZombimp4
 		ZHE4 A 0 A_PlaySound("DSHEDKCK")
 		ZHE4 A 0 A_FaceTarget
 		ZHE4 A 0 A_SetAngle(angle+90)
-		ZHE4 A 0 A_SpawnItemEX("KickableFlyingZombimp4",0,0,6,0,frandom(9,28),frandom(5,15))
+		ZHE4 A 0 A_SpawnItemEX("KickableFlyingZombImp4",0,0,6,0,frandom(9,28),frandom(5,15))
 		Stop
 	Death:
 		ZHE4 B 1

@@ -122,7 +122,7 @@ ACTOR Ghoul1 : Ghoul_Base
 		TNT1 A 0 A_Jump(128,5)
 		GH12 B 45 A_FaceTarget
 		TNT1 A 0 A_FaceTarget
-		GH12 C 10 BRIGHT A_CustomMissile("FlareGhoul", 48, 0, 0, CMF_AIMDIRECTION|CMF_CHECKTARGETDEAD)
+		GH12 C 10 A_CustomMissile("FlareGhoul", 48, 0, 0, CMF_AIMDIRECTION|CMF_CHECKTARGETDEAD)
 		GH12 B 10
 		TNT1 A 0 A_ChangeFlag("DROPOFF",1)
 		TNT1 A 0 A_GiveInventory("AlreadyFlare",1)
@@ -468,7 +468,7 @@ ACTOR Ghoul2 : Ghoul_Base
 		TNT1 A 0 A_Jump(128,5)
 		GH22 B 45 A_FaceTarget
 		TNT1 A 0 A_FaceTarget
-		GH22 C 10 BRIGHT A_CustomMissile("FlareGhoul", 48)
+		GH22 C 10 A_CustomMissile("FlareGhoul", 48)
 		GH22 B 10
 		TNT1 A 0 A_ChangeFlag("DROPOFF",1)
 		TNT1 A 0 A_GiveInventory("AlreadyFlare",1)
@@ -856,7 +856,7 @@ ACTOR Ghoul3 : Ghoul_Base
 		TNT1 A 0 A_Jump(128,5)
 		GH32 B 45 A_FaceTarget
 		TNT1 A 0 A_FaceTarget
-		GH32 C 10 BRIGHT A_CustomMissile("FlareGhoul", 48)
+		GH32 C 10 A_CustomMissile("FlareGhoul", 48)
 		GH32 B 10
 		TNT1 A 0 A_ChangeFlag("DROPOFF",1)
 		TNT1 A 0 A_GiveInventory("AlreadyFlare",1)
@@ -1201,7 +1201,7 @@ ACTOR Ghoul4 : Ghoul_Base
 		TNT1 A 0 A_Jump(128,5)
 		GH42 B 45 A_FaceTarget
 		TNT1 A 0 A_FaceTarget
-		GH42 C 10 BRIGHT A_CustomMissile("FlareGhoul", 48)
+		GH42 C 10 A_CustomMissile("FlareGhoul", 48)
 		GH42 B 10
 		TNT1 A 0 A_ChangeFlag("DROPOFF",1)
 		TNT1 A 0 A_GiveInventory("AlreadyFlare",1)
@@ -1546,7 +1546,7 @@ ACTOR Ghoul5: Ghoul_Base
 		TNT1 A 0 A_Jump(128,5)
 		GH52 B 45 A_FaceTarget
 		TNT1 A 0 A_FaceTarget
-		GH52 C 10 BRIGHT A_CustomMissile("FlareGhoul", 48)
+		GH52 C 10 A_CustomMissile("FlareGhoul", 48)
 		GH52 B 10
 		TNT1 A 0 A_ChangeFlag("DROPOFF",1)
 		TNT1 A 0 A_GiveInventory("AlreadyFlare",1)
@@ -2149,10 +2149,10 @@ ACTOR GhoulsZombies: BuriedGhoul2 19036
 	Deciding:
 		TNT1 A 1
 		Loop
-	NoGroundSpawner: //Summon a Randomspawner class for stand up zombimps
+	NoGroundSpawner: //Summon a Randomspawner class for stand up ZombImps
 		TNT1 A 0 A_SpawnItemEx("StandUpGhoulsSpawner",0,0,0,0,0,0,0,BLM_FLAGS1)
 		Stop
-	GroundSpawner: //Summon a Randomspawner class for buried zombimps
+	GroundSpawner: //Summon a Randomspawner class for buried ZombImps
 		TNT1 A 0 A_SpawnItemEx("BuriedGhoulsSpawner",0,0,0,0,0,0,0,BLM_FLAGS1)
 		Stop
 	}
