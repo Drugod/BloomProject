@@ -16,6 +16,7 @@ Brightmap Texture "Models/Traps/m7.jpg"		{ Map "Brightmaps/models/m7.png" }
 Brightmap Texture "Models/Traps/m8.jpg"		{ Map "Brightmaps/models/m8.png" }
 Brightmap Texture "Models/Traps/m9.jpg"		{ Map "Brightmaps/models/m9.png" }
 Brightmap Texture "Models/Traps/m10.jpg"	{ Map "Brightmaps/models/m10.png" }
+Brightmap Texture "Models/Quake/chton.png"		{ Map "Brightmaps/models/CHTON.png" }
 
 //Props
 Brightmap sprite ZESLB0 {map "Brightmaps/ZESLB0.png"}
