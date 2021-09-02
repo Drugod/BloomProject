@@ -89,18 +89,18 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 		TNT1 A 0 A_Jump(128,"BURN2")
 		TNT1 A 0 A_PlaySound ("human/imonfire")
 		TNT1 A 0 A_NoBlocking
-		BURN A 3 BRIGHT A_SpawnDebris ("NapalmDebris")
-		BURN B 3 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BURN C 3 BRIGHT A_Wander
-		BURN D 3 BRIGHT A_NoBlocking
-		BURN E 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BURN FGH 5 BRIGHT A_Wander
-		BURN I 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BURN JKL 5 BRIGHT A_Wander
-		BURN M 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BURN N 5 BRIGHT A_SpawnDebris ("NapalmDebris")
-		BURN OPQPQ 5 BRIGHT A_SpawnDebris ("NapalmDebris")
-		BURN RSTU 7 BRIGHT A_SpawnDebris ("NapalmDebris")
+		BURN A 3 A_SpawnDebris ("NapalmDebris")
+		BURN B 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN C 3 A_Wander
+		BURN D 3 A_NoBlocking
+		BURN E 5 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN FGH 5 A_Wander
+		BURN I 5 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN JKL 5 A_Wander
+		BURN M 5 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN N 5 A_SpawnDebris ("NapalmDebris")
+		BURN OPQPQ 5 A_SpawnDebris ("NapalmDebris")
+		BURN RSTU 7 A_SpawnDebris ("NapalmDebris")
 		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
 		BURN V -1
 		Stop
@@ -108,12 +108,12 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 		TNT1 A 0 A_Jump(200,"BURN3")
 		TNT1 A 0 A_PlaySound ("human/imonfire")
 		TNT1 A 0 A_NoBlocking
-		BUR2 AAAA 5 BRIGHT A_SpawnDebris ("NapalmDebris")
-		BUR2 AAAA 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BUR2 BBBB 5 BRIGHT A_SpawnDebris ("NapalmDebris")
-		BUR2 BBBB 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BUR2 CCCC 3 BRIGHT A_SpawnDebris ("NapalmDebris")
-		BUR2 CCCC 3 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BUR2 AAAA 5 A_SpawnDebris ("NapalmDebris")
+		BUR2 AAAA 5 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BUR2 BBBB 5 A_SpawnDebris ("NapalmDebris")
+		BUR2 BBBB 5 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BUR2 CCCC 3 A_SpawnDebris ("NapalmDebris")
+		BUR2 CCCC 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
 		BUR2 D 8
 		BUR2 E 8
 		BUR2 F 8
@@ -125,12 +125,12 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 	BURN3:
 		TNT1 A 0 A_PlaySound ("human/imonfire")
 		TNT1 A 0 A_NoBlocking
-		BUR3 AAAA 5 BRIGHT A_SpawnDebris ("NapalmDebris")
-		BUR3 AAAA 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BUR3 BBBB 5 BRIGHT A_SpawnDebris ("NapalmDebris")
-		BUR3 BBBB 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BUR3 CCCC 3 BRIGHT A_SpawnDebris ("NapalmDebris")
-		BUR3 CCCC 3 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BUR3 AAAA 5 A_SpawnDebris ("NapalmDebris")
+		BUR3 AAAA 5 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BUR3 BBBB 5 A_SpawnDebris ("NapalmDebris")
+		BUR3 BBBB 5 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BUR3 CCCC 3 A_SpawnDebris ("NapalmDebris")
+		BUR3 CCCC 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
 		BUR3 D 8
 		BUR3 E 8
 		BUR3 F 8
@@ -233,23 +233,23 @@ ACTOR ShotgunGuy_ : DoomEnemy_Base 18999
 		TNT1 A 0 A_SpawnItem("BurnFormerHuman", 0, 7)
 		Stop
 	AltBurn:
-		BURN A 3 BRIGHT A_PlaySound ("human/imonfire")
+		BURN A 3 A_PlaySound ("human/imonfire")
 		TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BURN B 3 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN B 3 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
 		TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BURN C 3 BRIGHT A_Wander
+		BURN C 3 A_Wander
 		TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BURN D 3 BRIGHT A_NoBlocking
+		BURN D 3 A_NoBlocking
 		TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BURN E 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN E 5 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
 		TNT1 A 0 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BURN FGH 5 BRIGHT A_Wander
-		BURN I 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BURN JKL 5 BRIGHT A_Wander
-		BURN M 5 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
-		BURN N 5 BRIGHT A_SpawnDebris ("NapalmDebris")
-		BURN OPQPQ 5 BRIGHT A_SpawnDebris ("NapalmDebris")
-		BURN RSTU 7 BRIGHT A_SpawnDebris ("NapalmDebris")
+		BURN FGH 5 A_Wander
+		BURN I 5 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN JKL 5 A_Wander
+		BURN M 5 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BURN N 5 A_SpawnDebris ("NapalmDebris")
+		BURN OPQPQ 5 A_SpawnDebris ("NapalmDebris")
+		BURN RSTU 7 A_SpawnDebris ("NapalmDebris")
 		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
 		BURN V -1
 		Stop
@@ -364,132 +364,132 @@ ACTOR BurnFormerHuman
     {
     Spawn:
         BRZ3 A 0 A_KillMaster
-        BRZ3 A 3 BRIGHT  A_Look
+        BRZ3 A 3 A_Look
 		BRZ3 A 0 A_PlaySound("human/imonfire",2)
         Goto See
     See:
-		BRZ3 A 0 //A_LoopActiveSound
+		BRZ3 A 0
 		BRZ3 A 0 A_SpawnItem ("BurningAlive")
 		BRZ3 A 0 A_PlaySound("human/imonfire")
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 AAA 1 BRIGHT A_Wander
+		BRZ3 AAA 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
-		BRZ3 A 0 //A_LoopActiveSound
+		BRZ3 A 0
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 BBB 1 BRIGHT A_Wander
+		BRZ3 BBB 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
-		BRZ3 A 0 //A_LoopActiveSound
+		BRZ3 A 0
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 CCC 1 BRIGHT A_Wander
+		BRZ3 CCC 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
-		BRZ3 A 0 //A_LoopActiveSound
+		BRZ3 A 0
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 AAA 1 BRIGHT A_Wander
+		BRZ3 AAA 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
-		BRZ3 A 0 //A_LoopActiveSound
+		BRZ3 A 0
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 BBB 1 BRIGHT A_Wander
+		BRZ3 BBB 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 A 0 A_LoopActiveSound
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 CCC 1 BRIGHT A_Wander
+		BRZ3 CCC 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 A 0 A_LoopActiveSound
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 AAA 1 BRIGHT A_Wander
+		BRZ3 AAA 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 A 0 A_LoopActiveSound
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 BBB 1 BRIGHT A_Wander
+		BRZ3 BBB 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 A 0 A_LoopActiveSound
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 CCC 1 BRIGHT A_Wander
-		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
-		BRZ3 A 0 A_LoopActiveSound
-		BRZ3 A 0 A_SpawnItem ("BurningAlive")
-		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 AAA 1 BRIGHT A_Wander
-		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
-		BRZ3 A 0 A_LoopActiveSound
-		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 BBB 1 BRIGHT A_Wander
-		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
-		BRZ3 A 0 A_LoopActiveSound
-		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 CCC 1 BRIGHT A_Wander
-		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
-		BRZ3 A 0 A_LoopActiveSound
-		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 AAA 1 BRIGHT A_Wander
-		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
-		BRZ3 A 0 A_LoopActiveSound
-		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 BBB 1 BRIGHT A_Wander
-		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
-		BRZ3 A 0 A_LoopActiveSound
-		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 CCC 1 BRIGHT A_Wander
-		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
-		BRZ3 A 0 A_LoopActiveSound
-		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 AAA 1 BRIGHT A_Wander
-		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
-		BRZ3 A 0 A_LoopActiveSound
-		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 BBB 1 BRIGHT A_Wander
+		BRZ3 CCC 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 A 0 A_LoopActiveSound
 		BRZ3 A 0 A_SpawnItem ("BurningAlive")
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 CCC 1 BRIGHT A_Wander
+		BRZ3 AAA 1 A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 BBB 1 A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 CCC 1 A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 AAA 1 A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 BBB 1 A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 CCC 1 A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 AAA 1 A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 BBB 1 A_Wander
+		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
+		BRZ3 A 0 A_LoopActiveSound
+		BRZ3 A 0 A_SpawnItem ("BurningAlive")
+		BRZ3 A 0 A_Explode (4,24,0)
+		BRZ3 CCC 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 A 0 A_LoopActiveSound
 		BRZ3 A 0 A_Jump(128,"See")
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 AAA 1 BRIGHT A_Wander
+		BRZ3 AAA 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 A 0 A_LoopActiveSound
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 BBB 1 BRIGHT A_Wander
+		BRZ3 BBB 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 A 0 A_LoopActiveSound
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 CCC 1 BRIGHT A_Wander
+		BRZ3 CCC 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 A 0 A_LoopActiveSound
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 AAA 1 BRIGHT A_Wander
+		BRZ3 AAA 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 A 0 A_LoopActiveSound
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 BBB 1 BRIGHT A_Wander
+		BRZ3 BBB 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 A 0 A_LoopActiveSound
 		BRZ3 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BRZ3 A 0 A_Explode (4,24,0)
-		BRZ3 CCC 1 BRIGHT A_Wander
+		BRZ3 CCC 1 A_Wander
 		TNT1 A 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 A 0 A_LoopActiveSound
 		BRZ3 A 0 A_SpawnItem ("BurningAlive")
@@ -497,7 +497,7 @@ ACTOR BurnFormerHuman
 		Goto Death
 	Death:
 		TNT1 A 0 A_Scream
-		BRZ3 D 3 BRIGHT A_PlaySound("DSBDYBRN")
+		BRZ3 D 3 A_PlaySound("DSBDYBRN")
 		BRZ3 D 0 A_SpawnDebris("FlyingBlood")
 		BRZ3 D 0 A_SpawnDebris("FlyingBlood")
 		BRZ3 D 0 A_SpawnDebris("FlyingBlood")
@@ -505,7 +505,7 @@ ACTOR BurnFormerHuman
 		BRZ3 D 0 A_SpawnDebris("FlyingBlood")
 		BRZ3 D 0 A_SpawnDebris ("NapalmDebris")
 		BRZ3 D 0 A_Fall
-		BRZ3 DDEEFFGG 4 BRIGHT A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
+		BRZ3 DDEEFFGG 4 A_SpawnItem("BFireTrail",8+random(-5,5),20+random(-5,5))
 		TNT1 A 0 A_StopSound
 		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
 		TNT1 A 0 A_Jump(128,2)
@@ -712,18 +712,18 @@ ACTOR DoomImp_ : DoomEnemy_Base 19030
 	Death.Fire:
 	Burn:
 		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
-		TRBR A 1 BRIGHT A_Wander
+		TRBR A 1 A_Wander
 		TNT1 A 0 A_PlaySound("human/imonfire",2)
 		TNT1 A 0 A_PlaySound("imp/pain",2)
 		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		TRBR B 1 BRIGHT A_Wander
+		TRBR B 1 A_Wander
 		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		TRBR C 1 BRIGHT A_Wander
+		TRBR C 1 A_Wander
 		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		TRBR D 1 BRIGHT A_Wander
+		TRBR D 1 A_Wander
 		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		TNT1 A 0 A_Jump(16,"Burn2")
@@ -814,13 +814,13 @@ ACTOR BaronOfHell_ : DoomEnemy_Base 19041
 	Death.Fire:
 	Burn:
 		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
-		BKR4 A 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BKR4 B 5 BRIGHT A_Scream
-		TNT1 A 0 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BKR4 C 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BKR4 D 5 BRIGHT A_NoBlocking
-		TNT1 A 0 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BKR4 E 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 A 5 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 B 5 A_Scream
+		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 C 5 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 D 5 A_NoBlocking
+		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 E 5 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BKR4 F 5
 		BKR4 G 5
 		BKR4 H 5
@@ -878,13 +878,13 @@ ACTOR HellKnight_ : BaronOfHell_ 19034
 	Death.Fire:
 	Burn:
 		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath") //weird seeing enemies burn while underwater, isn't it? - ozy81
-		BKR4 A 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BKR4 B 5 BRIGHT A_Scream
-		TNT1 A 0 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BKR4 C 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BKR4 D 5 BRIGHT A_NoBlocking
-		TNT1 A 0 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
-		BKR4 E 5 BRIGHT A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 A 5 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 B 5 A_Scream
+		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 C 5 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 D 5 A_NoBlocking
+		TNT1 A 0 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
+		BKR4 E 5 A_SpawnItem ("BFireTrail",random(-50,50),random(0,60),0,0)
 		BKR4 F 5
 		BKR4 G 5
 		BKR4 H 5

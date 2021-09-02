@@ -8,7 +8,7 @@ For Rolls, models which needs to be added:
 For All:
 - add dropitem new ammo for flamethrower (fire cultimp) and the flamerthrower (mancubus/hybrids)
 - fix Doomguy skin palette
-- fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and skullstaff, check other stuff
+- fix GLDEFS for Doom enemies (RevenantTracer, Spidermastermind, others) and LifeLeech, check other stuff
 - fix HUD statusbar for gzdoom 4+, or use GZDoom 3.7.2
 - fix TERRAIN defs, lots of sounds needs to be defined and included
 - polish overall code
@@ -35,4 +35,4 @@ Reminder for actors behaviour:
 - Some randomizers like to spawn enemies in the void or in the sky, noticeable on BLM01 sometimes
 
 Minor things:
-- Test BlooM under GLesZDoom
+- Test BlooM under GLesZDoom, QZDoom and LZDoom

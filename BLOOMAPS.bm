@@ -1,3 +1,5 @@
+//These defs, even simple ones, are defined manually since Zandronum doesn't support properly Auto folders --Ozy81
+
 //Textures
 Brightmap texture BLANIM01 {map "Brightmaps/textures/BLANIM01.png"}
 Brightmap texture BLANIM02 {map "Brightmaps/textures/BLANIM02.png"}
@@ -490,7 +492,56 @@ Brightmap sprite PLYCF5		{map "Brightmaps/PLYCF5.png"}
 
 //Enemies
 
-//Deaths - Burning 1
+//Deaths - Various Burnings
+Brightmap sprite BRZ3A1		{map "Brightmaps/BRZ3A1.png"}
+Brightmap sprite BRZ3A2A8	{map "Brightmaps/BRZ3A2A8.png"}
+Brightmap sprite BRZ3A3A7	{map "Brightmaps/BRZ3A3A7.png"}
+Brightmap sprite BRZ3A4A6	{map "Brightmaps/BRZ3A4A6.png"}
+Brightmap sprite BRZ3A5		{map "Brightmaps/BRZ3A5.png"}
+Brightmap sprite BRZ3B1		{map "Brightmaps/BRZ3B1.png"}
+Brightmap sprite BRZ3B2B8	{map "Brightmaps/BRZ3B2B8.png"}
+Brightmap sprite BRZ3B3B7	{map "Brightmaps/BRZ3B3B7.png"}
+Brightmap sprite BRZ3B4B6	{map "Brightmaps/BRZ3B4B6.png"}
+Brightmap sprite BRZ3B5		{map "Brightmaps/BRZ3B5.png"}
+Brightmap sprite BRZ3C1		{map "Brightmaps/BRZ3C1.png"}
+Brightmap sprite BRZ3C2C8	{map "Brightmaps/BRZ3C2C8.png"}
+Brightmap sprite BRZ3C3C7	{map "Brightmaps/BRZ3C3C7.png"}
+Brightmap sprite BRZ3C4C6	{map "Brightmaps/BRZ3C4C6.png"}
+Brightmap sprite BRZ3C5		{map "Brightmaps/BRZ3C5.png"}
+Brightmap sprite BRZ3D0		{map "Brightmaps/BRZ3D0.png"}
+Brightmap sprite BRZ3E0		{map "Brightmaps/BRZ3E0.png"}
+Brightmap sprite BRZ3F0		{map "Brightmaps/BRZ3F0.png"}
+Brightmap sprite BRZ3G0		{map "Brightmaps/BRZ3G0.png"}
+
+Brightmap sprite BUR2A0		{map "Brightmaps/BUR2A0.png"}
+Brightmap sprite BUR2B0		{map "Brightmaps/BUR2B0.png"}
+Brightmap sprite BUR2C0		{map "Brightmaps/BUR2C0.png"}
+Brightmap sprite BUR3A0		{map "Brightmaps/BUR3A0.png"}
+Brightmap sprite BUR3B0		{map "Brightmaps/BUR3B0.png"}
+Brightmap sprite BUR3C0		{map "Brightmaps/BUR3C0.png"}
+
+Brightmap sprite BURNA0		{map "Brightmaps/BURNA0.png"}
+Brightmap sprite BURNB0		{map "Brightmaps/BURNB0.png"}
+Brightmap sprite BURNC0		{map "Brightmaps/BURNC0.png"}
+Brightmap sprite BURND0		{map "Brightmaps/BURND0.png"}
+Brightmap sprite BURNE0		{map "Brightmaps/BURNE0.png"}
+Brightmap sprite BURNF0		{map "Brightmaps/BURNF0.png"}
+Brightmap sprite BURNG0		{map "Brightmaps/BURNG0.png"}
+Brightmap sprite BURNH0		{map "Brightmaps/BURNH0.png"}
+Brightmap sprite BURNI0		{map "Brightmaps/BURNI0.png"}
+Brightmap sprite BURNJ0		{map "Brightmaps/BURNJ0.png"}
+Brightmap sprite BURNK0		{map "Brightmaps/BURNK0.png"}
+Brightmap sprite BURNL0		{map "Brightmaps/BURNL0.png"}
+Brightmap sprite BURNM0		{map "Brightmaps/BURNM0.png"}
+Brightmap sprite BURNN0		{map "Brightmaps/BURNN0.png"}
+Brightmap sprite BURNO0		{map "Brightmaps/BURNO0.png"}
+Brightmap sprite BURNP0		{map "Brightmaps/BURNP0.png"}
+Brightmap sprite BURNQ0		{map "Brightmaps/BURNQ0.png"}
+Brightmap sprite BURNR0		{map "Brightmaps/BURNR0.png"}
+Brightmap sprite BURNS0		{map "Brightmaps/BURNS0.png"}
+Brightmap sprite BURNT0		{map "Brightmaps/BURNT0.png"}
+Brightmap sprite BURNU0		{map "Brightmaps/BURNU0.png"}
+
 Brightmap sprite FGUYA1 	{map "Brightmaps/FGUYA1.png"}
 Brightmap sprite FGUYA5 	{map "Brightmaps/FGUYA5.png"}
 Brightmap sprite FGUYA6A4 	{map "Brightmaps/FGUYA6A4.png"}
@@ -539,6 +590,40 @@ Brightmap sprite FGUYV0		{map "Brightmaps/FGUYV0.png"}
 Brightmap sprite FGUYW0		{map "Brightmaps/FGUYW0.png"}
 Brightmap sprite FGUYX0		{map "Brightmaps/FGUYX0.png"}
 Brightmap sprite FGUYY0		{map "Brightmaps/FGUYY0.png"}
+
+Brightmap sprite TRBRA1		{map "Brightmaps/TRBRA1.png"}
+Brightmap sprite TRBRA2A8	{map "Brightmaps/TRBRA2A8.png"}
+Brightmap sprite TRBRA3A7	{map "Brightmaps/TRBRA3A7.png"}
+Brightmap sprite TRBRA4A6	{map "Brightmaps/TRBRA4A6.png"}
+Brightmap sprite TRBRA5		{map "Brightmaps/TRBRA5.png"}
+Brightmap sprite TRBRB1		{map "Brightmaps/TRBRB1.png"}
+Brightmap sprite TRBRB2B8	{map "Brightmaps/TRBRB2B8.png"}
+Brightmap sprite TRBRB3B7	{map "Brightmaps/TRBRB3B7.png"}
+Brightmap sprite TRBRB4B6	{map "Brightmaps/TRBRB4B6.png"}
+Brightmap sprite TRBRB5		{map "Brightmaps/TRBRB5.png"}
+Brightmap sprite TRBRC1		{map "Brightmaps/TRBRC1.png"}
+Brightmap sprite TRBRC2C8	{map "Brightmaps/TRBRC2C8.png"}
+Brightmap sprite TRBRC3C7	{map "Brightmaps/TRBRC3C7.png"}
+Brightmap sprite TRBRC4C6	{map "Brightmaps/TRBRC4C6.png"}
+Brightmap sprite TRBRC5		{map "Brightmaps/TRBRC5.png"}
+Brightmap sprite TRBRD1		{map "Brightmaps/TRBRD1.png"}
+Brightmap sprite TRBRD2D8	{map "Brightmaps/TRBRD2D8.png"}
+Brightmap sprite TRBRD3D7	{map "Brightmaps/TRBRD3D7.png"}
+Brightmap sprite TRBRD4D6	{map "Brightmaps/TRBRD4D6.png"}
+Brightmap sprite TRBRD5		{map "Brightmaps/TRBRD5.png"}
+
+//Deaths - Bruisers Burning
+Brightmap sprite BKR4A0		{map "Brightmaps/BKR4A0.png"}
+Brightmap sprite BKR4B0		{map "Brightmaps/BKR4B0.png"}
+Brightmap sprite BKR4C0		{map "Brightmaps/BKR4C0.png"}
+Brightmap sprite BKR4D0		{map "Brightmaps/BKR4D0.png"}
+Brightmap sprite BKR4E0		{map "Brightmaps/BKR4E0.png"}
+Brightmap sprite BKR4F0		{map "Brightmaps/BKR4F0.png"}
+Brightmap sprite BKR4G0		{map "Brightmaps/BKR4G0.png"}
+Brightmap sprite BKR4H0		{map "Brightmaps/BKR4H0.png"}
+Brightmap sprite BKR4I0		{map "Brightmaps/BKR4I0.png"}
+Brightmap sprite BKR4J0		{map "Brightmaps/BKR4J0.png"}
+Brightmap sprite BKR4K0		{map "Brightmaps/BKR4K0.png"}
 
 //Deaths - Shock
 Brightmap sprite BBUZA1 	{map "Brightmaps/BBUZA1.png"}
@@ -606,6 +691,23 @@ Brightmap sprite ZOMZA5 	{map "Brightmaps/ZOMZA5.png"}
 Brightmap sprite ZOMZA6A4 	{map "Brightmaps/ZOMZA6A4.png"}
 Brightmap sprite ZOMZA7A3 	{map "Brightmaps/ZOMZA7A3.png"}
 Brightmap sprite ZOMZA8A2 	{map "Brightmaps/ZOMZA8A2.png"}
+
+//Deaths - Additional ones for Demons
+Brightmap sprite SARBB0		{map "Brightmaps/SARBB0.png"}
+Brightmap sprite SARBC0		{map "Brightmaps/SARBC0.png"}
+Brightmap sprite SARBD0		{map "Brightmaps/SARBD0.png"}
+Brightmap sprite SARBE0		{map "Brightmaps/SARBE0.png"}
+Brightmap sprite SARBH0		{map "Brightmaps/SARBH0.png"}
+Brightmap sprite SARBI0		{map "Brightmaps/SARBI0.png"}
+Brightmap sprite SARBJ0		{map "Brightmaps/SARBJ0.png"}
+Brightmap sprite SARBK0		{map "Brightmaps/SARBK0.png"}
+Brightmap sprite SARBL0		{map "Brightmaps/SARBL0.png"}
+Brightmap sprite SARRA0		{map "Brightmaps/SARRA0.png"}
+Brightmap sprite SARSA0		{map "Brightmaps/SARSA0.png"}
+Brightmap sprite SARSB0		{map "Brightmaps/SARSB0.png"}
+Brightmap sprite SARSC0		{map "Brightmaps/SARSC0.png"}
+Brightmap sprite SARSD0		{map "Brightmaps/SARSD0.png"}
+Brightmap sprite SARSE0		{map "Brightmaps/SARSE0.png"}
 
 //BloodBat
 Brightmap sprite BFAMA1		{map "Brightmaps/BFAMA1.png"}
