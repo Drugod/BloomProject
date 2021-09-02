@@ -1904,6 +1904,51 @@ Brightmap sprite OUTAH0		{map "Brightmaps/OUTAH0.png"}
 Brightmap sprite OUTAI0		{map "Brightmaps/OUTAI0.png"}
 Brightmap sprite OUTAJ0		{map "Brightmaps/OUTAJ0.png"}
 
+//Tchernobog
+Brightmap sprite TCHRA1		{map "Brightmaps/TCHRA1.png"}
+Brightmap sprite TCHRA7A3	{map "Brightmaps/TCHRA7A3.png"}
+Brightmap sprite TCHRA8A2	{map "Brightmaps/TCHRA8A2.png"}
+Brightmap sprite TCHRB1		{map "Brightmaps/TCHRB1.png"}
+Brightmap sprite TCHRB7B3	{map "Brightmaps/TCHRB7B3.png"}
+Brightmap sprite TCHRB8B2	{map "Brightmaps/TCHRB8B2.png"}
+Brightmap sprite TCHRC1		{map "Brightmaps/TCHRC1.png"}
+Brightmap sprite TCHRC7C3	{map "Brightmaps/TCHRC7C3.png"}
+Brightmap sprite TCHRC8C2	{map "Brightmaps/TCHRC8C2.png"}
+Brightmap sprite TCHRD1		{map "Brightmaps/TCHRD1.png"}
+Brightmap sprite TCHRD7D3	{map "Brightmaps/TCHRD7D3.png"}
+Brightmap sprite TCHRD8D2	{map "Brightmaps/TCHRD8D2.png"}
+Brightmap sprite TCHRE1		{map "Brightmaps/TCHRE1.png"}
+Brightmap sprite TCHRE7E3	{map "Brightmaps/TCHRE7E3.png"}
+Brightmap sprite TCHRE8E2	{map "Brightmaps/TCHRE8E2.png"}
+Brightmap sprite TCHRF1		{map "Brightmaps/TCHRF1.png"}
+Brightmap sprite TCHRF7F3	{map "Brightmaps/TCHRF7F3.png"}
+Brightmap sprite TCHRF8F2	{map "Brightmaps/TCHRF8F2.png"}
+Brightmap sprite TCHRG1		{map "Brightmaps/TCHRG1.png"}
+Brightmap sprite TCHRG7G3	{map "Brightmaps/TCHRG7G3.png"}
+Brightmap sprite TCHRG8G2	{map "Brightmaps/TCHRG8G2.png"}
+Brightmap sprite TCHRH1		{map "Brightmaps/TCHRH1.png"}
+Brightmap sprite TCHRH5		{map "Brightmaps/TCHRH5.png"}
+Brightmap sprite TCHRH6H4	{map "Brightmaps/TCHRH6H4.png"}
+Brightmap sprite TCHRH7H3	{map "Brightmaps/TCHRH7H3.png"}
+Brightmap sprite TCHRH8H2	{map "Brightmaps/TCHRH8H2.png"}
+Brightmap sprite TCHRI1		{map "Brightmaps/TCHRI1.png"}
+Brightmap sprite TCHRI5		{map "Brightmaps/TCHRI5.png"}
+Brightmap sprite TCHRI6I4	{map "Brightmaps/TCHRI6I4.png"}
+Brightmap sprite TCHRI7I3	{map "Brightmaps/TCHRI7I3.png"}
+Brightmap sprite TCHRI8I2	{map "Brightmaps/TCHRI8I2.png"}
+Brightmap sprite TCHRJ1		{map "Brightmaps/TCHRJ1.png"}
+Brightmap sprite TCHRJ5		{map "Brightmaps/TCHRJ5.png"}
+Brightmap sprite TCHRJ6J4	{map "Brightmaps/TCHRJ6J4.png"}
+Brightmap sprite TCHRJ7J3	{map "Brightmaps/TCHRJ7J3.png"}
+Brightmap sprite TCHRJ8J2	{map "Brightmaps/TCHRJ8J2.png"}
+Brightmap sprite TCHRL1		{map "Brightmaps/TCHRL1.png"}
+Brightmap sprite TCHRL7L3	{map "Brightmaps/TCHRL7L3.png"}
+Brightmap sprite TCHRL8L2	{map "Brightmaps/TCHRL8L2.png"}
+Brightmap sprite TCHRM0		{map "Brightmaps/TCHRM0.png"}
+Brightmap sprite TCHRN0		{map "Brightmaps/TCHRN0.png"}
+Brightmap sprite TCHRO0		{map "Brightmaps/TCHRO0.png"}
+Brightmap sprite TCHRP0		{map "Brightmaps/TCHRP0.png"}
+
 //Attacks
 Brightmap sprite BARFA1		{map "Brightmaps/BARFA1.png"}
 Brightmap sprite BARFA2A8	{map "Brightmaps/BARFA2A8.png"}
