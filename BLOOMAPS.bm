@@ -709,6 +709,39 @@ Brightmap sprite SARSC0		{map "Brightmaps/SARSC0.png"}
 Brightmap sprite SARSD0		{map "Brightmaps/SARSD0.png"}
 Brightmap sprite SARSE0		{map "Brightmaps/SARSE0.png"}
 
+//Attacks - Additional Vanilla for Humans
+Brightmap sprite CTNTA1		{map "Brightmaps/CTNTA1.png"}
+Brightmap sprite CTNTA2A8	{map "Brightmaps/CTNTA2A8.png"}
+Brightmap sprite CTNTC1		{map "Brightmaps/CTNTC1.png"}
+Brightmap sprite CTNTC2C8	{map "Brightmaps/CTNTC2C8.png"}
+Brightmap sprite CTNTD1		{map "Brightmaps/CTNTD1.png"}
+Brightmap sprite CTNTD2D8	{map "Brightmaps/CTNTD2D8.png"}
+Brightmap sprite CTNTD3D7	{map "Brightmaps/CTNTD3D7.png"}
+Brightmap sprite CTNTE1		{map "Brightmaps/CTNTE1.png"}
+Brightmap sprite CTNTE2E8	{map "Brightmaps/CTNTE2E8.png"}
+Brightmap sprite TNOSA1		{map "Brightmaps/TNOSA1.png"}
+Brightmap sprite TNOSA2A8	{map "Brightmaps/TNOSA2A8.png"}
+Brightmap sprite TNOSA3A7	{map "Brightmaps/TNOSA3A7.png"}
+Brightmap sprite TNOSB1		{map "Brightmaps/TNOSB1.png"}
+Brightmap sprite TNOSB2B8	{map "Brightmaps/TNOSB2B8.png"}
+Brightmap sprite TNOSC1		{map "Brightmaps/TNOSC1.png"}
+Brightmap sprite TNOSC2C8	{map "Brightmaps/TNOSC2C8.png"}
+Brightmap sprite TNOSC3C7	{map "Brightmaps/TNOSC3C7.png"}
+Brightmap sprite TNOSD1		{map "Brightmaps/TNOSD1.png"}
+Brightmap sprite TNOSD2D8	{map "Brightmaps/TNOSD2D8.png"}
+Brightmap sprite TNOSD3D7	{map "Brightmaps/TNOSD3D7.png"}
+Brightmap sprite ZNOSA1		{map "Brightmaps/ZNOSA1.png"}
+Brightmap sprite ZNOSA2A8	{map "Brightmaps/ZNOSA2A8.png"}
+Brightmap sprite ZNOSA3A7	{map "Brightmaps/ZNOSA3A7.png"}
+Brightmap sprite ZNOSB1		{map "Brightmaps/ZNOSB1.png"}
+Brightmap sprite ZNOSC1		{map "Brightmaps/ZNOSC1.png"}
+Brightmap sprite ZNOSC2C8	{map "Brightmaps/ZNOSC2C8.png"}
+Brightmap sprite ZNOSC3C7	{map "Brightmaps/ZNOSC3C7.png"}
+Brightmap sprite ZNOSD1		{map "Brightmaps/ZNOSD1.png"}
+Brightmap sprite ZNOSD2D8	{map "Brightmaps/ZNOSD2D8.png"}
+Brightmap sprite ZNOSD3D7	{map "Brightmaps/ZNOSD3D7.png"}
+
+
 //BloodBat
 Brightmap sprite BFAMA1		{map "Brightmaps/BFAMA1.png"}
 Brightmap sprite BFAMA2A8	{map "Brightmaps/BFAMA2A8.png"}
