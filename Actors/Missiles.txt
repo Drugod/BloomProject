@@ -10,8 +10,8 @@ ACTOR FrostPlasma
 	+RANDOMIZE
 	RenderStyle Add
 	Alpha 0.75
-	SeeSound "frostgun/Ice"
-	DeathSound "frostgun/Hit"
+	SeeSound "king/iceshot"
+	DeathSound "king/icehit"
 	Obituary "$OB_FROST"
 	States
 	{

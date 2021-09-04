@@ -559,7 +559,7 @@ ACTOR PitchforkPuff
 	+NOGRAVITY
 	+RANDOMIZE
 	+THRUGHOST
-	AttackSound "Pitch/Solid"
+	AttackSound "Stone/Stab"
 	SeeSound "Voodoo/Stab"
 	States
 	{

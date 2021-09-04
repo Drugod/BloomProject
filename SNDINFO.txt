@@ -314,14 +314,14 @@ SFX/FireStart	FIRESTRT
 SFX/FireLoop	FIRELOP1
 SFX/FireDie		FIREDIE
 $limit SFX/FireStart	0
-$limit SFX/FireLoop1	1
+$limit SFX/FireLoop		1
 $limit SFX/FireDie		0
 
 CVLTFIR		CVLTFIR
 DSBALPOP	DSBALPOP
 DSBDSPRY	DSBDSPRY
 DSBDYBRN	DSBDYBRN
-DSBLANK		DSMT
+DSBLANK		DSMT //not present
 DSBLSHL1	DSBLSHL1
 DSBLSHL2	DSBLSHL2
 DSBLSHL3	DSBLSHL3
@@ -331,7 +331,7 @@ DSBLUD2		DSBLUD2
 DSBLUD3		DSBLUD3
 DSBLUD4		DSBLUD4
 DSBLUD5		DSBLUD5
-DSCANDIE	DSCANDIE
+DSCANDIE	DSCANDIE //not present
 DSCLBURN	DSCLBURN
 DSCULT2		DSCULT2
 DSCULTF1	DSCULTF1
@@ -385,13 +385,13 @@ $pitchshift annoy/music 0
 $limit annoy/music 1
 
 $Random fireguy/run 	{dsCULTF1 dsCULTF2 dsCULTF3}
-$Random Shoot/Bullet 	{DSRICO1 DSRICO2 DSRICO3 dsblank dsblank dsblank}
+$Random Shoot/Bullet 	{DSRICO1 DSRICO2 DSRICO3 DSBLANK DSBLANK DSBLANK}
 $rolloff DSRICO1 150 250
 $rolloff DSRICO2 150 200
 $rolloff DSRICO3 150 200
 
-$Random Body/Blood 		{DSBLUD DSBLUD2 DSBLUD3 DSBLUD4 dsblank dsblank dsblank}
-$Random Body/Gibs 		{dsgib1 dsgib2 dsgib3 dsgib4 dsblank dsblank dsblank}
+$Random Body/Blood 		{DSBLUD DSBLUD2 DSBLUD3 DSBLUD4 DSBLANK DSBLANK DSBLANK}
+$Random Body/Gibs 		{dsgib1 dsgib2 dsgib3 dsgib4 DSBLANK DSBLANK DSBLANK}
 
 $Random Shotgun/Shells	{dsstshl1 dsstshl2 dsstshl3 dsstshl4}
 $limit dsstshl1 0
@@ -449,8 +449,6 @@ frostgun/Fire2	FROSHOT2
 $Random frostgun/Fire {frostgun/Fire1 frostgun/Fire2}
 
 frostgun/Pick	FROSPK
-frostgun/Hit	FROSHIT
-frostgun/Ice	FROSFLY
 
 //Ice attacks
 king/iceshot	DSICESHT
@@ -479,11 +477,12 @@ Chton/Death		CHDEATH
 Chton/Pain		CHPAIN
 Chton/Rise		CHRISE
 Chton/Walk		CHSEE
+
 //AMBIENCE HOUSE OF CHTON
-wind1           wind
-mplat1          medplat1
-mplat2	    	medplat2
-drone           drone6
+WIND1           WIND
+MPLAT1          MEDPLAT1
+MPLAT2	    	MEDPLAT2
+DRONE           DRONE6
 
 //ZOMBIES
 $Random SummonZombies { 13CHA 13CHU 13KILL 13DEATH }
@@ -825,8 +824,11 @@ TchernobogAct6		TBACT6
 TchernobogAct7		TBACT7
 TchernobogAct8		TBACT8
 TchernobogPain1		TBPAIN1
+TchernobogPain1B	TBPAIN1B
 TchernobogPain2		TBPAIN2
+TchernobogPain2B	TBPAIN2B
 TchernobogPain3		TBPAIN3
+TchernobogPain3B	TBPAIN3B
 TchernobogPain4		TBPAIN4 // Extreme Pain
 TchernobogDie		TBDIE
 TchernobogWait		TBWAIT
@@ -849,7 +851,7 @@ $rolloff TchernobogPain3 384 1200
 $rolloff TchernobogPain4 384 1200
 $rolloff TchernobogDie 384 1200
 
-$Random TchernobogPain { TchernobogPain1 TchernobogPain2 TchernobogPain3 }
+$Random TchernobogPain { TchernobogPain1 TchernobogPain2 TchernobogPain3 TchernobogPain1B TchernobogPain2B TchernobogPain3B }
 $Random TchernobogAct { TchernobogAct1 TchernobogAct2 TchernobogAct3 TchernobogAct4 TchernobogAct5 TchernobogAct6 TchernobogAct7 TchernobogAct8 }
 
 //////////////////////////////////
@@ -1097,11 +1099,11 @@ $Random Omni/Pain {Opain1 Opain2 Opain3 Opain4 Opain5 Opain6 Opain7}
 $Random Omni/Search {Omni/Wait Omni/Worship Omni/Laugh Omni/Bow Omni/Sacrifice}
 Omni/Death OMDIE
 
-Napalm/Exp2	NAPALMEX2 //not present
+Napalm/Exp2		NAPLMEX2
 Proximity/Arm	PROXARM
 Proximity/Det	PROXDET
-Pitch/Solid	PSTONE //not present
-$limit PSTONE 20
+Stone/Stab		PSTONE
+$limit Stone/Stab 20
 Spray/Can	SPRAYCAN
 Spray/ALT	SPRAYFIR
 Leech/Torment	STAFFIRE
@@ -1116,29 +1118,28 @@ Voodoo/Laugh VOOLAUGH
 Voodoo/Stab	 VOOSTAB
 
 //AMBIENT
-MOAN2	MOAN2
-MOAN2LP	MOAN2LP
-MOAN3	MOAN3
-MOAN4	MOAN4
-MOANS	MOANS
-CHANT1LP CHANT1LP
+CHAMBER		QAMB4
+CHANT1LP	CHANT1LP
+DRIPS		QAMB3
+DSEMPTY		DSEMPTY
+ELECT		ELECGEN2
+MOAN2		MOAN2
+MOAN2LP		MOAN2LP
+MOAN3		MOAN3
+MOAN4		MOAN4
+MOANS		MOANS
+SIREN1		SIREN1
+SWAMP		SWAMP
+TEMPLE		WHISPERS
+TRAINMOVE	TRAIN1
+WATERFALL	AMB13
 
-temple  WHISPERS
-drips   QAMB3
-chamber QAMB4
-elect   ELECGEN2
-waterfall AMB13
-swamp SWAMP
-TRAINMOVE       TRAIN1
-SIREN1 SIREN1
-DSEMPTY DSEMPTY
-
-$ambient 2 drips point random 5.0 10.0 64
-$ambient 3 temple point continuous 0.1
-$ambient 4 chamber point continuous 127
-$ambient 5 elect point continuous 0.1
-$ambient 6 waterfall point continuous 127
-$ambient 7 swamp point continuous 0.1
+$ambient 2 DRIPS point random 5.0 10.0 64
+$ambient 3 TEMPLE point continuous 0.1
+$ambient 4 CHAMBER point continuous 127
+$ambient 5 ELECT point continuous 0.1
+$ambient 6 WATERFALL point continuous 127
+$ambient 7 SWAMP point continuous 0.1
 $ambient 8 TRAINMOVE point continuous 127
-$ambient 9 wind1 point continuous 255
-$ambient 10 drone point continuous 255
+$ambient 9 WIND1 point continuous 255
+$ambient 10 DRONE point continuous 255

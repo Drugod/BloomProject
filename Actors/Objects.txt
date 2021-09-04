@@ -73,7 +73,7 @@ ACTOR TortureSpike2 : HazardBase 3269
 	Active:
 		SP2K ABCDE 5
 		SP2K F 1 A_Explode(100, 20, 0, 0, 128)
-		SP2K A 0 A_PlaySound("Pitch/Solid",7)
+		SP2K A 0 A_PlaySound("Stone/Stab",7)
 		SP2K E 1 A_Explode(100, 20, 0, 0, 128)
 		SP2K DCBA 5
 		Loop

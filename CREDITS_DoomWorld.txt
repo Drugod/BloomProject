@@ -28,7 +28,7 @@ Credits					:
 
 * Play Information *
 
-Maps                    : 8 plus Titlemap, INT00 and 2 Testmaps
+Maps                    : 9 plus Titlemap, INT00 and 2 Testmaps
 Source Port				: GZDoom 3.7.2+ or Zandronum 2.8+
 Single Player           : Yes
 Cooperative 2-8 Player  : Starts are there
@@ -44,7 +44,7 @@ New Graphics            : Yes
 Base                    : ZBlood/ZBloodX
 Build Time              : 
 Editor(s) used          : Audacity, Photoshop, GIMP, GZDoomBuilder, ACC, Slade3, LameXP, 
-						HxD Hex Editor, Maverick3d, poly2vox, Slab6, MagicaVoxel
+						HxD Hex Editor, Maverick3d, poly2vox, Slab6, MagicaVoxel, UDBuilder
 Known Bugs              : On Zandronum you may encounter some undesired effects, please tell us if something bad happen!
 
 
