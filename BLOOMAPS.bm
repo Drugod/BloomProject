@@ -2065,6 +2065,75 @@ Brightmap sprite RATND0		{map "Brightmaps/RATND0.png"}
 Brightmap sprite RATNE0		{map "Brightmaps/RATNE0.png"}
 Brightmap sprite RATNF0		{map "Brightmaps/RATNF0.png"}
 
+//Revenants
+Brightmap sprite RE2AB1		{map "Brightmaps/RE2AB1.png"}
+Brightmap sprite RE2AB2B8	{map "Brightmaps/RE2AB2B8.png"}
+Brightmap sprite RE2AB3B7	{map "Brightmaps/RE2AB3B7.png"}
+Brightmap sprite RE2AB4B6	{map "Brightmaps/RE2AB4B6.png"}
+Brightmap sprite RE2AB5		{map "Brightmaps/RE2AB5.png"}
+Brightmap sprite RE3AB1		{map "Brightmaps/RE3AB1.png"}
+Brightmap sprite RE3AB2B8	{map "Brightmaps/RE3AB2B8.png"}
+Brightmap sprite RE3AB3B7	{map "Brightmaps/RE3AB3B7.png"}
+Brightmap sprite RE3AB4B6	{map "Brightmaps/RE3AB4B6.png"}
+Brightmap sprite RE3AB5		{map "Brightmaps/RE3AB5.png"}
+Brightmap sprite REMMB1		{map "Brightmaps/REMMB1.png"}
+Brightmap sprite REMMB2B8	{map "Brightmaps/REMMB2B8.png"}
+Brightmap sprite REMMB3B7	{map "Brightmaps/REMMB3B7.png"}
+Brightmap sprite REMMB4B6	{map "Brightmaps/REMMB4B6.png"}
+Brightmap sprite REMMB5		{map "Brightmaps/REMMB5.png"}
+Brightmap sprite RM1AA1		{map "Brightmaps/RM1AA1.png"}
+Brightmap sprite RM1AA2A8	{map "Brightmaps/RM1AA2A8.png"}
+Brightmap sprite RM1AA3A7	{map "Brightmaps/RM1AA3A7.png"}
+Brightmap sprite RM1AA4A6	{map "Brightmaps/RM1AA4A6.png"}
+Brightmap sprite RM1AA5		{map "Brightmaps/RM1AA5.png"}
+Brightmap sprite RM1SA1		{map "Brightmaps/RM1SA1.png"}
+Brightmap sprite RM1SA2A8	{map "Brightmaps/RM1SA2A8.png"}
+Brightmap sprite RM1SA3A7	{map "Brightmaps/RM1SA3A7.png"}
+Brightmap sprite RM1SA4A6	{map "Brightmaps/RM1SA4A6.png"}
+Brightmap sprite RM1SA5		{map "Brightmaps/RM1SA5.png"}
+Brightmap sprite RM2AA1		{map "Brightmaps/RM2AA1.png"}
+Brightmap sprite RM2AA2A8	{map "Brightmaps/RM2AA2A8.png"}
+Brightmap sprite RM2AA3A7	{map "Brightmaps/RM2AA3A7.png"}
+Brightmap sprite RM2AA4A6	{map "Brightmaps/RM2AA4A6.png"}
+Brightmap sprite RM2AA5		{map "Brightmaps/RM2AA5.png"}
+Brightmap sprite RM2SA1		{map "Brightmaps/RM2SA1.png"}
+Brightmap sprite RM2SA2A8	{map "Brightmaps/RM2SA2A8.png"}
+Brightmap sprite RM2SA3A7	{map "Brightmaps/RM2SA3A7.png"}
+Brightmap sprite RM2SA4A6	{map "Brightmaps/RM2SA4A6.png"}
+Brightmap sprite RM2SA5		{map "Brightmaps/RM2SA5.png"}
+Brightmap sprite RM3AA1		{map "Brightmaps/RM3AA1.png"}
+Brightmap sprite RM3AA2A8	{map "Brightmaps/RM3AA2A8.png"}
+Brightmap sprite RM3AA3A7	{map "Brightmaps/RM3AA3A7.png"}
+Brightmap sprite RM3AA4A6	{map "Brightmaps/RM3AA4A6.png"}
+Brightmap sprite RM3AA5		{map "Brightmaps/RM3AA5.png"}
+Brightmap sprite RM3SA1		{map "Brightmaps/RM3SA1.png"}
+Brightmap sprite RM3SA2A8	{map "Brightmaps/RM3SA2A8.png"}
+Brightmap sprite RM3SA3A7	{map "Brightmaps/RM3SA3A7.png"}
+Brightmap sprite RM3SA4A6	{map "Brightmaps/RM3SA4A6.png"}
+Brightmap sprite RM3SA5		{map "Brightmaps/RM3SA5.png"}
+
+//RomeroTron
+Brightmap sprite RSPIG1		{map "Brightmaps/RSPIG1.png"}
+Brightmap sprite RSPIG2G8	{map "Brightmaps/RSPIG2G8.png"}
+Brightmap sprite RSPIG3G7	{map "Brightmaps/RSPIG3G7.png"}
+Brightmap sprite RSPIG4G6	{map "Brightmaps/RSPIG4G6.png"}
+Brightmap sprite RSPIG5		{map "Brightmaps/RSPIG5.png"}
+Brightmap sprite RSPIH1		{map "Brightmaps/RSPIH1.png"}
+Brightmap sprite RSPIH2H8	{map "Brightmaps/RSPIH2H8.png"}
+Brightmap sprite RSPIH3H7	{map "Brightmaps/RSPIH3H7.png"}
+Brightmap sprite RSPIH4H6	{map "Brightmaps/RSPIH4H6.png"}
+Brightmap sprite RSPIH5		{map "Brightmaps/RSPIH5.png"}
+Brightmap sprite RSPIQ1		{map "Brightmaps/RSPIQ1.png"}
+Brightmap sprite RSPIQ2Q8	{map "Brightmaps/RSPIQ2Q8.png"}
+Brightmap sprite RSPIQ3Q7	{map "Brightmaps/RSPIQ3Q7.png"}
+Brightmap sprite RSPIQ4Q6	{map "Brightmaps/RSPIQ4Q6.png"}
+Brightmap sprite RSPIQ5		{map "Brightmaps/RSPIQ5.png"}
+Brightmap sprite RSPIR1		{map "Brightmaps/RSPIR1.png"}
+Brightmap sprite RSPIR2R8	{map "Brightmaps/RSPIR2R8.png"}
+Brightmap sprite RSPIR3R7	{map "Brightmaps/RSPIR3R7.png"}
+Brightmap sprite RSPIR4R6	{map "Brightmaps/RSPIR4R6.png"}
+Brightmap sprite RSPIR5		{map "Brightmaps/RSPIR5.png"}
+
 //Pink Gargoyle
 Brightmap sprite SARFA1 	{map "Brightmaps/SARFA1.png"}
 Brightmap sprite SARFA2A8 	{map "Brightmaps/SARFA2A8.png"}

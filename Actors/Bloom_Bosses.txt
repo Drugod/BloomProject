@@ -515,7 +515,7 @@ ACTOR Pinkberus : BloomBossHybrid_Base 19103
 {
 	//$Title Pinkberus
 	Spawnid 112
-	Obituary "$OB_CERB"
+	Obituary "$OB_PERB"
 	Health 3000
 	Radius 64
 	Height 100
@@ -679,21 +679,21 @@ ACTOR Sloth: BloomBossHybrid_Base 19107
 	{
 	Spawn:
 		SLTS A 10 A_Look
-	Loop
+		Loop
 	See:
 		SLTS AABBCCDD 3 A_Chase
-	Loop
+		Loop
     Missile:
 		SLTA A 3
 		SLTA B 6 A_FaceTarget
-		SLTA C 6 BRIGHT A_CustomMissile("NapalmEnemy",62,-17.0,0)
+		SLTA C 6 A_CustomMissile("NapalmEnemy",62,-17.0,0)
 		SLTA D 6 A_FaceTarget
 		TNT1 A 0 A_CustomMissile("NapalmEnemy",62,-17.0,0)
-		SLTA E 6 BRIGHT A_CustomMissile("NapalmEnemy",62,17.0,0)
-	Goto See
+		SLTA E 6 A_CustomMissile("NapalmEnemy",62,17.0,0)
+		Goto See
 	Pain:
 		SLTP A 10 A_Pain
-	Goto See
+		Goto See
 	Death:
 		SLTD A 10
 		SLTD B 10 A_Scream
@@ -702,11 +702,11 @@ ACTOR Sloth: BloomBossHybrid_Base 19107
 		SLTD GH 10
 		SLTD I 30
 		SLTD I -1 A_BossDeath
-	Stop
+		Stop
 	}
 }
 
-ACTOR Tchernodemon : BloomBossHybrid_Base 19105
+ACTOR TchernoDemon : BloomBossHybrid_Base 19105
 {
 	//$Title Tchernodemon
 	Obituary "$OB_TCHERNO"
@@ -982,7 +982,7 @@ ACTOR HandSlavedmind: BloomBossHybrid_Base 19136
 	DeathSound "Hand/Die"
 	ActiveSound "Hand/Spot"
 	PainSound "Hand/Pain"
-	Obituary "$OB_SLOTH"
+	Obituary "$OB_HANDM"
 	Scale 0.3
 	States
 	{

@@ -467,7 +467,7 @@ ACTOR IceBramble : HellroseBramble
 	}
 }
 
-ACTOR Romerotron : BloomHybrid_Base 19137
+ACTOR RomeroTron : BloomHybrid_Base 19137
 {
 	//$Title RomeroTron
     Health 1500 //was 500, added more health... maybe Boss? --ozy81
