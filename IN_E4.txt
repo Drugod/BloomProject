@@ -10,6 +10,10 @@ Spots
 	BLM03 142 148
 	BLM04 78 85
 	BLM05 251 85
+	//BLM06
+	//BLM07
+	//BLM08
+	//BLM09
 }
 
 Animation 0 0 3
@@ -166,7 +170,5 @@ Animation 0 0 3
 	BLM1_149
 }
 
-
 //IfEntering E4M8 Pic 198 31 WIA30200
 //IfLeaving E4M7 Pic 198 31 WIA30200
-
