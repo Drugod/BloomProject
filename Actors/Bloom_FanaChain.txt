@@ -105,7 +105,7 @@ ACTOR Fanatic_Chaingunner : BloomHybrid_Base 19004
 
 ACTOR Fanatic_ChaingunnerAlt : BloomHybrid_Base 19046
 {
-	//$Title Fanatic Chaingunner Alternative
+	//$Title Fanatic Chaingunner Alt
 	Health 105
 	Height 72
 	+FLOORCLIP

@@ -8,7 +8,7 @@ ACTOR ---------DEEPONES--------- {}
 
 ACTOR DeepOne_Base
 {
-	//$Category Bloom Hybrid Monsters
+	//$Category BlooM Monsters
 	//$Color 3
 	Health 30
 	Radius 20

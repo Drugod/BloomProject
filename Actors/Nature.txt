@@ -8,7 +8,7 @@ ACTOR Bloom_Flora
 
 ACTOR Bloom_FloraNoGrav
 {
-	//$Category "BlooM Nature/NoGrav"
+	//$Category "BlooM Nature/NoGravity"
 	//$Color 7
 	+DONTFALL
 	+NOGRAVITY
@@ -32,7 +32,7 @@ ACTOR Bloom_Flora2
 
 ACTOR Bloom_Flora2NoGrav
 {
-	//$Category "BlooM Nature/NoGrav"
+	//$Category "BlooM Nature/NoGravity"
 	//$Color 7
 	Health 15
 	Mass 0x7ffffff
@@ -55,7 +55,7 @@ ACTOR Bloom_Flora3
 
 ACTOR Bloom_Flora3NoGrav
 {
-	//$Category "BlooM Nature/NoGrav"
+	//$Category "BlooM Nature/NoGravity"
 	//$Color 7
 	Scale 0.6
 	+DONTFALL
@@ -86,7 +86,7 @@ ACTOR TreeSpawner : RandomSpawner 3251
 
 ACTOR TreeSpawnerNoGrav : RandomSpawner 19132
 {
-	//$Category "BlooM Nature/NoGrav"
+	//$Category "BlooM Nature/NoGravity"
 	//$Title Flipped Trees Spawner, random
 	//$Sprite LI2BC0
 	Scale 0.5
@@ -118,7 +118,7 @@ ACTOR ArbustSpawner : RandomSpawner 3257
 
 ACTOR ArbustSpawnerNoGrav : RandomSpawner 19133
 {
-	//$Category "BlooM Nature/NoGrav"
+	//$Category "BlooM Nature/NoGravity"
 	//$Title Flipped Bushes Spawner, random
 	//$Sprite LI2BA0
 	Scale 0.5

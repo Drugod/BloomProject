@@ -258,7 +258,7 @@ ACTOR KingCacoyle : BloomBossHybrid_Base 19053
 
 ACTOR CyberCheogh : BloomBossHybrid_Base 19057
 {
-	//$Title CyberCheogh
+	//$Title Cyber-Cheogh
 	Spawnid 3
 	Health 4000
 	Radius 24

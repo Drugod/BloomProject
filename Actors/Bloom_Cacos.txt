@@ -1,7 +1,7 @@
 ACTOR ----------CACOYLES---------- {}
 ACTOR LivingCacoyleStatue 19035
 {
-	//$Category Bloom Hybrid Monsters
+	//$Category BlooM Monsters
 	//$Title Living Cacoyle Statue
 	//$Color 3
 	Radius 10
@@ -150,7 +150,7 @@ ACTOR Cacoyle : BloomHybrid_Base 19014
 
 ACTOR Cacoyle_Variant : BloomHybrid_Base 19016
 {
-	//$Title Cacoyle with arms
+	//$Title Cacoyle (with arms)
 	Health 400
 	Radius 31
 	Mass 400

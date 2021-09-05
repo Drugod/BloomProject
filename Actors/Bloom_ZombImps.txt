@@ -990,7 +990,7 @@ ACTOR BuriedZombImp5 : ZombImp5
 
 ACTOR ZombImps: BuriedZombImp1 19033
 {
-	//$Category Bloom Hybrid Monsters
+	//$Category BlooM Monsters
 	//$Title ZombImps
 	//$Color 3
 	-ISMONSTER

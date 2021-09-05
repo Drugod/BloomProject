@@ -124,8 +124,8 @@ ACTOR DemonHound : BloomHybrid_Base 19012
 
 ACTOR DemonHoundAlt : HellKnight 19026
 {
-	//$Category Bloom Hybrid Monsters
-	//$Title DemonHound Alternative
+	//$Category BlooM Monsters
+	//$Title DemonHound Alt
 	//$Color 3
 	Radius 20
 	Height 32
@@ -289,8 +289,8 @@ ACTOR SpectreHound : DemonHound 19049
 
 ACTOR SpectreHoundAlt : DemonHoundAlt 19050
 {
-	//$Category Bloom Hybrid Monsters
-	//$Title SpectreHound Alternative
+	//$Category BlooM Monsters
+	//$Title SpectreHound Alt
 	//$Color 3
 	+SHADOW
 	RenderStyle OptFuzzy

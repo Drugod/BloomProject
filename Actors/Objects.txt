@@ -778,6 +778,7 @@ ACTOR Balloon : HeadOnAStick 3186
 ACTOR RipSpawner : RandomSpawner 3254
 {
 	//$Category "BlooM Ambient"
+	//$Title "Graves Spawner"
 	DropItem "ChurchCross"
 	DropItem "WoodCross"
 	DropItem "SkullCross"
@@ -791,6 +792,7 @@ ACTOR RipSpawner : RandomSpawner 3254
 ACTOR RipSpawnerInverted : RandomSpawner 19134
 {
 	//$Category "BlooM Ambient/NoGravity"
+	//$Title "Graves Spawner, UpDown"
 	DropItem "NoGravChurchCross"
 	DropItem "NoGravWoodCross"
 	DropItem "NoGravSkullCross"
@@ -1280,7 +1282,7 @@ ACTOR BinsSpawner 18600
 ACTOR RocksSpawner 18601
 {
 	//$Category "BlooM Ambient"
-	//$Title "Rocks Spawner, normal"
+	//$Title "Rock Spawner, normal"
 	Radius 8
 	Height 8
 	Mass 0x7ffffff
@@ -1396,7 +1398,7 @@ ACTOR Belial 3245
 ACTOR GhostGenerator : SwitchableDecoration 3403
 {
 	//$Category "BlooM Eastereggs"
-	//$Title Ghost generator switchable
+	//$Title Ghost Generator (switchable)
 	Scale 0.5
 	Height 100
 	Radius 20

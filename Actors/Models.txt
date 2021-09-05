@@ -900,11 +900,10 @@ ACTOR WallBrok7 : WallBrok1 18351
 	-SOLID
 }
 
-
 ACTOR ---------TRAPS--------- {}
 ACTOR FireTrap1 : SwitchableDecoration 18343
 {
-	//$Category BlooM Models
+	//$Category BlooM Hazard
 	//$Title 3d Fire Trap
 	//$Color 4
 	Radius 1

@@ -484,7 +484,7 @@ ACTOR RomeroTron : BloomHybrid_Base 19137
     PainSound "baby/pain"
     DeathSound "baby/death"
     ActiveSound "baby/active"
-	AttackSound "chainguy/attack"	
+	AttackSound "chainguy/attack"
 	Obituary "$OB_ROMTRON"
 	States
 	{

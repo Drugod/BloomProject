@@ -31,7 +31,7 @@ ACTOR -------LIFESEED---------- {}
 ACTOR LifeSeed : Health 3165
 {
 	//$Category "BlooM Powerups"
-	//$Title Life seed
+	//$Title Life Seed
 	+COUNTITEM
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
@@ -51,7 +51,7 @@ ACTOR -------DEATHMASK---------- {}
 ACTOR Deathmask : PowerupGiver 3151
 {
 	//$Category "BlooM Powerups"
-	//$Title Death mask
+	//$Title Death Mask
 	Inventory.PickupMessage "$MASK"
 	Inventory.MaxAmount 0
 	+COUNTITEM

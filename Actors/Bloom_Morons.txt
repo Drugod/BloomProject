@@ -1180,7 +1180,7 @@ ACTOR RevenantMoron 19096
 ACTOR RevenantMoronAlt 19097
 {
 	//$Category "BlooM Monsters"
-	//$Title Revenant Moron Alternative
+	//$Title Revenant Moron Alt
 	//$Color 3
 	Health 300
 	Radius 20
@@ -1240,7 +1240,7 @@ ACTOR RevenantMoronAlt 19097
 ACTOR RevenantMoronAlt2 19098
 {
 	//$Category "BlooM Monsters"
-	//$Title Revenant Moron Alternative 2
+	//$Title Revenant Moron Alt 2
 	//$Color 3
 	Health 300
 	Radius 20

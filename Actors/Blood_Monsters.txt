@@ -4720,7 +4720,8 @@ ACTOR DaisyBat : BatFamiliar 18501 //here for inheritances
 ACTOR ------VANILLA_RATS------ {}
 ACTOR BloodRatSpawner 19069
 {
-    //$Category "BlooM Monsters"
+    //$Category "Blood Monsters"
+	//$Title "Blood Rats Spawner"
 	//$Color 5
 	-ISMONSTER
 	-COUNTKILL

@@ -2,7 +2,7 @@ ACTOR ----------RATDEMONS---------- {}
 ACTOR Ratdemon_Brown : BloomHybrid_Base 19059
 {
 	//$Title RatDemon (Brown)
-	//$Category Bloom Hybrid Monsters
+	//$Category BlooM Monsters
 	//$Color 3
 	Health 150
 	PainChance 180
@@ -273,7 +273,7 @@ ACTOR Ratdemon_White : Ratdemon_Brown 19064
 
 ACTOR RatDemons 19065
 {
-	//$Category Bloom Hybrid Monsters
+	//$Category BlooM Monsters
 	//$Title RatDemons
 	//$Color 3
 	-ISMONSTER

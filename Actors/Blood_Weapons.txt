@@ -896,7 +896,7 @@ ACTOR SingleShotgun : CalebW 31371
 	//$Category "Blood Weapons"
 	//$Sprite SBSSA0
 	Weapon.SelectionOrder 1300
-	Tag "Single barrel shotgun"
+	Tag "Single Barrel Shotgun"
 	Decal ZBloodBulletChip1
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 8

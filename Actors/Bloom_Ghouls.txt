@@ -2133,10 +2133,10 @@ ACTOR FastBuriedGhoul6 : Ghoul6
 	}
 }
 
-ACTOR GhoulsZombies: BuriedGhoul2 19036
+ACTOR GhoulsZombies : BuriedGhoul2 19036
 {
-	//$Category Bloom Hybrid Monsters
-	//$Title GhoulsZombies
+	//$Category BlooM Monsters
+	//$Title Ghouls Zombies Spawner
 	//$Color 3
 	-ISMONSTER
 	-COUNTKILL
@@ -2149,10 +2149,10 @@ ACTOR GhoulsZombies: BuriedGhoul2 19036
 	Deciding:
 		TNT1 A 1
 		Loop
-	NoGroundSpawner: //Summon a Randomspawner class for stand up ZombImps
+	NoGroundSpawner: //Summon a Randomspawner class for stand up GhoulsZombs
 		TNT1 A 0 A_SpawnItemEx("StandUpGhoulsSpawner",0,0,0,0,0,0,0,BLM_FLAGS1)
 		Stop
-	GroundSpawner: //Summon a Randomspawner class for buried ZombImps
+	GroundSpawner: //Summon a Randomspawner class for buried GhoulsZombs
 		TNT1 A 0 A_SpawnItemEx("BuriedGhoulsSpawner",0,0,0,0,0,0,0,BLM_FLAGS1)
 		Stop
 	}
@@ -2162,7 +2162,7 @@ ACTOR GreenFogGhoulsZombies: GhoulsZombies
 {
 	States
 	{
-	NoGroundSpawner://If there's no ground floor texture then dont summon anything
+	NoGroundSpawner://If there's no ground floor texture then don't summon anything
 		TNT1 A 0
 		Stop
 	}

@@ -134,7 +134,7 @@ ACTOR FlyingGargovile : BloomHybrid_Base 18322
 
 ACTOR LivingGargovileStatue 19043
 {
-	//$Category Bloom Hybrid Monsters
+	//$Category BlooM Monsters
 	//$Title Living Gargovile Statue
 	//$Color 3
 	Radius 10

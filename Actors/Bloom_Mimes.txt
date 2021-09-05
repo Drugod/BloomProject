@@ -87,7 +87,7 @@ ACTOR RevenantMime 19099
 
 ACTOR RevenantMimeAlt: RevenantMime 19100
 {
-	//$Title Revenant Mime Alternative
+	//$Title Revenant Mime Alt
 	States
 	{
 	Spawn:
@@ -133,7 +133,7 @@ ACTOR RevenantMimeAlt: RevenantMime 19100
 
 ACTOR RevenantMimeAlt2: RevenantMime 19101
 {
-	//$Title Revenant Mime Alternative 2
+	//$Title Revenant Mime Alt 2
 	States
 	{
 	Spawn:

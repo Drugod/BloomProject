@@ -1,7 +1,7 @@
 ACTOR ----------WEREWOLVES_OF_HELL---------- {}
 ACTOR WereWolfOfHellAlt : BloomHybrid_Base 19031
 {
-	//$Title WereWolf of Hell Alternative
+	//$Title WereWolf of Hell Alt
 	Radius 24
 	Height 64
 	Mass 1000
@@ -259,7 +259,7 @@ ACTOR HellButcher : WereWolfOfHellAlt 19042
 
 ACTOR HellButcherAlt : WereWolfOfHellAlt 19047
 {
-	//$Title HellButcher Alternative
+	//$Title HellButcher Alt
 	Health 500
 	GibHealth 30
 	-BOSSDEATH
@@ -931,7 +931,7 @@ ACTOR BuriedAxeZombaronOfHell : AxeZombaronOfHell
 
 ACTOR Zombarons: BuriedZombaronOfHell 19104
 {
-	//$Category Bloom Hybrid Monsters
+	//$Category BlooM Monsters
 	//$Title Zombarons
 	//$Color 3
 	-ISMONSTER
