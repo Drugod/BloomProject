@@ -100,6 +100,10 @@ ACTOR Fanatic_Chaingunner : BloomHybrid_Base 19004
 		FCOS N 5
 		FCOS MLKJIH 5
 		Goto See
+	Ice:
+		FCOF R 5 A_FreezeDeath
+		FCOF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -217,5 +221,9 @@ ACTOR Fanatic_ChaingunnerAlt : BloomHybrid_Base 19046
 		BUOS N 5
 		BUOS MLKJIH 5
 		Goto See
+	Ice:
+		BUOF R 5 A_FreezeDeath
+		BUOF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }

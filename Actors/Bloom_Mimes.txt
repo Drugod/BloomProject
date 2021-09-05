@@ -63,7 +63,7 @@ ACTOR RevenantMime 19099
 		Goto See
 	Missile2:
 		RM1S A 10 A_FaceTarget
-		RM1A B 10 A_CustomMissile("SupermimeMissile", 48, 0)
+		RM1A B 10 A_CustomMissile("SuperMimeMissile", 48, 0)
 		RM1A B 10 A_FaceTarget
 		Goto See
 	Pain:
@@ -82,6 +82,10 @@ ACTOR RevenantMime 19099
 		RM1D E 5
 		RM1D ABCD 5
 		Goto See
+	Ice:
+		FM1A A 5 A_FreezeDeath
+		FM1A A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -111,7 +115,7 @@ ACTOR RevenantMimeAlt: RevenantMime 19100
 		Goto See
 	Missile2:
 		RM2S A 10 A_FaceTarget
-		RM2A B 10 A_CustomMissile("SupermimeMissile", 48, 0)
+		RM2A B 10 A_CustomMissile("SuperMimeMissile", 48, 0)
 		RM2A B 10 A_FaceTarget
 		Goto See
 	Pain:
@@ -128,6 +132,10 @@ ACTOR RevenantMimeAlt: RevenantMime 19100
 		RM2D E 5
 		RM2D ABCD 5
 		Goto See
+	Ice:
+		FM2A A 5 A_FreezeDeath
+		FM2A A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -157,7 +165,7 @@ ACTOR RevenantMimeAlt2: RevenantMime 19101
 		Goto See
 	Missile2:
 		RM3S A 10 A_FaceTarget
-		RM3A B 10 A_CustomMissile("SupermimeMissile", 48, 0)
+		RM3A B 10 A_CustomMissile("SuperMimeMissile", 48, 0)
 		RM3A B 10 A_FaceTarget
 		Goto See
 	Pain:
@@ -174,10 +182,14 @@ ACTOR RevenantMimeAlt2: RevenantMime 19101
 		RM3D E 5
 		RM3D ABCD 5
 		Goto See
+	Ice:
+		FM3A A 5 A_FreezeDeath
+		FM3A A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
-ACTOR SupermimeMissile
+ACTOR SuperMimeMissile
 {
 	Decal Scorch
 	Radius 16

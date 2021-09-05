@@ -145,6 +145,10 @@ ACTOR Cacoyle : BloomHybrid_Base 19014
 		CYAD N 8 A_UnSetFloorClip
 		CYAD MLKJI 8
 		Goto See
+	Ice:
+		CYAF R 5 A_FreezeDeath
+		CYAF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -222,6 +226,10 @@ ACTOR Cacoyle_Variant : BloomHybrid_Base 19016
 		CYA2 L 8 A_UnSetFloorClip
 		CYA2 KJIHG 8
 		Goto See
+	Ice:
+		CYAF Z 5 A_FreezeDeath
+		CYAF Z 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 

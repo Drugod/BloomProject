@@ -52,6 +52,10 @@ ACTOR Arachnoid : BloomHybrid_Base 19011
 		ARND P 1 A_SpawnDebris("FlyingBlood")
 		ARND P -1 A_BossDeath
 		Stop
+	Ice:
+		ARND R 5 A_FreezeDeath
+		ARND R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -132,6 +136,10 @@ ACTOR Green_Arachnopod : BloomHybrid_Base 19070
 		APOD OPQRS 7 A_KillChildren
 		APOD T -1 A_BossDeath
 		Stop
+	Ice:
+		FPOD A 5 A_FreezeDeath
+		FPOD A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -527,5 +535,9 @@ ACTOR RomeroTron : BloomHybrid_Base 19137
 		RSPI LMNOP 7 A_KillChildren //why KillChildren? --ozy81
 		RSPI P -1 A_BossDeath
 		Stop
+	Ice:
+		FSPI A 5 A_FreezeDeath
+		FSPI A 1 A_FreezeDeathChunks
+		Wait
 	}
 }

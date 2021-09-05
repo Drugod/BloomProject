@@ -378,6 +378,10 @@ ACTOR DeepOneShot : DeepOne_Base 19052
 		FISD FEDCBA 6
 		TNT1 A 0 A_Jump(256,"See")
 		Stop
+	Ice:
+		FISF A 5 A_FreezeDeath
+		FISF A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -765,6 +769,10 @@ ACTOR DeepOneTri : DeepOne_Base 19054
 		TRIC HGFEDCBA 6
 		TNT1 A 0 A_Jump(256,"See")
 		Stop
+	Ice:
+		TRFR A 5 A_FreezeDeath
+		TRFR A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 

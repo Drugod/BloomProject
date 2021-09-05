@@ -87,6 +87,10 @@ ACTOR WereWolfOfHellAlt : BloomHybrid_Base 19031
 		BOS3 O 8
 		BOS3 NMLKJI 8
 		Goto See
+	Ice:
+		BOSF R 5 A_FreezeDeath
+		BOSF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -177,6 +181,10 @@ ACTOR WereWolfOfHell : WereWolfOfHellAlt 19032
 		BOS4 F 8
 		BOS4 FEDCBA 8
 		Goto See
+	Ice:
+		BOSF R 5 A_FreezeDeath
+		BOSF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -254,6 +262,10 @@ ACTOR HellButcher : WereWolfOfHellAlt 19042
 		FAUD L 8
 		FAUD LKIHGFEDBA 8
 		Goto See
+	Ice:
+		FAUF R 5 A_FreezeDeath
+		FAUF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -330,6 +342,10 @@ ACTOR HellButcherAlt : WereWolfOfHellAlt 19047
 		F2UD L 8
 		F2UD LKIHGFEDBA 8
 		Goto See
+	Ice:
+		FAUF R 5 A_FreezeDeath
+		FAUF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -462,32 +478,36 @@ ACTOR HoundKnightOfHell : WereWolfOfHellAlt 19093
 		HOMD G 8
 		HOMD FEDCBA  8
 		Goto See
+	Ice:
+		FOMJ A 5 A_FreezeDeath
+		FOMJ A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
 ACTOR HoundKnightBall
 {
-  Radius 6
-  Height 16
-  Speed 15
-  FastSpeed 20
-  Damage 8
-  Projectile
-  +RANDOMIZE
-  RenderStyle Add
-  Alpha 1
-  SeeSound "baron/attack"
-  DeathSound "baron/shotx"
-  Decal "BaronScorch"
-  States
-  {
-  Spawn:
-    HAL7 AB 4 Bright
-    Loop
-  Death:
-    HAL7 CDE 6 Bright
-    Stop
-  }
+	Radius 6
+	Height 16
+	Speed 15
+	FastSpeed 20
+	Damage 8
+	Projectile
+	+RANDOMIZE
+	RenderStyle Add
+	Alpha 1
+	SeeSound "baron/attack"
+	DeathSound "baron/shotx"
+	Decal "BaronScorch"
+	States
+	{
+	Spawn:
+		HAL7 AB 4 Bright
+		Loop
+	Death:
+		HAL7 CDE 6 Bright
+		Stop
+	}
 }
 
 ACTOR HoundBaronOfHell: BloomHybrid_Base 19094
@@ -596,6 +616,10 @@ ACTOR HoundBaronOfHell: BloomHybrid_Base 19094
 		HKHD EF 8
 		HKHD G -1
 		Stop
+	Ice: //Sproink frames can't be included here, so FKHU frames are unused, only as props --ozy81
+		FKHS A 5 A_FreezeDeath
+		FKHS A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 

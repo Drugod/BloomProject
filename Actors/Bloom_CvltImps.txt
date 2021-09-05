@@ -167,6 +167,10 @@ ACTOR Cvltimp : BloomHybrid_Base 19028
 		CIOO ML 8
 		CIOO KJI 6
 		Goto See
+	Ice:
+		CIOF R 5 A_FreezeDeath
+		CIOF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -301,5 +305,9 @@ ACTOR CvltimpAlt : BloomHybrid_Base 19029
 		CI2O ML 8
 		CI2O KJI 6
 		Goto See
+	Ice:
+		CIOF Z 5 A_FreezeDeath
+		CIOF Z 1 A_FreezeDeathChunks
+		Wait
 	}
 }

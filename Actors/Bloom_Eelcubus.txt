@@ -250,6 +250,10 @@ ACTOR Eelcubus : Eelcubus_Base 19007
 		FSTT R 5
 		FSTT QPONMLK 5
 		Goto See
+	Ice:
+		FSTF R 5 A_FreezeDeath
+		FSTF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -386,6 +390,10 @@ ACTOR EelcubusAlt : Eelcubus_Base 19008
 		FS2T R 5
 		FS2T QPONMLK 5
 		Goto See
+	Ice:
+		FSTF R 5 A_FreezeDeath
+		FSTF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -521,6 +529,10 @@ ACTOR Gillcubus : Eelcubus_Base 19027
 		FS3T MN 6
 		FS3T N -1 A_BossDeath
 		Stop
+	Ice:
+		FS3F R 5 A_FreezeDeath
+		FS3F R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 

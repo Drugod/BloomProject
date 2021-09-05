@@ -66,6 +66,10 @@ ACTOR Gargovile : BloomHybrid_Base 19040
 		ARCH STUVW 7
 		ARCH X -1
 		Stop
+	Ice:
+		ARCF R 5 A_FreezeDeath
+		ARCF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -129,6 +133,10 @@ ACTOR FlyingGargovile : BloomHybrid_Base 18322
 		ARCH STUVW 7
 		ARCH X -1
 		Stop
+	Ice:
+		ARCF R 5 A_FreezeDeath
+		ARCF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -293,6 +301,10 @@ ACTOR Archzombie : BloomHybrid_Base 19039
 		TNT1 A 0 A_Fall
 		NOHE A 1 A_SpawnItemEx("ArchzombieHeadless",0,0,0)
 		Stop
+	Ice:
+		ARZF Z 5 A_FreezeDeath
+		ARZF Z 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -336,6 +348,10 @@ ACTOR ArchzombieHeadless
 		NOHE HIJKL 7
 		NOHE M -1
 		Stop
+	Ice:
+		ARZF R 5 A_FreezeDeath
+		ARZF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
