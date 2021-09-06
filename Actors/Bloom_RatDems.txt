@@ -77,7 +77,7 @@ ACTOR RatDemon_Brown : BloomHybrid_Base 19059
 		RATA MLKJI 5
 		Goto See
 	Ice: //these states have been copy-pasted even on others to avoid possible issues with inheritances --ozy81
-		RAFT R 5 A_FreezeDeath
+		RATF R 5 A_FreezeDeath
 		RATF R 1 A_FreezeDeathChunks
 		Wait
 	}
@@ -145,7 +145,7 @@ ACTOR RatDemon_Grey : RatDemon_Brown 19062
 		RATG MLKJI 5
 		Goto See
 	Ice:
-		RAFT R 5 A_FreezeDeath
+		RATF R 5 A_FreezeDeath
 		RATF R 1 A_FreezeDeathChunks
 		Wait
 	}
@@ -281,7 +281,7 @@ ACTOR RatDemon_White : RatDemon_Brown 19064
 		R2TW MLKJI 5
 		Goto See
 	Ice:
-		RAFT R 5 A_FreezeDeath
+		RATF R 5 A_FreezeDeath
 		RATF R 1 A_FreezeDeathChunks
 		Wait
 	}
