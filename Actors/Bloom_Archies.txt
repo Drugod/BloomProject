@@ -174,7 +174,7 @@ ACTOR LivingGargovileStatue 19043
 	}
 }
 
-ACTOR Archzombie : BloomHybrid_Base 19039
+ACTOR ArchZombie : BloomHybrid_Base 19039
 {
 	//$Title ArchZombie
 	Health 700
@@ -308,7 +308,7 @@ ACTOR Archzombie : BloomHybrid_Base 19039
 	}
 }
 
-ACTOR ArchzombieHeadless
+ACTOR ArchZombieHeadless
 {
 	Health 80
 	Radius 20

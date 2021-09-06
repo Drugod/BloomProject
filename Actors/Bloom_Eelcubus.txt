@@ -234,7 +234,7 @@ ACTOR Eelcubus : Eelcubus_Base 19007
 		FSTT IG 5 A_FaceTarget
 		TNT1 A 0 A_Jump(256,"Ground.See")
 		Stop
-	Ground.Painsetup:
+	Ground.PainSetup:
 		FSTT J 3
 		FSTT J 3 A_Pain
 		TNT1 A 0 A_Jump(256,"Ground.See+5")
@@ -374,7 +374,7 @@ ACTOR EelcubusAlt : Eelcubus_Base 19008
 		FS2T IG 5 A_FaceTarget
 		TNT1 A 0 A_Jump(256,"Ground.See")
 		Stop
-	Ground.Painsetup:
+	Ground.PainSetup:
 		FS2T J 3
 		FS2T J 3 A_Pain
 		TNT1 A 0 A_Jump(256,"Ground.See+5")

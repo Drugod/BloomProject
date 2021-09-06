@@ -53,7 +53,7 @@ ACTOR GargoylSoul : BloomHybrid_Base 19005
 ACTOR ----------ELEMENTAL_GARGOYLES---------- {}
 ACTOR Elemental_Gargoyle : BloomHybrid_Base 19009
 {
-	//$Title Elemental Gargoyle
+	//$Title GargoElemental
 	Health 400
 	Radius 31
 	Mass 400
