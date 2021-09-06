@@ -1,4 +1,4 @@
-ACTOR -----ZombImpS-------- {}
+ACTOR -----ZombImps-------- {}
 ACTOR ZombImp1
 {
 	Health 150
@@ -179,6 +179,10 @@ ACTOR ZombImp1
 		TNT1 A 0 A_ChangeFlag("SOLID",1)
 		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)
 		Goto See
+	Ice:
+		ZI1F R 5 A_FreezeDeath
+		ZI1F R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -343,6 +347,10 @@ ACTOR ZombImp2: ZombImp1
 		TNT1 A 0 A_ChangeFlag("SOLID",1)
 		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)
 		Goto See
+	Ice:
+		ZI2F R 5 A_FreezeDeath
+		ZI2F R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -507,6 +515,10 @@ ACTOR ZombImp3: ZombImp1
 		TNT1 A 0 A_ChangeFlag("SOLID",1)
 		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)
 		Goto See
+	Ice:
+		ZI3F R 5 A_FreezeDeath
+		ZI3F R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -672,6 +684,10 @@ ACTOR ZombImp4: ZombImp1
 		TNT1 A 0 A_ChangeFlag("SOLID",1)
 		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)
 		Goto See
+	Ice:
+		ZI4F R 5 A_FreezeDeath
+		ZI4F R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -842,6 +858,10 @@ ACTOR ZombImp5
 		ZI05 RST 6 A_NoBlocking
 		ZI05 U -1
 		Stop
+	Ice:
+		ZI4F R 5 A_FreezeDeath
+		ZI4F R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 

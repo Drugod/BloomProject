@@ -1,5 +1,5 @@
-ACTOR ----------RATDEMONS---------- {}
-ACTOR Ratdemon_Brown : BloomHybrid_Base 19059
+ACTOR ----------RatDemonS---------- {}
+ACTOR RatDemon_Brown : BloomHybrid_Base 19059
 {
 	//$Title RatDemon (Brown)
 	//$Category BlooM Monsters
@@ -76,10 +76,14 @@ ACTOR Ratdemon_Brown : BloomHybrid_Base 19059
 		RATA N 5
 		RATA MLKJI 5
 		Goto See
+	Ice: //these states have been copy-pasted even on others to avoid possible issues with inheritances --ozy81
+		RAFT R 5 A_FreezeDeath
+		RATF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
-ACTOR Ratdemon_Grey : Ratdemon_Brown 19062
+ACTOR RatDemon_Grey : RatDemon_Brown 19062
 {
 	//$Title RatDemon (Grey)
 	States
@@ -140,10 +144,14 @@ ACTOR Ratdemon_Grey : Ratdemon_Brown 19062
 		RATG N 5
 		RATG MLKJI 5
 		Goto See
+	Ice:
+		RAFT R 5 A_FreezeDeath
+		RATF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
-ACTOR Ratdemon_Black : Ratdemon_Brown 19063
+ACTOR RatDemon_Black : RatDemon_Brown 19063
 {
 	//$Title RatDemon (Black)
 	States
@@ -204,10 +212,14 @@ ACTOR Ratdemon_Black : Ratdemon_Brown 19063
 		RATB N 5
 		RATB MLKJI 5
 		Goto See
+	Ice:
+		RAFT R 5 A_FreezeDeath
+		RATF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
-ACTOR Ratdemon_White : Ratdemon_Brown 19064
+ACTOR RatDemon_White : RatDemon_Brown 19064
 {
 	//$Title RatDemon (White)
 	States
@@ -268,6 +280,10 @@ ACTOR Ratdemon_White : Ratdemon_Brown 19064
 		R2TW N 5
 		R2TW MLKJI 5
 		Goto See
+	Ice:
+		RAFT R 5 A_FreezeDeath
+		RATF R 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -285,16 +301,16 @@ ACTOR RatDemons 19065
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Ratdemon_Brown",0,0,0,0,0,0,0,BLM_FLAGS1)
+		TNT1 A 0 A_SpawnItemEx("RatDemon_Brown",0,0,0,0,0,0,0,BLM_FLAGS1)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("Ratdemon_Grey",0,0,0,0,0,0,0,BLM_FLAGS1)
+		TNT1 A 0 A_SpawnItemEx("RatDemon_Grey",0,0,0,0,0,0,0,BLM_FLAGS1)
 		Stop
 	Spawn3:
-		TNT1 A 0 A_SpawnItemEx("Ratdemon_Black",0,0,0,0,0,0,0,BLM_FLAGS1)
+		TNT1 A 0 A_SpawnItemEx("RatDemon_Black",0,0,0,0,0,0,0,BLM_FLAGS1)
 		Stop
 	Spawn4:
-		TNT1 A 0 A_SpawnItemEx("Ratdemon_White",0,0,0,0,0,0,0,BLM_FLAGS1)
+		TNT1 A 0 A_SpawnItemEx("RatDemon_White",0,0,0,0,0,0,0,BLM_FLAGS1)
 		Stop
 	}
 }

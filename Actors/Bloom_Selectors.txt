@@ -337,10 +337,10 @@ ACTOR HybridHoundSpawner
 }
 
 ACTOR --------RAT_SELECTOR------------ {}
-ACTOR RatdemonSpawner 19060
+ACTOR RatDemonSpawner 19060
 {
     //$Category "Monsters Selectors"
-    //$Title Ratdemon Spawner
+    //$Title RatDemon Spawner
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL
@@ -354,15 +354,15 @@ ACTOR RatdemonSpawner 19060
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("HybridRatdemonSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("HybridRatDemonSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("OriginalRatdemonSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("OriginalRatDemonSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
 
-ACTOR OriginalRatdemonSpawner
+ACTOR OriginalRatDemonSpawner
 {
 	States
 	{
@@ -379,7 +379,7 @@ ACTOR OriginalRatdemonSpawner
 	}
 }
 
-ACTOR HybridRatdemonSpawner
+ACTOR HybridRatDemonSpawner
 {
 	States
 	{
@@ -388,7 +388,7 @@ ACTOR HybridRatdemonSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Ratdemons",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("RatDemons",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -738,15 +738,15 @@ ACTOR TheCvltimpZombImps replaces DoomImp
 		TNT1 A 1
 		Loop
 	HybridSpawner:
-		TNT1 A 0 A_SpawnItemEx("Cvltimphybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("CvltImpHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	NormalSpawner:
-		TNT1 A 0 A_SpawnItemEx("Cvltimpnormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("CvltImpNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
 
-ACTOR Cvltimpnormal
+ACTOR CvltImpNormal
 {
 	States
 	{
@@ -760,7 +760,7 @@ ACTOR Cvltimpnormal
 	}
 }
 
-ACTOR Cvltimphybrid
+ACTOR CvltImpHybrid
 {
 	States
 	{
@@ -769,10 +769,10 @@ ACTOR Cvltimphybrid
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("Cvltimp",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("CvltImp",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("CvltimpAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("CvltImpAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn3:
 		TNT1 A 0 A_SpawnItemEx("ZombImps",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
@@ -916,7 +916,7 @@ ACTOR --------ARCHVILESZOMBIES_SELECTOR------------ {}
 ACTOR TheArchZombies replaces Archvile
 {
     //$Category "Monsters Selectors"
-    //$Title Archviles and zombies
+    //$Title Archviles and Zombies
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL
@@ -973,7 +973,7 @@ ACTOR --------HELLBUTCHER_SELECTOR------------ {}
 ACTOR TheHellButchers replaces HellKnight
 {
     //$Category "Monsters Selectors"
-    //$Title HellButcher
+    //$Title Hell Butchers
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL //not necessary but here in case of future inheritances - ozy81
@@ -1454,5 +1454,5 @@ ACTOR --------CUSTOMEYE_SELECTOR------------ {}
 	DropItem "HoundSpawner"
 	DropItem "ShotgunMonsters"
 	DropItem "TheArachnoids"
-	DropItem "Thesouls"
+	DropItem "TheSouls"
 }*/

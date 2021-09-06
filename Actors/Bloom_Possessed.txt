@@ -1,3 +1,4 @@
+ACTOR ----------POSSESSED---------- {}
 ACTOR BloomPossessed_Base
 {
     //$Category "BlooM Monsters"
@@ -216,7 +217,7 @@ ACTOR BloomPossessed_Base
 
 ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 {
-	//$Title Possesed Shotgunguy
+	//$Title Possessed Shotgunguy
 	Obituary "$OB_POSSSH"
 	Species "Possessed"
 	States
@@ -353,12 +354,16 @@ ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 		SPOS L 5
 		SPOS KJIH 5
 		Goto See
+	Ice:
+		HAFR A 5 A_FreezeDeath
+		HAFR A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
 ACTOR PossesedZombieMan: BloomPossessed_Base 19091
 {
-	//$Title Possesed Zombieman
+	//$Title Possessed Zombieman
 	Obituary "$OB_POSSZO"
 	Species "Possessed"
 	States
@@ -494,12 +499,16 @@ ACTOR PossesedZombieMan: BloomPossessed_Base 19091
 		POSS L 5
 		POSS KJIH 5
 		Goto See
+	Ice:
+		HCFR A 5 A_FreezeDeath
+		HCFR A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
 ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 {
-	//$Title Possesed NeoCultist
+	//$Title Possessed NeoCultist
 	Obituary "$OB_POSSNC"
 	Species "Possessed"
 	States
@@ -635,12 +644,16 @@ ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 		YPOS L 5
 		YPOS KJIH 5
 		Goto See
+	Ice:
+		HDFR A 5 A_FreezeDeath
+		HDFR A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
 ACTOR PossesedApocalypticNeoCultist: BloomPossessed_Base 19092
 {
-	//$Title Possesed Apocalyptic NeoCultist
+	//$Title Possessed Apocalyptic NeoCultist
 	Obituary "$OB_POSANC"
 	Species "Possessed"
 	States
@@ -776,5 +789,9 @@ ACTOR PossesedApocalypticNeoCultist: BloomPossessed_Base 19092
 		WPOS L 5
 		WPOS KJIH 5
 		Goto See
+	Ice:
+		HBFR A 5 A_FreezeDeath
+		HBFR A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
