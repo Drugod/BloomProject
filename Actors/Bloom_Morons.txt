@@ -1058,7 +1058,7 @@ ACTOR ExplosiveMoron3 : ExplosiveMoron_Base
 		Stop
 	Ice:
 		BAFP A 5 A_FreezeDeath
-		BAFMP A 1 A_FreezeDeathChunks
+		BAFP A 1 A_FreezeDeathChunks
 		Wait
 	}
 }
