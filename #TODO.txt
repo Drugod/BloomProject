@@ -9,45 +9,43 @@ Cards:
 - REMINDER FOR ATTACKS: Always put on the list first Melee then Projectile attacks (so a Bite should come first)
 - REMINDER FOR SKILLS: Replace "heavy armour" with "heavily armoured"
 - ALL CARDS: replace Attack with Attacks (the ability, not all "Attack" words XD); remove "-" characters before any Attacks description
-- ArachnoPod: Name "ArachnoPods"; Class "Demon/Plant"; Attacks "Underground Brambles; Acid Spit"; Skills "Can Jump; Immune to Poison"
-- ArachnoSpider : Name "Arachnoids"; Class "Demon/Insect"; Attacks "Painful Bites; Poisonus Bites"; Skills "Very Fast" in place of "High Speed"
-- Armour Ghost Revenant: Name "Armoured Ghost Revenants"; Attacks "Berserk Scythe Attack; Summon Dark Souls; Seeker Missiles"; Skills "Can Fly; Bodiless; Can Explode"
-- Armour Zombies: Name "Armoured Zombies" (we should use UK english, so "armour" is the right word)
-- Baron Werewolf: Name "Baron Werewolves"; Class "Demon/Animal"; Attacks "Hellish Fireball Attack"; Skills "Very Fast; Can create earthquakes"
-- Brutal Revenant Ghost: Name "Brutal Revenant Ghosts"; Attacks "Berserk Scythe Attack; Seeker Missiles"; Skills "Very Fast"
-- Butcher Knight: Name "Knight Butchers"; Skills "Can Spit Poisonus Barf; Can Explode"
-- Butcher Zombie: Name "Butcher Zombies"; Skills "Very Fast" (replace High Speed, it is not a car XD)
-- Butcher from Hell: Name "Hell Butchers"; Skills "Can Spit Poisonus Barf"
-- Cacoyle: Name "Cacoyles"; Attacks "Claws Melee Attack; Spit Zombies Heads"
-- CvltImp Warlock: Name "Warlock CvltImps"; Attacks "Claws Melee Attack; Phantasm Projectiles"; Skills "Very Fast"
+- ArachnoPod: Class "Demon/Plant"; Attacks "Underground Brambles; Acid Spit"; Skills "Can Jump; Immune to Poison"
+- ArachnoSpider : Name "Arachnoid"; Class "Demon/Insect"; Attacks "Painful Bites; Poisonus Bites"; Skills "Very Fast" in place of "High Speed"
+- Armour Ghost Revenant: Name "Armoured Ghost Revenant"; Attacks "Berserk Scythe Attack; Summon Dark Souls; Seeker Missiles"; Skills "Can Fly; Bodiless; Can Explode"
+- Armour Zombies: Name "Armoured Zombie" (we should use UK english, so "armour" is the right word)
+- Baron Werewolf: Class "Demon/Animal"; Attacks "Hellish Fireball Attack"; Skills "Very Fast; Can create earthquakes"
+- Brutal Revenant Ghost: Attacks "Berserk Scythe Attack; Seeker Missiles"; Skills "Very Fast"
+- Butcher Knight: Skills "Can Spit Poisonus Barf; Can Explode"
+- Butcher Zombie: Skills "Very Fast" (replace High Speed, it is not a car XD)
+- Butcher from Hell: Name "Hell Butcher"; Skills "Can Spit Poisonus Barf"
+- Cacoyle: Attacks "Claws Melee Attack; Spit Zombies Heads"
+- CvltImp Warlock: Attacks "Claws Melee Attack; Phantasm Projectiles"; Skills "Very Fast"
 - Cyber Cheog: Name "Cyber-Cheogh"; Class "Horror"; Attacks "Tornadoes; Electric Storms; Icy Breath; Rockets" ; Skills "Can Fly; Protective Wings"; Hybridation "Cheogh/Cyberdemon"
-- Deep One Chaingunner: Name "Chaingunnner Deep Ones"; Class "Demon/Animal";
-- Deep One: Name "Deep Ones"; Class "Undead/Animal" (mix between Zombiemen and Eels);
-- EelCubus: Name "EelCubuses"; Attacks "Powerful Bites; Mancubus Missiles"; Skills add "Can Swim"
+- Deep One Chaingunner: Class "Demon/Animal";
+- Deep One: Class "Undead/Animal" (mix between Zombiemen and Eels);
+- EelCubus: Attacks "Powerful Bites; Mancubus Missiles"; Skills add "Can Swim"
 - EelderCubus: Class "Horror"; Attacks "Double Napalm-Eel Thrower; Flamethrower; Sonic Beam;" (there is no earthquake jump and no poisonus attack)
-- Fire CvltImp: Name "Fire CvltImps"; Attacks "Claws Melee Attack; Firestorm Projectiles"; Skills "Very Fast"
-- Flying Ghost Revenant: Name "Flying Ghost Revenants"; Attacks "Berserk Scythe Attack; Summon Dark Souls"; Skills "Can Fly; Bodiless; Can Explode"
-- Flying Pinkie: Name "Flying Pinkies"; Attacks "Jaws Attack; Fireball"
-- GargoDemon: Name "GargoDemons"; Attacks "Jaws Attack; Toxic Flatulencies"; Skills "Very Fast"
-- GargoElemental: Name "GargoElementals"; Attacks "Claws Melee Attack; Summon Gargoyle Souls"
-- Gargoyle Soul: Name "Gargoyle Souls"
-- GargoyleVile: Name "GargoViles"; Attacks "Claws Melee Attack; Firestorm Projectiles"
-- Gillcubus: Name "Gillcubuses"; Skills "Can Swim; Very Fast Underwater"
-- Hell Hounds: Skills add "Unpredictable"
-- Ice ArachnoPod: Name "Ice ArachnoPods"; Class "Demon/Plant"; Attacks "Icy Spit; Freeze Balls"; Skills "Can Jump; Immune to Ice"
+- Fire CvltImp: Attacks "Claws Melee Attack; Firestorm Projectiles"; Skills "Very Fast"
+- Flying Ghost Revenant: Attacks "Berserk Scythe Attack; Summon Dark Souls"; Skills "Can Fly; Bodiless; Can Explode"
+- Flying Pinkie: Attacks "Jaws Attack; Fireball"
+- GargoDemon: Attacks "Jaws Attack; Toxic Flatulencies"; Skills "Very Fast"
+- GargoElemental: Attacks "Claws Melee Attack; Summon Gargoyle Souls"
+- GargoyleVile: Name "GargoVile"; Attacks "Claws Melee Attack; Firestorm Projectiles"
+- Gillcubus: Skills "Can Swim; Very Fast Underwater"
+- Hell Hounds: Name should be singular; Skills add "Unpredictable"
+- Ice ArachnoPod: Class "Demon/Plant"; Attacks "Icy Spit; Freeze Balls"; Skills "Can Jump; Immune to Ice"
 - King Cacoyle: Class "Horror" (why use a human-like Lieutenant class? that's a grade); Attacks "Tornadoes; Electric Storms; Icy Breath" ; Skills "Can Fly; Protective Wings"; Hybridation "Cheogh/Cacoyle" (Cheogh is missing an Hat the end)
-- Machinegun Fanatic: Name "Fanatic Machinegunners"
-- Magma ArachnoPod: Name "Magma ArachnoPods"; Class "Demon/Plant"; Attacks "Magma Flames; Fireballs"; Skills "Can Jump; Immune to Fire"
-- Rat Demon: Name "RatDemons"; Class "Demon/Animal"; Attacks "Rapid Melee Leap Attacks; Summon Rats"; Skills "Very Fast; Can Jump"
-- Revenant Ghost: Name "Revenant Ghosts"; Attacks "Fists; Seeker Missiles"; Skills "Very Fast"
-- Shotgun Cultist: Name "Shotgun Cultists"; Attacks "Shotgun Shots"
-- Super Chaingunner: Name "Super Chaingunners"; Attacks "Throw lethal knives"; Skills "Giant, extreme resistance"
-- Trident Deep One: Name "Trident Deep Ones"; Class "Undead/Animal"; Attacks "Trident Attack; Freeze Projectile"
-- Winged Cacoyle: Name "Winged Cacoyles"; Attacks "Powerful Bites; Spit Zombies Heads"; Skills "Can Fly; Protective Wings"
-- ZomVile: Name "ArchZombies"; Attacks add "Can throw their own heads" and remove it from Skills; Skills "Can summon zombies" and "Can survive beheaded"
-- ZombImp: name "ZombImps"; Attacks "Rip-offs their own bodies as projectiles" (without Y); Skills "May resurrect"; 
-- Zombies: Put under Skills "May resurrect"
-
+- Machinegun Fanatic: Name "Fanatic Machinegunner"
+- Magma ArachnoPod: Class "Demon/Plant"; Attacks "Magma Flames; Fireballs"; Skills "Can Jump; Immune to Fire"
+- Rat Demon: Class "Demon/Animal"; Attacks "Rapid Melee Leap Attacks; Summon Rats"; Skills "Very Fast; Can Jump"
+- Revenant Ghost: Attacks "Fists; Seeker Missiles"; Skills "Very Fast"
+- Shotgun Cultist: Attacks "Shotgun Shots"
+- Super Chaingunner: Attacks "Throw lethal knives"; Skills "Giant, extreme resistance"
+- Trident Deep One: Class "Undead/Animal"; Attacks "Trident Attack; Freeze Projectile"
+- Winged Cacoyle: Attacks "Powerful Bites; Spit Zombies Heads"; Skills "Can Fly; Protective Wings"
+- ZomVile: Name "ArchZombie"; Attacks add "Can throw their own heads" and remove it from Skills; Skills "Can summon zombies" and "Can survive beheaded"
+- ZombImp: Attacks "Rip-offs their own bodies as projectiles" (without Y); Skills "May resurrect"; 
+- Zombies: Name should be singular; Put under Skills "May resurrect"
 
 For All:
 - add dropitem new ammo for flamethrower (fire cultimp) and the flamerthrower (mancubus/hybrids)

@@ -41,7 +41,7 @@ ACTOR SuperGhostRevenantTerrainSpawner
 
 ACTOR Shielded_Ghost_Revenant : BloomHybrid_Base 19017
 {
-	//$Title Ghost Revenant, Armored
+	//$Title Ghost Revenant, Armoured
 	Health 250
 	Radius 24
 	Height 40
@@ -407,7 +407,7 @@ ACTOR Ghost_Revenant : BloomHybrid_Base 19018
 
 ACTOR Shielded_Ghost_Revenant_Alt : BloomHybrid_Base 19020
 {
-	//$Title Ghost Revenant Alt, Armored
+	//$Title Ghost Revenant Alt, Armoured
 	Health 250
 	Radius 24
 	Height 40
@@ -469,12 +469,12 @@ ACTOR Shielded_Ghost_Revenant_Alt : BloomHybrid_Base 19020
 		TNT1 A 0 A_SetSolid
 		TNT1 A 0 A_SetShootable
 		TNT1 A 0 A_Jump(192,"SoulMissile")
-		SKG2 O 10 BRIGHT A_FaceTarget //Revenant Custom Missile
+		SKG2 O 10 A_FaceTarget //Revenant Custom Missile
 		SKG2 P 10 A_SkelMissile
 		SKG2 P 10 A_FaceTarget
 		Goto See
 	SoulMissile:
-		SKG2 O 0 BRIGHT A_FaceTarget
+		SKG2 O 0 A_FaceTarget
 		SKG2 OQR 4 A_FaceTarget
 		SKG2 S 4 A_FaceTarget
 		TNT1 A 0 A_PlaySound("LLFireInitiate")
@@ -495,9 +495,9 @@ ACTOR Shielded_Ghost_Revenant_Alt : BloomHybrid_Base 19020
 		SKG2 K 3 A_Pain
 		Goto See
 	Death: //The death is the beginning
-		SKG2 K 5 BRIGHT
-		SKG2 M 5 BRIGHT A_Scream
-		SKG2 MN 5 BRIGHT
+		SKG2 K 5
+		SKG2 M 5 A_Scream
+		SKG2 MN 5
 		TNT1 A 0 A_CustomMissile("ArmourPiece_1",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))
 		TNT1 A 0 A_CustomMissile("ArmourPiece_2",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))
 		TNT1 A 0 A_CustomMissile("ArmourPiece_3",32, frandom(-10.0,10.0), random (0, 360), 2, random (0, 45))
@@ -514,7 +514,7 @@ ACTOR Shielded_Ghost_Revenant_Alt : BloomHybrid_Base 19020
 		TNT1 A 0 A_UnSetSolid
 		TNT1 A 0 A_UnSetShootable
 		ZDE2 A 0 A_Scream
-		ZDE2 ABCDEFGHI 5 BRIGHT A_FadeOut(0.09)
+		ZDE2 ABCDEFGHI 5 A_FadeOut(0.09)
 		Stop
 	Ice:
 		SK2F R 5 A_FreezeDeath
@@ -756,13 +756,13 @@ ACTOR Ghost_Revenant_Alt : BloomHybrid_Base 19021
 		Goto WhoopWhoop
 	Pain.Shock:
 		TNT1 A 0 A_ChangeFlag("NoPain",1)
-		PSOK AAAAAAAAAAAAAAAAAAAAAAAA 3 BRIGHT
+		PSOK AAAAAAAAAAAAAAAAAAAAAAAA 3
 		TNT1 A 0 A_ChangeFlag("NoPain",0)
 		Goto See
 	Death:
-		SKW2 L 5 BRIGHT
-		SKW2 M 5 BRIGHT A_Scream
-		SKW2 NOPQRS 5 BRIGHT
+		SKW2 L 5
+		SKW2 M 5 A_Scream
+		SKW2 NOPQRS 5
 		Stop
 	Ice:
 		SK1F R 5 A_FreezeDeath
@@ -804,8 +804,7 @@ ACTOR GhostRevenantTerrain : BloomHybrid_Base 19024 //this has an odd name... te
 		SKT1 I 6 A_SkelFist
 		Goto See
 	Missile:
-		SKT1 J 0 BRIGHT A_FaceTarget
-		SKT1 J 10 BRIGHT A_FaceTarget
+		SKT1 J 10 A_FaceTarget
 		SKT1 K 10 A_SkelMissile
 		SKT1 K 10 A_FaceTarget
 		Goto See
@@ -864,8 +863,7 @@ ACTOR GhostRevenantTerrainAlt : BloomHybrid_Base 19025
 		SKT2 I 6 A_SkelFist
 		Goto See
 	Missile:
-		SKT2 J 0 BRIGHT A_FaceTarget
-		SKT2 J 10 BRIGHT A_FaceTarget
+		SKT2 J 10 A_FaceTarget
 		SKT2 K 10 A_SkelMissile
 		SKT2 K 10 A_FaceTarget
 		Goto See

@@ -10,6 +10,7 @@ ACTOR BlooMW : Weapon
 ACTOR ------GRENADES------------- {}
 ACTOR HandGrenades : BlooMW
 {
+	Tag "Hand Grenade"
 	Weapon.AmmoUse1 1
 	Weapon.AmmoGive1 1
 	Weapon.AmmoUse2 1
