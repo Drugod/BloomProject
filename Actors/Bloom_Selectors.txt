@@ -43,13 +43,33 @@ ACTOR OriginalShotgunSpawner
 	}
 }
 
+ACTOR HybridPossesedShotgunSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("PossesedShotgunguy",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("PossesedNeoCultist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("PossesedApocalypticNeoCultist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
 ACTOR HybridShotgunSpawner
 {
 	States
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5","Spawn6","Spawn7")
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5")
 		Stop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("Apocalyptic_NeoCvltist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
@@ -64,13 +84,7 @@ ACTOR HybridShotgunSpawner
 		TNT1 A 0 A_SpawnItemEx("DeepOneShot",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn5:
-		TNT1 A 0 A_SpawnItemEx("PossesedShotgunguy",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop
-	Spawn6:
-		TNT1 A 0 A_SpawnItemEx("PossesedNeoCultist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop
-	Spawn7:
-		TNT1 A 0 A_SpawnItemEx("PossesedApocalypticNeoCultist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		TNT1 A 0 A_SpawnItemEx("HybridPossesedShotgunSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
