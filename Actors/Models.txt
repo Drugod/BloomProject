@@ -511,6 +511,8 @@ ACTOR ---------OTHERS--------- {}
 ACTOR SatanicCube : Room_Base 18303
 {
 	//$Title 3d Satanic Cube
+	Radius 64
+	Height 110	
 	+FLOATBOB
 	States
 	{
