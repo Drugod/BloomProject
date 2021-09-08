@@ -1,7 +1,7 @@
 Mod concept by Drugod & Rolls
 Acs/Decorate/Maps by Drugod
 Acs/Decorate/Tweaks by Ozymandias81
-Sprites (Hybrid monsters) and 3D Models by Rolls
+Sprites (Hybrid monsters), Animated Textures and 3D Models by Rolls
 Music by Buio Mondo & Drugod
 
 Bloom is based on ZBlood-ZBloodX Addon by IvanDobrovski/Cruduxy/Marinelol
