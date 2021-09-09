@@ -16,8 +16,7 @@ ACTOR HangCorpseSpawner : RandomSpawner 3252
 	DropItem "HanginDeadChick2"
 	DropItem "HanginDeadChick3"
 	DropItem "HangingExBaron"
-	DropItem "HangingExHybrinBaron"
-
+	DropItem "HangingExHybridBaron"
 }
 
 ACTOR HangSkeletonSpawner : RandomSpawner 3282
@@ -905,7 +904,7 @@ ACTOR HangingExBaron : HangingMeat 18348
 	}
 }
 
-ACTOR HangingExHybrinBaron : HangingMeat 18349
+ACTOR HangingExHybridBaron : HangingMeat 18349
 {
 	//$Title Hanging Dismembered HybridBaron, Shootable
 	Height 78

@@ -677,13 +677,13 @@ ACTOR AnnoyingMallMusic 3181
 	States
 	{
 	Spawn:
-		BLD2 A -1 NODELAY A_PlaySound("annoy/music",7,1,5.0,1)
+		MALL A -1 NODELAY A_PlaySound("annoy/music",7,1,5.0,1)
 		Stop
 	Death:
-		BLD2 AAAAAAAA 0 A_CustomMissile("NapalmDebris", 0, 0, random(0,360), 2, random(-90,0))
-		BLD2 A 0 A_StopSound(7)
-		BLD2 A 0 A_Scream
-		BLD2 A 1
+		MALL AAAAAAAA 0 A_CustomMissile("NapalmDebris", 0, 0, random(0,360), 2, random(-90,0))
+		MALL A 0 A_StopSound(7)
+		MALL A 0 A_Scream
+		MALL A 1
 		Stop
 	}
 }
@@ -779,6 +779,7 @@ ACTOR RipSpawner : RandomSpawner 3254
 {
 	//$Category "BlooM Ambient"
 	//$Title "Graves Spawner"
+	//$Sprite B2ILE0
 	DropItem "ChurchCross"
 	DropItem "WoodCross"
 	DropItem "SkullCross"
@@ -793,6 +794,7 @@ ACTOR RipSpawnerInverted : RandomSpawner 19134
 {
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Graves Spawner, UpDown"
+	//$Sprite B2ILD0
 	DropItem "NoGravChurchCross"
 	DropItem "NoGravWoodCross"
 	DropItem "NoGravSkullCross"

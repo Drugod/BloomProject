@@ -1115,6 +1115,7 @@ ACTOR ExplosiveMoronSpawner 19088
     //$Category "BlooM Monsters"
 	//$Title Explosive Moron Spawner
 	//$Color 3
+	//$Sprite BARNI0
 	+NOTDMATCH
 	-COUNTKILL
 	States
