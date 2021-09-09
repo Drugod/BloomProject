@@ -5,6 +5,7 @@ ACTOR BloodEnemy_Base
     //$Category "Blood Monsters"
 	//$Color 5
 	Monster
+	+DONTHARMSPECIES
 }
 
 ACTOR DoomEnemy_Base
@@ -14,6 +15,7 @@ ACTOR DoomEnemy_Base
 	Height 56
 	Speed 8
 	Monster
+	+DONTHARMSPECIES
 }
 
 ACTOR BloomHybrid_Base
@@ -27,6 +29,7 @@ ACTOR BloomHybrid_Base
 	Speed 8
 	PainChance 170
 	Monster
+	+DONTHARMSPECIES
 }
 
 ACTOR BloomBossHybrid_Base
@@ -40,6 +43,7 @@ ACTOR BloomBossHybrid_Base
 	Speed 8
 	PainChance 170
 	Monster
+	+DONTHARMSPECIES
 }
 
 ACTOR --------------------DEBRIS----------------------{}

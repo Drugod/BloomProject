@@ -542,7 +542,7 @@ ACTOR GargBurn
 }
 
 ACTOR ---------HELLFISH---------- {}
-ACTOR Hellfish : Cacodemon 3100
+ACTOR HellFish : Cacodemon 3100
 {
 	//$Category "Blood Monsters"
 	//$Title HellFish
@@ -566,6 +566,7 @@ ACTOR Hellfish : Cacodemon 3100
     DamageFactor "Shock", 0.1
 	Obituary "$OB_FISH"
 	HitObituary "$OB_FISH"
+	+DONTHARMSPECIES
 	-NOTELEPORT
 	AttackSound "dsdolstb"
 	PainSound "SpiderPain"
