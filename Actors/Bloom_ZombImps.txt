@@ -13,6 +13,7 @@ ACTOR ZombImp1
 	DamageFactor Fire, 3.35
 	DamageFactor "Flare", 3.5
 	Monster
+	+DONTHARMSPECIES
 	+FLOORCLIP
 	SeeSound "imp/sight"
 	PainSound "imp/pain"
@@ -20,6 +21,7 @@ ACTOR ZombImp1
 	ActiveSound "imp/active"
 	HitObituary "$OB_IMPHIT"
 	Obituary "$OB_IMP"
+	Species "Zombies"
 	States
 	{
 	Spawn:
@@ -186,7 +188,7 @@ ACTOR ZombImp1
 	}
 }
 
-ACTOR ZombImp2: ZombImp1
+ACTOR ZombImp2 : ZombImp1
 {
 	States
 	{
@@ -354,7 +356,7 @@ ACTOR ZombImp2: ZombImp1
 	}
 }
 
-ACTOR ZombImp3: ZombImp1
+ACTOR ZombImp3 : ZombImp1
 {
 	States
 	{
@@ -522,7 +524,7 @@ ACTOR ZombImp3: ZombImp1
 	}
 }
 
-ACTOR ZombImp4: ZombImp1
+ACTOR ZombImp4 : ZombImp1
 {
 	States
 	{
@@ -702,6 +704,7 @@ ACTOR ZombImp5
 	PainChance 200
 	Painchance "Flare", 0
 	Monster
+	+DONTHARMSPECIES
 	+FLOORCLIP
 	SeeSound "imp/sight"
 	PainSound "imp/pain"
@@ -709,6 +712,7 @@ ACTOR ZombImp5
 	ActiveSound "imp/active"
 	HitObituary "$OB_IMPHIT"
 	Obituary "$OB_IMP"
+	Species "Zombies"
 	States
 	{
 	Spawn:
@@ -1008,7 +1012,7 @@ ACTOR BuriedZombImp5 : ZombImp5
 	}
 }
 
-ACTOR ZombImps: BuriedZombImp1 19033
+ACTOR ZombImps : BuriedZombImp1 19033
 {
 	//$Category BlooM Monsters
 	//$Title ZombImps

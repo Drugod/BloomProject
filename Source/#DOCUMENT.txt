@@ -40,18 +40,22 @@ ZBloodBullet
 
 //Species present in BlooM
 Archies
+Bramble
+Bruisers
 Cacos
 Cultist
-CultistG
-Eelcubus
+CultistG //for TNT damage, otherwise all Cultists would be immune to dynamite
+Fatties
+Fishes
+Ghosts
 HellDog
-HellWolf
 Horror
+Imps
 Nuisance
-Organs
+Organs //odd solution for gore props
 Spiders
 Trap
-ZombieFall
+Zombies
 
 //SpawnIDs - Zandronum doesn't support them inside Mapinfo, so gonna list them here for keep track of them - ozy81
 1 = BrownCultist

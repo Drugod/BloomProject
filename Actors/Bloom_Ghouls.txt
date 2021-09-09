@@ -26,6 +26,7 @@ ACTOR Ghoul_Base
 	Painchance "Tommy", 64//11 //Never seen them fake from this but oh well
 	Painchance "ZBloodBullet", 64
 	Painchance 100 //The old annoying zombie faking spam
+	+DONTHARMSPECIES
 	+DONTOVERLAP
 	+FLOORCLIP
 	+NOSPLASHALERT
@@ -44,7 +45,7 @@ ACTOR Ghoul_Base
 	DropItem "Flare" 64
 	DropItem "Flaregun" 8
 	Obituary "$OB_ZAXE"
-	Species "ZombieFall"
+	Species "Zombies"
 }
 
 ACTOR Ghoul1 : Ghoul_Base
@@ -329,6 +330,7 @@ ACTOR BuriedGhoul1 : Ghoul1
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Zombies"
 	States
 	{
 	Idle:
@@ -353,6 +355,7 @@ ACTOR FastBuriedGhoul1 : Ghoul1
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Zombies"
 	States
 	{
 	Idle:
@@ -679,6 +682,7 @@ ACTOR BuriedGhoul2 : Ghoul2
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Zombies"
 	States
 	{
 	Idle:
@@ -703,6 +707,7 @@ ACTOR FastBuriedGhoul2 : Ghoul2
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Zombies"
 	States
 	{
 	Idle:
@@ -755,7 +760,6 @@ ACTOR Ghoul3 : Ghoul_Base
 	Health 50
 	GibHealth 30
 	MeleeRange 48
-	Species "ZombieFall"
 	+DONTOVERLAP
 	+FLOORCLIP
 	+NOSPLASHALERT
@@ -1071,6 +1075,7 @@ ACTOR BuriedGhoul3 : Ghoul3
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Zombies"
 	States
 	{
 	Idle:
@@ -1095,6 +1100,7 @@ ACTOR FastBuriedGhoul3 : Ghoul3
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Zombies"
 	States
 	{
 	Idle:
@@ -1420,6 +1426,7 @@ ACTOR BuriedGhoul4 : Ghoul4
 	+NOTAUTOAIMED
 	-SOLID
 	-SHOOTABLE
+	Species "Zombies"
 	States
 	{
 	Idle:
@@ -1444,6 +1451,7 @@ ACTOR FastBuriedGhoul4 : Ghoul4
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Zombies"
 	States
 	{
 	Idle:
@@ -1768,6 +1776,7 @@ ACTOR BuriedGhoul5 : Ghoul5
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Zombies"
 	States
 	{
 	Idle:
@@ -1792,6 +1801,7 @@ ACTOR FastBuriedGhoul5 : Ghoul5
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Zombies"
 	States
 	{
 	Idle:
@@ -2090,6 +2100,7 @@ ACTOR BuriedGhoul6 : Ghoul6
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Zombies"
 	States
 	{
 	Idle:
@@ -2114,6 +2125,7 @@ ACTOR FastBuriedGhoul6 : Ghoul6
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Zombies"
 	States
 	{
 	Idle:

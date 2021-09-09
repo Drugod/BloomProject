@@ -19,6 +19,7 @@ ACTOR DeepOne_Base
 	FloatSpeed 10
 	PainChance 170
 	Monster
+	+DONTHARMSPECIES
 	+DROPOFF
 	+FLOAT
 	Dropitem "UselessStuff" 32
@@ -26,6 +27,7 @@ ACTOR DeepOne_Base
 	PainSound "GillBeastPain"
 	DeathSound "GillBeastDie"
 	ActiveSound "GillBeastSee"
+	Species "Fishes"
 	States
 	{
 	Forget:

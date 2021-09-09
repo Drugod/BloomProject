@@ -12,6 +12,7 @@ ACTOR NeoCvltist_Base
 	FloatSpeed 10
 	PainChance 170
 	Monster
+	+DONTHARMSPECIES
 	+DROPOFF
 	+FLOAT
 	SeeSound "NCultistSee"
@@ -25,6 +26,7 @@ ACTOR NeoCvltist_Base
 	DropItem "HappyBundle" 32
 	PainChance "ChokeEM", 255
 	DamageFactor "ChokeEM", 2.0
+	Species "Imps"
 	States
 	{
 	Forget:
@@ -518,6 +520,7 @@ ACTOR ShotgunMonk : BloomHybrid_Base 18323
 	Dropitem "UselessStuff" 32
 	DropItem "GrenadeAmmo" 32
 	DropItem "HappyBundle" 32
+	Species "Zombies"
 	States
 	{
 	Spawn:
@@ -615,6 +618,6 @@ ACTOR ShotgunMonk : BloomHybrid_Base 18323
 	}
 }
 
-ACTOR Pedestrian: Apocalyptic_NeoCvltist { +FRIENDLY }
+ACTOR Pedestrian : Apocalyptic_NeoCvltist { +FRIENDLY }
 
 ACTOR HybridCultistTNT : GreenCultistTNT { +CANNOTPUSH }

@@ -19,6 +19,7 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 	DamageFactor "Fire",2
 	PainChance "ChokeEM", 255
 	DamageFactor "ChokeEM", 2.0
+	Species "Zombies"
 	States
 	{
 	Spawn:
@@ -162,6 +163,7 @@ ACTOR ShotgunGuy_ : DoomEnemy_Base 18999
 	DropItem "HappyBundle" 32
 	PainChance "ChokeEM", 255
 	DamageFactor "ChokeEM", 2.0
+	Species "Zombies"
 	States
 	{
 	Spawn:
@@ -274,6 +276,7 @@ ACTOR ChaingunGuy_ : DoomEnemy_Base 18998
 	Dropitem "UselessStuff" 32
 	DropItem "GrenadeAmmo" 32
 	DropItem "HappyBundle" 32
+	Species "Zombies"
 	States
 	{
 	Spawn:
@@ -533,6 +536,7 @@ ACTOR Demon_ : DoomEnemy_Base 19013
 	DeathSound "demon/death"
 	ActiveSound "demon/active"
 	Obituary "$OB_DEMONHIT" // "%o was bit by a demon."
+	Species "HellDog"
 	States
 	{
 	Spawn:
@@ -638,6 +642,7 @@ ACTOR Spectre_ : Demon_ 19048
 	DeathSound "spectre/death"
 	ActiveSound "spectre/active"
 	HitObituary "$OB_SPECTREHIT" // "%o was eaten by a spectre."
+	Species "HellDog"
 }
 
 ACTOR DoomImp_ : DoomEnemy_Base 19030
@@ -658,6 +663,7 @@ ACTOR DoomImp_ : DoomEnemy_Base 19030
 	DropItem "Flare" 64
 	Dropitem "UselessStuff" 32
 	DropItem "FlameGas" 8
+	Species "Imps"
 	States
 	{
 	Spawn:
@@ -784,6 +790,7 @@ ACTOR BaronOfHell_ : DoomEnemy_Base 19041
 	ActiveSound "baron/active"
 	Obituary "$OB_BARON"
 	HitObituary "$OB_BARONHIT"
+	Species "Bruisers"
 	States
 	{
 	Spawn:
@@ -849,6 +856,7 @@ ACTOR HellKnight_ : BaronOfHell_ 19034
 	DeathSound "knight/death"
 	HitObituary "$OB_KNIGHTHIT"
 	Obituary "$OB_KNIGHT"
+	Species "Bruisers"
 	States
 	{
 	Spawn:
@@ -1041,6 +1049,7 @@ ACTOR LostSoul_ : DoomEnemy_Base 19022
 	ActiveSound "skull/active"
 	RenderStyle SoulTrans
 	Obituary "$OB_SKULL" // "%o was spooked by a lost soul."
+	Species "Cacos"
 	States
 	{
 	Spawn:
@@ -1087,6 +1096,7 @@ ACTOR Fatso_ : DoomEnemy_Base 19006
 	Obituary "$OB_FATSO"
 	DropItem "FlameBigGas" 32
 	DropItem "FlameThrower_" 8
+	Species "Fatties"
 	States
 	{
 	Spawn:
@@ -1288,6 +1298,7 @@ ACTOR Revenant_ : DoomEnemy_Base 19019
 	MeleeSound "skeleton/melee"
 	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
 	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+	Species "Ghosts"
 	States
 	{
 	Spawn:

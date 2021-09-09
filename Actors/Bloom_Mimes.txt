@@ -32,6 +32,7 @@ ACTOR RevenantMime 19099
 	PainChance 100
 	Monster
 	MeleeThreshold 196
+	+DONTHARMSPECIES
 	+FLOORCLIP
 	MeleeSound "skeleton/melee"
 	SeeSound "Moron/Cry1"
@@ -40,6 +41,7 @@ ACTOR RevenantMime 19099
 	PainSound "Moron/Scream"
 	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
 	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+	Species "Ghosts"
 	States
 	{
 	Spawn:
@@ -89,7 +91,7 @@ ACTOR RevenantMime 19099
 	}
 }
 
-ACTOR RevenantMimeAlt: RevenantMime 19100
+ACTOR RevenantMimeAlt : RevenantMime 19100
 {
 	//$Title Revenant Mime Alt
 	States
@@ -139,7 +141,7 @@ ACTOR RevenantMimeAlt: RevenantMime 19100
 	}
 }
 
-ACTOR RevenantMimeAlt2: RevenantMime 19101
+ACTOR RevenantMimeAlt2 : RevenantMime 19101
 {
 	//$Title Revenant Mime Alt 2
 	States

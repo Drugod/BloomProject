@@ -18,6 +18,7 @@ ACTOR GargoylSoul : BloomHybrid_Base 19005
 	ActiveSound "skull/active"
 	RenderStyle SoulTrans
 	Obituary "$OB_GSOUL"
+	Species "Cacos"
 	States
 	{
 	Spawn:
@@ -65,6 +66,7 @@ ACTOR Elemental_Gargoyle : BloomHybrid_Base 19009
 	PainSound "pain/pain"
 	DeathSound "pain/death"
 	ActiveSound "pain/active"
+	Species "Cacos"
 	States
 	{
 	Spawn:

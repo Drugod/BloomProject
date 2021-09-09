@@ -1,3 +1,3 @@
 STARTUPTYPE = "Hexen"
-STARTUPTITLE = "BlooM Startup v1.666"
+STARTUPTITLE = "==> B l o o M <=="
 STARTUPCOLORS = "00 00 00", "FF 00 00"

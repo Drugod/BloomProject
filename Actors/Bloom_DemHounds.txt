@@ -20,6 +20,7 @@ ACTOR DemonHound : BloomHybrid_Base 19012
 	ActiveSound "demon/active"
 	Obituary "$OB_DEMHOU"
 	DropItem "FlameGas" 8
+	Species "HellDog"
 	States
 	{
 	Spawn:
@@ -138,7 +139,6 @@ ACTOR DemonHoundAlt : HellKnight 19026
 	Speed 8
 	FastSpeed 8
 	MeleeDamage 4
-	Species "HellDog"
 	MaxTargetRange 256
 	MeleeRange 50
 	MeleeThreshold 128
@@ -154,6 +154,7 @@ ACTOR DemonHoundAlt : HellKnight 19026
 	HitObituary "$HB_PUPPY"
 	Obituary "$OB_DEMHOU2"
 	DropItem "FlameGas" 8
+	Species "HellDog"
 	States
 	{
  	Spawn:
@@ -288,6 +289,7 @@ ACTOR SpectreHound : DemonHound 19049
 	ActiveSound "spectre/active"
 	HitObituary "$OB_SPEHOU"
 	DropItem "FlameGas" 8
+	Species "HellDog"
 	States
 	{
 	Missile:
@@ -310,6 +312,7 @@ ACTOR SpectreHoundAlt : DemonHoundAlt 19050
 	ActiveSound "spectre/active"
 	HitObituary "$OB_SPEHOU"
 	DropItem "FlameGas" 8
+	Species "HellDog"
 	States
 	{
 	Missile:
@@ -333,6 +336,7 @@ ACTOR GargoDemon : BloomHybrid_Base 19051
 	DeathSound "demon/death"
 	ActiveSound "demon/active"
 	Obituary "$OB_GARGD"
+	Species "HellDog"
 	States
 	{
 	Spawn:
@@ -415,6 +419,7 @@ ACTOR PinkGargoyle : BloomHybrid_Base 19135
 	DeathSound "demon/death"
 	ActiveSound "demon/active"
 	Obituary "$OB_PINKGARG"
+	Species "HellDog"
 	States
 	{
 	Spawn:

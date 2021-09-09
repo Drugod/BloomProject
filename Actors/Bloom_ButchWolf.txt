@@ -8,7 +8,6 @@ ACTOR WereWolfOfHellAlt : BloomHybrid_Base 19031
 	Health 1000
 	PainChance 50
 	GibHealth 30
-	Species "HellWolf"
 	+BOSSDEATH
 	+DONTHARMCLASS
 	+FLOORCLIP
@@ -18,6 +17,7 @@ ACTOR WereWolfOfHellAlt : BloomHybrid_Base 19031
 	ActiveSound "baron/active"
 	Obituary "$OB_BARON"
 	HitObituary "$OB_BARONHIT"
+	Species "Bruisers"
 	States
 	{
 	Spawn:
@@ -101,7 +101,6 @@ ACTOR WereWolfOfHell : WereWolfOfHellAlt 19032
 	MeleeDamage 10
 	MeleeRange 64
 	+DROPOFF
-	Species "HellWolf"
 	MeleeSound "baron/Melee"
 	SeeSound "knight/sight"
 	ActiveSound "knight/active"
@@ -109,6 +108,7 @@ ACTOR WereWolfOfHell : WereWolfOfHellAlt 19032
 	DeathSound "knight/death"
 	Obituary "$OB_KNIGHT"
 	HitObituary "$OB_KNIGHTHIT"
+	Species "Bruisers"
 	States
 	{
 	Spawn:
@@ -201,6 +201,7 @@ ACTOR HellButcher : WereWolfOfHellAlt 19042
 	ActiveSound "ButcherAct"
 	HitObituary "$OB_KNIGHTHIT"
 	Obituary "$OB_KNIGHT"
+	Species "Bruisers"
 	States
 	{
 	Spawn:
@@ -281,6 +282,7 @@ ACTOR HellButcherAlt : WereWolfOfHellAlt 19047
 	ActiveSound "ButcherAct"
 	HitObituary "$OB_KNIGHTHIT"
 	Obituary "$OB_KNIGHT"
+	Species "Bruisers"
 	States
 	{
 	Spawn:
@@ -382,7 +384,6 @@ ACTOR HoundKnightOfHell : WereWolfOfHellAlt 19093
 	Health 500
 	+DROPOFF
 	-BOSSDEATH
-	Species "HoundHell"
 	MeleeSound "baron/Melee"
 	SeeSound "knight/sight"
 	ActiveSound "knight/active"
@@ -390,6 +391,7 @@ ACTOR HoundKnightOfHell : WereWolfOfHellAlt 19093
 	DeathSound "knight/death"
 	Obituary "$OB_KNIGHT"
 	HitObituary "$OB_KNIGHTHIT"
+	Species "Bruisers"
 	States
 	{
 	Spawn:
@@ -519,7 +521,6 @@ ACTOR HoundBaronOfHell: BloomHybrid_Base 19094
 	Mass 1000
 	Speed 25
 	+DROPOFF
-	Species "HoundBaronHell"
 	MeleeSound "baron/Melee"
 	SeeSound "knight/sight"
 	ActiveSound "knight/active"
@@ -531,6 +532,7 @@ ACTOR HoundBaronOfHell: BloomHybrid_Base 19094
 	+BOSSDEATH
 	+DONTHARMCLASS
 	+FLOORCLIP
+	Species "Bruisers"
 	States
 	{
 	Spawn:
@@ -684,17 +686,15 @@ ACTOR ZombaronOfHell : BloomHybrid_Base
 	Health 750
 	PainChance 50
 	GibHealth 30
-	Species "Zombaron"
 	+BOSSDEATH
-	+DONTHARMCLASS
 	+FLOORCLIP
-	+DONTHARMSPECIES
 	SeeSound "baron/sight"
 	PainSound "baron/pain"
 	DeathSound "baron/death"
 	ActiveSound "baron/active"
 	Obituary "$OB_BARON"
 	HitObituary "$OB_BARONHIT"
+	Species "Bruisers"
 	States
 	{
 	Spawn:
@@ -803,6 +803,7 @@ ACTOR AxeZombaronOfHell : ZombaronOfHell
 	MeleeThreshold 196
 	MeleeRange 48
 	MaxTargetRange 49
+	Species "Bruisers"
 	States
 	{
 	Spawn:
@@ -910,6 +911,7 @@ ACTOR BuriedZombaronOfHell : ZombaronOfHell
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Bruisers"
 	States
 	{
 	Idle:
@@ -934,6 +936,7 @@ ACTOR BuriedAxeZombaronOfHell : AxeZombaronOfHell
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Bruisers"
 	States
 	{
 	Idle:

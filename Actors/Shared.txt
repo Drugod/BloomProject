@@ -484,7 +484,6 @@ ACTOR ZBBulletPuff : BulletPuff replaces BulletPuff
 	Renderstyle Translucent
 	Alpha 0.75
 	DamageType "ZBloodBullet"
-	Species "ZombieFall"
 	+ALLOWPARTICLES
 	+NOBLOCKMAP
 	+NOGRAVITY
@@ -493,6 +492,7 @@ ACTOR ZBBulletPuff : BulletPuff replaces BulletPuff
 	+THRUSPECIES
 	AttackSound "Shoot/Bullet"
 	ActiveSound "Shoot/Bullet"
+	Species "Zombies"
 	States
 	{
 	Spawn:
@@ -605,9 +605,9 @@ ACTOR ZBulletPuffT : ZBBulletPuff
 ACTOR ZBulletCultist : ZBBulletPuff
 {
 	DamageType "Cultist"
-    Species "ZombieFall"
 	+THRUGHOST
 	+THRUSPECIES
+    Species "Zombies"
 }
 
 ACTOR ------------------MISCSTUFF--------------------{}

@@ -15,6 +15,7 @@ ACTOR Fanatic_Chaingunner : BloomHybrid_Base 19004
 	Dropitem "UselessStuff" 32
 	DropItem "GrenadeAmmo" 32
 	DropItem "HappyBundle" 32
+	Species "Cultist"
 	States
 	{
 	Spawn:
@@ -126,6 +127,7 @@ ACTOR Fanatic_ChaingunnerAlt : BloomHybrid_Base 19046
 	DropItem "HappyBundle" 32
 	Scale 0.8
 	GibHealth 30
+	Species "Bruisers"
 	States
 	{
 	Spawn:

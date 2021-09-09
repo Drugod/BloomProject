@@ -67,6 +67,7 @@ ACTOR Shielded_Ghost_Revenant : BloomHybrid_Base 19017
 	ActiveSound "PhantasmSee"
 	HitObituary "$HB_GHOREV"
 	Obituary "$OB_GHOREV"
+	Species "Ghosts"
 	States
 	{
  	Spawn:
@@ -187,6 +188,7 @@ ACTOR Ghost_Revenant : BloomHybrid_Base 19018
 	ActiveSound "PhantasmSee"
 	HitObituary "$HB_GHOREV"
 	Obituary "$OB_GHOREV"
+	Species "Ghosts"
 	States
 	{
  	Spawn:
@@ -433,6 +435,7 @@ ACTOR Shielded_Ghost_Revenant_Alt : BloomHybrid_Base 19020
 	ActiveSound "PhantasmSee"
 	HitObituary "$HB_GHOREV"
 	Obituary "$OB_GHOREV"
+	Species "Ghosts"
 	States
 	{
  	Spawn:
@@ -553,6 +556,7 @@ ACTOR Ghost_Revenant_Alt : BloomHybrid_Base 19021
 	ActiveSound "PhantasmSee"
 	HitObituary "$HB_GHOREV"
 	Obituary "$OB_GHOREV"
+	Species "Ghosts"
 	States
 	{
  	Spawn:
@@ -789,6 +793,7 @@ ACTOR GhostRevenantTerrain : BloomHybrid_Base 19024 //this has an odd name... te
 	MeleeSound "skeleton/Melee"
 	HitObituary "$HB_TERREV"
 	Obituary "$OB_GHOREV"
+	Species "Ghosts"
 	States
 	{
 	Spawn:
@@ -848,6 +853,7 @@ ACTOR GhostRevenantTerrainAlt : BloomHybrid_Base 19025
 	MeleeSound "skeleton/Melee"
 	HitObituary "$HB_TERREV"
 	Obituary "$OB_GHOREV"
+	Species "Ghosts"
 	States
 	{
 	Spawn:

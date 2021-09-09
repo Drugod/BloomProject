@@ -97,7 +97,6 @@ ACTOR RemoteFloor
 	DamageFactor "Dynamite", 60
 	DamageFactor "Napalm",60
 	DamageFactor "TripWire",100
-	Species "Trap"
 	+ACTIVATEIMPACT
 	+NOBLOOD
 	+NOTAUTOAIMED
@@ -108,6 +107,7 @@ ACTOR RemoteFloor
 	DeathSound "LargeExplosions"
 	PainSound "Proximity/Arm"
 	ActiveSound "Proximity/Arm"
+	Species "Trap"
 	States
 	{
 	Spawn:

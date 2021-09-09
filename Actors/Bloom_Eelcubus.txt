@@ -13,9 +13,9 @@ ACTOR Eelcubus_Base
 	FloatSpeed 10
 	Monster
 	+BOSSDEATH
+	+DONTHARMSPECIES
 	+DROPOFF
 	+FLOAT
-	Species "Eelcubus"
 	BloodColor DarkRed
 	SeeSound "fatso/sight"
 	PainSound "fatso/pain"
@@ -23,6 +23,7 @@ ACTOR Eelcubus_Base
 	ActiveSound "fatso/active"
 	DropItem "FlameBigGas" 32
 	DropItem "FlameThrower_" 8
+	Species "Fatties"
 	States
 	{
 	Forget:

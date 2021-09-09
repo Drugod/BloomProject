@@ -199,10 +199,10 @@ ACTOR SpiderSpit : Cleaver
 	Damage 6
 	DamageType "PoisonCloud"
 	PoisonDamage 20
-	Species "Spiders"
 	+THRUSPECIES
 	-RANDOMIZE
 	-RIPPER
+	Species "Spiders"
 	States
 	{
 	Spawn:

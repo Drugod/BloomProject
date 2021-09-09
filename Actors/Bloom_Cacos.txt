@@ -52,6 +52,7 @@ ACTOR Cacoyle : BloomHybrid_Base 19014
 	Obituary "$OB_CACOY"
 	HitObituary "HB_CACOY"
 	DropItem "UselessStuff" 32
+	Species "Cacos"
 	States
 	{
 	Spawn:
@@ -171,6 +172,7 @@ ACTOR Cacoyle_Variant : BloomHybrid_Base 19016
 	Obituary "$OB_CACOY"
 	HitObituary "$HB_CACOY"
 	DropItem "UselessStuff" 32
+	Species "Cacos"
 	States
 	{
 	Spawn:

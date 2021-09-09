@@ -18,6 +18,7 @@ ACTOR RatDemon_Brown : BloomHybrid_Base 19059
 	DeathSound "Ratdie"
 	ActiveSound "Ratsee"
 	Obituary "$OB_RATDEM"
+	Species "Nuisance"
 	States
 	{
 	Spawn: //we can't use BloodRatSpawner since it becomes impossible to transfer properly the Master - ozy81

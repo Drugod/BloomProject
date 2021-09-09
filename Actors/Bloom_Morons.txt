@@ -17,6 +17,7 @@ ACTOR Moron 3241
 	DeathSound "Moron/Crying"
 	ActiveSound "Moron/GoAway"
 	PainSound "Moron/Scream"
+	+DONTHARMSPECIES
 	+DONTOVERLAP
 	+DROPPED
 	+FLOORCLIP
@@ -25,6 +26,7 @@ ACTOR Moron 3241
 	+RANDOMIZE
 	-COUNTKILL
 	Obituary "$OB_MORON"
+	Species "Aberration"
 	States
 	{
 	Spawn:
@@ -1170,6 +1172,7 @@ ACTOR RevenantMoron 19096
 	PainChance 100
 	Monster
 	MeleeThreshold 196
+	+DONTHARMSPECIES
 	+FLOORCLIP
 	MeleeSound "skeleton/melee"
 	SeeSound "Moron/Cry1"
@@ -1178,6 +1181,7 @@ ACTOR RevenantMoron 19096
 	PainSound "Moron/Scream"
 	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
 	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+	Species "Ghosts" //not Aberration since it makes more sense to have it in line with other Revenants and Phantasms - ozy81
 	States
 	{
 	Spawn:
@@ -1234,6 +1238,7 @@ ACTOR RevenantMoronAlt 19097
 	PainChance 100
 	Monster
 	MeleeThreshold 196
+	+DONTHARMSPECIES
 	+FLOORCLIP
 	MeleeSound "skeleton/melee"
 	SeeSound "Moron/Cry1"
@@ -1242,6 +1247,7 @@ ACTOR RevenantMoronAlt 19097
 	PainSound "Moron/Scream"
 	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
 	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+	Species "Ghosts" //not Aberration since it makes more sense to have it in line with other Revenants and Phantasms - ozy81
 	States
 	{
 	Spawn:
@@ -1298,6 +1304,7 @@ ACTOR RevenantMoronAlt2 19098
 	PainChance 100
 	Monster
 	MeleeThreshold 196
+	+DONTHARMSPECIES
 	+FLOORCLIP
 	MeleeSound "skeleton/melee"
 	SeeSound "Moron/Cry1"
@@ -1306,6 +1313,7 @@ ACTOR RevenantMoronAlt2 19098
 	PainSound "Moron/Scream"
 	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
 	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+	Species "Ghosts" //not Aberration since it makes more sense to have it in line with other Revenants and Phantasms - ozy81
 	States
 	{
 	Spawn:

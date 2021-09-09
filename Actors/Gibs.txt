@@ -4,6 +4,8 @@ ACTOR HeadBlood
 	Decal BloodSmear
 	Radius 1
 	Height 1
+	Speed 3
+	Scale 0.5
 	PROJECTILE
 	+CANNOTPUSH
 	+CLIENTSIDEONLY
@@ -15,8 +17,6 @@ ACTOR HeadBlood
 	-NOGRAVITY
 	-SOLID
 	Species "Organs"
-	Scale 0.5
-	Speed 3
 	States
 	{
 	Spawn:
@@ -3019,8 +3019,8 @@ ACTOR OrganDebris2 : OrganDebris
 {
 	Decal BloodSmear2
 	+THRUSPECIES
-	Species "Organs"
 	DeathSound ""
+	Species "Organs"
 	States
 	{
 	Spawn:
@@ -3052,8 +3052,8 @@ ACTOR WingDebris
 	+THRUSPECIES
 	+WINDTHRUST
 	-NOGRAVITY
-	Species "Organs"
 	SeeSound "Body/Gibs"
+	Species "Organs"
 	States
 	{
 	Spawn:

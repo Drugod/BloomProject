@@ -210,14 +210,13 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 	DeathSound "GargoyleDie"
 	ActiveSound "GargoyleAct"
 	DamageType "Stun"
-	Species "Cacos"
-	+DONTHURTSPECIES
 	+FLOAT
 	+FLOORCLIP
 	+LONGMELEERANGE
 	+NOGRAVITY
 	+NOSPLASHALERT
 	+NOTELEPORT
+	Species "Cacos"
 	States
 	{
 	Spawn:
@@ -574,6 +573,7 @@ ACTOR HellFish : Cacodemon 3100
 	SeeSound "SpiderSee"
 	ActiveSound ""
 	ProjectilePassHeight 64
+	Species "Fishes"
 	States
 	{
 	Spawn:
@@ -720,6 +720,7 @@ ACTOR BloatedButcher : BloodEnemy_Base 3122
 	+NODROPOFF
 	+NOSPLASHALERT
 	+NOSPLASHALERT
+	Species "Bruisers"
 	States
 	{
 	Idle:
@@ -971,12 +972,12 @@ ACTOR GreyCultist : BloodEnemy_Base 3125
 	AttackSound ""
 	DeathSound "CultistDie"
 	ActiveSound "CultistAct"
-	Species "Cultist"
 	DropItem "Tommygun" 64
 	DropItem "Bullets" 200, 30
 	DropItem "TNTBundle", 128
 	Obituary "$OB_GREYCUL"
 	Translation "112:120=[128,128,128]:[48,48,48]","120:127=[48,48,48]:[8,8,8]","209:223=193:207","192:200=[192,192,192]:[64,64,64]","200:207=[64,64,64]:[16,16,16]","240:247=[16,16,16]:[0,0,0]"
+	Species "Cultist"
 	States
 	{
 	Idle:
@@ -1171,12 +1172,10 @@ ACTOR RedCultist : BloodEnemy_Base 10310
 	PainChance "Voodoo", 256
 	DamageFactor "Stomping", 0
 	DropItem "Medikit", 32
-	+DONTHURTSPECIES
 	+DROPOFF
 	+FLOORCLIP
 	+NOSPLASHALERT
 	-DONTGIB
-	Species "Cultist"
 	SeeSound "CultistSee"
 	AttackSound "shotguy/attack"
 	PainSound "CultistPain"
@@ -1184,6 +1183,7 @@ ACTOR RedCultist : BloodEnemy_Base 10310
 	ActiveSound "CultistAct"
 	Obituary "$OB_REDCUL"
 	Translation "112:120=[208,144,48]:[160,32,14]","120:127=[120,24,10]:[16,0,0]","209:223=[192,160,128]:[128,80,64]"
+	Species "Cultist"
 	States
 	{
 	Spawn:
@@ -1345,14 +1345,13 @@ ACTOR GreenCultist : BloodEnemy_Base 3128
 	DamageFactor "CultistTNT2", 0.0
 	DamageFactor "Stomping", 0
 	Scale 0.53
-	Species "CultistG" //OTHERS WERE IMMUNE TO TNT!
-	+DONTHURTSPECIES
 	+DROPOFF
 	+FLOORCLIP
 	+MISSILEEVENMORE
 	+MISSILEMORE
 	+NOSPLASHALERT
 	-DONTGIB
+	Species "CultistG" //OTHERS WERE IMMUNE TO TNT!
 	States
 	{
 	Idle:
@@ -1652,14 +1651,13 @@ ACTOR BlueCultist : BloodEnemy_Base 10309
 	ActiveSound "CultistAct"
 	DropItem "TeslaCharge", 128
 	DropItem "RTNTAMMO", 128
-	Species "Cultist"
-	+DONTHURTSPECIES
 	+DROPOFF
 	+FLOORCLIP
 	+NOSPLASHALERT  // ,,180/108 108 148/76 76 104/ 30 30 70
 	-DONTGIB
 	Translation "112:120=[108,108,140]:[84,84,128]","120:127=[64,64,98]:[18,18,32]","209:223=[192,160,132]:[124,92,92]","224:231=[256,192,160]:[216,160,128]","160:167=[255,192,160]:[216,160,128]"
 	Scale 0.53
+	Species "Cultist"
 	States
 	{
 	Spawn:
@@ -1805,11 +1803,11 @@ ACTOR BrownCultist : BloodEnemy_Base 3129
 	DropItem "Bloodshells" 160
 	DropItem "TNTBundle" 64
 	Scale 0.53
-	Species "Cultist"
 	DamageFactor "CultistTNT",1
 	+FLOORCLIP
 	+NODROPOFF
 	+NOSPLASHALERT
+	Species "Cultist"
 	States
 	{
 	Idle:
@@ -2119,13 +2117,13 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 	SeeSound "ZombieSee"
 	Obituary "$OB_ZAXE"
 	DropItem "UselessStuff", 80
-	Species "ZombieFall"
 	+DONTOVERLAP
 	+DROPOFF
 	+FLOORCLIP
 	+NOSPLASHALERT
 	+RANDOMIZE
 	-DONTGIB
+	Species "Zombies"
 	States
 	{
 	Spawn:
@@ -2366,6 +2364,7 @@ ACTOR BuriedZombie : BloodZombie 3121
 	+NOTAUTOAIMED
 	-SHOOTABLE
 	-SOLID
+	Species "Zombies"
     States
 	{
 	Idle:
@@ -2433,6 +2432,7 @@ ACTOR GillBeast : Cacodemon 3126
 	+NOTELEPORT
 	Obituary "$OB_GILLB"
 	HitObituary "$OB_GILLB"
+	Species "Fishes"
 	States
 	{
 	Forget:
@@ -2759,6 +2759,7 @@ ACTOR Phantasm : BloodEnemy_Base  3134
     -CANUSEWALLS
 	Obituary "$OB_PHANT"
 	HitObituary "$HB_PHANT"
+	Species "Ghosts"
 	States
 	{
   	Spawn:
@@ -3018,8 +3019,8 @@ ACTOR HellHound : HellKnight 3130
 	MeleeThreshold 128
 	HitObituary "$HB_PUPPY"
 	Obituary "$OB_PUPPY"
-	Species "HellDog"
 	DamageType "GOUPBOY"
+	Species "HellDog"
 	States
 	{
   	Spawn:
@@ -3184,6 +3185,7 @@ ACTOR BloodBeast : BloodEnemy_Base 6123
 	+SHORTMISSILERANGE
 	Obituary "$OB_BEAST"
 	HitObituary "$HB_BEAST"
+	Species "Bruisers"
 	States
 	{
 	Spawn:
@@ -3386,7 +3388,6 @@ ACTOR Cheogh : BloodEnemy_Base 3124
 	MeleeSound "Cheogh/Slap"
 	Obituary "$OB_CHEOGH"
 	HitObituary "$HB_CHEOGH"
-	Species "Cacos"
 	+FLOAT
 	+FLOORCLIP
 	+LONGMELEERANGE
@@ -3394,6 +3395,7 @@ ACTOR Cheogh : BloodEnemy_Base 3124
 	+NOGRAVITY
 	+NOSPLASHALERT
 	+SHORTMISSILERANGE
+	Species "Cacos"
 	States
 	{
 	Spawn:
@@ -3511,7 +3513,6 @@ ACTOR Cerberus : BloodEnemy_Base 3127
 	ActiveSound "Cerberus/Roam"
 	Scale 1.0
 	+BOSS
-	+DONTHURTSPECIES
 	+DROPOFF
 	+FLOORCLIP
 	+MISSILEMORE
@@ -3695,7 +3696,6 @@ ACTOR Tchernobog : BloodEnemy_Base 6134
 	ActiveSound "Omni/Search"
 	Scale 1.0
 	+BOSS
-	+DONTHURTSPECIES
 	+DROPOFF
 	+FLOORCLIP
 	+MISSILEMORE
