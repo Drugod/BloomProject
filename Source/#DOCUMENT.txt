@@ -39,12 +39,15 @@ Voodoo
 ZBloodBullet
 
 //Species present in BlooM
+Archies
+Cacos
 Cultist
 CultistG
 Eelcubus
-Gargoyles
 HellDog
 HellWolf
+Horror
+Nuisance
 Organs
 Spiders
 Trap

@@ -927,6 +927,7 @@ ACTOR SpiderMastermind_ replaces SpiderMastermind
 	DeathSound "spider/death"
 	ActiveSound "spider/active"
 	Obituary "$OB_SPIDER"
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -984,6 +985,7 @@ ACTOR Cyberdemon_ : DoomEnemy_base 19058
 	DeathSound "cyber/death"
 	ActiveSound "cyber/active"
 	Obituary "$OB_CYBORG"
+	Species "Horror"
 	States
 	{
 	Spawn:
@@ -1134,6 +1136,7 @@ ACTOR PainElemental_ : DoomEnemy_Base 19010
 	PainSound "pain/pain"
 	DeathSound "pain/death"
 	ActiveSound "pain/active"
+	Species "Cacos"
 	States
 	{
 	Spawn:
@@ -1181,6 +1184,7 @@ ACTOR Cacodemon_ : DoomEnemy_Base 19015
 	ActiveSound "caco/active"
 	Obituary "$OB_CACO"
 	HitObituary "$OB_CACOHIT"
+	Species "Cacos"
 	States
 	{
 	Spawn:
@@ -1229,6 +1233,7 @@ ACTOR Arachnotron_ : DoomEnemy_Base 19023
 	DeathSound "baby/death"
 	ActiveSound "baby/active"
 	Obituary "$OB_BABY"
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -1342,6 +1347,7 @@ ACTOR Archvile_ : DoomEnemy_Base 19038
 	Obituary "$OB_VILE"
 	DropItem "FlameBigGas" 32
 	DropItem "FlameThrower_" 8
+	Species "Archies"
 	States
 	{
 	Spawn:

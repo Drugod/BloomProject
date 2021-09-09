@@ -14,6 +14,7 @@ ACTOR Arachnoid : BloomHybrid_Base 19011
 	PainSound "SpiderPain"
 	DeathSound "baby/death"//DeathSound "SpiderDie"
 	ActiveSound "SpiderSee"
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -82,6 +83,7 @@ ACTOR Green_Arachnopod : BloomHybrid_Base 19070
     DeathSound "baby/death"
     ActiveSound "baby/active"
 	Obituary "$OB_ARAPOD"
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -205,6 +207,7 @@ ACTOR Magma_Arachnopod : Green_Arachnopod 19071 //needs proper attacks
 	DamageFactor "SpecialFire", 0.0
 	DropItem "FlameBigGas" 64
 	DropItem "FlameThrower_" 32
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -353,6 +356,7 @@ ACTOR Ice_Arachnopod : Green_Arachnopod 19072 //needs proper attacks
 	DamageFactor "SpecialFire", 1.5
 	DropItem "Frostgun_" 8
 	DropItem "FrostAmmo" 16
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -494,6 +498,7 @@ ACTOR RomeroTron : BloomHybrid_Base 19137
     ActiveSound "baby/active"
 	AttackSound "chainguy/attack"
 	Obituary "$OB_ROMTRON"
+	Species "Spiders"
 	States
 	{
 	Spawn:

@@ -21,6 +21,7 @@ ACTOR Gargovile : BloomHybrid_Base 19040
 	Obituary "$OB_GAVILE"
 	DropItem "FlameBigGas" 32
 	DropItem "FlameThrower_" 8
+	Species "Archies"
 	States
 	{
 	Spawn:
@@ -92,6 +93,7 @@ ACTOR FlyingGargovile : BloomHybrid_Base 18322
 	Obituary "$OB_FLVILE"
 	DropItem "FlameBigGas" 32
 	DropItem "FlameThrower_" 8
+	Species "Archies"
 	States
 	{
 	Spawn:
@@ -193,6 +195,7 @@ ACTOR ArchZombie : BloomHybrid_Base 19039
 	ActiveSound "vile/active"
 	MeleeSound "vile/Stop"
 	Obituary "$OB_VILE"
+	Species "Archies"
 	States
 	{
 	Spawn:
@@ -321,6 +324,7 @@ ACTOR ArchZombieHeadless
 	+NOTARGET
 	-COUNTKILL //just to force the no count - ozy81
 	DeathSound "DSBDSPRY"
+	Species "Archies"
 	States
 	{
 	Spawn:

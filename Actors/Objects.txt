@@ -1398,7 +1398,8 @@ ACTOR Belial 3245
 ACTOR GhostGenerator : SwitchableDecoration 3403
 {
 	//$Category "BlooM Eastereggs"
-	//$Title Ghost Generator (switchable)
+	//$Title Blood Moron (switchable)
+	//$Sprite MOBSA1
 	Scale 0.5
 	Height 100
 	Radius 20
@@ -1420,5 +1421,24 @@ ACTOR GhostGenerator : SwitchableDecoration 3403
 	Inactive:
 		TNT1 A -1
 		Stop
+	}
+}
+
+ACTOR GhostGenerator2 : GhostGenerator 3800 //for blm08
+{
+	//$Title Fading Blood Moron (switchable)
+	//$Sprite MOBSA8A2
+	Alpha 1.0
+	+FLOAT
+	-SPAWNCEILING
+	States
+	{
+	Spawn:
+	Active:
+		MOBS AAA 4
+		Wait
+	Inactive:
+		MOBS A 105 A_FadeOut (0.02, FTF_REMOVE)
+		Loop
 	}
 }

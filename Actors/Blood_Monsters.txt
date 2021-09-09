@@ -210,7 +210,7 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 	DeathSound "GargoyleDie"
 	ActiveSound "GargoyleAct"
 	DamageType "Stun"
-	Species "Gargoyles"
+	Species "Cacos"
 	+DONTHURTSPECIES
 	+FLOAT
 	+FLOORCLIP
@@ -3385,7 +3385,7 @@ ACTOR Cheogh : BloodEnemy_Base 3124
 	MeleeSound "Cheogh/Slap"
 	Obituary "$OB_CHEOGH"
 	HitObituary "$HB_CHEOGH"
-	Species "Gargoyles"
+	Species "Cacos"
 	+FLOAT
 	+FLOORCLIP
 	+LONGMELEERANGE
@@ -3722,6 +3722,7 @@ ACTOR Tchernobog : BloodEnemy_Base 6134
 	PainChance "Shock", 16
 	PainChance "Tommy", 0
 	PainChance "ZBloodBullet", 0
+	Species "Horror"
 	States
 	{
 	Spawn:
@@ -4072,8 +4073,8 @@ ACTOR ChrysalidPod : BloodEnemy_Base 6147
 	+LOOKALLAROUND
 	+MISSILEEVENMORE
 	+MISSILEMORE
-	+NOICEDEATH
 	-CANPUSHWALLS
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -4389,6 +4390,7 @@ ACTOR LavaPod : ChrysalidPod 6148
 	BloodColor "50 50 0"
 	DamageFactor "Fire", 0
 	DamageFactor "Flare", 0.5
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -4636,6 +4638,7 @@ ACTOR BatFamiliar : BloodEnemy_Base 18500
 	DeathSound "batfam/death"
 	ActiveSound "batfam/idle"
 	HitObituary "$OB_BATS"
+	Species "Nuisance"
 	States
 	{
 	Spawn:
@@ -4712,6 +4715,7 @@ ACTOR DaisyBat : BatFamiliar 18501 //here for inheritances
 	//$Color 3
 	FloatSpeed 5.3
 	Speed 4.3
+	Species "Nuisance"
 	States
 	{
 	Spawn:
@@ -4840,6 +4844,7 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 	DamageFactor "Stomping", 0.5
 	DamageFactor "Tommy", 1.15
 	DamageFactor "Fire",2
+	Species "Nuisance"
 	States
 	{
 	Spawn:
@@ -4937,6 +4942,7 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 ACTOR BloodRatBlack : BloodRat 19066
 {
 	//$Title Blood Rat, Black
+	Species "Nuisance"
 	States
 	{
 	Spawn:
@@ -5033,6 +5039,7 @@ ACTOR BloodRatBlack : BloodRat 19066
 ACTOR BloodRatGrey : BloodRat 19067
 {
 	//$Title Blood Rat, Grey
+	Species "Nuisance"
 	States
 	{
 	Spawn:
@@ -5129,6 +5136,7 @@ ACTOR BloodRatGrey : BloodRat 19067
 ACTOR BloodRatWhite : BloodRat 19068
 {
 	//$Title Blood Rat, White
+	Species "Nuisance"
 	States
 	{
 	Spawn:
@@ -5264,7 +5272,6 @@ ACTOR SpiderMother : BloodEnemy_Base 3135
 	DeathSound "MotherSpiderDie"
 	ActiveSound "MotherSpiderSee"
 	SeeSound "MotherSpiderSee"
-	Species "Spiders"
 	+DROPOFF
 	+MISSILEMORE
 	+MISSILEEVENMORE
@@ -5272,6 +5279,7 @@ ACTOR SpiderMother : BloodEnemy_Base 3135
 	+THRUSPECIES
 	-CANUSEWALLS
 	Obituary "$OB_SPIDS"
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -5588,7 +5596,6 @@ ACTOR NewSpiderRed : BloodEnemy_Base 6161
 	DamageFactor "Fire", 2.5//What are you doing!?! Up from 0.1
 	DamageFactor "Stomping", 0.4
 	RadiusDamageFactor 1
-	Species "Spiders"
 	AttackSound "dsdolstb"
 	PainSound "SpiderPain"
 	DeathSound "SpiderDie"
@@ -5606,6 +5613,7 @@ ACTOR NewSpiderRed : BloodEnemy_Base 6161
 	-NORADIUSDMG
 	Translation "112:127=176:191","128:151=32:47","152:159=32:47","96:111=32:47","9:11=45:47" //Translation "80:95 = 220:223","96:111 = [255,128,0]:[0,0,0]"
 	Obituary "$OB_SPIDS3"
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -5728,6 +5736,7 @@ ACTOR NewSpiderRed : BloodEnemy_Base 6161
 ACTOR NewRedSpider : NewSpiderRed
 {
 	-SOLID
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -5738,7 +5747,7 @@ ACTOR NewRedSpider : NewSpiderRed
 	}
 }
 
-ACTOR SpiderClimber : NewSpiderRed { -THRUSPECIES }
+ACTOR SpiderClimber : NewSpiderRed { -THRUSPECIES Species "Spiders" }
 
 ACTOR SpiderGreen : NewSpiderRed 6191
 {
@@ -5754,6 +5763,7 @@ ACTOR SpiderGreen : NewSpiderRed 6191
 	Obituary "$OB_SPIDS4"
 	+THRUSPECIES
 	Translation "64:79 = 115:127","232:235 = 160:163","236:239 = 123:127","144:151 = 119:127","13:15=124:126"
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -5776,6 +5786,7 @@ ACTOR SpiderGreen : NewSpiderRed 6191
 ACTOR GreenSpider : SpiderGreen
 {
 	-SOLID
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -5796,6 +5807,7 @@ ACTOR SpiderBlue : NewSpiderRed 6192
 	DamageFactor "Stomping", 0
 	Obituary "$OB_SPIDS5"
 	Translation "96:111=192:207", "80:95=192:207", "128:151=192:199", "64:79=192:200", "5:15=240:247", "0:2=204:207", "236:239=193:196"
+	Species "Spiders"
 	States
 	{
 	Melee:
@@ -5809,6 +5821,7 @@ ACTOR SpiderBlue : NewSpiderRed 6192
 ACTOR BlueSpider : SpiderBlue
 {
 	-SOLID
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -5826,6 +5839,7 @@ ACTOR SpiderYellow : SpiderGreen 6164
 	DamageType "PoisonCloud"
 	Obituary "%OB_SPIDS6"
 	Translation "96:111=160:167", "80:95=160:167", "128:151=160:167", "64:79=160:167", "5:15=236:239", "0:2=236:239", "236:239=161:164", "3:3=163:165"
+	Species "Spiders"
 	States
 	{
 	Melee:
@@ -5839,6 +5853,7 @@ ACTOR SpiderYellow : SpiderGreen 6164
 ACTOR YellowSpider : SpiderYellow
 {
 	-SOLID
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -5860,6 +5875,7 @@ ACTOR SpiderPurple : NewSpiderRed 6165
 	Scale 0.28
 	Obituary "$OB_SPIDS7"
 	Translation "96:111=248:253", "80:95=248:253", "128:151=248:253", "64:79=248:253", "5:15=236:239", "0:2=236:239", "236:239=248:249", "3:3=248:249"
+	Species "Spiders"
 	States
 	{
 	Melee:
@@ -5873,6 +5889,7 @@ ACTOR SpiderPurple : NewSpiderRed 6165
 ACTOR PurpleSpider : SpiderPurple
 {
 	-SOLID
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -5893,6 +5910,7 @@ ACTOR SpiderCyan : SpiderGreen 6166
 	DamageType "Numbness"
 	Obituary "$OB_SPIDS8"
 	Translation "96:111=196:199", "80:95=196:198", "128:151=197:207", "64:79=197:201", "5:15=200:207", "0:2=199:201", "236:239=200:203"
+	Species "Spiders"
 	States
 	{
 	Melee:
@@ -5906,6 +5924,7 @@ ACTOR SpiderCyan : SpiderGreen 6166
 ACTOR CyanSpider : SpiderCyan
 {
 	-SOLID
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -5940,6 +5959,7 @@ ACTOR SpiderBlack : SpiderGreen 6167
 	DamageType "Fragility"
 	Obituary "$OB_SPIDS9"
 	Translation "48:79=[16,16,16]:[0,0,0]","128:151=[48,48,48]:[0,0,0]","80:111=[64,64,64]:[16,16,16]","112:127=[32,32,32]:[0,0,0]"
+	Species "Spiders"
 	States
 	{
 	Melee:
@@ -5953,6 +5973,7 @@ ACTOR SpiderBlack : SpiderGreen 6167
 ACTOR BlackSpider : SpiderBlack
 {
 	-SOLID
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -5991,6 +6012,7 @@ ACTOR SpiderWhite : SpiderRed 6168 // A mediocre version of spider mother
 	-MISSILEMORE
 	-MISSILEEVENMORE
 	Translation "48:79=[255,255,255]:[128,128,128]","128:151=80:95","80:111=88:103","112:127=[192,192,192]:[32,32,40]"
+	Species "Spiders"
 	States
 	{
 	Spawn:
@@ -6021,6 +6043,7 @@ ACTOR SpiderWhite : SpiderRed 6168 // A mediocre version of spider mother
 ACTOR WhiteSpider : SpiderWhite
 {
 	-SOLID
+	Species "Spiders"
 	States
 	{
 	Spawn:
