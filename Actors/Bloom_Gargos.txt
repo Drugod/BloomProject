@@ -22,25 +22,25 @@ ACTOR GargoylSoul : BloomHybrid_Base 19005
 	States
 	{
 	Spawn:
-		GKUL AB 10 BRIGHT A_Look
+		GKUL AB 10 A_Look
 		Loop
 	See:
-		GKUL AB 6 BRIGHT A_Chase
+		GKUL AB 6 A_Chase
 		Loop
 	Missile:
-		GKUL C 10 BRIGHT A_FaceTarget
-		GKUL D 4 BRIGHT A_SkullAttack
-		GKUL CD 4 BRIGHT
+		GKUL C 10 A_FaceTarget
+		GKUL D 4 A_SkullAttack
+		GKUL CD 4
 		Goto Missile+2
 	Pain:
-		GKUL E 3 BRIGHT
-		GKUL E 3 BRIGHT A_Pain
+		GKUL E 3
+		GKUL E 3 A_Pain
 		Goto See
 	Death:
-		GKUL F 6 BRIGHT
-		GKUL G 6 BRIGHT A_Scream
-		GKUL H 6 BRIGHT
-		GKUL I 6 BRIGHT A_NoBlocking
+		GKUL F 6
+		GKUL G 6 A_Scream
+		GKUL H 6
+		GKUL I 6 A_NoBlocking
 		GKUL J 6
 		GKUL K 6
 		Stop

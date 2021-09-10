@@ -1352,7 +1352,6 @@ ACTOR FatFish
 	Speed 20
 	Damage 8
 	Projectile
-	+BRIGHT
 	+RANDOMIZE
 	SeeSound "fatso/attack"
 	DeathSound "fatso/shotx"
