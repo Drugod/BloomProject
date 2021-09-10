@@ -854,6 +854,15 @@ $rolloff TchernobogDie 384 1200
 $Random TchernobogPain { TchernobogPain1 TchernobogPain2 TchernobogPain3 TchernobogPain1B TchernobogPain2B TchernobogPain3B }
 $Random TchernobogAct { TchernobogAct1 TchernobogAct2 TchernobogAct3 TchernobogAct4 TchernobogAct5 TchernobogAct6 TchernobogAct7 TchernobogAct8 }
 
+//Jojo
+jojo/active	JOJOFART
+jojo/sight	JOJOSEEN
+jojo/death	JOJODETH
+JOJOPAI1	JOJOPAI1
+JOJOPAI2	JOJOPAI2
+$random jojo/pain	{ JOJOPAI1 JOJOPAI2 }
+
+
 //////////////////////////////////
 //TERRAIN SOUNDS - Defs by Enjay//
 //////////////////////////////////
