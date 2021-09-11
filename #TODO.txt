@@ -34,7 +34,7 @@ Cards:
 - Gillcubus: Skills "Can Swim; Very Fast Underwater"
 - Hell Hounds: Name should be singular; Skills add "Unpredictable"
 - Ice ArachnoPod: Class "Demon/Plant"; Attacks "Icy Spit; Freeze Balls"; Skills "Can Jump; Immune to Ice"
-- King Cacoyle: Class "Horror" (why use a human-like Lieutenant class? that's a grade); Attacks "Tornadoes; Electric Storms; Icy Breath" ; Skills "Can Fly; Protective Wings"; Hybridation "Cheogh/Cacoyle" (Cheogh is missing an Hat the end)
+- King Cacoyle: Class "Horror" (why use a human-like Lieutenant class? that's a grade); Attacks "Tornadoes; Electric Storms; Icy Breath" ; Skills "Can Fly; Protective Wings"; Hybridation "Cheogh/Cacoyle" (Cheogh is missing an H at the end)
 - Machinegun Fanatic: Name "Fanatic Machinegunner"
 - Magma ArachnoPod: Class "Demon/Plant"; Attacks "Magma Flames; Fireballs"; Skills "Can Jump; Immune to Fire"
 - Rat Demon: Class "Demon/Animal"; Attacks "Rapid Melee Leap Attacks; Summon Rats"; Skills "Very Fast; Can Jump"
