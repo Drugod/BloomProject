@@ -4,9 +4,40 @@
 Brightmap texture BLANIM01 {map "Brightmaps/textures/BLANIM01.png"}
 Brightmap texture BLANIM02 {map "Brightmaps/textures/BLANIM02.png"}
 Brightmap texture BLANIM03 {map "Brightmaps/textures/BLANIM03.png"}
-Brightmap texture XTEX075 {map "Brightmaps/textures/XTEX075.png"}
-Brightmap texture XTEX076 {map "Brightmaps/textures/XTEX076.png"}
-Brightmap texture XTEX077 {map "Brightmaps/textures/XTEX077.png"}
+Brightmap texture XTEX0225 {map "Brightmaps/textures/XTEX0225.png"}
+Brightmap texture XTEX0501 {map "Brightmaps/textures/XTEX0501.png"}
+Brightmap texture XTEX0503 {map "Brightmaps/textures/XTEX0503.png"}
+Brightmap texture XTEX0504 {map "Brightmaps/textures/XTEX0504.png"}
+Brightmap texture XTEX0505 {map "Brightmaps/textures/XTEX0505.png"}
+Brightmap texture XTEX0506 {map "Brightmaps/textures/XTEX0506.png"}
+Brightmap texture XTEX0602 {map "Brightmaps/textures/XTEX0602.png"}
+Brightmap texture XTEX0603 {map "Brightmaps/textures/XTEX0603.png"}
+Brightmap texture XTEX0604 {map "Brightmaps/textures/XTEX0604.png"}
+Brightmap texture XTEX0605 {map "Brightmaps/textures/XTEX0605.png"}
+Brightmap texture XTEX0606 {map "Brightmaps/textures/XTEX0606.png"}
+Brightmap texture XTEX0607 {map "Brightmaps/textures/XTEX0607.png"}
+Brightmap texture XTEX075	{map "Brightmaps/textures/XTEX075.png"}
+Brightmap texture XTEX076 	{map "Brightmaps/textures/XTEX076.png"}
+Brightmap texture XTEX077	{map "Brightmaps/textures/XTEX077.png"}
+Brightmap texture XTEX0771 {map "Brightmaps/textures/XTEX0771.png"}
+Brightmap texture XTEX0772 {map "Brightmaps/textures/XTEX0772.png"}
+Brightmap texture XTEX0773 {map "Brightmaps/textures/XTEX0773.png"}
+Brightmap texture XTEX0774 {map "Brightmaps/textures/XTEX0774.png"}
+Brightmap texture XTEX0870 {map "Brightmaps/textures/XTEX0870.png"}
+Brightmap texture YTEXTJ68 {map "Brightmaps/textures/YTEXTJ68.png"}
+Brightmap texture YTEXTK68 {map "Brightmaps/textures/YTEXTK68.png"}
+Brightmap texture YTEXTL68 {map "Brightmaps/textures/YTEXTL68.png"}
+Brightmap texture YTEXTR22 {map "Brightmaps/textures/YTEXTR22.png"}
+Brightmap texture YTEXTS22 {map "Brightmaps/textures/YTEXTS22.png"}
+Brightmap texture YTEXTT22 {map "Brightmaps/textures/YTEXTT22.png"}
+Brightmap texture YTEXTU22 {map "Brightmaps/textures/YTEXTU22.png"}
+Brightmap texture ZTEX0753 {map "Brightmaps/textures/ZTEX0753.png"}
+Brightmap texture ZTEX0754 {map "Brightmaps/textures/ZTEX0754.png"}
+Brightmap texture ZTEX0755 {map "Brightmaps/textures/ZTEX0755.png"}
+Brightmap texture ZTEX0765 {map "Brightmaps/textures/ZTEX0765.png"}
+Brightmap texture ZTEX0766 {map "Brightmaps/textures/ZTEX0766.png"}
+Brightmap texture ZTEX0768 {map "Brightmaps/textures/ZTEX0768.png"}
+Brightmap texture ZTEX0769 {map "Brightmaps/textures/ZTEX0769.png"}
 
 //Models
 Brightmap Texture "Models/Traps/f6.jpg"		{ Map "Brightmaps/models/f6.png" }

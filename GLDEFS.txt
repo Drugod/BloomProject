@@ -3031,7 +3031,6 @@ Glow
 		TLITE6_4
 		TLITE6_6
 	}
-//blood
 	TEXTURE XTEX0641, 82574E, 128//, fullbright
 	TEXTURE XTEX0642, 82574E, 128//, fullbright
 	TEXTURE XTEX0643, 82574E, 128//, fullbright
@@ -3041,7 +3040,7 @@ Glow
 	TEXTURE XTEX0647, 82574E, 128//, fullbright
 	TEXTURE XTEX0650, /*FFA331*/FF0000, 256, fullbright
 	TEXTURE XTEX0750, FFA331, 256, fullbright
-	TEXTURE YTEXTR22, FFA331, 256, fullbright
+	//TEXTURE YTEXTR22, FFA331, 256, fullbright //has bmaps already
 }
 
 //model train light
@@ -3065,12 +3064,12 @@ Object TrainLight
 	frame TNT1A { light FLASHLIGHT2_2 }
 }
 
-Object Demonhound
+Object DemonHound
 {
     frame DHRGP { light ARCHFIRE1 }
 }
 
-Object DemonhoundAlt
+Object DemonHoundAlt
 {
     frame HOU3I { light ARCHFIRE1 }
 }
