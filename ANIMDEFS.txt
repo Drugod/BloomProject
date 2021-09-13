@@ -1204,6 +1204,7 @@ switch SW_BLOOD3Y on sound Switch1 pic XTEX0683 tics 0
 switch SW_WLOOD1N off sound Switch2 pic XTEX0640 tics 0
 switch SW_WLOOD1Y on sound Switch1 pic XTEX0639 tics 0
 switch YTEXTI37 on sound Switch1 pic YTEXTJ37 tics 0
+switch XTEX0683 on sound Switch2 pic XTEX0684 tics 0
 
 switch doom 2 STEXT1 on pic STEXT2 tics 0
 switch doom 2 STEXT2 on pic STEXT1 tics 0
