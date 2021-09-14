@@ -558,8 +558,8 @@ ACTOR HoundBaronOfHell: BloomHybrid_Base 19094
 {
 	//$Title Hound Baron of Hell
 	Health 1000
-	Radius 40
-	Height 135
+	Radius 16
+	Height 96
 	Mass 1000
 	Speed 25
 	+DROPOFF
