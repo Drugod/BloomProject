@@ -3038,9 +3038,13 @@ Glow
 	TEXTURE XTEX0645, 82574E, 128//, fullbright
 	TEXTURE XTEX0646, 82574E, 128//, fullbright
 	TEXTURE XTEX0647, 82574E, 128//, fullbright
-	TEXTURE XTEX0650, /*FFA331*/FF0000, 256, fullbright
+	TEXTURE XTEX0650, FF0000, 256, fullbright
 	TEXTURE XTEX0750, FFA331, 256, fullbright
 	//TEXTURE YTEXTR22, FFA331, 256, fullbright //has bmaps already
+	TEXTURE XTEX0503, FFB700, 256, fullbright
+	TEXTURE XTEX0504, FFB700, 256, fullbright
+	TEXTURE XTEX0505, FFB700, 256, fullbright
+	TEXTURE XTEX0506, FFB700, 256, fullbright		
 }
 
 //model train light
