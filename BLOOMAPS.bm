@@ -1820,6 +1820,28 @@ Brightmap sprite CYADG3G7	{map "Brightmaps/CYADG3G7.png"}
 Brightmap sprite CYADO1		{map "Brightmaps/CYADO1.png"}
 Brightmap sprite CYADO2O8	{map "Brightmaps/CYADO2O8.png"}
 
+//DeepOnes - Chaingunner
+Brightmap sprite FIGUE1		{map "Brightmaps/FIGUE1.png"}
+Brightmap sprite FIGUE2E8	{map "Brightmaps/FIGUE2E8.png"}
+Brightmap sprite FIGUE3E7	{map "Brightmaps/FIGUE3E7.png"}
+Brightmap sprite FIGUE4E6	{map "Brightmaps/FIGUE4E6.png"}
+Brightmap sprite FIGUE5		{map "Brightmaps/FIGUE5.png"}
+Brightmap sprite FIGUF1		{map "Brightmaps/FIGUF1.png"}
+Brightmap sprite FIGUF2F8	{map "Brightmaps/FIGUF2F8.png"}
+Brightmap sprite FIGUF3F7	{map "Brightmaps/FIGUF3F7.png"}
+Brightmap sprite FIGUF4F6	{map "Brightmaps/FIGUF4F6.png"}
+Brightmap sprite FIGUF5		{map "Brightmaps/FIGUF5.png"}
+Brightmap sprite FWGUE1		{map "Brightmaps/FWGUE1.png"}
+Brightmap sprite FWGUE2E8	{map "Brightmaps/FWGUE2E8.png"}
+Brightmap sprite FWGUE3E7	{map "Brightmaps/FWGUE3E7.png"}
+Brightmap sprite FWGUE4E6	{map "Brightmaps/FWGUE4E6.png"}
+Brightmap sprite FWGUE5		{map "Brightmaps/FWGUE5.png"}
+Brightmap sprite FWGUF1		{map "Brightmaps/FWGUF1.png"}
+Brightmap sprite FWGUF2F8	{map "Brightmaps/FWGUF2F8.png"}
+Brightmap sprite FWGUF3F7	{map "Brightmaps/FWGUF3F7.png"}
+Brightmap sprite FWGUF4F6	{map "Brightmaps/FWGUF4F6.png"}
+Brightmap sprite FWGUF5		{map "Brightmaps/FWGUF5.png"}
+
 //DeepOnes - Shotgun
 Brightmap sprite FISHF1		{map "Brightmaps/FISHF1.png"}
 Brightmap sprite FISHF2F8	{map "Brightmaps/FISHF2F8.png"}
