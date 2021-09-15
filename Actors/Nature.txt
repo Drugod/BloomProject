@@ -1148,14 +1148,27 @@ ACTOR BigAlga : Bloom_Flora3 3285
 	}
 }
 
-ACTOR Arbust : Bloom_Flora3 3230
+ACTOR Arbust : Bloom_Flora2 3230
 {
 	//$Title Bush 1
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0	
 	States
 	{
 	Spawn:
 		ARBX A -1
 		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+	Burn:
+		ARBX ABCDEFGHIJ 6
+		ARBX K -1
+		Stop		
 	}
 }
 
@@ -1170,14 +1183,27 @@ ACTOR ArbustNoGrav : Bloom_Flora3NoGrav 19129
 	}
 }
 
-ACTOR Arbust2 : Bloom_Flora3 3255
+ACTOR Arbust2 : Bloom_Flora2 3255
 {
 	//$Title Bush 2
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0	
 	States
 	{
 	Spawn:
 		ARB2 A -1
 		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+	Burn:	
+		ARB2 ABCDEFGHIJ 6 
+		ARB2 K -1 		
+		Stop			
 	}
 }
 
@@ -1192,14 +1218,27 @@ ACTOR Arbust2NoGrav : Bloom_Flora3NoGrav 19130
 	}
 }
 
-ACTOR Arbust3 : Bloom_Flora3 3256
+ACTOR Arbust3 : Bloom_Flora2 3256
 {
 	//$Title Bush 3
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0	
 	States
 	{
 	Spawn:
 		ARB3 A -1
 		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+	Burn:	
+		ARB3 ABCDEFGHIJ 6
+		ARB3 K -1
+		Stop		
 	}
 }
 
