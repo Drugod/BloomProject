@@ -1575,6 +1575,13 @@ Object FatShot
     frame MISLN { light ROCKET_X9 }
 }
 
+// Cerbecubus Fireball
+Object Fatdog
+{
+    frame MHOUA { light FIREBALL }
+    frame MHOUB { light FIREBALL }
+}
+
 // Arachnotron Fireball
 PointLight ARACHPLAS
 {

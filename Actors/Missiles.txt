@@ -1345,6 +1345,31 @@ ACTOR KingTornado
 	}
 }
 
+ACTOR FatDog
+{
+	Radius 6
+	Height 8
+	Speed 20
+	Damage 8
+	Projectile
+	+RANDOMIZE
+	RenderStyle Add
+	Alpha 1	
+	SeeSound "fatso/attack"
+	DeathSound "fatso/shotx"
+	States
+	{
+	Spawn:
+		MHOU AB 4
+		Loop
+	Death:
+		MEL2 C 8
+		MEL2 D 6
+		MEL2 E 4
+		Stop
+	}
+}
+
 ACTOR FatFish
 {
 	Radius 6
