@@ -75,5 +75,4 @@ Zombies
 127 = WallBomb
 142 = EssencePower
 153 = CerberusShot1
-154 = CerberusShot2
 207 = NapalmRocketMapSpecial
