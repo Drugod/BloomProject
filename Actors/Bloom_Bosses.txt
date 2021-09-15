@@ -1023,8 +1023,8 @@ ACTOR Cerbecubus: BloomBossHybrid_Base 19139
 {
 	//$Title Cerbecubus
 	  Health 3000
-	  Radius 48
-	  Height 64
+	  Radius 96
+	  Height 192
 	  Mass 1000
 	  Speed 16
 	  PainChance 80
