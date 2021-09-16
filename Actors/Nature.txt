@@ -1151,11 +1151,13 @@ ACTOR BigAlga : Bloom_Flora3 3285
 ACTOR Arbust : Bloom_Flora2 3230
 {
 	//$Title Bush 1
+	Height 32
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
 	DamageFactor "Flare", 3.5
 	DamageFactor "Napalm", 6.0
 	DamageFactor "Dynamite", 6.0	
+	-SOLID
 	States
 	{
 	Spawn:
@@ -1190,7 +1192,9 @@ ACTOR Arbust2 : Bloom_Flora2 3255
 	DamageFactor "Disintegrate", 6.0
 	DamageFactor "Flare", 3.5
 	DamageFactor "Napalm", 6.0
-	DamageFactor "Dynamite", 6.0	
+	DamageFactor "Dynamite", 6.0
+	Height 32
+	-SOLID	
 	States
 	{
 	Spawn:
@@ -1226,6 +1230,8 @@ ACTOR Arbust3 : Bloom_Flora2 3256
 	DamageFactor "Flare", 3.5
 	DamageFactor "Napalm", 6.0
 	DamageFactor "Dynamite", 6.0	
+	Height 32
+	-SOLID		
 	States
 	{
 	Spawn:
