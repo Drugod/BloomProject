@@ -327,7 +327,7 @@ ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 		Stop
 	Ground.MissileSetup:
 		HAND K 10 A_FaceTarget
-		HAND L 10 BRIGHT A_SPosAttackUseAtkSound
+		HAND L 10 A_SPosAttackUseAtkSound
 		HAND K 10
 		TNT1 A 0 A_Jump(160,"Ground.FleeSetup")
 	LaunchTnt:
@@ -615,7 +615,7 @@ ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 		Stop
 	Ground.MissileSetup:
 		HBND K 10 A_FaceTarget
-		HBND L 10 BRIGHT A_SPosAttackUseAtkSound
+		HBND L 10 A_SPosAttackUseAtkSound
 		HBND K 10
 		TNT1 A 0 A_Jump(160,"Ground.FleeSetup")
 	LaunchTnt:
@@ -759,7 +759,7 @@ ACTOR PossesedApocalypticNeoCultist : BloomPossessed_Base 19092
 		Stop
 	Ground.MissileSetup:
 		HDND K 10 A_FaceTarget
-		HDND L 10 BRIGHT A_SPosAttackUseAtkSound
+		HDND L 10 A_SPosAttackUseAtkSound
 		HDND K 10
 		TNT1 A 0 A_Jump(160,"Ground.FleeSetup")
 	LaunchTnt:

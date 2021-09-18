@@ -26,7 +26,7 @@ ACTOR Fanatic_Chaingunner : BloomHybrid_Base 19004
 		Loop
 	Missile:
 		FCOS E 10 A_FaceTarget
-		FCOS FE 4 BRIGHT A_CposAttack
+		FCOS FE 4 A_CposAttack
 		FCOS F 1 A_CposRefire
 		Goto Missile+1
 	Pain:

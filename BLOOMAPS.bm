@@ -888,7 +888,7 @@ Brightmap sprite BATBF0 	{map "Brightmaps/BATBF0.png"}
 Brightmap sprite BATBG0 	{map "Brightmaps/BATBG0.png"}
 Brightmap sprite BATBH0 	{map "Brightmaps/BATBH0.png"}
 
-//BloodGargoyle
+//Blood Gargoyle
 Brightmap sprite BGARA1 	{map "Brightmaps/BGARA1.png"}
 Brightmap sprite BGARA7A3 	{map "Brightmaps/BGARA7A3.png"}
 Brightmap sprite BGARA8A2 	{map "Brightmaps/BGARA8A2.png"}
@@ -1275,6 +1275,23 @@ Brightmap sprite BUOSG3		{map "Brightmaps/BUOSG3.png"}
 Brightmap sprite BUOSG7		{map "Brightmaps/BUOSG7.png"}
 Brightmap sprite BUOSG8		{map "Brightmaps/BUOSG8.png"}
 
+Brightmap sprite FCOSE1		{map "Brightmaps/FCOSE1.png"}
+Brightmap sprite FCOSE2		{map "Brightmaps/FCOSE2.png"}
+Brightmap sprite FCOSE3		{map "Brightmaps/FCOSE3.png"}
+Brightmap sprite FCOSE4		{map "Brightmaps/FCOSE4.png"}
+Brightmap sprite FCOSE5		{map "Brightmaps/FCOSE5.png"}
+Brightmap sprite FCOSE6		{map "Brightmaps/FCOSE6.png"}
+Brightmap sprite FCOSE7		{map "Brightmaps/FCOSE7.png"}
+Brightmap sprite FCOSE8		{map "Brightmaps/FCOSE8.png"}
+Brightmap sprite FCOSF1		{map "Brightmaps/FCOSF1.png"}
+Brightmap sprite FCOSF2		{map "Brightmaps/FCOSF2.png"}
+Brightmap sprite FCOSF3		{map "Brightmaps/FCOSF3.png"}
+Brightmap sprite FCOSF4		{map "Brightmaps/FCOSF4.png"}
+Brightmap sprite FCOSF5		{map "Brightmaps/FCOSF5.png"}
+Brightmap sprite FCOSF6		{map "Brightmaps/FCOSF6.png"}
+Brightmap sprite FCOSF7		{map "Brightmaps/FCOSF7.png"}
+Brightmap sprite FCOSF8		{map "Brightmaps/FCOSF8.png"}
+
 //Gorgoyle Soul
 Brightmap sprite GKULA1 	{map "Brightmaps/GKULA1.png"}
 Brightmap sprite GKULA5 	{map "Brightmaps/GKULA5.png"}
@@ -1426,6 +1443,15 @@ Brightmap sprite ARNDG3G7	{map "Brightmaps/ARNDG3G7.png"}
 Brightmap sprite ARNDI1		{map "Brightmaps/ARNDI1.png"}
 Brightmap sprite ARNDI2I8	{map "Brightmaps/ARNDI2I8.png"}
 Brightmap sprite ARNDI3I7	{map "Brightmaps/ARNDI3I7.png"}
+
+Brightmap sprite NOHXA0		{map "Brightmaps/NOHXA0.png"}
+Brightmap sprite NOHXB0		{map "Brightmaps/NOHXB0.png"}
+Brightmap sprite NOHXC0		{map "Brightmaps/NOHXC0.png"}
+Brightmap sprite NOHXD0		{map "Brightmaps/NOHXD0.png"}
+Brightmap sprite NOHXE0		{map "Brightmaps/NOHXE0.png"}
+Brightmap sprite NOHXF0		{map "Brightmaps/NOHXF0.png"}
+Brightmap sprite NOHXG0		{map "Brightmaps/NOHXG0.png"}
+Brightmap sprite NOHXH0		{map "Brightmaps/NOHXH0.png"}
 
 //Ghost Revenants - Flying
 Brightmap sprite SKG2A1		{map "Brightmaps/SKG2A1.png"}
@@ -2217,25 +2243,174 @@ Brightmap sprite PHANP0		{map "Brightmaps/PHANP0.png"}
 Brightmap sprite PHANQ0		{map "Brightmaps/PHANQ0.png"}
 Brightmap sprite PHANR0		{map "Brightmaps/PHANR0.png"}
 
-//Gargoyle Eyes
-Brightmap sprite BGARA1		{map "Brightmaps/BMARA1.png"}
-Brightmap sprite BGARA8A2	{map "Brightmaps/BMARA8A2.png"}
-Brightmap sprite BGARB1		{map "Brightmaps/BMARB1.png"}
-Brightmap sprite BGARB8B2	{map "Brightmaps/BMARB8B2.png"}
-Brightmap sprite BGARC1		{map "Brightmaps/BMARC1.png"}
-Brightmap sprite BGARC8C2	{map "Brightmaps/BMARC8C2.png"}
-Brightmap sprite BGARD1		{map "Brightmaps/BMARD1.png"}
-Brightmap sprite BGARD8D2	{map "Brightmaps/BMARD8D2.png"}
-Brightmap sprite BGARE1		{map "Brightmaps/BMARE1.png"}
-Brightmap sprite BGARE8E2	{map "Brightmaps/BMARE8E2.png"}
-Brightmap sprite BGARF1		{map "Brightmaps/BMARF1.png"}
-Brightmap sprite BGARF8F2	{map "Brightmaps/BMARF8F2.png"}
-Brightmap sprite BGARG1		{map "Brightmaps/BMARG1.png"}
-Brightmap sprite BGARG8G2	{map "Brightmaps/BMARG8G2.png"}
-Brightmap sprite BGARH1		{map "Brightmaps/BMARH1.png"}
-Brightmap sprite BGARH8H2	{map "Brightmaps/BMARH8H2.png"}
-Brightmap sprite BGARI1		{map "Brightmaps/BMARI1.png"}
-Brightmap sprite BGARI8I2	{map "Brightmaps/BMARI8I2.png"}
+//Possessed
+Brightmap sprite HANDL1		{map "Brightmaps/HANDL1.png"}
+Brightmap sprite HANDL5		{map "Brightmaps/HANDL5.png"}
+Brightmap sprite HANDL6L4	{map "Brightmaps/HANDL6L4.png"}
+Brightmap sprite HANDL7L3	{map "Brightmaps/HANDL7L3.png"}
+Brightmap sprite HANDL8L2	{map "Brightmaps/HANDL8L2.png"}
+
+Brightmap sprite HAS2E1		{map "Brightmaps/HAS2E1.png"}
+Brightmap sprite HAS2E5		{map "Brightmaps/HAS2E5.png"}
+Brightmap sprite HAS2E6E4	{map "Brightmaps/HAS2E6E4.png"}
+Brightmap sprite HAS2E7E3	{map "Brightmaps/HAS2E7E3.png"}
+Brightmap sprite HAS2E8E2	{map "Brightmaps/HAS2E8E2.png"}
+
+Brightmap sprite HBNDA1		{map "Brightmaps/HBNDA1.png"}
+Brightmap sprite HBNDA8A2	{map "Brightmaps/HBNDA8A2.png"}
+Brightmap sprite HBNDB1		{map "Brightmaps/HBNDB1.png"}
+Brightmap sprite HBNDB8B2	{map "Brightmaps/HBNDB8B2.png"}
+Brightmap sprite HBNDC1		{map "Brightmaps/HBNDC1.png"}
+Brightmap sprite HBNDC8C2	{map "Brightmaps/HBNDC8C2.png"}
+Brightmap sprite HBNDD1		{map "Brightmaps/HBNDD1.png"}
+Brightmap sprite HBNDD8D2	{map "Brightmaps/HBNDD8D2.png"}
+Brightmap sprite HBNDE1		{map "Brightmaps/HBNDE1.png"}
+Brightmap sprite HBNDE8E2	{map "Brightmaps/HBNDE8E2.png"}
+Brightmap sprite HBNDF1		{map "Brightmaps/HBNDF1.png"}
+Brightmap sprite HBNDF8F2	{map "Brightmaps/HBNDF8F2.png"}
+Brightmap sprite HBNDG1		{map "Brightmaps/HBNDG1.png"}
+Brightmap sprite HBNDG8G2	{map "Brightmaps/HBNDG8G2.png"}
+Brightmap sprite HBNDH1		{map "Brightmaps/HBNDH1.png"}
+Brightmap sprite HBNDH8H2	{map "Brightmaps/HBNDH8H2.png"}
+Brightmap sprite HBNDI1		{map "Brightmaps/HBNDI1.png"}
+Brightmap sprite HBNDI8I2	{map "Brightmaps/HBNDI8I2.png"}
+Brightmap sprite HBNDJ1		{map "Brightmaps/HBNDJ1.png"}
+Brightmap sprite HBNDJ8J2	{map "Brightmaps/HBNDJ8J2.png"}
+Brightmap sprite HBNDK1		{map "Brightmaps/HBNDK1.png"}
+Brightmap sprite HBNDK7K3	{map "Brightmaps/HBNDK7K3.png"}
+Brightmap sprite HBNDK8K2	{map "Brightmaps/HBNDK8K2.png"}
+Brightmap sprite HBNDL1		{map "Brightmaps/HBNDL1.png"}
+Brightmap sprite HBNDL5		{map "Brightmaps/HBNDL5.png"}
+Brightmap sprite HBNDL6L4	{map "Brightmaps/HBNDL6L4.png"}
+Brightmap sprite HBNDL7L3	{map "Brightmaps/HBNDL7L3.png"}
+Brightmap sprite HBNDL8L2	{map "Brightmaps/HBNDL8L2.png"}
+Brightmap sprite HBNDM1		{map "Brightmaps/HBNDM1.png"}
+Brightmap sprite HBNDM8M2	{map "Brightmaps/HBNDM8M2.png"}
+
+Brightmap sprite HBS2A1		{map "Brightmaps/HBS2A1.png"}
+Brightmap sprite HBS2A8A2	{map "Brightmaps/HBS2A8A2.png"}
+Brightmap sprite HBS2B1		{map "Brightmaps/HBS2B1.png"}
+Brightmap sprite HBS2B8B2	{map "Brightmaps/HBS2B8B2.png"}
+Brightmap sprite HBS2C1		{map "Brightmaps/HBS2C1.png"}
+Brightmap sprite HBS2C8C2	{map "Brightmaps/HBS2C8C2.png"}
+Brightmap sprite HBS2D1		{map "Brightmaps/HBS2D1.png"}
+Brightmap sprite HBS2D8D2	{map "Brightmaps/HBS2D8D2.png"}
+Brightmap sprite HBS2E1		{map "Brightmaps/HBS2E1.png"}
+Brightmap sprite HBS2E5		{map "Brightmaps/HBS2E5.png"}
+Brightmap sprite HBS2E6E4	{map "Brightmaps/HBS2E6E4.png"}
+Brightmap sprite HBS2E8E2	{map "Brightmaps/HBS2E8E2.png"}
+Brightmap sprite HBS2L7E3	{map "Brightmaps/HBS2E7E3.png"}
+
+Brightmap sprite HBTNA1		{map "Brightmaps/HBTNA1.png"}
+Brightmap sprite HBTNA8A2	{map "Brightmaps/HBTNA8A2.png"}
+Brightmap sprite HBTNB1		{map "Brightmaps/HBTNB1.png"}
+Brightmap sprite HBTNB8B2	{map "Brightmaps/HBTNB8B2.png"}
+Brightmap sprite HBTNC1		{map "Brightmaps/HBTNC1.png"}
+Brightmap sprite HBTNC8C2	{map "Brightmaps/HBTNC8C2.png"}
+Brightmap sprite HBTND1		{map "Brightmaps/HBTND1.png"}
+Brightmap sprite HBTND8D2	{map "Brightmaps/HBTND8D2.png"}
+
+Brightmap sprite HCNDL1		{map "Brightmaps/HCNDL1.png"}
+Brightmap sprite HCNDL5		{map "Brightmaps/HCNDL5.png"}
+Brightmap sprite HCNDL6L4	{map "Brightmaps/HCNDL6L4.png"}
+Brightmap sprite HCNDL7L3	{map "Brightmaps/HCNDL7L3.png"}
+Brightmap sprite HCNDL8L2	{map "Brightmaps/HCNDL8L2.png"}
+
+Brightmap sprite HCS2E1		{map "Brightmaps/HCS2E1.png"}
+Brightmap sprite HCS2E5		{map "Brightmaps/HCS2E5.png"}
+Brightmap sprite HCS2E6E4	{map "Brightmaps/HCS2E6E4.png"}
+Brightmap sprite HCS2E8E2	{map "Brightmaps/HCS2E8E2.png"}
+Brightmap sprite HCS2L7E3	{map "Brightmaps/HCS2E7E3.png"}
+
+Brightmap sprite HDNDA1		{map "Brightmaps/HDNDA1.png"}
+Brightmap sprite HDNDA8A2	{map "Brightmaps/HDNDA8A2.png"}
+Brightmap sprite HDNDB1		{map "Brightmaps/HDNDB1.png"}
+Brightmap sprite HDNDB8B2	{map "Brightmaps/HDNDB8B2.png"}
+Brightmap sprite HDNDC1		{map "Brightmaps/HDNDC1.png"}
+Brightmap sprite HDNDC8C2	{map "Brightmaps/HDNDC8C2.png"}
+Brightmap sprite HDNDD1		{map "Brightmaps/HDNDD1.png"}
+Brightmap sprite HDNDD8D2	{map "Brightmaps/HDNDD8D2.png"}
+Brightmap sprite HDNDE1		{map "Brightmaps/HDNDE1.png"}
+Brightmap sprite HDNDE8E2	{map "Brightmaps/HDNDE8E2.png"}
+Brightmap sprite HDNDF1		{map "Brightmaps/HDNDF1.png"}
+Brightmap sprite HDNDF8F2	{map "Brightmaps/HDNDF8F2.png"}
+Brightmap sprite HDNDG1		{map "Brightmaps/HDNDG1.png"}
+Brightmap sprite HDNDG8G2	{map "Brightmaps/HDNDG8G2.png"}
+Brightmap sprite HDNDH1		{map "Brightmaps/HDNDH1.png"}
+Brightmap sprite HDNDH8H2	{map "Brightmaps/HDNDH8H2.png"}
+Brightmap sprite HDNDI1		{map "Brightmaps/HDNDI1.png"}
+Brightmap sprite HDNDI8I2	{map "Brightmaps/HDNDI8I2.png"}
+Brightmap sprite HDNDJ1		{map "Brightmaps/HDNDJ1.png"}
+Brightmap sprite HDNDJ8J2	{map "Brightmaps/HDNDJ8J2.png"}
+Brightmap sprite HDNDK1		{map "Brightmaps/HDNDK1.png"}
+Brightmap sprite HDNDK7K3	{map "Brightmaps/HDNDK7K3.png"}
+Brightmap sprite HDNDK8K2	{map "Brightmaps/HDNDK8K2.png"}
+Brightmap sprite HDNDL1		{map "Brightmaps/HDNDL1.png"}
+Brightmap sprite HDNDL5		{map "Brightmaps/HDNDL5.png"}
+Brightmap sprite HDNDL6L4	{map "Brightmaps/HDNDL6L4.png"}
+Brightmap sprite HDNDL7L3	{map "Brightmaps/HDNDL7L3.png"}
+Brightmap sprite HDNDL8L2	{map "Brightmaps/HDNDL8L2.png"}
+Brightmap sprite HDNDM1		{map "Brightmaps/HDNDM1.png"}
+Brightmap sprite HDNDM8M2	{map "Brightmaps/HDNDM8M2.png"}
+
+Brightmap sprite HDS2A1		{map "Brightmaps/HDS2A1.png"}
+Brightmap sprite HDS2A8A2	{map "Brightmaps/HDS2A8A2.png"}
+Brightmap sprite HDS2B1		{map "Brightmaps/HDS2B1.png"}
+Brightmap sprite HDS2B8B2	{map "Brightmaps/HDS2B8B2.png"}
+Brightmap sprite HDS2C1		{map "Brightmaps/HDS2C1.png"}
+Brightmap sprite HDS2C8C2	{map "Brightmaps/HDS2C8C2.png"}
+Brightmap sprite HDS2D1		{map "Brightmaps/HDS2D1.png"}
+Brightmap sprite HDS2D8D2	{map "Brightmaps/HDS2D8D2.png"}
+Brightmap sprite HDS2E1		{map "Brightmaps/HDS2E1.png"}
+Brightmap sprite HDS2E5		{map "Brightmaps/HDS2E5.png"}
+Brightmap sprite HDS2E6E4	{map "Brightmaps/HDS2E6E4.png"}
+Brightmap sprite HDS2E8E2	{map "Brightmaps/HDS2E8E2.png"}
+Brightmap sprite HDS2L7E3	{map "Brightmaps/HDS2E7E3.png"}
+
+Brightmap sprite HDTNA1		{map "Brightmaps/HDTNA1.png"}
+Brightmap sprite HDTNA8A2	{map "Brightmaps/HDTNA8A2.png"}
+Brightmap sprite HDTNB1		{map "Brightmaps/HDTNB1.png"}
+Brightmap sprite HDTNB8B2	{map "Brightmaps/HDTNB8B2.png"}
+Brightmap sprite HDTNC1		{map "Brightmaps/HDTNC1.png"}
+Brightmap sprite HDTNC8C2	{map "Brightmaps/HDTNC8C2.png"}
+Brightmap sprite HDTND1		{map "Brightmaps/HDTND1.png"}
+Brightmap sprite HDTND8D2	{map "Brightmaps/HDTND8D2.png"}
+
+//NeoCvltists
+Brightmap sprite WPOSA1		{map "Brightmaps/WPOSA1.png"}
+Brightmap sprite WPOSA2A8	{map "Brightmaps/WPOSA2A8.png"}
+Brightmap sprite WPOSB1		{map "Brightmaps/WPOSB1.png"}
+Brightmap sprite WPOSB2B8	{map "Brightmaps/WPOSB2B8.png"}
+Brightmap sprite WPOSC1		{map "Brightmaps/WPOSC1.png"}
+Brightmap sprite WPOSC2C8	{map "Brightmaps/WPOSC2C8.png"}
+Brightmap sprite WPOSD1		{map "Brightmaps/WPOSD1.png"}
+Brightmap sprite WPOSD2D8	{map "Brightmaps/WPOSD2D8.png"}
+Brightmap sprite WPOSE1		{map "Brightmaps/WPOSE1.png"}
+Brightmap sprite WPOSE2E8	{map "Brightmaps/WPOSE2E8.png"}
+Brightmap sprite WPOSE3E7	{map "Brightmaps/WPOSE3E7.png"}
+Brightmap sprite WPOSF1		{map "Brightmaps/WPOSF1.png"}
+Brightmap sprite WPOSF2F8	{map "Brightmaps/WPOSF2F8.png"}
+Brightmap sprite WPOSF3F7	{map "Brightmaps/WPOSF3F7.png"}
+Brightmap sprite WPOSF4F6	{map "Brightmaps/WPOSF4F6.png"}
+Brightmap sprite WPOSF5		{map "Brightmaps/WPOSF5.png"}
+
+Brightmap sprite WPWSE1		{map "Brightmaps/WPWSE1.png"}
+Brightmap sprite WPWSE5		{map "Brightmaps/WPWSE5.png"}
+Brightmap sprite WPWSE6E4	{map "Brightmaps/WPWSE6E4.png"}
+Brightmap sprite WPWSE8E2	{map "Brightmaps/WPWSE8E2.png"}
+Brightmap sprite WPWSL7E3	{map "Brightmaps/WPWSE7E3.png"}
+
+Brightmap sprite YPOSF1		{map "Brightmaps/YPOSF1.png"}
+Brightmap sprite YPOSF2F8	{map "Brightmaps/YPOSF2F8.png"}
+Brightmap sprite YPOSF3F7	{map "Brightmaps/YPOSF3F7.png"}
+Brightmap sprite YPOSF4F6	{map "Brightmaps/YPOSF4F6.png"}
+Brightmap sprite YPOSF5		{map "Brightmaps/YPOSF5.png"}
+
+Brightmap sprite YPSWE1		{map "Brightmaps/YPSWE1.png"}
+Brightmap sprite YPSWE2E8	{map "Brightmaps/YPSWE2E8.png"}
+Brightmap sprite YPSWE3E7	{map "Brightmaps/YPSWE3E7.png"}
+Brightmap sprite YPSWE4E6	{map "Brightmaps/YPSWE4E6.png"}
+Brightmap sprite YPSWE5		{map "Brightmaps/YPSWE5.png"}
 
 //RatDemons - Brown
 Brightmap sprite RAJAA1		{map "Brightmaps/RAJAA1.png"}
@@ -2909,3 +3084,14 @@ Brightmap sprite MELFB5 	{map "Brightmaps/MELFB5.png"}
 Brightmap sprite MELFB6B4 	{map "Brightmaps/MELFB6B4.png"}
 Brightmap sprite MELFB7B3 	{map "Brightmaps/MELFB7B3.png"}
 Brightmap sprite MELFB8B2 	{map "Brightmaps/MELFB8B2.png"}
+
+Brightmap sprite MHOUA1 	{map "Brightmaps/MHOUA1.png"}
+Brightmap sprite MHOUA5 	{map "Brightmaps/MHOUA5.png"}
+Brightmap sprite MHOUA6A4 	{map "Brightmaps/MHOUA6A4.png"}
+Brightmap sprite MHOUA7A3 	{map "Brightmaps/MHOUA7A3.png"}
+Brightmap sprite MHOUA8A2 	{map "Brightmaps/MHOUA8A2.png"}
+Brightmap sprite MHOUB1 	{map "Brightmaps/MHOUB1.png"}
+Brightmap sprite MHOUB5 	{map "Brightmaps/MHOUB5.png"}
+Brightmap sprite MHOUB6B4 	{map "Brightmaps/MHOUB6B4.png"}
+Brightmap sprite MHOUB7B3 	{map "Brightmaps/MHOUB7B3.png"}
+Brightmap sprite MHOUB8B2 	{map "Brightmaps/MHOUB8B2.png"}
