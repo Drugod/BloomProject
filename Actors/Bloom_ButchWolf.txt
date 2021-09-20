@@ -12,10 +12,10 @@ ACTOR WerewolvesSpawner 19031
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("WereWolfOfHellAlt",0,0,0,0,0,0,0,BLM_FLAGS1)
+		TNT1 A 0 A_SpawnItemEx("WereWolfOfHellAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("WereWolfOfHell",0,0,0,0,0,0,0,BLM_FLAGS1)
+		TNT1 A 0 A_SpawnItemEx("WereWolfOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -1016,10 +1016,10 @@ ACTOR Zombarons: BuriedZombaronOfHell 19104
 		TNT1 A 1
 		Loop
 	NoGroundSpawner: //Summon a Randomspawner class for stand up Zombarons
-		TNT1 A 0 A_SpawnItemEx("StandUpZombaronSpawner",0,0,0,0,0,0,0,BLM_FLAGS1)
+		TNT1 A 0 A_SpawnItemEx("StandUpZombaronSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	GroundSpawner: //Summon a Randomspawner class for buried Zombarons
-		TNT1 A 0 A_SpawnItemEx("BuriedZombaronSpawner",0,0,0,0,0,0,0,BLM_FLAGS1)
+		TNT1 A 0 A_SpawnItemEx("BuriedZombaronSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -1033,10 +1033,10 @@ ACTOR StandUpZombaronSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("ZombaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1)
+		TNT1 A 0 A_SpawnItemEx("ZombaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("AxeZombaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1)
+		TNT1 A 0 A_SpawnItemEx("AxeZombaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
@@ -1050,10 +1050,10 @@ ACTOR BuriedZombaronSpawner
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
 		Stop
 	Spawn1:
-		TNT1 A 0 A_SpawnItemEx("BuriedZombaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1)
+		TNT1 A 0 A_SpawnItemEx("BuriedZombaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn2:
-		TNT1 A 0 A_SpawnItemEx("BuriedAxeZombaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1)
+		TNT1 A 0 A_SpawnItemEx("BuriedAxeZombaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
