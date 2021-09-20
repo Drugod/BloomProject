@@ -657,8 +657,8 @@ ACTOR FlareTrail1
 
 ACTOR FlareKaboom
 {
-	Radius 64
-	Height 16
+	Radius 1//64
+	Height 40//16
 	+DONTSPLASH
 	+FIXMAPTHINGPOS
 	+NOBLOCKMAP
@@ -717,6 +717,23 @@ ACTOR FlareKaboom4 : FlareKaboom
 		FLIR A 1 BRIGHT
 		FLIR A 0 A_SpawnDebris("NapalmDebris")
 		FLIR A 0 A_Jump(127,12)
+		FLIR ABCDEFGHIJKLM 2  BRIGHT A_FadeOut(0.08)
+		Stop
+		FLIR NOPQRSTUVWXYZ 2 BRIGHT A_FadeOut(0.08)
+		Stop
+	}
+}
+
+ACTOR FlareKaboom5 : FlareKaboom //Just for mapping stuff
+{
+	Scale 0.75
+	States
+	{
+	Spawn:
+		FLIR A 1 BRIGHT
+		FLIR A 0 A_SpawnDebris("NapalmDebris")
+		FLIR A 0 A_Jump(127,12)
+		FLIR A 0 A_PlayWeaponSound("DSEXPLRG")		
 		FLIR ABCDEFGHIJKLM 2  BRIGHT A_FadeOut(0.08)
 		Stop
 		FLIR NOPQRSTUVWXYZ 2 BRIGHT A_FadeOut(0.08)
