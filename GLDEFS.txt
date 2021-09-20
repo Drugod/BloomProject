@@ -126,8 +126,19 @@ Object TheDeath
 FlickerLight TorchCavelight
 {
 	Color 1.0 1.0 0.5
-	Size 64
-	SecondarySize 56
+	Size 32
+	SecondarySize 24
+	Chance 0.5
+    Offset 0 50 0
+	Subtractive 0
+	Dontlightself 0
+}
+
+FlickerLight Quakelight
+{
+	Color 1.0 1.0 0.5
+	Size 56
+	SecondarySize 48
 	Chance 0.5
     Offset 0 50 0
 	Subtractive 0
@@ -136,20 +147,38 @@ FlickerLight TorchCavelight
 
 Object CaveTorch
 {
-	Frame TORCA { light TorchCavelight }
 	Frame TORCB { light TorchCavelight }
 	Frame TORCC { light TorchCavelight }
 	Frame TORCD { light TorchCavelight }
+	Frame TORCE { light TorchCavelight }
+}
+
+Object CastleTorch
+{
+	Frame WTCHB { light TorchCavelight }
+	Frame WTCHC { light TorchCavelight }
+	Frame WTCHD { light TorchCavelight }
+	Frame WTCHE { light TorchCavelight }
+	Frame WTCHF { light TorchCavelight }
+	Frame WTCHG { light TorchCavelight }
+	Frame WTCHH { light TorchCavelight }
+	Frame WTCHI { light TorchCavelight }
+	Frame WTCHJ { light TorchCavelight }
+	Frame WTCHK { light TorchCavelight }
+	Frame WTCHL { light TorchCavelight }
+	Frame WTCHM { light TorchCavelight }
+	Frame WTCHN { light TorchCavelight }
+	Frame WTCHOi{ light TorchCavelight }
 }
 
 Object FlameQuake
 {
-	Frame FLQ1A { light TorchCavelight }
-	Frame FLQ1B { light TorchCavelight }
-	Frame FLQ1C { light TorchCavelight }
-	Frame FLQ1D { light TorchCavelight }
-	Frame FLQ1E { light TorchCavelight }
-	Frame FLQ1F { light TorchCavelight }	
+	Frame FLQ1A { light Quakelight }
+	Frame FLQ1B { light Quakelight }
+	Frame FLQ1C { light Quakelight }
+	Frame FLQ1D { light Quakelight }
+	Frame FLQ1E { light Quakelight }
+	Frame FLQ1F { light Quakelight }	
 }
 
 FlickerLight GrandTorchCavelight

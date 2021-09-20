@@ -295,23 +295,63 @@ ACTOR BloomVase2B : BloomVases 3402
 	}
 }
 
-ACTOR CaveTorch 3263
+ACTOR CaveTorch : BloomVases 3263
 {
-	//$Category "BlooM Light Sources"
 	//$Title Cave Torch
-	//$Color 17
-	Radius 8
+	Radius 4
 	Height 35
 	Scale 0.8
-	+BRIGHT
-	+NOGRAVITY
-	+SOLID
+	+FIXMAPTHINGPOS
 	+SPAWNCEILING
+	-SOLID
 	States
 	{
 	Spawn:
-		TORC ABCD 4
-		Loop
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.5, TRUE)
+	SpawnCheck:
+		TORC BCDE 4 BRIGHT
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		TORC A 1 A_PlaySound("SFX/FireDie", 7)
+		TORC A -1 A_StopSound(6)
+		Stop
+	}
+}
+
+ACTOR CastleTorch : BloomVases 3333
+{
+	//$Title Castle Torch
+	Radius 8
+	Height 35
+	Scale 0.7
+	+FIXMAPTHINGPOS
+	+SPAWNCEILING
+	-SOLID
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.5, TRUE)
+	SpawnCheck:
+		WTCH BCDEFGHIJKLMNO 3 BRIGHT
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		WTCH A 1 A_PlaySound("SFX/FireDie", 7)
+		WTCH A -1 A_StopSound(6)
+		Stop
 	}
 }
 
