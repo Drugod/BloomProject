@@ -121,6 +121,64 @@ Brightmap Texture "Models/Traps/m9.jpg"		{ Map "Brightmaps/models/m9.png" }
 Brightmap Texture "Models/Traps/m10.jpg"	{ Map "Brightmaps/models/m10.png" }
 Brightmap Texture "Models/Quake/chton.png"		{ Map "Brightmaps/models/CHTON.png" }
 
+Brightmap Texture "Models/Carnival/Monitors/MONITOR1.png"		{ Map "Brightmaps/models/MONITOR1.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR200.png"		{ Map "Brightmaps/models/MONITOR200.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR201.png"		{ Map "Brightmaps/models/MONITOR201.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR202.png"		{ Map "Brightmaps/models/MONITOR202.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR203.png"		{ Map "Brightmaps/models/MONITOR203.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR204.png"		{ Map "Brightmaps/models/MONITOR204.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR205.png"		{ Map "Brightmaps/models/MONITOR205.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR206.png"		{ Map "Brightmaps/models/MONITOR206.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR207.png"		{ Map "Brightmaps/models/MONITOR207.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR208.png"		{ Map "Brightmaps/models/MONITOR208.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR209.png"		{ Map "Brightmaps/models/MONITOR209.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR210.png"		{ Map "Brightmaps/models/MONITOR210.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR211.png"		{ Map "Brightmaps/models/MONITOR211.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR212.png"		{ Map "Brightmaps/models/MONITOR212.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR213.png"		{ Map "Brightmaps/models/MONITOR213.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR300.png"		{ Map "Brightmaps/models/MONITOR300.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR301.png"		{ Map "Brightmaps/models/MONITOR301.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR302.png"		{ Map "Brightmaps/models/MONITOR302.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR303.png"		{ Map "Brightmaps/models/MONITOR303.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR304.png"		{ Map "Brightmaps/models/MONITOR304.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR305.png"		{ Map "Brightmaps/models/MONITOR305.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR306.png"		{ Map "Brightmaps/models/MONITOR306.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR307.png"		{ Map "Brightmaps/models/MONITOR307.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR308.png"		{ Map "Brightmaps/models/MONITOR308.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR309.png"		{ Map "Brightmaps/models/MONITOR309.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR310.png"		{ Map "Brightmaps/models/MONITOR310.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR311.png"		{ Map "Brightmaps/models/MONITOR311.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR312.png"		{ Map "Brightmaps/models/MONITOR312.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR313.png"		{ Map "Brightmaps/models/MONITOR313.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR400.png"		{ Map "Brightmaps/models/MONITOR400.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR401.png"		{ Map "Brightmaps/models/MONITOR401.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR402.png"		{ Map "Brightmaps/models/MONITOR402.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR403.png"		{ Map "Brightmaps/models/MONITOR403.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR404.png"		{ Map "Brightmaps/models/MONITOR404.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR405.png"		{ Map "Brightmaps/models/MONITOR405.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR406.png"		{ Map "Brightmaps/models/MONITOR406.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR407.png"		{ Map "Brightmaps/models/MONITOR407.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR408.png"		{ Map "Brightmaps/models/MONITOR408.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR409.png"		{ Map "Brightmaps/models/MONITOR409.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR410.png"		{ Map "Brightmaps/models/MONITOR410.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR411.png"		{ Map "Brightmaps/models/MONITOR411.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR412.png"		{ Map "Brightmaps/models/MONITOR412.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR413.png"		{ Map "Brightmaps/models/MONITOR413.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR500.png"		{ Map "Brightmaps/models/MONITOR500.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR501.png"		{ Map "Brightmaps/models/MONITOR501.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR502.png"		{ Map "Brightmaps/models/MONITOR502.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR503.png"		{ Map "Brightmaps/models/MONITOR503.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR504.png"		{ Map "Brightmaps/models/MONITOR504.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR505.png"		{ Map "Brightmaps/models/MONITOR505.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR506.png"		{ Map "Brightmaps/models/MONITOR506.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR507.png"		{ Map "Brightmaps/models/MONITOR507.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR508.png"		{ Map "Brightmaps/models/MONITOR508.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR509.png"		{ Map "Brightmaps/models/MONITOR509.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR510.png"		{ Map "Brightmaps/models/MONITOR510.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR511.png"		{ Map "Brightmaps/models/MONITOR511.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR512.png"		{ Map "Brightmaps/models/MONITOR512.png" }
+Brightmap Texture "Models/Carnival/Monitors/MONITOR513.png"		{ Map "Brightmaps/models/MONITOR513.png" }
+
 //Props
 Brightmap sprite ZESLB0 {map "Brightmaps/ZESLB0.png"}
 Brightmap sprite ZESLC0 {map "Brightmaps/ZESLC0.png"}
