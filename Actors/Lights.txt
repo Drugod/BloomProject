@@ -197,7 +197,7 @@ ACTOR FlameCult : SwitchableDecoration 3236
 	Inactive:
 		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
 		TNT1 A 1 A_PlaySound("SFX/FireDie", 7)
-		TNT1 A 0 A_RemoveChildren //(TRUE, RMVF_MISC) //fuckoff zandro - ozy81
+		TNT1 A 0 A_RemoveChildren //(TRUE, RMVF_MISC) //not for zandro - ozy81
 		TNT1 A -1 A_StopSound(6)
 		Stop
 	}
@@ -231,9 +231,9 @@ ACTOR BloomVase1 : BloomVases 3400
 		TNT1 A 0
 		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
 	ActiveCheck:
-		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 1.0, TRUE)
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.6, TRUE)
 	SpawnCheck:
-		FLV1 BCDEFGHIJKLMNO 3 BRIGHT LIGHT("FLAMVAS1")
+		FLV1 BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
 		Goto SpawnCheck
 	Inactive:
 		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
@@ -257,9 +257,9 @@ ACTOR BloomVase2A : BloomVases 3401
 		TNT1 A 0
 		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
 	ActiveCheck:
-		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 1.0, TRUE)
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.5, TRUE)
 	SpawnCheck:
-		FLV2 BCDEFGHIJKLMNO 3 BRIGHT LIGHT("FLAMVAS1")
+		FLV2 BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
 		Goto SpawnCheck
 	Inactive:
 		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
@@ -283,9 +283,9 @@ ACTOR BloomVase2B : BloomVases 3402
 		TNT1 A 0
 		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
 	ActiveCheck:
-		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 1.0, TRUE)
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.5, TRUE)
 	SpawnCheck:
-		FLV3 BCDEFGHIJKLMNO 3 BRIGHT LIGHT("FLAMVAS1")
+		FLV3 BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
 		Goto SpawnCheck
 	Inactive:
 		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
@@ -363,11 +363,21 @@ ACTOR FireLamp : BloomVases 3214
 	States
 	{
 	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
 	Active:
-		DECO ABCDEF 3 BRIGHT
-		Loop
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.3, TRUE)
+	SpawnCheck:
+	Active:
+		DECO ABCDEFG 4
+		Goto SpawnCheck
 	Inactive:
-		DECO G -1
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		DECO H 1 A_PlaySound("SFX/FireDie", 7)
+		DECO H -1 A_StopSound(6)
 		Stop
 	}
 }
@@ -603,9 +613,9 @@ ACTOR LampPost : SwitchableDecoration 3290
 	}
 }
 
-ACTOR BloomHiTorch : BloomVases 3404
+ACTOR BloomTallTorch1 : BloomVases 3404
 {
-	//$Title Burning High Torch, ACS Switchable
+	//$Title Burning Tall Torch 1, ACS Switchable
 	//$Sprite TORAA0
 	States
 	{
@@ -616,14 +626,39 @@ ACTOR BloomHiTorch : BloomVases 3404
 		TNT1 A 0
 		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
 	ActiveCheck:
-		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 1.0, TRUE)
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.5, TRUE)
 	SpawnCheck:
-		TORA BCDEFGHIJKLMNO 3 BRIGHT LIGHT("FLAMVAS1")
+		TORA BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
 		Goto SpawnCheck
 	Inactive:
 		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
 		TORA A 1 A_PlaySound("SFX/FireDie", 7)
 		TORA A -1 A_StopSound(6)
+		Stop
+	}
+}
+
+ACTOR BloomTallTorch2 : BloomVases 3808
+{
+	//$Title Burning Tall Torch 2, ACS Switchable
+	//$Sprite STORA0
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.5, TRUE)
+	SpawnCheck:
+		STOR BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		STOR A 1 A_PlaySound("SFX/FireDie", 7)
+		STOR A -1 A_StopSound(6)
 		Stop
 	}
 }

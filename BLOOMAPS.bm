@@ -80,6 +80,10 @@ Brightmap texture XTEX0503 {map "Brightmaps/textures/XTEX0503.png"}
 Brightmap texture XTEX0504 {map "Brightmaps/textures/XTEX0504.png"}
 Brightmap texture XTEX0505 {map "Brightmaps/textures/XTEX0505.png"}
 Brightmap texture XTEX0506 {map "Brightmaps/textures/XTEX0506.png"}
+Brightmap texture XTEX0529 {map "Brightmaps/textures/XTEX0529.png"}
+Brightmap texture XTEX0530 {map "Brightmaps/textures/XTEX0530.png"}
+Brightmap texture XTEX0534 {map "Brightmaps/textures/XTEX0534.png"}
+Brightmap texture XTEX0535 {map "Brightmaps/textures/XTEX0535.png"}
 Brightmap texture XTEX0602 {map "Brightmaps/textures/XTEX0602.png"}
 Brightmap texture XTEX0603 {map "Brightmaps/textures/XTEX0603.png"}
 Brightmap texture XTEX0604 {map "Brightmaps/textures/XTEX0604.png"}
@@ -101,6 +105,8 @@ Brightmap texture YTEXTR22 {map "Brightmaps/textures/YTEXTR22.png"}
 Brightmap texture YTEXTS22 {map "Brightmaps/textures/YTEXTS22.png"}
 Brightmap texture YTEXTT22 {map "Brightmaps/textures/YTEXTT22.png"}
 Brightmap texture YTEXTU22 {map "Brightmaps/textures/YTEXTU22.png"}
+Brightmap texture YTEXTW23 {map "Brightmaps/textures/YTEXTW23.png"}
+Brightmap texture YTEXTY23 {map "Brightmaps/textures/YTEXTY23.png"}
 Brightmap texture ZTEX0753 {map "Brightmaps/textures/ZTEX0753.png"}
 Brightmap texture ZTEX0754 {map "Brightmaps/textures/ZTEX0754.png"}
 Brightmap texture ZTEX0755 {map "Brightmaps/textures/ZTEX0755.png"}
@@ -110,17 +116,6 @@ Brightmap texture ZTEX0768 {map "Brightmaps/textures/ZTEX0768.png"}
 Brightmap texture ZTEX0769 {map "Brightmaps/textures/ZTEX0769.png"}
 
 //Models
-Brightmap Texture "Models/Traps/f6.jpg"		{ Map "Brightmaps/models/f6.png" }
-Brightmap Texture "Models/Traps/f7.jpg"		{ Map "Brightmaps/models/f7.png" }
-Brightmap Texture "Models/Traps/f8.jpg"		{ Map "Brightmaps/models/f8.png" }
-Brightmap Texture "Models/Traps/i6.jpg"		{ Map "Brightmaps/models/i6.png" }
-Brightmap Texture "Models/Traps/m6.jpg"		{ Map "Brightmaps/models/m6.png" }
-Brightmap Texture "Models/Traps/m7.jpg"		{ Map "Brightmaps/models/m7.png" }
-Brightmap Texture "Models/Traps/m8.jpg"		{ Map "Brightmaps/models/m8.png" }
-Brightmap Texture "Models/Traps/m9.jpg"		{ Map "Brightmaps/models/m9.png" }
-Brightmap Texture "Models/Traps/m10.jpg"	{ Map "Brightmaps/models/m10.png" }
-Brightmap Texture "Models/Quake/chton.png"		{ Map "Brightmaps/models/CHTON.png" }
-
 Brightmap Texture "Models/Carnival/Monitors/MONITOR1.png"		{ Map "Brightmaps/models/MONITOR1.png" }
 Brightmap Texture "Models/Carnival/Monitors/MONITOR200.png"		{ Map "Brightmaps/models/MONITOR200.png" }
 Brightmap Texture "Models/Carnival/Monitors/MONITOR201.png"		{ Map "Brightmaps/models/MONITOR201.png" }
@@ -179,7 +174,181 @@ Brightmap Texture "Models/Carnival/Monitors/MONITOR511.png"		{ Map "Brightmaps/m
 Brightmap Texture "Models/Carnival/Monitors/MONITOR512.png"		{ Map "Brightmaps/models/MONITOR512.png" }
 Brightmap Texture "Models/Carnival/Monitors/MONITOR513.png"		{ Map "Brightmaps/models/MONITOR513.png" }
 
+Brightmap Texture "Models/Quake/chton.png"		{ Map "Brightmaps/models/CHTON.png" }
+
+Brightmap Texture "Models/TV/TV001_000.jpg"		{ Map "Brightmaps/models/TV001_000.png" }
+Brightmap Texture "Models/TV/TV001_001.jpg"		{ Map "Brightmaps/models/TV001_001.png" }
+Brightmap Texture "Models/TV/TV001_002.jpg"		{ Map "Brightmaps/models/TV001_002.png" }
+Brightmap Texture "Models/TV/TV001_003.jpg"		{ Map "Brightmaps/models/TV001_003.png" }
+Brightmap Texture "Models/TV/TV001_004.jpg"		{ Map "Brightmaps/models/TV001_004.png" }
+Brightmap Texture "Models/TV/TV001_005.jpg"		{ Map "Brightmaps/models/TV001_005.png" }
+Brightmap Texture "Models/TV/TV001_006.jpg"		{ Map "Brightmaps/models/TV001_006.png" }
+Brightmap Texture "Models/TV/TV001_007.jpg"		{ Map "Brightmaps/models/TV001_007.png" }
+Brightmap Texture "Models/TV/TV001_008.jpg"		{ Map "Brightmaps/models/TV001_008.png" }
+Brightmap Texture "Models/TV/TV001_009.jpg"		{ Map "Brightmaps/models/TV001_009.png" }
+Brightmap Texture "Models/TV/TV002_000.jpg"		{ Map "Brightmaps/models/TV002_000.png" }
+Brightmap Texture "Models/TV/TV002_001.jpg"		{ Map "Brightmaps/models/TV002_001.png" }
+Brightmap Texture "Models/TV/TV002_002.jpg"		{ Map "Brightmaps/models/TV002_002.png" }
+Brightmap Texture "Models/TV/TV002_003.jpg"		{ Map "Brightmaps/models/TV002_003.png" }
+Brightmap Texture "Models/TV/TV002_004.jpg"		{ Map "Brightmaps/models/TV002_004.png" }
+Brightmap Texture "Models/TV/TV002_005.jpg"		{ Map "Brightmaps/models/TV002_005.png" }
+Brightmap Texture "Models/TV/TV002_006.jpg"		{ Map "Brightmaps/models/TV002_006.png" }
+Brightmap Texture "Models/TV/TV002_007.jpg"		{ Map "Brightmaps/models/TV002_007.png" }
+Brightmap Texture "Models/TV/TV002_008.jpg"		{ Map "Brightmaps/models/TV002_008.png" }
+Brightmap Texture "Models/TV/TV002_009.jpg"		{ Map "Brightmaps/models/TV002_009.png" }
+Brightmap Texture "Models/TV/TV003_001.jpg"		{ Map "Brightmaps/models/TV003_001.png" }
+Brightmap Texture "Models/TV/TV003_002.jpg"		{ Map "Brightmaps/models/TV003_002.png" }
+Brightmap Texture "Models/TV/TV003_003.jpg"		{ Map "Brightmaps/models/TV003_003.png" }
+Brightmap Texture "Models/TV/TV003_004.jpg"		{ Map "Brightmaps/models/TV003_004.png" }
+Brightmap Texture "Models/TV/TV003_005.jpg"		{ Map "Brightmaps/models/TV003_005.png" }
+Brightmap Texture "Models/TV/TV003_006.jpg"		{ Map "Brightmaps/models/TV003_006.png" }
+Brightmap Texture "Models/TV/TV003_007.jpg"		{ Map "Brightmaps/models/TV003_007.png" }
+Brightmap Texture "Models/TV/TV004_000.jpg"		{ Map "Brightmaps/models/TV004_000.png" }
+Brightmap Texture "Models/TV/TV004_001.jpg"		{ Map "Brightmaps/models/TV004_001.png" }
+Brightmap Texture "Models/TV/TV004_002.jpg"		{ Map "Brightmaps/models/TV004_002.png" }
+Brightmap Texture "Models/TV/TV004_003.jpg"		{ Map "Brightmaps/models/TV004_003.png" }
+Brightmap Texture "Models/TV/TV004_004.jpg"		{ Map "Brightmaps/models/TV004_004.png" }
+Brightmap Texture "Models/TV/TV004_005.jpg"		{ Map "Brightmaps/models/TV004_005.png" }
+Brightmap Texture "Models/TV/TV004_006.jpg"		{ Map "Brightmaps/models/TV004_006.png" }
+Brightmap Texture "Models/TV/TV004_007.jpg"		{ Map "Brightmaps/models/TV004_007.png" }
+Brightmap Texture "Models/TV/TV004_008.jpg"		{ Map "Brightmaps/models/TV004_008.png" }
+Brightmap Texture "Models/TV/TV004_009.jpg"		{ Map "Brightmaps/models/TV004_009.png" }
+Brightmap Texture "Models/TV/TV004_010.jpg"		{ Map "Brightmaps/models/TV004_010.png" }
+Brightmap Texture "Models/TV/TV004_011.jpg"		{ Map "Brightmaps/models/TV004_011.png" }
+Brightmap Texture "Models/TV/TV004_012.jpg"		{ Map "Brightmaps/models/TV004_012.png" }
+Brightmap Texture "Models/TV/TV004_013.jpg"		{ Map "Brightmaps/models/TV004_013.png" }
+
+Brightmap Texture "Models/Traps/f6.jpg"		{ Map "Brightmaps/models/f6.png" }
+Brightmap Texture "Models/Traps/f7.jpg"		{ Map "Brightmaps/models/f7.png" }
+Brightmap Texture "Models/Traps/f8.jpg"		{ Map "Brightmaps/models/f8.png" }
+Brightmap Texture "Models/Traps/i6.jpg"		{ Map "Brightmaps/models/i6.png" }
+Brightmap Texture "Models/Traps/m10.jpg"	{ Map "Brightmaps/models/m10.png" }
+Brightmap Texture "Models/Traps/m6.jpg"		{ Map "Brightmaps/models/m6.png" }
+Brightmap Texture "Models/Traps/m7.jpg"		{ Map "Brightmaps/models/m7.png" }
+Brightmap Texture "Models/Traps/m8.jpg"		{ Map "Brightmaps/models/m8.png" }
+Brightmap Texture "Models/Traps/m9.jpg"		{ Map "Brightmaps/models/m9.png" }
+
 //Props
+Brightmap sprite DECOA0 {map "Brightmaps/DECOA0.png"}
+Brightmap sprite DECOB0 {map "Brightmaps/DECOB0.png"}
+Brightmap sprite DECOC0 {map "Brightmaps/DECOC0.png"}
+Brightmap sprite DECOD0 {map "Brightmaps/DECOD0.png"}
+Brightmap sprite DECOE0 {map "Brightmaps/DECOE0.png"}
+Brightmap sprite DECOF0 {map "Brightmaps/DECOF0.png"}
+Brightmap sprite DECOG0 {map "Brightmaps/DECOG0.png"}
+
+Brightmap sprite FLV1B0 {map "Brightmaps/FLV1B0.png"}
+Brightmap sprite FLV1C0 {map "Brightmaps/FLV1C0.png"}
+Brightmap sprite FLV1D0 {map "Brightmaps/FLV1D0.png"}
+Brightmap sprite FLV1E0 {map "Brightmaps/FLV1E0.png"}
+Brightmap sprite FLV1F0 {map "Brightmaps/FLV1F0.png"}
+Brightmap sprite FLV1G0 {map "Brightmaps/FLV1G0.png"}
+Brightmap sprite FLV1H0 {map "Brightmaps/FLV1H0.png"}
+Brightmap sprite FLV1I0 {map "Brightmaps/FLV1I0.png"}
+Brightmap sprite FLV1J0 {map "Brightmaps/FLV1J0.png"}
+Brightmap sprite FLV1K0 {map "Brightmaps/FLV1K0.png"}
+Brightmap sprite FLV1L0 {map "Brightmaps/FLV1L0.png"}
+Brightmap sprite FLV1M0 {map "Brightmaps/FLV1M0.png"}
+Brightmap sprite FLV1N0 {map "Brightmaps/FLV1N0.png"}
+Brightmap sprite FLV1O0 {map "Brightmaps/FLV1O0.png"}
+
+Brightmap sprite FLV2B0 {map "Brightmaps/FLV2B0.png"}
+Brightmap sprite FLV2C0 {map "Brightmaps/FLV2C0.png"}
+Brightmap sprite FLV2D0 {map "Brightmaps/FLV2D0.png"}
+Brightmap sprite FLV2E0 {map "Brightmaps/FLV2E0.png"}
+Brightmap sprite FLV2F0 {map "Brightmaps/FLV2F0.png"}
+Brightmap sprite FLV2G0 {map "Brightmaps/FLV2G0.png"}
+Brightmap sprite FLV2H0 {map "Brightmaps/FLV2H0.png"}
+Brightmap sprite FLV2I0 {map "Brightmaps/FLV2I0.png"}
+Brightmap sprite FLV2J0 {map "Brightmaps/FLV2J0.png"}
+Brightmap sprite FLV2K0 {map "Brightmaps/FLV2K0.png"}
+Brightmap sprite FLV2L0 {map "Brightmaps/FLV2L0.png"}
+Brightmap sprite FLV2M0 {map "Brightmaps/FLV2M0.png"}
+Brightmap sprite FLV2N0 {map "Brightmaps/FLV2N0.png"}
+Brightmap sprite FLV2O0 {map "Brightmaps/FLV2O0.png"}
+Brightmap sprite FLV3B0 {map "Brightmaps/FLV3B0.png"}
+Brightmap sprite FLV3C0 {map "Brightmaps/FLV3C0.png"}
+Brightmap sprite FLV3D0 {map "Brightmaps/FLV3D0.png"}
+Brightmap sprite FLV3E0 {map "Brightmaps/FLV3E0.png"}
+Brightmap sprite FLV3F0 {map "Brightmaps/FLV3F0.png"}
+Brightmap sprite FLV3G0 {map "Brightmaps/FLV3G0.png"}
+Brightmap sprite FLV3H0 {map "Brightmaps/FLV3H0.png"}
+Brightmap sprite FLV3I0 {map "Brightmaps/FLV3I0.png"}
+Brightmap sprite FLV3J0 {map "Brightmaps/FLV3J0.png"}
+Brightmap sprite FLV3K0 {map "Brightmaps/FLV3K0.png"}
+Brightmap sprite FLV3L0 {map "Brightmaps/FLV3L0.png"}
+Brightmap sprite FLV3M0 {map "Brightmaps/FLV3M0.png"}
+Brightmap sprite FLV3N0 {map "Brightmaps/FLV3N0.png"}
+Brightmap sprite FLV3O0 {map "Brightmaps/FLV3O0.png"}
+
+Brightmap sprite STORB0 {map "Brightmaps/STORB0.png"}
+Brightmap sprite STORC0 {map "Brightmaps/STORC0.png"}
+Brightmap sprite STORD0 {map "Brightmaps/STORD0.png"}
+Brightmap sprite STORE0 {map "Brightmaps/STORE0.png"}
+Brightmap sprite STORF0 {map "Brightmaps/STORF0.png"}
+Brightmap sprite STORG0 {map "Brightmaps/STORG0.png"}
+Brightmap sprite STORH0 {map "Brightmaps/STORH0.png"}
+Brightmap sprite STORI0 {map "Brightmaps/STORI0.png"}
+Brightmap sprite STORJ0 {map "Brightmaps/STORJ0.png"}
+Brightmap sprite STORK0 {map "Brightmaps/STORK0.png"}
+Brightmap sprite STORL0 {map "Brightmaps/STORL0.png"}
+Brightmap sprite STORM0 {map "Brightmaps/STORM0.png"}
+Brightmap sprite STORN0 {map "Brightmaps/STORN0.png"}
+Brightmap sprite STORO0 {map "Brightmaps/STORO0.png"}
+
+Brightmap sprite TORAB0 {map "Brightmaps/TORAB0.png"}
+Brightmap sprite TORAC0 {map "Brightmaps/TORAC0.png"}
+Brightmap sprite TORAD0 {map "Brightmaps/TORAD0.png"}
+Brightmap sprite TORAE0 {map "Brightmaps/TORAE0.png"}
+Brightmap sprite TORAF0 {map "Brightmaps/TORAF0.png"}
+Brightmap sprite TORAG0 {map "Brightmaps/TORAG0.png"}
+Brightmap sprite TORAH0 {map "Brightmaps/TORAH0.png"}
+Brightmap sprite TORAI0 {map "Brightmaps/TORAI0.png"}
+Brightmap sprite TORAJ0 {map "Brightmaps/TORAJ0.png"}
+Brightmap sprite TORAK0 {map "Brightmaps/TORAK0.png"}
+Brightmap sprite TORAL0 {map "Brightmaps/TORAL0.png"}
+Brightmap sprite TORAM0 {map "Brightmaps/TORAM0.png"}
+Brightmap sprite TORAN0 {map "Brightmaps/TORAN0.png"}
+Brightmap sprite TORAO0 {map "Brightmaps/TORAO0.png"}
+
+Brightmap sprite 32RXB0 {map "Brightmaps/32RXB0.png"}
+Brightmap sprite 32RXC0 {map "Brightmaps/32RXC0.png"}
+Brightmap sprite 32RXD0 {map "Brightmaps/32RXD0.png"}
+Brightmap sprite 32RXE0 {map "Brightmaps/32RXE0.png"}
+Brightmap sprite 32RXF0 {map "Brightmaps/32RXF0.png"}
+Brightmap sprite 32RXG0 {map "Brightmaps/32RXG0.png"}
+Brightmap sprite 32RXH0 {map "Brightmaps/32RXH0.png"}
+Brightmap sprite 32RXI0 {map "Brightmaps/32RXI0.png"}
+
+Brightmap sprite XR23B0 {map "Brightmaps/XR23B0.png"}
+Brightmap sprite XR23C0 {map "Brightmaps/XR23C0.png"}
+Brightmap sprite XR23D0 {map "Brightmaps/XR23D0.png"}
+Brightmap sprite XR23E0 {map "Brightmaps/XR23E0.png"}
+Brightmap sprite XR23F0 {map "Brightmaps/XR23F0.png"}
+Brightmap sprite XR23G0 {map "Brightmaps/XR23G0.png"}
+Brightmap sprite XR23H0 {map "Brightmaps/XR23H0.png"}
+Brightmap sprite XR23I0 {map "Brightmaps/XR23I0.png"}
+
+Brightmap sprite 33RXB0 {map "Brightmaps/33RXB0.png"}
+Brightmap sprite 33RXC0 {map "Brightmaps/33RXC0.png"}
+Brightmap sprite 33RXD0 {map "Brightmaps/33RXD0.png"}
+Brightmap sprite 33RXE0 {map "Brightmaps/33RXE0.png"}
+Brightmap sprite 33RXF0 {map "Brightmaps/33RXF0.png"}
+Brightmap sprite 33RXG0 {map "Brightmaps/33RXG0.png"}
+Brightmap sprite 33RXH0 {map "Brightmaps/33RXH0.png"}
+Brightmap sprite 33RXI0 {map "Brightmaps/33RXI0.png"}
+Brightmap sprite 33RXJ0 {map "Brightmaps/33RXJ0.png"}
+
+Brightmap sprite XR33B0 {map "Brightmaps/XR33B0.png"}
+Brightmap sprite XR33C0 {map "Brightmaps/XR33C0.png"}
+Brightmap sprite XR33D0 {map "Brightmaps/XR33D0.png"}
+Brightmap sprite XR33E0 {map "Brightmaps/XR33E0.png"}
+Brightmap sprite XR33F0 {map "Brightmaps/XR33F0.png"}
+Brightmap sprite XR33G0 {map "Brightmaps/XR33G0.png"}
+Brightmap sprite XR33H0 {map "Brightmaps/XR33H0.png"}
+Brightmap sprite XR33I0 {map "Brightmaps/XR33I0.png"}
+Brightmap sprite XR33J0 {map "Brightmaps/XR33J0.png"}
+
 Brightmap sprite ZESLB0 {map "Brightmaps/ZESLB0.png"}
 Brightmap sprite ZESLC0 {map "Brightmaps/ZESLC0.png"}
 Brightmap sprite ZESLD0 {map "Brightmaps/ZESLD0.png"}

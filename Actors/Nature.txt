@@ -341,14 +341,14 @@ ACTOR TheTree3 : Bloom_Flora2 3223
 		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
 		Stop
 	Burn:
-		XR33 BCD 4 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		XR33 EFG 4 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		XR33 HIJ 4 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItem("BurnedTree2")
+		XR33 BCD 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		XR33 EFG 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		XR33 HIJ 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItem("BurnedTree2")
 		Stop
 	}
 }
@@ -392,14 +392,14 @@ ACTOR TheTree3NoGrav : Bloom_Flora2NoGrav 19119
 		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
 		Stop
 	Burn:
-		33RX BCD 4 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		33RX EFG 4 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		33RX HIJ 4 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItem("BurnedTree2NoGrav")
+		33RX BCD 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		33RX EFG 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		33RX HIJ 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItem("BurnedTree2NoGrav")
 		Stop
 	}
 }
@@ -720,14 +720,14 @@ ACTOR TheTree7 : Bloom_Flora2 3227
 		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
 		Stop
 	Burn:
-		XR23 BCD 4 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		XR23 EFG 4 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		XR23 HIJ 4 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItem("BurnedTree1")
+		XR23 BCD 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		XR23 EFG 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		XR23 HIJ 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItem("BurnedTree1")
 		Stop
 	}
 }
@@ -770,14 +770,14 @@ ACTOR TheTree7NoGrav : Bloom_Flora2NoGrav 19123
 		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
 		Stop
 	Burn:
-		32RX BCD 4 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		32RX EFG 4 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		32RX HIJ 4 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
-		TNT1 A 1 BRIGHT A_SpawnItem("BurnedTree1NoGrav")
+		32RX BCD 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		32RX EFG 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		32RX HIJ 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItem("BurnedTree1NoGrav")
 		Stop
 	}
 }

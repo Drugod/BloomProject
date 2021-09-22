@@ -30,7 +30,7 @@ FlickerLight2 FLAMVAS1
 	SecondarySize 48
 	Interval 0.1
 	Offset 0 30 0
-	DontLightSelf 0
+	DontLightSelf 1
 }
 
 PointLight ceillight
@@ -189,7 +189,7 @@ FlickerLight GrandTorchCavelight
 	Chance 0.5
     Offset 0 0 0
 	Subtractive 0
-	Dontlightself 0
+	Dontlightself 1
 }
 
 Object FlameCult
@@ -218,6 +218,7 @@ Object FireLamp
 	Frame DECOD { light GrandTorchCavelight }
 	Frame DECOE { light GrandTorchCavelight }
 	Frame DECOF { light GrandTorchCavelight }
+	Frame DECOG { light GrandTorchCavelight }
 }
 
 Object ClassicCellLamp
