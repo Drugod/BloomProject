@@ -1200,11 +1200,11 @@ ACTOR Bush1NoGrav : Bloom_Flora2NoGrav 19129
 	Death.Dynamite:
 	Burn:
 		BRAX ABC 5
-		"####" AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		"####" AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		BRAX DEF 4
-		"####" AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		"####" AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		BRAX GHI 3
-		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		BRAX J 1
 		Stop
 	}
@@ -1262,11 +1262,11 @@ ACTOR Bush2NoGrav : Bloom_Flora2NoGrav 19130
 	Death.Dynamite:
 	Burn: //frames not present yet - ozy81
 		BRA2 ABC 5
-		"####" AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		"####" AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		BRA2 DEF 4
-		"####" AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		"####" AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		BRA2 GHI 3
-		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		BRA2 J 1
 		Stop
 	}
@@ -1324,11 +1324,11 @@ ACTOR Bush3NoGrav : Bloom_Flora2NoGrav 19131
 	Death.Dynamite:
 	Burn:
 		BRA3 ABC 5
-		"####" AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		"####" AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		BRA3 DEF 4
-		"####" AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		"####" AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		BRA3 GHI 3
-		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		BRA3 J 1
 		Stop
 	}
