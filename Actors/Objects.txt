@@ -1357,6 +1357,20 @@ ACTOR DoomBetaHand : ActionFigures 18611
 	}
 }
 
+ACTOR MisteriousSkull : ActionFigures 18609
+{
+	//$Title "Blood Alpha HUD Skull"
+	Radius 4
+	Height 4
+	Scale 1.0
+	States
+	{
+	Spawn:
+		CREE A -1
+		Stop
+	}
+}
+
 ACTOR Belial 3245
 {
 	//$Category "BlooM Eastereggs"

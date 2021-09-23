@@ -1015,6 +1015,17 @@ ACTOR HatchedSkull : PileSkulls 3233
 	}
 }
 
+ACTOR SideSkull : PileSkulls 3555
+{
+	//$Title Skull from Side
+	States
+	{
+	Spawn:
+		QSKL B -1
+		Stop
+	}
+}
+
 ACTOR ImpaledExBody : PileSkulls 18817
 {
 	//$Title Hatched Skull

@@ -1176,6 +1176,10 @@ ACTOR Bush1 : Bloom_Flora2 3230
 		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		ARBX J 1
 		Stop
+	Ice:
+		FRBX A 5 A_FreezeDeath
+		FRBX A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -1207,6 +1211,10 @@ ACTOR Bush1NoGrav : Bloom_Flora2NoGrav 19129
 		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		BRAX J 1
 		Stop
+	Ice:
+		BRFX A 5 A_FreezeDeath
+		BRFX A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -1238,6 +1246,10 @@ ACTOR Bush2 : Bloom_Flora2 3255
 		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		ARB2 J 1
 		Stop
+	Ice:
+		FRB2 A 5 A_FreezeDeath
+		FRB2 A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -1269,6 +1281,10 @@ ACTOR Bush2NoGrav : Bloom_Flora2NoGrav 19130
 		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		BRA2 J 1
 		Stop
+	Ice:
+		BRF2 A 5 A_FreezeDeath
+		BRF2 A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -1300,6 +1316,10 @@ ACTOR Bush3 : Bloom_Flora2 3256
 		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		ARB3 J 1
 		Stop
+	Ice:
+		FRB3 A 5 A_FreezeDeath
+		FRB3 A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -1331,6 +1351,10 @@ ACTOR Bush3NoGrav : Bloom_Flora2NoGrav 19131
 		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
 		BRA3 J 1
 		Stop
+	Ice:
+		BRF3 A 5 A_FreezeDeath
+		BRF3 A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -1361,6 +1385,10 @@ ACTOR Plant1 : Bloom_Flora3 3259
 		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
 		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
 		Stop
+	Ice:
+		FASE A 5 A_FreezeDeath
+		FASE A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -1391,6 +1419,10 @@ ACTOR Plant2 : Bloom_Flora3 3260
 		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
 		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
 		Stop
+	Ice:
+		FASE B 5 A_FreezeDeath
+		FASE B 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
@@ -1421,5 +1453,9 @@ ACTOR Plant3 : Bloom_Flora3 3261
 		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
 		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
 		Stop
+	Ice:
+		FASE C 5 A_FreezeDeath
+		FASE C 1 A_FreezeDeathChunks
+		Wait
 	}
 }

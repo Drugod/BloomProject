@@ -3170,10 +3170,14 @@ ACTOR Hand1 : Bloodliver
 	States
 	{
 	Spawn:
-		BLVR A 0 A_Jump(128,2)
+		BLVR A 0 A_Jump(128,"Spawn2","Spawn3")	
 		HND1 A -1
 		Stop
+	Spawn2:
 		HND2 A -1
+		Stop
+	Spawn3:
+		HND3 A -1
 		Stop
 	}
 }
