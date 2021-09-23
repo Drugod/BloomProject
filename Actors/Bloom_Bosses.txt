@@ -1019,9 +1019,9 @@ ACTOR HandMastermind : BloomBossHybrid_Base 19138
 	}
 }
 
-ACTOR Cerbecubus : BloomBossHybrid_Base 19139 //sensible to Ice and Electric attacks
+ACTOR Cerbcubus : BloomBossHybrid_Base 19139 //sensible to Ice and Electric attacks
 {
-	//$Title Cerbecubus
+	//$Title Cerbcubus
 	Health 3000
 	Radius 96
 	Height 192
@@ -1115,6 +1115,10 @@ ACTOR Cerbecubus : BloomBossHybrid_Base 19139 //sensible to Ice and Electric att
 		CERC RSTUVW 6
 		CERC X -1 A_BossDeath
 		Stop
+	Ice:
+		FERC A 5 A_FreezeDeath
+		FERC A 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 
