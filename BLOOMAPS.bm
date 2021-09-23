@@ -1152,17 +1152,6 @@ Brightmap sprite MPOXD3D7	{map "Brightmaps/MPOXD3D7.png"}
 Brightmap sprite MPOXD4D6	{map "Brightmaps/MPOXD4D6.png"}
 Brightmap sprite MPOXD5		{map "Brightmaps/MPOXD5.png"}
 
-//Sloth
-Brightmap sprite SLTAC1		{map "Brightmaps/SLTAC1.png"}
-Brightmap sprite SLTAC2C8	{map "Brightmaps/SLTAC2C8.png"}
-Brightmap sprite SLTAC3C7	{map "Brightmaps/SLTAC3C7.png"}
-Brightmap sprite SLTAC4C6	{map "Brightmaps/SLTAC4C6.png"}
-Brightmap sprite SLTAC5		{map "Brightmaps/SLTAC5.png"}
-Brightmap sprite SLTAE1		{map "Brightmaps/SLTAE1.png"}
-Brightmap sprite SLTAE2E8	{map "Brightmaps/SLTAE2E8.png"}
-Brightmap sprite SLTAE3E7	{map "Brightmaps/SLTAE3E7.png"}
-Brightmap sprite SLTAE4E6	{map "Brightmaps/SLTAE4E6.png"}
-Brightmap sprite SLTAE5		{map "Brightmaps/SLTAE5.png"}
 
 //BloodBat
 Brightmap sprite BFAMA1		{map "Brightmaps/BFAMA1.png"}
@@ -1514,6 +1503,38 @@ Brightmap sprite YCUFB5 	{map "Brightmaps/YCUFB5.png"}
 Brightmap sprite YCUFB6B4 	{map "Brightmaps/YCUFB6B4.png"}
 Brightmap sprite YCUFB7B3 	{map "Brightmaps/YCUFB7B3.png"}
 Brightmap sprite YCUFB8B2 	{map "Brightmaps/YCUFB8B2.png"}
+
+//Elemental Gargoyle
+Brightmap sprite PGINA1		{map "Brightmaps/PGINA1.png"}
+Brightmap sprite PGINA2A8	{map "Brightmaps/PGINA2A8.png"}
+Brightmap sprite PGINA3A7	{map "Brightmaps/PGINA3A7.png"}
+Brightmap sprite PGINB1		{map "Brightmaps/PGINB1.png"}
+Brightmap sprite PGINB2B8	{map "Brightmaps/PGINB2B8.png"}
+Brightmap sprite PGINB3B7	{map "Brightmaps/PGINB3B7.png"}
+Brightmap sprite PGINC1		{map "Brightmaps/PGINC1.png"}
+Brightmap sprite PGINC2C8	{map "Brightmaps/PGINC2C8.png"}
+Brightmap sprite PGINC3C7	{map "Brightmaps/PGINC3C7.png"}
+Brightmap sprite PGIND1		{map "Brightmaps/PGIND1.png"}
+Brightmap sprite PGIND2D8	{map "Brightmaps/PGIND2D8.png"}
+Brightmap sprite PGIND3D7	{map "Brightmaps/PGIND3D7.png"}
+Brightmap sprite PGINE1		{map "Brightmaps/PGINE1.png"}
+Brightmap sprite PGINE2E8	{map "Brightmaps/PGINE2E8.png"}
+Brightmap sprite PGINE3E7	{map "Brightmaps/PGINE3E7.png"}
+Brightmap sprite PGINF1		{map "Brightmaps/PGINF1.png"}
+Brightmap sprite PGINF2F8	{map "Brightmaps/PGINF2F8.png"}
+Brightmap sprite PGINF3F7	{map "Brightmaps/PGINF3F7.png"}
+Brightmap sprite PGING1		{map "Brightmaps/PGING1.png"}
+Brightmap sprite PGING2G8	{map "Brightmaps/PGING2G8.png"}
+Brightmap sprite PGING3G7	{map "Brightmaps/PGING3G7.png"}
+Brightmap sprite PGINH1		{map "Brightmaps/PGINH1.png"}
+Brightmap sprite PGINH2H8	{map "Brightmaps/PGINH2H8.png"}
+Brightmap sprite PGINH3H7	{map "Brightmaps/PGINH3H7.png"}
+Brightmap sprite PGINI0		{map "Brightmaps/PGINI0.png"}
+Brightmap sprite PGINJ0		{map "Brightmaps/PGINJ0.png"}
+Brightmap sprite PGINK0		{map "Brightmaps/PGINK0.png"}
+Brightmap sprite PGINL0		{map "Brightmaps/PGINL0.png"}
+Brightmap sprite PGINM0		{map "Brightmaps/PGINM0.png"}
+Brightmap sprite PGINN0		{map "Brightmaps/PGINN0.png"}
 
 //Fanatic Chaingunners
 Brightmap sprite BUOKA1		{map "Brightmaps/BUOKA1.png"}
@@ -3050,6 +3071,18 @@ Brightmap sprite MONKH2H8	{map "Brightmaps/MONKH2H8.png"}
 Brightmap sprite MONKH3H7	{map "Brightmaps/MONKH3H7.png"}
 Brightmap sprite MONKH4H6	{map "Brightmaps/MONKH4H6.png"}
 Brightmap sprite MONKH5		{map "Brightmaps/MONKH5.png"}
+
+//Sloth
+Brightmap sprite SLTAC1		{map "Brightmaps/SLTAC1.png"}
+Brightmap sprite SLTAC2C8	{map "Brightmaps/SLTAC2C8.png"}
+Brightmap sprite SLTAC3C7	{map "Brightmaps/SLTAC3C7.png"}
+Brightmap sprite SLTAC4C6	{map "Brightmaps/SLTAC4C6.png"}
+Brightmap sprite SLTAC5		{map "Brightmaps/SLTAC5.png"}
+Brightmap sprite SLTAE1		{map "Brightmaps/SLTAE1.png"}
+Brightmap sprite SLTAE2E8	{map "Brightmaps/SLTAE2E8.png"}
+Brightmap sprite SLTAE3E7	{map "Brightmaps/SLTAE3E7.png"}
+Brightmap sprite SLTAE4E6	{map "Brightmaps/SLTAE4E6.png"}
+Brightmap sprite SLTAE5		{map "Brightmaps/SLTAE5.png"}
 
 //ZombImps
 Brightmap sprite OUT2E0		{map "Brightmaps/OUT2E0.png"}

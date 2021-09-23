@@ -1156,7 +1156,7 @@ ACTOR Arbust : Bloom_Flora2 3230
 	DamageFactor "Disintegrate", 6.0
 	DamageFactor "Flare", 3.5
 	DamageFactor "Napalm", 6.0
-	DamageFactor "Dynamite", 6.0	
+	DamageFactor "Dynamite", 6.0
 	-SOLID
 	States
 	{
@@ -1170,7 +1170,7 @@ ACTOR Arbust : Bloom_Flora2 3230
 	Burn:
 		ARBX ABCDEFGHIJ 6
 		ARBX K -1
-		Stop		
+		Stop
 	}
 }
 
@@ -1194,7 +1194,7 @@ ACTOR Arbust2 : Bloom_Flora2 3255
 	DamageFactor "Napalm", 6.0
 	DamageFactor "Dynamite", 6.0
 	Height 32
-	-SOLID	
+	-SOLID
 	States
 	{
 	Spawn:
@@ -1204,10 +1204,10 @@ ACTOR Arbust2 : Bloom_Flora2 3255
 	Death.Flare:
 	Death.Napalm:
 	Death.Dynamite:
-	Burn:	
-		ARB2 ABCDEFGHIJ 6 
-		ARB2 K -1 		
-		Stop			
+	Burn:
+		ARB2 ABCDEFGHIJ 6
+		ARB2 K -1
+		Stop
 	}
 }
 
@@ -1229,9 +1229,9 @@ ACTOR Arbust3 : Bloom_Flora2 3256
 	DamageFactor "Disintegrate", 6.0
 	DamageFactor "Flare", 3.5
 	DamageFactor "Napalm", 6.0
-	DamageFactor "Dynamite", 6.0	
+	DamageFactor "Dynamite", 6.0
 	Height 32
-	-SOLID		
+	-SOLID
 	States
 	{
 	Spawn:
@@ -1241,10 +1241,10 @@ ACTOR Arbust3 : Bloom_Flora2 3256
 	Death.Flare:
 	Death.Napalm:
 	Death.Dynamite:
-	Burn:	
+	Burn:
 		ARB3 ABCDEFGHIJ 6
 		ARB3 K -1
-		Stop		
+		Stop
 	}
 }
 

@@ -1354,7 +1354,7 @@ ACTOR FatDog
 	Projectile
 	+RANDOMIZE
 	RenderStyle Add
-	Alpha 1	
+	Alpha 1
 	SeeSound "fatso/attack"
 	DeathSound "fatso/shotx"
 	States

@@ -701,7 +701,7 @@ ACTOR FlareKaboom5 : FlareKaboom //Just for mapping stuff
 		FLIR A 0 A_SpawnDebris("NapalmDebris")
 		FLIR A 0 A_PlaySound("LargeExplosions", CHAN_WEAPON, 1.0, FALSE, ATTN_NONE)
 		FLIR A 0 A_SpawnItemex("Blower",-16)
-		FLIR A 0 A_Explode(54,190,0)		
+		FLIR A 0 A_Explode(54,190,0)
 		FLIR A 0 A_Jump(127,14)
 		FLIR ABCDEFGHIJKLM 2 BRIGHT A_FadeOut(0.08)
 		Stop

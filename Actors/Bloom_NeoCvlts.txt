@@ -338,7 +338,7 @@ ACTOR Apocalyptic_NeoCvltist : NeoCvltist_Base 19001
 	Ice:
 		WPOF R 5 A_FreezeDeath
 		WPOF R 1 A_FreezeDeathChunks
-		Wait	
+		Wait
 	}
 }
 

@@ -78,19 +78,19 @@ ACTOR Elemental_Gargoyle : BloomHybrid_Base 19009
 	Missile:
 		PGIN D 5 A_FaceTarget
 		PGIN E 5 A_FaceTarget
-		PGIN F 5 BRIGHT A_FaceTarget
-		PGIN F 0 BRIGHT A_PainAttack("GargoylSoul")
+		PGIN F 5 A_FaceTarget
+		PGIN F 0 A_PainAttack("GargoylSoul")
 		Goto See
 	Pain:
 		PGIN G 6
 		PGIN G 6 A_Pain
 		Goto See
 	Death:
-		PGIN H 8 BRIGHT
-		PGIN I 8 BRIGHT A_Scream
-		PGIN JK 8 BRIGHT
-		PGIN L 8 BRIGHT A_PainDie("GargoylSoul")
-		PGIN M 8 BRIGHT
+		PGIN H 8
+		PGIN I 8 A_Scream
+		PGIN JK 8
+		PGIN L 8 A_PainDie("GargoylSoul")
+		PGIN M 8
 		Stop
 	Raise:
 		PGIN MLKJIH 8

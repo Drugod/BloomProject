@@ -20,7 +20,7 @@ ACTOR WerewolvesSpawner 19031
 	}
 }
 
-ACTOR WereWolfOfHellAlt : BloomHybrid_Base 
+ACTOR WereWolfOfHellAlt : BloomHybrid_Base
 {
 	Radius 24
 	Height 64
