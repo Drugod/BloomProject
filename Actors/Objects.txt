@@ -1454,7 +1454,7 @@ ACTOR GhostGenerator2 : GhostGenerator 3800 //for blm08
 		MOBS AAA 4
 		Wait
 	Inactive:
-		MOBS A 105 A_FadeOut (0.1)
+		MOBS A 15 A_FadeOut (0.1)
 		Loop
 	}
 }
