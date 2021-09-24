@@ -11,7 +11,7 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 	PainSound "grunt/pain"
 	DeathSound "grunt/death"
 	ActiveSound "grunt/active"
-	Obituary "$OB_ZOMBIE" // "%o was killed by a zombieman."
+	Obituary "$OB_ZOMBIE"
 	DropItem "Clip_" 128
 	Dropitem "UselessStuff" 32
 	DropItem "GrenadeAmmo" 32

@@ -563,8 +563,8 @@ ACTOR HellFish : Cacodemon 3100
 	PainChance 200
     PainChance "Shock", 256
     DamageFactor "Shock", 0.1
-	Obituary "$OB_FISH"
-	HitObituary "$OB_FISH"
+	Obituary "$OB_HFISH"
+	HitObituary "$OB_HFISH"
 	+DONTHARMSPECIES
 	-NOTELEPORT
 	AttackSound "dsdolstb"

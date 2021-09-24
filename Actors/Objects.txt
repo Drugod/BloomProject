@@ -1,4 +1,11 @@
-//OBJECTS//
+//DOOM OBJECTS//
+ACTOR ExplosiveBarrel_ : ExplosiveBarrel 20035
+{
+	//$Category "BlooM Ambient"
+	//$Title Doom Barrel
+}
+
+//BLOOM OBJECTS//
 ACTOR Lavasmoke_ replaces Lavasmoke 3239
 {
 	//$Category "BlooM Ambient"

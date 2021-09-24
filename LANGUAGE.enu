@@ -179,6 +179,7 @@ OB_BRAMB = "%o was cut by brambles of a Chrysalid Pod.";
 OB_BRAMB2 = "%o was cut by brambles of a Lava Pod.";
 OB_BROCUL = "%o got shot by an angry Cultist.";
 OB_CERB = "%o didn't approach Cerberus the right way.";
+OB_CERC = "%o didn't dodge properly Cerbcubus attacks.";
 OB_CHEOGH = "%o stood no chance against Cheogh.";
 OB_CHOKE = "%o was punched in the face by a living Hand.";
 OB_CRYPOD = "%o was spat on by a Chrysalid Pod.";

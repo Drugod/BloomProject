@@ -1059,7 +1059,7 @@ ACTOR Cerbcubus : BloomBossHybrid_Base 19139 //sensible to Ice and Electric atta
 	PainChance "Shock", 48
 	PainChance "Tommy", 0
 	PainChance "ZBloodBullet", 0
-	Obituary "$OB_CERUB" //not present yet
+	Obituary "$OB_CERC" //not present yet
 	Species "Horror"
 	States
 	{
@@ -1086,22 +1086,22 @@ ACTOR Cerbcubus : BloomBossHybrid_Base 19139 //sensible to Ice and Electric atta
 		CERC G 9 A_FaceTarget
 		CERC KLMN 0 A_CustomMissile("CerberusShot2",112,32,-15,1,0)
 		CERC KLMN 0 A_CustomMissile("CerberusShot2",112,-32,15,1,0)
-		CERC KLMN 4 BRIGHT
+		CERC KLMN 4
 		CERC G 5
 		CERC G 9 A_FaceTarget
 		CERC KLMN 0 A_CustomMissile("CerberusShot2",112,32,-10,1,0)
 		CERC KLMN 0 A_CustomMissile("CerberusShot2",112,-32,10,1,0)
-		CERC KLMN 4 BRIGHT
+		CERC KLMN 4
 		CERC G 5
 		CERC G 9 A_FaceTarget
 		CERC KLMN 0 A_CustomMissile("CerberusShot2",112,32,-5,1,0)
 		CERC KLMN 0 A_CustomMissile("CerberusShot2",112,-32,5,1,0)
-		CERC KLMN 4 BRIGHT
+		CERC KLMN 4
 		CERC G 5
 		CERC G 9 A_FaceTarget
 		CERC KLMN 0 A_CustomMissile("CerberusShot2",112,32,0,1,0)
 		CERC KLMN 0 A_CustomMissile("CerberusShot2",112,-32,0,1,0)
-		CERC KLMN 4 BRIGHT
+		CERC KLMN 4
 		CERC G 5
 		Goto See
 	Pain:

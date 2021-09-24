@@ -1,6 +1,0 @@
-//OBJECTS//
-ACTOR ExplosiveBarrel_ : ExplosiveBarrel 20035
-{
-	//$Category "BlooM Ambient"
-	//$Title Doom Barrel
-}
