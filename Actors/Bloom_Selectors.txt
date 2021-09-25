@@ -2,7 +2,7 @@ ACTOR --------SHOTGUN_MONSTERS_SELECTOR------------ {}
 ACTOR ShotgunMonsters replaces ShotgunGuy
 {
     //$Category "Monsters Selectors"
-    //$Title ShotgunGuy Spawner
+    //$Title ShotgunGuy Spawner (ShotgunGuy)
     //$Color 3
 	//$Sprite B1ILA0
 	Scale 0.5 //needed for gzdb - ozy81
@@ -93,7 +93,7 @@ ACTOR --------CHAINGUN_MONSTERS_SELECTOR------------ {}
 ACTOR ChaingunMonsters replaces ChaingunGuy
 {
     //$Category "Monsters Selectors"
-    //$Title Chaingun Spawner
+    //$Title Chaingun Spawner (ChaingunGuy)
     //$Color 3
 	//$Sprite B1ILB0
 	Scale 0.5 //needed for gzdb - ozy81
@@ -165,7 +165,7 @@ ACTOR --------EELMONSTERS_SELECTOR------------ {}
 ACTOR Eelmonsters replaces Fatso
 {
     //$Category "Monsters Selectors"
-    //$Title Eel/Mancubus Spawner
+    //$Title Eel/Mancubus Spawner (Mancubus/Fatso)
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL
@@ -228,7 +228,7 @@ ACTOR --------ELEMENTAL_GARMONSTERS_SELECTOR------------ {}
 ACTOR ElementalGarmonsters replaces PainElemental
 {
     //$Category "Monsters Selectors"
-    //$Title Elemental Garmonsters Spawner
+    //$Title Elemental Garmonsters Spawner (PainElemental)
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL
@@ -285,7 +285,7 @@ ACTOR --------HOUND_SELECTOR------------ {}
 ACTOR HoundSpawner replaces Demon
 {
     //$Category "Monsters Selectors"
-    //$Title Hounds Spawner
+    //$Title Hounds Spawner (Demon/Pinky)
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL
@@ -411,7 +411,7 @@ ACTOR --------SPECTRE_HOUND_SELECTOR------------ {}
 ACTOR SpectreSpawner replaces Spectre
 {
     //$Category "Monsters Selectors"
-    //$Title Hounds Spawner
+    //$Title Hounds Spectre Spawner (Spectre)
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL
@@ -468,7 +468,7 @@ ACTOR --------CACOYLES_SELECTOR------------ {}
 ACTOR Garmonsters replaces Cacodemon
 {
     //$Category "Monsters Selectors"
-    //$Title Garmonsters Spawner
+    //$Title Garmonsters Spawner (Cacodemon)
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL
@@ -528,7 +528,7 @@ ACTOR --------GHOST_REVENANTS_SELECTOR------------ {}
 ACTOR GhostandRevenants replaces Revenant
 {
     //$Category "Monsters Selectors"
-    //$Title Ghost & Revenants Spawner
+    //$Title Ghost & Revenants Spawner (Revenant)
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL
@@ -594,7 +594,7 @@ ACTOR --------SOULS_SELECTOR------------ {}
 ACTOR TheSouls replaces LostSoul
 {
     //$Category "Monsters Selectors"
-    //$Title The Souls
+    //$Title The Souls (LostSoul)
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL
@@ -651,7 +651,7 @@ ACTOR --------ARACHNOID_SELECTOR------------ {}
 ACTOR TheArachnoids replaces Arachnotron
 {
     //$Category "Monsters Selectors"
-    //$Title The Arachnoids
+    //$Title The Arachnoids (Arachnotron)
     //$Color 3
 	//$Sprite B1ILD0
 	+NOTDMATCH
@@ -738,7 +738,7 @@ ACTOR --------CVLTIMPS_ZombImpS_SELECTOR------------ {}
 ACTOR TheCvltimpZombImps replaces DoomImp
 {
     //$Category "Monsters Selectors"
-    //$Title The Cvltimps and ZombImps
+    //$Title The Cvltimps and ZombImps (IMP)
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL
@@ -801,7 +801,7 @@ ACTOR --------WOLFKNIGHTS_SELECTOR------------ {}
 ACTOR TheWolfKnights replaces BaronOfHell
 {
     //$Category "Monsters Selectors"
-    //$Title WereWolfs of Hell
+    //$Title WereWolfs of Hell (BaronOfHell)
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL
@@ -864,7 +864,7 @@ ACTOR --------GHOULSZOMBIES_SELECTOR------------ {}
 ACTOR TheGhoulsZombies replaces ZombieMan
 {
     //$Category "Monsters Selectors"
-    //$Title Ghouls and Zombies
+    //$Title Ghouls and Zombies (ZombieMan)
     //$Color 3
 	Skip_Super
 	+NOTDMATCH
@@ -930,7 +930,7 @@ ACTOR --------ARCHVILESZOMBIES_SELECTOR------------ {}
 ACTOR TheArchZombies replaces Archvile
 {
     //$Category "Monsters Selectors"
-    //$Title Archviles and Zombies
+    //$Title Archviles and Zombies (Archvile)
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL
@@ -987,7 +987,7 @@ ACTOR --------HELLBUTCHER_SELECTOR------------ {}
 ACTOR TheHellButchers replaces HellKnight
 {
     //$Category "Monsters Selectors"
-    //$Title Hell Butchers
+    //$Title Hell Butchers (HellKnight)
     //$Color 3
 	+NOTDMATCH
 	-COUNTKILL //not necessary but here in case of future inheritances - ozy81
@@ -1316,7 +1316,7 @@ ACTOR --------BARRELS------------ {}
 ACTOR HybridBarrels replaces ExplosiveBarrel
 {
     //$Category "Monsters Selectors"
-    //$Title Hybrid Barrels
+    //$Title Hybrid Barrels (ExplosiveBarrel)
     //$Color 3
 	//$Sprite BARMA1
 	Scale 0.5 //needed for gzdb - ozy81
@@ -1390,7 +1390,7 @@ ACTOR --------BOSSES------------ {}
 ACTOR CyberBosses replaces Cyberdemon
 {
     //$Category "Monsters Selectors"
-    //$Title Hybrid bosses Cheogh/Cyberdemon/Tchernobog
+    //$Title Hybrid bosses Cheogh/Cyberdemon/Tchernobog (Cyberdemon)
     //$Color 3
 	//$Sprite B1ILC0
 	Scale 0.5 //needed for gzdb - ozy81
