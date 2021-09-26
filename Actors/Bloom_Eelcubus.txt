@@ -118,9 +118,9 @@ ACTOR Eelcubus_Base
 	}
 }
 
-ACTOR Eelcubus : Eelcubus_Base 19007
+ACTOR Eelcubus : Eelcubus_Base 19007 //unnecessary variant? it is just brighter --ozy81
 {
-	//$Title Eelcubus
+	//$Title Eelcubus (Brighter)
 	Obituary "$OB_EELCUB"
 	States
 	{
@@ -260,7 +260,7 @@ ACTOR Eelcubus : Eelcubus_Base 19007
 
 ACTOR EelcubusAlt : Eelcubus_Base 19008
 {
-	//$Title Eelcubus Alt
+	//$Title Eelcubus (Darker)
 	Obituary "$OB_EELCUB"
 	States
 	{
