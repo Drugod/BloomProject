@@ -118,149 +118,9 @@ ACTOR Eelcubus_Base
 	}
 }
 
-ACTOR Eelcubus : Eelcubus_Base 19007 //unnecessary variant? it is just brighter --ozy81
+ACTOR Eelcubus : Eelcubus_Base 19007
 {
-	//$Title Eelcubus (Brighter)
-	Obituary "$OB_EELCUB"
-	States
-	{
-	Spawn:
-		TNT1 A 0
-		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.Spawn")
-		FW1W AABBCCDDEE 4 A_Look
-		Loop
-	See.Setup:
-		FW1W A 1 A_Chase("","")
-		FW1W A 1
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		FW1W A 1 A_Chase("","")
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		FW1W B 1 A_Chase
-		FW1W B 1
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		FW1W B 1 A_Chase
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		FW1W C 1 A_Chase("","")
-		FW1W C 1
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		FW1W C 1 A_Chase("","")
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		FW1W D 1 A_Chase
-		FW1W D 1
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		FW1W D 1 A_Chase
-		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
-		TNT1 A 0 A_JumpIf(waterlevel<2,"Ground.See")
-		TNT1 A 0 A_Jump(16,2)
-		TNT1 A 0 A_Jump(256,"See")
-		Stop
-		TNT1 A 0 A_CheckSight("Forget")
-		TNT1 A 0 A_Jump(256,"See")
-		Stop
-	SwimAround.Setup:
-		FW1W A 0 A_Recoil(-1)
-		FW1W A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
-		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
-		FW1W A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
-		FW1W A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
-		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
-		FW1W B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
-		TNT1 A 0 A_Playsound("GillBeastSee")
-		FW1W B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
-		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
-		FW1W B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
-		FW1W C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
-		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
-		FW1W C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
-		FW1W C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
-		TNT1 A 0 ThrustThing(angle*256/360+frandom[DeepOnes](0,64),1,0,0)
-		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
-		FW1W D 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
-		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
-		FW1W D 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
-		FW1W D 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
-		TNT1 A 0 ThrustThing(angle*256/360+frandom[DeepOnes](0,64),1,0,0)
-		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
-		TNT1 A 0 A_Jump(16,2)
-		TNT1 A 0 A_Jump(256,"See")
-		Stop
-		TNT1 A 0 A_CheckSight("Forget")
-		TNT1 A 0 A_Jump(256,"See")
-		Stop
-	Missile.Setup:
-		FW1W F 20 A_FatRaise
-		FW1W G 10 BRIGHT A_FatAttack1("FatFish")
-		FW1W F 5 A_FaceTarget
-		FW1W G 10 BRIGHT A_FatAttack2("FatFish")
-		FW1W F 5 A_FaceTarget
-		FW1W G 10 BRIGHT A_FatAttack3("FatFish")
-		FW1W F 5 A_FaceTarget
-		TNT1 A 0 A_Jump(256,"See")
-		Stop
-	Pain.Setup:
-		FW1X A 3
-		FW1X A 3 A_Pain
-		TNT1 A 0 A_Jump(256,"See")
-		Stop
-	Death.Setup:
-		FSTT K 6
-		FSTT L 6 A_Scream
-		FSTT M 6 A_NoBlocking
-		FSTT NOPQRS 6
-		FSTT T -1 A_BossDeath
-		Stop
-		Stop
-	Ground.SpawnSetup:
-		FSTT AB 15 A_Look
-		Loop
-	Ground.SeeSetup:
-		FSTT AABBCCDDEEFF 4 A_Chase("Ground.Missile","Ground.Missile",CHF_NOPLAYACTIVE)
-		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
-		FSTT AABBCCDDEEFF 4 A_Chase("","")
-		TNT1 A 0 A_JumpIf(waterlevel>1,"See")
-		TNT1 A 0 A_PlaySound("GillBeastAct")
-		TNT1 A 0 A_Jump(16,2)
-		TNT1 A 0 A_Jump(256,"Ground.See")
-		Stop
-		TNT1 A 0 A_CheckSight("Forget")
-		TNT1 A 0 A_Jump(256,"Ground.See")
-		Stop
-	Ground.MissileSetup:
-		FSTT G 20 A_FatRaise
-		FSTT H 10 BRIGHT A_FatAttack1("FatFish")
-		FSTT IG 5 A_FaceTarget
-		FSTT H 10 BRIGHT A_FatAttack2("FatFish")
-		FSTT IG 5 A_FaceTarget
-		FSTT H 10 BRIGHT A_FatAttack3("FatFish")
-		FSTT IG 5 A_FaceTarget
-		TNT1 A 0 A_Jump(256,"Ground.See")
-		Stop
-	Ground.PainSetup:
-		FSTT J 3
-		FSTT J 3 A_Pain
-		TNT1 A 0 A_Jump(256,"Ground.See+5")
-		Stop
-	Ground.DeathSetup:
-		FSTT K 6
-		FSTT L 6 A_Scream
-		FSTT M 6 A_NoBlocking
-		FSTT NOPQRS 6
-		FSTT T -1 A_BossDeath
-		Stop
-	Raise.Setup:
-		FSTT R 5
-		FSTT QPONMLK 5
-		Goto See
-	Ice:
-		FSTF R 5 A_FreezeDeath
-		FSTF R 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-
-ACTOR EelcubusAlt : Eelcubus_Base 19008
-{
-	//$Title Eelcubus (Darker)
+	//$Title Eelcubus
 	Obituary "$OB_EELCUB"
 	States
 	{
@@ -329,11 +189,11 @@ ACTOR EelcubusAlt : Eelcubus_Base 19008
 		Stop
 	Missile.Setup:
 		FW2W F 20 A_FatRaise
-		FW2W G 10 BRIGHT A_FatAttack1("FatFish")
+		FW2W G 10 A_FatAttack1("FatFish")
 		FW2W F 5 A_FaceTarget
-		FW2W G 10 BRIGHT A_FatAttack2("FatFish")
+		FW2W G 10 A_FatAttack2("FatFish")
 		FW2W F 5 A_FaceTarget
-		FW2W G 10 BRIGHT A_FatAttack3("FatFish")
+		FW2W G 10 A_FatAttack3("FatFish")
 		FW2W F 5 A_FaceTarget
 		TNT1 A 0 A_Jump(256,"See")
 		Stop
@@ -367,11 +227,11 @@ ACTOR EelcubusAlt : Eelcubus_Base 19008
 		Stop
 	Ground.MissileSetup:
 		FS2T G 20 A_FatRaise
-		FS2T H 10 BRIGHT A_FatAttack1("FatFish")
+		FS2T H 10 A_FatAttack1("FatFish")
 		FS2T IG 5 A_FaceTarget
-		FS2T H 10 BRIGHT A_FatAttack2("FatFish")
+		FS2T H 10 A_FatAttack2("FatFish")
 		FS2T IG 5 A_FaceTarget
-		FS2T H 10 BRIGHT A_FatAttack3("FatFish")
+		FS2T H 10 A_FatAttack3("FatFish")
 		FS2T IG 5 A_FaceTarget
 		TNT1 A 0 A_Jump(256,"Ground.See")
 		Stop
@@ -469,11 +329,11 @@ ACTOR Gillcubus : Eelcubus_Base 19027
 		Stop
 	Missile.Setup:
 		FS3W E 20 A_FatRaise
-		FS3W F 10 BRIGHT A_FatAttack1("FatFish")
+		FS3W F 10 A_FatAttack1("FatFish")
 		FS3W E 5 A_FaceTarget
-		FS3W F 10 BRIGHT A_FatAttack2("FatFish")
+		FS3W F 10 A_FatAttack2("FatFish")
 		FS3W E 5 A_FaceTarget
-		FS3W F 10 BRIGHT A_FatAttack3("FatFish")
+		FS3W F 10 A_FatAttack3("FatFish")
 		FS3W E 5 A_FaceTarget
 		TNT1 A 0 A_Jump(256,"See")
 		Stop
@@ -510,11 +370,11 @@ ACTOR Gillcubus : Eelcubus_Base 19027
 		Stop
 	Ground.MissileSetup:
 		FS3T E 20 A_FatRaise
-		FS3T F 10 BRIGHT A_FatAttack1("FatFish")
+		FS3T F 10 A_FatAttack1("FatFish")
 		FS3T G 5 A_FaceTarget
-		FS3T E 10 BRIGHT A_FatAttack2("FatFish")
+		FS3T E 10 A_FatAttack2("FatFish")
 		FS3T FG 5 A_FaceTarget
-		FS3T E 10 BRIGHT A_FatAttack3("FatFish")
+		FS3T E 10 A_FatAttack3("FatFish")
 		FS3T FG 5 A_FaceTarget
 		TNT1 A 0 A_Jump(256,"Ground.See")
 		Stop
@@ -638,41 +498,41 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 		ANSW E 0 A_Jump(64,"SonicBeam.Setup")
 		ANSW EF 20 A_FatRaise
 		ANSW G 2 BRIGHT
-		ANSW G 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANSW G 0 A_FatAttack3("MiniFatFish")
 		ANSW H 2 BRIGHT
-		ANSW H 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANSW H 0 A_FatAttack3("MiniFatFish")
 		ANSW I 2 BRIGHT
-		ANSW I 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANSW I 0 A_FatAttack3("MiniFatFish")
 		ANSW J 2 BRIGHT
-		ANSW J 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANSW J 0 A_FatAttack3("MiniFatFish")
 		ANSW K 2 BRIGHT
-		ANSW K 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANSW K 0 A_FatAttack3("MiniFatFish")
 		ANSW EF 5 A_FaceTarget
 		ANSW G 2 BRIGHT
-		ANSW G 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANSW G 0 A_FatAttack3("MiniFatFish")
 		ANSW H 2 BRIGHT
-		ANSW H 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANSW H 0 A_FatAttack3("MiniFatFish")
 		ANSW I 2 BRIGHT
-		ANSW I 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANSW I 0 A_FatAttack3("MiniFatFish")
 		ANSW J 2 BRIGHT
-		ANSW J 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANSW J 0 A_FatAttack3("MiniFatFish")
 		ANSW K 2 BRIGHT
-		ANSW K 0 BRIGHT A_FatAttack3("MiniFatFish")
+		ANSW K 0 A_FatAttack3("MiniFatFish")
 		ANSW E 5 A_FaceTarget
 		TNT1 A 0 A_Jump(256,"See")
 		Stop
 	SonicBeam.Setup:
 		ANSM DDDD 5 A_FaceTarget
 		ANSM D 0 A_Playsound("ELCHARGE",CHAN_WEAPON,1,0,0)
-		ANSK BCDAB 5 BRIGHT A_FaceTarget
-		ANSK CDABC 4 BRIGHT A_FaceTarget
-		ANSK DABCD 3 BRIGHT A_FaceTarget
-		ANSK ABCDA 2 BRIGHT A_FaceTarget
-		ANSK BCDAB 1 BRIGHT A_FaceTarget
-		ANSK CDABC 1 BRIGHT A_FaceTarget
+		ANSK BCDAB 5 A_FaceTarget
+		ANSK CDABC 4 A_FaceTarget
+		ANSK DABCD 3 A_FaceTarget
+		ANSK ABCDA 2 A_FaceTarget
+		ANSK BCDAB 1 A_FaceTarget
+		ANSK CDABC 1 A_FaceTarget
 		ANSK A 0 A_PlaySound("ELBEAM",CHAN_AUTO,1,0,0)
 		ANSK A 0 A_GiveToTarget("BeamFlash")
-		ANSK CCCCCCCCCCCC 1 BRIGHT A_CustomMissile("SonicBeam",60,0,0)
+		ANSK CCCCCCCCCCCC 1 A_CustomMissile("SonicBeam",60,0,0)
 		ANSK D 5
 		TNT1 A 0 A_Jump(256,"See")
 	Pain.Setup:
@@ -712,26 +572,26 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 		TNT1 A 0 A_Jump(64,"Ground.BeamSetup")
 		ANTT MG 20 A_FatRaise
 		ANTT H 2 BRIGHT
-		ANTT H 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANTT H 0 A_FatAttack3("NapalmEnemy")
 		ANTT I 2 BRIGHT
-		ANTT I 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANTT I 0 A_FatAttack3("NapalmEnemy")
 		ANTT J 2 BRIGHT
-		ANTT J 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANTT J 0 A_FatAttack3("NapalmEnemy")
 		ANTT K 2 BRIGHT
-		ANTT K 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANTT K 0 A_FatAttack3("NapalmEnemy")
 		ANTT L 2 BRIGHT
-		ANTT L 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANTT L 0 A_FatAttack3("NapalmEnemy")
 		ANTT MG 5 A_FaceTarget
 		ANTT H 2 BRIGHT
-		ANTT H 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANTT H 0 A_FatAttack3("NapalmEnemy")
 		ANTT I 2 BRIGHT
-		ANTT I 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANTT I 0 A_FatAttack3("NapalmEnemy")
 		ANTT J 2 BRIGHT
-		ANTT J 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANTT J 0 A_FatAttack3("NapalmEnemy")
 		ANTT K 2 BRIGHT
-		ANTT K 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANTT K 0 A_FatAttack3("NapalmEnemy")
 		ANTT L 2 BRIGHT
-		ANTT L 0 BRIGHT A_FatAttack3("NapalmEnemy")
+		ANTT L 0 A_FatAttack3("NapalmEnemy")
 		ANTT MG 5 A_FaceTarget
 		TNT1 A 0 A_Jump(256,"Ground.See")
 		Stop
@@ -747,12 +607,12 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 	Ground.BeamSetup:
 		ANTT DDDD 5 A_FaceTarget
 		ANTT D 0 A_Playsound("ELCHARGE",CHAN_WEAPON,1,0,0)
-		ANTM BCDAB 5 BRIGHT A_FaceTarget
-		ANTM CDABC 4 BRIGHT A_FaceTarget
-		ANTM DABCD 3 BRIGHT A_FaceTarget
-		ANTM ABCDA 2 BRIGHT A_FaceTarget
-		ANTM BCDAB 1 BRIGHT A_FaceTarget
-		ANTM CDABC 1 BRIGHT A_FaceTarget
+		ANTM BCDAB 5 A_FaceTarget
+		ANTM CDABC 4 A_FaceTarget
+		ANTM DABCD 3 A_FaceTarget
+		ANTM ABCDA 2 A_FaceTarget
+		ANTM BCDAB 1 A_FaceTarget
+		ANTM CDABC 1 A_FaceTarget
 		ANTM A 0 A_PlaySound("ELBEAM",CHAN_AUTO,1,0,0)
 		ANTM A 0 A_GiveToTarget("BeamFlash")
 		ANTM CCCCCCCCCCCC 1 BRIGHT A_CustomMissile("SonicBeam",60,0,0)

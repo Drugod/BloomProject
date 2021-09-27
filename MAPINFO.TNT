@@ -89,7 +89,6 @@ map MAP07 lookup "THUSTR_7"
 	SPECIALACTION = "Fatso_","Floor_LowerToLowest",666,8
 	SPECIALACTION = "HybridFishMancubus","Floor_LowerToLowest",666,8
 	SPECIALACTION = "Eelcubus","Floor_LowerToLowest",666,8
-	SPECIALACTION = "EelcubusAlt","Floor_LowerToLowest",666,8
 	SPECIALACTION = "Gillcubus","Floor_LowerToLowest",666,8
 	SPECIALACTION = "Arachnoidhybrid","Floor_RaiseByTexture",667,8
 	SPECIALACTION = "Arachnoid","Floor_RaiseByTexture",667,8
