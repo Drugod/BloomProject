@@ -32,7 +32,6 @@ Const Int BLM_FLAGS3 = SXF_SETMASTER | SXF_NOCHECKPOSITION;
 #include Actors/Bloom_Weapons.txt
 #include Actors/Bloom_Arachnos.txt
 #include Actors/Bloom_Archies.txt
-#include Actors/Bloom_Bosses.txt
 #include Actors/Bloom_ButchWolf.txt
 #include Actors/Bloom_Cacos.txt
 #include Actors/Bloom_CvltImps.txt
@@ -49,6 +48,7 @@ Const Int BLM_FLAGS3 = SXF_SETMASTER | SXF_NOCHECKPOSITION;
 #include Actors/Bloom_Possessed.txt
 #include Actors/Bloom_RatDems.txt
 #include Actors/Bloom_ZombImps.txt
+#include Actors/Bloom_Bosses.txt
 #include Actors/Bloom_Selectors.txt
 #include Actors/Quake_Stuff.txt
 #include Actors/Cast.txt

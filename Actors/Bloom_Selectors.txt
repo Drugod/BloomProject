@@ -1384,10 +1384,10 @@ ACTOR HybridBarrelsSpawner
 }
 
 ACTOR --------BOSSES------------ {}
-ACTOR CyberBosses replaces Cyberdemon
+ACTOR HybridBosses1 replaces Cyberdemon
 {
     //$Category "Monsters Selectors"
-    //$Title Hybrid bosses Cheogh/Cyberdemon/Tchernobog (Cyberdemon)
+    //$Title Hybrid bosses 1 (Cyberdemon)
     //$Color 3
 	//$Sprite B1ILC0
 	Scale 0.5 //needed for gzdb - ozy81
@@ -1437,7 +1437,7 @@ ACTOR HybridBoss1Spawner
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5")
 		Stop
 	Spawn1:
 		TNT1 A 0 A_SpawnItemEx("CyberCheogh",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
@@ -1447,6 +1447,82 @@ ACTOR HybridBoss1Spawner
 		Stop
 	Spawn3:
 		TNT1 A 0 A_SpawnItemEx("Tchernodemon",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("Sloth",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop		
+	Spawn5:
+		TNT1 A 0 A_SpawnItemEx("Jojo",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop		
+	}
+}
+
+ACTOR HybridBosses2 replaces SpiderMastermind
+{
+    //$Category "Monsters Selectors"
+    //$Title Hybrid bosses 2 (SpiderMastermind)
+    //$Color 3
+	//$Sprite SPIDA1
+	Scale 0.5 //needed for gzdb - ozy81
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridBoss2Spawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalBoss2Spawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalBoss2Spawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Cerberus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("SpiderMastermind_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("SpiderMother",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridBoss2Spawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("KingCacoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Pinkberus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("HandMastermind",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("Cerbcubus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	}
 }
