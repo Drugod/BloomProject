@@ -200,6 +200,8 @@ ACTOR Swimming : Inventory
 	Inventory.MaxAmount 1
 }
 
+ACTOR PoisonStop : Inventory {Inventory.MaxAmount 1}
+
 ACTOR PoisonIntensity : Inventory
 {
 	Inventory.Amount 1

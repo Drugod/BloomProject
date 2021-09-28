@@ -3,6 +3,11 @@
 
 #libdefine PLAYER_TAG_OFFSET 1000
 
+//ORIGINAL CODE BY MAXICLOUDS from RE-BLOOD, VERY MINOR MODIFICATIONS BY OZYMANDIAS81
+
+int playerID;
+int playerNum;
+
 global int 0: PlayerHealths[];
 global int 1: JumpBootsAmount[];
 global int 2: DivingSuitAmount[];
@@ -11,8 +16,11 @@ global int 4: DoctorBagAmount[];
 global int 5: BroodSpiders;
 global int 6: MotherSpiders;
 global int 7: whichweapon;
-
-int playerID;
+global int 8: dizzy;
+global int 9: dizzyTimer;
+global int 10: dizzyAng1;
+global int 11: dizzyAng2;
+global int 12: dizzyAng3;
 
 int lifeLeechPlayer[32];
 int armortype[3]    = {"BodyArmor", "FireArmor", "SpiritArmor" };
@@ -102,7 +110,7 @@ Script "EnterTheGame" Enter //Start Script
 {
 	PlayerID = PLAYER_TAG_OFFSET + PlayerNumber();
 	Thing_ChangeTID(0, PlayerID);
-	//Thing_ChangeTID(0, 1000 + PlayerNumber());
+	ACS_NamedExecute("PoisonCheck", 0);
 	PlayerHealths[PlayerID] = GetActorProperty(0, APROP_HEALTH);
 	GiveInventory("DoctorBag", DoctorBagAmount[PlayerID] - 1);
 	GiveInventory("JumpingBoots", JumpBootsAmount[PlayerID] - 1);
@@ -504,7 +512,7 @@ Script "AcsPowerupTimerDiving" (void){
 }
 
 //Code needed for spiders - ozy81
-Script "PoisonCheck" (void) //Annoying spiders!! ADDITIVE
+Script "PoisonCheckOld" (void) //Annoying spiders!! ADDITIVE
 {
 	int health = GetActorProperty(0, APROP_HEALTH);
 	int k = CheckInventory("PoisonIntensity");
@@ -660,6 +668,80 @@ Script "PoisonCheck" (void) //Annoying spiders!! ADDITIVE
 	Delay(8);
 }
 
+script "PoisonScreen" ENTER //new effect, no more usage of Dill state too, must be verified with Strong
+{
+	int width = 320, height = 240;
+	SetHudSize(width, height, 0);
+	SetFont("M_POIS");
+
+	// Half width and height (in fixed-point).
+	int half_width  = (width / 2) << 16;
+	int half_height = (height / 2) << 16;
+
+	while (true)
+	{
+		int dizzyness =  CheckInventory("PoisonIntensity");
+		if (dizzyness > 1)
+		{
+			HudMessage(s:"A"; HUDMSG_FADEINOUT | HUDMSG_LAYER_UNDERHUD | HUDMSG_NOTWITHFULLMAP | HUDMSG_NOTWITHOVERLAYMAP | HUDMSG_ALPHA , 0, CR_UNTRANSLATED, half_width, half_height, 0.0, 0.5, dizzyness, 0.2);
+		}
+		
+		Delay(1);
+	}
+}
+
+Script "PoisonCheck" (void)
+{
+	if ( CheckActorInventory(playerID,"PoisonStop"))
+	{
+		ACS_NamedExecute("PoisonEffect",0);
+	}
+	Delay(1);
+	restart;
+}
+
+Script "PoisonEffect" (void)
+{
+	dizzy = CheckInventory("PoisonIntensity");
+	dizzy--;
+	if (dizzy < 0) dizzy = 0;	
+	int dtilt1 = 170;
+	int dtilt2 = 170;
+	int dpitch = 20;
+	dizzytimer+=15;
+	if (dizzy < 512)
+	{
+		int mul = (dizzy*65536)/512;
+		dtilt1 = FixedMul(dtilt1,mul);
+		dtilt2 = FixedMul(dtilt2,mul);
+		dpitch = FixedMul(dpitch,mul);
+	}
+	int sin2 = Sin(2*dizzytimer*32)/2;
+	int sin3 = Sin(3*dizzytimer*32)/2;
+	int sin4 = Sin(4*dizzytimer*32)/2;
+	int sin5 = Sin(5*dizzytimer*32)/2;
+	int gScreenTilt = FixedMul(sin2+sin3,dtilt1);
+	int dizzyTilt = FixedMul(sin3+sin4,dtilt2);
+	int dizzyPitch = FixedMul(sin4+sin5,dpitch);
+	int pitch = GetActorPitch(playerid);
+	int roll = GetActorRoll(playerid);
+	int angle = GetActorAngle(playerid);
+	ChangeActorPitch(playerid,(dizzyPitch-dizzyAng1)*32+Pitch);
+	ChangeActorRoll(playerid,(gScreenTilt-dizzyAng2)*32+Roll);
+	ChangeActorAngle(playerid,(dizzyTilt-dizzyAng3)*32+Angle);
+	dizzyAng1 = dizzyPitch;
+	dizzyAng2 = gScreenTilt;
+	dizzyAng3 = dizzyTilt;
+	TakeInventory("PoisonIntensity", 1);
+	Delay(1);
+	if (CheckInventory("PoisonIntensity") < 1 )
+		{
+			ACS_NamedExecute("PoisonCheck", 0);
+			terminate;
+		}
+	restart;
+}
+
 Script "StrongPoison" (Void)//Prevents red spiders poison color from overriding green spiders
 {
 	GiveInventory("StrongPoison",1);
@@ -692,98 +774,3 @@ Script "SuperSpeed" (void)
 	SetActorProperty(0, APROP_Speed, 35.0);
 	Terminate;
 }
-
-/* //unused code yet - ozy81
-Script 503 Enter{
-    Thing_ChangeTID(0, 1000 + PlayerNumber());
-}
-
-Script 504 Enter{//CVAR inter_classes
-    int valuevar = getcvar("inter_classes");
-	Thing_ChangeTID(0, 9000 + PlayerNumber()); // This assigns the TID
-	if (valuevar == 0){
-		if(PlayerClass(Playernumber()) == 1){//caleb
-			UnMorphActor(9000, 1);
-			MorphActor(9000,"caleb2","",999999, 0, "", "");
-			UnMorphActor(9001, 1);			
-			MorphActor(9001,"caleb2","",999999, 0, "", "");				
-		}
-		if(PlayerClass(Playernumber()) == 0){//doomguy
-			UnMorphActor(9000, 1);			
-			MorphActor(9000,"doomguy2","",999999, 0, "", "");			
-			UnMorphActor(9001, 1);			
-			MorphActor(9001,"doomguy2","",999999, 0, "", "");							
-		}			
-	}
-}
-
-Script 600 (int mode, int firemode){
-
-	int u = GetActorPitch(0);
-	if(firemode == 0)
-	{
-		if(mode == 0)
-			SetActorPitch(0, u - 200);
-		else
-			SetActorPitch(0, u + 20);	
-	}
-	else
-	{
-		if(mode == 0)
-			SetActorPitch(0, u - 400);
-		else
-			SetActorPitch(0, u + 40);
-	}
-}
-
-Script 605 Enter{
-	//Thing_ChangeTid(0, PlayerNumber() + 1000);
-	PlayerHealths[PlayerNumber() + 1000] = GetActorProperty(0, APROP_HEALTH);
-	GiveInventory("DoctorBag", DoctorBagAmount[PlayerNumber()+1000] - 1);
-	GiveInventory("JumpingBoots", JumpBootsAmount[PlayerNumber()+1000] - 1);
-	GiveInventory("DivingSuit", DivingSuitAmount[PlayerNumber()+1000] - 1);
-	GiveInventory("BeastVision", BeastVisionAmount[PlayerNumber()+1000] - 1); 
-}
-
-Script 608 OPEN{ // Damage Tracker
-	int i = 0;
-	int dmg,type,am,pt;
-	while (i<=31){
-		int phpn = GetActorProperty(1000+i,APROP_Health);
-		if(phpn > 0){
-		dmg = PlayerHealths[i+1000] - phpn;
-		if (dmg>0){
-			type = CheckActorInventory(1000+i,"ArmorPicker");	//enum: body, fire, spirit
-			am = CheckActorInventory(1000+i,armortype[type]);	//AMount of armor
-			// SavePercent = 25+(ArmorAmount*3/8)
-			pt = dmg * (25 + (am*3/8)) / 100;
-			if (am<pt) pt=am;
-			thing_damage(1000+i, -pt);
-			thing_damage(1000+i, -1); // To forcefully update your health
-     		thing_damage(1000+i, 1);
-			TakeActorInventory(1000+i,armortype[type],pt);
-			TakeActorInventory(1000+i,"ArmorPicker",411);
-		}
-			PlayerHealths[i+1000] = phpn;
-		}			
-		i++;
-	}
-	Delay(1);
-	Restart;
-}
-
-Script 610 (int angle, int type){
-	int tid = ActivatorTID();
-	int num = CheckInventory("ThrowPower");
-	printbold(d:num);
-	if (type ==  0){
-		SpawnProjectile(tid, "PlayerTNT", angle*256/360, num*3.2+120, 0, 2, 1500+PlayerNumber());
-		ThrustThingZ(1500+PlayerNumber(), num*2.0+32, 0, 1);
-		Delay(1);
-		Thing_ChangeTID(1500+PlayerNumber(), 0);
-	}else{
-		SpawnProjectile(tid, "PlayerTNT1", angle*256/360, num*3.2+120, 0, 1, 1500+PlayerNumber());
-		ThrustThingZ(1500+PlayerNumber(), num*2.0+32, 0, 1);
-		Delay(1);
-		Thing_ChangeTID(1500+PlayerNumber(), 0);		
-}}*/
