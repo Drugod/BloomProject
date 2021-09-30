@@ -223,6 +223,15 @@ ACTOR SpiderSpit2 : SpiderSpit
 	Damage 3
 	Scale 0.8
 	PoisonDamage 10
+	States
+	{
+	XDeath:
+		"####" A 0 A_RadiusGive("PoisonIntensity", 48, RGF_PLAYERS | RGF_CUBE, 35)
+		"####" A 0 A_RadiusGive("PoisonStop", 48, RGF_PLAYERS | RGF_CUBE, 1)
+	Death:
+		SPIT AAAAAAAAAAAAAAAA 1 A_FadeOut(0.05)
+		Stop
+	}
 }
 
 ACTOR EWWW
