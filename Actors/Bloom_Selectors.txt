@@ -1528,15 +1528,21 @@ ACTOR HybridBoss2Spawner
 }
 
 ACTOR --------CUSTOMEYE_SELECTOR------------ {}
-/*ACTOR CustomEye : BossEye replaces BossEye
+ACTOR CustomEye : BossEye replaces BossEye
 {
+	DropItem "ShotgunMonsters"
 	DropItem "ChaingunMonsters"
 	DropItem "Eelmonsters"
 	DropItem "ElementalGarmonsters"
+	DropItem "HoundSpawner"
+	DropItem "SpectreSpawner"
 	DropItem "Garmonsters"
 	DropItem "GhostandRevenants"
-	DropItem "HoundSpawner"
-	DropItem "ShotgunMonsters"
-	DropItem "TheArachnoids"
 	DropItem "TheSouls"
-}*/
+	DropItem "TheArachnoids"
+	DropItem "TheCvltimpZombImps"
+	DropItem "TheWolfKnights"
+	DropItem "TheGhoulsZombies"
+	DropItem "TheArchZombies"
+	DropItem "TheHellButchers"
+}
