@@ -314,6 +314,7 @@ ACTOR Shotgun_ : DoomW replaces Shotgun
 	Inventory.PickupMessage "$GOTSHOTGUN"
 	Obituary "$OB_MPSHOTGUN"
 	Tag "$TAG_SHOTGUN"
+	Weapon.SisterWeapon DualShotgun_	
 	States
 	{
 	Spawn:
@@ -355,6 +356,89 @@ ACTOR Shotgun_ : DoomW replaces Shotgun
 	Flash:
 		SHTF B 3 BRIGHT A_Light2
 		SHTF A 2 BRIGHT A_Light1
+		Goto LightDone
+	TossGrenade:
+		TNT1 A 0
+		TNT1 A 0 A_ZoomFactor(1.0)
+		TNT1 A 0 A_TakeInventory("TossGrenade", 1)
+		TNT1 A 0 A_JumpIfInventory("GrenadeAmmo", 1, 1)
+		Goto NoGrenade
+		HNDG ABCD 1
+		TNT1 A 0 A_GiveInventory("FiredGrenade", 1)
+		TNT1 A 0 A_Playsound ("GRNPIN")
+		HNDG EEFG 1
+		TNT1 A 0 A_Playsound ("GRNTOSS")
+		HNDG HI 1
+		TNT1 A 0 A_TakeInventory("GrenadeAmmo", 1)
+		TNT1 A 0 A_FireCustomMissile("HandGrenade", frandom(-2,2), 0, 0, 0, 0, 0)
+		TNT1 A 0 A_TakeInventory("FiredGrenade", 1)
+		HNDG JKLM 1
+		TNT1 A 1
+		TNT1 A 0 A_TakeInventory("TossGrenade", 1)
+		Goto Ready
+	NoGrenade:
+		TNT1 A 0
+		TNT1 A 0 A_Print("$NOGREN")
+		Goto Ready
+	}
+}
+
+ACTOR DualShotgun_ : Shotgun_
+{
+	+POWERED_UP
+	+WEAPON.BFG
+	Weapon.AmmoUse 1
+	Weapon.SisterWeapon Shotgun_	
+	States
+	{
+	Ready:
+		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")
+		DSGT A 1 A_WeaponReady
+		Loop
+	Deselect:
+		DSGT A 1 A_Lower
+		Loop
+	Select:
+		DSGT A 1 A_Raise
+		Loop
+	Fire:
+		DSGT A 3
+		DSGT A 5 A_FireShotgun
+		TNT1 A 0 A_Quake(2,6,0,100)
+		DSGT B 2
+		DSGT C 1
+		DSGT D 5 A_FireShotgun
+		TNT1 A 0 A_Quake(2,6,0,100)		
+		DSGT E 3
+		DSGT F 4
+		//RELOAD
+		DSGT GHIJKLMNOPQR 1
+		
+		DSG2 ABCDEFG 1
+		DSG2 H 2
+		DSG2 I 3
+		DSG2 J 3
+		TNT1 A 0 A_FireCustomMissile("ShotgunCasing",-45-frandom(-8,8),0,1,1+frandom(-.1,.1),0)		
+		DSG2 KLMN 2
+		DSG2 OP 1
+
+		DSG3 ABCDEFGHIJK 1	
+
+		DSG4 ABCD 2
+		DSG4 EF 1
+		DSG4 G 1
+		DSG4 H 2
+		DSG4 I 3
+		DSG4 J 3
+		TNT1 A 0 A_FireCustomMissile("ShotgunCasing",+45+frandom(-8,8),0,1,1+frandom(-.1,.1),0)		
+
+		DSG5 ABCDEFGH 1		
+	
+		DSG5 H 7 A_Refire
+		Goto Ready
+	Flash:
+		TNT1 A 0 BRIGHT A_Light2
+		TNT1 A 0 BRIGHT A_Light1
 		Goto LightDone
 	TossGrenade:
 		TNT1 A 0
