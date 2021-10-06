@@ -1272,16 +1272,21 @@ ACTOR DualBFG9000_ : BFG9000_
 		DBFG A 1 A_Raise
 		Loop
 	Fire:
-		BFGG A 20 A_BFGSound
-		BFGG A 2 A_GunFlash
-		BFGN A 8
-		SBFG D 2 A_FireBFG
-		SBFG E 2
-		SBFG D 2
-		SBFG C 2
-		SBFG B 1
-		SBFG A 1
-		BFGG A 20 A_Refire
+		TNT1 A 0 
+		TNT1 A 0 A_Quake(2,30,0,75)				
+		DBF2 A 1
+		DBF2 BCBC 4 A_BFGSound
+		TNT1 A 0 A_GunFlash
+		DBF2 D 1
+		DBF2 EEEEEEEEEE 1 		
+		TNT1 A 0 A_FireCustomMissile("BFGBall",0,1,-15,-10)	
+		DBF2 FGHI 1
+		TNT1 A 0 A_Quake(2,30,0,75)						
+		DBF2 JKL 1		
+		DBF2 MMMMMMMMMM 1 				
+		TNT1 A 0 A_FireCustomMissile("BFGBall",0,1,15,-10)			
+		DBF2 NOPQRS 1				
+		DBF2 A 20 A_Refire
 		Goto Ready
 	Flash:
 		TNT1 A 0 BRIGHT
