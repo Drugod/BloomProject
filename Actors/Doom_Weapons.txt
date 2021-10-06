@@ -1181,6 +1181,7 @@ ACTOR BFG9000_ : DoomW replaces BFG9000
 	+WEAPON.ALT_USES_BOTH
 	Inventory.PickupMessage "$GOTBFG9000"
 	Tag "$TAG_BFG9000"
+	Weapon.SisterWeapon DualBFG9000_	
 	States
 	{
 	Spawn:
@@ -1226,6 +1227,80 @@ ACTOR BFG9000_ : DoomW replaces BFG9000
 		BFGG BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB 1 A_FireOldBFG
 		BFGG B 0 A_Light0
 		BFGG B 20 A_Refire
+		Goto Ready
+	TossGrenade:
+		TNT1 A 0
+		TNT1 A 0 A_ZoomFactor(1.0)
+		TNT1 A 0 A_TakeInventory("TossGrenade", 1)
+		TNT1 A 0 A_JumpIfInventory("GrenadeAmmo", 1, 1)
+		Goto NoGrenade
+		HNDG ABCD 1
+		TNT1 A 0 A_GiveInventory("FiredGrenade", 1)
+		TNT1 A 0 A_Playsound ("GRNPIN")
+		HNDG EEFG 1
+		TNT1 A 0 A_Playsound ("GRNTOSS")
+		HNDG HI 1
+		TNT1 A 0 A_TakeInventory("GrenadeAmmo", 1)
+		TNT1 A 0 A_FireCustomMissile("HandGrenade", frandom(-2,2), 0, 0, 0, 0, 0)
+		TNT1 A 0 A_TakeInventory("FiredGrenade", 1)
+		HNDG JKLM 1
+		TNT1 A 1
+		TNT1 A 0 A_TakeInventory("TossGrenade", 1)
+		Goto Ready
+	NoGrenade:
+		TNT1 A 0
+		TNT1 A 0 A_Print("$NOGREN")
+		Goto Ready
+	}
+}
+
+ACTOR DualBFG9000_ : BFG9000_
+{
+	+POWERED_UP
+	+WEAPON.BFG
+	Weapon.SisterWeapon BFG9000_
+	States
+	{
+	Ready:
+		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")
+		DBFG A 1 A_WeaponReady
+		Loop
+	Deselect:
+		DBFG A 1 A_Lower
+		Loop
+	Select:
+		DBFG A 1 A_Raise
+		Loop
+	Fire:
+		BFGG A 20 A_BFGSound
+		BFGG A 2 A_GunFlash
+		BFGN A 8
+		SBFG D 2 A_FireBFG
+		SBFG E 2
+		SBFG D 2
+		SBFG C 2
+		SBFG B 1
+		SBFG A 1
+		BFGG A 20 A_Refire
+		Goto Ready
+	Flash:
+		TNT1 A 0 BRIGHT
+		TNT1 A 0 BRIGHT A_Light2
+		TNT1 A 0 BRIGHT A_Light2
+		TNT1 A 0 A_Light0
+		Goto LightDone
+	Altfire:
+		DBFG B 8
+		TNT1 A 0 A_Quake(3,30,0,75)		
+		DBFG CDCDCD 4 A_BFGSound
+		TNT1 A 0 A_GunFlash
+		DBFG E 1
+		DBFG FFFFFFFFFF 1 
+		TNT1 A 0 A_FireCustomMissile("BFGBall",0,1,-15,-10)	
+		TNT1 A 0 A_FireCustomMissile("BFGBall",0,1,15,-10)	
+		DBFG GHIJKLMN 1		
+		TNT1 A 0 A_Light0
+		DBFG B 20 A_Refire
 		Goto Ready
 	TossGrenade:
 		TNT1 A 0
