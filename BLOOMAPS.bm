@@ -775,6 +775,58 @@ Brightmap sprite TEMFL0 {map "Brightmaps/TEMFL0.png"}
 Brightmap sprite TEMFM0 {map "Brightmaps/TEMFM0.png"}
 Brightmap sprite TEMFN0 {map "Brightmaps/TEMFN0.png"}
 
+//Doom Akimbo
+Brightmap sprite DBF2A0 {map "Brightmaps/DBF2A0.png"}
+Brightmap sprite DBF2B0 {map "Brightmaps/DBF2B0.png"}
+Brightmap sprite DBF2C0 {map "Brightmaps/DBF2C0.png"}
+Brightmap sprite DBF2D0 {map "Brightmaps/DBF2D0.png"}
+Brightmap sprite DBF2E0 {map "Brightmaps/DBF2E0.png"}
+Brightmap sprite DBF2F0 {map "Brightmaps/DBF2F0.png"}
+Brightmap sprite DBF2G0 {map "Brightmaps/DBF2G0.png"}
+Brightmap sprite DBF2H0 {map "Brightmaps/DBF2H0.png"}
+Brightmap sprite DBF2I0 {map "Brightmaps/DBF2I0.png"}
+Brightmap sprite DBF2J0 {map "Brightmaps/DBF2J0.png"}
+Brightmap sprite DBF2K0 {map "Brightmaps/DBF2K0.png"}
+Brightmap sprite DBF2L0 {map "Brightmaps/DBF2L0.png"}
+Brightmap sprite DBF2M0 {map "Brightmaps/DBF2M0.png"}
+Brightmap sprite DBF2N0 {map "Brightmaps/DBF2N0.png"}
+Brightmap sprite DBF2O0 {map "Brightmaps/DBF2O0.png"}
+Brightmap sprite DBF2P0 {map "Brightmaps/DBF2P0.png"}
+Brightmap sprite DBF2Q0 {map "Brightmaps/DBF2Q0.png"}
+Brightmap sprite DBF2R0 {map "Brightmaps/DBF2R0.png"}
+Brightmap sprite DBF2S0 {map "Brightmaps/DBF2S0.png"}
+Brightmap sprite DBFGA0 {map "Brightmaps/DBFGA0.png"}
+Brightmap sprite DBFGB0 {map "Brightmaps/DBFGB0.png"}
+Brightmap sprite DBFGC0 {map "Brightmaps/DBFGC0.png"}
+Brightmap sprite DBFGD0 {map "Brightmaps/DBFGD0.png"}
+Brightmap sprite DBFGE0 {map "Brightmaps/DBFGE0.png"}
+Brightmap sprite DBFGF0 {map "Brightmaps/DBFGF0.png"}
+Brightmap sprite DBFGG0 {map "Brightmaps/DBFGG0.png"}
+Brightmap sprite DBFGH0 {map "Brightmaps/DBFGH0.png"}
+Brightmap sprite DBFGI0 {map "Brightmaps/DBFGI0.png"}
+Brightmap sprite DBFGJ0 {map "Brightmaps/DBFGJ0.png"}
+Brightmap sprite DBFGK0 {map "Brightmaps/DBFGK0.png"}
+Brightmap sprite DBFGL0 {map "Brightmaps/DBFGL0.png"}
+Brightmap sprite DBFGM0 {map "Brightmaps/DBFGM0.png"}
+
+Brightmap sprite DKCGE0 {map "Brightmaps/DKCGE0.png"}
+Brightmap sprite DKCGF0 {map "Brightmaps/DKCGF0.png"}
+Brightmap sprite DKCGG0 {map "Brightmaps/DKCGG0.png"}
+Brightmap sprite DKCGH0 {map "Brightmaps/DKCGH0.png"}
+
+Brightmap sprite DPISB0 {map "Brightmaps/DPISB0.png"}
+Brightmap sprite DPISC0 {map "Brightmaps/DPISC0.png"}
+
+Brightmap sprite DPLSB0 {map "Brightmaps/DPLSB0.png"}
+Brightmap sprite DPLSC0 {map "Brightmaps/DPLSC0.png"}
+
+Brightmap sprite DRCKB0 {map "Brightmaps/DRCKB0.png"}
+Brightmap sprite DRCKC0 {map "Brightmaps/DRCKC0.png"}
+Brightmap sprite DRCKD0 {map "Brightmaps/DRCKD0.png"}
+Brightmap sprite DRCKF0 {map "Brightmaps/DRCKF0.png"}
+Brightmap sprite DRCKG0 {map "Brightmaps/DRCKG0.png"}
+Brightmap sprite DRCKH0 {map "Brightmaps/DRCKH0.png"}
+
 //Players
 Brightmap sprite CALBA1		{map "Brightmaps/CALBA1.png"}
 Brightmap sprite CALBA2A8	{map "Brightmaps/CALBA2A8.png"}
