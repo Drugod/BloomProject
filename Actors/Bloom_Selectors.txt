@@ -1387,7 +1387,7 @@ ACTOR --------BOSSES------------ {}
 ACTOR HybridBosses1 replaces Cyberdemon
 {
     //$Category "Monsters Selectors"
-    //$Title Hybrid bosses 1 (Cyberdemon)
+    //$Title Hybrid Bosses 1 (Cyberdemon)
     //$Color 3
 	//$Sprite B1ILC0
 	Scale 0.5 //needed for gzdb - ozy81
@@ -1460,9 +1460,9 @@ ACTOR HybridBoss1Spawner
 ACTOR HybridBosses2 replaces SpiderMastermind
 {
     //$Category "Monsters Selectors"
-    //$Title Hybrid bosses 2 (SpiderMastermind)
+    //$Title Hybrid Bosses 2 (SpiderMastermind)
     //$Color 3
-	//$Sprite SPIDA1
+	//$Sprite B1ILE0
 	Scale 0.5 //needed for gzdb - ozy81
 	+NOTDMATCH
 	-COUNTKILL
