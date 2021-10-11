@@ -1204,7 +1204,6 @@ Brightmap sprite MPOXD3D7	{map "Brightmaps/MPOXD3D7.png"}
 Brightmap sprite MPOXD4D6	{map "Brightmaps/MPOXD4D6.png"}
 Brightmap sprite MPOXD5		{map "Brightmaps/MPOXD5.png"}
 
-
 //BloodBat
 Brightmap sprite BFAMA1		{map "Brightmaps/BFAMA1.png"}
 Brightmap sprite BFAMA2A8	{map "Brightmaps/BFAMA2A8.png"}
@@ -3787,3 +3786,49 @@ Brightmap sprite MHOUB5 	{map "Brightmaps/MHOUB5.png"}
 Brightmap sprite MHOUB6B4 	{map "Brightmaps/MHOUB6B4.png"}
 Brightmap sprite MHOUB7B3 	{map "Brightmaps/MHOUB7B3.png"}
 Brightmap sprite MHOUB8B2 	{map "Brightmaps/MHOUB8B2.png"}
+
+//Innocents/Morons
+Brightmap sprite BARMA1 	{map "Brightmaps/BARMA1.png"}
+Brightmap sprite BARMA5 	{map "Brightmaps/BARMA5.png"}
+Brightmap sprite BARMA6A4 	{map "Brightmaps/BARMA6A4.png"}
+Brightmap sprite BARMA7A3 	{map "Brightmaps/BARMA7A3.png"}
+Brightmap sprite BARMA8A2 	{map "Brightmaps/BARMA8A2.png"}
+Brightmap sprite BARMB1 	{map "Brightmaps/BARMB1.png"}
+Brightmap sprite BARMB5 	{map "Brightmaps/BARMB5.png"}
+Brightmap sprite BARMB6B4 	{map "Brightmaps/BARMB6B4.png"}
+Brightmap sprite BARMB7B3 	{map "Brightmaps/BARMB7B3.png"}
+Brightmap sprite BARMB8B2 	{map "Brightmaps/BARMB8B2.png"}
+Brightmap sprite BARMC1 	{map "Brightmaps/BARMC1.png"}
+Brightmap sprite BARMC5 	{map "Brightmaps/BARMC5.png"}
+Brightmap sprite BARMC6C4 	{map "Brightmaps/BARMC6C4.png"}
+Brightmap sprite BARMC7C3 	{map "Brightmaps/BARMC7C3.png"}
+Brightmap sprite BARMC8C2 	{map "Brightmaps/BARMC8C2.png"}
+Brightmap sprite BARMD1 	{map "Brightmaps/BARMD1.png"}
+Brightmap sprite BARMD5 	{map "Brightmaps/BARMD5.png"}
+Brightmap sprite BARMD6D4 	{map "Brightmaps/BARMD6D4.png"}
+Brightmap sprite BARMD7D3 	{map "Brightmaps/BARMD7D3.png"}
+Brightmap sprite BARMD8D2 	{map "Brightmaps/BARMD8D2.png"}
+Brightmap sprite BARME1 	{map "Brightmaps/BARME1.png"}
+Brightmap sprite BARME5 	{map "Brightmaps/BARME5.png"}
+Brightmap sprite BARME6E4 	{map "Brightmaps/BARME6E4.png"}
+Brightmap sprite BARME7E3 	{map "Brightmaps/BARME7E3.png"}
+Brightmap sprite BARME8E2 	{map "Brightmaps/BARME8E2.png"}
+Brightmap sprite BARMF1 	{map "Brightmaps/BARMF1.png"}
+Brightmap sprite BARMF5 	{map "Brightmaps/BARMF5.png"}
+Brightmap sprite BARMF6F4 	{map "Brightmaps/BARMF6F4.png"}
+Brightmap sprite BARMF7F3 	{map "Brightmaps/BARMF7F3.png"}
+Brightmap sprite BARMF8F2 	{map "Brightmaps/BARMF8F2.png"}
+Brightmap sprite BARMG1 	{map "Brightmaps/BARMG1.png"}
+Brightmap sprite BARMG5 	{map "Brightmaps/BARMG5.png"}
+Brightmap sprite BARMG6G4 	{map "Brightmaps/BARMG6G4.png"}
+Brightmap sprite BARMG7G3 	{map "Brightmaps/BARMG7G3.png"}
+Brightmap sprite BARMG8G2 	{map "Brightmaps/BARMG8G2.png"}
+Brightmap sprite BARMH1 	{map "Brightmaps/BARMH1.png"}
+Brightmap sprite BARMH5 	{map "Brightmaps/BARMH5.png"}
+Brightmap sprite BARMH6H4 	{map "Brightmaps/BARMH6H4.png"}
+Brightmap sprite BARMH7H3 	{map "Brightmaps/BARMH7H3.png"}
+Brightmap sprite BARMH8H2 	{map "Brightmaps/BARMH8H2.png"}
+Brightmap sprite BARMI0		{map "Brightmaps/BARMI0.png"}
+Brightmap sprite BARMJ0		{map "Brightmaps/BARMJ0.png"}
+Brightmap sprite BARMK0		{map "Brightmaps/BARMK0.png"}
+Brightmap sprite BARML0		{map "Brightmaps/BARML0.png"}

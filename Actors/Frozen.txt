@@ -3,6 +3,7 @@ ACTOR CongealedBase
 	//$Category "BlooM Frozen Stuff"
 	//$Color 18
 	Health 2
+	Mass 0x7ffffff
 	+DONTCORPSE
 	+NOBLOOD
 	+NOTELESTOMP

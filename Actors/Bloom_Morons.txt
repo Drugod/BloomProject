@@ -923,12 +923,12 @@ ACTOR ExplosiveMoron : ExplosiveMoron_Base
 		BARM G 4 A_Jump(60,"NoPlaceLikeHome")
 		Goto Run
 	Death:
-		BARM I 5 Bright A_Scream
-		BARM J 5 Bright A_Fall
-		BARM K 5 Bright A_Explode
+		BARM I 5 A_Scream
+		BARM J 5 A_Fall
+		BARM K 5 A_Explode
 		Goto Death.Sequence1
 	Death.End:
-		BARM L 5 Bright
+		BARM L 5
 		BARM MNOP 4
 		TNT1 A 0 A_Jump(128,2)
 		TNT1 A 0 A_SpawnItemEx("Morons_Legs",0,0,0,0,0,0,0)
