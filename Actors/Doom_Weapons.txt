@@ -411,7 +411,7 @@ ACTOR DualShotgun_ : Shotgun_
 		TNT1 A 0 A_Quake(2,6,0,100)		
 		DSGT E 3
 		DSGT F 4
-		DSGT H 2 Offset(-1,33)
+		DSGT H 2 Offset(-1,33) //yes, this time we gonna use offsets for better visuals
 		DSGT H 2 Offset(-4,41)
 		DSGT H 2 Offset(-6,46)
 		DSGT H 2 Offset(-7,55)
