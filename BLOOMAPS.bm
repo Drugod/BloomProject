@@ -827,6 +827,17 @@ Brightmap sprite DRCKF0 {map "Brightmaps/DRCKF0.png"}
 Brightmap sprite DRCKG0 {map "Brightmaps/DRCKG0.png"}
 Brightmap sprite DRCKH0 {map "Brightmaps/DRCKH0.png"}
 
+Brightmap sprite DSGTB0 {map "Brightmaps/DSGTB0.png"}
+Brightmap sprite DSGTC0 {map "Brightmaps/DSGTC0.png"}
+Brightmap sprite DSGTD0 {map "Brightmaps/DSGTD0.png"}
+Brightmap sprite DSGTE0 {map "Brightmaps/DSGTE0.png"}
+Brightmap sprite DSGTF0 {map "Brightmaps/DSGTF0.png"}
+
+Brightmap sprite DSSGB0 {map "Brightmaps/DSSGB0.png"}
+Brightmap sprite DSSGC0 {map "Brightmaps/DSSGC0.png"}
+Brightmap sprite DSSGE0 {map "Brightmaps/DSSGE0.png"}
+Brightmap sprite DSSGF0 {map "Brightmaps/DSSGF0.png"}
+
 //Players
 Brightmap sprite CALBA1		{map "Brightmaps/CALBA1.png"}
 Brightmap sprite CALBA2A8	{map "Brightmaps/CALBA2A8.png"}
