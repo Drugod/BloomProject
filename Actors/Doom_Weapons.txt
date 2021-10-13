@@ -403,44 +403,46 @@ ACTOR DualShotgun_ : Shotgun_
 		Loop
 	Fire:
 		DSGT A 3
-		DSGT A 5 A_FireShotgun
-		TNT1 A 0 A_Quake(2,6,0,100)
-		DSGT B 2
-		DSGT C 1
-		DSGT D 5 A_FireShotgun
+		DSGT A 5
+		DSGT B 2 
 		TNT1 A 0 A_Quake(2,6,0,100)		
-		DSGT E 3
+		DSGT C 1 A_FireShotgun
+		DSGT D 5 
+		TNT1 A 0 A_Quake(2,6,0,100)		
+		DSGT E 3 A_FireShotgun
 		DSGT F 4
-		DSGT H 2 Offset(-1,33) //yes, this time we gonna use offsets for better visuals
-		DSGT H 2 Offset(-4,41)
-		DSGT H 2 Offset(-6,46)
-		DSGT H 2 Offset(-7,55)
-		DSGT H 2 Offset(-8,58) A_FireCustomMissile("ShotgunCasing",-45-frandom(-8,8),0,1,1+frandom(-.1,.1),0)
+		DSGT H 1 Offset(-1,33) //yes, this time we gonna use offsets for better visuals
+		DSGT H 1 Offset(-4,41)
+		DSGT H 1 Offset(-6,46)
+		DSGT H 1 Offset(-7,55)
+		DSGT H 1 Offset(-8,58) A_FireCustomMissile("ShotgunCasing",-45-frandom(-8,8),0,1,1+frandom(-.1,.1),0)
 		DSGT H 0 A_FireCustomMissile("ShotgunCasing",45-frandom(-8,8),0,1,1+frandom(-.1,.1),0)
-		DSGT H 2 Offset(-9,64)
-		DSGT H 2 Offset(-10,70)
-		DSGT H 2 Offset(-10,68)
-		DSGT H 2 Offset(-9,66)
-		DSGT H 2 Offset(-9,64)
-		DSGT H 2 Offset(-9,62)
-		DSGT H 2 Offset(-8,61) A_WeaponReady(WRF_NOBOB)
-		DSGT H 3 Offset(-8,60) A_WeaponReady(WRF_NOBOB)
-		DSGT H 4 Offset(-8,59) A_WeaponReady(WRF_NOBOB)
-		DSGT H 5 Offset(-8,58) A_WeaponReady(WRF_NOBOB)
-		DSGT H 2 Offset(-8,58)
-		DSGT H 2 Offset(-8,60)
-		DSGT H 2 Offset(-8,63)
-		DSGT H 2 Offset(-9,67)
-		DSGT H 2 Offset(-9,72)
-		DSGT H 2 Offset(-10,75)
-		DSGT H 3 Offset(-10,77)
-		DSGT H 4 Offset(-11,78)
-		DSGT H 2 Offset(-10,76)
-		DSGT H 2 Offset(-8,68)
-		DSGT H 2 Offset(-6,58)
-		DSGT H 2 Offset(-4,46)
-		DSGT H 2 Offset(-2,33)
-		DSGT H 2 Offset(-1,32) A_ReFire
+		DSGT H 1 Offset(-9,64)
+		DSGT H 1 Offset(-10,70)
+		DSGT H 1 Offset(-10,68)
+		DSGT H 1 Offset(-9,66)
+		DSGT H 1 Offset(-9,64)
+		DSGT H 1 Offset(-9,62)
+		DSGT H 1 Offset(-8,61)// A_WeaponReady(WRF_NOBOB)
+		DSGT H 2 Offset(-8,60)// A_WeaponReady(WRF_NOBOB)
+		DSGT H 3 Offset(-8,59)// A_WeaponReady(WRF_NOBOB)
+		DSGT H 4 Offset(-8,58)// A_WeaponReady(WRF_NOBOB)
+		DSGT H 1 Offset(-8,58)
+		DSGT H 1 Offset(-8,60)
+		DSGT H 1 Offset(-8,63)
+		DSGT H 1 Offset(-9,67)
+		DSGT H 1 Offset(-9,72)
+		DSGT H 1 Offset(-10,75)
+		DSGT H 1 Offset(-10,77)
+		DSGT H 2 Offset(-11,78)
+		DSGT H 1 Offset(-10,76)
+		DSGT H 1 Offset(-8,68)
+		DSGT H 1 Offset(-6,58)
+		DSGT H 1 Offset(-4,46)
+		DSGT H 1 Offset(-2,33)
+		DSGT H 1 Offset(-1,32)
+		DSGT H 1 
+		DSGT H 1 A_ReFire
 		Goto Ready
 	Flash:
 		TNT1 A 0 BRIGHT A_Light2
@@ -596,37 +598,37 @@ ACTOR DualSuperShotgun_ : SuperShotgun_
 		DSSG H 1//RELOAD
 		DSSG I 1
 		DSSG J 7
-		DSSG J 2 Offset(-1,33)
-		DSSG J 2 Offset(-4,41)
-		DSSG J 2 Offset(-6,46)
-		DSSG J 2 Offset(-7,55)
-		DSSG J 2 Offset(-8,58) A_FireCustomMissile("ShotgunCasing",-45-frandom(-8,8),0,1,1+frandom(-.1,.1),0)
+		DSSG J 1 Offset(-1,33)
+		DSSG J 1 Offset(-4,41)
+		DSSG J 1 Offset(-6,46)
+		DSSG J 1 Offset(-7,55)
+		DSSG J 1 Offset(-8,58) A_FireCustomMissile("ShotgunCasing",-45-frandom(-8,8),0,1,1+frandom(-.1,.1),0)
 		DSSG J 0 A_FireCustomMissile("ShotgunCasing",45-frandom(-8,8),0,1,1+frandom(-.1,.1),0)
-		DSSG J 2 Offset(-9,64) A_PlaySound ("weapons/sshotc", CHAN_WEAPON)
-		DSSG J 2 Offset(-10,70)
-		DSSG J 2 Offset(-10,68)
-		DSSG J 2 Offset(-9,66)
-		DSSG J 2 Offset(-9,64)
-		DSSG J 2 Offset(-9,62)
-		DSSG J 2 Offset(-8,61) A_WeaponReady(WRF_NOBOB)
-		DSSG J 4 Offset(-8,60) A_WeaponReady(WRF_NOBOB)
-		DSSG J 5 Offset(-8,59) A_WeaponReady(WRF_NOBOB)
-		DSSG J 8 Offset(-8,58) A_WeaponReady(WRF_NOBOB)
-		DSSG J 2 Offset(-8,58) A_FireCustomMissile("ShotgunCasing",-45-frandom(-8,8),0,1,1+frandom(-.1,.1),0)
+		DSSG J 1 Offset(-9,64) A_PlaySound ("weapons/sshotc", CHAN_WEAPON)
+		DSSG J 1 Offset(-10,70)
+		DSSG J 1 Offset(-10,68)
+		DSSG J 1 Offset(-9,66)
+		DSSG J 1 Offset(-9,64)
+		DSSG J 1 Offset(-9,62)
+		DSSG J 1 Offset(-8,61) //A_WeaponReady(WRF_NOBOB)
+		DSSG J 2 Offset(-8,60) //A_WeaponReady(WRF_NOBOB)
+		DSSG J 3 Offset(-8,59) //A_WeaponReady(WRF_NOBOB)
+		DSSG J 4 Offset(-8,58) //A_WeaponReady(WRF_NOBOB)
+		DSSG J 1 Offset(-8,58) A_FireCustomMissile("ShotgunCasing",-45-frandom(-8,8),0,1,1+frandom(-.1,.1),0)
 		DSSG J 0 A_FireCustomMissile("ShotgunCasing",45-frandom(-8,8),0,1,1+frandom(-.1,.1),0)
-		DSSG J 2 Offset(-8,60) A_PlaySound ("weapons/sshotc", CHAN_WEAPON)
-		DSSG J 2 Offset(-8,63)
-		DSSG J 2 Offset(-9,67)
-		DSSG J 2 Offset(-9,72)
-		DSSG J 2 Offset(-10,75)
-		DSSG J 4 Offset(-10,77)
-		DSSG J 6 Offset(-11,78)
-		DSSG J 2 Offset(-10,76)
-		DSSG J 2 Offset(-8,68)
-		DSSG J 2 Offset(-6,58)
-		DSSG J 2 Offset(-4,46)
-		DSSG J 2 Offset(-2,33)
-		DSSG J 2 Offset(-1,32) A_ReFire
+		DSSG J 1 Offset(-8,60) A_PlaySound ("weapons/sshotc", CHAN_WEAPON)
+		DSSG J 1 Offset(-8,63)
+		DSSG J 1 Offset(-9,67)
+		DSSG J 1 Offset(-9,72)
+		DSSG J 1 Offset(-10,75)
+		DSSG J 2 Offset(-10,77)
+		DSSG J 3 Offset(-11,78)
+		DSSG J 1 Offset(-10,76)
+		DSSG J 1 Offset(-8,68)
+		DSSG J 1 Offset(-6,58)
+		DSSG J 1 Offset(-4,46)
+		DSSG J 1 Offset(-2,33)
+		DSSG J 1 Offset(-1,32) A_ReFire
 		Goto Ready
 	Flash:
 		TNT1 A 0 BRIGHT A_Light2
