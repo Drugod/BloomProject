@@ -711,8 +711,8 @@ ACTOR TchernoDemon : BloomBossHybrid_Base 19105
 	//$Title Tchernodemon
 	Obituary "$OB_TCHERNO"
 	Health 4000
-	Radius 68
-	Height 160
+	Radius 40
+	Height 68
 	Mass 2400
 	Speed 5
 	PainChance 4
@@ -969,8 +969,8 @@ ACTOR HandMastermind : BloomBossHybrid_Base 19138
 {
 	//$Title Hand Mastermind
 	Health 5000
-	Radius 96
-	Height 220
+	Radius 40
+	Height 90
 	Mass 1000
 	Speed 28
 	PainChance 20
