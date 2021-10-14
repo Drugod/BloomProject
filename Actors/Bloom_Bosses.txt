@@ -1122,6 +1122,82 @@ ACTOR Cerbcubus : BloomBossHybrid_Base 19139 //sensible to Ice and Electric atta
 	}
 }
 
+ACTOR ShialMastermind : BloomBossHybrid_Base 19141
+{
+	//$Title Shial Mastermind
+	Health 4000
+	PainChance 180
+	FastSpeed 12
+	Radius 30
+	Mass 80
+	+BOSSDEATH
+	+DROPOFF
+	-MISSILEMORE	
+	-MISSILEEVENMORE
+	Obituary "$OB_SMSTMD"
+	Attacksound "dsdolstb"
+	PainSound "SpiderPain"
+	DeathSound "baby/death"//DeathSound "SpiderDie"
+	ActiveSound "SpiderSee"
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		SHIM A 5 A_Look
+		Loop
+	See:
+		SHIM AAAAABBBBB 1 A_Chase
+		SHIM CCCCCDDDDD 1 A_Chase
+		SHIM A 0 A_JumpIfCloser(random(200,400),"Bounce")
+		SHIM A 0 A_Jump(16,"Jump")
+		Loop
+	Bounce:
+		SHIM A 0 A_FaceTarget
+		SHIM A 0 A_Recoil(-4)
+		SHIM MMM 1 ThrustThingZ(0,frandom(11,20),0,0)
+		SHIM NNN 1 ThrustThing(angle*256/360,random(5,8),0,0)
+		Goto See
+	Jump:
+		SHIM A 0 A_Recoil(-4)
+		SHIM A 0 ThrustThingZ(0,frandom(11,20),0,0)
+		SHIM A 0 ThrustThing(angle*256/360,random(5,8),0,0)
+		Goto See
+	Missile:
+		TNT1 A 0 
+		TNT1 A 0 A_Jump(160,"See","Breeding")
+		SHIM E 1 A_Facetarget
+		SHIM FG 2 BRIGHT
+		SHIM HI 3 BRIGHT A_CustomMissile("NapalmEnemy",62,-17.0,0) 
+		SHIM JK 2 BRIGHT
+		Goto See
+	Breeding:
+		SHIM MNOPQ 6
+		SHIM S 2 A_SpawnItemEx("Arachnoid",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		SHIM RM 4
+		Goto See
+	Melee:
+		SHIM R 3 A_Facetarget
+		SHIM S 6 A_CustomMeleeAttack(frandom(1,2),"dsdolstb","none","Turner",true)
+		Goto See
+	Pain:
+		SHIM R 3
+		SHIM R 3 A_Pain
+		Goto See
+	XDeath:
+	Death:
+		SHID A 0 A_Scream
+		SHID ABCDEFG 3 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_NoBlocking
+		SHID H 1 A_SpawnDebris("FlyingBlood")
+		SHID H -1 A_BossDeath
+		Stop
+	Ice:
+		SHIM R 3 A_FreezeDeath
+		SHIM R 3 A_FreezeDeathChunks
+		Wait
+	}
+}
+
 ACTOR Eeldercubus : Eelcubus_Base 19083
 {
 	//$Title Eeldercubus

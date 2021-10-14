@@ -245,6 +245,7 @@ OB_RATDEM = "%o was painfully bitten by a RatDemon.";
 OB_ROMTRON = "%o is happy to have been killed by the almighty RomeroTron.";
 OB_SLOTH = "%o has died laughing.";
 OB_SPEHOU = "%o was eaten by a SpectreHound.";
+OB_SMSTMD = "%o will feed the breed";
 
 //OBITUARIES - MISC
 OB_BBARL = "%o went boom.";
