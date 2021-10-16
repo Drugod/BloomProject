@@ -319,6 +319,7 @@ ACTOR Ghoul1 : Ghoul_Base
 		TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)
 		Goto See
 	Ice:
+		GH1F R 0 A_SetMass(999999)
 		GH1F R 5 A_FreezeDeath
 		GH1F R 1 A_FreezeDeathChunks
 		Wait
@@ -671,6 +672,7 @@ ACTOR Ghoul2 : Ghoul_Base
 		GH2S I 0 ThrustThingZ(0,frandom(25,45),0,0)
 		Goto Death
 	Ice:
+		GH2F R 0 A_SetMass(999999)
 		GH2F R 5 A_FreezeDeath
 		GH2F R 1 A_FreezeDeathChunks
 		Wait
@@ -1064,6 +1066,7 @@ ACTOR Ghoul3 : Ghoul_Base
 		GH3S I 0 ThrustThingZ(0,frandom(25,45),0,0)
 		Goto Death
 	Ice:
+		GH3F R 0 A_SetMass(999999)
 		GH3F R 5 A_FreezeDeath
 		GH3F R 1 A_FreezeDeathChunks
 		Wait
@@ -1415,6 +1418,7 @@ ACTOR Ghoul4 : Ghoul_Base
 		GH4S I 0 ThrustThingZ(0,frandom(25,45),0,0)
 		Goto Death
 	Ice:
+		GH4F R 0 A_SetMass(999999)
 		GH4F R 5 A_FreezeDeath
 		GH4F R 1 A_FreezeDeathChunks
 		Wait
@@ -1765,6 +1769,7 @@ ACTOR Ghoul5: Ghoul_Base
 		GH5S I 0 ThrustThingZ(0,frandom(25,45),0,0)
 		Goto Death
 	Ice:
+		GH5F R 0 A_SetMass(999999)
 		GH5F R 5 A_FreezeDeath
 		GH5F R 1 A_FreezeDeathChunks
 		Wait
@@ -2089,6 +2094,7 @@ ACTOR Ghoul6 : Ghoul_Base
 		GH6S I 0 ThrustThingZ(0,frandom(25,45),0,0)
 		Goto Death
 	Ice:
+		GH6F R 0 A_SetMass(999999)
 		GH6F R 5 A_FreezeDeath
 		GH6F R 1 A_FreezeDeathChunks
 		Wait

@@ -85,6 +85,7 @@ ACTOR RevenantMime 19099
 		RM1D ABCD 5
 		Goto See
 	Ice:
+		FM1A A 0 A_SetMass(999999)
 		FM1A A 5 A_FreezeDeath
 		FM1A A 1 A_FreezeDeathChunks
 		Wait
@@ -135,6 +136,7 @@ ACTOR RevenantMimeAlt : RevenantMime 19100
 		RM2D ABCD 5
 		Goto See
 	Ice:
+		FM2A A 0 A_SetMass(999999)
 		FM2A A 5 A_FreezeDeath
 		FM2A A 1 A_FreezeDeathChunks
 		Wait
@@ -185,6 +187,7 @@ ACTOR RevenantMimeAlt2 : RevenantMime 19101
 		RM3D ABCD 5
 		Goto See
 	Ice:
+		FM3A A 0 A_SetMass(999999)
 		FM3A A 5 A_FreezeDeath
 		FM3A A 1 A_FreezeDeathChunks
 		Wait

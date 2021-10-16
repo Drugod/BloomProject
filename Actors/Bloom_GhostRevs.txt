@@ -152,6 +152,7 @@ ACTOR Shielded_Ghost_Revenant : BloomHybrid_Base 19017
 		ZDEA ABCDEFGHI 5 BRIGHT A_FadeOut(0.09)
 		Stop
 	Ice:
+		SK2F R 0 A_SetMass(999999)
 		SK2F R 5 A_FreezeDeath
 		SK2F R 1 A_FreezeDeathChunks
 		Wait
@@ -401,6 +402,7 @@ ACTOR Ghost_Revenant : BloomHybrid_Base 19018
 		SKWS NOPQRS 5 BRIGHT
 		Stop
 	Ice:
+		SK3F R 0 A_SetMass(999999)
 		SK3F R 5 A_FreezeDeath
 		SK3F R 1 A_FreezeDeathChunks
 		Wait
@@ -520,6 +522,7 @@ ACTOR Shielded_Ghost_Revenant_Alt : BloomHybrid_Base 19020
 		ZDE2 ABCDEFGHI 5 A_FadeOut(0.09)
 		Stop
 	Ice:
+		SK2F R 0 A_SetMass(999999)
 		SK2F R 5 A_FreezeDeath
 		SK2F R 1 A_FreezeDeathChunks
 		Wait
@@ -769,6 +772,7 @@ ACTOR Ghost_Revenant_Alt : BloomHybrid_Base 19021
 		SKW2 NOPQRS 5
 		Stop
 	Ice:
+		SK1F R 0 A_SetMass(999999)
 		SK1F R 5 A_FreezeDeath
 		SK1F R 1 A_FreezeDeathChunks
 		Wait
@@ -829,6 +833,7 @@ ACTOR GhostRevenantTerrain : BloomHybrid_Base 19024 //this has an odd name... te
 		SKT1 PONML 5
 		Goto See
 	Ice:
+		SKT1 R 0 A_SetMass(999999)
 		SKT1 R 5 A_FreezeDeath
 		SKT1 R 1 A_FreezeDeathChunks
 		Wait
@@ -889,6 +894,7 @@ ACTOR GhostRevenantTerrainAlt : BloomHybrid_Base 19025
 		SKT2 PONML 5
 		Goto See
 	Ice:
+		SKT2 R 0 A_SetMass(999999)
 		SKT2 R 5 A_FreezeDeath
 		SKT2 R 1 A_FreezeDeathChunks
 		Wait

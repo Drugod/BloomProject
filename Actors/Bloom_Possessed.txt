@@ -353,6 +353,7 @@ ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 		SPOS KJIH 5
 		Goto See
 	Ice:
+		HAFR A 0 A_SetMass(999999)
 		HAFR A 5 A_FreezeDeath
 		HAFR A 1 A_FreezeDeathChunks
 		Wait
@@ -497,6 +498,7 @@ ACTOR PossesedZombieMan: BloomPossessed_Base 19091
 		POSS KJIH 5
 		Goto See
 	Ice:
+		HCFR A 0 A_SetMass(999999)
 		HCFR A 5 A_FreezeDeath
 		HCFR A 1 A_FreezeDeathChunks
 		Wait
@@ -641,6 +643,7 @@ ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 		YPOS KJIH 5
 		Goto See
 	Ice:
+		HDFR A 0 A_SetMass(999999)
 		HDFR A 5 A_FreezeDeath
 		HDFR A 1 A_FreezeDeathChunks
 		Wait
@@ -785,6 +788,7 @@ ACTOR PossesedApocalypticNeoCultist : BloomPossessed_Base 19092
 		WPOS KJIH 5
 		Goto See
 	Ice:
+		HBFR A 0 A_SetMass(999999)
 		HBFR A 5 A_FreezeDeath
 		HBFR A 1 A_FreezeDeathChunks
 		Wait

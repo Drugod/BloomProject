@@ -252,6 +252,7 @@ ACTOR Eelcubus : Eelcubus_Base 19007
 		FS2T QPONMLK 5
 		Goto See
 	Ice:
+		FSTF R 0 A_SetMass(999999)
 		FSTF R 5 A_FreezeDeath
 		FSTF R 1 A_FreezeDeathChunks
 		Wait
@@ -391,6 +392,7 @@ ACTOR Gillcubus : Eelcubus_Base 19027
 		FS3T N -1 A_BossDeath
 		Stop
 	Ice:
+		FS3F R 0 A_SetMass(999999)
 		FS3F R 5 A_FreezeDeath
 		FS3F R 1 A_FreezeDeathChunks
 		Wait

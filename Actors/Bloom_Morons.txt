@@ -131,6 +131,7 @@ ACTOR Moron 3241
 		TNT1 A -1
 		Stop
 	Ice:
+		FORF R 0 A_SetMass(999999)
 		FORF R 5 A_FreezeDeath
 		FORF R 1 A_FreezeDeathChunks
 		Wait
@@ -248,6 +249,7 @@ ACTOR AberrationMoron : Moron
 		MORD J -1
 		Stop
 	Ice:
+		MOFR A 0 A_SetMass(999999)
 		MOFR A 5 A_FreezeDeath
 		MOFR A 1 A_FreezeDeathChunks
 		Wait
@@ -338,6 +340,7 @@ ACTOR AberrationMoron2 : Moron
 		MOD3 I -1
 		Stop
 	Ice:
+		MF3S A 0 A_SetMass(999999)
 		MF3S A 5 A_FreezeDeath
 		MF3S A 1 A_FreezeDeathChunks
 		Wait
@@ -504,6 +507,7 @@ ACTOR AberrationMoron3 : Moron
 		MORD J -1
 		Stop
 	Ice:
+		MF4R A 0 A_SetMass(999999)
 		MF4R A 5 A_FreezeDeath
 		MFR4 A 1 A_FreezeDeathChunks
 		Wait
@@ -595,6 +599,7 @@ ACTOR AberrationMoron4 : Moron
 		MOD3 I -1
 		Stop
 	Ice:
+		MFZ5 A 0 A_SetMass(999999)
 		MFZ5 A 5 A_FreezeDeath
 		MFZ5 A 1 A_FreezeDeathChunks
 		Wait
@@ -679,6 +684,7 @@ ACTOR AberrationMoron5 : Moron
 		MOD3 I -1
 		Stop
 	Ice:
+		MFR5 A 0 A_SetMass(999999)
 		MFR5 A 5 A_FreezeDeath
 		MFR5 A 1 A_FreezeDeathChunks
 		Wait
@@ -937,6 +943,7 @@ ACTOR ExplosiveMoron : ExplosiveMoron_Base
 		MLEI I -1
 		Stop
 	Ice:
+		BAFM A 0 A_SetMass(999999)
 		BAFM A 5 A_FreezeDeath
 		BAFM A 1 A_FreezeDeathChunks
 		Wait
@@ -982,6 +989,7 @@ ACTOR ExplosiveMoron2 : ExplosiveMoron_Base
 		MLEI I -1
 		Stop
 	Ice:
+		BAFN A 0 A_SetMass(999999)
 		BAFN A 5 A_FreezeDeath
 		BAFN A 1 A_FreezeDeathChunks
 		Wait
@@ -1059,6 +1067,7 @@ ACTOR ExplosiveMoron3 : ExplosiveMoron_Base
 		MLEI I -1
 		Stop
 	Ice:
+		BAFP A 0 A_SetMass(999999)
 		BAFP A 5 A_FreezeDeath
 		BAFP A 1 A_FreezeDeathChunks
 		Wait
@@ -1220,6 +1229,7 @@ ACTOR RevenantMoron 19096
 		REFD ABCDE 5
 		Goto See
 	Ice:
+		FEFM A 0 A_SetMass(999999)
 		FEFM A 5 A_FreezeDeath
 		FEFM A 1 A_FreezeDeathChunks
 		Wait
@@ -1352,6 +1362,7 @@ ACTOR RevenantMoronAlt2 19098
 		RE3D ABCDE 5
 		Goto See
 	Ice:
+		FE3M A 0 A_SetMass(999999)
 		FE3M A 5 A_FreezeDeath
 		FE3M A 1 A_FreezeDeathChunks
 		Wait

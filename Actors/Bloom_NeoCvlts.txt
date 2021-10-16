@@ -336,6 +336,7 @@ ACTOR Apocalyptic_NeoCvltist : NeoCvltist_Base 19001
 		WPOS G 1 A_SpawnItemEx("PossesedApocalypticNeoCultist",0,0,0,0)
 		Stop
 	Ice:
+		WPOF R 0 A_SetMass(999999)
 		WPOF R 5 A_FreezeDeath
 		WPOF R 1 A_FreezeDeathChunks
 		Wait
@@ -500,6 +501,7 @@ ACTOR NeoCvltist : NeoCvltist_Base 19003
 		YPOS G 1 A_SpawnItemEx("PossesedNeoCultist",0,0,0,0)
 		Stop
 	Ice:
+		WPOF R 0 A_SetMass(999999)
 		WPOF R 5 A_FreezeDeath
 		WPOF R 1 A_FreezeDeathChunks
 		Wait
@@ -612,6 +614,7 @@ ACTOR ShotgunMonk : BloomHybrid_Base 18323
 		MONK PONMLKJ 5
 		Goto See
 	Ice:
+		WPOF Z 0 A_SetMass(999999)
 		WPOF Z 5 A_FreezeDeath
 		WPOF Z 1 A_FreezeDeathChunks
 		Wait

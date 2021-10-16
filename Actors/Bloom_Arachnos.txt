@@ -54,6 +54,7 @@ ACTOR Arachnoid : BloomHybrid_Base 19011
 		ARND P -1 A_BossDeath
 		Stop
 	Ice:
+		ARND R 0 A_SetMass(999999)
 		ARND R 5 A_FreezeDeath
 		ARND R 1 A_FreezeDeathChunks
 		Wait
@@ -139,6 +140,7 @@ ACTOR Green_Arachnopod : BloomHybrid_Base 19070
 		APOD T -1 A_BossDeath
 		Stop
 	Ice:
+		FPOD A 0 A_SetMass(999999)
 		FPOD A 5 A_FreezeDeath
 		FPOD A 1 A_FreezeDeathChunks
 		Wait
@@ -549,6 +551,7 @@ ACTOR RomeroTron : BloomHybrid_Base 19137
 		RSPI P -1 A_BossDeath
 		Stop
 	Ice:
+		FSPI A 0 A_SetMass(999999)
 		FSPI A 5 A_FreezeDeath
 		FSPI A 1 A_FreezeDeathChunks
 		Wait

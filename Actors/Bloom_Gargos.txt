@@ -45,6 +45,7 @@ ACTOR GargoylSoul : BloomHybrid_Base 19005
 		GKUL K 6
 		Stop
 	Ice:
+		GKUF R 0 A_SetMass(999999)
 		GKUF R 5 A_FreezeDeath
 		GKUF R 1 A_FreezeDeathChunks
 		Wait
@@ -96,6 +97,7 @@ ACTOR Elemental_Gargoyle : BloomHybrid_Base 19009
 		PGIN MLKJIH 8
 		Goto See
 	Ice:
+		PGIF R 0 A_SetMass(999999)
 		PGIF R 5 A_FreezeDeath
 		PGIF R 1 A_FreezeDeathChunks
 		Wait

@@ -1116,6 +1116,7 @@ ACTOR Cerbcubus : BloomBossHybrid_Base 19139 //sensible to Ice and Electric atta
 		CERC X -1 A_BossDeath
 		Stop
 	Ice:
+		FERC A 0 A_SetMass(999999)
 		FERC A 5 A_FreezeDeath
 		FERC A 1 A_FreezeDeathChunks
 		Wait
@@ -1165,6 +1166,7 @@ ACTOR ShialMastermind : BloomBossHybrid_Base 19141
 	Missile:
 		TNT1 A 0 
 		TNT1 A 0 A_Jump(160,"See","Breeding")
+		TNT1 A 0 A_Jump(64,"Web")
 		SHIM E 1 A_Facetarget
 		SHIM FG 2 BRIGHT
 		SHIM HI 3 BRIGHT A_CustomMissile("NapalmEnemy",62,-17.0,0) 
@@ -1172,8 +1174,13 @@ ACTOR ShialMastermind : BloomBossHybrid_Base 19141
 		Goto See
 	Breeding:
 		SHIM MNOPQ 6
-		SHIM S 2 A_SpawnItemEx("Arachnoid",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		SHIM S 2 A_SpawnItemEx("Arachnoid",0,0,0,0,0,0,0,SXF_SETMASTER)
 		SHIM RM 4
+		Goto See
+	Web:
+		SHIM E 1 A_FaceTarget
+		"####" E 0 A_PlaySound("ShialSpit", CHAN_WEAPON, frandom(0.5,0.8)) //requires sound
+		"####" E 4 A_CustomMissile("ShialWeb",48,0,0)
 		Goto See
 	Melee:
 		SHIM R 3 A_Facetarget
@@ -1191,10 +1198,6 @@ ACTOR ShialMastermind : BloomBossHybrid_Base 19141
 		SHID H 1 A_SpawnDebris("FlyingBlood")
 		SHID H -1 A_BossDeath
 		Stop
-	Ice:
-		SHIM R 3 A_FreezeDeath
-		SHIM R 3 A_FreezeDeathChunks
-		Wait
 	}
 }
 

@@ -121,6 +121,7 @@ ACTOR DemonHound : BloomHybrid_Base 19012
 		DHRG MLKJI 5
 		Goto See
 	Ice:
+		DHRF R 0 A_SetMass(999999)
 		DHRF R 5 A_FreezeDeath
 		DHRF R 1 A_FreezeDeathChunks
 		Wait
@@ -270,6 +271,7 @@ ACTOR DemonHoundAlt : HellKnight 19026
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		Stop
 	Ice:
+		DHRF Z 0 A_SetMass(999999)
 		DHRF Z 5 A_FreezeDeath
 		DHRF Z 1 A_FreezeDeathChunks
 		Wait
@@ -395,6 +397,7 @@ ACTOR GargoDemon : BloomHybrid_Base 19051
 		GARD PONML 5
 		Goto See
 	Ice:
+		GARF R 0 A_SetMass(999999)
 		GARF R 5 A_FreezeDeath
 		GARF R 1 A_FreezeDeathChunks
 		Wait
@@ -455,6 +458,7 @@ ACTOR PinkGargoyle : BloomHybrid_Base 19135
 		SARF MLKJI 8
 		Goto See
 	Ice:
+		SARF R 0 A_SetMass(999999)
 		SARF R 5 A_FreezeDeath
 		SARF R 1 A_FreezeDeathChunks
 		Wait

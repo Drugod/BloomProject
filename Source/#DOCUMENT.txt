@@ -36,6 +36,7 @@ TchernoStomp
 Tommy
 Turner
 Voodoo
+Web
 ZBloodBullet
 
 //Species present in BlooM

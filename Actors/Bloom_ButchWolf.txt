@@ -109,6 +109,7 @@ ACTOR WereWolfOfHellAlt : BloomHybrid_Base
 		BOS3 NMLKJI 8
 		Goto See
 	Ice:
+		BOSF R 0 A_SetMass(999999)
 		BOSF R 5 A_FreezeDeath
 		BOSF R 1 A_FreezeDeathChunks
 		Wait
@@ -305,6 +306,7 @@ ACTOR HellButcher : WereWolfOfHellAlt
 		FAUD LKIHGFEDBA 8
 		Goto See
 	Ice:
+		FAUF R 0 A_SetMass(999999)
 		FAUF R 5 A_FreezeDeath
 		FAUF R 1 A_FreezeDeathChunks
 		Wait
@@ -523,6 +525,7 @@ ACTOR HoundKnightOfHell : WereWolfOfHellAlt 19093
 		HOMD FEDCBA  8
 		Goto See
 	Ice:
+		FOMJ A 0 A_SetMass(999999)
 		FOMJ A 5 A_FreezeDeath
 		FOMJ A 1 A_FreezeDeathChunks
 		Wait
@@ -662,6 +665,7 @@ ACTOR HoundBaronOfHell: BloomHybrid_Base 19094
 		HKHD G -1
 		Stop
 	Ice: //Sproink frames can't be included here, so FKHU frames are unused, only as props --ozy81
+		FKHS A 0 A_SetMass(999999)
 		FKHS A 5 A_FreezeDeath
 		FKHS A 1 A_FreezeDeathChunks
 		Wait
