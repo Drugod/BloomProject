@@ -1169,9 +1169,9 @@ ACTOR ShialMastermind : BloomBossHybrid_Base 19141
 		TNT1 A 0 A_Jump(160,"See","Breeding")
 		TNT1 A 0 A_Jump(64,"Web")
 		SHIM E 1 A_Facetarget
-		SHIM FG 2 BRIGHT
-		SHIM HI 3 BRIGHT A_CustomMissile("NapalmEnemy",62,-17.0,0) 
-		SHIM JK 2 BRIGHT
+		SHIM FG 2
+		SHIM HI 3 A_CustomMissile("NapalmEnemy",62,-17.0,0) 
+		SHIM JK 2
 		Goto See
 	Breeding:
 		SHIM MNOPQ 6
@@ -1180,8 +1180,9 @@ ACTOR ShialMastermind : BloomBossHybrid_Base 19141
 		Goto See
 	Web:
 		SHIM E 1 A_FaceTarget
-		"####" E 0 A_PlaySound("ShialSpit", CHAN_WEAPON, frandom(0.5,0.8)) //requires sound
-		"####" E 4 A_CustomMissile("ShialWeb",48,0,0)
+		SHIM E 0 A_PlaySound("ShialSpit", CHAN_WEAPON, frandom(0.5,0.8)) //requires sound
+		SHIM S 4 A_CustomMissile("ShialWeb",48,0,0)
+		SHIM E 1 A_FaceTarget
 		Goto See
 	Melee:
 		SHIM R 3 A_Facetarget
@@ -1197,7 +1198,8 @@ ACTOR ShialMastermind : BloomBossHybrid_Base 19141
 		SHID ABCDEFG 3 A_SpawnDebris("FlyingBlood")
 		TNT1 A 0 A_NoBlocking
 		SHID H 1 A_SpawnDebris("FlyingBlood")
-		SHID H -1 A_BossDeath
+		SHID HIJK 4
+		SHID L -1 A_BossDeath
 		Stop
 	}
 }
