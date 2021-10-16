@@ -1014,7 +1014,9 @@ ACTOR HandMastermind : BloomBossHybrid_Base 19138
 		HMMD C 10
 		HMMD D 10 A_NoBlocking
 		HMMD E 10
-		HMMD F -1
+		HMMD F 8
+		HMMD G 6
+		HMMD H 1 A_BossDeath
 		Stop
 	}
 }
