@@ -75,8 +75,8 @@ statusbar normal
 		drawswitchableimage Key2, "nullimage", "STKEYS1", 244, 190;
 		drawswitchableimage Key3, "nullimage", "STKEYS2", 244, 167;
 		drawswitchableimage Key4, "nullimage", "STKEYS3", 59, 169;
-		drawswitchableimage Key5, "nullimage", "STKEYS5", 59, 190;
-		drawswitchableimage Key6, "nullimage", "STKEYS4", 59, 178;
+		drawswitchableimage Key5, "nullimage", "STKEYS5", 59, 178;
+		drawswitchableimage Key6, "nullimage", "STKEYS4", 59, 190;
 		//TNT/Spray Can throw power
 		drawbar "TNTMTR01", "TNTMTR00", Ammo ThrowPower, horizontal, interpolate(50), 0, -55;
 		//Armor
