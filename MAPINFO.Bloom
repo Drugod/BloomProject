@@ -105,7 +105,7 @@ map BLM06 lookup "BLM_M06"
    enterpic = "$IN_E4"      
 }
 
-/*map BLM07 lookup "BLM_M07"
+map BLM07 lookup "BLM_M07"
 {
    levelnum = 7
    next = BLM08
@@ -114,7 +114,7 @@ map BLM06 lookup "BLM_M06"
    sucktime = 5
    music = "d_dead"
    LIGHTNING
-}*/
+}
 
 map BLM08 lookup "BLM_M08"
 {
