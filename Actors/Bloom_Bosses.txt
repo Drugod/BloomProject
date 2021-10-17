@@ -669,10 +669,10 @@ ACTOR Sloth : BloomBossHybrid_Base 19107
 	+NORADIUSDMG
 	+DONTMORPH
 	+BOSSDEATH
-	SeeSound "cyber/sight"
-	PainSound "cyber/pain"
-	DeathSound "cyber/death"
-	ActiveSound "cyber/active"
+	SeeSound "sloth/chs"
+	PainSound "sloth/pain"
+	DeathSound "sloth/dth"
+	ActiveSound "sloth/chs"
 	Obituary "$OB_SLOTH"
 	Species "Horror"
 	States
@@ -681,7 +681,10 @@ ACTOR Sloth : BloomBossHybrid_Base 19107
 		SLTS A 10 A_Look
 		Loop
 	See:
-		SLTS AABBCCDD 3 A_Chase
+		SLTS AABB 2 A_Chase
+		TNT1 A 0 A_Playsound("sloth/ste1")		
+		SLTS CCDD 2 A_Chase
+		TNT1 A 0 A_Playsound("sloth/ste2")		
 		Loop
     Missile:
 		SLTA A 3

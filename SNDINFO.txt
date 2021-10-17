@@ -855,13 +855,6 @@ $Random TchernobogPain { TchernobogPain1 TchernobogPain2 TchernobogPain3 Tcherno
 $Random TchernobogAct { TchernobogAct1 TchernobogAct2 TchernobogAct3 TchernobogAct4 TchernobogAct5 TchernobogAct6 TchernobogAct7 TchernobogAct8 }
 
 //Jojo
-/*jojo/active	JOJOFART
-jojo/sight	JOJOSEEN
-jojo/death	JOJODETH
-JOJOPAI1	JOJOPAI1
-JOJOPAI2	JOJOPAI2
-$random jojo/pain	{ JOJOPAI1 JOJOPAI2 }*/
-
 jojo/death	JOJODETH
 
 JOJOPAI1	JOJOPAI1
@@ -884,6 +877,33 @@ JOJOCHS2   JOJOCHS2
 JOJOCHS3   JOJOCHS3
 $random jojo/active	{ JOJOCHS1 JOJOCHS2 JOJOCHS3 }
 $random jojo/sight	{ JOJOCHS1 JOJOCHS2 JOJOCHS3 }
+
+//Sloth
+SLTHCHS1	SLTHCHS1
+SLTHCHS2	SLTHCHS2
+SLTHCHS3	SLTHCHS3
+$random sloth/chs	{ SLTHCHS1 SLTHCHS2 SLTHCHS3 }
+
+SLTHDTH1	SLTHDTH1
+SLTHDTH2	SLTHDTH2
+$random sloth/dth	{ SLTHDTH1 SLTHDTH2 }
+
+SLTHPAI1	SLTHPAI1
+SLTHPAI2	SLTHPAI2
+SLTHPAI3	SLTHPAI3
+SLTHPAI4	SLTHPAI4
+SLTHPAI5	SLTHPAI5
+SLTHPAI6	SLTHPAI6
+$random sloth/pain	{ SLTHPAI1 SLTHPAI2 SLTHPAI3 SLTHPAI4 SLTHPAI5 SLTHPAI6 }
+
+SLTHSTP1	SLTHSTP1
+SLTHSTP2	SLTHSTP2
+
+$random sloth/ste1	{ SLTHSTP1 SLTHSTP2 }
+
+SLTHSTP3	SLTHSTP3
+SLTHSTP4	SLTHSTP4
+$random sloth/ste2	{ SLTHSTP3 SLTHSTP4 }
 
 //////////////////////////////////
 //TERRAIN SOUNDS - Defs by Enjay//
