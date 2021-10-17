@@ -1336,6 +1336,21 @@ ACTOR ActionFigures 24010
 	}
 }
 
+ACTOR BloodSeven 24008
+{
+	//$Category "BlooM Eastereggs"
+	//$Title "BloodSeven"
+	Height 60	
+	+NOGRAVITY
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+		MAGQ ABC 8
+		Loop
+	}
+}
+
 ACTOR DoomBetaBible : ActionFigures 18610
 {
 	//$Title "Doom Beta Unholy Bible"
