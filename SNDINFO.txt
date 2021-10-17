@@ -855,13 +855,35 @@ $Random TchernobogPain { TchernobogPain1 TchernobogPain2 TchernobogPain3 Tcherno
 $Random TchernobogAct { TchernobogAct1 TchernobogAct2 TchernobogAct3 TchernobogAct4 TchernobogAct5 TchernobogAct6 TchernobogAct7 TchernobogAct8 }
 
 //Jojo
-jojo/active	JOJOFART
+/*jojo/active	JOJOFART
 jojo/sight	JOJOSEEN
 jojo/death	JOJODETH
 JOJOPAI1	JOJOPAI1
 JOJOPAI2	JOJOPAI2
-$random jojo/pain	{ JOJOPAI1 JOJOPAI2 }
+$random jojo/pain	{ JOJOPAI1 JOJOPAI2 }*/
 
+jojo/death	JOJODETH
+
+JOJOPAI1	JOJOPAI1
+JOJOPAI2	JOJOPAI2
+JOJOPAI3	JOJOPAI3
+$random jojo/pain	{ JOJOPAI1 JOJOPAI2 JOJOPAI3 }
+
+JOJOHMR1    JOJOHMR1
+JOJOHMR2    JOJOHMR2
+JOJOHMR3    JOJOHMR3
+$random jojo/hmr	{ JOJOHMR1 JOJOHMR2 JOJOHMR3 }
+
+JOJOKCK1   JOJOKCK1
+JOJOKCK2   JOJOKCK2
+JOJOKCK3   JOJOKCK3
+$random jojo/kick	{ JOJOKCK1 JOJOKCK2 JOJOKCK3 }
+
+JOJOCHS1   JOJOCHS1
+JOJOCHS2   JOJOCHS2
+JOJOCHS3   JOJOCHS3
+$random jojo/active	{ JOJOCHS1 JOJOCHS2 JOJOCHS3 }
+$random jojo/sight	{ JOJOCHS1 JOJOCHS2 JOJOCHS3 }
 
 //////////////////////////////////
 //TERRAIN SOUNDS - Defs by Enjay//

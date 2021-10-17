@@ -1499,6 +1499,7 @@ ACTOR Jojo : BloomBossHybrid_Base 19109 //sounds from Wanton Destruction - ozy81
 	Kick:
 		JOJK AABBCCDD 2 A_FaceTarget
 		TNT1 A 0 A_RadiusThrust(15000,128,RTF_NOTMISSILE)
+		TNT1 A 0 A_Playsound("jojo/kick")		
 		JOJK EEFF 1 A_CustomMeleeAttack(random(1, 5) * 3, "")
 		Goto See2
 	Hammer:
@@ -1506,7 +1507,7 @@ ACTOR Jojo : BloomBossHybrid_Base 19109 //sounds from Wanton Destruction - ozy81
 		JOJA B 8 A_FaceTarget
 		JOJA C 6
 		JOJA D 4
-		TNT1 A 0 A_Playsound("BeastStomp")
+		TNT1 A 0 A_Playsound("jojo/hmr")
 		TNT1 A 0 A_SpawnItemEx("JojoStomp")
 		JOJA E 20
 		Goto See2
@@ -1524,7 +1525,7 @@ ACTOR Jojo : BloomBossHybrid_Base 19109 //sounds from Wanton Destruction - ozy81
 	Death:
 		TNT1 A 0 A_CustomMissile("JojoHammer",32, frandom(-10.0,10.0), random (0, 180), 2, random (0, 45))
 		JOJD A 2
-		JOJD B 2 A_Scream
+		JOJD B 2 A_Pain
 		JOJD CDE 6 A_NoBlocking
 		TNT1 A 0 A_Quake(512,5,128,256)
 		TNT1 A 0 A_Scream
