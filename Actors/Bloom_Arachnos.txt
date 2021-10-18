@@ -495,10 +495,10 @@ ACTOR RomeroTron : BloomHybrid_Base 19137
     +BOSSDEATH
 	+JUMPDOWN
 	+NOTARGET
-    SeeSound "baby/sight"
+    SeeSound "trn/active"
     PainSound "baby/pain"
     DeathSound "baby/death"
-    ActiveSound "baby/active"
+    ActiveSound "trn/active"
 	AttackSound "chainguy/attack"
 	Obituary "$OB_ROMTRON"
 	Species "Spiders"
