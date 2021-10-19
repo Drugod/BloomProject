@@ -1,4 +1,4 @@
-For Rolls, models which needs to be added:
+For Rolls:
 - add burning plus shock and swimming frames to RatDemons
 - add crouch frames for Caleb and swimming frames for both classes
 - add pickup sprites for GrenadeBox plus voxel and 3d model
