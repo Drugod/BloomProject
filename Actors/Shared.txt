@@ -276,6 +276,8 @@ ACTOR LeafLeft5 : LeafLeft
 	}
 }
 
+ACTOR LeafLeft6 : LeafLeft { Scale 0.25 }
+
 ACTOR FireDebris : Base_Debris
 {
 	States

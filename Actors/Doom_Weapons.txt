@@ -104,19 +104,18 @@ ACTOR Chainsaw_ : DoomW replaces Chainsaw
 	Inventory.PickupMessage "$GOTCHAINSAW"
 	Obituary "$OB_MPCHAINSAW"
 	Tag "$TAG_CHAINSAW"
-	+WEAPON.MELEEWEAPON
-	Weapon.SisterWeapon PlasmaRifle_	
+	+WEAPON.MELEEWEAPON	
 	States
 	{
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
 		CSAW A 1
-		CSAW A -1 A_SpawnItemEx("Flaregun",0,0,0)
+		CSAW A -1 A_SpawnItemEx("Flaregun",0,0,0) //For Caleb
 		Stop
 	ModelSpawn:
 		UNKN A 1
-		UNKN A -1 A_SpawnItemEx("Flaregun",0,0,0)
+		UNKN A -1 A_SpawnItemEx("Flaregun",0,0,0) //For Caleb
 		Stop
 	Ready:
 		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")

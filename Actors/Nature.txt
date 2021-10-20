@@ -1152,6 +1152,9 @@ ACTOR Bush1 : Bloom_Flora2 3230
 {
 	//$Title Bush 1
 	Height 32
+	Scale 0.7
+	RenderStyle Translucent
+	Alpha 0.7
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
 	DamageFactor "Flare", 3.5
@@ -1162,6 +1165,13 @@ ACTOR Bush1 : Bloom_Flora2 3230
 	{
 	Spawn:
 		ARBX A -1
+		Stop
+	Death:
+		ARBX J 1
+		TNT1 A 1
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
 		Stop
 	XDeath:
 	Death.Flare:
@@ -1188,6 +1198,9 @@ ACTOR Bush1NoGrav : Bloom_Flora2NoGrav 19129
 {
 	//$Title Flipped Bush 1
 	Height 32
+	Scale 0.7
+	RenderStyle Translucent
+	Alpha 0.7
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
 	DamageFactor "Flare", 3.5
@@ -1198,6 +1211,13 @@ ACTOR Bush1NoGrav : Bloom_Flora2NoGrav 19129
 	{
 	Spawn:
 		BRAX A -1
+		Stop
+	Death:
+		BRAX J 1
+		TNT1 A 1
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
 		Stop
 	XDeath:
 	Death.Flare:
@@ -1224,6 +1244,9 @@ ACTOR Bush2 : Bloom_Flora2 3255
 {
 	//$Title Bush 2
 	Height 40
+	Scale 0.7
+	RenderStyle Translucent
+	Alpha 0.7
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
 	DamageFactor "Flare", 3.5
@@ -1234,6 +1257,13 @@ ACTOR Bush2 : Bloom_Flora2 3255
 	{
 	Spawn:
 		ARB2 A -1
+		Stop
+	Death:
+		ARB2 K 1
+		TNT1 A 1
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
 		Stop
 	XDeath:
 	Death.Flare:
@@ -1260,6 +1290,9 @@ ACTOR Bush2NoGrav : Bloom_Flora2NoGrav 19130
 {
 	//$Title Flipped Bush 2
 	Height 40
+	Scale 0.7
+	RenderStyle Translucent
+	Alpha 0.7
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
 	DamageFactor "Flare", 3.5
@@ -1270,6 +1303,13 @@ ACTOR Bush2NoGrav : Bloom_Flora2NoGrav 19130
 	{
 	Spawn:
 		BRA2 A -1
+		Stop
+	Death:
+		BRA2 K 1
+		TNT1 A 1
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
 		Stop
 	XDeath:
 	Death.Flare:
@@ -1296,6 +1336,9 @@ ACTOR Bush3 : Bloom_Flora2 3256
 {
 	//$Title Bush 3
 	Height 32
+	Scale 0.7
+	RenderStyle Translucent
+	Alpha 0.7
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
 	DamageFactor "Flare", 3.5
@@ -1306,6 +1349,13 @@ ACTOR Bush3 : Bloom_Flora2 3256
 	{
 	Spawn:
 		ARB3 A -1
+		Stop
+	Death:
+		ARB3 J 1
+		TNT1 A 1
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
 		Stop
 	XDeath:
 	Death.Flare:
@@ -1332,6 +1382,9 @@ ACTOR Bush3NoGrav : Bloom_Flora2NoGrav 19131
 {
 	//$Title Flipped Bush 3
 	Height 32
+	Scale 0.7
+	RenderStyle Translucent
+	Alpha 0.7
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
 	DamageFactor "Flare", 3.5
@@ -1342,6 +1395,13 @@ ACTOR Bush3NoGrav : Bloom_Flora2NoGrav 19131
 	{
 	Spawn:
 		BRA3 A -1
+		Stop
+	Death:
+		BRA3 J 1
+		TNT1 A 1
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
 		Stop
 	XDeath:
 	Death.Flare:

@@ -25,10 +25,8 @@ ACTOR Medikit_ : Health replaces Medikit
 	States
 	{
 	Spawn:
-		MEDI A 1 A_SpawnItemEx("Moron",frandom(45.0,75.0),frandom(45.0,75.0),Height,0,0,0,frandom(0.0,360.0))
-		MEDI A 1 A_SpawnItemEx("Moron",frandom(-45.0,-75.0),frandom(45.0,75.0),Height,0,0,0,frandom(0.0,360.0))
-		MEDI A 1 A_SpawnItemEx("Moron",frandom(-45.0,-75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))
-		MEDI A 1 A_SpawnItemEx("Moron",frandom(45.0,75.0),frandom(-45.0,-75.0),Height,0,0,0,frandom(0.0,360.0))
+		MEDI A 0 A_Jump (128,"Spawn2")
+		MEDI A 1 A_SpawnItemEx("Moron",0,0,Height,0,0,0,frandom(0.0,360.0))
 	Spawn2:
 		MEDI A -1
 		Stop
