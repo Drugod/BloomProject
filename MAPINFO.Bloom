@@ -46,7 +46,7 @@ map BLM02 lookup "BLM_M02"
    sky1 = "YTEXTH63", 0.05
    par = 120
    sucktime = 5
-   music = "d_in_cit"
+   music = "b_dhs"   
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"      
 }
@@ -54,12 +54,12 @@ map BLM02 lookup "BLM_M02"
 map BLM03 lookup "BLM_M03"
 {
    levelnum = 3
-   next = BLM04 //endsequence, BloomDemoEnd
+   next = BLM04
    sky1 = "YTEXTH63", 0.05
    sky2 = "YTEXTH63", 0.05
    par = 120
    sucktime = 10
-   music = "d_countd"
+   music = "b_infsin"   
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"      
 }
@@ -67,12 +67,12 @@ map BLM03 lookup "BLM_M03"
 map BLM04 lookup "BLM_M04"
 {
    levelnum = 4
-   next = INT00
+   next = BLM05
    sky1 = "YTEXTH63", 0.05
    sky2 = "YTEXTH63", 0.05
    par = 120
    sucktime = 10
-   music = "d_ddtblu"
+   music = "d_in_cit"   
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"      
 }
@@ -81,12 +81,11 @@ map BLM05 lookup "BLM_M05"
 {
    levelnum = 5
    next = BLM06
-   secretnext = BLM09   
    sky1 = "YTEXTH63", 0.05
    sky2 = "YTEXTH63", 0.05
    par = 120
    sucktime = 10
-   music = "b_ghev"
+   music = "d_countd"   
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"  
    LIGHTNING   
@@ -95,11 +94,11 @@ map BLM05 lookup "BLM_M05"
 map BLM06 lookup "BLM_M06"
 {
    levelnum = 6
-   next = BLM07
+   next = INT00   
    sky1 = "YTEXTH63", 0.05
    par = 120
    sucktime = 5
-   music = "b_infsin"
+   music = "d_ddtblu"   
    LIGHTNING
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"      
@@ -109,10 +108,11 @@ map BLM07 lookup "BLM_M07"
 {
    levelnum = 7
    next = BLM08
+   secretnext = BLM09      
    sky1 = "YTEXTH63", 0.05
    par = 120
    sucktime = 5
-   music = "b_dhs"
+   music = "b_ghev"   
    enterpic = "$IN_E4"     
    LIGHTNING
 }
@@ -133,7 +133,7 @@ map BLM08 lookup "BLM_M08"
 map BLM09 lookup "BLM_M09"
 {
    levelnum = 9
-   next = BLM06
+   next = BLM08
    par = 120
    sucktime = 5
    music = "life"
@@ -145,7 +145,8 @@ map INT00 lookup "BLM_INT"
    levelnum = 0
    sky1 = "YTEXTH63", 0.05
    par = 120
-   next = BLM05
+   next = BLM07
+   //next = BLM05
    //cluster = 1
    sucktime = 1
    music = "d_dm2ttl"
