@@ -1,7 +1,7 @@
 ACTOR NewAmmos_little replaces Cell
 {
-    //$Category "Ammo"
-    //$Title PlasmaRifle/FlameThrower/Teslacannon Spawner
+    //$Category "Ammunition"
+    //$Title Ammo for PR/FT/TC Spawner
 	States
 	{
 	Spawn:
@@ -28,8 +28,8 @@ ACTOR NewAmmos_little replaces Cell
 
 ACTOR NewAmmos_Big replaces CellPack
 {
-    //$Category "Ammo"
-    //$Title PlasmaRifle/FlameThrower/Teslacannon Spawner
+    //$Category "Ammunition"
+    //$Title Big Ammo for PR/FT/TC Spawner
 	States
 	{
 	Spawn:
@@ -55,8 +55,9 @@ ACTOR NewAmmos_Big replaces CellPack
 }
 
 ACTOR -------CELLPACKS------------ {}
-ACTOR Cell_ : Cell
+ACTOR Cell_ : Cell 19078
 {
+    //$Category "Ammunition"
 	//$Sprite CELLA0
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.ForbiddenTo "Caleb"
@@ -82,8 +83,9 @@ ACTOR Cell_ : Cell
 	}
 }
 
-ACTOR CellPack_ : Cell_
+ACTOR CellPack_ : Cell_ 19079
 {
+    //$Category "Ammunition"
 	//$Sprite CELPA0
 	Inventory.PickupMessage "$GOTCELLBOX" // "Picked up an energy cell pack."
 	Inventory.Amount 100
