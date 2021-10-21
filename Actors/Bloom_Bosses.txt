@@ -980,10 +980,10 @@ ACTOR HandMastermind : BloomBossHybrid_Base 19138
 	MeleeRange 100
 	+NORADIUSDMG
 	+DONTMORPH
-	SeeSound "Hand/Roam"
-	DeathSound "Hand/Die"
-	ActiveSound "Hand/Spot"
-	PainSound "Hand/Pain"
+	SeeSound "Hmm/Choke"
+	DeathSound "Hmm/Die"
+	ActiveSound "Hmm/Spot"
+	PainSound "Hmm/Pain"
 	Obituary "$OB_HANDM"
 	Species "Horror"
 	States

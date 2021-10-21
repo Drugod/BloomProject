@@ -915,6 +915,25 @@ RMRTRN06    RMRTRN06
 RMRTRN07    RMRTRN07
 $random trn/active { RMRTRN01 RMRTRN02 RMRTRN03 RMRTRN04 RMRTRN05 RMRTRN06 RMRTRN07 }
 
+//Hand Mastermind
+Hmm/Pai1	HMMP1
+Hmm/Pai2	HMMP2
+Hmm/Pai3	HMMP3
+$Random Hmm/Pain {Hmm/Pai1	Hmm/Pai2	Hmm/Pai3}
+Hmm/Die 	HMMD
+Hmm/Spot	HMMS
+Hmm/Choke	HMMC
+
+//Hand Slavemind
+Hsm/Pain	HSMP
+Hsm/Die1	HSMD1
+Hsm/Die2	HSMD2
+Hsm/Die3	HSMD3
+$Random Hsm/Die {Hsm/Die1 Hsm/Die2	Hsm/Die3}
+Hsm/Spot	HSMS
+Hsm/Choke	HSMC
+Hsm/Roam	HSMC
+
 //////////////////////////////////
 //TERRAIN SOUNDS - Defs by Enjay//
 //////////////////////////////////

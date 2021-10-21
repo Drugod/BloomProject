@@ -808,10 +808,10 @@ ACTOR HandSlavedmind : BloomPossessed_Base 19136
 	MeleeRange 100
 	+NORADIUSDMG
 	+DONTMORPH
-	SeeSound "Hand/Roam"
-	DeathSound "Hand/Die"
-	ActiveSound "Hand/Spot"
-	PainSound "Hand/Pain"
+	SeeSound "Hsm/Roam"
+	DeathSound "Hsm/Die"
+	ActiveSound "Hsm/Spot"
+	PainSound "Hsm/Pain"
 	Obituary "$OB_HANDM"
 	Scale 0.3
 	Species "Horror" //it is also Possessed, to verify - ozy81
