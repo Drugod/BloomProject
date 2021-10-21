@@ -209,17 +209,17 @@ ACTOR ArchZombie : BloomHybrid_Base 19039
 	Missile:
 		TNT1 A 0 A_JumpIfInventory("CountZombie",10,2)
 		TNT1 A 0 A_Jump(256,"Invocation")
-		ARZM G 0 BRIGHT A_VileStart
-		ARZM G 10 BRIGHT A_FaceTarget
-		ARZM H 8 BRIGHT A_VileTarget
-		ARZM IJKLMN 8 BRIGHT A_FaceTarget
-		ARZM O 8 BRIGHT A_VileAttack
-		ARZM P 20 BRIGHT
+		ARZM G 0 A_VileStart
+		ARZM G 10 A_FaceTarget
+		ARZM H 8 A_VileTarget
+		ARZM IJKLMN 8 A_FaceTarget
+		ARZM O 8 A_VileAttack
+		ARZM P 20
 		Goto See
 	Invocation:
 		TNT1 A 0 A_GiveInventory("CountZombie",1)
 		TNT1 A 0 A_GiveInventory("AlreadyFlare",1)
-		ARZM "[\]" 10 BRIGHT A_FaceTarget
+		ARZM "[\]" 10 A_FaceTarget
 		TNT1 A 0 A_SpawnItemEx("VileSpawner",frandom(32.0,64.0),frandom(32.0,64.0),0)
 		TNT1 A 0 A_PlaySound("SummonZombies")
 		TNT1 A 0 A_Jump(256,"Invocation1","Invocation2","Invocation3","Invocation4","Invocation5","Invocation6")
@@ -242,7 +242,7 @@ ACTOR ArchZombie : BloomHybrid_Base 19039
 		TNT1 A 0 A_SpawnItemEx("FastBuriedGhoul6",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
 		Goto See
 	Heal:
-		ARZM "[\]" 10 BRIGHT
+		ARZM "[\]" 10
 		Goto See
 	Pain:
 		ARZM Q 5

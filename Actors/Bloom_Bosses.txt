@@ -918,40 +918,40 @@ ACTOR Cyberbog : BloomBossHybrid_Base 19108
 		TNT1 A 0 A_Jump(256,"Missile1","Missile2","Missile3","Missile4")
 	Missile1:
 		BOGC E 3 A_FaceTarget
-		BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+		BOGC F 6 A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
 		BOGC E 6 A_FaceTarget
-		BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+		BOGC F 6 A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
 		BOGC E 6 A_FaceTarget
-		BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+		BOGC F 6 A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
 		Goto See
 	Missile2:
 		BOGC E 3 A_FaceTarget
-		BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+		BOGC F 6 A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
 		BOGC E 6 A_FaceTarget
-		BOGC F 6 BRIGHT A_CustomMissile("NapalmEnemy",62,-17.0,0)
+		BOGC F 6 A_CustomMissile("NapalmEnemy",62,-17.0,0)
 		BOGC E 6 A_FaceTarget
-		BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+		BOGC F 6 A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
 		Goto See
 	Missile3:
 		BOGC E 3 A_FaceTarget
-		BOGC F 6 BRIGHT A_CustomMissile("NapalmEnemy",62,-17.0,0)
+		BOGC F 6 A_CustomMissile("NapalmEnemy",62,-17.0,0)
 		BOGC E 6 A_FaceTarget
-		BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+		BOGC F 6 A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
 		BOGC E 6 A_FaceTarget
-		BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+		BOGC F 6 A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
 		Goto See
 	Missile4:
 		BOGC E 3 A_FaceTarget
-		BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+		BOGC F 6 A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
 		BOGC E 6 A_FaceTarget
-		BOGC F 6 BRIGHT A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
+		BOGC F 6 A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
 		BOGC E 6 A_FaceTarget
 		BOGC F 6 BRIGHT A_CustomMissile("NapalmEnemy",62,-17.0,0)
 		Goto See
 	Missile5:
-		BOGC P 6 BRIGHT
-		BOGC Q 3 BRIGHT A_FaceTarget
-		BOGC R 1 BRIGHT A_CustomMissile("TchernobogMissile2", 92, 0)
+		BOGC P 6
+		BOGC Q 3 A_FaceTarget
+		BOGC R 1 A_CustomMissile("TchernobogMissile2", 92, 0)
 		Goto See
 	Pain:
 		BOGC G 10 A_Pain

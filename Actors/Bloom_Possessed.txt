@@ -825,7 +825,7 @@ ACTOR HandSlavedmind : BloomPossessed_Base 19136
 		Loop
 	Missile:
 		HMDA A 4 A_FaceTarget
-		HMDA B 4 BRIGHT A_CustomMissile("NapalmEnemy",32,0.0,0)
+		HMDA B 4 A_CustomMissile("NapalmEnemy",32,0.0,0)
 		HMDA C 4
 		Goto See
     Melee:
