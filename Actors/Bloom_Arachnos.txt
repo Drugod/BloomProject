@@ -47,7 +47,7 @@ ACTOR Arachnoid : BloomHybrid_Base 19011
 		Goto See
 	XDeath:
 	Death:
-		ARND J 0 A_Scream
+		ARND J 2 A_Scream
 		ARND JKLMNOP 3 A_SpawnDebris("FlyingBlood")
 		TNT1 A 0 A_NoBlocking
 		ARND P 1 A_SpawnDebris("FlyingBlood")
@@ -134,7 +134,7 @@ ACTOR Green_Arachnopod : BloomHybrid_Base 19070
 		Goto See
 	XDeath:
 	Death:
-		APOD J 20 A_Scream
+		APOD J 2 A_Scream
 		APOD N 7 A_NoBlocking
 		APOD OPQRS 7 A_KillChildren
 		APOD T -1 A_BossDeath
@@ -279,7 +279,7 @@ ACTOR Magma_Arachnopod : Green_Arachnopod 19071 //needs proper attacks
 		Goto See
 	XDeath:
 	Death:
-		MPOD J 20 A_Scream
+		MPOD J 2 A_Scream
 		MPOD N 7 A_NoBlocking
 		MPOD OPQRS 7 A_KillChildren
 		MPOD T -1 A_BossDeath
@@ -408,7 +408,7 @@ ACTOR Ice_Arachnopod : Green_Arachnopod 19072 //needs proper attacks
 		Goto See
 	XDeath:
 	Death:
-		IPOD J 20 A_Scream
+		IPOD J 2 A_Scream
 		IPOD N 7 A_NoBlocking
 		IPOD OPQRS 7 A_KillChildren
 		IPOD T -1 A_BossDeath
@@ -545,7 +545,7 @@ ACTOR RomeroTron : BloomHybrid_Base 19137
 		Goto See
 	XDeath:
 	Death:
-		RSPI J 20 A_Scream
+		RSPI J 2 A_Scream
 		RSPI K 7 A_NoBlocking
 		RSPI LMNOP 7 A_KillChildren //why KillChildren? --ozy81
 		RSPI P -1 A_BossDeath
