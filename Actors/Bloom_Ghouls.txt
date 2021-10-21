@@ -4,9 +4,9 @@ ACTOR Ghoul_Base
 	Radius 16
 	Height 56
 	Speed 6
-	Health 50
+	Health 35
 	Mass 40
-	GibHealth 30
+	GibHealth 15
 	Monster
 	MeleeRange 48
 	DamageFactor "Fire", 3.35

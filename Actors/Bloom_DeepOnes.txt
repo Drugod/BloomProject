@@ -10,7 +10,7 @@ ACTOR DeepOne_Base
 {
 	//$Category BlooM Monsters
 	//$Color 3
-	Health 30
+	Health 70
 	Radius 20
 	Height 56
 	Mass 100
@@ -198,6 +198,7 @@ ACTOR DeepOne_Base
 ACTOR DeepOneShot : DeepOne_Base 19052
 {
 	//$Title Deep One (Shotgun)
+	Health 30	
 	AttackSound "NCultistShotgun"
 	HitObituary "$HB_DSHO"
 	Obituary "$OB_DSHO"

@@ -1,7 +1,7 @@
 ACTOR -----ZombImps-------- {}
 ACTOR ZombImp1
 {
-	Health 150
+	Health 75
 	Radius 20
 	Height 56
 	Mass 100

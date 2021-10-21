@@ -217,6 +217,7 @@ ACTOR BloomPossessed_Base
 ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 {
 	//$Title Possessed ShotgunGuy
+	Health 35		
 	Obituary "$OB_POSSSH"
 	States
 	{
@@ -363,6 +364,7 @@ ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 ACTOR PossesedZombieMan: BloomPossessed_Base 19091
 {
 	//$Title Possessed Zombieman
+	Health 25	
 	Obituary "$OB_POSSZO"
 	States
 	{
@@ -508,6 +510,7 @@ ACTOR PossesedZombieMan: BloomPossessed_Base 19091
 ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 {
 	//$Title Possessed NeoCultist
+	Health 35			
 	Obituary "$OB_POSSNC"
 	States
 	{
@@ -653,6 +656,7 @@ ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 ACTOR PossesedApocalypticNeoCultist : BloomPossessed_Base 19092
 {
 	//$Title Possessed Apocalyptic NeoCultist
+	Health 35			
 	Obituary "$OB_POSANC"
 	States
 	{

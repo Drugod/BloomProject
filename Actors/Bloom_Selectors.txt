@@ -718,16 +718,8 @@ ACTOR ArachnoidHybrid
 		TNT1 A 0 A_SpawnItemEx("Magma_Arachnopod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
 	Spawn4:
-		TNT1 A 0
-		TNT1 A 1 A_Jump(256,"Spawn4a","Spawn4b")
-		Stop
-	Spawn4a:
 		TNT1 A 0 A_SpawnItemEx("Ice_Arachnopod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
 		Stop
-	Spawn4b:
-		TNT1 A 0 A_SpawnItemEx("RomeroTron",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop
-
 	}
 }
 
