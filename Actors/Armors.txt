@@ -48,7 +48,7 @@ ACTOR FireArmorPickup : BodyArmorPickup 3156
 		XRM1 A 0 A_JumpIfInventory("FireArmor",100,"DontPick")
 		XRM1 A 0 A_JumpIfInventory("GreenArmor",100,"DontPick")
 		XRM1 A 0 A_JumpIfInventory("BlueArmor",100,"DontPick")
-		XRM1 A 0 A_JumpIfInventory("Armorbonus",100,"DontPick")
+		XRM1 A 0 A_JumpIfInventory("ArmorBonus",100,"DontPick")
 		XRM1 A 0 A_TakeInventory("FireArmor",100)	//reset to 0 to add 100
 		XRM1 A 0 A_GiveInventory("FireArmor",100)	//reset to 0 to add 100
 		Stop
@@ -77,7 +77,7 @@ ACTOR SpiritArmorPickup : BodyArmorPickup 3157
 		XRM1 A 0 A_JumpIfInventory("SpiritArmor",100,"DontPick")
 		XRM1 A 0 A_JumpIfInventory("GreenArmor",100,"DontPick")
 		XRM1 A 0 A_JumpIfInventory("BlueArmor",random(100,200),"DontPick")
-		XRM1 A 0 A_JumpIfInventory("Armorbonus",random(100,200),"DontPick")
+		XRM1 A 0 A_JumpIfInventory("ArmorBonus",random(100,200),"DontPick")
 		XRM1 A 0 A_TakeInventory("SpiritArmor",100)	//reset to 0 to add 100
 		XRM1 A 0 A_GiveInventory("SpiritArmor",100)	//reset to 0 to add 100
 		Stop
@@ -108,7 +108,7 @@ ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160
 		XRM1 A 0 A_JumpIfInventory("BodyArmor",100,"DontPickA")
 		XRM1 A 0 A_JumpIfInventory("GreenArmor",100,"DontPick")
 		XRM1 A 0 A_JumpIfInventory("BlueArmor",random(100,200),"DontPick")
-		XRM1 A 0 A_JumpIfInventory("Armorbonus",random(100,200),"DontPick")
+		XRM1 A 0 A_JumpIfInventory("ArmorBonus",random(100,200),"DontPick")
 	Pick:
 		XRM1 A 0 A_GiveInventory("BodyArmorPickupLower",1)
 		XRM1 A 0 A_GiveInventory("FireArmorPickupLower",1)
@@ -130,6 +130,7 @@ ACTOR BodyArmorPickupLower : CustomInventory
 {
 	//$Sprite XRM1A0
 	Scale 0.67
+	DamageFactor "Normal",0.75
 	Inventory.PickupMessage "$LESA"
 	Inventory.PickupSound "misc/armor_pkup"
 	Tag "Body Armor"
@@ -148,7 +149,7 @@ ACTOR BodyArmorPickupLower : CustomInventory
 		XRM1 A 0 A_JumpIfInventory("BodyArmor",50,"MaxOut")
 		XRM1 A 0 A_JumpIfInventory("GreenArmor",100,"DontPick")
 		XRM1 A 0 A_JumpIfInventory("BlueArmor",random(100,200),"DontPick")
-		XRM1 A 0 A_JumpIfInventory("Armorbonus",random(100,200),"DontPick")
+		XRM1 A 0 A_JumpIfInventory("ArmorBonus",random(100,200),"DontPick")
 		XRM1 A 0 A_GiveInventory("BodyArmor",50)	//add 50
 		Stop
 	MaxOut:
@@ -164,6 +165,10 @@ ACTOR BodyArmorPickupLower : CustomInventory
 ACTOR FireArmorPickupLower : BodyArmorPickupLower //6235
 {
 	//$Sprite ARMFA0
+	DamageFactor "Dynamite",0.75
+	DamageFactor "Fire",0.75
+	DamageFactor "Flare",0.75
+	DamageFactor "Napalm",0.75
 	Inventory.PickupMessage "$FESA"
 	Translation "192:207=[255,255,255]:[255,32,0]","240:247=[255,32,0]:[64,16,0]"
 	States
@@ -181,7 +186,7 @@ ACTOR FireArmorPickupLower : BodyArmorPickupLower //6235
 		XRM1 A 0 A_JumpIfInventory("FireArmor",50,"MaxOut")
 		XRM1 A 0 A_JumpIfInventory("GreenArmor",100,"DontPick")
 		XRM1 A 0 A_JumpIfInventory("BlueArmor",random(100,200),"DontPick")
-		XRM1 A 0 A_JumpIfInventory("Armorbonus",random(100,200),"DontPick")
+		XRM1 A 0 A_JumpIfInventory("ArmorBonus",random(100,200),"DontPick")
 		XRM1 A 0 A_GiveInventory("FireArmor",50)	//add 50
 		Stop
 	MaxOut:
@@ -197,6 +202,7 @@ ACTOR FireArmorPickupLower : BodyArmorPickupLower //6235
 ACTOR SpiritArmorPickupLower : BodyArmorPickupLower //6237
 {
 	//$Sprite SARMA0
+	DamageFactor "Spiritual",0.75
 	Inventory.PickupMessage "LESP"
 	Translation "192:207=[255,255,255]:[32,255,64]","240:247=[32,255,64]:[16,64,64]"
 	States
@@ -213,7 +219,7 @@ ACTOR SpiritArmorPickupLower : BodyArmorPickupLower //6237
 		XRM1 A 0 A_JumpIfInventory("SpiritArmor",100,"DontPick")
 		XRM1 A 0 A_JumpIfInventory("GreenArmor",100,"DontPick")
 		XRM1 A 0 A_JumpIfInventory("BlueArmor",random(100,200),"DontPick")
-		XRM1 A 0 A_JumpIfInventory("Armorbonus",random(100,200),"DontPick")
+		XRM1 A 0 A_JumpIfInventory("ArmorBonus",random(100,200),"DontPick")
 		XRM1 A 0 A_JumpIfInventory("SpiritArmor",50,"MaxOut")
 		XRM1 A 0 A_GiveInventory("SpiritArmor",50)	//add 50
 		Stop
@@ -253,12 +259,13 @@ ACTOR SuperArmorPickup : CustomInventory 3161
 		TNT1 A 0 A_GiveInventory("BodyArmor", 200)
 		TNT1 A 0 A_GiveInventory("FireArmor", 200)
 		TNT1 A 0 A_GiveInventory("SpiritArmor", 200)
-	Stop
+		Stop
 	}
 }
 
 ACTOR BodyArmor : Inventory
 {
+	DamageFactor "Normal",0.5
 	Inventory.Amount 1
 	Inventory.MaxAmount 200
 	Inventory.PickupMessage "$BODA"
@@ -276,6 +283,10 @@ ACTOR BodyArmor : Inventory
 
 ACTOR FireArmor : BodyArmor
 {
+	DamageFactor "Dynamite",0.5
+	DamageFactor "Fire",0.5
+	DamageFactor "Flare",0.5
+	DamageFactor "Napalm",0.5
 	Inventory.PickupMessage "$FIRA"
 	States
 	{
@@ -287,6 +298,7 @@ ACTOR FireArmor : BodyArmor
 
 ACTOR SpiritArmor : BodyArmor
 {
+	DamageFactor "Spiritual",0.5
 	Inventory.PickupMessage "$SPIA"
 	States
 	{

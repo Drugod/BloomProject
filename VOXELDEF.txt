@@ -75,6 +75,10 @@ FSK2B="FSK2B" {Spin = 50}
 MKEYA="MKEYA" {Spin = 50}
 SSKUA="SSKUA" {Spin = 50}
 
+//------------------PICKUPS----------------
+XINVA="XINVA" //no 3d model
+XSTRA="XSTRA" //no 3d model
+
 //==========================================
 //--------------Vanilla Doom----------------
 //==========================================

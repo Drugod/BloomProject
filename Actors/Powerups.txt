@@ -58,7 +58,7 @@ ACTOR Deathmask : PowerupGiver 3151
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	+FLOATBOB
-	scale 0.7
+	Scale 0.7
 	Powerup.color White 0.12
 	PowerUp.Type "Invulnerable"
 	States
@@ -107,17 +107,6 @@ ACTOR PowerGunsAkimbo : PowerupGiver
 		Stop
 	}
 }
-
-ACTOR UltraDamage : PowerupGiver //not needed anymore? - ozy81
-{
-	Powerup.Color LawnGreen 0.25
-	PowerUp.Type UltraDamage
-	PowerUp.Duration 1250
-	+AUTOACTIVATE
-	+INVENTORY.FANCYPICKUPSOUND
-}
-
-ACTOR PowerUltraDamage : PowerDamage { DamageFactor "normal", 4 } //not needed anymore? - ozy81
 
 ACTOR -------BERSERK---------- {}
 ACTOR Berserk_ : CustomInventory replaces Berserk
