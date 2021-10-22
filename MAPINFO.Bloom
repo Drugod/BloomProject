@@ -44,9 +44,10 @@ map BLM02 lookup "BLM_M02"
    levelnum = 2
    next = BLM03
    sky1 = "YTEXTH63", 0.05
+   sky2 = "YTEXTH63", 0.05
    par = 120
-   sucktime = 5
-   music = "b_dhs"   
+   sucktime = 10
+   music = "b_infsin"   
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"      
 }
@@ -56,10 +57,9 @@ map BLM03 lookup "BLM_M03"
    levelnum = 3
    next = BLM04
    sky1 = "YTEXTH63", 0.05
-   sky2 = "YTEXTH63", 0.05
    par = 120
-   sucktime = 10
-   music = "b_infsin"   
+   sucktime = 5
+   music = "b_dhs"   
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"      
 }
