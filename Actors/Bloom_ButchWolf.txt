@@ -564,7 +564,7 @@ ACTOR HoundBaronOfHell: BloomHybrid_Base 19094
 	Radius 16
 	Height 96
 	Mass 1000
-	Speed 25
+	Speed 12
 	+DROPOFF
 	MeleeSound "baron/Melee"
 	SeeSound "knight/sight"
@@ -606,7 +606,7 @@ ACTOR HoundBaronOfHell: BloomHybrid_Base 19094
 		HKHU ABCDABCD 2 A_FaceTarget
 		HKHU ABCDABCDABCD 1 A_Recoil(-1)
 		HKHU ABCD 1 A_Recoil(-20)
-		HKHU A 4
+		HKHU A 50
 		Goto Missile
 	Melee:
 	Missile:
@@ -674,7 +674,6 @@ ACTOR HoundBaronOfHell: BloomHybrid_Base 19094
 
 ACTOR HoundBaronBall:  HoundKnightBall
 {
-	Damage 24
 	States
 	{
 	Spawn:
@@ -686,6 +685,7 @@ ACTOR HoundBaronBall:  HoundKnightBall
 	}
 }
 
+
 ACTOR NapalmGreen
 {
 	Decal Scorch
@@ -693,7 +693,7 @@ ACTOR NapalmGreen
 	Height 8
 	Speed 24
 	RenderStyle "Add"
-	Damage 32
+	Damage 8
 	DamageType "Napalm"
 	PROJECTILE
 	+DONTSPLASH
@@ -715,7 +715,7 @@ ACTOR NapalmGreen
 		VAPP AABBCCDDEE 1 BRIGHT A_SpawnItemEx("SmokeTrailSmall")
 		Goto Fire
 	Death:
-		VAPP A 1 BRIGHT A_Explode
+		VAPP A 1 BRIGHT A_Explode(5)
 		TNT1 A 0 A_SpawnItemEx("Kaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
 		VAPX ABCDEFGHIJKLM 2 BRIGHT A_Quake(4,12,0,128)
 		Stop

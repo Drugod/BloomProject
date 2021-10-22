@@ -3414,9 +3414,27 @@ ACTOR NapalmRocket
 
 ACTOR NapalmEnemy : NapalmRocket
 {
-	Damage 10
+	Damage 6
 	Speed 24
 	Scale 0.35
+	States
+	{
+	Spawn:
+		NAPP A 1
+		TNT1 A 0 A_LoopActiveSound
+	Fire:
+		TNT1 A 0 A_JumpIf(waterlevel>0,"AltFire")
+		NAPP AABBCCDDEEFF 1 BRIGHT A_SpawnItem ("BSmokeTrail",0+frandom(-1,1),0+frandom(-1,1),0,0)
+		Loop
+	AltFire:
+		NAPP AABBCCDDEE 1 BRIGHT A_SpawnItemEx("SmokeTrailSmall")
+		Goto Fire
+	Death:
+		NAPP A 1 BRIGHT A_Explode(15)
+		TNT1 A 0 A_SpawnItemEx("Kaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		NAPX ABCDEFGHIJKLM 2 BRIGHT A_Quake(4,12,0,128)
+		Stop
+	}	
 }
 
 ACTOR NapalmRocketMapSpecial : NapalmRocket
