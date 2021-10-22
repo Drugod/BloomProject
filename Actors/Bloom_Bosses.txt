@@ -81,27 +81,27 @@ ACTOR KingCacoyle : BloomBossHybrid_Base 19053
 		TNT1 A 0 A_JumpifCloser(256.0,"Wind")
 		TNT1 A 0 A_Jump(128,"Missile2")
 		CHEO DE 5 A_FaceTarget
-		TNT1 A 0 BRIGHT A_CustomMissile("StoneGargBall",32.0, 0.0, 0, 1, 0)
-		CHEO F 3 BRIGHT A_FaceTarget
-		CHEO G 5 BRIGHT A_CustomMissile("StoneGargBall",32.0, 0.0, 0, 1, 0)
+		TNT1 A 0 A_CustomMissile("StoneGargBall",32.0, 0.0, 0, 1, 0)
+		CHEO F 3 A_FaceTarget
+		CHEO G 5 A_CustomMissile("StoneGargBall",32.0, 0.0, 0, 1, 0)
 		Goto See
 	Missile2:
-		CHEE A 3 BRIGHT A_FaceTarget
+		CHEE A 3 A_FaceTarget
 		CHEE A 0 A_PlaySound("king/iceshot",0)
-		CHEE B 3 BRIGHT A_CustomMissile("KingFX1",56.0, 0.0, 0, 1, 0)
-		CHEE C 3 BRIGHT
-		CHEE A 3 BRIGHT A_FaceTarget
+		CHEE B 3 A_CustomMissile("KingFX1",56.0, 0.0, 0, 1, 0)
+		CHEE C 3
+		CHEE A 3 A_FaceTarget
 		CHEE A 0 A_PlaySound("king/iceshot",0)
-		CHEE B 3 BRIGHT A_CustomMissile("KingFX2",56.0, 0.0, 0, 1, 0)
-		CHEE C 3 BRIGHT
-		CHEE A 3 BRIGHT A_FaceTarget
+		CHEE B 3 A_CustomMissile("KingFX2",56.0, 0.0, 0, 1, 0)
+		CHEE C 3
+		CHEE A 3 A_FaceTarget
 		CHEE A 0 A_PlaySound("king/iceshot",0)
-		CHEE B 3 BRIGHT A_CustomMissile("KingFX3",56.0, 0.0, 0, 1, 0)
-		CHEE C 3 BRIGHT
-		CHEE A 3 BRIGHT A_FaceTarget
+		CHEE B 3 A_CustomMissile("KingFX3",56.0, 0.0, 0, 1, 0)
+		CHEE C 3
+		CHEE A 3 A_FaceTarget
 		CHEE A 0 A_PlaySound("king/iceshot",0)
-		CHEE B 3 BRIGHT A_CustomMissile("KingFX4",56.0, 0.0, 0, 1, 0)
-		CHEE C 3 BRIGHT
+		CHEE B 3 A_CustomMissile("KingFX4",56.0, 0.0, 0, 1, 0)
+		CHEE C 3
 		Goto See
 	Wind:
 		CHEV ABCD 4 A_SetInvulnerable
@@ -711,7 +711,7 @@ ACTOR Sloth : BloomBossHybrid_Base 19107
 
 ACTOR TchernoDemon : BloomBossHybrid_Base 19105
 {
-	//$Title Tchernodemon
+	//$Title TchernoDemon
 	Obituary "$OB_TCHERNO"
 	Health 8000
 	Radius 40
@@ -792,23 +792,23 @@ ACTOR TchernoDemon : BloomBossHybrid_Base 19105
 		TNT1 A 0 A_GiveToTarget("PlayerBurner", frandom(1,2))
 		TNT1 A 0 A_CustomMissile("TchernobogMissile2", 116, 24)
 		TNT1 A 0 A_CustomMissile("TchernobogMissile", 116, -24)
-		TCD3 B 6 BRIGHT
+		TCD3 B 6
 		TCDA A 5
 		Goto See
 	Missile2:
 		TCDA A 5 A_FaceTarget
-		TCDA B 4 BRIGHT
+		TCDA B 4
 		TNT1 A 0 A_CustomMissile("NapalmEnemy", 148, 48)
 		TNT1 A 0 A_CustomMissile("NapalmEnemy", 148, -56)
-    	TCDA C 4 BRIGHT A_FaceTarget
-		TCDA D 4 BRIGHT
+    	TCDA C 4 A_FaceTarget
+		TCDA D 4
 	Missile3:
 		TCD2 A 5
 		TCD2 B 4
-		TCD2 A 4 BRIGHT A_FaceTarget
-		TCD2 B 0 BRIGHT A_CustomMissile("TchernobogMaximo", 116, 0)
-		TCD2 B 6 BRIGHT
-		TCD2 A 5 BRIGHT
+		TCD2 A 4 A_FaceTarget
+		TCD2 B 0 A_CustomMissile("TchernobogMaximo", 116, 0)
+		TCD2 B 6
+		TCD2 A 5
 		Goto See
 	Pain:
 		TNT1 A 0 A_JumpIfHealthLower(2400, "PainX")
@@ -816,7 +816,7 @@ ACTOR TchernoDemon : BloomBossHybrid_Base 19105
 		Goto See
 	PainX:
 		TCDP A 11 A_PlaySound("TchernobogPain4")
-		TNT1 A 0 Radius_quake(2,18,0,16,0)
+		TNT1 A 0 Radius_Quake(2,18,0,16,0)
 		Goto See
 	Death:
 		TCDP AA 7 A_Scream
@@ -946,7 +946,7 @@ ACTOR Cyberbog : BloomBossHybrid_Base 19108
 		BOGC E 6 A_FaceTarget
 		BOGC F 6 A_CustomMissile("LavaBarf",62,-17.0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40)) //A_CyberAttack
 		BOGC E 6 A_FaceTarget
-		BOGC F 6 BRIGHT A_CustomMissile("NapalmEnemy",62,-17.0,0)
+		BOGC F 6 A_CustomMissile("NapalmEnemy",62,-17.0,0)
 		Goto See
 	Missile5:
 		BOGC P 6
@@ -998,15 +998,15 @@ ACTOR HandMastermind : BloomBossHybrid_Base 19138
 		TNT1 A 0
 		TNT1 A 0 A_JumpIfHealthLower(5000,"Missile2")
 	    HMMA A 20 A_FaceTarget
-	    HMMA B 4 Bright A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)
-	    HMMA C 4 Bright A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)
+	    HMMA B 4 A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)
+	    HMMA C 4 A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)
 	    HMMA D 1 A_MonsterRefire(220, "See")
 	    Goto Missile+1
 		Goto See
 	Missile2:
-	    HMMS A 4  Bright A_FaceTarget
-	    HMMS BC 4 Bright
-	    HMMS D 4  Bright A_CustomMissile("BFGBall",160,0.0,0)
+	    HMMS A 4 A_FaceTarget
+	    HMMS BC 4
+	    HMMS D 4 A_CustomMissile("BFGBall",160,0.0,0)
 		Goto See
 	Pain:
 		HMMP A 10 A_Pain
@@ -1173,7 +1173,7 @@ ACTOR ShialMastermind : BloomBossHybrid_Base 19141
 		TNT1 A 0
 		TNT1 A 0 A_Jump(160,"See","Breeding")
 		TNT1 A 0 A_Jump(64,"Web")
-		SHIM E 1 A_Facetarget
+		SHIM E 1 A_FaceTarget
 		SHIM FG 2
 		SHIM HI 3 A_CustomMissile("NapalmEnemy",62,-17.0,0)
 		SHIM JK 2
@@ -1190,7 +1190,7 @@ ACTOR ShialMastermind : BloomBossHybrid_Base 19141
 		SHIM E 1 A_FaceTarget
 		Goto See
 	Melee:
-		SHIM R 3 A_Facetarget
+		SHIM R 3 A_FaceTarget
 		SHIM S 6 A_CustomMeleeAttack(frandom(1,2),"dsdolstb","none","Turner",true)
 		Goto See
 	Pain:
@@ -1445,7 +1445,7 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 	}
 }
 
-ACTOR Jojo : BloomBossHybrid_Base 19109 //sounds from Wanton Destruction - ozy81
+ACTOR Jojo : BloomBossHybrid_Base 19109
 {
 	//$Title Jojo The Idiot Circus Boy
 	Health 3000
