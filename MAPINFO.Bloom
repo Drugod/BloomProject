@@ -121,7 +121,7 @@ map BLM07 lookup "BLM_M07"
 map BLM08 lookup "BLM_M08"
 {
    levelnum = 8
-   next = INT00
+   next = INT01
    sky1 = "YTEXTH63", 0.05
    sky2 = "YTEXTH63", 0.05   
    par = 120
@@ -143,12 +143,23 @@ map BLM09 lookup "BLM_M09"
    NoIntermission
 }
 
-map INT00 lookup "BLM_INT"
+map INT00 lookup "BLM_IN0"
 {
    levelnum = 0
    sky1 = "YTEXTH63", 0.05
    par = 120
    next = BLM07
+   sucktime = 1
+   music = "d_dm2ttl"
+   NoIntermission
+   LIGHTNING
+}
+
+map INT01 lookup "BLM_IN1"
+{
+   levelnum = 0
+   sky1 = "YTEXTH63", 0.05
+   par = 120
    sucktime = 1
    music = "d_dm2ttl"
    NoIntermission
