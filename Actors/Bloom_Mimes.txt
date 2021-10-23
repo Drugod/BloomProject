@@ -203,7 +203,7 @@ ACTOR SuperMimeMissile
 	YScale 0.55
 	Speed 20
 	RenderStyle "Add"
-	Damage (frandom(10,16))
+	Damage (frandom(2,8))
 	PROJECTILE
 	+DONTSPLASH
 	DamageType "Fire"
@@ -214,7 +214,7 @@ ACTOR SuperMimeMissile
 		TROK AAAABBBBCCCCDDDDEEEE 1 A_SpawnItem ("TfireTrail2",0+frandom(-1,1),0+frandom(-1,1),0,0)
 		Loop
 	Death:
-		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_Explode(Random(2,8))
 		TNT1 A 1 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
 		Stop
 	}
