@@ -2697,11 +2697,6 @@ Brightmap sprite BOGCG6		{map "Brightmaps/BOGCG6.png"}
 Brightmap sprite BOGCG7		{map "Brightmaps/BOGCG7.png"}
 Brightmap sprite BOGCG8		{map "Brightmaps/BOGCG8.png"}
 Brightmap sprite BOGCH0		{map "Brightmaps/BOGCH0.png"}
-Brightmap sprite BOGCH1		{map "Brightmaps/BOGCH1.png"}
-Brightmap sprite BOGCH2		{map "Brightmaps/BOGCH2.png"}
-Brightmap sprite BOGCH3		{map "Brightmaps/BOGCH3.png"}
-Brightmap sprite BOGCH7		{map "Brightmaps/BOGCH7.png"}
-Brightmap sprite BOGCH8		{map "Brightmaps/BOGCH8.png"}
 Brightmap sprite BOGCP1		{map "Brightmaps/BOGCP1.png"}
 Brightmap sprite BOGCP2		{map "Brightmaps/BOGCP2.png"}
 Brightmap sprite BOGCP3		{map "Brightmaps/BOGCP3.png"}
@@ -2977,8 +2972,8 @@ Brightmap sprite CHEOH2H8	{map "Brightmaps/CHEOH2H8.png"}
 Brightmap sprite CHEOH3H7	{map "Brightmaps/CHEOH3H7.png"}
 Brightmap sprite CHEOH4H6	{map "Brightmaps/CHEOH4H6.png"}
 Brightmap sprite CHEOH5		{map "Brightmaps/CHEOH5.png"}
-Brightmap sprite CHEOI2I8	{map "Brightmaps/CHEOI2I8.png"}
 Brightmap sprite CHEOI3I7	{map "Brightmaps/CHEOI3I7.png"}
+Brightmap sprite CHEOI4I6	{map "Brightmaps/CHEOI4I6.png"}
 Brightmap sprite CHEOI5		{map "Brightmaps/CHEOI5.png"}
 Brightmap sprite CHEPA3A7	{map "Brightmaps/CHEPA3A7.png"}
 Brightmap sprite CHEPA4A6	{map "Brightmaps/CHEPA4A6.png"}

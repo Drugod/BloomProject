@@ -3,8 +3,6 @@
 
 #libdefine PLAYER_TAG_OFFSET 1000
 
-//ORIGINAL CODE BY MAXICLOUDS from RE-BLOOD, VERY MINOR MODIFICATIONS BY OZYMANDIAS81
-
 int playerID;
 int playerNum;
 
@@ -511,163 +509,7 @@ Script "AcsPowerupTimerDiving" (void){
 	TakeInventory("PowerAir",1);
 }
 
-//Code needed for spiders - ozy81
-Script "PoisonCheckOld" (void) //Annoying spiders!! ADDITIVE
-{
-	int health = GetActorProperty(0, APROP_HEALTH);
-	int k = CheckInventory("PoisonIntensity");
-	If(CheckInventory("PoisonIntensity")!=0)
-		{
-			GiveInventory("PoisonIntensity",60);
-			Terminate;
-		}
-	GiveInventory("PoisonIntensity",60);
-	int Direction = 1; // How many seconds poison lasts, ADD 36 While poison is fading
-	While ((CheckInventory("PoisonIntensity"))>0)
-	{
-		If((CheckInventory("PoisonIntensity"))<170)
-		{
-			SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-			SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-			Delay(6);
-			SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-			SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-			Delay(6);
-			SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-			SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-			Delay(6);
-			SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-			SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-			Delay(6);
-			SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-			SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-			Delay(6);
-		}
-		Else
-		{
-			If(health>0)
-			{
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-				SetActorAngle(0, GetActorangle(0)+(Random(0.01,0.04))*Direction);
-				SetActorPitch(0, GetActorPitch(0)+(Random(0.00,0.02)*Direction));
-				Delay(3);
-			}
-			TakeInventory("PoisonIntensity",999999); //fix death anim if we die when poisoned - ozy81
-			SetActorState(0,"Death",TRUE); //fix death anim if we die when poisoned - ozy81
-			Terminate; //fix death anim if we die when poisoned - ozy81
-		}
-		If(random(1,2)==1)
-		Direction = Direction*-1;
-		TakeInventory("PoisonIntensity",45);
-		If(CheckInventory("StrongPoison")<1)
-		SetActorState(0,"Dill",TRUE);
-	}
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(2);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(2);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(2);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(2);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(2);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(2);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(2);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(2);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(3);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(3);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(3);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(3);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(3);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(6);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(6);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(6);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(6);
-	SetActorAngle(0, GetActorangle(0)+Random(-0.01,0.01));
-	Delay(8);
-}
-
+//Code needed for spiders - ozy81, original code by MaxiClouds
 script "PoisonScreen" ENTER //new effect, no more usage of Dill state too, must be verified with Strong
 {
 	int width = 320, height = 240;
@@ -742,7 +584,7 @@ Script "PoisonEffect" (void)
 	restart;
 }
 
-Script "WebScreen" ENTER
+Script "WebScreen" ENTER //effect taken from Blade of Agony, courtesy by Ozymandias81 - script by AFADoomer and Talon1024
 {
 	int width = 320, height = 240;
 	SetHudSize(width, height, 0);
