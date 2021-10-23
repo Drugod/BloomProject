@@ -22,6 +22,7 @@ Const Int BLM_FLAGS3 = SXF_SETMASTER | SXF_NOCHECKPOSITION;
 #include Actors/Corpses.txt
 #include Actors/Frozen.txt
 #include Actors/Models.txt
+#include Actors/Gore.txt
 #include Actors/Blood_Weapons.txt
 #include Actors/Blood_Ammo.txt
 #include Actors/Doom_Replaces.txt
