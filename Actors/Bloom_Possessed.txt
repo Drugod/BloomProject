@@ -821,9 +821,11 @@ ACTOR PossesedApocalypticNeoCultist : BloomPossessed_Base 19092
 	}
 }
 
-ACTOR HandSlavedmind : BloomPossessed_Base 19136
+ACTOR HandSlavedmind 19136
 {
+    //$Category "BlooM Monsters"
 	//$Title Hand Slavedmind
+	//$Color 3	
 	Health 500
 	Radius 50
 	Height 72
@@ -832,8 +834,12 @@ ACTOR HandSlavedmind : BloomPossessed_Base 19136
 	PainChance 20
 	Monster
 	MeleeRange 100
+	FastSpeed 3	
 	+NORADIUSDMG
 	+DONTMORPH
+	+DONTHARMSPECIES //no inheritances with Base actors, so kept it here - ozy81
+	+DROPOFF
+	+FLOAT
 	SeeSound "Hsm/Roam"
 	DeathSound "Hsm/Die"
 	ActiveSound "Hsm/Spot"
