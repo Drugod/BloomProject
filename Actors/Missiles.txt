@@ -1475,8 +1475,8 @@ ACTOR BeamFlash : CustomInventory
 	}
 }
 
-ACTOR PowerSlow : PowerSpeed {Powerup.Duration -4 Speed 0.33}
-ACTOR Entanglement : PowerupGiver {+INVENTORY.AUTOACTIVATE +INVENTORY.ADDITIVETIME -INVENTORY.INVBAR Powerup.Type "Slow"}
+ACTOR PowerWeb : PowerSpeed {Powerup.Duration -4 Speed 0.33}
+ACTOR Entanglement : PowerupGiver {+INVENTORY.AUTOACTIVATE +INVENTORY.ADDITIVETIME -INVENTORY.INVBAR Powerup.Type "Web"}
 
 ACTOR ShialWeb : FastProjectile
 {

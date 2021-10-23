@@ -586,7 +586,7 @@ Script "PoisonEffect" (void)
 
 Script "WebScreen" ENTER //effect taken from Blade of Agony, courtesy by Ozymandias81 - script by AFADoomer and Talon1024
 {
-	int width = 320, height = 240;
+	int width = 512, height = 384;
 	SetHudSize(width, height, 0);
 	SetFont("M_WEBBED");
 
@@ -596,7 +596,7 @@ Script "WebScreen" ENTER //effect taken from Blade of Agony, courtesy by Ozymand
 
 	while (true)
 	{
-		int web = GetActorPowerupTics(0, "PowerSlow");
+		int web = GetActorPowerupTics(0, "PowerWeb");
 		if (web)
 		{
 			HudMessage(s:"A"; HUDMSG_FADEINOUT | HUDMSG_LAYER_UNDERHUD | HUDMSG_NOTWITHFULLMAP | HUDMSG_NOTWITHOVERLAYMAP | HUDMSG_ALPHA , 0, CR_UNTRANSLATED, half_width, half_height, 0.0, 0.5, web, 0.2);
