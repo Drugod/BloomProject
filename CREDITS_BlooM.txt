@@ -6,6 +6,7 @@ Acs/Decorate/Tweaks by Ozymandias81
 Sprites (Hybrid monsters), Animated Textures and 3D Models (buildings specially) by Rolls3D
 Music by NhT, Buio Mondo & Drugod
 
+Thanks to 00_Zombie_00 to help us with BLM02 map
 Bloom is based on ZBlood-ZBloodX Addon by IvanDobrovski/Cruduxy/Marinelol
 
 Acs based poisonus effect by MaxiClouds, reworked by Ozymandias81
