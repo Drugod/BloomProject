@@ -583,7 +583,7 @@ ACTOR ZombaronOfHell : BloomHybrid_Base
 {
 	//$Title Zombaron of Hell
 	Radius 16
-	Height 96
+	Height 64
 	Speed 12
 	Mass 1000
 	Health 1000
