@@ -71,6 +71,7 @@ FLAGAS = "You picked up a flamethrower canister.";
 FLAR = "Picked up a single flare.";
 FLARBOX = "Picked up a box of flares.";
 FROSTA = "You picked up some frost ammo, brrrr!";
+FROSTB = "You picked up some Big frost ammo, brrrr!";
 GASOCAN = "Picked up a gasoline can.";
 GRENBOXP = "Picked up a box of grenades.";
 MINIGASO = "Picked up a mini gasoline can.";

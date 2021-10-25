@@ -479,6 +479,25 @@ ACTOR FrostAmmo : Ammo 23003 //requires Caleb replacement codewise yet
 	}
 }
 
+ACTOR BigFrostAmmo : FrostAmmo 23004
+{
+	//$Title "Frostgun Big Ammo"
+	Inventory.Amount 100
+	Inventory.PickupMessage "$FROSTB"
+	Scale 2.0
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
+	BaseSpawn:
+		FROP DDAABBCC 4
+		Loop
+	ModelSpawn:
+		UNKN A -1
+		Stop
+	}
+}
+
 ACTOR --------TESLACANNON------------ {}
 ACTOR TeslaCannon_ : BlooMW 19075
 {
