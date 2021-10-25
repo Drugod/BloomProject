@@ -1173,7 +1173,8 @@ ACTOR BigAlga : Bloom_Flora3 3285
 ACTOR Bush1 : Bloom_Flora2 3230
 {
 	//$Title Bush 1
-	Height 32
+	Height 8
+	//Height 32	
 	Scale 0.7
 	RenderStyle Translucent
 	Alpha 0.7
@@ -1265,7 +1266,8 @@ ACTOR Bush1NoGrav : Bloom_Flora2NoGrav 19129
 ACTOR Bush2 : Bloom_Flora2 3255
 {
 	//$Title Bush 2
-	Height 40
+	Height 8	
+	//Height 40
 	Scale 0.7
 	RenderStyle Translucent
 	Alpha 0.7
@@ -1357,7 +1359,8 @@ ACTOR Bush2NoGrav : Bloom_Flora2NoGrav 19130
 ACTOR Bush3 : Bloom_Flora2 3256
 {
 	//$Title Bush 3
-	Height 32
+	//Height 32
+	Height 8		
 	Scale 0.7
 	RenderStyle Translucent
 	Alpha 0.7
