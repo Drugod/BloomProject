@@ -2190,6 +2190,14 @@ Model FrostAmmo
    FrameIndex UNKN A 0 0
 }
 
+Model BigFrostAmmo
+{
+   Path "Models/Bloom/"
+   Model 0 "teslagun.md2"
+   Scale 0.2 0.2 0.2
+   FrameIndex UNKN A 0 0
+}
+
 Model TeslaCannon_
 {
    Path "Models/Bloom/"
