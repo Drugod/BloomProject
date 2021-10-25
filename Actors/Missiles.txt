@@ -30,7 +30,6 @@ ACTOR FrostPlasma
 	Decal DoomImpScorch
 	Projectile
 	+RANDOMIZE
-	+ZDOOMTRANS
 	RenderStyle Add
 	Alpha 0.75
 	SeeSound "king/iceshot"
