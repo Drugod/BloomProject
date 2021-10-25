@@ -4930,8 +4930,21 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
 		TNT1 A 0 A_LoopActiveSound
 		TNT1 A 0 A_JumpIfTargetInLos(2, 160)
+		RATW A 1 A_Jump(150,1)
+		Goto StupidMode
 		TNT1 A 0
 		Loop
+	StupidMode:
+		RATW AAAABBBBCCCC 1 A_Wander
+		TNT1 A 0 A_Look //Balance regain
+		RATW CCCCCC 1 A_Wander
+		TNT1 A 0 A_Look
+		RATW DDDDD 1 A_Wander		
+		TNT1 A 0 A_Jump(150,2)
+		TNT1 A 0 A_ClearTarget
+		Goto Spawn
+		TNT1 A 0		
+		Loop			
 	See2:
 		TNT1 A 0
 		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
@@ -4958,6 +4971,9 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
 		RATW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
 		TNT1 A 0 A_LoopActiveSound
+		RATW A 1 A_Jump(150,1)
+		Goto StupidMode
+		TNT1 A 0		
 		Goto See
 	Wander:
 		TNT1 A 0
@@ -5029,8 +5045,21 @@ ACTOR BloodRatBlack : BloodRat 19066
 		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
 		TNT1 A 0 A_LoopActiveSound
 		TNT1 A 0 A_JumpIfTargetInLos(2, 160)
+		RABW A 1 A_Jump(150,1)
+		Goto StupidMode
 		TNT1 A 0
 		Loop
+	StupidMode:
+		RABW AAAABBBBCCCC 1 A_Wander
+		TNT1 A 0 A_Look //Balance regain
+		RABW CCCCCC 1 A_Wander
+		TNT1 A 0 A_Look
+		RABW DDDDD 1 A_Wander		
+		TNT1 A 0 A_Jump(150,2)
+		TNT1 A 0 A_ClearTarget
+		Goto Spawn
+		TNT1 A 0		
+		Loop	
 	See2:
 		TNT1 A 0
 		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
@@ -5057,6 +5086,9 @@ ACTOR BloodRatBlack : BloodRat 19066
 		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
 		RABW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
 		TNT1 A 0 A_LoopActiveSound
+		RABW A 1 A_Jump(150,1)
+		Goto StupidMode
+		TNT1 A 0		
 		Goto See
 	Wander:
 		TNT1 A 0
@@ -5126,7 +5158,20 @@ ACTOR BloodRatGrey : BloodRat 19067
 		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
 		TNT1 A 0 A_LoopActiveSound
 		TNT1 A 0 A_JumpIfTargetInLos(2, 160)
+		RAGW A 1 A_Jump(150,1)
+		Goto StupidMode
 		TNT1 A 0
+		Loop
+	StupidMode:
+		RAGW AAAABBBBCCCC 1 A_Wander
+		TNT1 A 0 A_Look //Balance regain
+		RAGW CCCCCC 1 A_Wander
+		TNT1 A 0 A_Look
+		RAGW DDDDD 1 A_Wander		
+		TNT1 A 0 A_Jump(150,2)
+		TNT1 A 0 A_ClearTarget
+		Goto Spawn
+		TNT1 A 0		
 		Loop
 	See2:
 		TNT1 A 0
@@ -5154,6 +5199,9 @@ ACTOR BloodRatGrey : BloodRat 19067
 		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
 		RAGW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
 		TNT1 A 0 A_LoopActiveSound
+		RAGW A 1 A_Jump(150,1)
+		Goto StupidMode
+		TNT1 A 0		
 		Goto See
 	Wander:
 		TNT1 A 0
@@ -5223,7 +5271,20 @@ ACTOR BloodRatWhite : BloodRat 19068
 		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
 		TNT1 A 0 A_LoopActiveSound
 		TNT1 A 0 A_JumpIfTargetInLos(2, 160)
+		RAWW A 1 A_Jump(150,1)
+		Goto StupidMode
 		TNT1 A 0
+		Loop
+	StupidMode:
+		RAWW AAAABBBBCCCC 1 A_Wander
+		TNT1 A 0 A_Look //Balance regain
+		RAWW CCCCCC 1 A_Wander
+		TNT1 A 0 A_Look
+		RAWW DDDDD 1 A_Wander		
+		TNT1 A 0 A_Jump(150,2)
+		TNT1 A 0 A_ClearTarget
+		Goto Spawn
+		TNT1 A 0		
 		Loop
 	See2:
 		TNT1 A 0
@@ -5251,6 +5312,9 @@ ACTOR BloodRatWhite : BloodRat 19068
 		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
 		RAWW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
 		TNT1 A 0 A_LoopActiveSound
+		RAWW A 1 A_Jump(150,1)
+		Goto StupidMode
+		TNT1 A 0		
 		Goto See
 	Wander:
 		TNT1 A 0
