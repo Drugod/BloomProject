@@ -4895,6 +4895,8 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 	MaxStepHeight 9
 	+FLOORCLIP
 	-CANUSEWALLS
+	+THRUSPECIES
+	+THRUACTORS
 	Obituary "$OB_MOUS"
 	SeeSound "Ratsee"
 	PainSound "RatPain"
@@ -4910,7 +4912,7 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 	States
 	{
 	Spawn:
-		RATW A 1 A_Look
+		RATW A Random(1,10) A_Look
 		Loop
 	See.Flee:
 		RATW A 0 A_ChangeFlag("FRIGHTENED", TRUE)
