@@ -2028,6 +2028,29 @@ Object BurnDeathBBT
     frame FGUYS { light BURNRUN3 }
 }
 
+Object BurnDeathMoron
+{
+    frame FGUYA { light BURNRUN }
+    frame FGUYB { light BURNRUN }
+    frame FGUYC { light BURNRUN }
+    frame FGUYD { light BURNRUN }
+    frame FGUYE { light BURNRUN }
+    frame FGUYF { light BURNRUN }
+    frame FGUYG { light BURNRUN }
+    frame FGUYH { light BURNRUN }
+    frame FGUYI { light BURNRUN }
+    frame FGUYJ { light BURNRUN }
+    frame FGUYK { light BURNRUN }
+    frame FGUYL { light BURNRUN2 }
+    frame FGUYM { light BURNRUN2 }
+    frame FGUYN { light BURNRUN2 }
+    frame FGUYO { light BURNRUN2 }
+    frame FGUYP { light BURNRUN2 }
+    frame FGUYQ { light BURNRUN3 }
+    frame FGUYR { light BURNRUN3 }
+    frame FGUYS { light BURNRUN3 }
+}
+
 Object BurnDeathZombie
 {
     frame FGUYA { light BURNRUN }
