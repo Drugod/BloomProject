@@ -52,13 +52,13 @@ ACTOR NashGore_BloodSpot
 		TNT1 A 0 A_Jump(192,4)
 		TNT1 A 0 A_Jump(255,4)
 		// make the blood spots stay on the ground. 1500 is the default duration.
-		BSPT A 1500
+		BSPT A 750
 		Stop
-		BSPT B 1500
+		BSPT B 750
 		Stop
-		BSPT C 1500
+		BSPT C 750
 		Stop
-		BSPT D 1500
+		BSPT D 750
 		Stop
 	Underwater:	//..so it will lag no more...
 		TNT1 A 0 A_PlaySound("bloodsplat")
@@ -67,13 +67,13 @@ ACTOR NashGore_BloodSpot
 		TNT1 A 0 A_Jump(192,4)
 		TNT1 A 0 A_Jump(255,4)
 		// now the bloodspots will remain underwater only for a short time, then vanishes
-		BSPT A 250
+		BSPT A 100
 		Stop
-		BSPT B 250
+		BSPT B 100
 		Stop
-		BSPT C 250
+		BSPT C 100
 		Stop
-		BSPT D 250
+		BSPT D 100
 		Stop
 	}
 }
@@ -102,7 +102,7 @@ ACTOR NashGore_FlyingBlood
 		// make the blood spots stay on the ground. 1500 is the default duration.
 		// Fadeout added by Zero Prophet for effect.
 	End:
-		BSPT "#" 1500
+		BSPT "#" 450
 		BSPT "#" 1 A_FadeOut(0.02)
 		Wait
 	}

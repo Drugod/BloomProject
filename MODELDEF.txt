@@ -4048,15 +4048,24 @@ Model Lavaball
 
 Model QuakeColumns
 {
-   Path "Models\Quake"
-   Model 0 "Quake.md2"
-   Skin 0 "Quake_TX.jpg"   
-   FrameIndex UNKN A 0 0
-   INHERITACTORROLL
-   INHERITACTORPITCH
-   ROTATING   
-   Scale 1.0 1.0 1.0
-} 
+	Path "Models\Quake"
+	Model 0 "Quake.md2"
+	Skin 0 "Quake_TX.jpg"
+	INHERITACTORROLL
+	INHERITACTORPITCH
+	FrameIndex UNKN A 0 1
+	FrameIndex QCOL B 0 2
+	FrameIndex QCOL C 0 3
+	FrameIndex QCOL D 0 4
+	FrameIndex QCOL E 0 5
+	FrameIndex QCOL F 0 6
+	FrameIndex QCOL G 0 7
+	FrameIndex QCOL H 0 8
+	FrameIndex QCOL I 0 9
+	FrameIndex QCOL J 0 10
+	FrameIndex QCOL K 0 11
+	FrameIndex QCOL L 0 12
+}
 
 //3d Torch
 Model FlameQuake

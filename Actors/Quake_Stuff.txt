@@ -38,6 +38,7 @@ Actor ChtonBloom 3405
 	+MISSILEMORE
 	+NOBLOODDECALS
 	+NOBLOOD
+	+NOICEDEATH
 	SeeSound "Chton/Walk"
 	ActiveSound "Chton/Rise"
 	PainSound "Chton/Pain"
@@ -145,19 +146,21 @@ ACTOR FlameQuake 3406
 	}
 }
 
-ACTOR QuakeColumns 3407
+ACTOR QuakeColumns : SwitchingDecoration 3407
 {
 	//$Category "Quake Stuff"
-	//$Title Columns Of Chton
+	//$Title Columns Of Chton (Activateable)
 	//$Color 13
-	Radius 11
+	Radius 32
 	Height 8
 	+NOGRAVITY
 	States
 	{
 	Spawn:
-		TNT1 A 0
 		UNKN A -1
+		Stop
+	Active:
+		QCOL BCDEFGHIJKL 16 A_Quake(96,35*4,0,2048)
 		Stop
 	}
 }
