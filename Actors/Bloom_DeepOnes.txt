@@ -603,7 +603,7 @@ ACTOR DeepOneTri : DeepOne_Base 19054
 	Obituary "$OB_DTRI"
 	DropItem "GrenadeAmmo" 32
 	DropItem "HappyBundle" 32
-	DropItem "Frostgun_" 32
+	DropItem "Frostgun_" 100
 	DropItem "FrostAmmo" 64
 	States
 	{

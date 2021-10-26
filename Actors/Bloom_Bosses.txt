@@ -1240,8 +1240,8 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 	Height 96
 	Mass 100
 	PainChance 32
-	DropItem "FlameBigGas" 128
-	DropItem "FlameThrower_" 128
+	DropItem "FlameGas"
+	DropItem "FlameThrower_"
 	States
 	{
 	Spawn:

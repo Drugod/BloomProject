@@ -1114,8 +1114,8 @@ ACTOR Fatso_ : DoomEnemy_Base 19006
 	DeathSound "fatso/death"
 	ActiveSound "fatso/active"
 	Obituary "$OB_FATSO"
-	DropItem "FlameBigGas" 32
-	DropItem "FlameThrower_" 8
+	DropItem "FlameGas"
+	DropItem "FlameThrower_" 32
 	Species "Fatties"
 	States
 	{
@@ -1376,8 +1376,8 @@ ACTOR Archvile_ : DoomEnemy_Base 19038
 	ActiveSound "vile/active"
 	MeleeSound "vile/Stop"
 	Obituary "$OB_VILE"
-	DropItem "FlameBigGas" 32
-	DropItem "FlameThrower_" 8
+	DropItem "FlameGas"
+	DropItem "FlameThrower_" 32
 	Species "Archies"
 	States
 	{

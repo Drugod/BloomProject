@@ -41,8 +41,7 @@ ACTOR Gargovile : BloomHybrid_Base 19040
 	ActiveSound "vile/active"
 	MeleeSound "vile/Stop"
 	Obituary "$OB_GAVILE"
-	DropItem "FlameBigGas" 32
-	DropItem "FlameThrower_" 8
+	DropItem "FlameGas" 32
 	Species "Archies"
 	States
 	{

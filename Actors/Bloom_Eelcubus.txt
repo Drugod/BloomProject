@@ -43,8 +43,7 @@ ACTOR Eelcubus_Base
 	PainSound "fatso/pain"
 	DeathSound "fatso/death"
 	ActiveSound "fatso/active"
-	DropItem "FlameBigGas" 32
-	DropItem "FlameThrower_" 8
+	DropItem "FlameGas" 32 
 	Species "Fatties"
 	States
 	{
