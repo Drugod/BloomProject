@@ -112,4 +112,4 @@ FROPC="FROPA" {Scale = 0.45}
 FROPD="FROPA" {Scale = 0.45}
 FROSA="FROSA" {Spin = 50}
 PMAWA="PMAWA" {Spin = 50}
-//TEDWA="TEDWA" {Spin = 50} //TeslaCannon_
+TEDWA="TEDWA" {Spin = 50}

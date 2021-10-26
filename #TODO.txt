@@ -3,14 +3,12 @@ For Rolls:
 - add crouch frames for Caleb and swimming frames for both classes
 - add pickup sprites for GrenadeBox plus voxel and 3d model
 - add swimming frames and underwater attack frames to Doom humans enemies
-- add voxel for TeslaCannon
 
 For Drugod:
-- Changes on credits:
-	- Add NHT to the menu credits in the music
-	- Change from Rolls to Rolls3D in the menu credits
-	- Changes from 3Drolls to Rolls3D in the ending credits
-- Make that the statusbar of the player dissapear once you defeat the final boss, to it don´t appear during the ending screen and final credits
+- Add NHT to the menu credits in the music
+- Change from Rolls to Rolls3D in the menu credits
+- Changes from 3Drolls to Rolls3D in the ending credits
+- Make that the statusbar of the player disappear once you defeat the final boss, so it doesn't appear during the ending screen and final credits
 
 For All:
 - add dropitem new ammo for flamethrower (fire cultimp) and the flamerthrower (mancubus/hybrids)

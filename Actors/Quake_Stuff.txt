@@ -27,7 +27,7 @@ Actor ChtonBloom 3405
 	//$Title Chton
 	//$Color 13
 	Height 128
-	Radius 96
+	Radius 72
 	Health 10000
 	PainChance 2
 	Speed 1
