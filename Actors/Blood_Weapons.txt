@@ -2050,7 +2050,7 @@ ACTOR Spraycan : CalebW
 	Weapon.Kickback 0
 	Weapon.AmmoType "SprayCanister"
 	Weapon.AmmoUse 1
-	Weapon.AmmoGive 0
+	Weapon.AmmoGive 64
 	Weapon.AmmoType2 "SprayCanister"
 	Weapon.AmmoUse2 48
 	Obituary "$OB_SCAN"

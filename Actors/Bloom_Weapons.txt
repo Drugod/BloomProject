@@ -396,11 +396,11 @@ ACTOR Frostgun_ : BlooMW 19076
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
 		FROS A 1
-		FROS A -1 A_SpawnItemEx("TeslaRifle",0,0,0)
+		FROS A -1 A_SpawnItemEx("VoodooDoll",0,0,0)
 		Stop
 	ModelSpawn:
 		UNKN A 1
-		UNKN A -1 A_SpawnItemEx("TeslaRifle",0,0,0)
+		UNKN A -1 A_SpawnItemEx("VoodooDoll",0,0,0)
 		Stop
 	Ready:
 		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")
@@ -460,6 +460,9 @@ ACTOR FrostAmmo : Ammo 23003 //requires Caleb replacement codewise yet
 	//$Category "BlooM Ammunitions"
 	//$Title "Frostgun Ammo"
 	//$Sprite FROPA0
+    +INVENTORY.RESTRICTABSOLUTELY	
+	VisibleToPlayerClass "DoomDude"
+    Inventory.ForbiddenTo "Caleb"
 	Inventory.Amount 20
 	Inventory.MaxAmount 300
 	Ammo.BackpackAmount 20
@@ -471,11 +474,13 @@ ACTOR FrostAmmo : Ammo 23003 //requires Caleb replacement codewise yet
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
+		FROP D 1 A_SpawnItemEx("VoodooDollPickup",0,0,0)	
 		FROP DDAABBCC 4
-		Loop
+		Goto BaseSpawn+1 
 	ModelSpawn:
-		UNKN A -1
-		Stop
+		UNKN A 1
+		UNKN A -1 A_SpawnItemEx("VoodooDollPickup",0,0,0)
+		Stop		
 	}
 }
 
@@ -490,10 +495,12 @@ ACTOR BigFrostAmmo : FrostAmmo 23004
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
-		FROP DDAABBCC 4
-		Loop
+		FROP D 1
+		FROP D -1 A_SpawnItemEx("VoodooDollPickup",0,0,0)
+		Stop
 	ModelSpawn:
-		UNKN A -1
+		UNKN A 1
+		UNKN A -1 A_SpawnItemEx("VoodooDollPickup",0,0,0)
 		Stop
 	}
 }
@@ -519,11 +526,11 @@ ACTOR TeslaCannon_ : BlooMW 19075
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
 		TEDW A 1
-		TEDW A -1 A_SpawnItemEx("TeslaRifle",0,0,0)
+		TEDW A -1 A_SpawnItemEx("LifeLeech",0,0,0)
 		Stop
 	ModelSpawn:
 		UNKN A 1
-		UNKN A -1 A_SpawnItemEx("TeslaRifle",0,0,0)
+		UNKN A -1 A_SpawnItemEx("LifeLeech",0,0,0)
 		Stop
 	Ready:
 		TNT1 A 0
