@@ -537,13 +537,10 @@ ACTOR TeslaCharge : Ammo 12002
 	Radius 20
 	Scale 0.3
 	+IGNORESKILL
-	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.PickupMessage "$TESCHA"
 	Inventory.PickupSound "DSAMMOUP"
 	Inventory.Amount 20
 	Inventory.MaxAmount 300
-	Inventory.RestrictedTo "Caleb"
-	VisibleToPlayerClass "Caleb"
 	Ammo.BackpackAmount 20
 	Ammo.BackpackMaxAmount 600
 	States
