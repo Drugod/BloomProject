@@ -526,11 +526,11 @@ ACTOR TeslaCannon_ : BlooMW 19075
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
 		TEDW A 1
-		TEDW A -1 A_SpawnItemEx("LifeLeech",0,0,0)
+		TEDW A -1 A_SpawnItemEx("TeslaRifle",0,0,0)
 		Stop
 	ModelSpawn:
 		UNKN A 1
-		UNKN A -1 A_SpawnItemEx("LifeLeech",0,0,0)
+		UNKN A -1 A_SpawnItemEx("TeslaRifle",0,0,0)
 		Stop
 	Ready:
 		TNT1 A 0

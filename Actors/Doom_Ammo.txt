@@ -96,11 +96,11 @@ ACTOR Cell_ : Cell 19078
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
 		CELL A 1
-		CELL A -1 A_SpawnItemEx("TeslaCharge",0,0,0)
+		CELL A -1 A_SpawnItemEx("EssencePower",0,0,0)
 		Stop
 	ModelSpawn:
 		UNKN A 1
-		UNKN A -1 A_SpawnItemEx("TeslaCharge",0,0,0)
+		UNKN A -1 A_SpawnItemEx("EssencePower",0,0,0)
 		Stop
 	}
 }
@@ -117,11 +117,11 @@ ACTOR CellPack_ : Cell_ 19079
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
 		CELP A 1
-		CELP A -1 A_SpawnItemEx("TeslaChargeBox",0,0,0)
+		CELP A -1 A_SpawnItemEx("EssencePower",0,0,0)
 		Stop
 	ModelSpawn:
 		UNKN A 1
-		UNKN A -1 A_SpawnItemEx("TeslaChargeBox",0,0,0)
+		UNKN A -1 A_SpawnItemEx("EssencePower",0,0,0)
 		Stop
 	}
 }
