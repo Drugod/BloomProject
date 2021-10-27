@@ -1017,6 +1017,16 @@ Brightmap sprite BKR4J0		{map "Brightmaps/BKR4J0.png"}
 Brightmap sprite BKR4K0		{map "Brightmaps/BKR4K0.png"}
 
 //Deaths - Shock
+Brightmap sprite BBU2A1 	{map "Brightmaps/BBU2A1.png"}
+Brightmap sprite BBU2A5 	{map "Brightmaps/BBU2A5.png"}
+Brightmap sprite BBU2A6A4 	{map "Brightmaps/BBU2A6A4.png"}
+Brightmap sprite BBU2A7A3 	{map "Brightmaps/BBU2A7A3.png"}
+Brightmap sprite BBU2A8A2 	{map "Brightmaps/BBU2A8A2.png"}
+Brightmap sprite BBUHA1 	{map "Brightmaps/BBUHA1.png"}
+Brightmap sprite BBUHA5 	{map "Brightmaps/BBUHA5.png"}
+Brightmap sprite BBUHA6A4 	{map "Brightmaps/BBUHA6A4.png"}
+Brightmap sprite BBUHA7A3 	{map "Brightmaps/BBUHA7A3.png"}
+Brightmap sprite BBUHA8A2 	{map "Brightmaps/BBUHA8A2.png"}
 Brightmap sprite BBUZA1 	{map "Brightmaps/BBUZA1.png"}
 Brightmap sprite BBUZA5 	{map "Brightmaps/BBUZA5.png"}
 Brightmap sprite BBUZA6A4 	{map "Brightmaps/BBUZA6A4.png"}
@@ -1032,6 +1042,11 @@ Brightmap sprite BEASA5 	{map "Brightmaps/BEASA5.png"}
 Brightmap sprite BEASA6A4 	{map "Brightmaps/BEASA6A4.png"}
 Brightmap sprite BEASA7A3 	{map "Brightmaps/BEASA7A3.png"}
 Brightmap sprite BEASA8A2 	{map "Brightmaps/BEASA8A2.png"}
+Brightmap sprite BEAZA1 	{map "Brightmaps/BEAZA1.png"}
+Brightmap sprite BEAZA5 	{map "Brightmaps/BEAZA5.png"}
+Brightmap sprite BEAZA6A4 	{map "Brightmaps/BEAZA6A4.png"}
+Brightmap sprite BEAZA7A3 	{map "Brightmaps/BEAZA7A3.png"}
+Brightmap sprite BEAZA8A2 	{map "Brightmaps/BEAZA8A2.png"}
 Brightmap sprite BOSZA1 	{map "Brightmaps/BOSZA1.png"}
 Brightmap sprite BOSZA5 	{map "Brightmaps/BOSZA5.png"}
 Brightmap sprite BOSZA6A4 	{map "Brightmaps/BOSZA6A4.png"}
