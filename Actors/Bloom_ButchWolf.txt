@@ -260,8 +260,8 @@ ACTOR HellButcher : WereWolfOfHellAlt
 	PainSound "ButcherPain"
 	DeathSound "ButcherDeath"
 	ActiveSound "ButcherAct"
-	HitObituary "$OB_KNIGHTHIT"
-	Obituary "$OB_KNIGHT"
+	HitObituary "$OB_HLBTCHHIT"
+	Obituary "$OB_HLBTCH"
 	Species "Bruisers"
 	Scale 1.0
 	States

@@ -248,6 +248,8 @@ OB_ROMTRON = "%o is happy to have been killed by the almighty RomeroTron.";
 OB_SLOTH = "%o has died laughing.";
 OB_SPEHOU = "%o was eaten by a SpectreHound.";
 OB_SMSTMD = "%o will feed the breed";
+OB_HLBTCH = "%o gets killed by a Butcher from Hell";
+OB_HLBTCHHIT = "%o gets killed by a Butcher from Hell's scratch";
 
 //OBITUARIES - MISC
 OB_BBARL = "%o went boom.";

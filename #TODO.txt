@@ -38,9 +38,6 @@ Minor things:
 - Test BlooM under GLesZDoom, QZDoom and LZDoom
 
 Rolls findings (taken from the pdf):
-- I Have Seen That Some Monsters Have Correct Obituary, But Others Do Not.
-For Example The Butcher From Hell Has Hell Knight In It.
-
 - I'm Not 100% Sure About This, But I Could Swear That The Gillcubus When Swimming
 They Shoot The Normal Projectile And Not The Eel Projectile. It Was A Very Fast
 Very Fast And I'm Not Sure
