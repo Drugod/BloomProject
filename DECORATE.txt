@@ -1,6 +1,7 @@
 Const Int BLM_FLAGS1 = SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288; //still can't find the exact flag combo, it's 32+256 but exists only 28
 Const Int BLM_FLAGS2 = SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL;
 Const Int BLM_FLAGS3 = SXF_SETMASTER | SXF_NOCHECKPOSITION;
+Const Int BLM_FLAGS4 = SXF_SETMASTER | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL;
 
 #include Actors/Shared.txt //load this always first! It must NOT contain anything that has a DoomEdNum defined - ozy81
 #include Actors/Counters.txt //and this as second! - ozy81

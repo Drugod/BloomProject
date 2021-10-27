@@ -46,11 +46,11 @@ ACTOR RatDemon_Brown : BloomHybrid_Base 19059
 	{
 	Spawn: //we can't use BloodRatSpawner since it becomes impossible to transfer properly the Master - ozy81
 		TNT1 A 0
-		TNT1 A 0 A_SpawnItemEx("BloodRatBlack",-15.0,15.0,0,0,0,0,0,SXF_SETMASTER)
-		TNT1 A 0 A_SpawnItemEx("BloodRatGrey",15.0,15.0,0,0,0,0,0,SXF_SETMASTER)
-		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",-15.0,-15.0,0,0,0,0,0,SXF_SETMASTER)
-		TNT1 A 0 A_SpawnItemEx("BloodRat",15.0,-15.0,0,0,0,0,0,SXF_SETMASTER) //two normal rats since it is brown
-		TNT1 A 0 A_SpawnItemEx("BloodRat",0.0,0.0,0,0,0,0,0,SXF_SETMASTER)
+		TNT1 A 0 A_SpawnItemEx("BloodRatBlack",-15.0,15.0,0,0,0,0,0,BLM_FLAGS4)
+		TNT1 A 0 A_SpawnItemEx("BloodRatGrey",15.0,15.0,0,0,0,0,0,BLM_FLAGS4)
+		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",-15.0,-15.0,0,0,0,0,0,BLM_FLAGS4)
+		TNT1 A 0 A_SpawnItemEx("BloodRat",15.0,-15.0,0,0,0,0,0,BLM_FLAGS4) //two normal rats since it is brown
+		TNT1 A 0 A_SpawnItemEx("BloodRat",0.0,0.0,0,0,0,0,0,BLM_FLAGS4)
 	Spawn2:
 		RATA AB 10 A_Look
 		Loop
@@ -115,11 +115,11 @@ ACTOR RatDemon_Grey : RatDemon_Brown 19062
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_SpawnItemEx("BloodRatBlack",-15.0,15.0,0,0,0,0,0,SXF_SETMASTER)
-		TNT1 A 0 A_SpawnItemEx("BloodRatGrey",15.0,15.0,0,0,0,0,0,SXF_SETMASTER)
-		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",-15.0,-15.0,0,0,0,0,0,SXF_SETMASTER)
-		TNT1 A 0 A_SpawnItemEx("BloodRatGrey",15.0,-15.0,0,0,0,0,0,SXF_SETMASTER) //two greys
-		TNT1 A 0 A_SpawnItemEx("BloodRat",0.0,0.0,0,0,0,0,0,SXF_SETMASTER)
+		TNT1 A 0 A_SpawnItemEx("BloodRatBlack",-15.0,15.0,0,0,0,0,0,BLM_FLAGS4)
+		TNT1 A 0 A_SpawnItemEx("BloodRatGrey",15.0,15.0,0,0,0,0,0,BLM_FLAGS4)
+		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",-15.0,-15.0,0,0,0,0,0,BLM_FLAGS4)
+		TNT1 A 0 A_SpawnItemEx("BloodRatGrey",15.0,-15.0,0,0,0,0,0,BLM_FLAGS4) //two greys
+		TNT1 A 0 A_SpawnItemEx("BloodRat",0.0,0.0,0,0,0,0,0,BLM_FLAGS4)
 	Spawn2:
 		RATG AB 10 A_Look
 		Loop
@@ -184,11 +184,11 @@ ACTOR RatDemon_Black : RatDemon_Brown 19063
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_SpawnItemEx("BloodRatBlack",-15.0,15.0,0,0,0,0,0,SXF_SETMASTER)
-		TNT1 A 0 A_SpawnItemEx("BloodRatGrey",15.0,15.0,0,0,0,0,0,SXF_SETMASTER)
-		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",-15.0,-15.0,0,0,0,0,0,SXF_SETMASTER)
-		TNT1 A 0 A_SpawnItemEx("BloodRatBlack",15.0,-15.0,0,0,0,0,0,SXF_SETMASTER) //two blacks
-		TNT1 A 0 A_SpawnItemEx("BloodRat",0.0,0.0,0,0,0,0,0,SXF_SETMASTER)
+		TNT1 A 0 A_SpawnItemEx("BloodRatBlack",-15.0,15.0,0,0,0,0,0,BLM_FLAGS4)
+		TNT1 A 0 A_SpawnItemEx("BloodRatGrey",15.0,15.0,0,0,0,0,0,BLM_FLAGS4)
+		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",-15.0,-15.0,0,0,0,0,0,BLM_FLAGS4)
+		TNT1 A 0 A_SpawnItemEx("BloodRatBlack",15.0,-15.0,0,0,0,0,0,BLM_FLAGS4) //two blacks
+		TNT1 A 0 A_SpawnItemEx("BloodRat",0.0,0.0,0,0,0,0,0,BLM_FLAGS4)
 	Spawn2:
 		RATB AB 10 A_Look
 		Loop
@@ -253,11 +253,11 @@ ACTOR RatDemon_White : RatDemon_Brown 19064
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_SpawnItemEx("BloodRatBlack",-15.0,15.0,0,0,0,0,0,SXF_SETMASTER)
-		TNT1 A 0 A_SpawnItemEx("BloodRatGrey",15.0,15.0,0,0,0,0,0,SXF_SETMASTER)
-		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",-15.0,-15.0,0,0,0,0,0,SXF_SETMASTER)
-		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",15.0,-15.0,0,0,0,0,0,SXF_SETMASTER) //two whites
-		TNT1 A 0 A_SpawnItemEx("BloodRat",0.0,0.0,0,0,0,0,0,SXF_SETMASTER)
+		TNT1 A 0 A_SpawnItemEx("BloodRatBlack",-15.0,15.0,0,0,0,0,0,BLM_FLAGS4)
+		TNT1 A 0 A_SpawnItemEx("BloodRatGrey",15.0,15.0,0,0,0,0,0,BLM_FLAGS4)
+		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",-15.0,-15.0,0,0,0,0,0,BLM_FLAGS4)
+		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",15.0,-15.0,0,0,0,0,0,BLM_FLAGS4) //two whites
+		TNT1 A 0 A_SpawnItemEx("BloodRat",0.0,0.0,0,0,0,0,0,BLM_FLAGS4)
 	Spawn2:
 		R2TW AB 10 A_Look
 		Loop

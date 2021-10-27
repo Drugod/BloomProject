@@ -38,11 +38,4 @@ Minor things:
 - Test BlooM under GLesZDoom, QZDoom and LZDoom
 
 Rolls findings (taken from the pdf):
-- I'm Not 100% Sure About This, But I Could Swear That The Gillcubus When Swimming
-They Shoot The Normal Projectile And Not The Eel Projectile. It Was A Very Fast
-Very Fast And I'm Not Sure
-
-- The Rat Demons Have The Same Sound As The Rat, I Would Put Them With That Sound But More Serious, Because It's Weird That Being So Big They Scream In Such A
-So Sharp
-
 - It Would Be Cool To Hear Screaming When The Train Runs Over People
