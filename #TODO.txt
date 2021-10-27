@@ -38,11 +38,6 @@ Minor things:
 - Test BlooM under GLesZDoom, QZDoom and LZDoom
 
 Rolls findings (taken from the pdf):
-- I Don't Know If It's Intentional, But The Explosions Of The Dynamite When Thrown By The Possessed Cultists Is Quite Transparent, Not Like The Others.
-
-- Is There Any Way To Say In Pk3 That If You Play In Gzdoom The Antialiasing Is Removed? By Definition
-None The Game Looks 5000 Times Better
-
 - I Have Seen That Some Monsters Have Correct Obituary, But Others Do Not.
 For Example The Butcher From Hell Has Hell Knight In It.
 
@@ -50,19 +45,7 @@ For Example The Butcher From Hell Has Hell Knight In It.
 They Shoot The Normal Projectile And Not The Eel Projectile. It Was A Very Fast
 Very Fast And I'm Not Sure
 
-- The Blood Keeps Flying Weirdly Underwater.
-
 - The Rat Demons Have The Same Sound As The Rat, I Would Put Them With That Sound But More Serious, Because It's Weird That Being So Big They Scream In Such A
 So Sharp
 
-- The Radius Of The Proximity Bombs Is Maybe Too Small, Sometimes I Throw Them, The Enemy Passes Very Close And They Don't Explode Unless You're On Them.
-
-- Something Super Weird Happens With The Butcher From Hell, When You Shoot At It With The
-Tesla Cannon It Gets Electrocuted Like A Werewolf And Transforms Into A Werewolf
-Briefly, He Attacks With The Stomp And Transforms Back Into Butcher From Hell
-
 - It Would Be Cool To Hear Screaming When The Train Runs Over People
-
-- If You Shoot The Houndknight From Hell With The Tesla He Transforms Into A Werewolf For A While, And
-If You Kill Him With The Tesla He Dies As If He Was A Werewolf, Just Like The
-Werewolf, Just Like What Happened To The Butcher From Hell.

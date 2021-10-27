@@ -1170,6 +1170,7 @@ ACTOR ProximityDynamite : CalebW
 	//$Sprite PROXA0
 	Tag "Proximity Dynamite"
 	Height 16
+	Radius 32
 	Scale 0.646
 	Inventory.PickupMessage "$PROXPICK"
 	Inventory.PickupSound "PICKWEAP"
