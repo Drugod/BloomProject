@@ -231,7 +231,6 @@ ACTOR WereWolfOfHell : WereWolfOfHellAlt
 }
 
 ACTOR ----------HELLBUTCHER---------- {}
-
 ACTOR HellButcherSpawner 19042
 {
 	//$Category BlooM Monsters
@@ -291,6 +290,17 @@ ACTOR HellButcher : WereWolfOfHellAlt
 		FAUN G 2
 		FAUN G 2 A_Pain
 		Goto See
+	Pain.Shock:
+		FAUN A 0 A_ClearTarget
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		Goto See
 	Death:
 		FAUD AB 8
 		FAUD CD 8 A_Scream
@@ -299,6 +309,14 @@ ACTOR HellButcher : WereWolfOfHellAlt
 		FAUD IJK 8
 		FAUD L -1
 		Stop
+	Death.Shock:
+		FAUN A 0 A_ClearTarget
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		Goto XDeath+1
 	XDeath:
 		FAUN L 3
 		TNT1 A 0 A_SpawnDebris("OrganDebris2")
@@ -373,6 +391,17 @@ ACTOR HellButcherAlt : WereWolfOfHellAlt //19047
 		F2UN G 2
 		F2UN G 2 A_Pain
 		Goto See
+	Pain.Shock:
+		F2UN A 0 A_ClearTarget
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		Goto See
 	Death:
 		F2UD AB 8
 		F2UD CD 8 A_Scream
@@ -381,6 +410,14 @@ ACTOR HellButcherAlt : WereWolfOfHellAlt //19047
 		F2UD IJK 8
 		F2UD L -1
 		Stop
+	Death.Shock:
+		F2AE A 0 A_ClearTarget
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		BBUZ A 7
+		Goto XDeath+1
 	XDeath:
 		F2AE A 3
 		TNT1 A 0 A_SpawnDebris("OrganDebris2")
@@ -532,14 +569,38 @@ ACTOR HoundKnightOfHell : WereWolfOfHellAlt 19093
 		HOMP A 2
 		HOMP A 2 A_Pain
 		Goto See
+	Pain.Shock:
+		HOMP A 0 A_PlaySound("BeastPain")
+		HOMP A 0 A_Stop
+		HOMP A 0 A_ClearTarget
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		Goto See
+	Death.Shock:
+		HOMD A 0 A_PlaySound("BeastPain")
+		HOMD A 0 A_Stop
+		HOMD A 0 A_ClearTarget
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		Goto XDeath+1
 	Death:
+		HOMD A 0
 	XDeath:
-		HOMD A  8
-		HOMD B  8 A_Scream
-		HOMD C  8
-		HOMD D  8 A_NoBlocking
+		HOMD A 8
+		HOMD B 8 A_Scream
+		HOMD C 8
+		HOMD D 8 A_NoBlocking
 		HOMD EF 8
-		HOMD G -1
+		HOMD G -1 A_BossDeath
 		Stop
 	Raise:
 		HOMD G 8
