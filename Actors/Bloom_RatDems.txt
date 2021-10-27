@@ -36,10 +36,10 @@ ACTOR RatDemon_Brown : BloomHybrid_Base 19059
 	+FLOORCLIP
 	+JUMPDOWN
 	+THRUSPECIES
-	SeeSound "Ratsee"
-	PainSound "RatPain"
-	DeathSound "Ratdie"
-	ActiveSound "Ratsee"
+	SeeSound "Satsee"
+	PainSound "SatPain"
+	DeathSound "Satdie"
+	ActiveSound "Satsee"
 	Obituary "$OB_RATDEM"
 	Species "Nuisance"
 	States

@@ -712,6 +712,14 @@ RatDie3				RATDIE3
 $Random RatDie { RatDie1 RatDie2 RatDie3 }
 RatBite				dsdolstb
 
+//DEMON RATS
+SatSee				SATSEE
+SatPain				SATPAIN
+SatDie1				SATDIE1
+SatDie2				SATDIE2
+SatDie3				SATDIE3
+$Random SatDie { SatDie1 SatDie2 SatDie3 }
+
 //CERBERUS
 CerberusSee			CERBSEE
 $RollOff CerberusSee 3000 9600
