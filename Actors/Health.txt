@@ -119,7 +119,7 @@ ACTOR HeartHealth : Health 3162
 	Height 16
 	Scale 0.75
 	Inventory.PickupMessage "$LIFEH"
-	Inventory.PickupSound "items/heartpick"
+	Inventory.PickupSound "items/heartpickup"
 	Inventory.Amount 20
 	Inventory.MaxAmount 100
 	+CANNOTPUSH

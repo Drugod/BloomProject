@@ -2304,6 +2304,61 @@ Object HeartHealth
     frame BHRT { light HEARTPOTION }
 }
 
+Object HeartHealth2
+{
+    frame BHRT { light HEARTPOTION }
+}
+
+Object HeartHealth3
+{
+    frame BHRT { light HEARTPOTION }
+}
+
+Object HeartHealth4
+{
+    frame BHRT { light HEARTPOTION }
+}
+
+Object HeartHealth5
+{
+    frame BHRT { light HEARTPOTION }
+}
+
+Object HeartHealth6
+{
+    frame BHRT { light HEARTPOTION }
+}
+
+Object HeartHealth7
+{
+    frame BHRT { light HEARTPOTION }
+}
+
+Object HeartHealth8
+{
+    frame BHRT { light HEARTPOTION }
+}
+
+Object HeartHealth9
+{
+    frame BHRT { light HEARTPOTION }
+}
+
+Object HeartHealth10
+{
+    frame BHRT { light HEARTPOTION }
+}
+
+Object HeartHealth11
+{
+    frame BHRT { light HEARTPOTION }
+}
+
+Object HeartHealth12
+{
+    frame BHRT { light HEARTPOTION }
+}
+ 
 FlickerLight FLARBIG_X1
 {
     Color 0.9 0.6 0.0
