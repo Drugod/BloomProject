@@ -949,6 +949,7 @@ ACTOR FireTrap1 : SwitchableDecoration 18343
 	Spawn:
 	Active:
 		UNKN ABCDEF 5
+		TNT1 A 0 A_PlaySound("Spray/Alt")
 		UNKN F 5 A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
 		UNKN F 5 A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
 		UNKN F 5 A_SpawnItemEx ("SprayCanFire", 8.0, 0, 15.0, 7.0, 0, 0, 0+frandom(-1,1))
