@@ -60,7 +60,7 @@ ACTOR LifeSeed : Health 3165
 	Inventory.Amount 100
 	Inventory.MaxAmount 200
 	Inventory.PickupMessage "$SEED"
-	Inventory.PickupSound "items/heartpick"
+	Inventory.PickupSound "items/heartpickup"
 	States
 	{
 	Spawn:

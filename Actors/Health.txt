@@ -77,7 +77,7 @@ ACTOR LifeLeechHealth : Health 3163
 	Height 16
 	Scale 0.75
 	Inventory.PickupMessage "$LIFEH"
-	Inventory.PickupSound "items/heartpick"
+	Inventory.PickupSound "items/heartpickup"
 	Inventory.Amount 50
 	Inventory.MaxAmount 100
 	+CANNOTPUSH
@@ -98,7 +98,7 @@ ACTOR PotionHealth : Health 3171
 	Height 16
 	Scale 0.75
 	Inventory.PickupMessage "$LIFEH"
-	Inventory.PickupSound "items/heartpick"
+	Inventory.PickupSound "items/heartpickup"
 	Inventory.Amount 2
 	Inventory.MaxAmount 100
 	+CANNOTPUSH
@@ -157,20 +157,4 @@ ACTOR UselessStuff : RandomSpawner
 	DropItem "HeartHealth10" 255 5
 	DropItem "HeartHealth11" 255 3
 	DropItem "HeartHealth12" 255 3
-}
-
-ACTOR MedicinePouch : Health
-{
-	Radius 20
-	Height 16
-	Inventory.PickupMessage "$MEDS"
-	Inventory.PickupSound "misc/p_pkup"
-	Inventory.Amount 50
-	+DONTSPLASH
-	States
-	{
-	Spawn:
-		BPAK A -1
-		Stop
-	}
 }
