@@ -2545,14 +2545,14 @@ ACTOR DoubleSawedoff : Sawedoff
 		TNT1 A 0 A_FireCustomMissile("ShotgunCasing",-45+frandom(-8,8),0,1,7+frandom(-2,2),0)
 		TNT1 A 0 A_FireBullets (7.6, 4.1, 10, 5, "ZBBulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,150)
-		TNT1 A 0 A_PlaySound ("DSSAWFIR")
+		TNT1 A 0 A_PlaySound ("DSSAWFIR", CHAN_WEAPON)
 		XAKF B 3 A_WeaponReady(14)
 		TNT1 A 0 A_JumpIfInventory("Shell2", 1, 1)
 		Stop
 		XAKF C 3 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_FireCustomMissile("ShotgunCasing",45+frandom(-8,8),0,-4,7+frandom(-2,2),0)
 		TNT1 A 0 A_FireBullets (7.6, 4.1, 10, 5, "ZBBulletPuff")
-		TNT1 A 0 A_PlaySound ("DSSAWFIR")
+		TNT1 A 0 A_PlaySound ("DSSAWFIR", CHAN_WEAPON)
 		XAKF EFGH 2 A_WeaponReady(14)
 		Stop
 	AltFlash:

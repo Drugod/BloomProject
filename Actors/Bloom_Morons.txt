@@ -723,6 +723,7 @@ ACTOR MoronTrap : SwitchingDecoration
 	+SHOOTABLE
 	+SOLID
 	+USESPECIAL
+	+BUDDHA
 	Activation THINGSPEC_Activate
 	States
 	{
