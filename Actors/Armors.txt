@@ -285,47 +285,57 @@ ACTOR SuperArmorPickup : CustomInventory 3161
 	}
 }
 
-ACTOR BodyArmor : Inventory
+ACTOR PowerBloomBodyArmor : PowerProtection {Powerup.Duration 0x7FFFFFF}
+ACTOR BodyArmor : PowerupGiver
 {
 	DamageFactor "Normal",0.5
 	Inventory.Amount 1
 	Inventory.MaxAmount 200
 	Inventory.PickupMessage "$BODA"
-	Renderstyle "Add"
-	+FLOATBOB
-	-INVBAR
+	+INVENTORY.AUTOACTIVATE
 	-INVENTORY.INTERHUBSTRIP
+	Powerup.Type "BloomBodyArmor"
 	States
 	{
 	Spawn:
-		XRM1 A -1
-		Stop
+		XRM1 A 1
+		Loop
 	}
 }
 
-ACTOR FireArmor : BodyArmor
+ACTOR PowerBloomFireArmor : PowerProtection {Powerup.Duration 0x7FFFFFF}
+ACTOR FireArmor : PowerupGiver
 {
 	DamageFactor "Dynamite",0.5
 	DamageFactor "Fire",0.5
 	DamageFactor "Flare",0.5
 	DamageFactor "Napalm",0.5
+	Inventory.Amount 1
+	Inventory.MaxAmount 100
 	Inventory.PickupMessage "$FIRA"
+	+INVENTORY.AUTOACTIVATE
+	Powerup.Type "BloomFireArmor"
 	States
 	{
 	Spawn:
-		ARMF A -1
-		Stop
+		ARMF A 1
+		Loop
 	}
 }
 
-ACTOR SpiritArmor : BodyArmor
+ACTOR PowerBloomSpiritArmor : PowerProtection {Powerup.Duration 0x7FFFFFF}
+ACTOR SpiritArmor : PowerupGiver
 {
 	DamageFactor "Spiritual",0.5
+	Inventory.Amount 1
+	Inventory.MaxAmount 100
 	Inventory.PickupMessage "$SPIA"
+	+INVENTORY.AUTOACTIVATE
+	Powerup.Type "BloomSpiritArmor"
 	States
 	{
 	Spawn:
-		SARM A -1
-		Stop
+		SARM A 1
+		Loop
 	}
 }

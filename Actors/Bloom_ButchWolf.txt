@@ -621,6 +621,7 @@ ACTOR HoundKnightBall
 	Speed 15
 	FastSpeed 20
 	Damage 8
+	DamageType "Fire"
 	Projectile
 	+BRIGHT
 	+RANDOMIZE
