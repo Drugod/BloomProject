@@ -3303,7 +3303,7 @@ ACTOR NapalmRocketAlt1
 	Death:
 		NAPP B 0 Radius_Quake(6,12,0,16,0)
 		NAPP A 1 BRIGHT A_Explode(100,250,1)
-		NAPP A 0 A_PlaySound("Old/DSNAPLM2")
+		NAPP A 0 A_PlaySound("LargeExplosions", CHAN_WEAPON)
 		NAPP B 0 A_SpawnItemEx("NapalmKaboom",-32,-32,0+frandom[Incinerator](-2,2),0,0,1,0,128)
 		TNT1 AA 1 A_SpawnItemEx ("NapalmRocketAlt2",frandom[Incinerator](-8,-4),frandom[Incinerator](-2,2),16,frandom[Incinerator](6,10),frandom[Incinerator](-3,3),frandom[Incinerator](3,6),frandom[Incinerator](-16,16))
 		Stop
@@ -3336,7 +3336,7 @@ ACTOR NapalmRocketAlt2 : NapalmRocketAlt1
 	Death:
 		NAPP B 0 Radius_Quake(5,12,0,16,0)
 		NAPP A 1 BRIGHT A_Explode(80,180,1)
-		NAPP A 0 A_PlaySound("Old/DSNAPLM2")
+		NAPP A 0 A_PlaySound("LargeExplosions", CHAN_WEAPON)
 		NAPP B 0 A_SpawnItem("NapalmKaboom",-32,0+frandom[Incinerator](-2,2))
 		TNT1 AAA 1 A_SpawnItemEx ("NapalmRocketAlt3",frandom[Incinerator](-8,-4),frandom[Incinerator](-2,2),16,frandom[Incinerator](6,10),frandom[Incinerator](-3,3),frandom[Incinerator](3,6),frandom[Incinerator](-16,16))
 		Stop
@@ -3368,7 +3368,7 @@ ACTOR NapalmRocketAlt3 : NapalmRocketAlt1
 	Death:
 		NAPP B 0 Radius_Quake(4,12,0,16,0)
 		NAPP A 1 BRIGHT A_Explode(70,140,1)
-		NAPP A 0 A_PlaySound("Old/DSNAPLM2")
+		NAPP A 0 A_PlaySound("LargeExplosions", CHAN_WEAPON)
 		NAPP B 0 A_SpawnItem("NapalmKaboom",0+frandom[Incinerator](-4,4),0+frandom[Incinerator](-2,2))
 		NAPP B 0 A_SpawnItemEx ("NapalmRocketAlt4",frandom[Incinerator](-8,-4),frandom[Incinerator](-2,2),16,frandom[Incinerator](6,10),frandom[Incinerator](-3,3),frandom[Incinerator](4,6),frandom[Incinerator](-16,16))
 		Stop
@@ -3403,7 +3403,7 @@ ACTOR NapalmRocketAlt4 : NapalmRocketAlt1
 	Death:
 		NAPP B 0 Radius_Quake(3,10,0,16,0)
 		NAPP A 1 BRIGHT A_Explode(60,200,1)
-		NAPP A 0 A_PlaySound("Old/DSNAPLM2")
+		NAPP A 0 A_PlaySound("LargeExplosions", CHAN_WEAPON)
 		NAPP B 0 A_SpawnItem("NapalmKaboom",0+frandom[Incinerator](-4,4),0+frandom[Incinerator](-2,2))
 		Stop
 	}
