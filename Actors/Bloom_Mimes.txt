@@ -225,7 +225,7 @@ ACTOR SuperMimeMissile
 	YScale 0.55
 	Speed 20
 	RenderStyle "Add"
-	Damage (frandom(2,8))
+	Damage (frandom(8,19))
 	PROJECTILE
 	+DONTSPLASH
 	DamageType "Fire"
