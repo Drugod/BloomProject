@@ -1540,11 +1540,13 @@ Graphic "P_DGUY74", 480, 405
 	Graphic "DGUY74", -5, 4
 }
 
-Graphic "LOGO", 625, 340
+//Graphic "LOGO", 625, 340
+Graphic "LOGO", 825, 825
 {
-	XScale 3.5
-	YScale 3.5
-	Patch "M_BLOOM", 0, 0
+	XScale 5.0
+	YScale 5.5
+	Patch "M_BLOOM", 140, 0
+	//Offset 0, -50	
 }
 
 // End of texture definitions
