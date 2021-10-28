@@ -1379,7 +1379,9 @@ ACTOR RevenantMoronAlt2 19098
 		RE3D C 7 A_Scream
 		RE3D D 7 A_NoBlocking
 		RE3D E 7
-		RE3D F -1
+		RE3D F 7
+		RE3D G 7
+		RE3D H -1
 		Stop
 	Raise:
 		RE3D F 5
