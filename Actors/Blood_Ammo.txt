@@ -37,7 +37,7 @@ ACTOR TommyClip : Ammo
 	Inventory.Amount 1
 	Inventory.Icon "TMBOA0"
 	Inventory.MaxAmount 200
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	VisibleToPlayerClass "Caleb"
 	Ammo.BackpackAmount 10
 	Ammo.BackpackMaxAmount 400
@@ -169,7 +169,7 @@ ACTOR TNTAmmo : Ammo
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
 	Inventory.Icon "TBNDA0"
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.RestrictedTo "Caleb"
 	VisibleToPlayerClass "Caleb"
 }
@@ -183,7 +183,7 @@ ACTOR TNTAmmoBox : CustomInventory 3166
 	Scale 0.8
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.PickupMessage "$TNTAB"
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.Amount 5
 	Inventory.MaxAmount 50
 	Inventory.Icon "TBNDA0"
@@ -215,7 +215,7 @@ ACTOR TNTBundle : CustomInventory 3145
 	Scale 0.5
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.PickupMessage "$TNTBUND"
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
 	Inventory.Icon "TBNDA0"
@@ -243,7 +243,7 @@ ACTOR RTNTAmmo : Ammo
 	Radius 20
 	+IGNORESKILL
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
 	Inventory.Icon "REPKA0"
@@ -260,7 +260,7 @@ ACTOR RTNTBox : CustomInventory 3170
 	Scale 0.5
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.PickupMessage "$TNTRB"
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
 	Inventory.Icon "REPKA0"
@@ -288,7 +288,7 @@ ACTOR DTNTAmmo : Ammo
 	Radius 20
 	+IGNORESKILL
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
 	Inventory.Icon "PROXA0"
@@ -304,7 +304,7 @@ ACTOR DTNTBox : CustomInventory 3248
 	Radius 20
 	Scale 0.5
 	+INVENTORY.RESTRICTABSOLUTELY
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
 	Inventory.Icon "PROXA0"
@@ -376,7 +376,7 @@ ACTOR SprayCanister : Ammo
 	Inventory.Amount 1
 	Inventory.MaxAmount 288
 	Inventory.Icon "SPRYA0"
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.RestrictedTo "Caleb"
 	VisibleToPlayerClass "Caleb"
 }
@@ -393,7 +393,7 @@ ACTOR SprayCanisterPickup : CustomInventory 3144
 	Inventory.Amount 48
 	Inventory.MaxAmount 288
 	Inventory.PickupMessage "$SPRPICK"
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.RestrictedTo "Caleb"
 	VisibleToPlayerClass "Caleb"
 	States
@@ -427,7 +427,7 @@ ACTOR GasolineCan : Ammo 3146
 	Inventory.Amount 5
 	Inventory.MaxAmount 50
 	Inventory.PickupMessage "$GASOCAN"
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.Icon "GASOA0"
 	Inventory.RestrictedTo "Caleb"
 	VisibleToPlayerClass "Caleb"
@@ -479,7 +479,7 @@ ACTOR Flares : Ammo 20080
 	Scale 0.85
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.PickupMessage "$FLARBOX"
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.Icon "FGRDA0"
 	Inventory.Amount 8
 	Inventory.MaxAmount 50
@@ -511,7 +511,7 @@ ACTOR Flare : Flares 20081
 	+IGNORESKILL
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.PickupMessage "$FLAR"
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.Amount 2
 	Inventory.RestrictedTo "Caleb"
 	VisibleToPlayerClass "Caleb"
@@ -538,7 +538,7 @@ ACTOR TeslaCharge : Ammo 12002
 	Scale 0.3
 	+IGNORESKILL
 	Inventory.PickupMessage "$TESCHA"
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.Amount 20
 	Inventory.MaxAmount 300
 	Ammo.BackpackAmount 20
@@ -592,7 +592,7 @@ ACTOR EssencePower : Ammo 12004
 	Inventory.Amount 12
 	Inventory.MaxAmount 100
 	Inventory.PickupMessage "$ESSENCE"
-	Inventory.PickupSound "DSAMMOUP"
+	Inventory.PickupSound "AMMO"
 	Inventory.Icon "ESSEA0"
 	Inventory.RestrictedTo "Caleb"
 	VisibleToPlayerClass "Caleb"
