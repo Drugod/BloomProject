@@ -538,7 +538,6 @@ generator ArachnotronPlasma				ArachnotronScorch
 generator BFGBallX						BFGLightning
 generator BaronBall						BaronScorch
 generator CacodemonBall					CacoScorch
-generator Chaingun_						Bullet
 generator Chainsaw_						ChainsawMark
 generator DoomImpBall_					DoomImpScorch
 generator FatShot						NewScorch //Scorch replaced with new
@@ -546,9 +545,6 @@ generator ChaingunGuy_					Bullet
 generator ShotgunGuy_					Bullet
 generator SpiderMastermind_				Bullet
 generator ZombieMan_					Bullet
-generator Pistol_						Bullet
 generator PlasmaBallX					PlasmaScorch
 generator RevenantTracer				RevenantScorch
 generator RocketX						NewScorch //Scorch replaced with new
-generator Shotgun_						Bullet
-generator SuperShotgun_					Bullet
