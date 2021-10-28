@@ -29,7 +29,7 @@ ACTOR BodyArmorPickup : CustomInventory 3155
 	//$Sprite XRM1A0
 	Tag "Body Armor"
 	Inventory.PickupMessage "$BODA"
-	Inventory.PickupSound "misc/armor_pkup"
+	Inventory.PickupSound "ARMR"
 	States
 	{
 	Spawn:
@@ -115,7 +115,7 @@ ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160
 	//$Sprite XARMA0
 	Tag "Basic Armor"
 	Inventory.PickupMessage "$BASA"
-	Inventory.PickupSound "misc/armor_pkup"
+	Inventory.PickupSound "ARMR"
 	States
 	{
 	Spawn:
@@ -154,7 +154,7 @@ ACTOR BodyArmorPickupLower : CustomInventory
 	Scale 0.67
 	DamageFactor "Normal",0.75
 	Inventory.PickupMessage "$LESA"
-	Inventory.PickupSound "misc/armor_pkup"
+	Inventory.PickupSound "ARMR"
 	Tag "Body Armor"
 	States
 	{
@@ -263,7 +263,7 @@ ACTOR SuperArmorPickup : CustomInventory 3161
 	Inventory.Amount 1
 	Inventory.MaxAmount 200
 	Inventory.PickupMessage "$SUPA"
-	Inventory.PickupSound "misc/armor_pkup"
+	Inventory.PickupSound "ARMR"
 	States
 	{
 	Spawn:
