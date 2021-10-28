@@ -860,6 +860,7 @@ ACTOR Colt : CalebW 31370
 	+INVENTORY.UNDROPPABLE
 	+WEAPON.WIMPY_WEAPON
 	Inventory.PickupMessage "$COLTPICK"
+	Inventory.PickupSound "PICKWEAP"	
 	States
 	{
 	Spawn:
@@ -922,6 +923,7 @@ ACTOR SingleShotgun : CalebW 31371
 	+INVENTORY.UNDROPPABLE
 	+WEAPON.WIMPY_WEAPON
 	Inventory.PickupMessage "$SINGPICK"
+	Inventory.PickupSound "PICKWEAP"	
 	States
 	{
 	Spawn:
