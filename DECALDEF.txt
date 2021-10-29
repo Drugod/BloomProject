@@ -548,6 +548,7 @@ generator CerberusShot2					Scorch
 generator ChaingunGuy_					Bullet
 generator Chaingun_						ZBloodBulletChip1
 generator Chainsaw_						ChainsawMark
+generator Cleaver						ChainsawMark
 generator Colt							ZBloodBulletChip1
 generator DoomImpBall_					DoomImpScorch
 generator DoubleChaingun_				ZBloodBulletChip1
@@ -575,6 +576,7 @@ generator LifeLeechShot					none
 generator NapalmGreen					Scorch
 generator NapalmRocket					Scorch
 generator NapalmRocketAlt1				Scorch
+generator NukageParticleX				BFGScorch
 generator OrganDebris					BloodSmear
 generator OrganDebris2					BloodSmear2
 generator Pistol_						ZBloodBulletChip1
@@ -596,11 +598,8 @@ generator SuperMimeMissile				Scorch
 generator SuperShotgun_					ZBloodBulletChip1
 generator TchernobogKaboom				Scorch
 generator TchernobogMissile				Scorch
+generator TeslaBallBig					NewScorch
 generator TommyGun						ZBloodBulletChip1
 generator WallBomb						Scorch
 generator WoodDebris					Scorch
 generator ZombieMan_					Bullet
-
-//generator Cleaver						GarScorch //doesn't exist, we could use Chainsaw
-//generator NukageParticleX				SlimeSplash //doesn't exist, we could use BFGScorch
-//generator TeslaBallBig				ZBloodGarshot2 //doesn't exist, we could use NewScorch
