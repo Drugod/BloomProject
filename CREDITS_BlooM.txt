@@ -3,7 +3,7 @@
 Mod concept by Drugod & Rolls3D
 Acs/Decorate/Maps by Drugod
 Acs/Decorate/Tweaks by Ozymandias81
-Sprites (Hybrid monsters), Animated Textures and 3D Models (buildings specially) by Rolls3D
+Sprites (Hybrid monsters), New Weapons, New Textures and 3D Models by Rolls3D
 Music by NHT, Buio Mondo & Drugod
 Tested by Antonivs, Jean!
 
@@ -15,6 +15,7 @@ Acs based on screen web effect by Ozymandias81, original code by AFADoomer and T
 Black & white brightmaps for Vanilla Doom related games by NightFright
 Colored brightmaps and Cobwebs variants (COBW## sprites) by Ozymandias81
 Colt and single barrel Shotgun taken from Blood weapon mod
+Doom Vanilla Angled Weapons from "Nobody told me about ID", modified by Rolls3D
 Doom Models mainly from TheMacGyverArchiver
 Doom Voxels by Reikall (several)
 DoomGuy player sprites by Mark Quinn
