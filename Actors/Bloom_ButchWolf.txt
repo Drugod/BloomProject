@@ -466,7 +466,6 @@ ACTOR HellButcherBall
 	Alpha 1
 	SeeSound "baron/attack"
 	DeathSound "baron/shotx"
-	Decal "BaronScorch"
 	States
 	{
 	Spawn:
@@ -629,7 +628,6 @@ ACTOR HoundKnightBall
 	Alpha 1
 	SeeSound "baron/attack"
 	DeathSound "baron/shotx"
-	Decal "BaronScorch"
 	States
 	{
 	Spawn:
@@ -755,6 +753,11 @@ ACTOR ZombaronOfHell : BloomHybrid_Base
 		XBBD EFG 8
 		XBBD H -1
 		Stop
+	Ice:
+		XZAS A 0 A_SetMass(999999)
+		XZAS A 5 A_FreezeDeath
+		XZAS A 1 A_FreezeDeathChunks
+		Wait
 	Raise:
 		XBBD H 8
 		XBBD GFEDCBA  8
@@ -865,6 +868,11 @@ ACTOR AxeZombaronOfHell : ZombaronOfHell
 		ZBBD EF 8
 		ZBBD G -1
 		Stop
+	Ice:
+		XZAS A 0 A_SetMass(999999)
+		XZAS A 5 A_FreezeDeath
+		XZAS A 1 A_FreezeDeathChunks
+		Wait
 	Raise:
 		ZBBD G 8
 		ZBBD FEDCBA  8

@@ -218,7 +218,6 @@ ACTOR RevenantMimeAlt2 : RevenantMime 19101
 
 ACTOR SuperMimeMissile
 {
-	Decal Scorch
 	Radius 16
 	Height 9
 	XScale 0.65

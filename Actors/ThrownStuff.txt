@@ -255,7 +255,6 @@ ACTOR ProximityLandMine
 ACTOR -----------TNT-BEHAVIOUR------------{}
 ACTOR PlayerTNT
 {
-	Decal Scorch
 	Radius 6
 	Height 4
 	Speed 15
@@ -1445,7 +1444,6 @@ ACTOR ClassicoTNTRapid : ClassicoTNT
 ACTOR -----------SPRAYS-BEHAVIOUR------------{}
 ACTOR SprayCanAlt
 {
-	Decal Scorch
 	Radius 3
 	Height 4
 	Speed 16

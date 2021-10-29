@@ -126,7 +126,6 @@ ACTOR BarrelFrags //from Blade of Agony, but doesn't disappear - courtesy by Ozy
 
 ACTOR WoodDebris : Base_Debris
 {
-	Decal Scorch
 	States
 	{
 	Spawn:
@@ -580,7 +579,6 @@ ACTOR PitchforkPuff
 	DamageType "PitchFork"
 	Renderstyle Translucent
 	Alpha 0.5
-	Decal ZBloodBulletChip1
 	+ALLOWPARTICLES
 	+NOBLOCKMAP
 	+NODAMAGETHRUST
@@ -666,7 +664,6 @@ ACTOR ZBloodTeleportFog : TeleportFog replaces TeleportFog
 
 ACTOR Acid : Blood
 {
-	Decal BloodSplat
 	Gravity 0.6
 	Alpha 0.90
 	RenderStyle "Translucent"
@@ -727,7 +724,6 @@ ACTOR RainBlood
 
 ACTOR FlyingAcidrop
 {
-	Decal BloodSmear
 	Health 1
 	Radius 1
 	Height 1

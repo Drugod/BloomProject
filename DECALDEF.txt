@@ -43,9 +43,12 @@ decal DecalTech2 102
 
 decal ZBloodBulletChip1 103
 {
-	PIC BPU1A0
-    x-scale 0.2
-    y-scale 0.2
+	pic ZBCHIP1 //uses original graphic from ZBlood
+	x-scale 0.2
+	y-scale 0.2
+	shade "00 00 00"
+	randomflipx
+	randomflipy
 }
 
 decal NewScorch
@@ -534,17 +537,71 @@ decalgroup ArachnotronScorch
 }
 
 //***** Generators **********************************************************//
+generator Acid							BloodSplat
 generator ArachnotronPlasma				ArachnotronScorch
 generator BFGBallX						BFGLightning
 generator BaronBall						BaronScorch
+generator Blood_						BloodSplat
+generator BrownCultist					ZBloodBulletChip1
 generator CacodemonBall					CacoScorch
-generator Chainsaw_						ChainsawMark
-generator DoomImpBall_					DoomImpScorch
-generator FatShot						NewScorch //Scorch replaced with new
+generator CerberusShot1					Scorch
+generator CerberusShot2					Scorch
 generator ChaingunGuy_					Bullet
-generator ShotgunGuy_					Bullet
-generator SpiderMastermind_				Bullet
-generator ZombieMan_					Bullet
+generator Chaingun_						ZBloodBulletChip1
+generator Chainsaw_						ChainsawMark
+generator Colt							ZBloodBulletChip1
+generator DoomImpBall_					DoomImpScorch
+generator DoubleChaingun_				ZBloodBulletChip1
+generator DoublePistol_					ZBloodBulletChip1
+generator DoublePlasmaRifle_			PlasmaScorch
+generator DoubleSawedOff				ZBloodBulletChip1
+generator DoubleTommyGun				ZBloodBulletChip1
+generator DualShotgun_					ZBloodBulletChip1
+generator DualSuperShotgun_				ZBloodBulletChip1
+generator FatShot						NewScorch //Scorch replaced with new
+generator FlareAlt						BFGScorch
+generator FloorKaboom					Scorch
+generator FlyingAcidrop					BloodSmear
+generator FlyingBlood					BloodSmear
+generator Flyingbloodrop				BloodSmear
+generator FrostPlasma					DoomImpScorch
+generator GreenCultist					Scorch
+generator GreyCultist					ZBloodBulletChip1
+generator HeadBlood						BloodSmear
+generator HellButcherBall				BaronScorch
+generator HoundKnightBall				BaronScorch
+generator Kaboom						Scorch
+generator LavaBall						Scorch
+generator LifeLeechShot					none
+generator NapalmGreen					Scorch
+generator NapalmRocket					Scorch
+generator NapalmRocketAlt1				Scorch
+generator OrganDebris					BloodSmear
+generator OrganDebris2					BloodSmear2
+generator Pistol_						ZBloodBulletChip1
+generator PitchforkPuff					ZBloodBulletChip1
 generator PlasmaBallX					PlasmaScorch
+generator PlasmaRifle_					PlasmaScorch
+generator PlayerTNT						Scorch
+generator RedCultist					ZBloodBulletChip1
 generator RevenantTracer				RevenantScorch
 generator RocketX						NewScorch //Scorch replaced with new
+generator SawedOff						ZBloodBulletChip1
+generator ShotgunGuy_					Bullet
+generator Shotgun_						ZBloodBulletChip1
+generator SingleShotgun					ZBloodBulletChip1
+generator SpiderMastermind_				Bullet
+generator SprayCanAlt					Scorch
+generator SprayCanFire					PlasmaScorchLower1
+generator SuperMimeMissile				Scorch
+generator SuperShotgun_					ZBloodBulletChip1
+generator TchernobogKaboom				Scorch
+generator TchernobogMissile				Scorch
+generator TommyGun						ZBloodBulletChip1
+generator WallBomb						Scorch
+generator WoodDebris					Scorch
+generator ZombieMan_					Bullet
+
+//generator Cleaver						GarScorch //doesn't exist, we could use Chainsaw
+//generator NukageParticleX				SlimeSplash //doesn't exist, we could use BFGScorch
+//generator TeslaBallBig				ZBloodGarshot2 //doesn't exist, we could use NewScorch

@@ -194,7 +194,6 @@ ACTOR BloodDrop : RainDrop
 
 ACTOR FlyingBloodrop
 {
-	Decal BloodSmear
 	Health 1
 	Radius 1
 	Height 1

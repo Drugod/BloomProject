@@ -1836,7 +1836,6 @@ ACTOR HoundBaronBall:  HoundKnightBall
 
 ACTOR NapalmGreen
 {
-	Decal Scorch
 	Radius 11
 	Height 8
 	Speed 24

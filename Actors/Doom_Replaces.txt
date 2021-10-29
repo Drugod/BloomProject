@@ -124,7 +124,6 @@ ACTOR Double_TechPillar_ : TechPillar_ 18352
 ACTOR -------VANILLA_PROJECTILES---------- {}
 ACTOR PlasmaBallX : PlasmaBall replaces PlasmaBall
 {
-	Decal PlasmaScorch
 	Radius 13
 	Height 8
 	Speed 25
@@ -150,7 +149,6 @@ ACTOR PlasmaBallX : PlasmaBall replaces PlasmaBall
 
 ACTOR RocketX: Rocket replaces Rocket
 {
-	Decal Scorch
 	Radius 11
 	Height 8
 	Speed 20
@@ -179,7 +177,6 @@ ACTOR RocketX: Rocket replaces Rocket
 
 ACTOR BFGBallX : BFGBall replaces BFGBall
 {
-	Decal BFGScorch
 	Radius 13
 	Height 8
 	Speed 25

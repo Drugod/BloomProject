@@ -777,6 +777,11 @@ ACTOR Mime 3185
 		BCUL O 0 A_SpawnDebris ("Bloodliver")
 		BCUL O 5
 		Stop
+	Ice:
+		FIME C 0 A_SetMass(999999)
+		FIME C 5 A_FreezeDeath
+		FIME C 1 A_FreezeDeathChunks
+		Wait
 	}
 }
 

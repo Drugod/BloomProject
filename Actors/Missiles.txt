@@ -21,13 +21,12 @@
 **/
 
 ACTOR FrostPlasma
-	{
+{
 	Radius 13
 	Height 8
 	Speed 100
 	Damage 5
 	DamageType "Ice"
-	Decal DoomImpScorch
 	Projectile
 	+RANDOMIZE
 	RenderStyle Add
@@ -182,7 +181,6 @@ ACTOR CleaverTrail8 : CleaverTrail1
 
 ACTOR Cleaver
 {
-	Decal GarScorch
 	Radius 6
 	Height 16
 	Speed 8
@@ -582,7 +580,6 @@ ACTOR Kaboom : BulletPuff
 {
 	Radius 32
 	Height 50
-	Decal Scorch
 	RenderStyle "Add"
 	Alpha 0.45
 	+DONTSPLASH
@@ -657,7 +654,6 @@ ACTOR TchernobogKaboom
 {
 	Radius 32
 	Height 50
-	Decal Scorch
 	RenderStyle "Add"
 	Alpha 0.75
 	+DONTSPLASH
@@ -669,7 +665,7 @@ ACTOR TchernobogKaboom
 	See:
 		TNT1 A 0 Radius_Quake(2,8,0,16,0)
 		TEX2 ABC 3 BRIGHT
-		TNT1 A 0 Radius_Quake (1,10,0,16,0)
+		TNT1 A 0 Radius_Quake(1,10,0,16,0)
 		TEX2 DEFG 3 BRIGHT
 		TEX2 HIJ 2 BRIGHT
 		TEX2 KL 2 BRIGHT
@@ -714,7 +710,6 @@ ACTOR FloorKaboom //Why did it have a blocking area.. it isn't even a tangible t
 {
 	Radius 0
 	Height 0
-	Decal Scorch
 	RenderStyle "Add"
 	Alpha 0.45
 	PROJECTILE
@@ -1021,7 +1016,6 @@ ACTOR GrayCircle
 
 ACTOR SprayCanFire
 {
-	Decal PlasmaScorchLower1
 	SpawnId 51
 	Radius 13
 	Height 8

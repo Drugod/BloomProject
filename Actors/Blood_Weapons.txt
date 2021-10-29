@@ -320,7 +320,6 @@ ACTOR FlareExplosion
 
 ACTOR FlareAlt
 {
-	Decal BFGScorch
 	Radius 13
 	Height 6
 	Speed 16 //Slower
@@ -852,7 +851,6 @@ ACTOR Colt : CalebW 31370
 	//$Sprite COLTA0
 	Tag "Colt"
 	Scale 0.5
-	Decal ZBloodBulletChip1
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 20
 	Weapon.AmmoType "TommyClip"
@@ -915,7 +913,6 @@ ACTOR SingleShotgun : CalebW 31371
 	//$Sprite SBSSA0
 	Weapon.SelectionOrder 1300
 	Tag "Single Barrel Shotgun"
-	Decal ZBloodBulletChip1
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 8
 	Weapon.AmmoType "shell2"
@@ -2344,7 +2341,6 @@ ACTOR SawedOff : CalebW 3137
 {
 	//$Sprite SOSPA0
 	Tag "Sawed-Off"
-	Decal ZBloodBulletChip1
 	Obituary "$OB_SOFF"
 	Weapon.AmmoType "shell2"
 	Weapon.AmmoType2 "shell2"
@@ -2654,7 +2650,6 @@ ACTOR Tommygun : CalebW 3138
 	+THRUGHOST
 	+THRUSPECIES
 	AttackSound ""
-	Decal ZBloodBulletChip1
 	Obituary "%OB_TOMMY"
 	Inventory.PickupMessage "$TOMMPICK"
 	Inventory.PickupSound "PICKWEAP"
@@ -3075,7 +3070,6 @@ ACTOR NapalmLauncher : CalebW 3139 // 2003
 
 ACTOR WallBomb
 {
-	Decal Scorch
 	Spawnid 127
 	Radius 11
 	Height 8
@@ -3200,7 +3194,6 @@ ACTOR DoubleNapalmLauncher : NapalmLauncher
 
 ACTOR NapalmRocketAlt1
 {
-	Decal Scorch
 	Radius 8
 	Height 8
 	Speed 20
@@ -3411,7 +3404,6 @@ ACTOR NapalmRocketAlt4 : NapalmRocketAlt1
 
 ACTOR NapalmRocket
 {
-	Decal Scorch
 	Radius 11
 	Height 8
 	Speed 32
@@ -3821,7 +3813,6 @@ ACTOR TeslaBallBig
 	XScale 1.55
 	Damage (random(84,188))
 	DamageType "Shock"
-	Decal ZBloodGarshot2
 	RenderStyle "Add"
 	Alpha 1
 	PROJECTILE
@@ -4212,7 +4203,6 @@ ACTOR LifeLeechShot
 	Speed 36
 	RenderStyle "Add"
 	Alpha 0.5
-	Decal none
 	Damage(frandom(24,36))
 	DamageType "LifeLeech"
 	PROJECTILE

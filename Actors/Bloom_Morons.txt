@@ -720,10 +720,10 @@ ACTOR MoronTrap : SwitchingDecoration
 	Height 56
 	Scale 0.5
 	+BLOODSPLATTER
+	+INVULNERABLE
 	+SHOOTABLE
 	+SOLID
 	+USESPECIAL
-	+BUDDHA
 	Activation THINGSPEC_Activate
 	States
 	{

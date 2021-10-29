@@ -1,4 +1,5 @@
 RESOLUTION 320, 200;
+
 statusbar fullscreen
 {
 	inInventory not isIntro
@@ -50,12 +51,7 @@ statusbar fullscreen
 		{ drawnumber 4, BLUEFONT, white, SpiritArmor, 465, 154; }//665, 154; }
 		//Diving Suit
 		inInventory PowerAir, 1 {
-			DrawImage "SQ1", -525, -550, none, 320, 200, forcescale;
-			DrawImage "SQ2",  125, -550, none, 320, 200, forcescale;
-			DrawImage "SQ3", -525, -150, none, 320, 200, forcescale;
-			DrawImage "SQ4",  125, -150, none, 320, 200, forcescale;
-			DrawImage "REFLEX1",  -525, -550, none, 640, 480, forcescale;
-			DrawImage "REFLEX2",  -425, -450, none, 640, 480, forcescale;
+			DrawImage "SCUBA", -525, -525, none, 1280, 720, forcescale;
 		}
 	}
 }
@@ -99,12 +95,7 @@ statusbar normal
 		{ drawnumber 4, BLUEFONT, white, SpiritArmor, 59, 192; }
 		//Diving Suit
 		inInventory PowerAir, 1 {
-			DrawImage "SQ1", -525, -550, none, 320, 200, forcescale;
-			DrawImage "SQ2",  125, -550, none, 320, 200, forcescale;
-			DrawImage "SQ3", -525, -150, none, 320, 200, forcescale;
-			DrawImage "SQ4",  125, -150, none, 320, 200, forcescale;
-			DrawImage "REFLEX1",  -525, -550, none, 640, 480, forcescale;
-			DrawImage "REFLEX2",  -425, -450, none, 640, 480, forcescale;
+			DrawImage "SCUBA", -525, -525, none, 1280, 720, forcescale;
 		}
 		//Gamemodes
 		gamemode deathmatch, teamgame

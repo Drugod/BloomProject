@@ -88,6 +88,7 @@ ACTOR BloomPossessed_Base
 		"####" A 0 A_UnSetFloorClip
 		"####" A 0 A_ChangeFlag("NOGRAVITY",0)
 		"####" A 0 A_ChangeFlag("FLOAT",0)
+		"####" A 0 A_SpawnItemEx("FlyingHandCorpse", 0, 0, 58, 5, 0, 0, 20, 128)
 		"####" A 0 A_Jump(256,"Death.Setup")
 		Stop
 	XDeath:
@@ -95,6 +96,7 @@ ACTOR BloomPossessed_Base
 		"####" A 0 A_ChangeFlag("NOGRAVITY",0)
 		"####" A 0 A_ChangeFlag("FLOAT",0)
 		"####" A 0 A_Scream
+		"####" A 0 A_SpawnItemEx("FlyingHandCorpse", 0, 0, 58, 5, 0, 0, 20, 128)
 		"####" A 0 A_Jump(256,"XDeath.Setup")
 		Stop
 	XDeath.Gibs:
@@ -112,6 +114,7 @@ ACTOR BloomPossessed_Base
 		"####" A 0 A_SpawnDebris ("Hand1")
 		"####" A 0 A_SetAngle(frandom(0.0,360.0))
 		"####" A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		"####" A 0 A_SpawnItemEx ("FlyingHandCorpse", 0, 0, 58, 5, 0, 0, 20, 128)
 		"####" A 0 A_SetAngle(frandom(0.0,360.0))
 		"####" A 0 A_SpawnDebris ("OrganDebris2")
 		"####" A 0 A_SetAngle(frandom(0.0,360.0))
@@ -151,6 +154,7 @@ ACTOR BloomPossessed_Base
 		TNT1 A 0 A_SpawnDebris ("Hand1")
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SpawnItemEx ("FlyingHandCorpse", 0, 0, 58, 5, 0, 0, 20, 128)
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))

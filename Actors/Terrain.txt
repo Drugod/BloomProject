@@ -161,7 +161,6 @@ ACTOR BloodSplashBaseSmall : BloodSplashBase3
 //NUKAGE//
 ACTOR NukageParticleX
 {
-	Decal Slimesplash
 	Height 2
 	Radius 2
 	Mass 0

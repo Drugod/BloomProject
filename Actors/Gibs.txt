@@ -23,7 +23,6 @@
 ACTOR ----------------------------HEADS----------------------------{}
 ACTOR HeadBlood
 {
-	Decal BloodSmear
 	Radius 1
 	Height 1
 	Speed 3
@@ -2834,7 +2833,6 @@ ACTOR KickableHeadMoron
 ACTOR --------------------OTHERS-GORE-STUFF----------------------{}
 ACTOR FlyingBlood
 {
-	Decal BloodSmear
 	Health 1
 	Radius 1
 	Height 1
@@ -2924,7 +2922,6 @@ ACTOR BloodPool_ replaces BloodPool	//The floor will be a bit dirty this time,th
 
 ACTOR Blood_ : Blood replaces Blood
 {
-	Decal BloodSplat
 	RenderStyle Translucent
 	+CANNOTPUSH
 	Gravity 0.6
@@ -3008,7 +3005,6 @@ ACTOR BloodTrail
 
 ACTOR OrganDebris
 {
-	Decal BloodSmear
 	Health 5
 	Radius 1
 	Height 1
@@ -3039,7 +3035,6 @@ ACTOR OrganDebris
 
 ACTOR OrganDebris2 : OrganDebris
 {
-	Decal BloodSmear2
 	+THRUSPECIES
 	DeathSound ""
 	Species "Organs"

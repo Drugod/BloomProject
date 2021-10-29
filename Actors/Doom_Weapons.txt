@@ -184,7 +184,6 @@ ACTOR Pistol_ : DoomW replaces Pistol
 {
 	//$Sprite PISTA0
 	//$Title Pistol (BlooM)
-	Decal ZBloodBulletChip1
 	Weapon.SelectionOrder 1900
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 20
@@ -279,12 +278,12 @@ ACTOR DoublePistol_ : Pistol_
 		Loop
 	Fire:
 		DPIS B 3
-		TNT1 A 0 A_FireBullets (5.6, 0, 1, 5, "ZBloodBulletChip1")
+		TNT1 A 0 A_FireBullets (5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_PlaySound("weapons/pistol", CHAN_WEAPON)
 		TNT1 A 0 A_GunFlash
 		DPIS D 3
 		DPIS C 3
-		TNT1 A 0 A_FireBullets (-5.6, 0, 1, 5, "ZBloodBulletChip1")
+		TNT1 A 0 A_FireBullets (-5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_PlaySound("weapons/pistol", CHAN_WEAPON)
 		TNT1 A 0 A_GunFlash
 		DPIS E 3
@@ -327,7 +326,6 @@ ACTOR Shotgun_ : DoomW replaces Shotgun
 {
 	//$Sprite SHOTA0
 	//$Title Shotgun (BlooM)
-	Decal ZBloodBulletChip1
 	Weapon.SelectionOrder 1300
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 8
@@ -361,7 +359,7 @@ ACTOR Shotgun_ : DoomW replaces Shotgun
 	Fire:
 		PKSG A 3
 		PKSG A 5
-		SHTG A 0 A_FireBullets (5.6, 0, 7, 5, "ZBloodBulletChip1")
+		SHTG A 0 A_FireBullets (5.6, 0, 7, 5, "BulletPuff")
 		SHTG A 0 A_PlaySound ("weapons/shotgf", CHAN_WEAPON)			
 		TNT1 A 0 A_Quake(2,6,0,100)
 		PKSG B 2
@@ -430,12 +428,12 @@ ACTOR DualShotgun_ : Shotgun_
 		DSGT B 2 
 		TNT1 A 0 A_Quake(2,6,0,100)		
 		DSGT C 1 
-		SHTG A 0 A_FireBullets (5.6, 0, 7, 5, "ZBloodBulletChip1")
+		SHTG A 0 A_FireBullets (5.6, 0, 7, 5, "BulletPuff")
 		SHTG A 0 A_PlaySound ("weapons/shotgf", CHAN_WEAPON)		
 		DSGT D 5 
 		TNT1 A 0 A_Quake(2,6,0,100)		
 		DSGT E 3
-		SHTG A 0 A_FireBullets (5.6, 0, 7, 5, "ZBloodBulletChip1")
+		SHTG A 0 A_FireBullets (5.6, 0, 7, 5, "BulletPuff")
 		SHTG A 0 A_PlaySound ("weapons/shotgf", CHAN_WEAPON)		
 		DSGT F 4
 		DSGT H 1 Offset(-1,33) //yes, this time we gonna use offsets for better visuals
@@ -506,7 +504,6 @@ ACTOR SuperShotgun_ : DoomW replaces SuperShotgun
 {
 	//$Sprite SGN2A0
 	//$Title Super-Shotgun (BlooM)
-	Decal ZBloodBulletChip1
 	Weapon.SelectionOrder 400
 	Weapon.AmmoUse 2
 	Weapon.AmmoGive 8
@@ -539,7 +536,7 @@ ACTOR SuperShotgun_ : DoomW replaces SuperShotgun
 		Loop
 	Fire:
 		PKS2 A 3
-		PKS2 A 0 A_FireBullets (11.2, 7.1, 20, 5, "ZBloodBulletChip1")
+		PKS2 A 0 A_FireBullets (11.2, 7.1, 20, 5, "BulletPuff")
 		PKS2 A 0 A_PlaySound ("weapons/sshotf", CHAN_WEAPON)		
 		PKS2 A 0 A_Quake(2,6,0,100)
 		PKS2 A 6 A_GunFlash
@@ -609,14 +606,14 @@ ACTOR DualSuperShotgun_ : SuperShotgun_
 		Loop
 	Fire:
 		DSSG B 3 //Right Fire
-		PKS2 A 0 A_FireBullets (11.2, 7.1, 20, 5, "ZBloodBulletChip1")
+		PKS2 A 0 A_FireBullets (11.2, 7.1, 20, 5, "BulletPuff")
 		PKS2 A 0 A_PlaySound ("weapons/sshotf", CHAN_WEAPON)		
 		TNT1 A 0 A_Quake(2,6,0,100)
 		TNT1 A 0 A_Gunflash
 		DSSG C 3
 		DSSG D 2
 		DSSG E 3 //Left Fire
-		PKS2 A 0 A_FireBullets (11.2, 7.1, 20, 5, "ZBloodBulletChip1")
+		PKS2 A 0 A_FireBullets (11.2, 7.1, 20, 5, "BulletPuff")
 		PKS2 A 0 A_PlaySound ("weapons/sshotf", CHAN_WEAPON)		
 		TNT1 A 0 A_Quake(2,6,0,100)
 		TNT1 A 0 A_Gunflash
@@ -692,7 +689,6 @@ ACTOR Chaingun_ : DoomW replaces Chaingun
 {
 	//$Sprite MGUNA0
 	//$Title Chaingun (BlooM)
-	Decal ZBloodBulletChip1
 	Weapon.SelectionOrder 700
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 20
@@ -726,22 +722,22 @@ ACTOR Chaingun_ : DoomW replaces Chaingun
 	Fire:
 		PKCG A 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		PKCG A 0 A_GunFlash
-		PKCG A 1 A_FireBullets(5.6, 0, 1, 5, "ZBloodBulletChip1")
+		PKCG A 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
 		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
 		PKCG B 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		PKCG B 0 A_GunFlash("Flash2")
-		PKCG B 1 A_FireBullets(5.6, 0, 1, 5, "ZBloodBulletChip1")
+		PKCG B 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
 		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
 		PKCG C 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		PKCG C 0 A_GunFlash("Flash3")
-		PKCG C 1 A_FireBullets(5.6, 0, 1, 5, "ZBloodBulletChip1")
+		PKCG C 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
 		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
 		PKCG D 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		PKCG D 0 A_GunFlash("Flash4")
-		PKCG D 1 A_FireBullets(5.6, 0, 1, 5, "ZBloodBulletChip1")
+		PKCG D 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
 		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
 		PKCG B 0 A_Refire
@@ -813,26 +809,26 @@ ACTOR DoubleChaingun_ : Chaingun_
 	Fire:
 		TNT1 A 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		TNT1 A 0 A_GunFlash
-		DKCG E 1 A_FireBullets(5.6, 0, 1, 5, "ZBloodBulletChip1")
-		TNT1 A 0 A_FireBullets(-5.6, 0, 1, 5, "ZBloodBulletChip1")
+		DKCG E 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
+		TNT1 A 0 A_FireBullets(-5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
 		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
 		TNT1 A 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		TNT1 A 0 A_GunFlash("Flash2")
-		DKCG F 1 A_FireBullets(5.6, 0, 1, 5, "ZBloodBulletChip1")
-		TNT1 A 0 A_FireBullets(-5.6, 0, 1, 5, "ZBloodBulletChip1")
+		DKCG F 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
+		TNT1 A 0 A_FireBullets(-5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
 		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
 		TNT1 A 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		TNT1 A 0 A_GunFlash("Flash3")
-		DKCG G 1 A_FireBullets(5.6, 0, 1, 5, "ZBloodBulletChip1")
-		TNT1 A 0 A_FireBullets(-5.6, 0, 1, 5, "ZBloodBulletChip1")
+		DKCG G 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
+		TNT1 A 0 A_FireBullets(-5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
 		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
 		TNT1 A 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		TNT1 A 0 A_GunFlash("Flash4")
-		DKCG H 1 A_FireBullets(5.6, 0, 1, 5, "ZBloodBulletChip1")
-		TNT1 A 0 A_FireBullets(-5.6, 0, 1, 5, "ZBloodBulletChip1")
+		DKCG H 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
+		TNT1 A 0 A_FireBullets(-5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
 		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
 		TNT1 A 0 A_Refire
@@ -1059,7 +1055,6 @@ ACTOR PlasmaRifle_ : DoomW 19077
 	Inventory.PickupMessage "$GOTPLASMA"
 	Tag "$TAG_PLASMARIFLE"
 	Weapon.SisterWeapon DoublePlasmaRifle_
-	Decal PlasmaScorch
 	States
 	{
 	Spawn:
