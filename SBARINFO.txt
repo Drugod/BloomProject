@@ -50,9 +50,9 @@ statusbar fullscreen
 		inInventory SpiritArmor
 		{ drawnumber 4, BLUEFONT, white, SpiritArmor, 465, 154; }//665, 154; }
 		//Diving Suit
-		inInventory PowerAir, 1 {
-			DrawImage "SCUBA", -525, -525, none, 1280, 720, forcescale;
-		}
+		//inInventory PowerAir, 1 {
+		//	DrawImage "SCUBA", -525, -525, none, 1280, 720, forcescale;
+		//}
 	}
 }
 
@@ -94,9 +94,9 @@ statusbar normal
 		inInventory SpiritArmor
 		{ drawnumber 4, BLUEFONT, white, SpiritArmor, 59, 192; }
 		//Diving Suit
-		inInventory PowerAir, 1 {
-			DrawImage "SCUBA", -525, -525, none, 1280, 720, forcescale;
-		}
+		//inInventory PowerAir, 1 {
+		//	DrawImage "SCUBA", -525, -525, none, 1280, 720, forcescale;
+		//}
 		//Gamemodes
 		gamemode deathmatch, teamgame
 		{
