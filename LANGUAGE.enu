@@ -219,6 +219,7 @@ HB_DSHO = "%o was hit to the chest by several DeepOne shells.";
 HB_DTRI = "%o felt cold by a DeepOne trident attack.";
 HB_GHOREV = "A Ghost Revenant scared the hell out of %o.";
 HB_TERREV = "%o was punched by a Ghost Revenant.";
+HB_CYBOGH = "%o was owned by Cyber-Cheogh.";
 OB_ACHNOID = "%o killed by an Arachnoid.";
 OB_APOCN = "%o was shotgunned off by a crazy Apocalyptic NeoCultist.";
 OB_ARAPOD = "%o was spat on by a Arachnopod.";
@@ -250,6 +251,9 @@ OB_SPEHOU = "%o was eaten by a SpectreHound.";
 OB_SMSTMD = "%o will feed the breed";
 OB_HLBTCH = "%o gets killed by a Butcher from Hell";
 OB_HLBTCHHIT = "%o gets killed by a Butcher from Hell's scratch";
+OB_CYBOGH = "%o stood no chance against Cyber-Cheogh.";
+OB_HNDBOF = "%o gets killed by a Hound Baron from Hell";
+OB_HNDBOFHIT = "%o gets killed by a Hound Baron from Hell's scratch";
 
 //OBITUARIES - MISC
 OB_BBARL = "%o went boom.";

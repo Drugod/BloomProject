@@ -297,8 +297,8 @@ ACTOR CyberCheogh : BloomBossHybrid_Base 19057
 	DeathSound "Cheogh/Die"
 	ActiveSound "Cheogh/Roam"
 	MeleeSound "Cheogh/Slap"
-	Obituary "$OB_CHEOGH"
-	HitObituary "$HB_CHEOGH"
+	Obituary "$OB_CYBOGH"
+	HitObituary "$HB_CYBOGH"
 	DamageType "Stun"
 	+BOSS
 	+FLOAT
@@ -1235,11 +1235,11 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 {
 	//$Title Eeldercubus
 	Obituary "$OB_GILLE"
-	Health 4000
+	Health 5000
 	Radius 48
 	Height 96
 	Mass 100
-	PainChance 32
+	PainChance 8
 	DropItem "FlameGas"
 	DropItem "FlameThrower_"
 	States
@@ -1718,8 +1718,8 @@ ACTOR HoundBaronOfHell: BloomHybrid_Base 19094
 	ActiveSound "knight/active"
 	PainSound "knight/pain"
 	DeathSound "knight/death"
-	Obituary "$OB_KNIGHT"
-	HitObituary "$OB_KNIGHTHIT"
+	Obituary "$OB_HNDBOF"
+	HitObituary "$OB_HNDBOFHIT"
 	PainChance 50
 	+BOSSDEATH
 	+DONTHARMCLASS
