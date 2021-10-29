@@ -33,7 +33,7 @@ map BLM01 lookup "BLM_M01"
    sky1 = "YTEXTH63", 0.05
    par = 120
    sucktime = 5
-   music = "d_dead"
+   music = "D_RUNNIN"
    LIGHTNING
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"   
@@ -47,7 +47,7 @@ map BLM02 lookup "BLM_M02"
    sky2 = "YTEXTH63", 0.05
    par = 120
    sucktime = 10
-   music = "b_infsin"   
+   music = "D_STALKS"   
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"      
 }
@@ -59,7 +59,7 @@ map BLM03 lookup "BLM_M03"
    sky1 = "YTEXTH63", 0.05
    par = 120
    sucktime = 5
-   music = "b_dhs"   
+   music = "D_COUNTD"   
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"      
 }
@@ -72,7 +72,7 @@ map BLM04 lookup "BLM_M04"
    sky2 = "YTEXTH63", 0.05
    par = 120
    sucktime = 10
-   music = "d_in_cit"   
+   music = "D_BETWEE"   
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"      
 }
@@ -85,7 +85,7 @@ map BLM05 lookup "BLM_M05"
    sky2 = "YTEXTH63", 0.05
    par = 120
    sucktime = 10
-   music = "d_countd"   
+   music = "D_DOOM"   
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"  
    LIGHTNING   
@@ -98,7 +98,7 @@ map BLM06 lookup "BLM_M06"
    sky1 = "YTEXTH63", 0.05
    par = 120
    sucktime = 5
-   music = "d_ddtblu"   
+   music = "D_THE_DA"   
    LIGHTNING
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"      
@@ -112,7 +112,7 @@ map BLM07 lookup "BLM_M07"
    sky1 = "YTEXTH63", 0.05
    par = 120
    sucktime = 5
-   music = "b_ghev"   
+   music = "D_SHAWN"   
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"     
    LIGHTNING
@@ -126,7 +126,7 @@ map BLM08 lookup "BLM_M08"
    sky2 = "YTEXTH63", 0.05   
    par = 120
    sucktime = 5
-   music = "b_psts"
+   music = "D_DDTBLU"
    NoIntermission   
    LIGHTNING
 }
