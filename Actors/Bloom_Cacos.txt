@@ -164,6 +164,8 @@ ACTOR Cacoyle : BloomHybrid_Base 19014
 		CYAD KL 8
 		CYAD M 8 A_NoBlocking
 		TNT1 A 0 A_ChangeFlag("FLOATBOB",FALSE)
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)						
 		CYAD N -1 A_SetFloorClip
 		Stop
 	Raise:
@@ -247,6 +249,8 @@ ACTOR Cacoyle_Variant : BloomHybrid_Base 19016
 		CYA2 IJ 8
 		CYA2 K 8 A_NoBlocking
 		TNT1 A 0 A_ChangeFlag("FLOATBOB",FALSE)
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)						
 		CYA2 L -1 A_SetFloorClip
 		Stop
 	Raise:

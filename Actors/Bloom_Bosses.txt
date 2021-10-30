@@ -231,6 +231,8 @@ ACTOR KingCacoyle : BloomBossHybrid_Base 19053
 		CHEO K 8 A_Scream
 		CHEO LM 8 A_Fall
 		CHEO N 8 A_NoBlocking
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		CHEO O -1 A_BossDeath
 		Stop
 	Death2:
@@ -274,6 +276,8 @@ ACTOR KingCacoyle : BloomBossHybrid_Base 19053
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
 		CHED EFG 8 A_NoBlocking
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		CHED H -1 A_BossDeath
 		Stop
 	}
@@ -529,6 +533,8 @@ ACTOR CyberCheogh : BloomBossHybrid_Base 19057
 		CYCU F 10 A_NoBlocking
 		CYCU GH 10
 		CYCU I 30
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		CYCU I -1 A_BossDeath
 		Stop
 	}
@@ -578,6 +584,9 @@ ACTOR Pinkberus : BloomBossHybrid_Base 19103
 	PainChance "Tommy", 0
 	PainChance "ZBloodBullet", 0
 	Species "HellDog"
+	DropItem "Flaregun" 16
+	DropItem "Flare" 64
+	DropItem "FlameGas"
 	States
 	{
 	Spawn:
@@ -726,6 +735,8 @@ ACTOR Sloth : BloomBossHybrid_Base 19107
 		SLTD F 10 A_NoBlocking
 		SLTD GH 10
 		SLTD I 30
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		SLTD I -1 A_BossDeath
 		Stop
 	}
@@ -985,6 +996,8 @@ ACTOR Cyberbog : BloomBossHybrid_Base 19108
 		BOGC M 10 A_NoBlocking
 		BOGC NO 10
 		BOGC O 30
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		BOGC O -1 A_BossDeath
 		Stop
 	}
@@ -1041,6 +1054,8 @@ ACTOR HandMastermind : BloomBossHybrid_Base 19138
 		HMMD E 10
 		HMMD F 8
 		HMMD G 6
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		HMMD H 1 A_BossDeath
 		Stop
 	}
@@ -1087,6 +1102,9 @@ ACTOR Cerbcubus : BloomBossHybrid_Base 19139 //sensible to Ice and Electric atta
 	PainChance "Tommy", 0
 	PainChance "ZBloodBullet", 0
 	Obituary "$OB_CERC" //not present yet
+	DropItem "Flaregun" 16
+	DropItem "Flare" 64
+	DropItem "FlameGas"
 	Species "Horror"
 	States
 	{
@@ -1140,6 +1158,7 @@ ACTOR Cerbcubus : BloomBossHybrid_Base 19139 //sensible to Ice and Electric atta
 		CERC P 6 A_Scream
 		CERC Q 6 A_NoBlocking
 		CERC RSTUVW 6
+		TNT1 A 0 A_GiveToTarget("CerberusDead", 1)		
 		CERC X -1 A_BossDeath
 		Stop
 	Ice:
@@ -1226,6 +1245,8 @@ ACTOR ShialMastermind : BloomBossHybrid_Base 19141
 		TNT1 A 0 A_NoBlocking
 		SHID H 1 A_SpawnDebris("FlyingBlood")
 		SHID HIJK 4
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		SHID L -1 A_BossDeath
 		Stop
 	}
@@ -1242,6 +1263,9 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 	PainChance 8
 	DropItem "FlameGas"
 	DropItem "FlameThrower_"
+	DropItem "Flaregun" 16
+	DropItem "Flare" 64
+	DropItem "FlameGas"
 	States
 	{
 	Spawn:
@@ -1462,6 +1486,8 @@ ACTOR Eeldercubus : Eelcubus_Base 19083
 		ANTT P 6 A_Scream
 		ANTT Q 6 A_NoBlocking
 		ANTT RSTUVWX 6
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		ANTT X -1 A_BossDeath
 		Stop
 	}
@@ -1592,6 +1618,8 @@ ACTOR Jojo : BloomBossHybrid_Base 19109
 		JOJD FGH 3 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
 		JOJD IJK 3 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
 		JOJD LMN 3 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		JOJD O -1 A_BossDeath
 		Stop
 	}
@@ -1810,6 +1838,8 @@ ACTOR HoundBaronOfHell: BloomHybrid_Base 19094
 		HKHD C  8
 		HKHD D  8 A_NoBlocking
 		HKHD EF 8
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)				
 		HKHD G -1
 		Stop
 	Ice: //Sproink frames can't be included here, so FKHU frames are unused, only as props --ozy81

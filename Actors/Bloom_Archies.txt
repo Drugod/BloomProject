@@ -86,6 +86,8 @@ ACTOR Gargovile : BloomHybrid_Base 19040
 		ARCH Q 7 A_Scream
 		ARCH R 7 A_NoBlocking
 		ARCH STUVW 7
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)			
 		ARCH X -1
 		Stop
 	Ice:
@@ -155,6 +157,8 @@ ACTOR FlyingGargovile : BloomHybrid_Base 18322
 		ARCH Q 7 A_Scream
 		ARCH R 7 A_NoBlocking
 		ARCH STUVW 7
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)			
 		ARCH X -1
 		Stop
 	Ice:
@@ -299,6 +303,8 @@ ACTOR ArchZombie : BloomHybrid_Base 19039
 		TNT1 AAAAAAA 0 A_SpawnDebris("FlyingBlood")
 		TNT1 AAAAAAA 0 A_SpawnItemEx("Blood_",frandom(-20,20),frandom(-20,20),frandom(-20,20),frandom(0,15),frandom(0,15),frandom(0,15),frandom(0,360),0,120)
 		NOHX DEFGH 4
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)			
 		NOHX I -1
 		Stop
 	UltraDeath:
@@ -325,6 +331,8 @@ ACTOR ArchZombie : BloomHybrid_Base 19039
 		NOHA F 45 A_ThrowGrenade("KickableFlying",5,0,0,0)
 		TNT1 A 0 A_Scream
 		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)			
 		NOHE A 1 A_SpawnItemEx("ArchzombieHeadless",0,0,0)
 		Stop
 	Ice:

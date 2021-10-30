@@ -109,6 +109,8 @@ ACTOR ZombImp1
 		ZI01 K 8
 		ZI01 L 6
 		ZI01 M 6 A_NoBlocking
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		ZI01 N -1
 		Stop
 	Death.Shock:
@@ -195,6 +197,7 @@ ACTOR ZombImp1
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
 		ZI01 QRS 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		ZI01 T -1
 		Stop
 	Raise:
@@ -278,6 +281,8 @@ ACTOR ZombImp2 : ZombImp1
 		ZI02 K 8
 		ZI02 L 6
 		ZI02 M 6 A_NoBlocking
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		ZI02 N -1
 		Stop
 	Death.Shock:
@@ -364,6 +369,7 @@ ACTOR ZombImp2 : ZombImp1
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
 		ZI02 QRS 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		ZI02 T -1
 		Stop
 	Raise:
@@ -447,6 +453,8 @@ ACTOR ZombImp3 : ZombImp1
 		ZI03 K 8
 		ZI03 L 6
 		ZI03 M 6 A_NoBlocking
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		ZI03 N -1
 		Stop
 	Death.Shock:
@@ -533,6 +541,7 @@ ACTOR ZombImp3 : ZombImp1
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
 		ZI03 QRS 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		ZI03 T -1
 		Stop
 	Raise:
@@ -616,6 +625,8 @@ ACTOR ZombImp4 : ZombImp1
 		ZI04 K 8
 		ZI04 L 6
 		ZI04 M 6 A_NoBlocking
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		ZI04 N -1
 		Stop
 	Death.Shock:
@@ -703,6 +714,7 @@ ACTOR ZombImp4 : ZombImp1
 		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
 		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
 		ZI04 RSTU 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		ZI04 V -1
 		Stop
 	Raise:
@@ -814,6 +826,8 @@ ACTOR ZombImp5
 		ZI15 D 5 A_NoBlocking
 		ZI15 EF 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
 		ZI15 GH 5 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		ZI15 I -1
 		Stop
 	Death.Shock:
@@ -886,6 +900,7 @@ ACTOR ZombImp5
 		ZI05 P 8
 		ZI05 Q 6
 		ZI05 RST 6 A_NoBlocking
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		ZI05 U -1
 		Stop
 	Ice:

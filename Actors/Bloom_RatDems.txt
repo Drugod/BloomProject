@@ -94,6 +94,8 @@ ACTOR RatDemon_Brown : BloomHybrid_Base 19059
 		RATA M 3
 		RATA N 4
 		RATA O 4
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		RATA P -1
 		Stop
 	Raise:
@@ -163,6 +165,8 @@ ACTOR RatDemon_Grey : RatDemon_Brown 19062
 		RATG M 3
 		RATG N 4
 		RATG O 4
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		RATG P -1
 		Stop
 	Raise:
@@ -232,6 +236,8 @@ ACTOR RatDemon_Black : RatDemon_Brown 19063
 		RATB M 3
 		RATB N 4
 		RATB O 4
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		RATB P -1
 		Stop
 	Raise:
@@ -301,6 +307,8 @@ ACTOR RatDemon_White : RatDemon_Brown 19064
 		R2TW M 3
 		R2TW N 4
 		R2TW O 4
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		R2TW P -1
 		Stop
 	Raise:

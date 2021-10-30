@@ -56,6 +56,7 @@ ACTOR Cvltimp : BloomHybrid_Base 19028
 		CIO1 AB 4 A_FaceTarget
 		CIO1 CD 4 A_FaceTarget
 		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_PlaySound("Spray/Alt")		
 		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
 		TNT1 A 0 A_FaceTarget
 		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
@@ -183,6 +184,7 @@ ACTOR Cvltimp : BloomHybrid_Base 19028
 		CIOO P 5 A_NoBlocking
 		CIOO Q 5
 		CIOO RST 5
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)						
 		CIOO U -1
 		Stop
 	Raise:
@@ -252,6 +254,8 @@ ACTOR CvltimpAlt : BloomHybrid_Base 19029
 		CI2O K 6
 		CI2O L 6 A_NoBlocking
 		CI2O M 6
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		CI2O N -1
 		Stop
 	Death.Shock:
@@ -322,6 +326,7 @@ ACTOR CvltimpAlt : BloomHybrid_Base 19029
 		CI2O P 5 A_NoBlocking
 		CI2O Q 5
 		CI2O RST 5
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		CI2O U -1
 		Stop
 	Raise:

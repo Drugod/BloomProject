@@ -42,6 +42,8 @@ ACTOR DemonHound : BloomHybrid_Base 19012
 	ActiveSound "demon/active"
 	Obituary "$OB_DEMHOU"
 	DropItem "FlameGas" 8
+	DropItem "Flaregun" 16
+	DropItem "Flare" 64
 	Species "HellDog"
 	States
 	{
@@ -104,12 +106,14 @@ ACTOR DemonHound : BloomHybrid_Base 19012
 		DHRG H 2 Fast
 		DHRG H 2 Fast A_Pain
 		Goto See
-		Death:
+	Death:
 		DHRG I 8
 		DHRG J 8 A_Scream
 		DHRG K 4
 		DHRG L 4 A_NoBlocking
 		DHRG M 4
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		DHRG N -1
 		Stop
 	XDeath:
@@ -136,6 +140,7 @@ ACTOR DemonHound : BloomHybrid_Base 19012
 		DHRG V 4 A_SpawnDebris("FlyingBlood")
 		DHRG W 4 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
 		DHRG X 4 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_GiveToTarget("CerberusDead", 1)		
 		DHRG Y -1
 		Stop
 	Raise:
@@ -177,6 +182,8 @@ ACTOR DemonHoundAlt : HellKnight 19026
 	HitObituary "$HB_PUPPY"
 	Obituary "$OB_DEMHOU2"
 	DropItem "FlameGas" 8
+	DropItem "Flaregun" 16
+	DropItem "Flare" 64
 	Species "HellDog"
 	States
 	{
@@ -336,6 +343,8 @@ ACTOR SpectreHoundAlt : DemonHoundAlt 19050
 	ActiveSound "spectre/active"
 	HitObituary "$OB_SPEHOU"
 	DropItem "FlameGas" 8
+	DropItem "Flaregun" 16
+	DropItem "Flare" 64
 	Species "HellDog"
 	States
 	{
@@ -388,6 +397,8 @@ ACTOR GargoDemon : BloomHybrid_Base 19051
 		GARD N 4
 		GARD O 4 A_NoBlocking
 		GARD P 4
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		GARD Q -1
 		Stop
 	XDeath:
@@ -412,6 +423,7 @@ ACTOR GargoDemon : BloomHybrid_Base 19051
 		GARD U 4 A_NoBlocking
 		GARD V 4 A_SpawnDebris("FlyingBlood")
 		GARD W 4 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		GARD X -1
 		Stop
 	Raise:
@@ -473,6 +485,8 @@ ACTOR PinkGargoyle : BloomHybrid_Base 19135
 		SARF J 8 A_Scream
 		SARF KL 8
 		SARF M 8 A_NoBlocking
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
 		SARF N -1 A_SetFloorClip
 		Stop
 	Raise:
