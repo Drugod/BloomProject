@@ -375,17 +375,17 @@ ACTOR CyberCheogh : BloomBossHybrid_Base 19057
 		CYCJ B 12 A_CustomMissile("Rocket",20,-40,0,0)
 		CYCJ A 12 A_FaceTarget
 		CYCJ B 12 A_CustomMissile("Rocket",20,-40,0,0)
-	Goto See
+		Goto See
 	EyeMissile:
 		CYCJ A 9 A_FaceTarget
 		CYCK A 9
-		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,10,0,1,0)
-		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,-10,0,1,0)
+		TNT1 A 0 A_CustomMissile ("StoneGargBall",42,10,0,1,0)
+		TNT1 A 0 A_CustomMissile ("StoneGargBall",42,-10,0,1,0)
 		CYCK B 10 BRIGHT
 		CYCJ A 5
 		CYCK A 9 A_FaceTarget
-		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,10,0,1,0)
-		TNT1 A 0 BRIGHT A_CustomMissile ("StoneGargBall",42,-10,0,1,0)
+		TNT1 A 0 A_CustomMissile ("StoneGargBall",42,10,0,1,0)
+		TNT1 A 0 A_CustomMissile ("StoneGargBall",42,-10,0,1,0)
 		CYCK B 10 BRIGHT
 		CYCJ A 4
 		Goto See
@@ -480,22 +480,22 @@ ACTOR CyberCheogh : BloomBossHybrid_Base 19057
 		TNT1 A 0 A_UnSetInvulnerable
 		Goto Comming
 	Missile2:
-		CYCJ A 3 BRIGHT A_FaceTarget
+		CYCJ A 3 A_FaceTarget
 		TNT1 A 0 A_PlaySound("king/iceshot",0)
-		CYKI A 3 BRIGHT A_CustomMissile("KingFX1",56.0, 0.0, 0, 1, 0)
-		CYKI B 3 BRIGHT
-		CYCJ A 3 BRIGHT A_FaceTarget
+		CYKI A 3 A_CustomMissile("KingFX1",56.0, 0.0, 0, 1, 0)
+		CYKI B 3
+		CYCJ A 3 A_FaceTarget
 		TNT1 A 0 A_PlaySound("king/iceshot",0)
-		CYKI A 3 BRIGHT A_CustomMissile("KingFX2",56.0, 0.0, 0, 1, 0)
-		CYKI B 3 BRIGHT
-		CYCJ A 3 BRIGHT A_FaceTarget
+		CYKI A 3 A_CustomMissile("KingFX2",56.0, 0.0, 0, 1, 0)
+		CYKI B 3
+		CYCJ A 3 A_FaceTarget
 		TNT1 A 0 A_PlaySound("king/iceshot",0)
-		CYKI A 3 BRIGHT A_CustomMissile("KingFX3",56.0, 0.0, 0, 1, 0)
-		CYKI B 3 BRIGHT
-		CYCJ A 3 BRIGHT A_FaceTarget
+		CYKI A 3 A_CustomMissile("KingFX3",56.0, 0.0, 0, 1, 0)
+		CYKI B 3
+		CYCJ A 3 A_FaceTarget
 		TNT1 A 0 A_PlaySound("king/iceshot",0)
-		CYKI A 3 BRIGHT A_CustomMissile("KingFX4",56.0, 0.0, 0, 1, 0)
-		CYKI B 3 BRIGHT
+		CYKI A 3 A_CustomMissile("KingFX4",56.0, 0.0, 0, 1, 0)
+		CYKI B 3
 		Goto See
 	Pain:
 		CYCH L 4
