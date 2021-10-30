@@ -33,7 +33,7 @@ map BLM01 lookup "BLM_M01"
    sky1 = "YTEXTH63", 0.05
    par = 120
    sucktime = 5
-   music = "D_RUNNIN"
+   //music = "D_RUNNIN"
    LIGHTNING
    exitpic = "$IN_E4"
    enterpic = "$IN_E4"   
