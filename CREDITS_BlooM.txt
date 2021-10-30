@@ -5,6 +5,7 @@ Acs/Decorate/Maps by Drugod
 Acs/Decorate/Tweaks by Ozymandias81
 Sprites (Hybrid monsters), New Weapons, New Textures and 3D Models by Rolls3D
 Music by NHT, Buio Mondo & Drugod
+Additional sound fx by NHT
 Tested by Antonivs, Jean!
 
 Thanks to 00_Zombie_00 to help us with BLM02 map
