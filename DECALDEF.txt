@@ -576,7 +576,6 @@ generator LifeLeechShot					none
 generator NapalmGreen					Scorch
 generator NapalmRocket					Scorch
 generator NapalmRocketAlt1				Scorch
-generator NukageParticleX				BFGScorch
 generator OrganDebris					BloodSmear
 generator OrganDebris2					BloodSmear2
 generator Pistol_						ZBloodBulletChip1
@@ -598,7 +597,7 @@ generator SuperMimeMissile				Scorch
 generator SuperShotgun_					ZBloodBulletChip1
 generator TchernobogKaboom				Scorch
 generator TchernobogMissile				Scorch
-generator TeslaBallBig					NewScorch
+generator TeslaBallBig					PlasmaScorchLower1
 generator TommyGun						ZBloodBulletChip1
 generator WallBomb						Scorch
 generator WoodDebris					Scorch
