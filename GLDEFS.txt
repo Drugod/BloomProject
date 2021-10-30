@@ -466,6 +466,26 @@ Object GargoyleBallLight
 	frame OMG2 { light GargoyleBallFlash }
 }
 
+pointlight REDARMOR1
+{
+    color 0.3 0.0 0.0
+    size 40
+    offset 0 10 0
+}
+
+pointlight REDARMOR2
+{
+    color 0.3 0.0 0.0
+    size 30
+    offset 0 10 0
+}
+
+object RedArmor
+{
+    frame ARM3A { light REDARMOR1 }
+    frame ARM3B { light REDARMOR2 }
+}
+
 // ------------------------------------------------------
 //						DOOM
 // ------------------------------------------------------
