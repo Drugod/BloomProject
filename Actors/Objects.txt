@@ -1347,6 +1347,23 @@ ACTOR RocksSnowy : RocksSpawner 18602
 	}
 }
 
+ACTOR FishBones 18603
+{
+	//$Category "BlooM Ambient"
+	//$Title "Rotten Fish Skeleton"
+	Radius 4
+	Height 4
+	-SOLID
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_Jump(256,1,2)
+		BONE H -1
+		BONE I -1
+		Stop
+	}
+}
+
 //EASTEREGGS//
 ACTOR ActionFigures 24010
 {
