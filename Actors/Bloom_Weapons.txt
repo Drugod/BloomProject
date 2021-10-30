@@ -42,7 +42,7 @@ ACTOR HandGrenades : BlooMW
 	Weapon.AmmoType2 "GrenadeAmmo"
 	Obituary "$OB_FRAG"
     AttackSound "None"
-    Inventory.PickupSound "AmmoAPIN"
+    Inventory.PickupSound "AMMOAPIN"
 	Inventory.PickupMessage "$FRAGPICK"
     +WEAPON.NOAUTOAIM
     +WEAPON.NOALERT
@@ -151,12 +151,11 @@ ACTOR HandGrenade
 {
 	Radius 4
 	Height 4
-	Projectile
 	Speed 30
 	Damage 0
 	Gravity 0.7
 	Scale 0.2
-	Projectile
+	PROJECTILE
 	+DOOMBOUNCE
 	+EXPLODEONWATER
 	+MISSILE

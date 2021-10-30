@@ -35,6 +35,6 @@ alias vox_off-mod_on "set r_drawvoxels 0; set blm_voxmod 1;"
 alias vox_on-mod_off "set r_drawvoxels 1; set blm_voxmod 0;"
 
 alias grenadetoss "pukename GiveGrenade"
-alias timerfreeze "freeze"
+//alias timerfreeze "freeze"
 defaultbind G grenadetoss
-defaultbind Y timerfreeze
+//defaultbind Y timerfreeze //do not take this button or players may get confused when playing - ozy81

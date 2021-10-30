@@ -1208,6 +1208,7 @@ ACTOR RevenantMoron 19096
 	MeleeThreshold 196
 	+DONTHARMSPECIES
 	+FLOORCLIP
+	+THRUSPECIES //So they act like ghosts with same species - ozy81
 	MeleeSound "skeleton/melee"
 	SeeSound "Moron/Cry1"
 	DeathSound "Moron/Crying"
@@ -1275,6 +1276,7 @@ ACTOR RevenantMoronAlt 19097
 	MeleeThreshold 196
 	+DONTHARMSPECIES
 	+FLOORCLIP
+	+THRUSPECIES //So they act like ghosts with same species - ozy81
 	MeleeSound "skeleton/melee"
 	SeeSound "Moron/Cry1"
 	DeathSound "Moron/Crying"
@@ -1341,6 +1343,7 @@ ACTOR RevenantMoronAlt2 19098
 	MeleeThreshold 196
 	+DONTHARMSPECIES
 	+FLOORCLIP
+	+THRUSPECIES //So they act like ghosts with same species - ozy81
 	MeleeSound "skeleton/melee"
 	SeeSound "Moron/Cry1"
 	DeathSound "Moron/Crying"

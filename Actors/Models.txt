@@ -1024,6 +1024,9 @@ ACTOR BloodPuke
 	Death:
 		FGOR GHIJ 5
 		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
 	}
 }
 

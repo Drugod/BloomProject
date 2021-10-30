@@ -290,6 +290,9 @@ ACTOR CacoyleBall
 		TNT1 A 0 A_SpawnDebris("Bloodliver")
 		TNT1 A 0 A_SpawnDebris("FlyingBlood")
 		Stop
+	Death.Sky:
+		ZHED B 1
+		Stop
 	}
 }
 

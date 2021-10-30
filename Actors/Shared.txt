@@ -121,6 +121,9 @@ ACTOR BarrelFrags //from Blade of Agony, but doesn't disappear - courtesy by Ozy
 	Death:
 		FRAG N -1
 		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
 	}
 }
 
@@ -133,6 +136,9 @@ ACTOR WoodDebris : Base_Debris
 		Loop
 	Death:
 		TNT1 A 0 BRIGHT A_SpawnItemEx ("Woodfire",0,0,0)
+		Stop
+	Death.Sky:
+		TNT1 A 1
 		Stop
 	}
 }
@@ -168,6 +174,9 @@ ACTOR Leaves
 	Spawn4:
 		LEAF D -1 A_FadeOut(0.01)
 		Loop
+	Death.Sky:
+		TNT1 A 1
+		Stop
 	}
 }
 
@@ -198,6 +207,9 @@ ACTOR LeafDebris
 	Death:
 		TNT1 A 0 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
 		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
 	}
 }
 
@@ -207,6 +219,9 @@ ACTOR LeafDebris2 : LeafDebris
 	{
 	Death:
 		TNT1 A 0 A_SpawnItemEx ("LeafLeft2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	Death.Sky:
+		TNT1 A 1
 		Stop
 	}
 }
@@ -242,6 +257,9 @@ ACTOR LeafLeft : Feather
 	Death:
 		"####" C 35 A_Fadeout(0.35)
 		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
 	}
 }
 
@@ -254,6 +272,9 @@ ACTOR LeafLeft2 : LeafLeft
 		Loop
 	Death:
 		"####" C 35 A_Fadeout(0.35)
+		Stop
+	Death.Sky:
+		TNT1 A 1
 		Stop
 	}
 }
@@ -268,6 +289,9 @@ ACTOR LeafLeft3 : LeafLeft
 	Death:
 		"####" C 35 A_Fadeout(0.35)
 		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
 	}
 }
 
@@ -281,6 +305,9 @@ ACTOR LeafLeft4 : LeafLeft
 	Death:
 		"####" C 35 A_Fadeout(0.35)
 		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
 	}
 }
 
@@ -293,6 +320,9 @@ ACTOR LeafLeft5 : LeafLeft
 		Loop
 	Death:
 		"####" C 35 A_Fadeout(0.35)
+		Stop
+	Death.Sky:
+		TNT1 A 1
 		Stop
 	}
 }
@@ -309,6 +339,9 @@ ACTOR FireDebris : Base_Debris
 	Death:
 		TNT1 A 0 BRIGHT A_SpawnItemEx ("Minifire",0,0,0)
 		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
 	}
 }
 
@@ -321,6 +354,9 @@ ACTOR SmokeDebris : Base_Debris
 		Loop
 	Death:
 		TNT1 A 0 BRIGHT A_SpawnItemEx ("Smokefire",0,0,0)
+		Stop
+	Death.Sky:
+		TNT1 A 1
 		Stop
 	}
 }
@@ -397,6 +433,9 @@ ACTOR NapalmDebris
 	Death:
 		FSPK A 1
 		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
 	}
 }
 
@@ -421,6 +460,9 @@ ACTOR BalloonDebris : NapalmDebris
 		Stop
 		SGSA P 1
 		SGSA P -1
+		Stop
+	Death.Sky:
+		TNT1 A 1
 		Stop
 	}
 }
@@ -462,6 +504,9 @@ ACTOR GlassDebris : NapalmDebris
 		GLAS G 1
 		Stop
 		GLAS H 1
+		Stop
+	Death.Sky:
+		TNT1 A 1
 		Stop
 	}
 }
@@ -757,7 +802,7 @@ ACTOR FlyingAcidrop
 	}
 }
 
-ACTOR AcidPool//The floor will be a bit dirty this time,these make an i5 LOSE 90 fps so no they wont be ever back
+ACTOR AcidPool //The floor will be a bit dirty this time,these make an i5 LOSE 90 fps so no they wont be ever back
 {
 	Scale 0.65
 	+CANNOTPUSH
@@ -862,6 +907,9 @@ ACTOR AcidTrail
 		ACI2 B 5 A_SpawnItemEX("AcidPool",Random(-10,10),Random(-10,10))
 		ACI2 B 50 A_FadeOut(0.07)
 		Goto XDeath+1
+	Death.Sky:
+		TNT1 A 1
+		Stop
 	}
 }
 

@@ -1623,6 +1623,9 @@ ACTOR GreenCultistTNT
 		MISL B 0 A_PlaySound ("MediumExplosion")
 		MISL B 0 A_SpawnItem("FloorKaboom",-32)
 		Stop
+	Death.Sky:
+		ADYN A 1
+		Stop
 	}
 }
 
@@ -3732,6 +3735,9 @@ ACTOR CerberusShot1
 		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
 		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
 		Stop
+	Death.Sky:
+		BFE1 A 1
+		Stop
 	}
 }
 
@@ -3943,6 +3949,9 @@ ACTOR TchernobogMissile
 		TNT1 A 1 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
 		TROK AAAAAAAA 2 A_FadeOut(0.15)
 		Stop
+	Death.Sky:
+		TROK A 1
+		Stop
 	}
 }
 
@@ -4086,6 +4095,9 @@ ACTOR BlueFlameFurrel
 	Spawn:
 	Death:
 		TNT1 AAAA 3 A_SpawnItemEx("TFireTrail",frandom(-10,10),frandom(-10,10),frandom(-10,10),frandom(-10,10),frandom(-10,10),frandom(-10,10))
+		Stop
+	Death.Sky:
+		TNT1 A 1
 		Stop
 	}
 }
@@ -4272,6 +4284,9 @@ ACTOR ChrysalidBarf
 		BARF A 1 A_SpawnItemEx("AcidPool")
 		BARF AABB 1 A_SpawnItemEx("ButcherBarfSplash",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION,32)
 		Stop
+	Death.Sky:
+		BARF A 1
+		Stop
 	}
 }
 
@@ -4421,6 +4436,9 @@ ACTOR Spore : BaseBramble
         SPOR AAA 3
         SPOR AAAAAAAAAAAAAAAAAA 1 A_FadeOut (0.03)
         Stop
+	Death.Sky:
+		SPOR A 1
+		Stop
     }
 }
 
@@ -5639,7 +5657,6 @@ ACTOR SpiderRed
 	+DONTSPLASH
 	+DROPOFF
 	+FLOORCLIP
-	+SHOOTABLE
 	+SLIDESONWALLS
 	-CANUSEWALLS
 	-NODROPOFF
@@ -5717,7 +5734,7 @@ ACTOR NewSpiderRed : BloodEnemy_Base 6161
 	MeleeRange 30
 	Scale .35
 	Gravity .45
-	DamageFactor "Fire", 2.5//What are you doing!?! Up from 0.1
+	DamageFactor "Fire", 2.5
 	DamageFactor "Stomping", 0.4
 	RadiusDamageFactor 1
 	AttackSound "dsdolstb"
@@ -5729,7 +5746,6 @@ ACTOR NewSpiderRed : BloodEnemy_Base 6161
 	+DONTSPLASH
 	+DROPOFF
 	+FLOORCLIP
-	+SHOOTABLE
 	+SLIDESONWALLS
 	+THRUSPECIES
 	-CANUSEWALLS

@@ -21,6 +21,23 @@
 **/
 
 //ARMORS//
+ACTOR RedArmor : BasicArmorPickup 3156 //uses FireArmor DoomEdNum - ozy81
+{
+	Radius 20
+	Height 16
+	Inventory.PickupMessage "$REDA"
+	Inventory.Icon "ARM3A0"
+	Armor.SavePercent 50
+	Armor.SaveAmount 300
+	States
+	{
+	Spawn:
+		ARM3 A 6
+		ARM3 B 6 BRIGHT
+		Loop
+	}
+}
+
 ACTOR ArmorPicker : PuzzleItem { Inventory.MaxAmount 2 -INVBAR }
 
 ACTOR BodyArmorPickup : CustomInventory 3155
@@ -51,7 +68,7 @@ ACTOR BodyArmorPickup : CustomInventory 3155
 	}
 }
 
-ACTOR FireArmorPickup : BodyArmorPickup 3156
+ACTOR FireArmorPickup : BodyArmorPickup
 {
 	//$Sprite ARMFA0
 	Tag "Fire Armor"
@@ -80,7 +97,7 @@ ACTOR FireArmorPickup : BodyArmorPickup 3156
 	}
 }
 
-ACTOR SpiritArmorPickup : BodyArmorPickup 3157
+ACTOR SpiritArmorPickup : BodyArmorPickup 3157 //replace with GreenArmor
 {
 	//$Sprite SARMA0
 	Tag "Spirit Armor"
@@ -109,7 +126,7 @@ ACTOR SpiritArmorPickup : BodyArmorPickup 3157
 	}
 }
 
-ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160
+ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160 //replace with BlueArmor
 {
 	//$Category "BlooM Armor"
 	//$Sprite XARMA0

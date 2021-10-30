@@ -949,6 +949,7 @@ ACTOR SpiderMastermind_  : DoomEnemy_base 19140
 	+FLOORCLIP
 	+MISSILEMORE
 	+NORADIUSDMG
+	+THRUSPECIES
 	SeeSound "spider/sight"
 	AttackSound "spider/attack"
 	PainSound "spider/pain"

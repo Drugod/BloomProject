@@ -208,6 +208,9 @@ ACTOR Cleaver
 	Crash:
 		CLVR II 1 A_PlaySoundEX("Butcher/Cleaver",2)
 		Goto Death
+	Death.Sky:
+		CLVR I 1
+		Stop
 	}
 }
 
@@ -302,6 +305,9 @@ ACTOR ButcherVomit
 		Stop
 	Crash:
 		TNT1 A 0 A_PlaySound("Butcher/Wall")
+		Stop
+	Death.Sky:
+		TNT1 A 1 //no sound
 		Stop
 	}
 }
@@ -529,7 +535,7 @@ ACTOR TeslaProjectile : FastProjectile
 		Loop
 	Death:
 		TNT1 A 0 A_Explode(random(3,6), 24, 0)
-		TNT1 A 0 A_SpawnITem("BoltShrink1")
+		TNT1 A 0 A_SpawnItem("BoltShrink1")
 		TNT1 A 0 A_PlaySound("TESLFIR",0)
 		TNT1 AAAAA 0 A_SpawnItemEx("TeslaFX", random(-8,8), random(-8,8), random(0,3), random(-12,12), random(-12,12), random(0,3))
 		Stop
@@ -572,6 +578,9 @@ ACTOR BGargBone
 		BONE F 6 A_Explode(7,20,0)
 		BONE G 9 A_Explode(7,20,0)
 		BONE G 6 A_Explode(7,20,0)
+		Stop
+	Death.Sky:
+		BONE E 1
 		Stop
 	}
 }
@@ -748,6 +757,9 @@ ACTOR FloorKaboom //Why did it have a blocking area.. it isn't even a tangible t
 		DEXP DEFGHI 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
 		DEXP JKLM 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
 		Stop
+	Death.Sky:
+		DEXP A 1
+		Stop
 	}
 }
 
@@ -841,6 +853,9 @@ ACTOR StoneGargBall
 		BAL2 A 0 A_SpawnItemEx("GargoyleBlastLight")
 		BAL2 EFG 0 BRIGHT A_SCREAM
 		BAL2 HI 0 BRIGHT
+		Stop
+	Death.Sky:
+		BAL2 E 1
 		Stop
 	}
 }
@@ -1053,6 +1068,7 @@ ACTOR SprayCanFire
 		SPFI GHI 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-5,5),0,0)
 		SFIR IJKLMNOP 2 BRIGHT
 		Stop
+	Death.Sky:
 	XDeath:
 		FTRL H 0 BRIGHT
 		Stop
@@ -1174,6 +1190,9 @@ ACTOR StoneGargFX
 	Death:
 		EYEP F 5 A_FadeOut(0.1)
 		Loop
+	Death.Sky:
+		EYEP F 1
+		Stop
 	}
 }
 
@@ -1500,6 +1519,9 @@ ACTOR ShialWeb : FastProjectile
 		"####" A 0 A_RadiusGive("Entanglement", 48, RGF_PLAYERS | RGF_CUBE, 1)
 	Death:
 		WEBX ABCDEFGHIJKLMA 1 A_FadeOut(0.1)
+		Stop
+	Death.Sky:
+		WEBX "#" 1
 		Stop
 	}
 }

@@ -474,6 +474,9 @@ ACTOR HellButcherBall
 	Death:
 		SPAX CDE 6
 		Stop
+	Death.Sky:
+		SPAX E 1
+		Stop
 	}
 }
 
@@ -635,6 +638,9 @@ ACTOR HoundKnightBall
 		Loop
 	Death:
 		HAL7 CDE 6
+		Stop
+	Death.Sky:
+		HAL7 E 1
 		Stop
 	}
 }

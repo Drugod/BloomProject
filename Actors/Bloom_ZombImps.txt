@@ -919,6 +919,9 @@ ACTOR ZombImpBall
 	Death:
 		ZAL1 CDE 6
 		Stop
+	Death.Sky:
+		ZAL1 E 1
+		Stop
 	}
 }
 

@@ -315,6 +315,9 @@ ACTOR FlareExplosion
 		TNT1 A 1 A_Explode(180, 244)
 		TNT1 A 0 A_SpawnItem("BurningAlive")
 		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
 	}
 }
 
@@ -379,6 +382,9 @@ ACTOR FlareAlt
 		DEXP A 0 A_SpawnItem("FlareExplosion")
 		DEXP A 1 BRIGHT A_SpawnItem("FlareKaboom3",-32)
 		TNT1 AAAAAAA 1 A_Explode(2,150)
+		Stop
+	Death.Sky:
+		DEXP A 1
 		Stop
 	}
 }
@@ -474,6 +480,9 @@ ACTOR FlareFire
 		FAIR AAAAA 0 A_CustomMissile("FlareTrail",40,0,frandom(0,360),2,frandom(-90,90))
 		TNT1 A 0 A_Explode(16,20,0) // why does this even hurt the player
 		Stop
+	Death.Sky:
+		FAIR A 1
+		Stop
 	}
 }
 
@@ -539,6 +548,9 @@ ACTOR FlareFire2 : FlareFire
 		FAIR A 0 A_SpawnItem("BurningAlive")
 		FAIR AAAAA 0 A_CustomMissile("FlareTrail",40,0,frandom(0,360),2,frandom(-90,90))
 		TNT1 A 0 A_Explode(16,20,0) // why does this even hurt the player
+		Stop
+	Death.Sky:
+		FAIR A 1
 		Stop
 	}
 }
@@ -639,6 +651,9 @@ ACTOR FlareTrail1
 		Stop
 	Death:
 		FAIR C 1 BRIGHT
+		Stop
+	Death.Sky:
+		FAIR C 1
 		Stop
 	}
 }
@@ -1978,6 +1993,9 @@ ACTOR TNTSmoke : BulletPuff
 		Stop
 		PUFF IIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPP 1 A_FadeOut(0.01)
 		Stop
+	Death.Sky:
+		PUFF A 1
+		Stop
 	}
 }
 
@@ -2334,6 +2352,9 @@ ACTOR ShotgunCasing
 		Stop
 		CASS E 600 A_Fall
 		Stop
+	Death.Sky:
+		CASS A 1
+		Stop
 	}
 }
 
@@ -2628,6 +2649,9 @@ ACTOR TommygunCasing
 		Stop
 		CASB E 600 A_Fall
 		CASB EEEE 40 A_FadeOut(0.15)
+		Stop
+	Death.Sky:
+		CASB A 1
 		Stop
 	}
 }
@@ -3113,6 +3137,9 @@ ACTOR WallBomb
 		MISL B 1 A_Explode
 		MISL B 1 A_SpawnItem("Kaboom",0,-15+frandom(-2,2))
 		Stop
+	Death.Sky:
+		MISL B 1
+		Stop
 	}
 }
 
@@ -3300,6 +3327,9 @@ ACTOR NapalmRocketAlt1
 		NAPP B 0 A_SpawnItemEx("NapalmKaboom",-32,-32,0+frandom[Incinerator](-2,2),0,0,1,0,128)
 		TNT1 AA 1 A_SpawnItemEx ("NapalmRocketAlt2",frandom[Incinerator](-8,-4),frandom[Incinerator](-2,2),16,frandom[Incinerator](6,10),frandom[Incinerator](-3,3),frandom[Incinerator](3,6),frandom[Incinerator](-16,16))
 		Stop
+	Death.Sky:
+		NAPP A 1
+		Stop
 	}
 }
 
@@ -3435,6 +3465,9 @@ ACTOR NapalmRocket
 		TNT1 A 0 A_SpawnItemEx("Kaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
 		NAPX ABCDEFGHIJKLM 2 BRIGHT A_Quake(4,12,0,128)
 		Stop
+	Death.Sky:
+		NAPP A 1
+		Stop
 	}
 }
 
@@ -3459,6 +3492,9 @@ ACTOR NapalmEnemy : NapalmRocket
 		NAPP A 1 BRIGHT A_Explode(15)
 		TNT1 A 0 A_SpawnItemEx("Kaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
 		NAPX ABCDEFGHIJKLM 2 BRIGHT A_Quake(4,12,0,128)
+		Stop
+	Death.Sky:
+		NAPP A 1
 		Stop
 	}	
 }
@@ -3775,6 +3811,9 @@ ACTOR TeslaSmoke
 	Spawn:
 		TSMK AABBCC 3 A_Fadeout(0.15)
 		Stop
+	Death.Sky:
+		TSMK A 1
+		Stop
 	}
 }
 
@@ -3841,6 +3880,9 @@ ACTOR TeslaBallBig
 		TNT1 A 0 A_SpawnItemEx("TeslaExplosion", 0, 64)
 		TNT1 A 0 A_SpawnItemEx("TeslaExplosion", 0, -64)
 		BFIR BBBBBBBB 0 A_Explode(frandom(27,32),192)	//great painchance
+		Stop
+	Death.Sky:
+		BFIR B 1
 		Stop
 	}
 }
@@ -4215,8 +4257,8 @@ ACTOR LifeLeechShot
 	States
 	{
 	Spawn:
-		LLSS A 2 BRIGHT A_SpawnItemEx("LifeLeechTrail",0,0,0,frandom(-4,4),frandom(-4,4),frandom(-4,4),frandom(1,360))
-		LLSS A 2 BRIGHT A_SpawnItemEx("LifeLeechTwinkle",frandom(-7,7),frandom(-7,7),frandom(-7,7))
+		LLSS A 2 A_SpawnItemEx("LifeLeechTrail",0,0,0,frandom(-4,4),frandom(-4,4),frandom(-4,4),frandom(1,360))
+		LLSS A 2 A_SpawnItemEx("LifeLeechTwinkle",frandom(-7,7),frandom(-7,7),frandom(-7,7))
 		Loop
 	Death:
 		LLSX ABCDEFGHIJK 2
@@ -4226,6 +4268,9 @@ ACTOR LifeLeechShot
 		LLSX A 0 A_GiveToTarget("Health",2)
 		LLSX A 0 A_GiveToTarget("EssencePower",1)
 		Goto Death
+	Death.Sky:
+		LLSX A 1
+		Stop
 	}
 }
 
@@ -4483,6 +4528,9 @@ ACTOR VoodooPuff2 : BulletPuff // Uses tid of it as ammo, in the script the tid 
 	Death:
 		TNT1 A 1 ACS_NamedExecuteAlways("VoodooCheck", 0)
 		TNT1 A 0 A_BFGSpray("VoodooPuff",tid,15)
+		Stop
+	Death.Sky:
+		TNT1 A 1
 		Stop
 	}
 }

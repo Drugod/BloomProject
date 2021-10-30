@@ -222,6 +222,9 @@ ACTOR FlyingBloodrop
 		BLUD EEEEE 2 A_SpawnitemEx("RainBlood",frandom(-15,15),frandom(-15,15)) //3 A_SpawnItemEX("BloodPool",frandom(-20,20),frandom(-20,20),frandom(-6,6),frandom(-6,6))
 		BLUD EEEEEEEEEE 225 A_FadeOut(0.2)
 		Stop
+	Death.Sky:
+		BLUD E 1 A_FadeOut(1.05)
+		Loop
 	}
 }
 
@@ -288,6 +291,9 @@ ACTOR SnowParticle
 	Death:
 		SNOW A 1 A_FadeOut(0.05)
 		Loop
+	Death.Sky:
+		SNOW A 1 A_FadeOut(1.05)
+		Loop
 	}
 }
 
@@ -313,6 +319,9 @@ ACTOR SnowParticle2
 	Death:
 		SGSB A 1
 		Stop
+	Death.Sky:
+		SNOW A 1 A_FadeOut(1.05)
+		Loop
 	}
 }
 

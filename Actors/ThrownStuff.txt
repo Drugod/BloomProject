@@ -332,6 +332,9 @@ ACTOR PlayerTNT
 		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
 		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
 		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
 	}
 }
 
@@ -749,7 +752,7 @@ ACTOR PlayerTNT1
 		PTNT E 0 A_Countdown
 		TNT1 A 0 A_Playsound("TNTFUSE",0,1.0,TRUE)
 		PTNT E 0 A_LoopActiveSound
-	Goto See
+		Goto See
 	See:
 		TNT1 A 0 A_Playsound("TNTFUSE",0,1.0,TRUE)
 		PTNT E 1 A_SpawnItem("TNTSmoke",5)
@@ -784,6 +787,10 @@ ACTOR PlayerTNT1
 		PTNT A 1 A_Stop
 		PTNT A 0 A_CustomMissile("ClassicoTNT",0,0,0,CMF_TRACKOWNER)
 		TNT1 A 0 A_Stopsound(0)
+		Stop
+	Death.Sky:
+		TNT1 A 0 A_Stopsound(0)
+		TNT1 A 1
 		Stop
 	}
 }

@@ -180,6 +180,9 @@ ACTOR ZombieHead
 		Stop
 		ZHED P -1
 		Stop
+	Death.Sky:
+		ZHED "#" 1
+		Stop
 	}
 }
 
@@ -409,6 +412,9 @@ ACTOR ZombImpHead1 : ZombieHead
 		Stop
 		ZHE1 P -1
 		Stop
+	Death.Sky:
+		ZHE1 "#" 1
+		Stop
 	}
 }
 
@@ -635,6 +641,9 @@ ACTOR ZombImpHead2
 		ZHE2 O -1
 		Stop
 		ZHE2 P -1
+		Stop
+	Death.Sky:
+		ZHE2 "#" 1
 		Stop
 	}
 }
@@ -865,6 +874,9 @@ ACTOR ZombImpHead3
 		Stop
 		ZHE3 P -1
 		Stop
+	Death.Sky:
+		ZHE3 "#" 1
+		Stop
 	}
 }
 
@@ -1091,6 +1103,9 @@ ACTOR ZombImpHead4
 		ZHE4 O -1
 		Stop
 		ZHE4 P -1
+		Stop
+	Death.Sky:
+		ZHE4 "#" 1
 		Stop
 	}
 }
@@ -1320,6 +1335,9 @@ ACTOR GhoulHead1
 		Stop
 		GHE1 P -1
 		Stop
+	Death.Sky:
+		GHE1 "#" 1
+		Stop
 	}
 }
 
@@ -1547,6 +1565,9 @@ ACTOR GhoulHead2
 		GHE2 O -1
 		Stop
 		GHE2 P -1
+		Stop
+	Death.Sky:
+		GHE2 "#" 1
 		Stop
 	}
 }
@@ -1776,6 +1797,9 @@ ACTOR GhoulHead3
 		Stop
 		GHE3 P -1
 		Stop
+	Death.Sky:
+		GHE3 "#" 1
+		Stop
 	}
 }
 
@@ -2003,6 +2027,9 @@ ACTOR FanaticHead
 		WPHE O -1
 		Stop
 		WPHE P -1
+		Stop
+	Death.Sky:
+		WPHE "#" 1
 		Stop
 	}
 }
@@ -2232,6 +2259,9 @@ ACTOR GhoulHead6
 		Stop
 		GHE6 P -1
 		Stop
+	Death.Sky:
+		GHE6 "#" 1
+		Stop
 	}
 }
 
@@ -2367,6 +2397,9 @@ ACTOR KickableHeadGhoul6
 		TNT1 A 0 A_SpawnDebris ("EyeGuts")
 		TNT1 A 0 A_SpawnDebris ("Bloodliver")
 		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	Death.Sky: //but it is not a projectile, requires testing - ozy81
+		GHE6 "#" 1
 		Stop
 	}
 }
@@ -2595,6 +2628,9 @@ ACTOR KickableHeadFish
 		TNT1 A 0 A_SpawnDebris ("EyeGuts")
 		TNT1 A 0 A_SpawnDebris ("Bloodliver")
 		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	Death.Sky:
+		FHED "#" 1
 		Stop
 	}
 }
@@ -2827,6 +2863,9 @@ ACTOR KickableHeadMoron
 		TNT1 A 0 A_SpawnDebris ("Bloodliver")
 		TNT1 A 0 A_SpawnDebris("FlyingBlood")
 		Stop
+	Death.Sky: //but it is not a projectile, requires testing - ozy81
+		MOHE "#" 1
+		Stop
 	}
 }
 
@@ -2915,8 +2954,11 @@ ACTOR BloodPool_ replaces BloodPool	//The floor will be a bit dirty this time,th
 		Loop
 	Death4:
 		BLUD E 1
-		TNT1 A 0 A_CheckSight("Death0")//Blood dissapears if its out of player sight
+		TNT1 A 0 A_CheckSight("Death0")//Blood disappears if its out of player sight
 		Loop
+	Death.Sky: //but it is not a projectile, requires testing - ozy81
+		BLUD E 1
+		Stop
 	}
 }
 
@@ -3000,6 +3042,9 @@ ACTOR BloodTrail
 		BLUD E 5 A_SpawnItemEX("BloodPool",Random(-10,10),Random(-10,10))
 		BLUD E 50 A_FadeOut(0.07)
 		Goto XDeath+1
+	Death.Sky:
+		BLUD E 1
+		Stop
 	}
 }
 
@@ -3029,6 +3074,9 @@ ACTOR OrganDebris
 	Death:
 		BLUD F 2 A_PlaySound("Body/Gibs")
 		BLUD GHI 2
+		Stop
+	Death.Sky:
+		BLUD F 1
 		Stop
 	}
 }

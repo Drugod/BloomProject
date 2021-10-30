@@ -31,6 +31,7 @@ ACTOR Arachnoid : BloomHybrid_Base 19011
 	Mass 80
 	+BOSSDEATH
 	+DROPOFF
+	+THRUSPECIES //so they don't pile when they jump over  - ozy81
 	Obituary "$OB_ACHNOID"
 	Attacksound "dsdolstb"
 	PainSound "SpiderPain"
@@ -97,6 +98,7 @@ ACTOR Green_Arachnopod : BloomHybrid_Base 19070
     +BOSSDEATH
 	+LOOKALLAROUND
 	+JUMPDOWN
+	+THRUSPECIES //so they don't pile when they jump over  - ozy81
 	DamageFactor "Ice", 1.2
 	DamageFactor "Fire", 1.2
 	DamageFactor "Flare", 1.2
@@ -222,7 +224,7 @@ ACTOR GreenArachnoBramble : HellroseBramble
 	}
 }
 
-ACTOR Magma_Arachnopod : Green_Arachnopod 19071 //needs proper attacks
+ACTOR Magma_Arachnopod : Green_Arachnopod 19071
 {
 	//$Title Magma Arachnopod
 	DamageFactor "Ice", 2.0
@@ -371,7 +373,7 @@ ACTOR MagmaBramble : HellroseBramble
 	}
 }
 
-ACTOR Ice_Arachnopod : Green_Arachnopod 19072 //needs proper attacks
+ACTOR Ice_Arachnopod : Green_Arachnopod 19072
 {
 	//$Title Ice Arachnopod
 	DamageFactor "Ice", 0.0
@@ -517,6 +519,7 @@ ACTOR RomeroTron : BloomHybrid_Base 19137
     +BOSSDEATH
 	+JUMPDOWN
 	+NOTARGET
+	+THRUSPECIES //so they don't pile when they jump over  - ozy81
     SeeSound "trn/active"
     PainSound "baby/pain"
     DeathSound "baby/death"
@@ -582,27 +585,27 @@ ACTOR RomeroTron : BloomHybrid_Base 19137
 
 ACTOR RomeroSpawnShot
 {
-  Radius 6
-  Height 32
-  Speed 10
-  Damage 3
-  Projectile
-  +NOCLIP
-  -ACTIVATEPCROSS
-  +RANDOMIZE
-  SeeSound "brain/spit"
-  DeathSound "brain/cubeboom"
-  Dropitem "RomeroEye"
-  States
-  {
-  Spawn:
-    BOSF A 3 Bright A_SpawnSound
-    BOSF BCD 3 Bright A_SpawnFly
-    Loop
-  }
+	Radius 6
+	Height 32
+	Speed 10
+	Damage 3
+	Projectile
+	+NOCLIP
+	-ACTIVATEPCROSS
+	+RANDOMIZE
+	SeeSound "brain/spit"
+	DeathSound "brain/cubeboom"
+	Dropitem "RomeroEye"
+	States
+	{
+	Spawn:
+		BOSF A 3 Bright A_SpawnSound
+		BOSF BCD 3 Bright A_SpawnFly
+		Loop
+	}
 }
 
-ACTOR RomeroEye: RandomSpawner
+ACTOR RomeroEye : RandomSpawner //potential mapbreaker! - ozy81
 {
 	DropItem "ShotgunMonsters"
 	DropItem "ChaingunMonsters"

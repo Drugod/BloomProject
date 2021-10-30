@@ -11,9 +11,9 @@ statusbar fullscreen
 		drawnumber 6, SMALLFONT, RED, health, -153,135,0;//-353, 135,0;
 		drawnumber 6, SMALLFONT, RED, ammo1, -118,135,0;//-318, 135,0;
 		//Armor
-		drawbar "REDABAR", "BLACKBAR",  FireArmor, horizontal, 450,137;//650, 137;
-		drawbar "BLUEBAR", "BLACKBAR",  BodyArmor, horizontal, 450,145;//650, 145;
-		drawbar "GRNABAR", "BLACKBAR",  SpiritArmor, horizontal, 450,153;//650, 153;
+		drawbar "REDABAR", "BLACKBAR",  RedArmor, horizontal, 450,137;//650, 137;
+		drawbar "BLUEBAR", "BLACKBAR",  BlueArmor, horizontal, 450,145;//650, 145;
+		drawbar "GRNABAR", "BLACKBAR",  GreenArmor, horizontal, 450,153;//650, 153;
 		//Keys
 		drawswitchableimage Key6, "nullimage", "FTKEYS4", 451,121;
 		drawswitchableimage Key5, "nullimage", "FTKEYS5", 461,121;
@@ -34,8 +34,23 @@ statusbar fullscreen
 		IsSelected ProximityDynamite{
 			drawbar "TNTMTR01", "TNTMTR00", Ammo ThrowPower, horizontal, interpolate(50), 0, -35;
 		}
-		inInventory FireArmor
-		{ drawnumber 4, BLUEFONT, white, FireArmor,  465, 138;}//665, 138;}
+		inInventory GrenadeAmmo
+		{
+			drawimage "GRENAD", 426, 117;
+			drawnumber 4, BLUEFONT, yellow, GrenadeAmmo, 426, 117;
+		}
+		inInventory RedArmor
+		{		
+			drawnumber 4, BLUEFONT, white, RedArmor,  465, 138; //665, 138;
+		}
+		inInventory BlueArmor
+		{ 
+			drawnumber 4, BLUEFONT, white, BlueArmor, 465, 146; //665, 146;
+		}
+		inInventory GreenArmor
+		{ 
+			drawnumber 4, BLUEFONT, white, GreenArmor, 465, 154; //665, 154;
+		}
 		else
 		{ 	drawbar "REDABAR", "BLACKBAR",  armor, horizontal, 450, 137;//650, 137;
 			drawnumber 4, BLUEFONT, white, armor , 465, 138;//665, 138;
@@ -44,10 +59,6 @@ statusbar fullscreen
 			drawbar "GRNABAR", "BLACKBAR",  armor, horizontal, 450, 153;//650, 153;
 			drawnumber 4, BLUEFONT, white, armor, 465, 154; //665, 154;
 		}
-		inInventory BodyArmor
-		{ drawnumber 4, BLUEFONT, white, BodyArmor, 465, 146; }//665, 146; }
-		inInventory SpiritArmor
-		{ drawnumber 4, BLUEFONT, white, SpiritArmor, 465, 154; }//665, 154; }
 		//Diving Suit
 		inInventory PowerAir, 1 {
 			DrawImage "SQ1", -290, -350, none, 320, 200, forcescale;
@@ -80,11 +91,20 @@ statusbar normal
 		//TNT/Spray Can throw power
 		drawbar "TNTMTR01", "TNTMTR00", Ammo ThrowPower, horizontal, interpolate(50), 0, -55;
 		//Armor
-		drawbar "REDABAR", "BLACKBAR",  FireArmor, horizontal, 44, 175;
-		drawbar "BLUEBAR", "BLACKBAR",  BodyArmor, horizontal, 44, 183;
-		drawbar "GRNABAR", "BLACKBAR",  SpiritArmor, horizontal, 44, 191;
-		inInventory FireArmor
-		{ drawnumber 4, BLUEFONT, white, FireArmor, 59, 176;}
+		drawbar "REDABAR", "BLACKBAR",  RedArmor, horizontal, 44, 175;
+		drawbar "BLUEBAR", "BLACKBAR",  BlueArmor, horizontal, 44, 183;
+		drawbar "GRNABAR", "BLACKBAR",  GreenArmor, horizontal, 44, 191;
+		inInventory GrenadeAmmo
+		{
+			drawimage "GRENAD", 193, 139;
+			drawnumber 4, BLUEFONT, yellow, GrenadeAmmo, 213, 139;
+		}
+		inInventory RedArmor
+		{ drawnumber 4, BLUEFONT, white, RedArmor, 59, 176;}
+		inInventory BlueArmor
+		{ drawnumber 4, BLUEFONT, white, BlueArmor, 59, 184; }
+		inInventory GreenArmor
+		{ drawnumber 4, BLUEFONT, white, GreenArmor, 59, 192; }
 		else
 		{ 	drawbar "REDABAR", "BLACKBAR",  armor, horizontal, 44, 175;
 			drawnumber 4, BLUEFONT, white, armor , 59, 176;
@@ -93,10 +113,6 @@ statusbar normal
 			drawbar "GRNABAR", "BLACKBAR",  armor, horizontal, 44, 191;
 			drawnumber 4, BLUEFONT, white, armor, 59, 192;
 		}
-		inInventory BodyArmor
-		{ drawnumber 4, BLUEFONT, white, BodyArmor, 59, 184; }
-		inInventory SpiritArmor
-		{ drawnumber 4, BLUEFONT, white, SpiritArmor, 59, 192; }
 		//Diving Suit
 		inInventory PowerAir, 1 {
 			DrawImage "SQ1", -290, -350, none, 320, 200, forcescale;
@@ -111,7 +127,7 @@ statusbar normal
 		{
 			drawnumber 2, HUDFONT_DOOM, untranslated, frags, 138, 171;
 		}
-
+		
 		gamemode cooperative, deathmatch, teamgame
 		{
 			drawimage translatable "STFBANY", 144, 169;
