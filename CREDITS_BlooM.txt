@@ -47,6 +47,7 @@ Colt and single barrel Shotgun taken from Blood weapon mod
 Doom Vanilla Angled Weapons from "Nobody told me about ID", modified by Rolls3D
 Doom Models mainly from TheMacGyverArchiver
 Doom Voxels by Reikall (several)
+Blood Voxels by fgsfds/Dzierzan
 DoomGuy player sprites by Mark Quinn
 Some flats and general defs by SgtMarkIV
 Grenades/Playerclasses by SgtMarkIV, modified by Drugod
