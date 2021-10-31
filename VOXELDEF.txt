@@ -79,6 +79,25 @@ SSKUA="SSKUA" {Spin = 50}
 XINVA="XINVA" //no 3d model
 XSTRA="XSTRA" //no 3d model
 
+//NEW STUFF
+BHEAA="BHEAA" {}
+XPOTA="XPOTA" {}
+DSUIA="DSUIA" {}
+
+XEGAA="XEGAA" {}
+XEGAB="XEGAB" {}
+XEGAC="XEGAC" {}
+XEGAD="XEGAD" {}
+XEGAE="XEGAE" {}
+
+XOULA="XOULA" {}
+XOULB="XOULB" {}
+XOULC="XOULC" {}
+XOULD="XOULD" {}
+XOULE="XOULE" {}
+
+XUITA="XUITA" {}
+
 //==========================================
 //--------------Vanilla Doom----------------
 //==========================================
@@ -100,6 +119,28 @@ CLIPA = "CLIPA" {DroppedSpin = 25}
 ROCKA = "ROCKA" {DroppedSpin = 25}
 SBOXA = "SBOXA" {DroppedSpin = 25}
 SHELA = "SHELA" {Scale = 0.19 DroppedSpin = 25}
+
+MEDIA="MEDIA" {}
+STIMA="STIMA" {}
+
+ARM1A="ARM1A" {}
+ARM1B="ARM1B" {}
+
+ARM2A="ARM2A" {}
+ARM2B="ARM2B" {}
+
+ARM3A="ARM3A" {}
+ARM3B="ARM3B" {}
+
+BON1A="BON1A" {}
+BON1B="BON1B" {}
+BON1C="BON1C" {}
+BON1D="BON1D" {}
+
+BON2A="BON2A" {}
+BON2B="BON2B" {}
+BON2C="BON2C" {}
+BON2D="BON2D" {}
 
 //==========================================
 //------------BlooM Exclusives--------------
