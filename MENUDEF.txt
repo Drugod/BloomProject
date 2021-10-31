@@ -108,7 +108,7 @@ OptionMenu "OptionsMenu"
 
 OptionMenu "BloomOptions"
 {
-	Title  "Bloom options"
+	Title  "Bloom Options"
 	Statictext " "
 	StaticText "Gameplay Options", 1
 	Option "Hybrid Bloom monsters?", "blm_hybrid", "YesOrNo"
@@ -123,24 +123,14 @@ OptionMenu "BloomOptions"
 
 	//, "Do you want to enable voxels but not models for weapons, objects & items? Restart not required."
 	SafeCommand "Enable Voxels", "vox_on-mod_off"
-	Option "Keep 3d blood on floor", "bloodremain", "bloodyremain"
+	SafeCommand "Set BlooM Default Setup", "bloom_setup"
 	StaticText " "
 	StaticText "Key config for advanced movements", 1
 	Control "Doomguy toss grenade", "grenadetoss"
-	//Control "Timer freeze", "timerfreeze"
 }
 
 OptionValue "YesOrNo"
 {
 	0, "No"
 	1, "Yes"
-}
-
-OptionValue "bloodyremain"
-{
-	0, "No"
-	1, "Fast fading"
-	2, "Normal Fading"
-	3, "Slow Fading"
-	4, "Yes (Fast CPUs)"
 }

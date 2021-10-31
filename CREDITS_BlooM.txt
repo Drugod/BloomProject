@@ -17,7 +17,7 @@ D_DOOM
 D_THE_DA
 D_SHAWN
 D_DDTBLU
-Soundtrack avalaible at https://asciimov.bandcamp.com/
+Soundtrack available at https://asciimov.bandcamp.com/
 
 Following songs by Buio Mondo:
 D_AMPIE
@@ -33,8 +33,7 @@ D_READ_M
 D_ROMER2
 D_ROMERO
 D_STLKS2
-Soundtrack avalaible at https://buiomondo.bandcamp.com/album/bloom/
-
+Soundtrack available at https://buiomondo.bandcamp.com/album/bloom/
 
 Thanks to 00_Zombie_00 to help us with BLM02 map
 Bloom is based on ZBlood-ZBloodX Addon by IvanDobrovski/Cruduxy/Marinelol
@@ -80,10 +79,9 @@ You need GZDoom 3.2.1 minimum or Zandronum 2.8+ to run this mod, within any Doom
 a compatible gpu with 3.3 GL shaders minimum. It also works on GZDoom 3.7.2, LZDoom 3.82 (you can't throw
 grenades), QZDoom 2.1pre-4493 (you can't throw grenades and performance is bad with models/voxels) and
 new versions of Zandronum most probably. These were requirements for Demo release.
-Now it also work under GLesZDoom 4.6.0+, GZDoom 3.7.2 still recommended, runs flawlessly on Zandronum.
+Now it also work under GLesZDoom 4.6.0+, GZDoom 4.6.1 recommended, runs flawlessly on Zandronum.
 
-Check SOURCE folder for a complete and exhaustive list of materials used on this mod,
-plus a long detailed story background and Bible.
+Check SOURCE folder for a complete and exhaustive list of materials used on this mod.
 
 All borrowed resources present in this project belong ONLY to respective owners/creators, if we have miss
 someone let us know, but with proof.
@@ -113,15 +111,19 @@ IvanDobrovski/Cruduxy/Marinelol and their respective creators
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 #### KNOWN PROBLEMS/LIMITS/BUGS:
-- GZDoom: Tested under GZDoom 3.2.1 x64, 3.7.2 x64 and 4.6.1 x64, problems are present since 4.7+ (jittery movement of HUD weaps, maps issues)
-- GLEsZDoom: Tested under GLEsZDoom 4.6.0 x64, no problems noticed afaik
-- LZDoom: You can't throw grenades
+- GZDoom: Tested under GZDoom 3.2.1 x64, 3.7.2 x64 and 4.6.1 x64, Vulkan API recommended
+- GLEsZDoom: Tested under GLEsZDoom 4.6.0 x64, no problems noticed afaik, you might select for GLes api while running GZDoom 4.6+ btw
+- LZDoom: You can't throw grenades, bad performance in general
 - QZDoom: You can't throw grenades, bad performance in general
 - Zandronum: Tested under Zandro 2.8pre-441 and 3-1alpha-441, some lights may act differently and multiple stacked 3d floors are missing
 - Doom IWADS may still be broken in certain occasions, just let us know
 - Traps have not been placed anywhere beside MAP01-02 on Doom 2, we didn't had time
+- Jumping/flying enemies might walk over skies and swim underwater where they shouldn't (critters)
+- Dynamite throwing animation is not perfect due to some spaghetti-code necessary to make it work under other ports than GZDoom
+- DivingSuit HUD offsets are always messed up, it much depends by aspectratio of your resolutions; we'll fix in a future patch (probably GZDoom only)
+- On Zandronum LifeLeech fire states originate some unknown flags messages, when actors like Archies or Ghouls gets hit
+- On GZDoom 4.7+ there are some jittery movements of HUD weapons
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 ##### LICENSE:
-THIS REPOSITORY IS FOR DEVELOPMENT AND TESTING PURPOSES. CONTRIBUTIONS ARE WELCOME, BUT YOU ARE **NOT ALLOWED** TO USE ANY UN-RELEASED MATERIAL FOR YOUR OWN PROJECTS WITHOUT OUR PERMISSION!
 WE STRONGLY ENCOURAGE TO BASE PROJECTS WITH THESE RESOURCES, BUT WITH THIS FILE INCLUDED AS IS PLUS COPYRIGHT HEADERS PRESENTS INSIDE THESE FILES.
