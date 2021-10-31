@@ -34,10 +34,13 @@ statusbar fullscreen
 		IsSelected ProximityDynamite{
 			drawbar "TNTMTR01", "TNTMTR00", Ammo ThrowPower, horizontal, interpolate(50), 0, -35;
 		}
-		inInventory GrenadeAmmo
-		{
-			drawimage "GRENAD", 426, 117;
-			drawnumber 4, BLUEFONT, yellow, GrenadeAmmo, 426, 117;
+		Playerclass Caleb {		
+		}else{
+			inInventory GrenadeAmmo
+			{
+				drawimage "GRENAD", 426, 117;
+				drawnumber 4, BLUEFONT, yellow, GrenadeAmmo, 426, 117;
+			}
 		}
 		inInventory RedArmor
 		{
@@ -94,10 +97,13 @@ statusbar normal
 		drawbar "REDABAR", "BLACKBAR",  RedArmor, horizontal, 44, 175;
 		drawbar "BLUEBAR", "BLACKBAR",  BlueArmor, horizontal, 44, 183;
 		drawbar "GRNABAR", "BLACKBAR",  GreenArmor, horizontal, 44, 191;
-		inInventory GrenadeAmmo
-		{
-			drawimage "GRENAD", 193, 139;
-			drawnumber 4, BLUEFONT, yellow, GrenadeAmmo, 213, 139;
+		Playerclass Caleb {		
+		}else{
+			inInventory GrenadeAmmo
+			{
+				drawimage "GRENAD", 193, 139;
+				drawnumber 4, BLUEFONT, yellow, GrenadeAmmo, 213, 139;
+			}
 		}
 		inInventory RedArmor
 		{ drawnumber 4, BLUEFONT, white, RedArmor, 59, 176;}
