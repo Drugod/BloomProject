@@ -548,6 +548,24 @@ Moron/Scream2	ISCREAM2
 $Random Moron/Scream {Moron/Scream1	Moron/Scream2}
 $Random Moron/Beg {Moron/Crying Moron/NOHURT Moron/GoAway}
 
+//MUTANT
+Mutant/Home		MTNPLC
+
+Mutant/Cry1	MTCRY
+Mutant/Cry2	MTCRY2
+$Random Mutant/Crying	{Mutant/Cry1	Mutant/Cry2}
+
+Mutant/NOHURT	MTDHM
+Mutant/GoAway1	MTGWY2
+Mutant/GoAway2	MTGWY3
+$Random Mutant/GoAway {Mutant/GoAway1	Mutant/GoAway2}
+
+Mutant/Scream1	MTSCRM1
+Mutant/Scream2	MTSCRM1
+Mutant/Please	MTPLS
+$Random Mutant/Scream {Mutant/Scream1	Mutant/Scream2  Mutant/Please}
+$Random Mutant/Beg {Mutant/Crying Mutant/NOHURT Mutant/GoAway}
+
 //ZOMBIE
 ZombieAxe			ZOMAXE
 

@@ -58,10 +58,10 @@ ACTOR RevenantMime 19099
 	+FLOORCLIP
 	+THRUSPECIES //So they act like ghosts with same species - ozy81
 	MeleeSound "skeleton/melee"
-	SeeSound "Moron/Cry1"
-	DeathSound "Moron/Crying"
-	ActiveSound "Moron/GoAway"
-	PainSound "Moron/Scream"
+	SeeSound "Mutant/Beg"
+	DeathSound "Mutant/Crying"
+	ActiveSound "Mutant/GoAway"
+	PainSound "Mutant/Scream"
 	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
 	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
 	Species "Ghosts"

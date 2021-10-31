@@ -164,6 +164,10 @@ ACTOR Moron 3241
 ACTOR AberrationMoron : Moron
 {
 	//$Title Moron, Aberration 1
+	SeeSound "Mutant/Beg"
+	DeathSound "Mutant/Crying"
+	ActiveSound "Mutant/GoAway"
+	PainSound "Mutant/Scream"	
 	+COUNTKILL
 	+NOTARGETSWITCH
 	-FRIENDLY
@@ -288,6 +292,10 @@ ACTOR AberrationMoron2 : Moron
 	+NOPAIN
 	+NOTARGETSWITCH
 	-FRIENDLY
+	SeeSound "Mutant/Beg"
+	DeathSound "Mutant/Crying"
+	ActiveSound "Mutant/GoAway"
+	PainSound "Mutant/Scream"	
 	MeleeThreshold 192
 	States
 	{
@@ -382,6 +390,10 @@ ACTOR AberrationMoron3 : Moron
 	+NOTARGETSWITCH
 	-FRIENDLY
 	MeleeThreshold 192
+	SeeSound "Mutant/Beg"
+	DeathSound "Mutant/Crying"
+	ActiveSound "Mutant/GoAway"
+	PainSound "Mutant/Scream"	
 	States
 	{
 	Spawn:
@@ -551,6 +563,10 @@ ACTOR AberrationMoron4 : Moron
 	+NOTARGETSWITCH
 	-FRIENDLY
 	MeleeThreshold 192
+	SeeSound "Mutant/Beg"
+	DeathSound "Mutant/Crying"
+	ActiveSound "Mutant/GoAway"
+	PainSound "Mutant/Scream"	
 	States
 	{
 	Spawn:
@@ -647,6 +663,10 @@ ACTOR AberrationMoron5 : Moron
 	+NOTARGETSWITCH
 	-FRIENDLY
 	MeleeThreshold 192
+	SeeSound "Mutant/Beg"
+	DeathSound "Mutant/Crying"
+	ActiveSound "Mutant/GoAway"
+	PainSound "Mutant/Scream"	
 	States
 	{
 	Spawn:
@@ -1220,10 +1240,10 @@ ACTOR RevenantMoron 19096
 	+FLOORCLIP
 	+THRUSPECIES //So they act like ghosts with same species - ozy81
 	MeleeSound "skeleton/melee"
-	SeeSound "Moron/Cry1"
-	DeathSound "Moron/Crying"
-	ActiveSound "Moron/GoAway"
-	PainSound "Moron/Scream"
+	SeeSound "Mutant/Beg"
+	DeathSound "Mutant/Crying"
+	ActiveSound "Mutant/GoAway"
+	PainSound "Mutant/Scream"
 	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
 	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
 	Species "Ghosts" //not Aberration since it makes more sense to have it in line with other Revenants and Phantasms - ozy81
@@ -1288,10 +1308,10 @@ ACTOR RevenantMoronAlt 19097
 	+FLOORCLIP
 	+THRUSPECIES //So they act like ghosts with same species - ozy81
 	MeleeSound "skeleton/melee"
-	SeeSound "Moron/Cry1"
-	DeathSound "Moron/Crying"
-	ActiveSound "Moron/GoAway"
-	PainSound "Moron/Scream"
+	SeeSound "Mutant/Beg"
+	DeathSound "Mutant/Crying"
+	ActiveSound "Mutant/GoAway"
+	PainSound "Mutant/Scream"
 	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
 	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
 	Species "Ghosts" //not Aberration since it makes more sense to have it in line with other Revenants and Phantasms - ozy81
@@ -1355,10 +1375,10 @@ ACTOR RevenantMoronAlt2 19098
 	+FLOORCLIP
 	+THRUSPECIES //So they act like ghosts with same species - ozy81
 	MeleeSound "skeleton/melee"
-	SeeSound "Moron/Cry1"
-	DeathSound "Moron/Crying"
-	ActiveSound "Moron/GoAway"
-	PainSound "Moron/Scream"
+	SeeSound "Mutant/Beg"
+	DeathSound "Mutant/Crying"
+	ActiveSound "Mutant/GoAway"
+	PainSound "Mutant/Scream"
 	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
 	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
 	Species "Ghosts" //not Aberration since it makes more sense to have it in line with other Revenants and Phantasms - ozy81
