@@ -126,7 +126,7 @@ ACTOR Chainsaw_ : DoomW replaces Chainsaw
 	Inventory.PickupMessage "$GOTCHAINSAW"
 	Obituary "$OB_MPCHAINSAW"
 	Tag "$TAG_CHAINSAW"
-	+WEAPON.MELEEWEAPON	
+	+WEAPON.MELEEWEAPON
 	States
 	{
 	Spawn:
@@ -333,7 +333,7 @@ ACTOR Shotgun_ : DoomW replaces Shotgun
 	Inventory.PickupMessage "$GOTSHOTGUN"
 	Obituary "$OB_MPSHOTGUN"
 	Tag "$TAG_SHOTGUN"
-	Weapon.SisterWeapon DualShotgun_	
+	Weapon.SisterWeapon DualShotgun_
 	States
 	{
 	Spawn:
@@ -359,9 +359,9 @@ ACTOR Shotgun_ : DoomW replaces Shotgun
 	Fire:
 		PKSG A 3
 		SHTG A 0 A_FireBullets (5.6, 0, 7, 5, "BulletPuff")
-		SHTG A 0 A_PlaySound ("weapons/shotgf", CHAN_WEAPON)			
+		SHTG A 0 A_PlaySound ("weapons/shotgf", CHAN_WEAPON)
 		TNT1 A 0 A_Quake(2,6,0,100)
-		PKSG A 5 A_GunFlash				
+		PKSG A 5 A_GunFlash
 		PKSG B 2
 		PKSG C 1
 		PKSG D 2
@@ -409,7 +409,7 @@ ACTOR DualShotgun_ : Shotgun_
 	+POWERED_UP
 	+WEAPON.BFG
 	Weapon.AmmoUse 1
-	Weapon.SisterWeapon Shotgun_	
+	Weapon.SisterWeapon Shotgun_
 	States
 	{
 	Ready:
@@ -425,16 +425,16 @@ ACTOR DualShotgun_ : Shotgun_
 	Fire:
 		DSGT A 3
 		DSGT A 5
-		DSGT B 2 
-		TNT1 A 0 A_Quake(2,6,0,100)		
-		DSGT C 1 
+		DSGT B 2
+		TNT1 A 0 A_Quake(2,6,0,100)
+		DSGT C 1
 		SHTG A 0 A_FireBullets (5.6, 0, 7, 5, "BulletPuff")
-		SHTG A 0 A_PlaySound ("weapons/shotgf", CHAN_WEAPON)		
-		DSGT D 5 A_Gunflash		
-		TNT1 A 0 A_Quake(2,6,0,100)		
+		SHTG A 0 A_PlaySound ("weapons/shotgf", CHAN_WEAPON)
+		DSGT D 5 A_Gunflash
+		TNT1 A 0 A_Quake(2,6,0,100)
 		DSGT E 3
 		SHTG A 0 A_FireBullets (5.6, 0, 7, 5, "BulletPuff")
-		SHTG A 0 A_PlaySound ("weapons/shotgf", CHAN_WEAPON)		
+		SHTG A 0 A_PlaySound ("weapons/shotgf", CHAN_WEAPON)
 		DSGT F 4
 		DSGT H 1 Offset(-1,33) //yes, this time we gonna use offsets for better visuals
 		DSGT H 1 Offset(-4,41)
@@ -466,7 +466,7 @@ ACTOR DualShotgun_ : Shotgun_
 		DSGT H 1 Offset(-4,46)
 		DSGT H 1 Offset(-2,33)
 		DSGT H 1 Offset(-1,32)
-		DSGT H 1 
+		DSGT H 1
 		DSGT H 1 A_ReFire
 		Goto Ready
 	Flash:
@@ -511,7 +511,7 @@ ACTOR SuperShotgun_ : DoomW replaces SuperShotgun
 	Inventory.PickupMessage "$GOTSHOTGUN2"
 	Obituary "$OB_MPSSHOTGUN"
 	Tag "$TAG_SUPERSHOTGUN"
-	Weapon.SisterWeapon DualSuperShotgun_	
+	Weapon.SisterWeapon DualSuperShotgun_
 	States
 	{
 	Spawn:
@@ -537,7 +537,7 @@ ACTOR SuperShotgun_ : DoomW replaces SuperShotgun
 	Fire:
 		PKS2 A 3
 		PKS2 A 0 A_FireBullets (11.2, 7.1, 20, 5, "BulletPuff")
-		PKS2 A 0 A_PlaySound ("weapons/sshotf", CHAN_WEAPON)		
+		PKS2 A 0 A_PlaySound ("weapons/sshotf", CHAN_WEAPON)
 		PKS2 A 0 A_Quake(2,6,0,100)
 		PKS2 A 6 A_GunFlash
 		PKS2 A 3 A_CheckReload
@@ -607,14 +607,14 @@ ACTOR DualSuperShotgun_ : SuperShotgun_
 	Fire:
 		DSSG B 3 //Right Fire
 		PKS2 A 0 A_FireBullets (11.2, 7.1, 20, 5, "BulletPuff")
-		PKS2 A 0 A_PlaySound ("weapons/sshotf", CHAN_WEAPON)		
+		PKS2 A 0 A_PlaySound ("weapons/sshotf", CHAN_WEAPON)
 		TNT1 A 0 A_Quake(2,6,0,100)
 		TNT1 A 0 A_Gunflash
 		DSSG C 3
 		DSSG D 2
 		DSSG E 3 //Left Fire
 		PKS2 A 0 A_FireBullets (11.2, 7.1, 20, 5, "BulletPuff")
-		PKS2 A 0 A_PlaySound ("weapons/sshotf", CHAN_WEAPON)		
+		PKS2 A 0 A_PlaySound ("weapons/sshotf", CHAN_WEAPON)
 		TNT1 A 0 A_Quake(2,6,0,100)
 		TNT1 A 0 A_Gunflash
 		DSSG F 3
@@ -696,7 +696,7 @@ ACTOR Chaingun_ : DoomW replaces Chaingun
 	Inventory.PickupMessage "$GOTCHAINGUN" // "You got the chaingun"
 	Obituary "$OB_MPCHAINGUN" // "%o was mowed down by %k's chaingun."
 	Tag "$TAG_CHAINGUN"
-	Weapon.SisterWeapon DoubleChaingun_	
+	Weapon.SisterWeapon DoubleChaingun_
 	States
 	{
 	Spawn:
@@ -975,16 +975,16 @@ ACTOR DoubleRocketLauncher_ : RocketLauncher_
 		Loop
 	Fire:
 		DRCK B 2
-		TNT1 A 0 A_FireCustomMissile("Rocket",0,1,5,-5)		
+		TNT1 A 0 A_FireCustomMissile("Rocket",0,1,5,-5)
 		DRCK C 2
-		DRCK D 2 
+		DRCK D 2
 		DRCK E 2
 		DRCK F 2
 		TNT1 A 0 A_FireCustomMissile("Rocket",0,1,-5,-5)
-		DRCK G 2	
-		DRCK H 2		
-		DRCK I 1		
-		DRCK J 1		
+		DRCK G 2
+		DRCK H 2
+		DRCK I 1
+		DRCK J 1
 		TNT1 A 0 A_Refire
 		Goto Ready
 	TossGrenade:
@@ -1147,9 +1147,9 @@ ACTOR DoublePlasmaRifle_ : PlasmaRifle_
 	Fire:
 		DPLS A 1
 		DPLS B 1
-		TNT1 A 0 A_Quake(3,6,0,75)		
-		TNT1 A 0 A_FireCustomMissile("PlasmaBallX",0,1,-10,-2)		
-		TNT1 A 0 A_FireCustomMissile("PlasmaBallX",0,1,10,-2)		
+		TNT1 A 0 A_Quake(3,6,0,75)
+		TNT1 A 0 A_FireCustomMissile("PlasmaBallX",0,1,-10,-2)
+		TNT1 A 0 A_FireCustomMissile("PlasmaBallX",0,1,10,-2)
 		DPLS C 1
 		TNT1 A 0 A_Refire
 		DPLS C 1 //RELEASE
@@ -1204,7 +1204,7 @@ ACTOR BFG9000_ : DoomW replaces BFG9000
 	+WEAPON.ALT_USES_BOTH
 	Inventory.PickupMessage "$GOTBFG9000"
 	Tag "$TAG_BFG9000"
-	Weapon.SisterWeapon DualBFG9000_	
+	Weapon.SisterWeapon DualBFG9000_
 	States
 	{
 	Spawn:
@@ -1295,20 +1295,20 @@ ACTOR DualBFG9000_ : BFG9000_
 		DBFG A 1 A_Raise
 		Loop
 	Fire:
-		TNT1 A 0 
-		TNT1 A 0 A_Quake(2,30,0,75)				
+		TNT1 A 0
+		TNT1 A 0 A_Quake(2,30,0,75)
 		DBF2 A 1
 		DBF2 BCBC 4 A_BFGSound
 		TNT1 A 0 A_GunFlash
 		DBF2 D 1
-		DBF2 EEEEEEEEEE 1 		
-		TNT1 A 0 A_FireCustomMissile("BFGBall",0,1,-15,-10)	
+		DBF2 EEEEEEEEEE 1
+		TNT1 A 0 A_FireCustomMissile("BFGBall",0,1,-15,-10)
 		DBF2 FGHI 1
-		TNT1 A 0 A_Quake(2,30,0,75)						
-		DBF2 JKL 1		
-		DBF2 MMMMMMMMMM 1 				
-		TNT1 A 0 A_FireCustomMissile("BFGBall",0,1,15,-10)			
-		DBF2 NOPQRS 1				
+		TNT1 A 0 A_Quake(2,30,0,75)
+		DBF2 JKL 1
+		DBF2 MMMMMMMMMM 1
+		TNT1 A 0 A_FireCustomMissile("BFGBall",0,1,15,-10)
+		DBF2 NOPQRS 1
 		DBF2 A 20 A_Refire
 		Goto Ready
 	Flash:
@@ -1319,14 +1319,14 @@ ACTOR DualBFG9000_ : BFG9000_
 		Goto LightDone
 	Altfire:
 		DBFG B 8
-		TNT1 A 0 A_Quake(3,30,0,75)		
+		TNT1 A 0 A_Quake(3,30,0,75)
 		DBFG CDCDCD 4 A_BFGSound
 		TNT1 A 0 A_GunFlash
 		DBFG E 1
-		DBFG FFFFFFFFFF 1 
-		TNT1 A 0 A_FireCustomMissile("BFGBall",0,1,-15,-10)	
-		TNT1 A 0 A_FireCustomMissile("BFGBall",0,1,15,-10)	
-		DBFG GHIJKLMN 1		
+		DBFG FFFFFFFFFF 1
+		TNT1 A 0 A_FireCustomMissile("BFGBall",0,1,-15,-10)
+		TNT1 A 0 A_FireCustomMissile("BFGBall",0,1,15,-10)
+		DBFG GHIJKLMN 1
 		TNT1 A 0 A_Light0
 		DBFG B 20 A_Refire
 		Goto Ready

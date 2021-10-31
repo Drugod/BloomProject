@@ -1461,14 +1461,14 @@ ACTOR HybridBoss1Spawner
 		Stop
 	Spawn4:
 		TNT1 A 0 A_SpawnItemEx("Sloth",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
 	Spawn5:
 		TNT1 A 0 A_SpawnItemEx("Jojo",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
+		Stop
 	Spawn6:
 		TNT1 A 0 A_SpawnItemEx("HoundBaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
-		Stop		
-		
+		Stop
+
 	}
 }
 

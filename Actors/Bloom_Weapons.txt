@@ -89,12 +89,12 @@ ACTOR HandGrenades : BlooMW
 	Fire:
 	    HNDG ABCD 1
 		TNT1 A 0 A_GiveInventory("FiredGrenade", 1)
-		TNT1 A 0 A_PLaySound ("grenades/grnpin")
+		TNT1 A 0 A_PlaySound ("grenades/grnpin")
 		HNDG EEFG 1
 	Hold:
 	    TNT1 A 1 A_GiveInventory("ThrowPower", 1)
 		TNT1 A 1 A_Refire
-		TNT1 A 0 A_PLaySound ("grenades/grntoss")
+		TNT1 A 0 A_PlaySound ("grenades/grntoss")
 		HNDG HI 1
 		TNT1 A 0 A_FireCustomMissile("HandGrenade", frandom(-2,2), 1, 0, 0, 0, 0)
 	    TNT1 A 0 A_TakeInventory("FiredGrenade", 1)
@@ -104,12 +104,12 @@ ACTOR HandGrenades : BlooMW
 	AltFire:
 	    HNDG ABCD 1
 		TNT1 A 0 A_GiveInventory("FiredGrenade", 1)
-		TNT1 A 0 A_PLaySound ("grenades/grnpin")
+		TNT1 A 0 A_PlaySound ("grenades/grnpin")
 		HNDG EEFG 1
 	AltHold:
 	    TNT1 A 1
 		TNT1 A 1 A_Refire
-		TNT1 A 0 A_PLaySound ("grenades/grntoss")
+		TNT1 A 0 A_PlaySound ("grenades/grntoss")
 		HNDG HI 1
 		TNT1 A 0 A_FireCustomMissile("HandGrenadeAlt", 0, 1, 0, 0, 0, 0)
 	    TNT1 A 0 A_TakeInventory("FiredGrenade", 1)
@@ -124,9 +124,9 @@ ACTOR HandGrenades : BlooMW
 		Goto NoGrenade
 		HNDG ABCD 1
 		TNT1 A 0 A_GiveInventory("FiredGrenade", 1)
-		TNT1 A 0 A_PLaySound ("grenades/grnpin")
+		TNT1 A 0 A_PlaySound ("grenades/grnpin")
 		HNDG EEFG 1
-		TNT1 A 0 A_PLaySound ("grenades/grntoss")
+		TNT1 A 0 A_PlaySound ("grenades/grntoss")
 		HNDG HI 1
 		TNT1 A 0 A_TakeInventory("GrenadeAmmo", 1)
 		TNT1 A 0 A_FireCustomMissile("HandGrenade", frandom(-2,2), 0, 0, 0, 0, 0)
@@ -186,7 +186,7 @@ ACTOR HandGrenade
 		TNT1 A 0 A_NoBlocking
 		TNT1 A 0 A_CustomMissile("FloorKaboom",0,0,0,CMF_TRACKOWNER)
 		TNT1 A 0 A_Explode(200, 150, XF_HURTSOURCE)
-		TNT1 A 0 A_Playsound("MediumExplosion")
+		TNT1 A 0 A_PlaySound("MediumExplosion")
 		TNT1 A 0 Radius_Quake (2, 24, 0, 15, 0)
 		TNT1 A 0 A_AlertMonsters
 		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
@@ -308,9 +308,9 @@ ACTOR FlameThrower_ : BlooMW 19074
 		Goto NoGrenade
 		HNDG ABCD 1
 		TNT1 A 0 A_GiveInventory("FiredGrenade", 1)
-		TNT1 A 0 A_Playsound ("GRNPIN")
+		TNT1 A 0 A_PlaySound ("GRNPIN")
 		HNDG EEFG 1
-		TNT1 A 0 A_Playsound ("GRNTOSS")
+		TNT1 A 0 A_PlaySound ("GRNTOSS")
 		HNDG HI 1
 		TNT1 A 0 A_TakeInventory("GrenadeAmmo", 1)
 		TNT1 A 0 A_FireCustomMissile("HandGrenade", frandom(-2,2), 0, 0, 0, 0, 0)
@@ -459,7 +459,7 @@ ACTOR FrostAmmo : Ammo 23003 //requires Caleb replacement codewise yet
 	//$Category "BlooM Ammunitions"
 	//$Title "Frostgun Ammo"
 	//$Sprite FROPA0
-    +INVENTORY.RESTRICTABSOLUTELY	
+    +INVENTORY.RESTRICTABSOLUTELY
 	VisibleToPlayerClass "DoomDude"
     Inventory.ForbiddenTo "Caleb"
 	Inventory.Amount 20
@@ -473,13 +473,13 @@ ACTOR FrostAmmo : Ammo 23003 //requires Caleb replacement codewise yet
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
-		FROP D 1 A_SpawnItemEx("VoodooDollPickup",0,0,0)	
+		FROP D 1 A_SpawnItemEx("VoodooDollPickup",0,0,0)
 		FROP DDAABBCC 4
-		Goto BaseSpawn+1 
+		Goto BaseSpawn+1
 	ModelSpawn:
 		UNKN A 1
 		UNKN A -1 A_SpawnItemEx("VoodooDollPickup",0,0,0)
-		Stop		
+		Stop
 	}
 }
 
@@ -639,9 +639,9 @@ ACTOR TeslaCannon_ : BlooMW 19075
 		Goto NoGrenade
 		HNDG ABCD 1
 		TNT1 A 0 A_GiveInventory("FiredGrenade", 1)
-		TNT1 A 0 A_Playsound ("GRNPIN")
+		TNT1 A 0 A_PlaySound ("GRNPIN")
 		HNDG EEFG 1
-		TNT1 A 0 A_Playsound ("GRNTOSS")
+		TNT1 A 0 A_PlaySound ("GRNTOSS")
 		HNDG HI 1
 		TNT1 A 0 A_TakeInventory("GrenadeAmmo", 1)
 		TNT1 A 0 A_FireCustomMissile("HandGrenade", frandom(-2,2), 0, 0, 0, 0, 0)

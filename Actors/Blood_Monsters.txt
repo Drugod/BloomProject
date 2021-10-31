@@ -4964,12 +4964,12 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 	StupidMode:
 		RATW AAAABBBBCCCC 1 A_Wander
 		RATW CCCCCC 1 A_Wander
-		RATW DDDDD 1 A_Wander		
+		RATW DDDDD 1 A_Wander
 		TNT1 A 0 A_Jump(64,2)
 		TNT1 A 0 A_ClearTarget
 		Goto Spawn
-		TNT1 A 0		
-		Loop			
+		TNT1 A 0
+		Loop
 	See2:
 		TNT1 A 0
 		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
@@ -4997,7 +4997,7 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 		RATW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
 		RATW A 1 A_Jump(150,1)
 		Goto StupidMode
-		TNT1 A 0		
+		TNT1 A 0
 		Goto See
 	Wander:
 		TNT1 A 0
@@ -5075,12 +5075,12 @@ ACTOR BloodRatBlack : BloodRat 19066
 	StupidMode:
 		RABW AAAABBBBCCCC 1 A_Wander
 		RABW CCCCCC 1 A_Wander
-		RABW DDDDD 1 A_Wander		
+		RABW DDDDD 1 A_Wander
 		TNT1 A 0 A_Jump(64,2)
 		TNT1 A 0 A_ClearTarget
 		Goto Spawn
-		TNT1 A 0		
-		Loop	
+		TNT1 A 0
+		Loop
 	See2:
 		TNT1 A 0
 		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
@@ -5108,7 +5108,7 @@ ACTOR BloodRatBlack : BloodRat 19066
 		RABW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
 		RABW A 1 A_Jump(150,1)
 		Goto StupidMode
-		TNT1 A 0		
+		TNT1 A 0
 		Goto See
 	Wander:
 		TNT1 A 0
@@ -5184,11 +5184,11 @@ ACTOR BloodRatGrey : BloodRat 19067
 	StupidMode:
 		RAGW AAAABBBBCCCC 1 A_Wander
 		RAGW CCCCCC 1 A_Wander
-		RAGW DDDDD 1 A_Wander		
+		RAGW DDDDD 1 A_Wander
 		TNT1 A 0 A_Jump(64,2)
 		TNT1 A 0 A_ClearTarget
 		Goto Spawn
-		TNT1 A 0		
+		TNT1 A 0
 		Loop
 	See2:
 		TNT1 A 0
@@ -5217,7 +5217,7 @@ ACTOR BloodRatGrey : BloodRat 19067
 		RAGW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
 		RAGW A 1 A_Jump(150,1)
 		Goto StupidMode
-		TNT1 A 0		
+		TNT1 A 0
 		Goto See
 	Wander:
 		TNT1 A 0
@@ -5293,11 +5293,11 @@ ACTOR BloodRatWhite : BloodRat 19068
 	StupidMode:
 		RAWW AAAABBBBCCCC 1 A_Wander
 		RAWW CCCCCC 1 A_Wander
-		RAWW DDDDD 1 A_Wander		
+		RAWW DDDDD 1 A_Wander
 		TNT1 A 0 A_Jump(64,2)
 		TNT1 A 0 A_ClearTarget
 		Goto Spawn
-		TNT1 A 0		
+		TNT1 A 0
 		Loop
 	See2:
 		TNT1 A 0
@@ -5326,7 +5326,7 @@ ACTOR BloodRatWhite : BloodRat 19068
 		RAWW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
 		RAWW A 1 A_Jump(150,1)
 		Goto StupidMode
-		TNT1 A 0		
+		TNT1 A 0
 		Goto See
 	Wander:
 		TNT1 A 0

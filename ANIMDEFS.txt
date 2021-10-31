@@ -1200,7 +1200,7 @@ texture XTEX0529
 	pic XTEX0530 tics 8
 	pic YTEXTW23 tics 8
 	pic XTEX0245 tics 8
-	
+
 texture XTEX0533
 	pic XTEX0533 tics 8
 	pic YTEXTY23 tics 8
@@ -1429,11 +1429,11 @@ warp2 flat XTEX0646
 warp2 flat XTEX0647
 warp2 flat XTEX0650
 warp2 flat XTEX0750
-warp2 flat XTEX0740 
-warp2 flat XTEX0741 
-warp2 flat XTEX0742 
-warp2 flat XTEX0743 
-warp2 flat XTEX0744 
+warp2 flat XTEX0740
+warp2 flat XTEX0741
+warp2 flat XTEX0742
+warp2 flat XTEX0743
+warp2 flat XTEX0744
 warp2 flat XTEX0745
-warp2 flat XTEX0746  
+warp2 flat XTEX0746
 warp2 flat M_POIS

@@ -106,7 +106,7 @@ ACTOR WereWolfOfHellAlt : BloomHybrid_Base
 		BOS3 L 8 A_NoBlocking
 		BOS3 MN 8
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)				
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		BOS3 O -1 A_BossDeath
 		Stop
 	Death.Shock:
@@ -125,7 +125,7 @@ ACTOR WereWolfOfHellAlt : BloomHybrid_Base
 		BOS3 R 8
 		BOS3 S 8 A_NoBlocking
 		BOS3 TU 8
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)				
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		BOS3 V -1 A_BossDeath
 		Stop
 	Raise:
@@ -203,7 +203,7 @@ ACTOR WereWolfOfHell : WereWolfOfHellAlt
 		BO14 D 8 A_NoBlocking
 		BO14 EF 8
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)				
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		BO14 F -1 A_BossDeath
 		Stop
 	Death.Shock:
@@ -222,7 +222,7 @@ ACTOR WereWolfOfHell : WereWolfOfHellAlt
 		BOS4 Q 8
 		BOS4 R 8 A_NoBlocking
 		BOS4 ST 8
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)				
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		BOS4 U -1 A_BossDeath
 		Stop
 	Raise:
@@ -314,7 +314,7 @@ ACTOR HellButcher : WereWolfOfHellAlt
 		FAUD GH 8 A_NoBlocking
 		FAUD IJK 8
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)				
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		FAUD L -1
 		Stop
 	Death.Shock:
@@ -347,7 +347,7 @@ ACTOR HellButcher : WereWolfOfHellAlt
 		FAUN O 2 A_SpawnDebris("FlyingBlood")
 		FAUN P 2 A_NoBlocking
 		FAUN QR 1
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)				
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		FAUN S -1
 	Raise:
 		FAUD L 8
@@ -418,7 +418,7 @@ ACTOR HellButcherAlt : WereWolfOfHellAlt //19047
 		F2UD GH 8 A_NoBlocking
 		F2UD IJK 8
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)				
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		F2UD L -1
 		Stop
 	Death.Shock:
@@ -451,7 +451,7 @@ ACTOR HellButcherAlt : WereWolfOfHellAlt //19047
 		F2AE D 2 A_SpawnDebris("FlyingBlood")
 		F2AE E 2 A_NoBlocking
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)						
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		F2AE FG 1
 		F2AE H -1
 	Raise:
@@ -616,7 +616,7 @@ ACTOR HoundKnightOfHell : WereWolfOfHellAlt 19093
 		HOMD D 8 A_NoBlocking
 		HOMD EF 8
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)						
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		HOMD G -1 A_BossDeath
 		Stop
 	Raise:
@@ -773,7 +773,7 @@ ACTOR ZombaronOfHell : BloomHybrid_Base
 		XBBD D 8 A_NoBlocking
 		XBBD EFG 8
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)						
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		XBBD H -1
 		Stop
 	Ice:
@@ -890,7 +890,7 @@ ACTOR AxeZombaronOfHell : ZombaronOfHell
 		ZBBD D 8 A_NoBlocking
 		ZBBD EF 8
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)						
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		ZBBD G -1
 		Stop
 	Ice:

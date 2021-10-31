@@ -118,7 +118,7 @@ ACTOR Fanatic_Chaingunner : BloomHybrid_Base 19004
 		FCOS Q 5 A_NoBlocking
 		FCOS RS 5
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		FCOS T -1
 		Stop
 	Raise:
@@ -243,7 +243,7 @@ ACTOR Fanatic_ChaingunnerAlt : BloomHybrid_Base 19046
 		BUOS Q 5 A_NoBlocking
 		BUOS RS 5
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		BUOS T -1
 		Stop
 	Raise:

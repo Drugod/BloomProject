@@ -1766,7 +1766,7 @@ Brightmap sprite CERCF1		{map "Brightmaps/CERCF1.png"}
 Brightmap sprite CERCF2F8	{map "Brightmaps/CERCF2F8.png"}
 Brightmap sprite CERCG1		{map "Brightmaps/CERCG1.png"}
 Brightmap sprite CERCG2G8	{map "Brightmaps/CERCG2G8.png"}
-Brightmap sprite CERCG3G7	{map "Brightmaps/CERCG3G7.png"}	
+Brightmap sprite CERCG3G7	{map "Brightmaps/CERCG3G7.png"}
 Brightmap sprite CERCH1		{map "Brightmaps/CERCH1.png"}
 Brightmap sprite CERCH2H8	{map "Brightmaps/CERCH2H8.png"}
 Brightmap sprite CERCH3H7	{map "Brightmaps/CERCH3H7.png"}
@@ -3340,7 +3340,7 @@ Brightmap sprite HOUNL0		{map "Brightmaps/HOUNL0.png"}
 Brightmap sprite HOUNM0		{map "Brightmaps/HOUNM0.png"}
 Brightmap sprite HOUNN0		{map "Brightmaps/HOUNN0.png"}
 Brightmap sprite HOUNO0		{map "Brightmaps/HOUNO0.png"}
-Brightmap sprite HOUNP0		{map "Brightmaps/HOUNP0.png"}	
+Brightmap sprite HOUNP0		{map "Brightmaps/HOUNP0.png"}
 
 //HoundKnight of Hell
 Brightmap sprite HOM2A1		{map "Brightmaps/HOM2A1.png"}

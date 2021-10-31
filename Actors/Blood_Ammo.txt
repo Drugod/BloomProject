@@ -21,7 +21,7 @@
 **/
 
 ACTOR --------TOMMYCLIPS----------- {}
-ACTOR Randombullets: RandomSpawner
+ACTOR RandomBullets : RandomSpawner
 {
     DropItem "BulletDrum"
     DropItem "BulletBox"
@@ -115,7 +115,7 @@ ACTOR Shell2 : Ammo
 	Inventory.Icon "SBEXA0"
 	Inventory.RestrictedTo "Caleb"
 	VisibleToPlayerClass "Caleb"
-	Inventory.PickupSound "AMMO"	
+	Inventory.PickupSound "AMMO"
 	Ammo.BackpackAmount 4
 	Ammo.BackpackMaxAmount 100
 }

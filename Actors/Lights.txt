@@ -383,9 +383,9 @@ ACTOR FireLamp : BloomVases 3214
 	Radius 16
 	+NOGRAVITY
 	+SPAWNCEILING
-	-SOLID	
+	-SOLID
 	Height 90
-	
+
 	States
 	{
 	Spawn:

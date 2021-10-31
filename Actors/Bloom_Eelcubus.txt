@@ -43,9 +43,9 @@ ACTOR Eelcubus_Base
 	PainSound "fatso/pain"
 	DeathSound "fatso/death"
 	ActiveSound "fatso/active"
-	DropItem "FlameGas" 32 
+	DropItem "FlameGas" 32
 	DropItem "Flaregun" 16
-	DropItem "Flare" 64	
+	DropItem "Flare" 64
 	Species "Fatties"
 	States
 	{
@@ -231,7 +231,7 @@ ACTOR Eelcubus : Eelcubus_Base 19007
 		FS2T M 6 A_NoBlocking
 		FS2T NOPQRS 6
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		FS2T T -1 A_BossDeath
 		Stop
 	Ground.SpawnSetup:
@@ -414,7 +414,7 @@ ACTOR Gillcubus : Eelcubus_Base 19027
 		FS3T L 6 A_NoBlocking
 		FS3T MN 6
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		FS3T N -1 A_BossDeath
 		Stop
 	Ice:

@@ -167,7 +167,7 @@ ACTOR AberrationMoron : Moron
 	SeeSound "Mutant/Beg"
 	DeathSound "Mutant/Crying"
 	ActiveSound "Mutant/GoAway"
-	PainSound "Mutant/Scream"	
+	PainSound "Mutant/Scream"
 	+COUNTKILL
 	+NOTARGETSWITCH
 	-FRIENDLY
@@ -274,7 +274,7 @@ ACTOR AberrationMoron : Moron
 		MORD F 6 A_Fall
 		MORD GHI 4
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		MORD J -1
 		Stop
 	Ice:
@@ -295,7 +295,7 @@ ACTOR AberrationMoron2 : Moron
 	SeeSound "Mutant/Beg"
 	DeathSound "Mutant/Crying"
 	ActiveSound "Mutant/GoAway"
-	PainSound "Mutant/Scream"	
+	PainSound "Mutant/Scream"
 	MeleeThreshold 192
 	States
 	{
@@ -371,7 +371,7 @@ ACTOR AberrationMoron2 : Moron
 		MOD3 F 6
 		MOD3 GHI 4
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		MOD3 I -1
 		Stop
 	Ice:
@@ -393,7 +393,7 @@ ACTOR AberrationMoron3 : Moron
 	SeeSound "Mutant/Beg"
 	DeathSound "Mutant/Crying"
 	ActiveSound "Mutant/GoAway"
-	PainSound "Mutant/Scream"	
+	PainSound "Mutant/Scream"
 	States
 	{
 	Spawn:
@@ -544,7 +544,7 @@ ACTOR AberrationMoron3 : Moron
 		MORD F 6 A_Fall
 		MORD GHI 4
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		MORD J -1
 		Stop
 	Ice:
@@ -566,7 +566,7 @@ ACTOR AberrationMoron4 : Moron
 	SeeSound "Mutant/Beg"
 	DeathSound "Mutant/Crying"
 	ActiveSound "Mutant/GoAway"
-	PainSound "Mutant/Scream"	
+	PainSound "Mutant/Scream"
 	States
 	{
 	Spawn:
@@ -642,7 +642,7 @@ ACTOR AberrationMoron4 : Moron
 		MOD3 F 6
 		MOD3 GHI 4
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		MOD3 I -1
 		Stop
 	Ice:
@@ -666,7 +666,7 @@ ACTOR AberrationMoron5 : Moron
 	SeeSound "Mutant/Beg"
 	DeathSound "Mutant/Crying"
 	ActiveSound "Mutant/GoAway"
-	PainSound "Mutant/Scream"	
+	PainSound "Mutant/Scream"
 	States
 	{
 	Spawn:
@@ -733,7 +733,7 @@ ACTOR AberrationMoron5 : Moron
 		MOD3 F 6
 		MOD3 GHI 4
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		MOD3 I -1
 		Stop
 	Ice:

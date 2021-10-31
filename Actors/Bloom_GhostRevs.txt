@@ -172,7 +172,7 @@ ACTOR Shielded_Ghost_Revenant : BloomHybrid_Base 19017
 		TNT1 A 0 A_UnSetShootable
 		ZDEA A 0 A_Scream
 		ZDEA ABCDEFGHI 5 BRIGHT A_FadeOut(0.09)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)				
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		Stop
 	Ice:
 		SK2F R 0 A_SetMass(999999)
@@ -423,7 +423,7 @@ ACTOR Ghost_Revenant : BloomHybrid_Base 19018
 		SKWS L 5 BRIGHT
 		SKWS M 5 BRIGHT A_Scream
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		SKWS NOPQRS 5 BRIGHT
 		Stop
 	Ice:
@@ -545,7 +545,7 @@ ACTOR Shielded_Ghost_Revenant_Alt : BloomHybrid_Base 19020
 		TNT1 A 0 A_UnSetShootable
 		ZDE2 A 0 A_Scream
 		ZDE2 ABCDEFGHI 5 A_FadeOut(0.09)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)				
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		Stop
 	Ice:
 		SK2F R 0 A_SetMass(999999)
@@ -795,7 +795,7 @@ ACTOR Ghost_Revenant_Alt : BloomHybrid_Base 19021
 	Death:
 		SKW2 L 5
 		SKW2 M 5 A_Scream
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)				
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		SKW2 NOPQRS 5
 		Stop
 	Ice:
@@ -917,7 +917,7 @@ ACTOR GhostRevenantTerrainAlt : BloomHybrid_Base 19025
 		SKT2 O 7 A_NoBlocking
 		SKT2 P 7
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		SKT2 Q -1
 		Stop
 	Raise:

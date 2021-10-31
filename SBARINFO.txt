@@ -40,15 +40,15 @@ statusbar fullscreen
 			drawnumber 4, BLUEFONT, yellow, GrenadeAmmo, 426, 117;
 		}
 		inInventory RedArmor
-		{		
+		{
 			drawnumber 4, BLUEFONT, white, RedArmor,  465, 138; //665, 138;
 		}
 		inInventory BlueArmor
-		{ 
+		{
 			drawnumber 4, BLUEFONT, white, BlueArmor, 465, 146; //665, 146;
 		}
 		inInventory GreenArmor
-		{ 
+		{
 			drawnumber 4, BLUEFONT, white, GreenArmor, 465, 154; //665, 154;
 		}
 		else
@@ -127,7 +127,7 @@ statusbar normal
 		{
 			drawnumber 2, HUDFONT_DOOM, untranslated, frags, 138, 171;
 		}
-		
+
 		gamemode cooperative, deathmatch, teamgame
 		{
 			drawimage translatable "STFBANY", 144, 169;

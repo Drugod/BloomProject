@@ -46,7 +46,7 @@ ACTOR BloomPossessed_Base
 	Dropitem "UselessStuff" 32
 	DropItem "GrenadeAmmo" 48
 	DropItem "Flare" 64
-	DropItem "Flaregun" 8	
+	DropItem "Flaregun" 8
 	States
 	{
 	Forget:
@@ -248,8 +248,8 @@ ACTOR BloomPossessed_Base
 ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 {
 	//$Title Possessed ShotgunGuy
-	Health 35	
-	DropItem "Shotgun_" 100	
+	Health 35
+	DropItem "Shotgun_" 100
 	Obituary "$OB_POSSSH"
 	States
 	{
@@ -396,8 +396,8 @@ ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 ACTOR PossesedZombieMan: BloomPossessed_Base 19091
 {
 	//$Title Possessed Zombieman
-	Health 25	
-	DropItem "Clip_" 32	
+	Health 25
+	DropItem "Clip_" 32
 	Obituary "$OB_POSSZO"
 	States
 	{
@@ -543,8 +543,8 @@ ACTOR PossesedZombieMan: BloomPossessed_Base 19091
 ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 {
 	//$Title Possessed NeoCultist
-	Health 35	
-	DropItem "Shotgun_" 100	
+	Health 35
+	DropItem "Shotgun_" 100
 	Obituary "$OB_POSSNC"
 	States
 	{
@@ -690,8 +690,8 @@ ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 ACTOR PossesedApocalypticNeoCultist : BloomPossessed_Base 19092
 {
 	//$Title Possessed Apocalyptic NeoCultist
-	Health 35	
-	DropItem "Shotgun_" 100	
+	Health 35
+	DropItem "Shotgun_" 100
 	Obituary "$OB_POSANC"
 	States
 	{
@@ -838,7 +838,7 @@ ACTOR HandSlavedmind 19136
 {
     //$Category "BlooM Monsters"
 	//$Title Hand Slavedmind
-	//$Color 3	
+	//$Color 3
 	Health 500
 	Radius 50
 	Height 72
@@ -847,7 +847,7 @@ ACTOR HandSlavedmind 19136
 	PainChance 20
 	Monster
 	MeleeRange 100
-	FastSpeed 3	
+	FastSpeed 3
 	+NORADIUSDMG
 	+DONTMORPH
 	+DONTHARMSPECIES //no inheritances with Base actors, so kept it here - ozy81
@@ -895,7 +895,7 @@ ACTOR HandSlavedmind 19136
 		HMDD D 10 A_NoBlocking
 		HMDD E 10
 		TNT1 A 0 A_Jump(200,2)
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		HMDD E -1
 		Stop
 	}
