@@ -22,7 +22,7 @@ global int 12: dizzyAng3;
 
 int lifeLeechPlayer[32];
 int armortype[3]    = {"BodyArmor", "FireArmor", "SpiritArmor" };
-int CalebTaunt[10]  = {"CalebTaunt0", "CalebTaunt1", "CalebTaunt2", "CalebTaunt3", "CalebTaunt4",
+int CalebTaunt[8]  = {"CalebTaunt2", "CalebTaunt3", "CalebTaunt4",
 					   "CalebTaunt5", "CalebTaunt6", "CalebTaunt7", "CalebTaunt8", "CalebTaunt9"};
 int Caleburn[2]     = {"CalebTaunt0", "CalebTaunt1"};					   
 str CalebSpeech[25] = {"CalebSpeech1", "CalebSpeech2", "CalebSpeech3", "CalebSpeech4",
