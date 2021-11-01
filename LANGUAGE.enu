@@ -55,10 +55,10 @@ BLM_TM2 = "Testmap for BlooM - Drugod";
 //VANILLA MESSAGES
 GOTBACKPACK = "Picked up a backpack full of ammo!";
 GOTMEDIKIT = "Picked up a medikit.";
-GOTMEDINEED = "Picked up a medikit that you REALLY need!"
+GOTMEDINEED = "Picked up a medikit that you REALLY need!";
 OB_MPBFG_BOOM = "%o was splintered by %k's BFG.";
-OB_MPPLASMARIFLE = "%o was melted by %k's plasma gun."
-OB_MPROCKET = "%o rode %k's rocket."
+OB_MPPLASMARIFLE = "%o was melted by %k's plasma gun.";
+OB_MPROCKET = "%o rode %k's rocket.";
 
 //AMMO MESSAGES
 BBOX = "Picked up a box of bullets.";
