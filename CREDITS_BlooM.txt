@@ -1,15 +1,18 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 # INSTRUCTIONS/HOW TO:
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-First You need a register copy of doom2.wad inside the folder of gzdoom. Then to play Bloom, just drag and drop bloom.pk3 file into the gzdoom.exe
+YOU NEED A REGISTERED COPY OF DOOM2.WAD, PUT IT INSIDE WITHIN GZDOOM. THEN TO PLAY BLOOM, JUST DRAG AND DROP BLOOM.PK3 FILE OVER GZDOOM.EXE
+BLOOM SHOULD BE PLAYED WITHOUT ADDITIONAL MODS, AND AVOID USING FREEDOOM.WAD TO RUN IT, KEYS WON'T WORK PROPERLY.
 
-# CREDITS:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+## CREDITS:
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 Mod concept by Drugod & Rolls3D
 Acs/Decorate/Maps by Drugod
 Acs/Decorate/Tweaks by Ozymandias81
 Sprites (Hybrid monsters), New Weapons, New Textures and 3D Models by Rolls3D
 Music by NHT, Buio Mondo & Drugod
-Additional sound fx by NHT
+Additional sound-fx by NHT
 Tested by Antonivs, Jean!
 
 Following songs by Asciimov:
@@ -53,14 +56,15 @@ Doom Voxels by Reikall (several)
 Blood Voxels by fgsfds/Dzierzan
 DoomGuy player sprites by Mark Quinn
 Some flats and general defs by SgtMarkIV
-Grenades/Playerclasses by SgtMarkIV, modified by Drugod
+Grenades/PlayerClasses by SgtMarkIV, modified by Drugod
 Grenades/Snow/Rain/Steam/Fog effects by Tormentor667/Ghastly_dragon, modified by Drugod
 Resources organization by Ozymandias81
 
 THANKS TO ZDOOM FORUM, ZANDRONUM AND REALM667 FOR THEIR INFINITE SUPPORT
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-## REPOSITORY STORY:
+### REPOSITORY STORY:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 This repository belongs to BLOOM TEAM, and it has been converted as Private repository since
 07/12/2019 due to some problems noticed with people sharing the project without our approval.
 If you can read this, it is really strange since you are not allowed to browse the repo, but
@@ -97,7 +101,8 @@ IvanDobrovski/Cruduxy/Marinelol and their respective creators
 - ZBloodX: https://forum.zdoom.org/viewtopic.php?f=19&t=46729
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-### EDITORS USED:
+#### EDITORS USED:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 - 7Zip : https://www.7-zip.org
 - Audacity : https://www.audacityteam.org
 - Bulk Rename Utility : https://www.bulkrenameutility.co.uk/Download.php
@@ -114,7 +119,8 @@ IvanDobrovski/Cruduxy/Marinelol and their respective creators
 - UltimateDoomBuilder : https://devbuilds.drdteam.org/ultimatedoombuilder/
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-#### KNOWN PROBLEMS/LIMITS/BUGS:
+##### KNOWN PROBLEMS/LIMITS/BUGS:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 - GZDoom: Tested under GZDoom 3.2.1 x64, 3.7.2 x64 and 4.6.1 x64, Vulkan API recommended
 - GLEsZDoom: Tested under GLEsZDoom 4.6.0 x64, no problems noticed afaik, you might select for GLes api while running GZDoom 4.6+ btw
 - LZDoom: You can't throw grenades, bad performance in general
@@ -129,5 +135,6 @@ IvanDobrovski/Cruduxy/Marinelol and their respective creators
 - On GZDoom 4.7+ there are some jittery movements of HUD weapons
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-##### LICENSE:
+###### LICENSE:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 WE STRONGLY ENCOURAGE TO BASE PROJECTS WITH THESE RESOURCES, BUT WITH THIS FILE INCLUDED AS IS PLUS COPYRIGHT HEADERS PRESENTS INSIDE THESE FILES.
