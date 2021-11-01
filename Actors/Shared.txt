@@ -629,7 +629,9 @@ ACTOR PitchforkPuff
 	+NOGRAVITY
 	+RANDOMIZE
 	+THRUGHOST
+	+PUFFONACTORS
 	AttackSound "Stone/Stab"
+	ActiveSound ""
 	SeeSound "Voodoo/Stab"
 	States
 	{
@@ -638,16 +640,22 @@ ACTOR PitchforkPuff
 		Stop
 	Melee:
 		TNT1 A 0
-		TNT1 A 0 A_PlaySound("Voodoo/Stab")
+		PUFF A 1 A_SpawnItem("PitchforkSpark")
 		PUFF A 0 A_Jump(128,9)
 		PUFF ABCDEFGH 4
 		Stop
 		PUFF IJKLMNOP 4
 		Stop
 	Crash:
-		PUFF A 0 A_SpawnItem("PitchforkSpark")
+		TNT1 A 0
+		TNT1 A 0 A_PlaySound("Stone/Stab")		
+		BSPR A 0 A_Jump(128,8)
+		BSPR ABCDEFG 2 BRIGHT
 		Stop
+		BSPR HIJKLMN 2 BRIGHT
+		Stop		
 	XDeath:
+		TNT1 A 0 
 		TNT1 A 0 A_PlaySound("Voodoo/Stab")
 		BLD2 A 0 A_Jump(128,"XDeath2")
 		BLD2 FGHI 4

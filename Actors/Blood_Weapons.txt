@@ -54,6 +54,7 @@ ACTOR UsingPitchfork : Inventory
 
 ACTOR Pitchfork : CalebW
 {
+	Weapon.SelectionOrder 3700
 	Tag "Pitchfork"
 	Obituary "$OB_FORK"
 	Weapon.Kickback 200
@@ -194,6 +195,7 @@ ACTOR Flaregun : CalebW 3136//Weapon 3136
 {
 	//$Sprite FGRNA0
 	Tag "Flaregun"
+	Weapon.SelectionOrder 1500	
 	Scale 0.8
 	Obituary "$OB_FGUN"
 	Height 16
@@ -864,6 +866,7 @@ ACTOR --------COLT------------ {}
 ACTOR Colt : CalebW 31370
 {
 	//$Sprite COLTA0
+	Weapon.SelectionOrder 2200	
 	Tag "Colt"
 	Scale 0.5
 	Weapon.AmmoUse 1
@@ -2367,7 +2370,7 @@ ACTOR SawedOff : CalebW 3137
 	Weapon.AmmoType2 "shell2"
 	Inventory.PickupMessage "$SAWDPICK"
 	Inventory.PickupSound "PICKWEAP"
-	Weapon.SelectionOrder 80
+	Weapon.SelectionOrder 55
 	Weapon.Kickback 24
 	Weapon.AmmoGive 4
 	Weapon.AmmoUse 1
@@ -3539,7 +3542,7 @@ ACTOR TeslaRifle : CalebW 3140
 	Height 16
 	Scale 0.8
 	DamageType "Shock"
-	Weapon.Selectionorder 75
+	Weapon.Selectionorder 95
 	Weapon.Kickback 4
 	Weapon.AmmoType1 "TeslaCharge"
 	Weapon.AmmoType2 "TeslaCharge"
@@ -4050,7 +4053,6 @@ ACTOR LifeLeech : CalebW 3141 //this weapon needs a primary fire mode - ozy81
 	Height 16
 	Scale 0.8
 	DamageType "LifeLeechFlame"
-	Weapon.Selectionorder 400
 	Weapon.Kickback 100
 	Weapon.AmmoType1 "EssencePower"
 	Weapon.AmmoType2 "EssencePower"
@@ -4061,6 +4063,7 @@ ACTOR LifeLeech : CalebW 3141 //this weapon needs a primary fire mode - ozy81
 	Inventory.PickupMessage "$LECHPICK"
 	Inventory.PickupSound "PICKWEAP"
 	Obituary "$OB_LECH"
+	Weapon.SelectionOrder 4700	
 	AttackSound "LLFireInitiate"
 	States
 	{
@@ -4379,6 +4382,7 @@ ACTOR VoodooDoll : CalebW 3142
 	Inventory.PickupMessage "$VODOPICK"
 	Inventory.PickupSound "PICKWEAP"
 	Obituary "%OB_VODO"
+	Weapon.SelectionOrder 3600	
 	States
 	{
 	Spawn:
