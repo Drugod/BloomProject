@@ -1,3 +1,7 @@
+# INSTRUCTIONS/HOW TO:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+First You need a register copy of doom2.wad inside the folder of gzdoom then to play Bloom, just drag and drop bloom.pk3 file into the gzdoom.exe
+
 # CREDITS:
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 Mod concept by Drugod & Rolls3D
