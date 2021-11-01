@@ -172,7 +172,7 @@ ACTOR RuneQuake : CustomInventory 3408
 	//$Category "Quake Stuff"
 	//$Title Rune
 	//$Color 13
-	Inventory.PickupMessage "$DIVESUIT"
+	Inventory.PickupMessage "$CHTORUNE"
 	Inventory.PickupSound "misc/p_pkup"
 	Inventory.Amount 1
 	Inventory.MaxAmount 1
@@ -182,11 +182,10 @@ ACTOR RuneQuake : CustomInventory 3408
 	States
 	{
 	Spawn:
-		TNT1 A 0
-		UNKN A -1 BRIGHT
+		UNKN A -1
 		Stop
 	Use:
-		UNKN A 1 BRIGHT
+		UNKN A 1
 		Fail
 	}
 }

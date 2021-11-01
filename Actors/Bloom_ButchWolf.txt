@@ -661,7 +661,7 @@ ACTOR HoundKnightBall
 }
 
 ACTOR ----------ZOMBARON---------- {}
-ACTOR ZombaronOfHell : BloomHybrid_Base
+ACTOR ZombaronOfHell : BloomHybrid_Base 17900
 {
 	//$Title Zombaron of Hell
 	Radius 16
@@ -677,8 +677,8 @@ ACTOR ZombaronOfHell : BloomHybrid_Base
 	PainSound "baron/pain"
 	DeathSound "baron/death"
 	ActiveSound "baron/active"
-	Obituary "$OB_BARON"
-	HitObituary "$OB_BARONHIT"
+	Obituary "$OB_ZBARON"
+	HitObituary "$HB_ZBARON"
 	Species "Bruisers"
 	States
 	{
@@ -788,7 +788,7 @@ ACTOR ZombaronOfHell : BloomHybrid_Base
 	}
 }
 
-ACTOR AxeZombaronOfHell : ZombaronOfHell
+ACTOR AxeZombaronOfHell : ZombaronOfHell 17901
 {
 	//$Title Zombaron of Hell with Axe
 	Speed 16

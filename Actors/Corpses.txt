@@ -79,8 +79,6 @@ ACTOR HangingBloodMeat 3242
 	+SHOOTABLE
 	+SPAWNCEILING
 	+SOLID
-	DeathSound "DSCANDIE"
-	PainSound "DSCANDIE"
 	States
 	{
 	Spawn:
@@ -329,6 +327,7 @@ ACTOR LiveHead 3178
 		XAHE B 50
 		Loop
 	Death:
+		BCUL O 0 A_Scream
 		BCUL OOOOO 0 A_SpawnDebris("FlyingBlood")
 		BCUL O 0 A_XScream
 		BCUL O 0 A_Jump(32,2)
@@ -353,15 +352,14 @@ ACTOR ZombieCan 3179
 	+RANDOMIZE
 	+SHOOTABLE
 	+SOLID
-	DeathSound "DSCANDIE"
-	PainSound "DSCANDIE"
+	DeathSound "MetalMess"
 	States
 	{
 	Spawn:
-		BZBR ABBABAAB 48 //optimize thinkers - ozy81
+		BZBR ABBABAAB 48
 		Loop
 	Death:
-		BZBR A 0 A_Pain
+		BZBR A 0 A_Scream
 		BZBR A 5
 		BZBR A 0 A_Fall
 		BZBR AAAAA 0 A_SpawnDebris("OrganDebris")
@@ -392,15 +390,14 @@ ACTOR BloodPile : HeartColumn 3253
 	+NOTAUTOAIMED
 	+RANDOMIZE
 	+SHOOTABLE
-	DeathSound "DSCANDIE"
-	PainSound "DSCANDIE"
+	DeathSound "MetalMess"
 	States
 	{
 	Spawn:
 		BJAR A -1
 		Stop
 	Death:
-		BJAR A 0 A_Pain
+		BJAR A 0 A_Scream
 		BJAR A 5
 		BJAR A 0 A_Fall
 		BJAR AAAAA 0 A_SpawnDebris("OrganDebris")
@@ -431,15 +428,14 @@ ACTOR GreenBrain : HeartColumn 3243
 	+NOTAUTOAIMED
 	+RANDOMIZE
 	+SHOOTABLE
-	DeathSound "DSCANDIE"
-	PainSound "DSCANDIE"
+	DeathSound "world/glassbreak"
 	States
 	{
 	Spawn:
 		GBRN A -1
 		Stop
 	Death:
-		GBRN A 0 A_Pain
+		GBRN A 0 A_Scream
 		GBRN A 5
 		GBRN A 0 A_Fall
 		GBRN AAAAA 0 A_SpawnDebris("OrganDebris")
@@ -470,15 +466,14 @@ ACTOR RedBrain : HeartColumn 3244
 	+NOTAUTOAIMED
 	+RANDOMIZE
 	+SHOOTABLE
-	DeathSound "DSCANDIE"
-	PainSound "DSCANDIE"
+	DeathSound "world/glassbreak"
 	States
 	{
 	Spawn:
 		RBRN A -1
 		Stop
 	Death:
-		RBRN A 0 A_Pain
+		RBRN A 0 A_Scream
 		RBRN A 5
 		RBRN A 0 A_Fall
 		RBRN AAAAA 0 A_SpawnDebris("OrganDebris")
@@ -1425,13 +1420,13 @@ ACTOR BurnDeathZombie
 	Speed 3
 	Radius 16
 	Height 56
-	DamageType "SpecialFire"
 	+DROPOFF
 	+DONTSPLASH
 	+FIREDAMAGE
 	+FLOORCLIP
 	+LOOKALLAROUND
 	+RANDOMIZE
+	DamageType "SpecialFire"
 	ActiveSound "DSBDYBRN"
 	DeathSound "ZombieDeathB"
 	Obituary "$OB_ZOMBFIRE"
@@ -1828,7 +1823,6 @@ ACTOR CobwebBody 18800
 	+SHOOTABLE
 	+SOLID
 	+SPAWNCEILING
-	DeathSound "DSCANDIE"
 	States
 	{
 	Spawn:

@@ -65,7 +65,7 @@ ACTOR BrownCultist_Cast : BrownCultist
 		Loop
 	Missile:
 		YCUF A 4 Fast A_FaceTarget
-		YCUF B 4 Fast BRIGHT A_SPosAttackUseAtkSound
+		YCUF B 4 Fast A_SPosAttackUseAtkSound
 		YCUF A 4
 		Goto See
 	Pain:
@@ -96,13 +96,13 @@ ACTOR GreyCultist_Cast : GreyCultist
 		Loop
 	Missile:
 		BCUL E 2 A_FaceTarget
-		BCUL F 2 BRIGHT A_SPosAttackUseAtkSound
+		BCUL F 2 A_SPosAttackUseAtkSound
 		BCUL E 2
 		BCUL E 2 A_FaceTarget
-		BCUL F 2 BRIGHT A_SPosAttackUseAtkSound
+		BCUL F 2 A_SPosAttackUseAtkSound
 		BCUL E 2
 		BCUL E 2 A_FaceTarget
-		BCUL F 2 BRIGHT A_SPosAttackUseAtkSound
+		BCUL F 2 A_SPosAttackUseAtkSound
 		BCUL E 2
 		Goto See
 	Pain:
@@ -120,7 +120,7 @@ ACTOR GreyCultist_Cast : GreyCultist
 	}
 }
 
-ACTOR -----BELIVERS--------------- {}
+ACTOR -----BELIEVERS-------------- {}
 ACTOR GreenCultist_Cast : GreyCultist
 {
 	SeeSound "CultistSee"
@@ -180,7 +180,7 @@ ACTOR RedCultist_Cast : GreyCultist
 		Loop
 	Missile:
 		BCUL E 2 A_FaceTarget
-		BCUL F 2 BRIGHT A_SPosAttackUseAtkSound
+		BCUL F 2 A_SPosAttackUseAtkSound
 		BCUL E 2
 		Goto See
 	Pain:
@@ -469,8 +469,8 @@ ACTOR BloodRat_Cast : BloodRat
 		Loop
 	Missile:
 	Melee:
-		RATW A 5  A_FaceTarget
-		RATW B 5  A_CustomMeleeAttack(frandom(4,9),"","none")
+		RATW A 5 A_FaceTarget
+		RATW B 5 A_CustomMeleeAttack(frandom(4,9),"","none")
 		RATW C 5
 		Goto See
 	Pain:
