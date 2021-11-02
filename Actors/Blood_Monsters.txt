@@ -198,7 +198,7 @@ ACTOR FlyingHandCorpse
 	States
 	{
 	Spawn:
-		WHAC AABBCCDD 1
+		WHAC AABBCCDD 1 A_JumpIf(waterlevel > 0, "Death")
 		Loop
 	Death:
 		WHAN L 5 A_Scream
