@@ -187,18 +187,22 @@ ACTOR FlyingHandCorpse
 	Radius 11
 	Height 8
 	Speed 14
-	Mass 5000
+	Damage 0
 	Scale 0.5
-	+DROPOFF
+	Projectile
+	BounceCount 3
+	+BOUNCEONACTORS
+	+DONTSPLASH
 	+DOOMBOUNCE
-	+MISSILE
-	SeeSound "Hand/Roam"
+	-NOGRAVITY
 	DeathSound "Hand/Die"
-	ActiveSound "Hand/Spot"
 	States
 	{
 	Spawn:
-		WHAC AABBCCDD 1 A_JumpIf(waterlevel > 0, "Death")
+		WHAC A 1 A_SetMass(5000)
+	See:
+		WHAC ABBCCDD 1
+		WHAC A 1 A_JumpIf(waterlevel > 2, "Death")
 		Loop
 	Death:
 		WHAN L 5 A_Scream
