@@ -98,6 +98,22 @@ XOULE="XOULE" {}
 
 XUITA="XUITA" {}
 
+GBRNA="GBRNA" {}
+RBRNA="RBRNA" {}
+
+SKLCA="SKLCA" {}
+SKLCB="SKLCB" {}
+SKLCC="SKLCC" {}
+
+DECOA="DECOA" {}
+DECOB="DECOB" {}
+DECOC="DECOC" {}
+DECOD="DECOD" {}
+DECOE="DECOE" {}
+DECOF="DECOF" {}
+DECOG="DECOG" {}
+
+
 //==========================================
 //--------------Vanilla Doom----------------
 //==========================================
