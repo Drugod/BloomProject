@@ -17,6 +17,7 @@ skill BLM_Easy
 	ammofactor = 1.4
 	doubleammofactor = 1
 	easybossbrain
+	MonsterFallingDamage
 }
 
 // ================================================
@@ -31,8 +32,9 @@ skill BLM_Moderate
 	spawnfilter = "Easy"
 	damagefactor = 0.5
 	aggressiveness = 0.9
-	ammofactor = 1.0
+	ammofactor = 1.2
 	doubleammofactor = 1
+	MonsterFallingDamage
 }
 
 // ================================================
@@ -49,6 +51,7 @@ skill BLM_Normal
 	aggressiveness = 1
 	ammofactor = 1.0
 	doubleammofactor = 1
+	MonsterFallingDamage
 }
 
 // ================================================
@@ -63,8 +66,9 @@ skill BLM_Difficult
 	spawnfilter = "Hard"
 	damagefactor = 1
 	aggressiveness = 1.1
-	ammofactor = 1
+	ammofactor = 1.0
 	doubleammofactor = 1
+	MonsterFallingDamage
 	DefaultSkill
 }
 
@@ -80,7 +84,8 @@ skill BLM_Extreme
 	spawnfilter = "Nightmare"
 	damagefactor = 1.25
 	aggressiveness = 2
-	ammofactor = 1
+	ammofactor = 1.0
 	doubleammofactor = 1
+	MonsterFallingDamage
 	MustConfirm = "Are you sure?"
 }

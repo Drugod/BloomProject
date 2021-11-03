@@ -4914,7 +4914,7 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 	//$Title Blood Rat, Brown
 	//$Color 5
 	Tag "Rat"
-	Health 24
+	Health 10
 	Radius 8
 	Height 8
 	Mass 20
@@ -4926,14 +4926,13 @@ ACTOR BloodRat : BloodEnemy_Base 3132
 	MaxTargetRange 24
 	MaxStepHeight 9
 	+FLOORCLIP
-	-CANUSEWALLS
 	+THRUSPECIES
-	+THRUACTORS
+	+TOUCHY
+	-CANUSEWALLS
 	Obituary "$OB_MOUS"
 	SeeSound "Ratsee"
 	PainSound "RatPain"
 	DeathSound "Ratdie"
-	//ActiveSound "Ratsee"
 	PainChance "Fire", 256
 	PainChance "Disintegrate", 0
 	PainChance "LifeLeech", 0

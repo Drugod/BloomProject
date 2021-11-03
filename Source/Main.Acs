@@ -46,6 +46,7 @@ str IceTextures[15]= {"XTEX0649", "XTEX0903",  "XTEX0906", "XTEX0948",
 				  	    "XTEX0949", "XTEX0950", "XTEX0951", "XTEX0952", 
 					    "XTEX0953", "XTEX0954", "XTEX0955", "XTEX0956",
 						"XTEX0957", "YTEXTA15", "YTEXTA46"};
+str SkyTextures[3]     = {"F_SKY1", "F_SKY2", "F_SKY3"};
 	
 function int degsin(int x){
 	int result;
@@ -350,6 +351,19 @@ Script "IceTextureCheck" (int tid){
 		}
 	}
 	if (found3 == false) { SetActorState(tid,"NoGroundSpawner",true);}
+}
+
+Script "SkyTextureCheck" (int tid){//Checking if an enemy is walking over a sky tx
+	bool found4 = false;
+	for(int i; i<=3; i++){		
+		if (CheckActorFloorTexture(tid, SkyTextures[i]))
+		{
+			found4 = true;		
+			SetActorState(tid,"Death.Fade",true);
+			i = 666;//Exit from loop
+		}
+	}
+	if (found4 == false) { } //do nothing
 }
 
 Script "Jokes" (int type){//Script for jokes
