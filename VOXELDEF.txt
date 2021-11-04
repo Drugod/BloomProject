@@ -113,6 +113,12 @@ DECOE="DECOE" {}
 DECOF="DECOF" {}
 DECOG="DECOG" {}
 
+TREEF="TREEF" {}
+TREED="TREED" {}
+
+XR23A="XR23A" {}
+XR33A="XR33A" {}
+
 
 //==========================================
 //--------------Vanilla Doom----------------
