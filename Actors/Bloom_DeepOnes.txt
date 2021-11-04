@@ -606,7 +606,6 @@ ACTOR DeepOneTri : DeepOne_Base 19054
 	DropItem "GrenadeAmmo" 32
 	DropItem "HappyBundle" 32
 	DropItem "Frostgun_" 100
-	DropItem "FrostAmmo" 64
 	States
 	{
   	Spawn:

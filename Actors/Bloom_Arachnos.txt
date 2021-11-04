@@ -235,7 +235,6 @@ ACTOR Magma_Arachnopod : Green_Arachnopod 19071
 	DamageFactor "Fire", 0.0
 	DamageFactor "Flare", 0.0
 	DamageFactor "SpecialFire", 0.0
-	DropItem "FlameGas"
 	DropItem "FlameThrower_" 100
 	DropItem "Flaregun" 16
 	DropItem "Flare" 64
@@ -389,7 +388,6 @@ ACTOR Ice_Arachnopod : Green_Arachnopod 19072
 	DamageFactor "Flare", 1.5
 	DamageFactor "SpecialFire", 1.5
 	DropItem "Frostgun_" 100
-	DropItem "FrostAmmo"
 	Species "Spiders"
 	States
 	{
