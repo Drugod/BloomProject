@@ -120,6 +120,12 @@ TREEE="TREEE" {}
 XR23A="XR23A" {}
 XR33A="XR33A" {}
 
+FAROA="FAROA" {}
+FAROB="FAROB" {}
+
+XLP2A="XLP2A" {}
+XLP2B="XLP2B" {}
+
 
 //==========================================
 //--------------Vanilla Doom----------------
