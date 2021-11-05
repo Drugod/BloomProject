@@ -123,6 +123,8 @@ OptionMenu "BloomOptions"
 
 	//, "Do you want to enable voxels but not models for weapons, objects & items? Restart not required."
 	SafeCommand "Enable Voxels", "vox_on-mod_off"
+	StaticText ""
+	Option "Trees Distance","blm_lod","BlmDist"
 	SafeCommand "Set BlooM Default Setup", "bloom_setup"
 	StaticText " "
 	StaticText "Key config for advanced movements", 1
@@ -133,4 +135,10 @@ OptionValue "YesOrNo"
 {
 	0, "No"
 	1, "Yes"
+}
+
+OptionValue "BlmDist"
+{
+	512, "Near"
+	2048, "Far"
 }

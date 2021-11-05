@@ -3,3 +3,4 @@ server bool blm_traps = FALSE;
 server bool blm_voxmod = FALSE;
 server noarchive bool blm_script = FALSE;
 user int blm_blood = 1;
+user int blm_lod = 2048;

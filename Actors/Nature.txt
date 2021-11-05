@@ -163,6 +163,7 @@ ACTOR PlantSpawner : RandomSpawner 3262
 ACTOR MacabreTree : Bloom_Flora 3213
 {
 	//$Title Macabre Tree
+	DistanceCheck "blm_lod"
 	Height 100
 	States
 	{
@@ -175,6 +176,7 @@ ACTOR MacabreTree : Bloom_Flora 3213
 ACTOR MacabreTreeNoGrav : Bloom_FloraNoGrav 19116
 {
 	//$Title Flipped Macabre Tree
+	DistanceCheck "blm_lod"
 	Height 100
 	States
 	{
@@ -187,6 +189,7 @@ ACTOR MacabreTreeNoGrav : Bloom_FloraNoGrav 19116
 ACTOR LeafLess : Bloom_Flora2 3221
 {
 	//$Title Leafless Tree
+	DistanceCheck "blm_lod"
 	Height 100
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
@@ -219,6 +222,7 @@ ACTOR LeafLess : Bloom_Flora2 3221
 ACTOR LeafLessNoGrav : Bloom_Flora2NoGrav 19117
 {
 	//$Title Flipped Leafless Tree
+	DistanceCheck "blm_lod"
 	Height 100
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
@@ -251,6 +255,7 @@ ACTOR LeafLessNoGrav : Bloom_Flora2NoGrav 19117
 ACTOR TheTree2 : Bloom_Flora2 3222
 {
 	//$Title Tree 2, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	States
 	{
@@ -289,6 +294,7 @@ ACTOR TheTree2 : Bloom_Flora2 3222
 ACTOR TheTree2NoGrav : Bloom_Flora2NoGrav 19118
 {
 	//$Title Flipped Tree 2, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	States
 	{
@@ -327,6 +333,7 @@ ACTOR TheTree2NoGrav : Bloom_Flora2NoGrav 19118
 ACTOR TheTree3 : Bloom_Flora2 3223
 {
 	//$Title Tree 3, shootable
+	DistanceCheck "blm_lod"
 	Height 100
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
@@ -378,6 +385,7 @@ ACTOR TheTree3 : Bloom_Flora2 3223
 ACTOR TheTree3NoGrav : Bloom_Flora2NoGrav 19119
 {
 	//$Title Flipped Tree 3, shootable
+	DistanceCheck "blm_lod"
 	Height 100
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
@@ -429,6 +437,7 @@ ACTOR TheTree3NoGrav : Bloom_Flora2NoGrav 19119
 ACTOR TheTree4 : Bloom_Flora2 3224
 {
 	//$Title Tree 4, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	States
 	{
@@ -467,6 +476,7 @@ ACTOR TheTree4 : Bloom_Flora2 3224
 ACTOR TheTree4NoGrav : Bloom_Flora2NoGrav 19120
 {
 	//$Title Flipped Tree 4, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	States
 	{
@@ -505,6 +515,7 @@ ACTOR TheTree4NoGrav : Bloom_Flora2NoGrav 19120
 ACTOR TheTree5 : Bloom_Flora2 3225
 {
 	//$Title Tree 5, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	States
 	{
@@ -543,6 +554,7 @@ ACTOR TheTree5 : Bloom_Flora2 3225
 ACTOR TheTree5NoGrav : Bloom_Flora2NoGrav 19121
 {
 	//$Title Flipped Tree 5, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	States
 	{
@@ -581,6 +593,7 @@ ACTOR TheTree5NoGrav : Bloom_Flora2NoGrav 19121
 ACTOR TheTree6 : Bloom_Flora2 3226
 {
 	//$Title Tree 6, shootable
+	DistanceCheck "blm_lod"
 	Height 100
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
@@ -644,6 +657,7 @@ ACTOR TheTree6 : Bloom_Flora2 3226
 ACTOR TheTree6NoGrav : Bloom_Flora2NoGrav 19122
 {
 	//$Title Flipped Tree 6, shootable
+	DistanceCheck "blm_lod"
 	Height 100
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
@@ -707,6 +721,7 @@ ACTOR TheTree6NoGrav : Bloom_Flora2NoGrav 19122
 ACTOR TheTree7 : Bloom_Flora2 3227
 {
 	//$Title Tree 7, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
@@ -757,6 +772,7 @@ ACTOR TheTree7 : Bloom_Flora2 3227
 ACTOR TheTree7NoGrav : Bloom_Flora2NoGrav 19123
 {
 	//$Title Flipped Tree 7, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	DamageFactor "Fire", 3.35
 	DamageFactor "Disintegrate", 6.0
@@ -807,6 +823,7 @@ ACTOR TheTree7NoGrav : Bloom_Flora2NoGrav 19123
 ACTOR TheTree8 : Bloom_Flora2 3228
 {
 	//$Title Tree 8, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	States
 	{
@@ -845,6 +862,7 @@ ACTOR TheTree8 : Bloom_Flora2 3228
 ACTOR TheTree8NoGrav : Bloom_Flora2NoGrav 19124
 {
 	//$Title Flipped Tree 8, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	States
 	{
@@ -883,6 +901,7 @@ ACTOR TheTree8NoGrav : Bloom_Flora2NoGrav 19124
 ACTOR TheTree9 : Bloom_Flora2 3229
 {
 	//$Title Tree 9, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	States
 	{
@@ -921,6 +940,7 @@ ACTOR TheTree9 : Bloom_Flora2 3229
 ACTOR TheTree9NoGrav : Bloom_Flora2NoGrav 19125
 {
 	//$Title Flipped Tree 9, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	States
 	{
@@ -959,6 +979,7 @@ ACTOR TheTree9NoGrav : Bloom_Flora2NoGrav 19125
 ACTOR TheTree10 : Bloom_Flora2 3258
 {
 	//$Title Tree 10, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	States
 	{
@@ -997,6 +1018,7 @@ ACTOR TheTree10 : Bloom_Flora2 3258
 ACTOR TheTree10NoGrav : Bloom_Flora2NoGrav 19126
 {
 	//$Title Flipped Tree 10, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	States
 	{
@@ -1035,6 +1057,7 @@ ACTOR TheTree10NoGrav : Bloom_Flora2NoGrav 19126
 ACTOR BurnedTree1 : Bloom_Flora2 3237
 {
 	//$Title Burnt Tree 1, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	DamageFactor "Napalm", 6.0
 	DamageFactor "Dynamite", 6.0
@@ -1064,6 +1087,7 @@ ACTOR BurnedTree1 : Bloom_Flora2 3237
 ACTOR BurnedTree1NoGrav : Bloom_Flora2NoGrav 19127
 {
 	//$Title Flipped Burnt Tree 1, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	DamageFactor "Napalm", 6.0
 	DamageFactor "Dynamite", 6.0
@@ -1093,6 +1117,7 @@ ACTOR BurnedTree1NoGrav : Bloom_Flora2NoGrav 19127
 ACTOR BurnedTree2 : Bloom_Flora2 3238
 {
 	//$Title Burnt Tree 2, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	DamageFactor "Napalm", 6.0
 	DamageFactor "Dynamite", 6.0
@@ -1122,6 +1147,7 @@ ACTOR BurnedTree2 : Bloom_Flora2 3238
 ACTOR BurnedTree2NoGrav : Bloom_Flora2NoGrav 19128
 {
 	//$Title Flipped Burnt Tree 2, shootable
+	DistanceCheck "blm_lod"
 	Height 80
 	DamageFactor "Napalm", 6.0
 	DamageFactor "Dynamite", 6.0
@@ -1174,7 +1200,6 @@ ACTOR Bush1 : Bloom_Flora2 3230
 {
 	//$Title Bush 1
 	Height 8
-	//Height 32
 	Scale 0.7
 	RenderStyle Translucent
 	Alpha 0.7
@@ -1359,7 +1384,6 @@ ACTOR Bush2NoGrav : Bloom_Flora2NoGrav 19130
 ACTOR Bush3 : Bloom_Flora2 3256
 {
 	//$Title Bush 3
-	//Height 32
 	Height 8
 	Scale 0.7
 	RenderStyle Translucent
