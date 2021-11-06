@@ -652,3 +652,8 @@ Script "SuperSpeed" (void)
 	SetActorProperty(0, APROP_Speed, 35.0);
 	Terminate;
 }
+
+script "NatureVoxel" (void)
+{
+    SetResultValue(GetCVar("blm_voxnat"));
+}

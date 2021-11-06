@@ -123,6 +123,7 @@ OptionMenu "BloomOptions"
 
 	//, "Do you want to enable voxels but not models for weapons, objects & items? Restart not required."
 	SafeCommand "Enable Voxels", "vox_on-mod_off"
+	Option "Enable Voxels for vegetation", "blm_voxnat", "YesOrNo"		
 	StaticText ""
 	Option "Trees Distance","blm_lod","BlmDist"
 	SafeCommand "Set BlooM Default Setup", "bloom_setup"

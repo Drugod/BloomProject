@@ -34,6 +34,8 @@ alias vox_off-mod_off "set r_drawvoxels 0; set blm_voxmod 0;"
 alias vox_off-mod_on "set r_drawvoxels 0; set blm_voxmod 1;"
 alias vox_on-mod_off "set r_drawvoxels 1; set blm_voxmod 0;"
 alias bloom_setup "set autoloadbrightmaps true;set autoloadlights true;set cl_capfps false;set freelook true;set gl_billboard_faces_camera false;set gl_billboard_mode 0;set gl_billboard_particles true;set gl_bloom true;set gl_fxaa 0;set gl_lights true;set gl_multithread true;set gl_spriteclip 2;set gl_ssao 0;set gl_texture_filter 0;set gl_texture_filter_anisotropic 1;set gl_texture_hqresize_multithread true;set gl_texture_hqresizemode 0;set gl_texture_hqresizemult 1;set language eng;set r_dynlights true;set r_mipmap true;set r_models true;set r_spriteadjust 2;set save_dir BlooM_Saves;set screenshot_dir BlooM_Shots;set show_messages true;set showendoom 1;set use_joystick true;set use_mouse true;set vid_maxfps 0; m_simpleoptions false;"
+alias vox_on-veg "set blm_voxnat 1; set blm_voxmod 0;"
+alias vox_off-veg "set blm_voxnat 0;"
 
 alias grenadetoss "pukename GiveGrenade"
 defaultbind G grenadetoss

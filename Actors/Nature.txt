@@ -343,7 +343,12 @@ ACTOR TheTree3 : Bloom_Flora2 3223
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("NatureVoxel")==1, "Spawn2")		
 		XR33 A -1
+		Stop
+	Spawn2:
+		VX02 A -1
 		Stop
 		XDeath:
 	Death.Dynamite:
@@ -397,7 +402,7 @@ ACTOR TheTree3NoGrav : Bloom_Flora2NoGrav 19119
 	Spawn:
 		33RX A -1
 		Stop
-		XDeath:
+	XDeath:
 	Death.Dynamite:
 		EERT D 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
 		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
@@ -442,7 +447,12 @@ ACTOR TheTree4 : Bloom_Flora2 3224
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("NatureVoxel")==1, "Spawn2")			
 		TREE D -1
+		Stop
+	Spawn2:
+		VX03 A -1
 		Stop
 	XDeath:
 	Death.Flare:
@@ -603,7 +613,12 @@ ACTOR TheTree6 : Bloom_Flora2 3226
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("NatureVoxel")==1, "Spawn2")			
 		TREE F -1
+		Stop
+	Spawn2:		
+		VX05 A -1	
 		Stop
 	Death:
 		TNT1 A 0 A_SpawnItem("LeafLess")
@@ -731,7 +746,12 @@ ACTOR TheTree7 : Bloom_Flora2 3227
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("NatureVoxel")==1, "Spawn2")
 		XR23 A -1
+		Stop
+	Spawn2:		
+		VX01 A -1	
 		Stop
 	XDeath:
 		TREE E 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))

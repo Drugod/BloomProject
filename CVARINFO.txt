@@ -1,6 +1,7 @@
 server bool blm_hybrid = TRUE;
 server bool blm_traps = FALSE;
-server bool blm_voxmod = FALSE;
+server bool blm_voxmod = FALSE;//General Voxels Control
+server bool blm_voxnat = FALSE;//Nature Voxels Control
 server noarchive bool blm_script = FALSE;
 user int blm_blood = 1;
 user int blm_lod = 2048;
