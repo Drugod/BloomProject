@@ -1,24 +1,33 @@
 #library "Options"
 #include "zcommon.acs"
 
-//Controls
-Script "blm_voxmod"(void)
-{
-	SetResultValue(GetCVar("blm_voxmod"));
+Script "blm_voxmod"(void){
+	SetResultValue(GetCVar("blm_voxmod"));	
 }
 
-script "NatureVoxel" (void)
-{
-    SetResultValue(GetCVar("blm_voxnat"));
-}
+Script "NatureVoxel" (void){
+	if(GetCVar("blm_voxcnt")== 0){
+		SetResultValue(0);
+		SetCvar("r_drawvoxels", 0);
+	}else{
+		SetCvar("r_drawvoxels", 1);	
+		SetResultValue(GetCVar("blm_voxnat"));	
+}}
 
-script "PickupVoxel" (void)
-{
-    SetResultValue(GetCVar("blm_voxpkp"));
-}
+Script "PickupVoxel" (void){
+	if(GetCVar("blm_voxcnt")== 0){
+		SetCvar("r_drawvoxels", 0);		
+		SetResultValue(0);
+	}else{
+		SetCvar("r_drawvoxels", 1);			
+		SetResultValue(GetCVar("blm_voxpkp"));	
+}}
 
-script "LightingVoxel" (void)
-{
-    SetResultValue(GetCVar("blm_voxlghprp"));
-}
-
+Script "LightingVoxel" (void){
+	if(GetCVar("blm_voxcnt")== 0){
+		SetCvar("r_drawvoxels", 0);			
+		SetResultValue(0);
+	}else{
+		SetCvar("r_drawvoxels", 1);			
+		SetResultValue(GetCVar("blm_voxlghprp"));	
+}}
