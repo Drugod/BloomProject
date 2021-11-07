@@ -144,6 +144,21 @@ VX10M="VX10M" {}//FLV1M="FLV1M" {}
 VX10N="VX10N" {}//FLV1N="FLV1N" {}
 VX10O="VX10O" {}//FLV1O="FLV1O" {}
 
+VX11A="VX11A" {}//FLV2A="FLV2A" {}
+VX11B="VX11B" {}//FLV2B="FLV2B" {}
+VX11C="VX11C" {}//FLV2C="FLV2C" {}
+VX11D="VX11D" {}//FLV2D="FLV2D" {}
+VX11E="VX11E" {}//FLV2E="FLV2E" {}
+VX11F="VX11F" {}//FLV2F="FLV2F" {}
+VX11G="VX11G" {}//FLV2G="FLV2G" {}
+VX11H="VX11H" {}//FLV2H="FLV2H" {}
+VX11I="VX11I" {}//FLV2I="FLV2I" {}
+VX11J="VX11J" {}//FLV2J="FLV2J" {}
+VX11K="VX11K" {}//FLV2K="FLV2K" {}
+VX11L="VX11L" {}//FLV2L="FLV2L" {}
+VX11M="VX11M" {}//FLV2M="FLV2M" {}
+VX11N="VX11N" {}//FLV2N="FLV2N" {}
+VX11O="VX11O" {}//FLV2O="FLV2O" {}
 
 //==========================================
 //--------------Vanilla Doom----------------

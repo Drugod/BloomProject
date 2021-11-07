@@ -295,12 +295,26 @@ ACTOR BloomVase2A : BloomVases 3401
 	ActiveCheck:
 		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.5, TRUE)
 	SpawnCheck:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "SpawnCheck2")		
 		FLV2 BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
 		Goto SpawnCheck
+	SpawnCheck2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "SpawnCheck")		
+		VX11 BCDEFGHIJKLMNO 3 BRIGHT LIGHT("FLAMVAS1")
+		Goto SpawnCheck2
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
 		FLV2 A 1 A_PlaySound("SFX/FireDie", 7)
 		FLV2 A -1 A_StopSound(6)
+		Stop
+	Inactive2:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		FLV2 A 1 A_PlaySound("SFX/FireDie", 7)
+		VX11 A -1 A_StopSound(6)
 		Stop
 	}
 }
@@ -321,12 +335,26 @@ ACTOR BloomVase2B : BloomVases 3402
 	ActiveCheck:
 		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.5, TRUE)
 	SpawnCheck:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "SpawnCheck2")		
 		FLV3 BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
 		Goto SpawnCheck
+	SpawnCheck2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "SpawnCheck")		
+		VX11 BCDEFGHIJKLMNO 3 BRIGHT LIGHT("FLAMVAS1")
+		Goto SpawnCheck2
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
 		FLV3 A 1 A_PlaySound("SFX/FireDie", 7)
 		FLV3 A -1 A_StopSound(6)
+		Stop
+	Inactive2:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		FLV2 A 1 A_PlaySound("SFX/FireDie", 7)
+		VX11 A -1 A_StopSound(6)
 		Stop
 	}
 }
