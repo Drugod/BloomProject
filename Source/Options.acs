@@ -29,5 +29,5 @@ Script "LightingVoxel" (void){
 		SetResultValue(0);
 	}else{
 		SetCvar("r_drawvoxels", 1);			
-		SetResultValue(GetCVar("blm_voxlghprp"));	
+		SetResultValue(GetCVar("blm_voxlit"));	
 }}
