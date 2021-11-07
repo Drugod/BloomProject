@@ -255,12 +255,26 @@ ACTOR BloomVase1 : BloomVases 3400
 	ActiveCheck:
 		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.6, TRUE)
 	SpawnCheck:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "SpawnCheck2")		
 		FLV1 BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
 		Goto SpawnCheck
+	SpawnCheck2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "SpawnCheck")		
+		VX10 BCDEFGHIJKLMNO 3 BRIGHT LIGHT("FLAMVAS1")
+		Goto SpawnCheck2
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
 		FLV1 A 1 A_PlaySound("SFX/FireDie", 7)
 		FLV1 A -1 A_StopSound(6)
+		Stop
+	Inactive2:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		VX10 A 1 A_PlaySound("SFX/FireDie", 7)
+		VX10 A -1 A_StopSound(6)
 		Stop
 	}
 }
@@ -398,7 +412,14 @@ ACTOR FireLamp : BloomVases 3214
 		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.3, TRUE)
 	SpawnCheck:
 	Active:
-		DECO ABCDEFG 4 BRIGHT
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
+		DECO ABCDEFG 4
+		Goto SpawnCheck
+	Active2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Active1")		
+		VX07 ABCDEFG 4 BRIGHT
 		Goto SpawnCheck
 	Inactive:
 		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
@@ -420,10 +441,20 @@ ACTOR Farol : SwitchableDecoration 3215
 	{
 	Spawn:
 	Active:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
 		FARO A -1 BRIGHT
 		Stop
+	Active2:
+		VX08 A -1 BRIGHT
+		Stop	
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		FARO B -1
+		Stop
+	Inactive2:
+		VX08 B -1
 		Stop
 	}
 }
@@ -503,11 +534,24 @@ ACTOR SkullCandle : SwitchableDecoration 3172
 	{
 	Spawn:
 	Active:
-		SKLC ABC 3 BRIGHT
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
+		SKLC ABC 3 
+		Loop
+	Active2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Active")		
+		VX06 ABC 3 BRIGHT 
 		Loop
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		SKLC D -1
 		Stop
+	Inactive2:
+		SKLC D -1
+		Stop
+		
 	}
 }
 
@@ -631,10 +675,20 @@ ACTOR LampPost : SwitchableDecoration 3290
 	{
 	Spawn:
 	Active:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
 		XLP2 A -1 BRIGHT
 		Stop
+	Active2:
+		VX09 A -1 BRIGHT
+		Stop		
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		XLP2 B -1
+		Stop
+	Inactive2:
+		VX09 B -1
 		Stop
 	}
 }

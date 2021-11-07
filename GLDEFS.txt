@@ -94,6 +94,9 @@ Object SkullCandle
 	Frame SKLCA { light floorlight }
 	Frame SKLCB { light floorlight }
 	Frame SKLCC { light floorlight }
+	Frame VX06A { light floorlight }
+	Frame VX06B { light floorlight }
+	Frame VX06C { light floorlight }
 }
 
 Object SingleCandle
@@ -116,6 +119,7 @@ PointLight FarolLight
 Object Farol
 {
 	Frame FAROA { light FarolLight }
+	Frame VX08A { light FarolLight }	
 }
 
 Object TheDeath
@@ -219,6 +223,13 @@ Object FireLamp
 	Frame DECOE { light GrandTorchCavelight }
 	Frame DECOF { light GrandTorchCavelight }
 	Frame DECOG { light GrandTorchCavelight }
+	Frame VX07A { light GrandTorchCavelight }
+	Frame VX07B { light GrandTorchCavelight }
+	Frame VX07C { light GrandTorchCavelight }
+	Frame VX07D { light GrandTorchCavelight }
+	Frame VX07E { light GrandTorchCavelight }
+	Frame VX07F { light GrandTorchCavelight }
+	Frame VX07G { light GrandTorchCavelight }	
 }
 
 Object ClassicCellLamp
@@ -937,11 +948,6 @@ PointLight LAMP
     Offset 0 44 0
 }
 
-/*Object Column
-{
-    frame COLU { light LAMP }
-}*/
-
 // Short tech lamp
 PointLight SMALLLAMP
 {
@@ -952,7 +958,8 @@ PointLight SMALLLAMP
 
 Object LampPost
 {
-    frame TLP2 { light SMALLLAMP }
+    frame XLP2A { light SMALLLAMP }
+    frame VX09A { light SMALLLAMP }	
 }
 
 // Tall tech lamp

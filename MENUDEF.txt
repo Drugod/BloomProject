@@ -108,28 +108,29 @@ OptionMenu "OptionsMenu"
 
 OptionMenu "BloomOptions"
 {
-	Title  "Bloom Options"
+	Title  "BlooM Options"
 	Statictext " "
 	StaticText "Gameplay Options", 1
 	Option "Hybrid Bloom monsters?", "blm_hybrid", "YesOrNo"
 	Option "Traps on iwad maps? (NOTE: These have not fully implemented)", "blm_traps", "YesOrNo"
+	
 	StaticText " "
 	StaticText "Performance Options", 1
-	//, "Do you want to disable models and voxels for weapons, objects & items?"
-	SafeCommand "Disable Models & Voxels", "vox_off-mod_off"
-
-	//, "Do you want to enable models but not voxels for weapons, objects & items? This requires a game restart."
-	SafeCommand "Enable Models, restart required", "vox_off-mod_on"
-
-	//, "Do you want to enable voxels but not models for weapons, objects & items? Restart not required."
-	SafeCommand "Enable Voxels", "vox_on-mod_off"
-	Option "Enable Voxels for vegetation", "blm_voxnat", "YesOrNo"		
-	StaticText ""
-	Option "Trees Distance","blm_lod","BlmDist"
-	SafeCommand "Set BlooM Default Setup", "bloom_setup"
+    /*SafeCommand "Disable Models/Voxels", "vox_off-mod_off" 	//, "Do you want to disable models and voxels for weapons, objects & items?"
+	SafeCommand "Enable Voxels", "vox_on-mod_off" 	//, "Do you want to enable voxels but not models for weapons, objects & items? Restart not required."
+	SafeCommand "Enable Models (Restart required)", "vox_off-mod_on"	//, "Do you want to enable models but not voxels for weapons, objects & items? This requires a game restart."	*/
+	Option "Enable Voxels", "blm_voxcnt", "YesOrNo"	
+	Option "Enable Voxels for Vegetation?", "blm_voxnat", "YesOrNo", "blm_voxcnt"			
+	Option "Enable Voxels for Pickups?", "blm_voxpkp", "YesOrNo", "blm_voxcnt"				
+	Option "Enable Voxels for Lighting Props?", "blm_voxlghprp", "YesOrNo", "blm_voxcnt"				
+	StaticText " "	
+	StaticText "Draw Distance", 1	
+	Option "Trees Distance","blm_lod","BlmDist", "blm_voxcnt"			
 	StaticText " "
 	StaticText "Key config for advanced movements", 1
 	Control "Doomguy toss grenade", "grenadetoss"
+	StaticText " "
+	SafeCommand "Set BlooM Default Setup", "bloom_setup"
 }
 
 OptionValue "YesOrNo"
