@@ -99,8 +99,12 @@ ACTOR ChokingHand : BloodEnemy_Base 6190
 		WHAN L 5 A_Scream
 		WHAN M 5 A_Fall
 		WHAN NOPQ 4
+		WHAN A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		WHAN Q -1
 		Stop
+	Death.Fade:
+		WHAN Q 1 A_FadeOut(0.1)
+		Loop
 	Burn:
 		TNT1 A 0 A_Scream
 		WHAN RSTURSTURSTURSTURSTU 4
@@ -449,6 +453,7 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 		BGAR M 6
 		BGAR N 6 A_Fall
 		BGAR O 6
+		BGAR P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BGAR P -1
 		Stop
 	DeathCorpus:
@@ -458,6 +463,7 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 		BGAR MMMMMMMMMMMMMMMMM 0 A_SpawnItemEx("FlyingBlood",0,0,frandom(20,40),frandom(-10,10),frandom(-10,10),frandom(-10,10))
 		BGAR N 6 A_Fall
 		BGAR O 6
+		BGAR P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BGAR P -1
 		Stop
 	XDeath:
@@ -475,6 +481,9 @@ ACTOR BloodGargoyle : BloodEnemy_Base 3123
 		BGAR T 5
 		BGAR U -1
 		Stop
+	Death.Fade:
+		BGAR "#" 1 A_FadeOut(0.1)
+		Loop
 	Burn:
 	Death.SpecialFire:
 	Death.Flare:
@@ -927,6 +936,7 @@ ACTOR BloatedButcher : BloodEnemy_Base 3122
 		BBUT QR 7
 		BBUT S 5 A_NoBlocking
 		BBUT TU 5
+		BBUT V 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BBUT V -1
 		Stop
 	DeathFountain:
@@ -935,6 +945,7 @@ ACTOR BloatedButcher : BloodEnemy_Base 3122
 		BBUT QR 7
 		BBUT S 5 A_NoBlocking
 		BBUT TU 5
+		BBUT V 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BBUT VVVVVVV 4 A_SpawnItemEx("BloodTrail",frandom(-5,5),frandom(-5,5),frandom(5,10),frandom(-3,3),frandom(-3,3),frandom(4,10),frandom(-30,30))
 		BBUT V -1
 		Stop
@@ -944,6 +955,7 @@ ACTOR BloatedButcher : BloodEnemy_Base 3122
 		BBUT QR 7
 		BBUT S 5 A_NoBlocking
 		BBUT TU 5
+		BBUT V 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BBUT VVVVVVV 4 A_SpawnItemEx("FlyingBlood",frandom(-5,5),frandom(-5,5),frandom(5,10),frandom(-3,3),frandom(-3,3),frandom(4,10),frandom(-30,30))
 		BBUT V -1
 	XDeath:
@@ -952,6 +964,7 @@ ACTOR BloatedButcher : BloodEnemy_Base 3122
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		BBT2 L 0 A_Fall
 		BBT2 M 5 A_XScream
+		BBT2 M 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BBT2 LLL 0 A_SpawnDebris("OrganDebris")
 		BBT2 L 0 A_SpawnDebris("Bloodliver")
 		BBT2 L 0 A_SpawnDebris("Hand1")
@@ -963,6 +976,9 @@ ACTOR BloatedButcher : BloodEnemy_Base 3122
 		BBT2 VWVWVWVWVVWVWVWVWVVWVWVWVWVVWVWVWVWV 5
 		BBT2 W -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Raise:
 		BBUT QPONML 5
 		Goto See
@@ -979,6 +995,7 @@ ACTOR BloatedButcher : BloodEnemy_Base 3122
 		Stop
 	SpecialBurn:
 		TNT1 A 0 A_Scream
+		BBT2 M 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BABD ABCDEFGH 8 A_SpawnItem("YouAreOnFireSir")
 		BABD I 20 A_Fall
 		BABD IJKLMNOP 6
@@ -1145,6 +1162,7 @@ ACTOR GreyCultist : BloodEnemy_Base 3125
 		BCUL J 5 A_Fall
 		BCUL KLMN 5
 		BCUL NONON 10
+		BCUL O 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BCUL O -1
 		Stop
 	XDeath:
@@ -1152,6 +1170,7 @@ ACTOR GreyCultist : BloodEnemy_Base 3125
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		BCUL P 0 A_Fall
 		BCUL P 5 A_XScream
+		BCUL P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BCUL P 0 A_SpawnDebris("OrganDebris")
 		BCUL P 0 A_Jump(92,2)
 		BCUL P 0 A_SpawnDebris("Bloodliver")
@@ -1165,6 +1184,9 @@ ACTOR GreyCultist : BloodEnemy_Base 3125
 		BCUL RSTUV 5
 		BCUL V -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Burn:
 	Death.SpecialFire:
 	Death.LifeLeech:
@@ -1207,7 +1229,7 @@ ACTOR GreyCultist : BloodEnemy_Base 3125
 		Wait
 	}
 }
-//Old BRIGHTer Translation, possible for a new cultist, napalm?
+//Old Brighter Translation, possible for a new cultist, napalm?
 //Translation "112:120=[224,160,64]:[192,48,20]","120:127=[120,24,10]:[16,0,0]","209:223=[192,160,128]:[128,80,64]"
 
 ACTOR RedCultist : BloodEnemy_Base 10310
@@ -1313,20 +1335,16 @@ ACTOR RedCultist : BloodEnemy_Base 10310
 		BCUZ A 7
 		Goto See
 	Death:
-			/*BCUL H 5
-			BCUL I 5 A_Scream
-			BCUL J 5 A_Fall
-			BCUL KLMN 5
-			BCUL NONON 10
-			BCUL O -1*/
 		BCUL H 3
-		BCUl N 7 A_Jump(256,"Transformation")
+		BCUL H 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BCUL N 7 A_Jump(256,"Transformation")
 		Stop
 	XDeath:
 		TNT1 A 0 A_Jump(128, 2)
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		BCUL P 0 A_Fall
 		BCUL P 5 A_XScream
+		BCUL P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BCUL P 0 A_SpawnDebris("OrganDebris")
 		BCUL P 0 A_Jump(92,2)
 		BCUL P 0 A_SpawnDebris("Bloodliver")
@@ -1340,6 +1358,9 @@ ACTOR RedCultist : BloodEnemy_Base 10310
 		BCUL RSTUV 5
 		BCUL V -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Raise:
 		BCUL N 5 A_UnHideThing
 		BCUL MLKJIH 5
@@ -1492,6 +1513,7 @@ ACTOR GreenCultist : BloodEnemy_Base 3128
 		BCUL J 5 A_Fall
 		BCUL KLMN 5
 		BCUL NONON 10
+		BCUL O 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BCUL O -1
 		Stop
 	XDeath:
@@ -1499,6 +1521,7 @@ ACTOR GreenCultist : BloodEnemy_Base 3128
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		BCUL P 0 A_Fall
 		BCUL P 5 A_XScream
+		BCUL P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BCUL P 0 A_SpawnDebris("OrganDebris")
 		BCUL P 0 A_Jump(92,2)
 		BCUL P 0 A_SpawnDebris("Bloodliver")
@@ -1512,6 +1535,9 @@ ACTOR GreenCultist : BloodEnemy_Base 3128
 		BCUL RSTUV 5
 		BCUL V -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Raise:
 		BCUL N 5 A_UnHideThing
 		BCUL MLKJIH 5
@@ -1781,6 +1807,7 @@ ACTOR BlueCultist : BloodEnemy_Base 10309
 		BCUL J 5 A_Fall
 		BCUL KLMN 5
 		BCUL NONON 10
+		BCUL O 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BCUL O -1
 		Stop
 	XDeath:
@@ -1788,7 +1815,8 @@ ACTOR BlueCultist : BloodEnemy_Base 10309
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		BCUL P 0 A_Fall
 		BCUL P 5 A_XScream
-		BCUL A 0 A_AlertMonsters
+		BCUL P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BCUL P 0 A_AlertMonsters
 		BCUL P 0 A_SpawnDebris("OrganDebris")
 		BCUL P 0 A_Jump(92,2)
 		BCUL P 0 A_SpawnDebris("Bloodliver")
@@ -1802,6 +1830,9 @@ ACTOR BlueCultist : BloodEnemy_Base 10309
 		BCUL RSTUV 5
 		BCUL V -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Raise:
 		BCUL N 5 A_UnHideThing
 		BCUL MLKJIH 5
@@ -2025,13 +2056,15 @@ ACTOR BrownCultist : BloodEnemy_Base 3129
 		YCUL J 5 A_Fall
 		YCUL KLMN 5
 		YCUL NONON 10
+		YCUL N 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		YCUL N 0 A_Jump(40,"Boomya")
 		YCUL N 0 A_Jump(128,"Dissolution")
 		YCUL O 1 A_SpawnItemEx("DeadBrownCultist",0,0,0)
 		Stop
 	Dissolution:
-		PCUL A 1 A_SetTics(frandom(1,1000)) //frandom? this use int values :) - ozy81
+		PCUL A 1 A_SetTics(random(10,100))
 		PCUL ABCDEFGH 10
+		PCUL H 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		PCUL H -1
 		Stop
 	DeathBloodFountain:
@@ -2040,6 +2073,7 @@ ACTOR BrownCultist : BloodEnemy_Base 3129
 		YCUL J 5 A_Fall
 		YCUL KLMN 5
 		YCUL NONON 10
+		YCUL N 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		YCUL N 0 A_Jump(40,"Boomya")
 		YCUL OOOOOOOOOOOOOOOOO 4 A_SpawnItemEx("FlyingBlood",0,0,frandom(7,10),frandom(0,10),frandom(0,10),frandom(5,25),frandom(0,360))
 		TNT1 A 0 A_SpawnItemEx("FlyingBlood",0,0,frandom(7,10),frandom(0,10),frandom(0,10),frandom(5,25),frandom(0,360))
@@ -2054,6 +2088,7 @@ ACTOR BrownCultist : BloodEnemy_Base 3129
 		YCUL J 5 A_Fall
 		YCUL KLMN 5
 		YCUL NONON 10
+		YCUL N 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		YCUL N 0 A_Jump(40,"Boomya")
 		YCUL O -1
 		Stop
@@ -2062,6 +2097,7 @@ ACTOR BrownCultist : BloodEnemy_Base 3129
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		YCUL P 0 A_Fall
 		YCUL P 5 A_XScream
+		YCUL P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BCUL P 0 A_SpawnDebris("OrganDebris")
 		BCUL P 0 A_Jump(92,2)
 		BCUL P 0 A_SpawnDebris("Bloodliver")
@@ -2077,6 +2113,9 @@ ACTOR BrownCultist : BloodEnemy_Base 3129
 		YCUL RSTUV 5
 		YCUL V -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Boomya:
 		BCUL PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP 0 A_SpawnDebris("FlyingBlood")
 		Stop
@@ -2251,7 +2290,7 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 	Fake:
 		TNT1 A 0 A_PlaySound("demon/Pain")
 		BZOD A 1
-		BZOM N 0 A_UnSetSolid
+		BZOD N 0 A_UnSetSolid
 		BZOD AB 4
 		BZOD B 4 A_GiveInventory("AmAlReadyFaking",1)
 		BZOD CDE 4
@@ -2264,9 +2303,9 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 		BZOD EEEEEEEE 20
 		BZOD E 0 A_Jump(120,"PainEL")
 		BZOD E 5
-		BZOM N 0 A_ChangeFlag("THRUSPECIES",0)
-		BZOM O 0 A_SetShootable
-		BZOM O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		BZOD N 0 A_ChangeFlag("THRUSPECIES",0)
+		BZOD O 0 A_SetShootable
+		BZOD O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
 		BZOD E 0 A_PlaySound("Zombie/Fake")
 		BZOD EDCBA 4
 		TNT1 A 0 A_TakeInventory("AmAlReadyFaking",99)
@@ -2302,42 +2341,44 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 	Death:
 		TNT1 A 0 A_Scream
 		BZOD H 0 A_Jump(100,"DeathKickableHead")
-		BZOD H 0 A_JumpIfHealthLower (-9, 7)
+		BZOD H 0 A_JumpIfHealthLower (-9, 8)
 		BZOD A 8
 		BZOD B 8
 		BZOD C 4
 		BZOD D 4 A_Fall
+		BZOD D 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BZOD E 1 A_SpawnItemEx("DeadBloodZombie",0,0,0)
 		Stop
-		BZOM H 0 A_PlaySound("DSBDSPRY")
+		BZOD H 0 A_PlaySound("DSBDSPRY")
 		BZO2 A 0 A_ThrowGrenade("ZombieHead",0,5,10,0)
 		BZOD LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
 		BZOD MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
 		BZOD NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
-		BZOM H 0 A_Fall
+		BZOD H 0 A_Fall
 		BZOD OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
 		BZOD PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
 		BZOD QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
 		BZOD RR 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
-		BZOM H 0 A_PlaySound("DSBDSPRY")
+		BZOD H 0 A_PlaySound("DSBDSPRY")
 		BZOD SSSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
-		BZOM H 0 A_PlaySound("DSBDSPRY")
+		BZOD H 0 A_PlaySound("DSBDSPRY")
 		BZOD SSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
 		BZOD S -1
 	DeathKickableHead:
-		BZOM H 0 A_PlaySound("DSBDSPRY")
-		BZO2 A 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		BZOD H 0 A_PlaySound("DSBDSPRY")
+		BZOD H 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BZOD H 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
 		BZOD LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
 		BZOD MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
 		BZOD NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
-		BZOM H 0 A_Fall
+		BZOD H 0 A_Fall
 		BZOD OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
 		BZOD PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
 		BZOD QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
 		BZOD R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
-		BZOM H 0 A_PlaySound("DSBDSPRY")
+		BZOD H 0 A_PlaySound("DSBDSPRY")
 		BZOD SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
-		BZOM H 0 A_PlaySound("DSBDSPRY")
+		BZOD H 0 A_PlaySound("DSBDSPRY")
 		BZOD SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
 		BZOD S -1
 		Stop
@@ -2351,6 +2392,7 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 		BZOX U 0 A_XScream
 		BZOX U 0 A_Fall
 		BZOX A 5
+		BZOX A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BZOX UUU 0 A_SpawnDebris("OrganDebris")
 		TNT1 A 0 A_SpawnDebris("OrganDebris2")
 		BZOX B 5
@@ -2371,6 +2413,7 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 		BZOX U 0 A_XScream
 		BZOX U 0 A_Fall
 		BZOX A 5
+		BZOX A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		BZOX UUU 0 A_SpawnDebris("OrganDebris")
 		BZOX B 5
 		BZOX U 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
@@ -2381,6 +2424,9 @@ ACTOR BloodZombie : BloodEnemy_Base 3120
 		BZOX DEFG 5
 		BZOX H -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Burn:
 	Death.SpecialFire:
 	Death.Flare:

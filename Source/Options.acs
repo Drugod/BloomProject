@@ -4,8 +4,21 @@
 //Controls
 Script "blm_voxmod"(void)
 {
-	//if (GameType()!=GAME_SINGLE_PLAYER)
-	//	PrintBold(s:"Models are only available in Single Player, sorry!");
-	//else
-		SetResultValue(GetCVar("blm_voxmod"));
+	SetResultValue(GetCVar("blm_voxmod"));
 }
+
+script "NatureVoxel" (void)
+{
+    SetResultValue(GetCVar("blm_voxnat"));
+}
+
+script "PickupVoxel" (void)
+{
+    SetResultValue(GetCVar("blm_voxpkp"));
+}
+
+script "LightingVoxel" (void)
+{
+    SetResultValue(GetCVar("blm_voxlghprp"));
+}
+
