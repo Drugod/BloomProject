@@ -630,7 +630,7 @@ ACTOR ClassicCellCandle : SwitchableDecoration 3280
 ACTOR CandleOff : SwitchableDecoration 3281
 {
 	//$Category "BlooM Light Sources"
-	//$Title Burnt Candle, ACS Switchable (Off Default)
+	//$Title Burnt Candle, ACS Switchable
 	//$Color 17
 	Radius 4
 	Height 4
@@ -640,11 +640,23 @@ ACTOR CandleOff : SwitchableDecoration 3281
 	{
 	Spawn:
 	Active:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
+		PILM BCDE 4 
+		Loop
+	Active2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Active")		
+		VX12 BCDE 4 BRIGHT
+		Loop
+	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
 		PILM A -1
 		Stop
-	Inactive:
-		PILM BCDE 4 BRIGHT
-		Loop
+	Inactive2:
+		VX12 A -1
+		Stop
 	}
 }
 

@@ -34,6 +34,7 @@ LISTMENU "MainMenu"
 		else
 		{
 			TextItem "      Options", "o", "OptionsMenu"
+			TextItem "      Bloom Options", "o", "BloomOptions"			
 			TextItem "      Load Game", "l", "LoadGameMenu"
 			TextItem "      Save Game", "s", "SaveGameMenu"
 		}
@@ -85,7 +86,7 @@ ListMenu "PlayerclassMenu"
 OptionMenu "OptionsMenu"
 {
 	Title "OPTIONS"
-	Submenu "Bloom options",			"BloomOptions"
+	//Submenu "Bloom options",			"BloomOptions"
 	StaticText " "
 	Submenu "Customize Controls",		"CustomizeControls"
 	Submenu "Mouse options",			"MouseOptions"
@@ -115,17 +116,17 @@ OptionMenu "BloomOptions"
 	Option "Traps on iwad maps? (NOTE: These have not fully implemented)", "blm_traps", "YesOrNo"
 	
 	StaticText " "
-	StaticText "Performance Options", 1
-    /*SafeCommand "Disable Models/Voxels", "vox_off-mod_off" 	//, "Do you want to disable models and voxels for weapons, objects & items?"
-	SafeCommand "Enable Voxels", "vox_on-mod_off" 	//, "Do you want to enable voxels but not models for weapons, objects & items? Restart not required."
-	SafeCommand "Enable Models (Restart required)", "vox_off-mod_on"	//, "Do you want to enable models but not voxels for weapons, objects & items? This requires a game restart."	*/
+	StaticText "Performance Options (Huge impact on performance, map restart required)", 1
+    //SafeCommand "Disable Models/Voxels", "vox_off-mod_off" 	//, "Do you want to disable models and voxels for weapons, objects & items?"
+	//SafeCommand "Enable Voxels", "vox_on-mod_off" 	//, "Do you want to enable voxels but not models for weapons, objects & items? Restart not required."
+	//SafeCommand "Enable Models (Restart required)", "vox_off-mod_on"	//, "Do you want to enable models but not voxels for weapons, objects & items? This requires a game restart."
 	Option "Enable Voxels", "blm_voxcnt", "YesOrNo"	
 	Option "Enable Voxels for Vegetation?", "blm_voxnat", "YesOrNo", "blm_voxcnt"			
 	Option "Enable Voxels for Pickups?", "blm_voxpkp", "YesOrNo", "blm_voxcnt"				
-	Option "Enable Voxels for Lighting Props?", "blm_voxlghprp", "YesOrNo", "blm_voxcnt"				
+	Option "Enable Voxels for Lighting Props?", "blm_voxlit", "YesOrNo", "blm_voxcnt"				
 	StaticText " "	
-	StaticText "Draw Distance", 1	
-	Option "Trees Distance","blm_lod","BlmDist", "blm_voxcnt"			
+	StaticText "Draw Distance (Gzdoom only)", 1	
+	Option "Trees Distance","blm_lod","BlmDist"
 	StaticText " "
 	StaticText "Key config for advanced movements", 1
 	Control "Doomguy toss grenade", "grenadetoss"
@@ -143,4 +144,5 @@ OptionValue "BlmDist"
 {
 	512, "Near"
 	2048, "Far"
+	4096, "Unlimited"	
 }

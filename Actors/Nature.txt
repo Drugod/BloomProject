@@ -260,7 +260,12 @@ ACTOR TheTree2 : Bloom_Flora2 3222
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("NatureVoxel")==1, "Spawn2")		
 		TREE B -1
+		Stop
+	Spawn2:
+		VX14 A -1
 		Stop
 	XDeath:
 	Death.Flare:
@@ -530,7 +535,12 @@ ACTOR TheTree5 : Bloom_Flora2 3225
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("NatureVoxel")==1, "Spawn2")			
 		TREE E -1
+		Stop
+	Spawn2:
+		VX15 A -1
 		Stop
 	XDeath:
 	Death.Flare:
@@ -926,7 +936,12 @@ ACTOR TheTree9 : Bloom_Flora2 3229
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("NatureVoxel")==1, "Spawn2")			
 		TREE I -1
+		Stop
+	Spawn2:
+		VX16 A -1
 		Stop
 	XDeath:
 	Death.Flare:
@@ -1144,7 +1159,12 @@ ACTOR BurnedTree2 : Bloom_Flora2 3238
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("NatureVoxel")==1, "Spawn2")				
 		XR33 K -1
+		Stop
+	Spawn2:
+		VX17 A -1
 		Stop
 	XDeath:
 	Death.Flare:
@@ -1232,7 +1252,12 @@ ACTOR Bush1 : Bloom_Flora2 3230
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("NatureVoxel")==1, "Spawn2")		
 		ARBX A -1
+		Stop
+	Spawn2:
+		VX13 A -1
 		Stop
 	Death:
 		ARBX J 1

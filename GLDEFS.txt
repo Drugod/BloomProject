@@ -99,6 +99,20 @@ Object SkullCandle
 	Frame VX06C { light floorlight }
 }
 
+Object CandleOff
+{
+	Frame PILMA { light floorlight }
+	Frame PILMB { light floorlight }
+	Frame PILMC { light floorlight }
+	Frame PILMD { light floorlight }
+	Frame PILME { light floorlight }
+	Frame VX12A { light floorlight }
+	Frame VX12B { light floorlight }
+	Frame VX12C { light floorlight }
+	Frame VX12D { light floorlight }
+	Frame VX12E { light floorlight }
+}
+
 Object SingleCandle
 {
 	Frame NILMB { light floorlight }

@@ -101,13 +101,23 @@ XUITA="XUITA" {}
 
 GBRNA="GBRNA" {}
 RBRNA="RBRNA" {}
+DBAGA="DBAGA" {}
+
+VASEA="VASEA" {}
+VASEB="VASEB" {}
+VASEC="VASEC" {}
 
 //Vegetation
-VX01A="VX01A" {}//XR23A="XR23A" {}
+/*VX01A="VX01A" {}//XR23A="XR23A" {}
 VX02A="VX02A" {}//XR33A="XR33A" {}
 VX03A="VX03A" {}//TREED="TREED" {}
 VX04A="VX04A" {}//TREEE="TREEE" {}
 VX05A="VX05A" {}//TREEF="TREEF" {}
+VX13A="VX13A" {}//ARBXA="ARBXA" {}
+VX14A="VX14A" {}//TREEB="TREEB" {}
+VX15A="VX15A" {}//TREEE="TREEE" {}
+VX16A="VX16A" {}//TREEI="TREEI" {}
+VX17A="VX17A" {}//XR33A="XR33A" {}
 
 //Lighting
 VX06A="VX06A" {}//SKLCA="SKLCA" {}
@@ -159,6 +169,12 @@ VX11L="VX11L" {}//FLV2L="FLV2L" {}
 VX11M="VX11M" {}//FLV2M="FLV2M" {}
 VX11N="VX11N" {}//FLV2N="FLV2N" {}
 VX11O="VX11O" {}//FLV2O="FLV2O" {}
+
+VX12A="VX12A" {}//PILMA="PILMA" {}
+VX12B="VX12B" {}//PILMB="PILMB" {}
+VX12C="VX12C" {}//PILMC="PILMC" {}
+VX12D="VX12D" {}//PILMD="PILMD" {}
+VX12E="VX12E" {}//PILME="PILME" {}*/
 
 //==========================================
 //--------------Vanilla Doom----------------
