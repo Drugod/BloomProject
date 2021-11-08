@@ -59,7 +59,7 @@ DoomGuy player sprites by Mark Quinn
 Some flats and general defs by SgtMarkIV
 Grenades/PlayerClasses by SgtMarkIV, modified by Drugod
 Grenades/Snow/Rain/Steam/Fog effects by Tormentor667/Ghastly_dragon, modified by Drugod
-Resources organization by Ozymandias81
+Resources organization & Zandronum conversion by Ozymandias81
 
 THANKS TO ZDOOM FORUM, ZANDRONUM AND REALM667 FOR THEIR INFINITE SUPPORT
 
