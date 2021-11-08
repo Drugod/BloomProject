@@ -1,0 +1,141 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+# INSTRUCTIONS/HOW TO:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+YOU NEED A REGISTERED COPY OF DOOM2.WAD, PUT IT INSIDE WITHIN GZDOOM. THEN TO PLAY BLOOM, JUST DRAG AND DROP BLOOM.PK3 FILE OVER GZDOOM.EXE
+BLOOM SHOULD BE PLAYED WITHOUT ADDITIONAL MODS, AND AVOID USING FREEDOOM.WAD TO RUN IT, KEYS WON'T WORK PROPERLY.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+## CREDITS:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Mod concept by Drugod & Rolls3D
+Acs/Decorate/Maps by Drugod
+Acs/Decorate/Tweaks by Ozymandias81
+Sprites (Hybrid monsters), New Weapons, New Textures and 3D Models by Rolls3D
+Music by NHT, Buio Mondo & Drugod
+Additional sound-fx by NHT
+Tested by Antonivs, Jean!
+
+Following songs by Asciimov:
+D_RUNNIN
+D_STALKS
+D_COUNTD
+D_BETWEE
+D_DOOM
+D_THE_DA
+D_SHAWN
+D_DDTBLU
+Soundtrack available at https://asciimov.bandcamp.com/
+
+Following songs by Buio Mondo:
+D_AMPIE
+D_DDTBL2
+D_DDTBL3
+D_DEAD
+D_DEAD2
+D_DM2TTL
+D_IN_CIT
+D_MESSAG
+D_MESSG2
+D_READ_M
+D_ROMER2
+D_ROMERO
+D_STLKS2
+Soundtrack available at https://buiomondo.bandcamp.com/album/bloom/
+
+Thanks to 00_Zombie_00 to help us with BLM02 map
+Bloom is based on ZBlood-ZBloodX Addon by IvanDobrovski/Cruduxy/Marinelol
+
+Acs based poisonus effect by MaxiClouds, reworked by Ozymandias81
+Acs based on screen web effect by Ozymandias81, original code by AFADoomer and Talon1024
+Black & white brightmaps for Vanilla Doom related games by NightFright
+Colored brightmaps and Cobwebs variants (COBW## sprites) by Ozymandias81
+Colt and single barrel Shotgun taken from Blood weapon mod
+Doom Vanilla Angled Weapons from "Nobody told me about ID", modified by Rolls3D
+Doom Models mainly from TheMacGyverArchiver
+Doom Voxels by Reikall (several)
+Blood Voxels (Blood Flesh supply) by fgsfds/Dzierzan
+Blood Voxels general/lighting stuff by Cheello (taken from Blood - Coagulated)
+DoomGuy player sprites by Mark Quinn
+Some flats and general defs by SgtMarkIV
+Grenades/PlayerClasses by SgtMarkIV, modified by Drugod
+Grenades/Snow/Rain/Steam/Fog effects by Tormentor667/Ghastly_dragon, modified by Drugod
+Resources organization by Ozymandias81
+
+THANKS TO ZDOOM FORUM, ZANDRONUM AND REALM667 FOR THEIR INFINITE SUPPORT
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+### REPOSITORY STORY:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+This repository belongs to BLOOM TEAM, and it has been converted as Private repository since
+07/12/2019 due to some problems noticed with people sharing the project without our approval.
+If you can read this, it is really strange since you are not allowed to browse the repo, but
+it could also mean that we have released BlooM and so that's why.
+
+Thanks to Ozymandias81 to have provide his knowledge to have this repository open and working
+as public for several months in order to release the Demo in time for Halloween 2019. And now
+we have brought to you the complete project for Halloween 2021, what else?!
+
+We have a website for this mod, check it asap: https://www.bloomteam666.com
+
+Also exists a ModDB page for it too: https://www.moddb.com/mods/bloom-doomblood-crossover
+
+There are also threads on ZDoom Forums and Doomworld, check 'em out and give us feedbacks!
+
+- ZDoom Forums: https://forum.zdoom.org/viewtopic.php?f=19&t=66261
+- Doomworld: https://www.doomworld.com/forum/topic/110117-bloom-doomblood-crossover/
+
+You need GZDoom 3.2.1 minimum or Zandronum 2.8+ to run this mod, within any Doom IWAD files though, plus
+a compatible gpu with 3.3 GL shaders minimum. It also works on GZDoom 3.7.2, LZDoom 3.82 (you can't throw
+grenades), QZDoom 2.1pre-4493 (you can't throw grenades and performance is bad with models/voxels) and
+new versions of Zandronum most probably. These were requirements for Demo release.
+Now it also work under GLesZDoom 4.6.0+, GZDoom 4.6.1 recommended, runs flawlessly on Zandronum.
+
+Check SOURCE folder for a complete and exhaustive list of materials used on this mod.
+
+All borrowed resources present in this project belong ONLY to respective owners/creators, if we have miss
+someone let us know, but with proof.
+
+This mod wouldn't have been possible without ZBlood and ZBloodX, so thanks a lot again to
+IvanDobrovski/Cruduxy/Marinelol and their respective creators
+
+- ZBlood: https://www.wad-archive.com/wad/ZBlooD
+- ZBloodX: https://forum.zdoom.org/viewtopic.php?f=19&t=46729
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+#### EDITORS USED:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+- 7Zip : https://www.7-zip.org
+- Audacity : https://www.audacityteam.org
+- Bulk Rename Utility : https://www.bulkrenameutility.co.uk/Download.php
+- GIMP : https://www.gimp.org
+- GZDoom : https://devbuilds.drdteam.org/gzdoom/
+- GZDoomBuilder : https://devbuilds.drdteam.org/gzdbbf/
+- HxD Hex Editor : https://mh-nexus.de/en/hxd/
+- LameXP : http://lamexp.sourceforge.net
+- MagickaVoxel : https://ephtracy.github.io
+- Maverick3d : https://clover.moe/mm3d/
+- Notepad++ : https://notepad-plus-plus.org
+- Slab6 : http://www.advsys.net/ken/slab6.zip
+- Slade3 : https://github.com/sirjuddington/SLADE/releases
+- UltimateDoomBuilder : https://devbuilds.drdteam.org/ultimatedoombuilder/
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+##### KNOWN PROBLEMS/LIMITS/BUGS:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+- GZDoom: Tested under GZDoom 3.2.1 x64, 3.7.2 x64 and 4.6.1 x64, Vulkan API recommended
+- GLEsZDoom: Tested under GLEsZDoom 4.6.0 x64, no problems noticed afaik, you might select for GLes api while running GZDoom 4.6+ btw
+- LZDoom: You can't throw grenades, bad performance in general
+- QZDoom: You can't throw grenades, bad performance in general
+- Zandronum: Tested under Zandro 2.8pre-441 and 3-1alpha-441, some lights may act differently and multiple stacked 3d floors are missing
+- Doom IWADS may still be broken in certain occasions, just let us know
+- Traps have not been placed anywhere beside MAP01-02 on Doom 2, we didn't had time
+- Jumping/flying enemies might walk over skies and swim underwater where they shouldn't (critters)
+- Dynamite throwing animation is not perfect due to some spaghetti-code necessary to make it work under other ports than GZDoom
+- DivingSuit HUD offsets are always messed up, it much depends by aspectratio of your resolutions; we'll fix in a future patch (probably GZDoom only)
+- On Zandronum LifeLeech fire states originate some unknown flags messages, when actors like Archies or Ghouls gets hit
+- On GZDoom 4.7+ there are some jittery movements of HUD weapons
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+###### LICENSE:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+WE STRONGLY ENCOURAGE TO BASE PROJECTS WITH THESE RESOURCES, BUT WITH THIS FILE INCLUDED AS IS PLUS COPYRIGHT HEADERS PRESENTS INSIDE THESE FILES.

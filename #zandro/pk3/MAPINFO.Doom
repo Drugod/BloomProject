@@ -1,0 +1,551 @@
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////ULTIMATE DOOM ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+episode e1m1
+{
+	name = "Knee-Deep in the Dead"
+	key = "k"
+	optional
+}
+
+episode e2m1
+{
+	name = "The Shores of Hell"
+	key = "t"
+	optional
+}
+
+episode e3m1
+{
+	name = "Inferno"
+	key = "i"
+	optional
+}
+
+episode e4m1
+{
+	name = "Thy Flesh Consumed"
+	key = "T"
+	optional
+}
+
+episode e5m1
+{
+	name = "Sigil"
+	key = "s"
+	optional
+}
+
+map E1M1 "Hangar"
+{
+	levelnum = 1
+	next = E1M2
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 30
+	music = D_E1M1
+}
+
+map E1M2 "Nuclear Plant"
+{
+	levelnum = 2
+	next = E1M3
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 75
+	music = D_E1M2
+}
+
+map E1M3 "Toxin Refinery"
+{
+	levelnum = 3
+	next = E1M4
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 120
+	music = D_E1M3
+}
+
+map E1M4 "Command Control"
+{
+	levelnum = 4
+	next = E1M5
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 90
+	music = D_E1M4
+}
+
+map E1M5 "Phobos Lab"
+{
+	levelnum = 5
+	next = E1M6
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 165
+	music = D_E1M5
+}
+
+map E1M6 "Central Processing"
+{
+	levelnum = 6
+	next = E1M7
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 180
+	music = D_E1M6
+}
+
+map E1M7 "Computer Station"
+{
+	levelnum = 7
+	next = E1M8
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 180
+	music = D_E1M7
+}
+
+map E1M8 "Phobos Anomaly"
+{
+	levelnum = 8
+	next = EndGame1
+	secretnext = E1M9
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 30
+	nointermission
+	nosoundclipping
+	baronspecial
+	specialaction_lowerfloor
+	SPECIALACTION = "BaronofHellNormal", "Floor_LowerToLowest", 666, 8
+	SPECIALACTION = "BloodBeast", "Floor_LowerToLowest", 666, 8
+	SPECIALACTION = "BaronOfHell_", "Floor_LowerToLowest", 666, 8
+	SPECIALACTION = "BaronofHellHybrid", "Floor_LowerToLowest", 666, 8
+	SPECIALACTION = "WereWolfOfHell", "Floor_LowerToLowest", 666, 8
+	SPECIALACTION = "WereWolfOfHellAlt", "Floor_LowerToLowest", 666, 8
+	music = D_E1M8
+}
+
+map E1M9 "Military Base"
+{
+	levelnum = 9
+	next = E1M4
+	secretnext = E1M4
+	sky1 = SKY1, 0
+	cluster = 1
+	par = 165
+	music = D_E1M9
+}
+
+map E2M1 "Deimos Anomaly"
+{
+	levelnum = 11
+	next = E2M2
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 90
+	music = D_E2M1
+}
+
+map E2M2 "Containment Area"
+{
+	levelnum = 12
+	next = E2M3
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 90
+	music = D_E2M2
+}
+
+map E2M3 "Refinery"
+{
+	levelnum = 13
+	next = E2M4
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 90
+	music = D_E2M3
+}
+
+map E2M4 "Deimos Lab"
+{
+	levelnum = 14
+	next = E2M5
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 120
+	music = D_E2M4
+}
+
+map E2M5 "Command Center"
+{
+	levelnum = 15
+	next = E2M6
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 90
+	music = D_E2M5
+}
+
+map E2M6 "Halls of the Damned"
+{
+	levelnum = 16
+	next = E2M7
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 360
+	music = D_E2M6
+}
+
+map E2M7 "Spawning Vats"
+{
+	levelnum = 17
+	next = E2M8
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 240
+	music = D_E2M7
+}
+
+map E2M8 "Tower of Babel"
+{
+	levelnum = 18
+	next = EndGame2
+	secretnext = E2M9
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 30
+	nointermission
+	nosoundclipping
+	cyberdemonspecial
+	specialaction_exitlevel
+	SPECIALACTION = "OriginalBoss1Spawner", "Exit_Normal", 0
+	SPECIALACTION = "Cheogh", "Exit_Normal", 0
+	SPECIALACTION = "Cyberdemon_", "Exit_Normal", 0
+	SPECIALACTION = "HybridBoss1Spawner", "Exit_Normal", 0
+	SPECIALACTION = "CyberCheogh", "Exit_Normal", 0
+	SPECIALACTION = "KingCacoyle", "Exit_Normal", 0
+	music = D_E2M8
+}
+
+map E2M9 "Fortress of Mystery"
+{
+	levelnum = 19
+	next = E2M6
+	secretnext = E2M6
+	sky1 = SKY2, 0
+	cluster = 2
+	par = 170
+	music = D_E2M9
+}
+
+map E3M1 "Hell Keep"
+{
+	levelnum = 21
+	next = E3M2
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 90
+	music = D_E3M1
+}
+
+map E3M2 "Slough of Despair"
+{
+	levelnum = 22
+	next = E3M3
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 45
+	music = D_E3M2
+}
+
+map E3M3 "Pandemonium"
+{
+	levelnum = 23
+	next = E3M4
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 90
+	music = D_E3M3
+}
+
+map E3M4 "House of Pain"
+{
+	levelnum = 24
+	next = E3M5
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 150
+	music = D_E3M4
+}
+
+map E3M5 "Unholy Cathedral"
+{
+	levelnum = 25
+	next = E3M6
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 90
+	music = D_E3M5
+}
+
+map E3M6 "Mt. Erebus"
+{
+	levelnum = 26
+	next = E3M7
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 90
+	music = D_E3M6
+}
+
+map E3M7 "Limbo"
+{
+	levelnum = 27
+	next = E3M8
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 165
+	music = D_E3M7
+}
+
+map E3M8 "Dis"
+{
+	levelnum = 28
+	next = endbunny
+	secretnext = E3M9
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 30
+	nointermission
+	nosoundclipping
+	spidermastermindspecial
+	specialaction_exitlevel
+	SPECIALACTION = "SpiderMastermind_", "Exit_Normal", 0
+	music = D_E3M8
+}
+
+map E3M9 "Warrens"
+{
+	levelnum = 29
+	next = E3M7
+	secretnext = E3M7
+	sky1 = SKY3, 0
+	cluster = 3
+	par = 135
+	music = D_E3M9
+}
+
+map E4M1 "Hell Beneath"
+{
+	levelnum = 31
+	next = E4M2
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E3M4
+}
+
+map E4M2 "Perfect Hatred"
+{
+	levelnum = 32
+	next = E4M3
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E3M2
+}
+
+map E4M3 "Sever the Wicked"
+{
+	levelnum = 33
+	next = E4M4
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E3M3
+}
+
+map E4M4 "Unruly Evil"
+{
+	levelnum = 34
+	next = E4M5
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E1M5
+}
+
+map E4M5 "They Will Repent"
+{
+	levelnum = 35
+	next = E4M6
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E2M7
+}
+
+map E4M6 "Against Thee Wickedly"
+{
+	levelnum = 36
+	next = E4M7
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	cyberdemonspecial
+	specialaction_opendoor
+	SPECIALACTION = "OriginalBoss1Spawner", "Door_Open", 666, 64
+	SPECIALACTION = "Cheogh", "Door_Open", 666, 64
+	SPECIALACTION = "Cyberdemon_", "Door_Open", 666, 64
+	SPECIALACTION = "HybridBoss1Spawner", "Door_Open", 666, 64
+	SPECIALACTION = "CyberCheogh", "Door_Open", 666, 64
+	SPECIALACTION = "KingCacoyle", "Door_Open", 666, 64
+	music = D_E2M4
+}
+
+map E4M7 "And Hell Followed"
+{
+	levelnum = 37
+	next = E4M8
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E2M6
+}
+
+map E4M8 "Unto the Cruel"
+{
+	levelnum = 38
+	next = EndGame4
+	secretnext = E4M9
+	sky1 = SKY4, 0
+	cluster = 4
+	nointermission
+	nosoundclipping
+	spidermastermindspecial
+	specialaction_lowerfloor
+	SPECIALACTION = "SpiderMastermind_", "Floor_LowerToLowest", 666, 8
+	music = D_E2M5
+}
+
+map E4M9 "Fear"
+{
+	levelnum = 39
+	next = E4M3
+	secretnext = E4M3
+	sky1 = SKY4, 0
+	cluster = 4
+	music = D_E1M9
+}
+
+cluster 1
+{
+	flat = FLOOR4_8
+	music = D_VICTOR
+	exittext = "Once you beat the big badasses and",
+		"clean out the moon base you're supposed",
+		"to win, aren't you? Aren't you? Where's",
+		"your fat reward and ticket home? What",
+		"the hell is this? It's not supposed to",
+		"end this way!",
+		"",
+		"It stinks like rotten meat, but looks",
+		"like the lost Deimos base.  Looks like",
+		"you're stuck on The Shores of Hell.",
+		"The only way out is through.",
+		"",
+		"To continue the DOOM experience, play",
+		"The Shores of Hell and its amazing",
+		"sequel, Inferno!"
+}
+
+cluster 2
+{
+	flat = SFLR6_1
+	music = D_VICTOR
+	exittext = "You've done it! The hideous cyber-",
+		"demon lord that ruled the lost Deimos",
+		"moon base has been slain and you",
+		"are triumphant! But ... where are",
+		"you? You clamber to the edge of the",
+		"moon and look down to see the awful",
+		"truth.",
+		"",
+		"Deimos floats above Hell itself!",
+		"You've never heard of anyone escaping",
+		"from Hell, but you'll make the bastards",
+		"sorry they ever heard of you! Quickly,",
+		"you rappel down to  the surface of",
+		"Hell.",
+		"",
+		"Now, it's on to the final chapter of",
+		"DOOM! -- Inferno."
+}
+
+cluster 3
+{
+	flat = MFLR8_4
+	music = D_VICTOR
+	exittext = "The loathsome spiderdemon that",
+		"masterminded the invasion of the moon",
+		"bases and caused so much death has had",
+		"its ass kicked for all time.",
+		"",
+		"A hidden doorway opens and you enter.",
+		"You've proven too tough for Hell to",
+		"contain, and now Hell at last plays",
+		"fair -- for you emerge from the door",
+		"to see the green fields of Earth!",
+		"Home at last.",
+		"",
+		"You wonder what's been happening on",
+		"Earth while you were battling evil",
+		"unleashed. It's good that no Hell-",
+		"spawn could have come through that",
+		"door with you ..."
+}
+
+cluster 4
+{
+	flat = MFLR8_3
+	music = D_VICTOR
+	exittext = "the spider mastermind must have sent forth",
+		"its legions of hellspawn before your",
+		"final confrontation with that terrible",
+		"beast from hell.  but you stepped forward",
+		"and brought forth eternal damnation and",
+		"suffering upon the horde as a true hero",
+		"would in the face of something so evil.",
+		"",
+		"besides, someone was gonna pay for what",
+		"happened to daisy, your pet rabbit.",
+		"",
+		"but now, you see spread before you more",
+		"potential pain and gibbitude as a nation",
+		"of demons run amok among our cities.",
+		"",
+		"next stop, hell on earth!"
+}

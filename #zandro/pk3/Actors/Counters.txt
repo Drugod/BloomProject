@@ -1,0 +1,255 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81, IvanDobrovski/Cruduxy/Marinelol
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+ACTOR -------------------COUNTERS---------------------{}
+ACTOR TwinkleHeal : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 10 //10 max hands just for a horrible ending
+	+AUTOACTIVATE
+	+ALWAYSPICKUP
+	States
+	{
+	Use:
+	Pickup:
+		TNT1 A 1 A_SetBlend("Yellow",0.5,10)
+		Stop
+	}
+}
+
+ACTOR TeslaCounterX : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 24
+	+IGNORESKILL
+}
+
+ACTOR StopFiring : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR RealFlash : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR TommyCounter : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 8
+}
+
+ACTOR SawedOffCheck : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR SpraySound : Inventory
+{
+	Inventory.MaxAmount 70
+	Inventory.Amount 1
+}
+
+ACTOR RemoveSpray : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR RemoveProximity : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR RemoveTNT : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR BurnCheck : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 100
+}
+
+ACTOR HoldingSpray : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR TNT2 : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR TNTCounter : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 3
+}
+
+ACTOR RemoveVodoo : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+//ENEMIES COUNTERS
+ACTOR AmAlReadyChoked : Inventory
+{
+	Inventory.Amount 1
+	+AUTOACTIVATE
+	+ALWAYSPICKUP
+}
+
+ACTOR AmAlReadyFaking : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR GillBeastChecks : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 30
+}
+
+ACTOR LowerThanHP : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR PlayerBurner : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 60 // decrease by one every 35 tic
+}
+
+ACTOR FleeCounter : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR SpawnCounter : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 10
+}
+
+ACTOR DeepOnesChecks : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 28
+}
+
+ACTOR AlreadyFlare : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR CountToDeath : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 10
+}
+
+ACTOR CountZombie : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 10
+}
+
+ACTOR CountBramble : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 10
+}
+
+ACTOR Afraid : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR Fighting : Afraid { }
+
+//PLAYERS COUNTERS
+ACTOR BurnTics : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 300
+}
+
+ACTOR BurnSound : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 90
+}
+
+ACTOR Swimming : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR PoisonStop : Inventory {Inventory.MaxAmount 1}
+
+ACTOR PoisonIntensity : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 400
+}
+
+ACTOR StrongPoison : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 100
+}
+
+ACTOR isIntro : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR isPossessed : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}
+
+ACTOR SuperGatling : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+}

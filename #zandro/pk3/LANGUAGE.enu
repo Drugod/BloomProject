@@ -1,0 +1,267 @@
+[enu default]
+
+//QUIT MESSAGES
+QUITMSG  = "Ok, I'll let you out only if it's to read Lovecraft.";
+QUITMSG1 = "If you hate Fortnite press N.";
+QUITMSG2 = "Press N to keep seying the lovely smile of Caleb.";
+QUITMSG3 = "Press Y If you're going to quit this game for a good reason, for example commit suicide.";
+QUITMSG4 = "Get the hell out of here, loser. You're not fit to keep playing BLOOM.";
+QUITMSG5 = "You're ready to go out on the street and kill them all now.";
+QUITMSG6 = "Repeat with me 'I hate Overwatch'.";
+QUITMSG7 = "Press Y if you're another stupid 2000-ish.";
+QUITMSG8 = "If you quit this game away, I'll have to kill you.";
+QUITMSG9 = "Get the hell out of here, loser. You're not fit to keep playing BLOOM.";
+QUITMSG10 = "You're ready to go out on the street and kill them all now.";
+QUITMSG11 = "I'm John Romero.";
+QUITMSG12 = "Press N, 'It promise to be fun'.";
+QUITMSG13 = "If you quit this game away, I'll have to kill you.";
+QUITMSG14 = "Press Y If you're going to quit this game for a good reason, for example commit suicide.";
+
+//KEYS MESSAGES
+DAGKEY = "You got the Dagger Key.";
+EYEKEY = "You got the Eye Key.";
+FIRKEY = "You got the Fire Key.";
+MONKEY = "You got the Moon Key.";
+REQ_COMB1 = "That requires Eye plus Fire Keys.";
+REQ_COMB2 = "That requires Dagger plus Skull Keys.";
+REQ_COMB3 = "That requires Moon plus Spider Keys.";
+REQ_DAG = "That requires a Dagger Key.";
+REQ_EYE = "That requires an Eye Key.";
+REQ_FIR = "That requires a Fire Key.";
+REQ_MON = "That requires a Moon Key.";
+REQ_SKU = "That requires a Skull Key.";
+REQ_SPI = "That requires a Spider Key.";
+SKUKEY = "You got the Skull Key.";
+SPIKEY = "You got the Spider Key.";
+
+//MAPINFO STUFF
+DM2_TNT = "Play Chosen IWAD"; //here for Zandro
+BLM_EP1 = "The Way Of Doomed Flesh";
+BLM_IN0 = "Interlude";
+BLM_IN1 = "Thank You For Playing BlooM!";
+BLM_M01 = "Entryway To Grave";
+BLM_M02 = "Containment Butchery";
+BLM_M03 = "Siege To The Pit";
+BLM_M04 = "The Wrong Side Of The Hangar";
+BLM_M05 = "U.A.C. Phantom 666";
+BLM_M06 = "Ghost Downtown";
+BLM_M07 = "Dark Station";
+BLM_M08 = "BlooM";
+BLM_M09 = "House of Chton (Secret map)";
+BLM_TIT = "Welcome To BlooM";
+BLM_TM1 = "Testmap for BlooM - Ozy81";
+BLM_TM2 = "Testmap for BlooM - Drugod";
+
+//VANILLA MESSAGES
+GOTBACKPACK = "Picked up a backpack full of ammo!";
+GOTMEDIKIT = "Picked up a medikit.";
+GOTMEDINEED = "Picked up a medikit that you REALLY need!";
+OB_MPBFG_BOOM = "%o was splintered by %k's BFG.";
+OB_MPPLASMARIFLE = "%o was melted by %k's plasma gun.";
+OB_MPROCKET = "%o rode %k's rocket.";
+
+//AMMO MESSAGES
+BBOX = "Picked up a box of bullets.";
+BDRUM = "Picked up a full drum of bullets.";
+BSBOX = "Picked up a box of shells.";
+BSHEL = "Picked up a few shells.";
+BULLS = "Picked up 15 bullets.";
+FLABIG = "You picked up a flamethrower gas pack.";
+FLAGAS = "You picked up a flamethrower canister.";
+FLAR = "Picked up a single flare.";
+FLARBOX = "Picked up a box of flares.";
+FROSTA = "You picked up some frost ammo, brrrr!";
+FROSTB = "You picked up some Big frost ammo, brrrr!";
+GASOCAN = "Picked up a gasoline can.";
+GRENBOXP = "Picked up a box of grenades.";
+MINIGASO = "Picked up a mini gasoline can.";
+SPRPICK = "Got a spray can...";
+TESCBOX = "Picked up a box of tesla charges.";
+TESCHA = "Picked up a tesla charge.";
+TNTAB = "Picked up case of TNT.";
+TNTBUND = "Picked up a bundle of TNT.";
+TNTPB = "Picked up proximity TNT!";
+TNTRB = "Picked up remote dynamite!";
+
+//WEAPONS MESSAGES
+COLTPICK = "You found a Colt.";
+DYNAPICK = "Picked up a case of TNT!";
+FGUNPICK = "You got the Flare Gun!";
+FRAGPICK = "You got a Frag Grenade! (Slot 0)";
+FROSPICK = "It's time for some tasty ice cream!";
+FTHRPICK = "I like the flesh extra crispy";
+GRENPICK = "Picked up a Grenade.";
+LECHPICK = "You found the LifeLeech! (Watch out your health)";
+NAPLPICK = "You got the Incinerator!";
+NOGREN = "No Grenades Left";
+PROXPICK = "Got proximity TNT!";
+REMOPICK = "It's time for mindgames!";
+SAWDPICK = "You got the Sawed Off!";
+SINGPICK = "You got a Single-Barreled Shotgun.";
+SPRYPICK = "You got the SprayCan!";
+TESLPICK = "Picked up Tesla Cannon.";
+TOMMPICK = "You got the Tommy Gun!";
+VODOPICK = "Voodoo Doll! Find some victims! (Watch out your health)";
+
+//PICKUPS MESSAGES
+AKIMBO = "Guns Akimbo!";
+BASA = "Picked up Basic Armor.";
+BEAST = "Picked up Beast Vision.";
+BODA = "Picked up Body Armor.";
+CHTORUNE = "You found a strange familiar... rune. Linked to Chton maybe?";
+CURSE = "You have been poisoned, run away!";
+DIVESUIT = "Picked up Diving Suit.";
+DOCBAG = "Stole the Doctor's Bag.";
+ESSENCE = "Picked up a poor soul.";
+FESA = "Picked up Lesser Fire Armor.";
+FIRA = "Picked up Fire Armor.";
+HETH01 = "Fresh Meat!";
+HETH02 = "This is so disgusting yet feels good!";
+HETH03 = "Why would you kill someone and eat their heart?!";
+HETH04 = "Shame on you! Cannibal!";
+HETH05 = "Never felt better!";
+HETH06 = "You feel the love.";
+HETH07 = "Ran out of pickup messages!";
+HETH08 = "Got a +25 health pick me up!";
+HETH09 = "Got a medik... I mean a heart!";
+HETH10 = "Is this blood!";
+HETH11 = "Rejuvernating juicy diet!";
+JUMPB = "Picked up Jumping Boots.";
+LESA = "Picked up Lesser Body Armor.";
+LESP = "Picked up Lesser Spirit Armor.";
+LIFEH = "Tastes like chicken.";
+MASK = "Deathmask! Invulnerable!";
+MEDS = "Got medicine.";
+REDA = "Picked up a super Red Armor!";
+REFLECT = "Imbued with reflection mystique.";
+SEED = "Picked up Life Seed.";
+SPIA = "Picked up Spirit Armor.";
+SUPA = "Picked up Super Armor!";
+
+//OTHER MESSAGES
+HANDMSG = "HOLD ALT-FIRE TO THROW HAND";
+
+//OBITUARIES - WEAPONS
+OB_COLT = "%o was been shoot to the head by %k.";
+OB_DYNA = "%o got a faceful of %k's TNT!";
+OB_FCULT = "%o burned by cult fire!";
+OB_FGUN = "%o was cooked by %k's flare gun.";
+OB_FORK = "%o was poked by %k.";
+OB_FRAG = "%o was shredded in pieces by %k's grenade.";
+OB_FROST = "%o was congealed till death by %k.";
+OB_FTHRW = "%o was reduced to ashes by %k.";
+OB_HAND = "%o ate %k grenade.";
+OB_LEC2 = "%o was incinerated by %k.";
+OB_LECH = "%o had %p soul sucked dry by %k.";
+OB_NAPL = "%k blew %o with napalm.";
+OB_PROX = "%o fell in %k's little trap!";
+OB_REMO = "%o found %k's little bomb!";
+OB_SCAN = "%o was toasted by %k's aerosol can!";
+OB_SOFF = "%o chewed on %k's sawed off.";
+OB_SPIKE1 = "%o was grinded by a rolling spiked column.";
+OB_SPIKE2 = "%o was punctured to death from below.";
+OB_SSHOT = "%o was single-barreled to the chest by %k.";
+OB_TESDM = "%o got fizzled till death by %k.";
+OB_TESL = "%o was overcharged by %k.";
+OB_TOMMY = "%o sung %k's Tommy tune.";
+OB_VODO = "%o was tingled by %k's voodoo stings.";
+OB_WBOMB = "%o got caught by an explosion.";
+
+//OBITUARIES - BLOOD
+HB_BEAST = "%o was torn apart by a Beast.";
+HB_BGARG = "%o was slapped by a Gargoyle.";
+HB_BLOAT = "A butcher made mince meat out of %o.";
+HB_CHEOGH = "%o was owned by Cheogh.";
+HB_PUPPY = "%o got caught by a puppy.";
+HN_PHANT = "A Phantasm scared the hell out of %o.";
+OB_BATS = "%o was scratched by a Bat.";
+OB_BEAST = "%o was swept off %p feet by a Beast.";
+OB_BGARG = "%o was sniped by a Gargoyle.";
+OB_BLOAT = "%o was splattered by a Bloated Butcher.";
+OB_BLUCUL = "%o argued with a Zealot.";
+OB_BRAMB = "%o was cut by brambles of a Chrysalid Pod.";
+OB_BRAMB2 = "%o was cut by brambles of a Lava Pod.";
+OB_BROCUL = "%o got shot by an angry Cultist.";
+OB_CERB = "%o didn't approach Cerberus the right way.";
+OB_CERC = "%o didn't dodge properly Cerbcubus attacks.";
+OB_CHEOGH = "%o stood no chance against Cheogh.";
+OB_CHOKE = "%o was punched in the face by a living Hand.";
+OB_CRYPOD = "%o was spat on by a Chrysalid Pod.";
+OB_GBURN = "%o was near a Gargoyle in flames.";
+OB_GILLB = "A Gill Beast ate %o.";
+OB_GRENCUL = "%o got outplayed by an Acolyte!!";
+OB_GREYCUL = "%o wasn't much liked by a Fanatic.";
+OB_HFISH = "Hellfish ate %o.";
+OB_LAVPOD = "%o was charred by a Lava Pod.";
+OB_MOUS = "%o was plagued by a little cute Mouse.";
+OB_PERB = "%o noticed that Pinkberus wasn't exactly cute.";
+OB_PHANT = "%o was harvested by a Phantasm.";
+OB_POSSSH = "%o was frantically shot in the head by a possessed Sergeant.";
+OB_POSSZO = "%o was manually killed by a possessed Zombieman.";
+OB_PUPPY = "%o was incinerated by a Hell Hound.";
+OB_REDCUL = "%o was punctured by a Priest.";
+OB_SPIDS = "%o will now rage-quit thanks to Spiders.";
+OB_SPIDS2 = "%o got bitten by a little Spider.";
+OB_SPIDS3 = "Little Spiders swarmed %o.";
+OB_SPIDS4 = "A green Spider bit %o's sorry ass.";
+OB_SPIDS5 = "%o hates blue Spiders.";
+OB_SPIDS6 = "%o was killed by yellow Spiders.";
+OB_SPIDS7 = "Royal purple Spiders purged %o.";
+OB_SPIDS8 = "%o lost all his stamina to cyan Spiders.";
+OB_SPIDS9 = "%o was a great feast to Spiders.";
+OB_STOMP = "%o danced with the stars.";
+OB_STOMP2 = "%o got too close to The-One-That-Binds.";
+OB_TCHERNO = "The-One-That-Binds didn't like the stupid look on %o's face.";
+OB_ZAXE = "%o got the Zombie's axe.";
+
+//OBITUARIES - HYBRIDS
+HB_CACOY = "%o gets killed by a Cacoyle's bad breath ;)";
+HB_CACOYB = "%o gets pulverized by the mighty King Cacoyle stinky breath.";
+HB_CYBOGH = "%o was owned by Cyber-Cheogh.";
+HB_DSHO = "%o was hit to the chest by several DeepOne shells.";
+HB_DTRI = "%o felt cold by a DeepOne trident attack.";
+HB_GHOREV = "A Ghost Revenant scared the hell out of %o.";
+HB_TERREV = "%o was punched by a Ghost Revenant.";
+HB_ZBARON = "%o didn't had enough health to survive Zombaron fight.";
+OB_ACHNOID = "%o got paranoidically killed by an Arachnoid.";
+OB_APOCN = "%o was shotgunned off by a crazy Apocalyptic NeoCultist.";
+OB_ARAPOD = "%o was spat on by an Arachnopod.";
+OB_CACOY = "%o didn't survive Cacoyle attack.";
+OB_CACOYB = "%o wasn't enough strong to survive King Cacoyle's attack.";
+OB_CYBOGH = "%o stood no chance against Cyber-Cheogh.";
+OB_DCHA = "%o was chaingunned suddenly by a DeepOne.";
+OB_DEMHOU = "%o was bit by a DemonHound.";
+OB_DEMHOU2 = "%o was incinerated by a DemonHound.";
+OB_DSHO = "%o was shotgunned suddenly by a DeepOne.";
+OB_DTRI = "%o was congealed to death by a DeepOne.";
+OB_EELCUB = "%o understood how delicious were Eelcubus rockets.";
+OB_FLVILE = "%o was winged out by an flying Gargovile.";
+OB_GARGD = "%o was bit by a GargoDemon.";
+OB_GAVILE = "%o was incinerated by an hybrid Gargovile.";
+OB_GHOREV = "%o couldn't dodge a Ghost Revenant's attack.";
+OB_GILLC = "%o sunk down by a Gillcubus attack.";
+OB_GILLE = "%o sunk down by a Eeldercubus attack.";
+OB_GSOUL = "%o was spooked by a Gargoyle's soul.";
+OB_HANDM = "%o has been violently slapped by a Hand Slavedmind.";
+OB_HLBTCH = "%o noticed that Butchers from Hell can cook properly human meat steaks.";
+OB_HLBTCHHIT = "%o somehow died by the hand of a Butcher from Hell.";
+OB_HNDBOF = "%o gets killed by a Hound Baron from Hell.";
+OB_HNDBOFHIT = "%o gets killed by a Hound Baron from Hell's scratch";
+OB_JOJO = "%o suddenly stopped making fun of Jojo diet.";
+OB_NORMN = "%o was frantically shot-off by a NeoCultist.";
+OB_PINKGARG = "%o gets killed by a Pink Gargoyle's dead breath.";
+OB_POSAPC = "%o was manually shotgunned off by a paranoid possessed Apocalyptic NeoCultist.";
+OB_POSSNC = "%o was frantically shot-off by a possessed confused NeoCultist.";
+OB_RATDEM = "%o was painfully bitten by a RatDemon.";
+OB_ROMTRON = "%o is happy to have been killed by the almighty RomeroTron.";
+OB_SLOTH = "%o has died laughing.";
+OB_SMSTMD = "%o will feed the breed.";
+OB_SPEHOU = "%o was eaten by a SpectreHound.";
+OB_ZBARON = "%o was eaten by a Zombaron's open mouth.";
+
+//OBITUARIES - MISC
+OB_BBARL = "%o went boom.";
+OB_DEFAULT = "\n";
+OB_HUGGFIRE = "%o hugged a burning person.";
+OB_NEARF = "%o was near someone in flames.";
+OB_ZOMBFIRE = "%o hugged a zombie on fire.";

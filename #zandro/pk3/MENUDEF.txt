@@ -1,0 +1,129 @@
+DEFAULTLISTMENU
+{
+	Font "BigFont", "Untranslated"
+		Font "DBIGFON2", "White"
+	IfGame(Doom)
+	{
+		Selector "M_SKULL1", 0, -5
+		Linespacing 16
+		Font "BigFont", "Red"
+	}
+}
+
+LISTMENU "MainMenu"
+{
+	IfGame(Doom)
+	{
+		StaticPatch 73, -20, "LOGO"//Bloom Logo position
+		Position 97, 87
+		IfOption(ReadThis)
+		{
+			Position 97, 87//64
+		}
+	}
+
+	IfGame(Doom)
+	{
+	    TextItem "      New Game", "n", "PlayerclassMenu"
+		ifOption(SwapMenu)
+		{
+			TextItem "      Load Game", "l", "LoadGameMenu"
+			TextItem "      Save Game", "s", "SaveGameMenu"
+			TextItem "      Options", "o", "OptionsMenu"
+		}
+		else
+		{
+			TextItem "      Options", "o", "OptionsMenu"
+			TextItem "      Bloom Options", "o", "BloomOptions"			
+			TextItem "      Load Game", "l", "LoadGameMenu"
+			TextItem "      Save Game", "s", "SaveGameMenu"
+		}
+		ifOption(ReadThis)
+		{
+			TextItem "      Read me idiot", "r", "ReadThisMenu"
+		}
+		TextItem "      Quit Game", "r", "QuitMenu"
+	}
+}
+
+ListMenu "EpisodeMenu"
+{
+	IfGame(Doom, Chex)
+	{
+		Selector "M_SKULL1", -32, -5
+		Linespacing 16
+		Font "BigFont", "Black", "Red"
+	}
+	IfGame(Doom, Heretic, Hexen, Strife)
+	{
+		NetgameMessage "$NEWGAME"
+	}
+	IfGame(Doom, Chex)
+	{
+		Position 48, 63
+		StaticPatch 70, 38, "M_EPISOD"
+	}
+}
+
+ListMenu "PlayerclassMenu"
+{
+	IfGame(Doom, Heretic, Hexen, Strife)
+	{
+		NetgameMessage "$NEWGAME"
+	}
+	IfGame(Doom, Strife, Chex)
+	{
+		StaticTextCentered 160, 15, "$MNU_CHOOSECLASS"
+		Position 48, 63
+		PlayerDisplay 220, 63, "20 00 00", "80 00 40"
+		MouseWindow 0, 220
+		Selector "M_SKULL1", -32, -5
+		Linespacing 16
+		Font "BigFont", "Black", "Red"
+	}
+}
+
+OptionMenu "OptionsMenu"
+{
+	Title "OPTIONS"
+	Submenu "Bloom Options",			"BloomOptions"
+	StaticText " "
+	Submenu "Customize Controls",		"CustomizeControls"
+	Submenu "Mouse options",			"MouseOptions"
+	Submenu "Joystick options",			"JoystickOptions"
+	StaticText " "
+	Submenu "Player Setup",				"PlayerMenu"
+	Submenu "Gameplay Options",			"GameplayOptions"
+	Submenu "Compatibility Options",	"CompatibilityOptions"
+	Submenu "Automap Options",			"AutomapOptions"
+	Submenu "HUD Options",				"HUDOptions"
+	Submenu "Miscellaneous Options",	"MiscOptions"
+	Submenu "Sound Options",			"SoundOptions"
+	Submenu "Display Options",			"VideoOptions"
+	Submenu "Set video mode",			"VideoModeMenu"
+	StaticText " "
+	SafeCommand "Reset to defaults",	"reset2defaults"
+	SafeCommand	"Reset to last saved",	"reset2saved"
+	Command "Go to console",			"menuconsole"
+}
+
+OptionMenu "BloomOptions"
+{
+	Title  "BlooM Options"
+	Statictext " "
+	StaticText "Gameplay Options", 1
+	Option "Hybrid Bloom monsters?", "blm_hybrid", "YesOrNo"
+	Option "Traps on iwad maps? (NOTE: These have not fully implemented)", "blm_traps", "YesOrNo"
+	
+	StaticText " "
+	StaticText "Key config for advanced movements", 1
+	Control "Doomguy toss grenade", "grenadetoss"
+	StaticText " "
+	SafeCommand "Set BlooM Default Setup", "bloom_setup"
+}
+
+OptionValue "YesOrNo"
+{
+	0, "No"
+	1, "Yes"
+}

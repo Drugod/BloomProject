@@ -1,0 +1,55 @@
+Const Int BLM_FLAGS1 = SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288; //still can't find the exact flag combo, it's 32+256 but exists only 28
+Const Int BLM_FLAGS2 = SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL;
+Const Int BLM_FLAGS3 = SXF_SETMASTER | SXF_NOCHECKPOSITION;
+Const Int BLM_FLAGS4 = SXF_SETMASTER | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | SXF_TRANSFERSPECIAL;
+
+#include Actors/Shared.txt //load this always first! It must NOT contain anything that has a DoomEdNum defined - ozy81
+#include Actors/Counters.txt //and this as second! - ozy81
+#include Actors/Keys.txt
+#include Actors/Armors.txt
+#include Actors/Health.txt
+#include Actors/Items.txt
+#include Actors/Powerups.txt
+#include Actors/Objects.txt
+#Include Actors/Lights.txt
+#include Actors/Gibs.txt
+#include Actors/Missiles.txt
+#include Actors/Chase.txt
+#include Actors/ThrownStuff.txt
+#include Actors/Players.txt
+#include Actors/Terrain.txt
+#include Actors/Weather.txt
+#include Actors/Nature.txt
+#include Actors/Corpses.txt
+#include Actors/Frozen.txt
+#include Actors/Models.txt
+#include Actors/Blood_Weapons.txt
+#include Actors/Blood_Ammo.txt
+#include Actors/Doom_Replaces.txt
+#include Actors/Doom_Weapons.txt
+#include Actors/Doom_Ammo.txt
+#include Actors/Blood_Monsters.txt
+#include Actors/Doom_Monsters.txt
+#include Actors/Bloom_Weapons.txt
+#include Actors/Bloom_Arachnos.txt
+#include Actors/Bloom_Archies.txt
+#include Actors/Bloom_ButchWolf.txt
+#include Actors/Bloom_Cacos.txt
+#include Actors/Bloom_CvltImps.txt
+#include Actors/Bloom_DeepOnes.txt
+#include Actors/Bloom_DemHounds.txt
+#include Actors/Bloom_Eelcubus.txt
+#include Actors/Bloom_FanaChain.txt
+#include Actors/Bloom_Gargos.txt
+#include Actors/Bloom_GhostRevs.txt
+#include Actors/Bloom_Ghouls.txt
+#include Actors/Bloom_Mimes.txt
+#include Actors/Bloom_Morons.txt
+#include Actors/Bloom_NeoCvlts.txt
+#include Actors/Bloom_Possessed.txt
+#include Actors/Bloom_RatDems.txt
+#include Actors/Bloom_ZombImps.txt
+#include Actors/Bloom_Bosses.txt
+#include Actors/Bloom_Selectors.txt
+#include Actors/Quake_Stuff.txt
+#include Actors/Cast.txt

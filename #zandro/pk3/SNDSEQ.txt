@@ -1,0 +1,99 @@
+:CalebLaugh
+	attenuation	none
+	randomsequence
+end
+
+:CalebSpeech
+	slot CalebLaugh
+	playuntildone CalebSpeech1
+	playuntildone CalebSpeech2
+	playuntildone CalebSpeech3
+	playuntildone CalebSpeech4
+	playuntildone CalebSpeech5
+	playuntildone CalebSpeech6
+	playuntildone CalebSpeech7
+	playuntildone CalebSpeech8
+	playuntildone CalebSpeech9
+	playuntildone CalebSpeech10
+	playuntildone CalebSpeech11
+	playuntildone CalebSpeech12
+	playuntildone CalebSpeech13
+	playuntildone CalebSpeech14
+	playuntildone CalebSpeech15
+end
+
+//Fence 5
+:SeqNewDoorOpen
+	door 5
+	play FENCSLID
+	stopsound DoorStop
+end
+
+//Ancient Door 6
+:SeqOldDoorOpen
+	Door 6
+	playrepeat OLDOR1
+	stopsound OLDORS
+end
+
+//Open Coffin 7
+:SeqOldcoffinOpen
+	platform 7
+	playrepeat OLDOR1
+end
+
+//Sector silence 8
+:Silence
+	platform 8
+end
+
+//Close Coffin2 9
+:SeqOldPlatformMove
+	platform 9
+	play OLDORS
+	stopsound OLDORS
+end
+
+//Moving platform 10
+:SeqOldcoffinOpen2
+	platform 10
+	playuntildone OLDOR1
+	stopsound OLDORS
+end
+
+//TechDOOR 11
+:SeqTechDoorOpen1
+	door 11
+	playuntildone ELEVSTRT
+	playrepeat ELEVMOVE
+	stopsound ELSTOP2
+end
+
+//Capsule Open 12
+:SeqPodDoorOpen1
+	door 12
+	playuntildone ELVSTR2
+	playrepeat ELVMID2
+	stopsound ELSTOP2
+end
+
+//wood door1
+:seqWoodDoorOpen1
+	door 13
+	playuntildone DOOROPEN
+	stopsound DOORCLOS
+end
+
+//wood door2
+:seqWoodDoorOpen2
+	door 14
+	playuntildone DORCREAK
+	stopsound DOORCLOS
+end
+
+//quake platform
+:seqQuakePlatform
+	door 15
+	playrepeat mplat1
+	stopsound mplat2
+end

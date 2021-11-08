@@ -1,0 +1,654 @@
+#library "Main"
+#include "zcommon.acs"
+
+#libdefine PLAYER_TAG_OFFSET 1000
+
+int playerID;
+int playerNum;
+
+global int 0: PlayerHealths[];
+global int 1: JumpBootsAmount[];
+global int 2: DivingSuitAmount[];
+global int 3: BeastVisionAmount[];
+global int 4: DoctorBagAmount[];
+global int 5: BroodSpiders;
+global int 6: MotherSpiders;
+global int 7: whichweapon;
+global int 8: dizzy;
+global int 9: dizzyTimer;
+global int 10: dizzyAng1;
+global int 11: dizzyAng2;
+global int 12: dizzyAng3;
+
+int lifeLeechPlayer[32];
+int armortype[3]    = {"BodyArmor", "FireArmor", "SpiritArmor" };
+int CalebTaunt[8]  = {"CalebTaunt2", "CalebTaunt3", "CalebTaunt4",
+					   "CalebTaunt5", "CalebTaunt6", "CalebTaunt7", "CalebTaunt8", "CalebTaunt9"};
+int Caleburn[2]     = {"CalebTaunt0", "CalebTaunt1"};					   
+str CalebSpeech[25] = {"CalebSpeech1", "CalebSpeech2", "CalebSpeech3", "CalebSpeech4",
+					   "CalebSpeech5", "CalebSpeech6", "CalebSpeech7", "CalebSpeech8",
+					   "CalebSpeech9", "CalebSpeech10", "CalebSpeech11", "CalebSpeech12",
+					   "CalebSpeech13", "CalebSpeech14", "CalebSpeech15", "CalebSpeech16", "CalebSpeech17", 
+					   "CalebSpeech18", "CalebSpeech19", "CalebSpeech20", "CalebSpeech21", "CalebSpeech22", 
+					   "CalebSpeech23", "CalebSpeech24", "CalebSpeech25"};
+str MapSpeech[16]   = {"Caleb/Everlove", "Caleb/Sing", "Caleb/Strange", "Caleb/Home",
+				  	   "Caleb/Busines", "Caleb/Goba", "Caleb/Robbers",  "Caleb/Smellba", 
+					   "Caleb/Paintre", "Caleb/Donateb", "Caleb/Longwat", "Caleb/Asshole",
+					   "Caleb/Rowboat", "Caleb/Sunwill", "Caleb/Alldead", "Caleb/Promises"};
+str FloorTextures[19]= {"XTEX0264", "XTEX017",  "XTEX0265", "XTEX0272",
+				  	    "XTEX0353", "XTEX0354", "XTEX0396", "XTEX043", 
+					    "XTEX0441", "XTEX0641", "XTEX0745", 
+					    "YTEX9T20", "RROCK16",  "FLAT5_6",  "RROCK09", 
+					    "RROCK17",  "RROCK18",  "RROCK19",  "RROCK20"};	
+str LavaTextures[16]= {"XTEX0503", "XTEX504",  "XTEX0505", "XTEX0506",
+				  	    "RROCK06", "YTEXTS22", "YTEXTT22", "YTEXTU22","LAVA1","LAVA2","LAVA3","LAVA4","LAV21","LAV22","LAV23","LAV24"};
+str IceTextures[15]= {"XTEX0649", "XTEX0903",  "XTEX0906", "XTEX0948",
+				  	    "XTEX0949", "XTEX0950", "XTEX0951", "XTEX0952", 
+					    "XTEX0953", "XTEX0954", "XTEX0955", "XTEX0956",
+						"XTEX0957", "YTEXTA15", "YTEXTA46"};
+str SkyTextures[3]     = {"F_SKY1", "F_SKY2", "F_SKY3"};
+	
+function int degsin(int x){
+	int result;
+	if (x>=0)
+	{
+		result=sin(FixedMul(x<<16,0.0111111111)/4);
+	}
+	else 
+	{
+		result=-sin(FixedMul(-x<<16,0.0111111111)/4);
+	}
+	return result;
+}
+
+function int degcos(int x){
+	return cos(FixedMul(x<<16,0.0111111111)/4);
+}
+
+function int sqrt_x3(int number){
+	if(number <= 3){
+		if(number > 0){
+			return 1;
+		}
+		return 0;
+	}
+	int oldAns = number >> 1,
+	newAns = (oldAns + number / oldAns) >> 1;
+	while(newAns < oldAns){
+		oldAns = newAns;
+		newAns = (oldAns + number / oldAns) >> 1;
+	}
+	return oldAns;
+}
+
+function int abs(int x){
+    if (x < 0) return -x;
+    return x;
+}
+
+function int sqrt_x(int x){
+	int r;
+	x = x + 1 >> 1;
+	while (x > r) x-=r++;
+	return r;
+}
+
+function int dist (int tid1, int tid2){
+	int x, y, z, d;
+	x = GetActorX(tid1) - GetActorX(tid2) >> 16; 
+	y = GetActorY(tid1) - GetActorY(tid2) >> 16;
+	z = GetActorZ(tid1) - GetActorZ(tid2) >> 16;
+	d = sqrt_x( x*x + y*y + z*z );
+	return d;
+}
+
+Script "OpenMap" OPEN
+{	whichweapon = random (1,4); }
+
+Script "EnterTheGame" Enter //Start Script
+{
+	PlayerID = PLAYER_TAG_OFFSET + PlayerNumber();
+	Thing_ChangeTID(0, PlayerID);
+	ACS_NamedExecute("PoisonCheck", 0);
+	PlayerHealths[PlayerID] = GetActorProperty(0, APROP_HEALTH);
+	GiveInventory("DoctorBag", DoctorBagAmount[PlayerID] - 1);
+	GiveInventory("JumpingBoots", JumpBootsAmount[PlayerID] - 1);
+	GiveInventory("DivingSuit", DivingSuitAmount[PlayerID] - 1);
+	GiveInventory("BeastVision", BeastVisionAmount[PlayerID] - 1); 	
+    str class = GetActorClass(0);
+	int y = random(0,16);
+	if(class == "Caleb")
+	{
+		if (GameType () != GAME_TITLE_MAP)
+		{
+			int mapnm = GetLevelInfo (LEVELINFO_LEVELNUM);	
+			switch(mapnm)
+			{
+				case 1:	 LocalAmbientSound("Caleb/Again", 127); break;
+				case 5:  LocalAmbientSound("Caleb/Feeling", 127); break;
+				default: LocalAmbientSound(MapSpeech[y],127); break;
+			}
+		}
+	}
+}
+
+Script "CheckThrowPower" Enter{
+	while(TRUE){
+		if ((CheckWeapon("Dynamite") == FALSE) && (CheckWeapon("Spraycan") == FALSE) && (CheckWeapon("RemoteDynamite") == FALSE) && (CheckWeapon("ProximityDynamite") == FALSE)){
+			TakeInventory("ThrowPower", 255);
+		}
+	delay(1);	
+}}
+
+Script "CheckItemVision" Enter{
+	if (GetCvar("interclasses") == TRUE) { }
+}
+
+Script "TheDeath" Death{
+	Thing_ChangeTID(PlayerNumber()+1000, 0);
+	PlayerHealths[PlayerNumber()+1000] = 0;
+	Delay(15);
+	if(CheckInventory("TNTAmmo") == 0) TakeInventory("Dynamite", 1);	
+	if(CheckInventory("SprayCanister") == 0) TakeInventory("SprayCan", 1);
+}
+
+Script "TheRespawn" Respawn{
+	Thing_ChangeTid(0, PlayerNumber() + 1000);
+	PlayerHealths[PlayerNumber() + 1000] = GetActorProperty(PlayerNumber() + 1000, APROP_HEALTH);
+}
+
+Script "TheUnloading" Unloading{// Saves inventory items
+	for(int i; i<=31; i++){
+		if(CheckActorInventory(1000+i, "BeastVision") > 0) BeastVisionAmount[i+1000] = CheckActorInventory(1000+i, "BeastVision");
+		if(CheckActorInventory(1000+i, "JumpingBoots") > 0) JumpBootsAmount[i+1000] = CheckActorInventory(1000+i, "JumpingBoots");
+		if(CheckActorInventory(1000+i, "DivingSuit") > 0) DivingSuitAmount[i+1000] = CheckActorInventory(1000+i, "DivingSuit");
+		if(CheckActorInventory(1000+i, "DoctorBag") > 0) DoctorBagAmount[i+1000] = CheckActorInventory(1000+i, "DoctorBag");	
+}}
+
+Script "CalebSpeech" (int type){//Caleb's Speechs
+    str class = GetActorClass(0);
+	if(class == "Caleb"){		
+		switch (type){
+		case 0:
+			if(CheckInventory("LaughDelay")) Terminate;
+			int u = random(0, 25);
+			LocalAmbientSound(CalebSpeech[u], 127);
+			GiveInventory("LaughDelay", 1);
+			break;
+		case 1:
+			if(CheckInventory("LaughDelay")) Terminate;		
+			LocalAmbientSound("Caleb/GoodDoggy", 127);
+			GiveInventory("LaughDelay", 1);
+			break;
+		case 2:
+			int y = random(0, 10);
+			LocalAmbientSound(CalebTaunt[y], 127);
+			GiveInventory("LaughDelay", 1);
+			break;
+		case 3:
+			if(CheckInventory("LaughDelay")) Terminate;		
+			LocalAmbientSound("Caleb/Ratburger", 127);
+			GiveInventory("LaughDelay", 1);			
+			break;
+}}}
+
+Script "PlSndDamageMelee" (int type){
+    str class = GetActorClass(0);
+	if(class == "Caleb"){
+		switch (type){
+		case 21:
+			LocalAmbientSound("Caleb/CalebPain3",127);
+			break;
+		case 90:
+			if (random(1,2) == 1){ LocalAmbientSound("Caleb/CalebPain1",127); }
+			else { LocalAmbientSound("Caleb/CalebPain1",127); }
+			break;			
+		default: break;
+}}}
+
+Script "GiveGrenade" (VOID) NET{
+	GiveInventory("TossGrenade", 1);
+}
+
+Script "GetActorX" (void){
+	Print(f:GetActorX(0));
+	SetResultValue(GetActorX(0));
+}
+
+Script "SetActivatorTarget" (int tid){
+	int k=activatorTID();
+	int subheight;
+	int grenangle;
+	int distancepro,d,i;
+	SetActivatorToTarget(0);
+	int distance=dist(0,k);
+	subheight=(GetActorZ(0)>>16)-(GetActorZ(k)>>16);
+	for (i=-89;i<=89;++i){
+		distancepro=sqrt_x3(distance*distance-abs((subheight>>16)*(subheight>>16)));
+		d=((FixedMul(distancepro<<16,FixedDiv(degsin(i),degcos(i))))>>16)-(((FixedMul(1.4,distancepro<<16))>>16)*distancepro)/((FixedMul(4050.0,FixedMul(degcos(i),degcos(i))))>>16);
+		if (d>subheight){
+			grenangle=i * 0.85;
+			break;
+		}
+	}
+	SetActivator(k);
+	SetResultValue(i);
+}
+
+Script "VoodooCheck" (void){
+	int u = ActivatorTID();
+	SetActivatorToTarget(0);
+	Thing_ChangeTID(u, CheckInventory("Voodoo")/2+1);
+}
+
+Script "VoodooRemove" (int rand){
+	if(rand) TakeInventory("Voodoo", random(1,2));
+}
+
+Script "TeslaCounter" (void){
+	if(CheckInventory("TeslaCounterX") > 7){
+		TakeInventory("TeslaCounterX", 24);
+}}
+
+Script "LifeLeechCheck" (void){
+	int LifeLeechAmmo = CheckInventory("EssencePower");
+	if(CheckWeapon("LifeLeech")){
+		if(LifeLeechAmmo >= 1){
+			TakeInventory("EssencePower", 1);
+		}
+		if(LifeLeechAmmo == 0){
+			if(CheckInventory("SpiritArmor") > 0)
+				TakeInventory("SpiritArmor", 1);
+			else
+			    Thing_Damage2(0, 1, "Disintegrate");
+}}}
+
+Script "LifeLeechCheck2" (int control){
+	if(control == 0){
+		int LifeLeechAmmo = CheckInventory("EssencePower");
+		if(LifeLeechAmmo <= 23){
+			SetResultValue(1);
+		}else{
+			TakeInventory("EssencePower", 24);
+			SetResultValue(0);
+		}
+	} else
+	if(control == 1)
+		SetActorProperty(0, APROP_Alpha, 0.9);
+}
+
+Script "ButtonCheck" (void){
+	int buttonPress = GetPlayerInput (-1, INPUT_BUTTONS); // Checks what keys the player is pressing
+	if (buttonPress & BT_Attack){
+		SetResultValue (1);
+	}else{
+		SetResultValue (0);
+}}		
+
+Script "TNTCheck" (int angle, int type){
+	int tid = ActivatorTID();
+	int num = CheckInventory("ThrowPower");
+	printbold(d:num);
+	if (type ==  0){
+		SpawnProjectile(tid, "PlayerTNT", angle*256/360, num*3.2+120, 0, 2, 1500+PlayerNumber());
+		ThrustThingZ(1500+PlayerNumber(), num*2.0+32, 0, 1);
+		Delay(1);
+		Thing_ChangeTID(1500+PlayerNumber(), 0);
+	}else{
+		SpawnProjectile(tid, "PlayerTNT1", angle*256/360, num*3.2+120, 0, 1, 1500+PlayerNumber());
+		ThrustThingZ(1500+PlayerNumber(), num*2.0+32, 0, 1);
+		Delay(1);
+		Thing_ChangeTID(1500+PlayerNumber(), 0);		
+}}
+
+Script "ArmorCheck" (void){
+	if(CheckInventory("BodyArmor") < 200 | CheckInventory("FireArmor") < 200 | CheckInventory("SpiritArmor") < 200)	SetResultValue(1);
+	else SetResultValue(0);
+}
+
+Script "ResetAngle" (int angle){
+	SetActorAngle(0, angle);
+}
+
+Script "SpeedCheck" (void){
+   SetActorProperty(0, APROP_Speed, 2.75);
+}
+
+Script "FloorTextureCheck" (int tid){//Checking if zombimp must be buried or not
+	bool found = false;
+	for(int i; i<=19; i++){		
+		if (CheckActorFloorTexture(tid, FloorTextures[i]))
+		{
+			found = true;		
+			SetActorState(tid,"GroundSpawner",true);
+			i = 666;//Exit from loop
+		}
+	}
+	if (found == false) { SetActorState(tid,"NoGroundSpawner",true);}
+}
+
+Script "LavaTextureCheck" (int tid){
+	bool found2 = false;
+	for(int i; i<=19; i++){		
+		if (CheckActorFloorTexture(tid, LavaTextures[i]))
+		{
+			found2 = true;		
+			SetActorState(tid,"GroundSpawner",true);
+			i = 666;//Exit from loop
+		}
+	}
+	if (found2 == false) { SetActorState(tid,"NoGroundSpawner",true);}
+}
+
+Script "IceTextureCheck" (int tid){
+	bool found3 = false;
+	for(int i; i<=19; i++){		
+		if (CheckActorFloorTexture(tid, IceTextures[i]))
+		{
+			found3 = true;		
+			SetActorState(tid,"GroundSpawner",true);
+			i = 666;//Exit from loop
+		}
+	}
+	if (found3 == false) { SetActorState(tid,"NoGroundSpawner",true);}
+}
+
+Script "SkyTextureCheck" (int tid){//Checking if an enemy is walking over a sky tx
+	bool found4 = false;
+	for(int i; i<=3; i++){		
+		if (CheckActorFloorTexture(tid, SkyTextures[i]))
+		{
+			found4 = true;		
+			SetActorState(tid,"Death.Fade",true);
+			i = 666;//Exit from loop
+		}
+	}
+	if (found4 == false) { } //do nothing
+}
+
+Script "Jokes" (int type){//Script for jokes
+	STR Class = GetActorClass(0);
+	if(Class == "Caleb"){		
+		switch (type){
+		case 0:
+			if(CheckInventory("LaughDelay"))
+			Terminate;		
+			int y = Random(0, 2);
+			LocalAmbientSound(Caleburn[y], 127);
+			GiveInventory("Laughdelay", 1);
+		case 1:
+			if(CheckInventory("LaughDelay"))
+			Terminate;		
+		    LocalAmbientSound("JACKED", 127);
+			GiveInventory("Laughdelay", 1);		
+		break;
+}}}
+
+Script "CheckAlphaTrain" (void){//Script for enemy selection.
+	if (GetActorProperty (0, APROP_Alpha) >= 1.0){SetActorState(0,"Lighter",TRUE); }
+}
+
+Script "hybrid_selection" (void){//Script for enemy selection.
+	if (GetCvar("blm_hybrid") == TRUE) { SetActorState(0,"HybridSpawner",TRUE); }
+	if (GetCvar("blm_hybrid") == FALSE) { SetActorState(0,"NormalSpawner",TRUE); }		
+}
+
+Script "chk_actspecial" (void){
+	delay(5);
+	int map = GetLevelInfo(LEVELINFO_LEVELNUM);
+	int spawner = random(1,4); 
+	if ( map == 7 ){
+	    SetActorState(0,"Spawn1",TRUE);
+	}else{
+		switch (spawner){
+		Case 1:
+			SetActorState(0,"Spawn1",TRUE);		
+		break;		
+		Case 2:		
+			SetActorState(0,"Spawn2",TRUE);		
+		break;		
+		Case 3:
+			SetActorState(0,"Spawn3",TRUE);		
+		break;		
+		Case 4:
+			SetActorState(0,"Spawn4",TRUE);		
+		break;
+		Default:
+			SetActorState(0,"Spawn1",TRUE);				
+		break;
+}}}
+
+Script "new_weapons_selection" (void){//Script for random weapon selection for doomguy.
+	delay(5);
+	switch (whichweapon)
+	{
+		case 1:
+			SetActorState(0,"PlasmarifleSpawner",TRUE);
+		break;
+		case 2:
+			SetActorState(0,"FlamethrowerSpawner",TRUE);
+		break;		
+		case 3:
+			SetActorState(0,"TeslacannonSpawner",TRUE);
+		break;		
+		case 4:
+			SetActorState(0,"FrostgunSpawner",TRUE);
+		break;			
+		default:
+			SetActorState(0,"PlasmarifleSpawner",TRUE);
+		break;		
+}}
+
+Script "new_ammos_selection" (void){//Script for random weapon selection for doomguy.
+	delay(5);
+	switch (whichweapon)
+	{
+		case 1:
+			SetActorState(0,"PlasmarifleSpawner",TRUE);
+		break;
+		case 2:
+			SetActorState(0,"FlamethrowerSpawner",TRUE);
+		break;		
+		case 3:
+			SetActorState(0,"TeslacannonSpawner",TRUE);
+		break;
+		case 4:
+			SetActorState(0,"FrostgunSpawner",TRUE);
+		break;		
+		default:
+			SetActorState(0,"PlasmarifleSpawner",TRUE);
+		break;		
+}}
+
+Script "checkheight" (void){//Script for checking the height of the monster
+	if ((GetActorCeilingZ(0) - GetActorZ(0)) > 80.0) { SetActorState(0,"RandomHybrid",TRUE); }
+	else { SetActorState(0,"lowz",TRUE); }			
+}
+
+Script "blood_selection" (void){//Script for enemy selection.
+	for(int i = 0; i < 8; i++){
+	if (PlayerInGame(i)){
+		if (GetUserCVar(i,"blm_blood") ==  0){ SetActorState(0,"Death0",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  1){ SetActorState(0,"Death1",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  2){ SetActorState(0,"Death2",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  3){ SetActorState(0,"Death3",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  4){ SetActorState(0,"Death4",TRUE); }	
+}}}
+
+Script "blood_pool_sel" (void){//Script for enemy selection.
+	for(int i = 0; i < 8; i++){
+	if (PlayerInGame(i)){
+		if (GetUserCVar(i,"blm_blood") ==  0){ SetActorState(0,"Death0",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  1){ SetActorState(0,"Death1",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  2){ SetActorState(0,"Death2",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  3){ SetActorState(0,"Death3",TRUE); }
+		if (GetUserCVar(i,"blm_blood") ==  4){ SetActorState(0,"Death4",TRUE); }	
+}}}
+
+Script "AcsPowerupTimerBeast" (void){
+	do{	TakeInventory("BeastVision",1);
+		delay(35);
+	}while(CheckInventory("BeastVision") > 0);	
+	if ( CheckInventory("BeastVision") == 0 ){//Removing the powerup once the time is over
+		TakeInventory("PowerLightAmp",1);}
+}
+
+Script "CheckProx" (void){
+	if (CheckProximity(0, "Caleb", 48.0, 1)){ SetActorState(0,"Death", TRUE); }
+	if (CheckProximity(0, "FloorKaboom", 48.0, 1)){ SetActorState(0,"Death", TRUE); }
+	if (CheckProximity(0, "VBlower", 48.0, 1)){ SetActorState(0,"Death", TRUE); }
+	if (CheckProximity(0, "VBlower2", 48.0, 1)){ SetActorState(0,"Death", TRUE); }	
+	if (CheckProximity(0, "ZBBulletPuff", 48.0, 1)){ SetActorState(0,"Death", TRUE); }		
+	if (CheckProximity(0, "ZBulletPuffT", 48.0, 1)){ SetActorState(0,"Death", TRUE); }			
+}
+
+Script "AcsPowerupTimerBoots" (void){
+	do{	TakeInventory("JumpingBoots",1); SetAirControl(1.0);
+		delay(35);
+	}while(CheckInventory("JumpingBoots") > 0);	
+	if ( CheckInventory("JumpingBoots") == 0 ){//Removing the powerup once the time is over
+		TakeInventory("PowerHighJump",1); SetAirControl(0.0);}
+}
+
+Script "AcsPowerupDisableBoots" (void){
+	SetAirControl(0.0);
+}
+
+Script "AcsPowerupTimerDiving" (void){
+	int i = 0;
+	do{	TakeInventory("DivingSuit",1);
+		if ( GetActorProperty(0,APROP_Waterlevel) < 3) { i = 1;}
+		delay(35);
+	}until( CheckInventory("DivingSuit") == 0  || i > 0 );	
+	TakeInventory("PowerAir",1);
+}
+
+//Code needed for spiders - ozy81, original code by MaxiClouds
+script "PoisonScreen" ENTER //new effect, no more usage of Dill state too, must be verified with Strong
+{
+	int width = 320, height = 240;
+	SetHudSize(width, height, 0);
+	SetFont("M_POIS");
+
+	// Half width and height (in fixed-point).
+	int half_width  = (width / 2) << 16;
+	int half_height = (height / 2) << 16;
+
+	while (true)
+	{
+		int dizzyness =  CheckInventory("PoisonIntensity");
+		if (dizzyness > 1)
+		{
+			HudMessage(s:"A"; HUDMSG_FADEINOUT | HUDMSG_LAYER_UNDERHUD | HUDMSG_NOTWITHFULLMAP | HUDMSG_NOTWITHOVERLAYMAP | HUDMSG_ALPHA , 0, CR_UNTRANSLATED, half_width, half_height, 0.0, 0.5, dizzyness, 0.2);
+		}
+		
+		Delay(1);
+	}
+}
+
+Script "PoisonCheck" (void)
+{
+	if ( CheckActorInventory(playerID,"PoisonStop"))
+	{
+		ACS_NamedExecute("PoisonEffect",0);
+	}
+	Delay(1);
+	restart;
+}
+
+Script "PoisonEffect" (void)
+{
+	dizzy = CheckInventory("PoisonIntensity");
+	dizzy--;
+	if (dizzy < 0) dizzy = 0;	
+	int dtilt1 = 170;
+	int dtilt2 = 170;
+	int dpitch = 20;
+	dizzytimer+=15;
+	if (dizzy < 512)
+	{
+		int mul = (dizzy*65536)/512;
+		dtilt1 = FixedMul(dtilt1,mul);
+		dtilt2 = FixedMul(dtilt2,mul);
+		dpitch = FixedMul(dpitch,mul);
+	}
+	int sin2 = Sin(2*dizzytimer*32)/2;
+	int sin3 = Sin(3*dizzytimer*32)/2;
+	int sin4 = Sin(4*dizzytimer*32)/2;
+	int sin5 = Sin(5*dizzytimer*32)/2;
+	int gScreenTilt = FixedMul(sin2+sin3,dtilt1);
+	int dizzyTilt = FixedMul(sin3+sin4,dtilt2);
+	int dizzyPitch = FixedMul(sin4+sin5,dpitch);
+	int pitch = GetActorPitch(playerid);
+	int roll = GetActorRoll(playerid);
+	int angle = GetActorAngle(playerid);
+	ChangeActorPitch(playerid,(dizzyPitch-dizzyAng1)*32+Pitch);
+	ChangeActorRoll(playerid,(gScreenTilt-dizzyAng2)*32+Roll);
+	ChangeActorAngle(playerid,(dizzyTilt-dizzyAng3)*32+Angle);
+	dizzyAng1 = dizzyPitch;
+	dizzyAng2 = gScreenTilt;
+	dizzyAng3 = dizzyTilt;
+	TakeInventory("PoisonIntensity", 1);
+	Delay(1);
+	if (CheckInventory("PoisonIntensity") < 1 )
+		{
+			ACS_NamedExecute("PoisonCheck", 0);
+			terminate;
+		}
+	restart;
+}
+
+Script "WebScreen" ENTER //effect taken from Blade of Agony, courtesy by Ozymandias81 - script by AFADoomer and Talon1024
+{
+	int width = 512, height = 384;
+	SetHudSize(width, height, 0);
+	SetFont("M_WEBBED");
+
+	// Half width and height (in fixed-point).
+	int half_width  = (width / 2) << 16;
+	int half_height = (height / 2) << 16;
+
+	while (true)
+	{
+		int web = GetActorPowerupTics(0, "PowerWeb");
+		if (web)
+		{
+			HudMessage(s:"A"; HUDMSG_FADEINOUT | HUDMSG_LAYER_UNDERHUD | HUDMSG_NOTWITHFULLMAP | HUDMSG_NOTWITHOVERLAYMAP | HUDMSG_ALPHA , 0, CR_UNTRANSLATED, half_width, half_height, 0.0, 0.5, web, 0.2);
+		}
+		
+		Delay(1);
+	}
+}
+
+Script "StrongPoison" (Void)//Prevents red spiders poison color from overriding green spiders
+{
+	GiveInventory("StrongPoison",1);
+	Delay(190);
+	TakeInventory("StrongPoison",1);
+}
+
+Script "LimitSpiders" (void) //This script limits spammed spiders to 200
+{
+	BroodSpiders = BroodSpiders+1;
+	Terminate;
+}
+
+Script "MoreSpiders" (void) //This script allows mother spammers to spam some more
+{
+	BroodSpiders = BroodSpiders-1;
+	If (BroodSpiders<0)
+		BroodSpiders=0;
+		Terminate;
+}
+
+Script "BroodCheck" (void) // Called by spider spawners, if they return 1 the spawner will summon stuff
+{
+	SetResultValue(BroodSpiders );
+	Terminate;
+}
+
+Script "SuperSpeed" (void)
+{
+	SetActorProperty(0, APROP_Speed, 35.0);
+	Terminate;
+}

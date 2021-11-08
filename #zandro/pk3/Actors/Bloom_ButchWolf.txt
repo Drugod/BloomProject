@@ -1,0 +1,1015 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+ACTOR ----------WEREWOLVES_OF_HELL---------- {}
+ACTOR WerewolvesSpawner 19031
+{
+	//$Category BlooM Monsters
+	//$Title Werewolves Barons of Hell
+	//$Color 3
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("WereWolfOfHellAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("WereWolfOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR WereWolfOfHellAlt : BloomHybrid_Base
+{
+	Radius 24
+	Height 64
+	Mass 1000
+	Health 1000
+	PainChance 50
+	GibHealth 30
+	+BOSSDEATH
+	+DONTHARMCLASS
+	+FLOORCLIP
+	SeeSound "baron/sight"
+	PainSound "baron/pain"
+	DeathSound "baron/death"
+	ActiveSound "baron/active"
+	Obituary "$OB_BARON"
+	HitObituary "$OB_BARONHIT"
+	Species "Bruisers"
+	Scale 1.3
+	States
+	{
+	Spawn:
+		BOS3 AB 10 A_Look
+		Loop
+	See:
+		BOS3 AABBCCDD 3 A_Chase
+		TNT1 A 0 A_JumpIfCloser(256, "Stomp")
+		Loop
+	Melee:
+	Missile:
+		BOS3 EF 8 A_FaceTarget
+		BOS3 G 8 A_BruisAttack
+		Goto See
+	Stomp:
+		BO13 A 10 A_FaceTarget
+		BO13 B 10 A_FaceTarget
+		BO13 C 10 A_FaceTarget
+		TNT1 A 0 A_Playsound("BeastStomp")
+		BO13 D 5 A_SpawnItemEx("BeastStomp")
+		BO13 E 6
+		Goto See
+	Pain:
+		BOS3 H 2
+		BOS3 H 2 A_Pain
+		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("BeastPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		Goto See
+	Death:
+		BOS3 I 8
+		BOS3 J 8 A_Scream
+		BOS3 K 8
+		BOS3 L 8 A_NoBlocking
+		BOS3 MN 8
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BOS3 O -1 A_BossDeath
+		Stop
+	Death.Shock:
+		TNT1 A 0 A_PlaySound("BeastPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		Goto XDeath+1
+	XDeath:
+		BOS3 P 8
+		BOS3 Q 8 A_XScream
+		BOS3 R 8
+		BOS3 S 8 A_NoBlocking
+		BOS3 TU 8
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BOS3 V -1 A_BossDeath
+		Stop
+	Raise:
+		BOS3 O 8
+		BOS3 NMLKJI 8
+		Goto See
+	Ice:
+		BOSF R 0 A_SetMass(999999)
+		BOSF R 5 A_FreezeDeath
+		BOSF R 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR WereWolfOfHell : WereWolfOfHellAlt
+{
+	Speed 24
+	MeleeDamage 10
+	MeleeRange 64
+	+DROPOFF
+	MeleeSound "baron/Melee"
+	SeeSound "knight/sight"
+	ActiveSound "knight/active"
+	PainSound "knight/pain"
+	DeathSound "knight/death"
+	Obituary "$OB_KNIGHT"
+	HitObituary "$OB_KNIGHTHIT"
+	Species "Bruisers"
+	States
+	{
+	Spawn:
+		BOS4 AB 10 A_Look
+		Loop
+	See:
+		BOS4 AABBCCDD 3 A_Chase
+		TNT1 A 0 A_JumpIfCloser(256,"Stomp")
+		Loop
+	Stomp:
+		BO14 G 10 A_FaceTarget
+		BO14 H 10 A_FaceTarget
+		BO14 I 10 A_FaceTarget
+		TNT1 A 0 A_Playsound("BeastStomp")
+		BO14 J 5 A_SpawnItemEx("BeastStomp")
+		BO14 K 6
+		Goto See
+	Missile:
+		Goto See
+	Melee:
+		BOS4 EF 8 A_FaceTarget
+		BOS4 GH 4 A_MeleeAttack
+		BOS4 IJ 8 A_FaceTarget
+		BOS4 KL 4 A_MeleeAttack
+		Goto See
+	Pain:
+		BOS4 V 2
+		BOS4 V 2 A_Pain
+		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("BeastPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		Goto See
+	Death:
+		BO14 A 8
+		BO14 B 8 A_Scream
+		BO14 C 8
+		BO14 D 8 A_NoBlocking
+		BO14 EF 8
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BO14 F -1 A_BossDeath
+		Stop
+	Death.Shock:
+		TNT1 A 0 A_PlaySound("BeastPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		BOSZ A 7
+		Goto XDeath+1
+	XDeath:
+		BOS4 O 8
+		BOS4 P 8 A_Scream
+		BOS4 Q 8
+		BOS4 R 8 A_NoBlocking
+		BOS4 ST 8
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BOS4 U -1 A_BossDeath
+		Stop
+	Raise:
+		BOS4 F 8
+		BOS4 FEDCBA 8
+		Goto See
+	Ice:
+		BOSF R 5 A_FreezeDeath
+		BOSF R 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR ----------HELLBUTCHER---------- {}
+ACTOR HellButcherSpawner 19042
+{
+	//$Category BlooM Monsters
+	//$Title HellButchers
+	//$Color 3
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("HellButcher",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("HellButcherAlt",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	}
+}
+
+ACTOR HellButcher : WereWolfOfHellAlt
+{
+	Health 750
+	GibHealth 30
+	-BOSSDEATH
+	SeeSound "ButcherSee"
+	PainSound "ButcherPain"
+	DeathSound "ButcherDeath"
+	ActiveSound "ButcherAct"
+	HitObituary "$OB_HLBTCHHIT"
+	Obituary "$OB_HLBTCH"
+	Species "Bruisers"
+	Scale 1.0
+	States
+	{
+	Spawn:
+		FAUN AB 10 A_Look
+		Loop
+	See:
+		FAUN AABBCCDDEEFF 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(360,"Missile2")
+		TNT1 A 0 A_FaceTarget
+		FAUN H 8 A_FaceTarget
+		TNT1 A 0 A_PlaySound("ButcherVomit")
+		FAUN I 4
+		FAUN J 6 A_CustomMissile("ButcherVomit", 64)
+		FAUN K 14 A_FaceTarget
+		Goto See
+	Missile2:
+		FAUA AB 8 A_FaceTarget
+		FAUA C 8 A_BruisAttack
+		Goto See
+	Pain:
+		FAUN G 2
+		FAUN G 2 A_Pain
+		Goto See
+	Pain.Shock:
+		FAUN A 0 A_ClearTarget
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		Goto See
+	Death:
+		FAUD AB 8
+		FAUD CD 8 A_Scream
+		FAUD EF 8
+		FAUD GH 8 A_NoBlocking
+		FAUD IJK 8
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		FAUD L -1
+		Stop
+	Death.Shock:
+		FAUN A 0 A_ClearTarget
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		Goto XDeath+1
+	XDeath:
+		FAUN L 3
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("HeadBlood")
+		TNT1 A 0 A_SpawnItemEx("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnItemEx("Entrails",random(-50,50),random(-50,50),0)
+		FAUN M 3 A_XScream
+		FAUN N 4 A_SpawnDebris("FlyingBlood")
+		FAUN O 2 A_SpawnDebris("FlyingBlood")
+		FAUN P 2 A_NoBlocking
+		FAUN QR 1
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		FAUN S -1
+	Raise:
+		FAUD L 8
+		FAUD LKIHGFEDBA 8
+		Goto See
+	Ice:
+		FAUF R 0 A_SetMass(999999)
+		FAUF R 5 A_FreezeDeath
+		FAUF R 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR HellButcherAlt : WereWolfOfHellAlt //19047
+{
+	Scale 1.0
+	Health 750
+	GibHealth 30
+	-BOSSDEATH
+	SeeSound "ButcherSee"
+	PainSound "ButcherPain"
+	DeathSound "ButcherDeath"
+	ActiveSound "ButcherAct"
+	HitObituary "$OB_KNIGHTHIT"
+	Obituary "$OB_KNIGHT"
+	Species "Bruisers"
+	States
+	{
+	Spawn:
+		F2UN A 10 A_Look
+		Loop
+	See:
+		F2UN AABBCCDDEEFF 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(360,"Missile2")
+		TNT1 A 0 A_FaceTarget
+		F2UN H 8 A_FaceTarget
+		TNT1 A 0 A_PlaySound("ButcherVomit")
+		F2UN I 4
+		F2UN J 6 A_CustomMissile("ButcherVomit", 64)
+		F2UN K 14 A_FaceTarget
+		Goto See
+	Missile2:
+		F2AN AB 8 A_FaceTarget
+		F2AN C 8 A_CustomComboAttack("HellButcherBall", 32, 10 * random(1, 8), "baron/melee")
+		Goto See
+	Pain:
+		F2UN G 2
+		F2UN G 2 A_Pain
+		Goto See
+	Pain.Shock:
+		F2UN A 0 A_ClearTarget
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		Goto See
+	Death:
+		F2UD AB 8
+		F2UD CD 8 A_Scream
+		F2UD EF 8
+		F2UD GH 8 A_NoBlocking
+		F2UD IJK 8
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		F2UD L -1
+		Stop
+	Death.Shock:
+		F2AE A 0 A_ClearTarget
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		BBUH A 7
+		Goto XDeath+1
+	XDeath:
+		F2AE A 3
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("HeadBlood")
+		TNT1 A 0 A_SpawnItemEx("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnItemEx("Entrails",random(-50,50),random(-50,50),0)
+		F2AE B 3 A_XScream
+		F2AE C 4 A_SpawnDebris("FlyingBlood")
+		F2AE D 2 A_SpawnDebris("FlyingBlood")
+		F2AE E 2 A_NoBlocking
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		F2AE FG 1
+		F2AE H -1
+	Raise:
+		F2UD L 8
+		F2UD LKIHGFEDBA 8
+		Goto See
+	Ice:
+		FAUF R 5 A_FreezeDeath
+		FAUF R 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR HellButcherBall
+{
+	Radius 6
+	Height 16
+	Speed 15
+	FastSpeed 20
+	Damage 8
+	Projectile
+	+BRIGHT
+	+RANDOMIZE
+	RenderStyle Add
+	Alpha 1
+	SeeSound "baron/attack"
+	DeathSound "baron/shotx"
+	States
+	{
+	Spawn:
+		SPAX AB 4
+		Loop
+	Death:
+		SPAX CDE 6
+		Stop
+	Death.Sky:
+		SPAX E 1
+		Stop
+	}
+}
+
+ACTOR ----------HOUNDKNIGHT---------- {}
+ACTOR HoundKnightOfHell : WereWolfOfHellAlt 19093
+{
+	//$Title Hound Knight of Hell
+	Health 750
+	+DROPOFF
+	-BOSSDEATH
+	MeleeSound "baron/Melee"
+	SeeSound "knight/sight"
+	ActiveSound "knight/active"
+	PainSound "knight/pain"
+	DeathSound "knight/death"
+	Obituary "$OB_KNIGHT"
+	HitObituary "$OB_KNIGHTHIT"
+	Species "Bruisers"
+	Scale 1.0
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(128,"Spawn2")
+		HOMS B 10 A_Look
+		Goto Spawn+2
+	Spawn2:
+		HOMS D 10 A_Look
+		Loop
+	See:
+		HOMS AABBCCDD 3 A_Chase
+		Loop
+	Jump:
+		TNT1 A 0 A_FaceTarget
+		HOMJ A 8 A_Recoil(-4)
+		HOMJ B 8 ThrustThingZ(0,frandom(30,40),0,0)
+		HOMJ C 8 ThrustThing(angle*256/360,random(10,16),0,0)
+		Goto See
+	Melee:
+	Missile:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Missile1","Missile2","Missile3","Missile4")
+		Goto See
+	Missile1:
+		HOMA A 4 A_FaceTarget
+		HOMA B 4 A_FaceTarget
+		HOMA C 3 A_CustomComboAttack("HoundKnightBall", 32, 10 * random(1, 8), "baron/melee")
+		HOMA C 1 A_Jump(128,"Missile3")
+		Goto See
+	Missile2:
+		HOM2 AB 8 A_FaceTarget
+		HOM2 C 4 A_CustomMissile("NapalmEnemy",32,0,0)
+		Goto See
+	Missile3:
+		HOM3 A 4 A_FaceTarget
+		HOM3 B 4 A_FaceTarget
+		HOM3 C 3 A_CustomComboAttack("HoundKnightBall", 32, 10 * random(1, 8), "baron/melee")
+		HOMA C 1 A_Jump(128,"Missile1")
+		Goto See
+	Missile4:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfCloser(192,1)
+		Goto See
+		HOM4 AB 8 A_FaceTarget
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOM4 C 4 A_CustomMissile("HellHoundFire",48,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_JumpIfCloser(192,1)
+		Goto See
+		TNT1 AAAAAAAA 0 A_MonsterRefire(64, "See")
+		Goto Missile
+		Goto See
+	Pain:
+		HOMP A 2
+		HOMP A 2 A_Pain
+		Goto See
+	Pain.Shock:
+		HOMP A 0 A_PlaySound("BeastPain")
+		HOMP A 0 A_Stop
+		HOMP A 0 A_ClearTarget
+		BEAZ A 7
+		BEAZ A 7
+		BEAZ A 7
+		BEAZ A 7
+		BEAZ A 7
+		BEAZ A 7
+		BEAZ A 7
+		BEAZ A 7
+		Goto See
+	Death.Shock:
+		HOMD A 0 A_PlaySound("BeastPain")
+		HOMD A 0 A_Stop
+		HOMD A 0 A_ClearTarget
+		BEAZ A 7
+		BEAZ A 7
+		BEAZ A 7
+		BEAZ A 7
+		BEAZ A 7
+		Goto XDeath+1
+	Death:
+		HOMD A 0
+	XDeath:
+		HOMD A 8
+		HOMD B 8 A_Scream
+		HOMD C 8
+		HOMD D 8 A_NoBlocking
+		HOMD EF 8
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		HOMD G -1 A_BossDeath
+		Stop
+	Raise:
+		HOMD G 8
+		HOMD FEDCBA  8
+		Goto See
+	Ice:
+		FOMJ A 0 A_SetMass(999999)
+		FOMJ A 5 A_FreezeDeath
+		FOMJ A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR HoundKnightBall
+{
+	Radius 6
+	Height 16
+	Speed 15
+	FastSpeed 20
+	Damage 8
+	DamageType "Fire"
+	Projectile
+	+BRIGHT
+	+RANDOMIZE
+	RenderStyle Add
+	Alpha 1
+	SeeSound "baron/attack"
+	DeathSound "baron/shotx"
+	States
+	{
+	Spawn:
+		HAL7 AB 4
+		Loop
+	Death:
+		HAL7 CDE 6
+		Stop
+	Death.Sky:
+		HAL7 E 1
+		Stop
+	}
+}
+
+ACTOR ----------ZOMBARON---------- {}
+ACTOR ZombaronOfHell : BloomHybrid_Base 17900
+{
+	//$Title Zombaron of Hell
+	Radius 16
+	Height 64
+	Speed 12
+	Mass 1000
+	Health 1000
+	PainChance 50
+	GibHealth 30
+	+BOSSDEATH
+	+FLOORCLIP
+	SeeSound "baron/sight"
+	PainSound "baron/pain"
+	DeathSound "baron/death"
+	ActiveSound "baron/active"
+	Obituary "$OB_ZBARON"
+	HitObituary "$HB_ZBARON"
+	Species "Bruisers"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(128,"Spawn2")
+		XBAS A 10 A_Look
+		Goto Spawn+2
+	Spawn2:
+		XBAS B 10 A_Look
+		Loop
+	See:
+		XBAR AABBCCDDEEFF 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Missile1","Missile2","Missile3","Missile4","Invocation")
+		Goto See
+	Missile1:
+		XBLL AB 4 A_FaceTarget
+		XBLL C 3 A_CustomComboAttack("BaronBall", 64, 10 * random(1, 8), "baron/melee")
+		XBLL C 1 A_Jump(128,"Missile2")
+		Goto See
+	Missile2:
+		XBL2 AB 4 A_FaceTarget
+		XBL2 C 3 A_CustomComboAttack("BaronBall", 64, 10 * random(1, 8), "baron/melee")
+		XBL2 C 1 A_Jump(128,"Missile1")
+		Goto See
+	Missile3:
+		XBAS ABCD 8 A_FaceTarget
+		XBAS E 2
+		XBAS F 4 A_CustomMissile("NapalmEnemy",84,0,0)
+		XBAS G 2
+		Goto See
+	Missile4:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfHealthLower(200,"reburied")
+		Goto Missile
+	Reburied:
+		XERT A 0 A_ChangeFlag("SOLID",0)
+		XERT A 0 A_ChangeFlag("SHOOTABLE",0)
+		XERT A 0 A_ChangeFlag("NOTAUTOAIMED",1)
+		XERT A 0 A_PlaySound("Zombie/Raise")
+		XERT ABCDEFGHIJKLMNO 2 A_FaceTarget
+	TeleportBuried:
+		TNT1 A 0
+		XERT A 0 A_Warp(AAPTR_TARGET, frandom(40.0,90.0), frandom(40.0,90.0), 0, 0, WARPF_NOCHECKPOSITION|WARPF_INTERPOLATE)
+	Unburied:
+		XERT O 0 A_ChangeFlag("SOLID",1)
+		XERT O 0 A_ChangeFlag("SHOOTABLE",1)
+		XERT O 0 A_ChangeFlag("NOTAUTOAIMED",0)
+		XERT O 0 A_JumpifInventory("Chokeme",1,11)
+		XERT O 0 A_GiveInventory("Chokeme",1)
+		XERT O 0 A_PlaySound("Zombie/Raise")
+		XERT ONMLKJIHGFEDCBA 2 A_FaceTarget
+		Goto See
+	Invocation:
+		TNT1 A 0 A_GiveInventory("CountZombie",1)
+		TNT1 A 0 A_GiveInventory("AlreadyFlare",1)
+		XBSS ABCDE 5 A_FaceTarget
+		TNT1 A 0 A_SpawnItemEx("VileSpawner",frandom(32.0,64.0),frandom(32.0,64.0),0)
+		TNT1 A 0 A_PlaySound("SummonZombies")
+		TNT1 A 0 A_Jump(256,"Invocation1","Invocation2","Invocation3","Invocation4","Invocation5","Invocation6")
+	Invocation1:
+		XBSS E 1 A_SpawnItemEx("FastBuriedGhoul1",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		Goto See
+	Invocation2:
+		XBSS E 1 A_SpawnItemEx("FastBuriedGhoul2",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		Goto See
+	Invocation3:
+		XBSS E 1 A_SpawnItemEx("FastBuriedGhoul3",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		Goto See
+	Invocation4:
+		XBSS E 1 A_SpawnItemEx("FastBuriedGhoul4",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		Goto See
+	Invocation5:
+		XBSS E 1 A_SpawnItemEx("FastBuriedGhoul5",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		Goto See
+	Invocation6:
+		XBSS E 1 A_SpawnItemEx("FastBuriedGhoul6",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		Goto See
+	Pain:
+		XBAT A 2
+		XBAT A 2 A_Pain
+		Goto See
+	Death:
+	XDeath:
+		XBBD A 8
+		XBBD B 8 A_Scream
+		XBBD C 8
+		XBBD D 8 A_NoBlocking
+		XBBD EFG 8
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		XBBD H -1
+		Stop
+	Ice:
+		XZAS A 0 A_SetMass(999999)
+		XZAS A 5 A_FreezeDeath
+		XZAS A 1 A_FreezeDeathChunks
+		Wait
+	Raise:
+		XBBD H 8
+		XBBD GFEDCBA  8
+		Goto See
+	}
+}
+
+ACTOR AxeZombaronOfHell : ZombaronOfHell 17901
+{
+	//$Title Zombaron of Hell with Axe
+	Speed 16
+	MeleeThreshold 196
+	MeleeRange 48
+	MaxTargetRange 49
+	Species "Bruisers"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(128,"Spawn2")
+		ZBAR A 10 A_Look
+		Goto Spawn+2
+	Spawn2:
+		ZBAR B 10 A_Look
+		Loop
+	See:
+		ZBAR AABBCCDDEEFF 3 A_Chase
+		Loop
+	Melee:
+		ZBAS A 4 A_FaceTarget
+		TNT1 A 0 A_Recoil(-2)
+		TNT1 A 0 A_PlaySound("ZombieAxe")
+		ZBAS BC 4 A_FaceTarget
+		TNT1 A 0 A_Recoil(-1)
+		ZBAS D 4 A_CustomMeleeAttack(frandom(16,34), "", "", "Axe", 1)
+		ZBAS EFG 4
+		TNT1 A 0 A_ClearTarget
+		Goto See
+	Missile:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Missile1","Missile2","Missile3")
+		Goto See
+	Missile1:
+		YBLL AB 4 A_FaceTarget
+		YBLL C 4 A_CustomComboAttack("BaronBall", 64, 10 * random(1, 8), "baron/melee")
+		Goto See
+	Missile2:
+		YBLL AB 4 A_FaceTarget
+		YBLL C 4 A_CustomComboAttack("BaronBall", 64, 10 * random(1, 8), "baron/melee")
+		Goto See
+	Missile3:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfHealthLower(200,"reburied")
+		Goto Missile
+	Reburied:
+		XERT A 0 A_ChangeFlag("SOLID",0)
+		XERT A 0 A_ChangeFlag("SHOOTABLE",0)
+		XERT A 0 A_ChangeFlag("NOTAUTOAIMED",1)
+		XERT A 0 A_PlaySound("Zombie/Raise")
+		XERT ABCDEFGHIJKLMNO 2 A_FaceTarget
+	TeleportBuried:
+		TNT1 A 0
+		XERT A 0 A_Warp(AAPTR_TARGET, frandom(40.0,90.0), frandom(40.0,90.0), 0, 0, WARPF_NOCHECKPOSITION|WARPF_INTERPOLATE)
+	Unburied:
+		XERT O 0 A_ChangeFlag("SOLID",1)
+		XERT O 0 A_ChangeFlag("SHOOTABLE",1)
+		XERT O 0 A_ChangeFlag("NOTAUTOAIMED",0)
+		XERT O 0 A_JumpifInventory("Chokeme",1,11)
+		XERT O 0 A_GiveInventory("Chokeme",1)
+		XERT O 0 A_PlaySound("Zombie/Raise")
+		XERT ONMLKJIHGFEDCBA 2 A_FaceTarget
+		Goto Invocation
+	Invocation:
+		TNT1 A 0 A_GiveInventory("CountZombie",1)
+		TNT1 A 0 A_GiveInventory("AlreadyFlare",1)
+		ZBSS ABCDE 5 A_FaceTarget
+		TNT1 A 0 A_SpawnItemEx("VileSpawner",frandom(32.0,64.0),frandom(32.0,64.0),0)
+		TNT1 A 0 A_PlaySound("SummonZombies")
+		TNT1 A 0 A_Jump(256,"Invocation1","Invocation2","Invocation3","Invocation4","Invocation5","Invocation6")
+	Invocation1:
+		ZBSS E 1 A_SpawnItemEx("FastBuriedGhoul1",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		Goto See
+	Invocation2:
+		ZBSS E 1 A_SpawnItemEx("FastBuriedGhoul2",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		Goto See
+	Invocation3:
+		ZBSS E 1 A_SpawnItemEx("FastBuriedGhoul3",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		Goto See
+	Invocation4:
+		ZBSS E 1 A_SpawnItemEx("FastBuriedGhoul4",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		Goto See
+	Invocation5:
+		ZBSS E 1 A_SpawnItemEx("FastBuriedGhoul5",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		Goto See
+	Invocation6:
+		ZBSS E 1 A_SpawnItemEx("FastBuriedGhoul6",frandom(32.0,64.0),frandom(32.0,64.0),0,0,0,0,0,SXF_SETMASTER)
+		Goto See
+	Pain:
+		ZBAT A 2
+		ZBAT A 2 A_Pain
+		Goto See
+	Death:
+	XDeath:
+		ZBBD A 8
+		ZBBD B 8 A_Scream
+		ZBBD C 8
+		ZBBD D 8 A_NoBlocking
+		ZBBD EF 8
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		ZBBD G -1
+		Stop
+	Ice:
+		XZAS A 0 A_SetMass(999999)
+		XZAS A 5 A_FreezeDeath
+		XZAS A 1 A_FreezeDeathChunks
+		Wait
+	Raise:
+		ZBBD G 8
+		ZBBD FEDCBA  8
+		Goto See
+	}
+}
+
+ACTOR BuriedZombaronOfHell : ZombaronOfHell
+{
+	+NOTAUTOAIMED
+	-SHOOTABLE
+	-SOLID
+	Species "Bruisers"
+	States
+	{
+	Idle:
+		Goto Super::Spawn
+	Spawn:
+		XBAX O 320 A_Look
+		Loop
+	See:
+		XBAX O 0 A_ChangeFlag("SOLID",1)
+		XBAX O 0 A_ChangeFlag("SHOOTABLE",1)
+		XBAX O 0 A_ChangeFlag("NOTAUTOAIMED",0)
+		XBAX O 0 A_JumpifInventory("Chokeme",1,11)
+		XBAX O 0 A_GiveInventory("Chokeme",1)
+		XBAX O 0 A_PlaySound("Zombie/Raise")
+		XBAX ABCDEFGHIJ 4 A_FaceTarget
+		Goto Super::See
+	}
+}
+
+ACTOR BuriedAxeZombaronOfHell : AxeZombaronOfHell
+{
+	+NOTAUTOAIMED
+	-SHOOTABLE
+	-SOLID
+	Species "Bruisers"
+	States
+	{
+	Idle:
+		Goto Super::Spawn
+	Spawn:
+		ZBAX O 320 A_Look
+		Loop
+	See:
+		ZBAX O 0 A_ChangeFlag("SOLID",1)
+		ZBAX O 0 A_ChangeFlag("SHOOTABLE",1)
+		ZBAX O 0 A_ChangeFlag("NOTAUTOAIMED",0)
+		ZBAX O 0 A_JumpifInventory("Chokeme",1,11)
+		ZBAX O 0 A_GiveInventory("Chokeme",1)
+		ZBAX O 0 A_PlaySound("Zombie/Raise")
+		ZBAX ABCDEFGHIJ 4 A_FaceTarget
+		Goto Super::See
+	}
+}
+
+ACTOR Zombarons : BuriedZombaronOfHell 19104
+{
+	//$Category BlooM Monsters
+	//$Title Zombarons
+	//$Color 3
+	-ISMONSTER
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 ACS_NamedExecuteAlways("FloorTextureCheck", 0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	NoGroundSpawner: //Summon a Randomspawner class for stand up Zombarons
+		TNT1 A 0 A_SpawnItemEx("StandUpZombaronSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	GroundSpawner: //Summon a Randomspawner class for buried Zombarons
+		TNT1 A 0 A_SpawnItemEx("BuriedZombaronSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR StandUpZombaronSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("ZombaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("AxeZombaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR BuriedZombaronSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("BuriedZombaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BuriedAxeZombaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}

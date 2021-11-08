@@ -1,0 +1,434 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+ACTOR ----------CACOYLES---------- {}
+ACTOR LivingCacoyleStatue 19035
+{
+	//$Category BlooM Monsters
+	//$Title Living Cacoyle Statue
+	//$Color 3
+	Radius 10
+	Height 35
+	Mass 0x7ffffff //prevent actor being pushed away and inside walls - ozy81
+	Gravity 0.6
+	+SHOOTABLE
+	+SOLID
+	-NOBLOOD
+	-NOGRAVITY
+	-PUSHABLE
+	-SPAWNCEILING
+	States
+	{
+	Spawn:
+		CCLS A 320 A_SetTics (frandom((Health / 20)+950,2100))
+		CCLS A 1 A_Look
+		Loop
+	See:
+		CCLS A 1 A_JumpIfCloser(196,"Unmorph")
+		Loop
+	Unmorph:
+		CCLS ABCD 5
+		TNT1 A 0 A_UnSetSolid
+		CCLS E 1 A_SpawnItemEx("Cacoyle",0,0,48,0,0,0,0,SXF_NOCHECKPOSITION)
+		CCLS E -1
+		Stop
+	}
+}
+
+ACTOR Cacoyle : BloomHybrid_Base 19014
+{
+	//$Title Cacoyle
+	Health 400
+	Radius 31
+	Height 64
+	Mass 400
+	Speed 9
+	PainChance 128
+	+FLOAT
+	+FLOATBOB
+	+NOGRAVITY
+	+QUICKTORETALIATE
+	SeeSound "caco/sight"
+	PainSound "caco/pain"
+	DeathSound "caco/death"
+	ActiveSound "caco/active"
+	Obituary "$OB_CACOY"
+	HitObituary "HB_CACOY"
+	DropItem "UselessStuff" 32
+	Species "Cacos"
+	States
+	{
+	Spawn:
+		CYAD ABCCBA 3 A_Look
+		Loop
+	See:
+		TNT1 A 0 A_Jump(128,8)
+		TNT1 A 0 A_PlaySound ("GarWing")
+		TNT1 A 0 A_UnSetInvulnerable
+		CYAD ABCCBA 3 A_Chase
+		Loop
+		CYAD A 0 ThrustThingZ(0,frandom(12,15),1,0)
+		TNT1 A 0 A_SentinelBob
+		TNT1 A 0 A_PlaySound ("GarWing")
+		CYAD A 1 A_Chase
+		CYAD A 1 A_ExtChase(0,0,0,0)
+		CYAD A 1 A_Chase
+		CYAD A 1 A_ExtChase(0,0,0,0)
+		CYAD A 0 ThrustThing(angle*256/360,1,0,0)
+		CYAD B 1 A_Chase
+		CYAD B 1 A_ExtChase(0,0,0,0)
+		CYAD B 1 A_Chase
+		CYAD B 1 A_ExtChase(0,0,0,0)
+		CYAD B 0 ThrustThing(angle*256/360,1,0,0)
+		CYAD C 1 A_Chase
+		CYAD C 1 A_ExtChase(0,0,0,0)
+		CYAD C 1 A_Chase
+		CYAD C 1 A_ExtChase(0,0,0,0)
+		CYAD C 0 ThrustThing(angle*256/360,1,0,0)
+		CYAD C 1 A_Chase
+		CYAD C 1 A_ExtChase(0,0,0,0)
+		CYAD C 1 A_Chase
+		CYAD C 1 A_ExtChase(0,0,0,0)
+		CYAD C 0 ThrustThing(angle*256/360,1,0,0)
+		CYAD B 1 A_Chase
+		CYAD B 1 A_ExtChase(0,0,0,0)
+		CYAD B 1 A_Chase
+		CYAD B 1 A_ExtChase(0,0,0,0)
+		CYAD B 0 ThrustThing(angle*256/360,1,0,0)
+		CYAD A 1 A_Chase
+		CYAD A 1 A_ExtChase(0,0,0,0)
+		CYAD A 1 A_Chase
+		CYAD A 1 A_ExtChase(0,0,0,0)
+		CYAD A 0 ThrustThing(angle*256/360,1,0,0)
+		Loop
+	Missile:
+		CYAD DE 5 A_FaceTarget
+		TNT1 A 0 A_Jump(256,"Missile1","Missile2","Missile3","Missile4","Missile5","Missile6","Missile7","Missile8")
+	Missile1:
+		CYAD F 5 A_CustomComboAttack("CacoyleBall", 24, 10 * random(1, 6))
+		Goto See
+	Missile2:
+		CYAD F 5 A_CustomComboAttack("CacoyleBall2", 24, 10 * random(1, 6))
+		Goto See
+	Missile3:
+		CYAD F 5 A_CustomComboAttack("CacoyleBall3", 24, 10 * random(1, 6))
+		Goto See
+	Missile4:
+		CYAD F 5 A_CustomComboAttack("CacoyleBall4", 24, 10 * random(1, 6))
+		Goto See
+	Missile5:
+		CYAD F 5 A_CustomComboAttack("CacoyleBall5", 24, 10 * random(1, 6))
+		Goto See
+	Missile6:
+		CYAD F 5 A_CustomComboAttack("CacoyleBall6", 24, 10 * random(1, 6))
+		Goto See
+	Missile7:
+		CYAD F 5 A_CustomComboAttack("CacoyleBall7", 24, 10 * random(1, 6))
+		Goto See
+	Missile8:
+		CYAD F 5 A_CustomComboAttack("CacoyleBall8", 24, 10 * random(1, 6))
+		Goto See
+	Pain:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(128,4)
+		CYAD O 3
+		CYAD P random(35,75) A_SetInvulnerable
+		CYAD O 3 A_UnSetInvulnerable
+		Goto See
+		CYAD G 3
+		CYAD G 3 A_Pain
+		CYAD H 6
+		Goto See
+	Death:
+		CYAD I 8
+		CYAD J 8 A_Scream
+		CYAD KL 8
+		CYAD M 8 A_NoBlocking
+		TNT1 A 0 A_ChangeFlag("FLOATBOB",FALSE)
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		CYAD N -1 A_SetFloorClip
+		Stop
+	Raise:
+		CYAD N 8 A_UnSetFloorClip
+		CYAD MLKJI 8
+		Goto See
+	Ice:
+		CYAF R 0 A_SetMass(999999)
+		CYAF R 5 A_FreezeDeath
+		CYAF R 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR Cacoyle_Variant : BloomHybrid_Base 19016
+{
+	//$Title Cacoyle (with arms)
+	Health 400
+	Radius 31
+	Mass 400
+	Speed 9
+	PainChance 128
+	+FLOAT
+	+FLOATBOB
+	+NOGRAVITY
+	+QUICKTORETALIATE
+	SeeSound "caco/sight"
+	PainSound "caco/pain"
+	DeathSound "caco/death"
+	ActiveSound "caco/active"
+	Obituary "$OB_CACOY"
+	HitObituary "$HB_CACOY"
+	DropItem "UselessStuff" 32
+	Species "Cacos"
+	States
+	{
+	Spawn:
+		CYA2 A 10 A_Look
+		Loop
+	See:
+		TNT1 A 0 A_Jump(64,2)
+		CYA2 A 3 A_Chase
+		Loop
+		CYA2 A 3 A_FastChase
+		Goto See
+	Missile:
+		CYA2 BC 5 A_FaceTarget
+		TNT1 A 0 A_Jump(256,"Missile1","Missile2","Missile3","Missile4","Missile5","Missile6","Missile7","Missile8")
+	Missile1:
+		CYA2 D 5 A_CustomComboAttack("CacoyleBall", 24, 10 * random(1, 6))
+		Goto See
+	Missile2:
+		CYA2 D 5 A_CustomComboAttack("CacoyleBall2", 24, 10 * random(1, 6))
+		Goto See
+	Missile3:
+		CYA2 D 5 A_CustomComboAttack("CacoyleBall3", 24, 10 * random(1, 6))
+		Goto See
+	Missile4:
+		CYA2 D 5 A_CustomComboAttack("CacoyleBall4", 24, 10 * random(1, 6))
+		Goto See
+	Missile5:
+		CYA2 D 5 A_CustomComboAttack("CacoyleBall5", 24, 10 * random(1, 6))
+		Goto See
+	Missile6:
+		CYA2 D 5 A_CustomComboAttack("CacoyleBall6", 24, 10 * random(1, 6))
+		Goto See
+	Missile7:
+		CYA2 D 5 A_CustomComboAttack("CacoyleBall7", 24, 10 * random(1, 6))
+		Goto See
+	Missile8:
+		CYA2 D 5 A_CustomComboAttack("CacoyleBall8", 24, 10 * random(1, 6))
+		Goto See
+	Pain:
+		CYA2 E 3
+		CYA2 E 3 A_Pain
+		CYA2 F 6
+		Goto See
+	Death:
+		CYA2 G 8
+		CYA2 H 8 A_Scream
+		CYA2 IJ 8
+		CYA2 K 8 A_NoBlocking
+		TNT1 A 0 A_ChangeFlag("FLOATBOB",FALSE)
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		CYA2 L -1 A_SetFloorClip
+		Stop
+	Raise:
+		CYA2 L 8 A_UnSetFloorClip
+		CYA2 KJIHG 8
+		Goto See
+	Ice:
+		CYAF Z 0 A_SetMass(999999)
+		CYAF Z 5 A_FreezeDeath
+		CYAF Z 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR CacoyleBall
+{
+	Radius 6
+	Height 8
+	Speed 25
+	Health 1
+	FastSpeed 20
+	Damage 3
+	GibHealth -1 //again, what's this for? - ozy81
+	Projectile
+	+RANDOMIZE
+	+SHOOTABLE
+	-NOBLOCKMAP
+	SeeSound "caco/attack"
+	DeathSound "caco/shotx"
+	States
+	{
+	Spawn:
+		ZHED ABCDEFGHIJKLMNOP 8
+		Loop
+	Death:
+		ZHED A 1 A_ThrowGrenade("KickableFlying",-30,-20,0,0)
+		Stop
+	XDeath:
+		ZHED B 1
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	Death.Sky:
+		ZHED B 1
+		Stop
+	}
+}
+
+ACTOR CacoyleBall2 : CacoyleBall
+{
+	States
+	{
+	Spawn:
+		ZHE2 ABCDEFGHIJKLMNOP 8
+		Loop
+	Death:
+		ZHE2 A 1 A_ThrowGrenade("KickableFlyingZombImp2",-30,-20,0,0)
+		Stop
+	XDeath:
+		ZHE2 B 1
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	}
+}
+
+ACTOR CacoyleBall3 : CacoyleBall
+{
+	States
+	{
+	Spawn:
+		ZHE3 ABCDEFGHIJKLMNOP 8
+		Loop
+	Death:
+		ZHE3 A 1 A_ThrowGrenade("KickableFlyingZombImp3",-30,-20,0,0)
+		Stop
+	XDeath:
+		ZHE3 B 1
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	}
+}
+
+ACTOR CacoyleBall4 : CacoyleBall
+{
+	States
+	{
+	Spawn:
+		ZHE4 ABCDEFGHIJKLMNOP 8
+		Loop
+	Death:
+		ZHE4 A 1 A_ThrowGrenade("KickableFlyingZombImp4",-30,-20,0,0)
+		Stop
+	XDeath:
+		ZHE4 B 1
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	}
+}
+
+ACTOR CacoyleBall5 : CacoyleBall
+{
+	States
+	{
+	Spawn:
+		GHE1 ABCDEFGHIJKLMNOP 8
+		Loop
+	Death:
+		GHE1 A 1 A_ThrowGrenade("KickableFlyingGhoul1",-30,-20,0,0)
+		Stop
+	XDeath:
+		GHE1 B 1
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	}
+}
+
+ACTOR CacoyleBall6 : CacoyleBall
+{
+	States
+	{
+	Spawn:
+		GHE2 ABCDEFGHIJKLMNOP 8
+		Loop
+	Death:
+		GHE2 A 1 A_ThrowGrenade("KickableFlyingGhoul2",-30,-20,0,0)
+		Stop
+	XDeath:
+		GHE2 B 1
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	}
+}
+
+ACTOR CacoyleBall7 : CacoyleBall
+{
+	States
+	{
+	Spawn:
+		GHE3 ABCDEFGHIJKLMNOP 8
+		Loop
+	Death:
+		GHE3 A 1 A_ThrowGrenade("KickableFlyingGhoul3",-30,-20,0,0)
+		Stop
+	XDeath:
+		GHE3 B 1
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	}
+}
+
+ACTOR CacoyleBall8 : CacoyleBall
+{
+	States
+	{
+	Spawn:
+		GHE6 ABCDEFGHIJKLMNOP 8
+		Loop
+	Death:
+		GHE6 A 1 A_ThrowGrenade("KickableFlyingGhoul6",-30,-20,0,0)
+		Stop
+	XDeath:
+		GHE6 B 1
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	}
+}

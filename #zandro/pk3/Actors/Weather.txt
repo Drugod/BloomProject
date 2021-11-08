@@ -1,0 +1,710 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81, Tormentor667
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+ACTOR RainSpawner : SwitchableDecoration 3249
+{
+	//$Category "BlooM Weather"
+	//$Title "Rain Spawner"
+	//$Color 13
+	//$Sprite RNDRA0
+	//$Arg0 "Radius"
+	//$Arg0Tooltip "With 128 for example you get a 256x256 quare or circle (See fourth argument)"
+	//$Arg1 "Frequency"
+	//$Arg1Tooltip "The lower the number, the heavier the rainfall"
+	//$Arg2 "Sound"
+	//$Arg2Type 11
+	//$Arg2Enum { 0 = "Yes"; 1 = "No"; }
+	//$Arg3 "Area Type"
+	//$Arg3Type 11
+	//$Arg3Enum { 0 = "Square"; 1 = "Circle"; }
+	//$Arg4 "Raindrop Type"
+	//$Arg4Type 11
+	//$Arg4Enum { 0 = "Normal"; 1 = "Blood"; 2 = "Acid"; }
+	Radius 1
+	Height 1
+	+CLIENTSIDEONLY
+	+NOCLIP
+	+NOGRAVITY
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+	Active:
+		TNT1 A 0 A_JumpIf(Args[2] == 1, "NoSound")
+		TNT1 A 0 A_JumpIf(Args[3] == 1, "Circle")
+		TNT1 A 0 A_JumpIf(Args[4] == 1, "BloodRain")
+		TNT1 A 0 A_JumpIf(Args[4] == 2, "AcidRain")
+		TNT1 A 0 A_PlaySoundEx("Ambient/Rain", "SoundSlot7",1, 0)
+		TNT1 A 1 A_SpawnItemEx("RainDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
+		Loop
+	Circle:
+		TNT1 A 0 A_JumpIf(Args[4] == 1, "BloodRainCircle")
+		TNT1 A 0 A_JumpIf(Args[4] == 2, "AcidRainCircle")
+		TNT1 A 2 A_SpawnItemEx("RainDrop", frandom(-Args[0], Args[0]), 0, -2, 0, 0, 0, frandom(0, 360), 128, Args[1])
+		Loop
+	NoSound:
+		TNT1 A 0 A_Jumpif(Args[3] == 1, "NoSoundCircle")
+		TNT1 A 0 A_JumpIf(Args[4] == 1, "NoSoundBloodRain")
+		TNT1 A 0 A_JumpIf(Args[4] == 2, "NoSoundAcidRain")
+		TNT1 A 2 A_SpawnItemEx("RainDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
+		Loop
+	NoSoundCircle:
+		TNT1 A 2 A_SpawnItemEx("RainDrop", frandom(-Args[0], Args[0]), 0, -2, 0, 0, 0, frandom(0, 360), 128, Args[1])
+		Loop
+	AcidRainCircle:
+		TNT1 A 1 A_SpawnItemEx("AcidDrop", frandom(-Args[0], Args[0]), 0, -2, 0, 0, 0, frandom(0, 360), 128, Args[1])
+		Loop
+	BloodRainCircle:
+		TNT1 A 1 A_SpawnItemEx("BloodDrop", frandom(-Args[0], Args[0]), 0, -2, 0, 0, 0, frandom(0, 360), 128, Args[1])
+		Loop
+	AcidRain:
+		TNT1 A 0 A_PlaySoundEx("Ambient/Rain", "SoundSlot7",1, 0)
+		TNT1 A 1 A_SpawnItemEx("AcidDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
+		Loop
+	BloodRain:
+		TNT1 A 0 A_PlaySoundEx("Ambient/Rain", "SoundSlot7",1, 0)
+		TNT1 A 1 A_SpawnItemEx("BloodDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
+		Loop
+	NoSoundBloodRain:
+		TNT1 A 1 A_SpawnItemEx("BloodDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
+		Loop
+	NoSoundAcidRain:
+		TNT1 A 1 A_SpawnItemEx("AcidDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), -2, 0, 0, 0, 0, 128, Args[1])
+		Loop
+	}
+}
+
+ACTOR RainSpawnerUpwards : RainSpawner 23249
+{
+	//$Title "Rain Spawner, Upwards"
+	-SPAWNCEILING
+	States
+	{
+	Spawn:
+	Active:
+		TNT1 A 0 A_JumpIf(Args[2]== 1, "NoSoundUp")
+		TNT1 A 0 A_JumpIf(Args[3]== 1, "CircleUp")
+		TNT1 A 0 A_JumpIf(Args[4] == 1, "BloodRainUp")
+		TNT1 A 0 A_JumpIf(Args[4] == 2, "AcidRainUp")
+		TNT1 A 0 A_PlaySoundEx("Ambient/Rain", "SoundSlot7",1, 0)
+		TNT1 A 1 A_SpawnItemEx("RainDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), 2, (0.1)*random(0, 4), 0, random(35, 40), 0, 128, Args[1])
+		Loop
+	CircleUp:
+		TNT1 A 0 A_JumpIf(Args[4] == 1, "BloodRainCircleUp")
+		TNT1 A 0 A_JumpIf(Args[4] == 2, "AcidRainCircleUp")
+		TNT1 A 2 A_SpawnItemEx("RainDrop", frandom(-Args[0], Args[0]), 0, 2, (0.1)*random(0, 4), 0, random(35, 40), frandom(0, 360), 128, Args[1])
+		Loop
+	NoSoundUp:
+		TNT1 A 0 A_Jumpif(Args[3] == 1, "NoSoundCircleUp")
+		TNT1 A 0 A_JumpIf(Args[4] == 1, "NoSoundBloodRainUp")
+		TNT1 A 0 A_JumpIf(Args[4] == 2, "NoSoundAcidRainUp")
+		TNT1 A 2 A_SpawnItemEx("RainDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), 2, (0.1)*random(0, 4), 0, random(35, 40), 0, 128, Args[1])
+		Loop
+	NoSoundCircleUp:
+		TNT1 A 2 A_SpawnItemEx("RainDrop", frandom(-Args[0], Args[0]), 0, 2, (0.1)*random(0, 4), 0, random(35, 40), frandom(0, 360), 128, Args[1])
+		Loop
+	AcidRainCircleUp:
+		TNT1 A 1 A_SpawnItemEx("AcidDrop", frandom(-Args[0], Args[0]), 0, 2, (0.1)*random(0, 4), 0, random(35, 40), frandom(0, 360), 128, Args[1])
+		Loop
+	BloodRainCircleUp:
+		TNT1 A 1 A_SpawnItemEx("BloodDrop", frandom(-Args[0], Args[0]), 0, 2, (0.1)*random(0, 4), 0, random(35, 40), frandom(0, 360), 128, Args[1])
+		Loop
+	AcidRainUp:
+		TNT1 A 0 A_PlaySoundEx("Ambient/Rain", "SoundSlot7",1, 0)
+		TNT1 A 1 A_SpawnItemEx("AcidDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), 2, (0.1)*random(0, 4), 0, random(35, 40), 0, 128, Args[1])
+		Loop
+	BloodRainUp:
+		TNT1 A 0 A_PlaySoundEx("Ambient/Rain", "SoundSlot7",1, 0)
+		TNT1 A 1 A_SpawnItemEx("BloodDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), 2, (0.1)*random(0, 4), 0, random(35, 40), 0, 128, Args[1])
+		Loop
+	NoSoundBloodRainUp:
+		TNT1 A 1 A_SpawnItemEx("BloodDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), 2, (0.1)*random(0, 4), 0, random(35, 40), 0, 128, Args[1])
+		Loop
+	NoSoundAcidRainUp:
+		TNT1 A 1 A_SpawnItemEx("AcidDrop", frandom(-Args[0], Args[0]), frandom(-Args[0], Args[0]), 2, (0.1)*random(0, 4), 0, random(35, 40), 0, 128, Args[1])
+		Loop
+	}
+}
+
+ACTOR RainDrop
+{
+	Height 2
+	Radius 2
+	+DONTSPLASH
+	+FORCEXYBILLBOARD
+	+MISSILE
+	+NOBLOCKMAP
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+		RNDR A 1 A_JumpIf(WaterLevel > 0, "Death")
+		Loop
+	Death:
+		RNDR BCDEFGH 3 A_FadeOut(10.0)
+		Stop
+	}
+}
+
+ACTOR AcidDrop : RainDrop
+{
+	Damage 1
+	States
+	{
+	Spawn:
+		ACDR A 1 A_JumpIf(WaterLevel > 0, "Death")
+		Loop
+	Death:
+		ACDR BCDEFGH 3 A_FadeOut(10.0)
+		Stop
+	}
+}
+
+ACTOR BloodDrop : RainDrop
+{
+	States
+	{
+	Spawn:
+		BNDR A 1 A_JumpIf(WaterLevel > 0, "Death")
+		Loop
+	Death:
+		BNDR BCDEFGH 3
+		Stop
+	}
+}
+
+ACTOR FlyingBloodrop
+{
+	Health 1
+	Radius 1
+	Height 1
+	Gravity 0.60
+	Mass 30
+	PROJECTILE
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+FLOORCLIP
+	+NOBLOCKMAP
+	+NOPAIN
+	+WINDTHRUST
+	-NOGRAVITY
+	-SOLID
+	States
+	{
+	Spawn:
+		BLUD AA 0 A_Recoil(frandom(-5,5))
+		BLUD A 0 A_Setangle(angle+frandom(0,360))
+		BLUD A 0 A_Jump(127,27)
+		BLUD A 9
+		BLUD AAAAABBBBBCCCCCDDDDEEEEEE 2
+		Stop
+	Death:
+		BLUD EEEEE 2 A_SpawnitemEx("RainBlood",frandom(-15,15),frandom(-15,15)) //3 A_SpawnItemEX("BloodPool",frandom(-20,20),frandom(-20,20),frandom(-6,6),frandom(-6,6))
+		BLUD EEEEEEEEEE 225 A_FadeOut(0.2)
+		Stop
+	Death.Sky:
+		BLUD E 1 A_FadeOut(1.05)
+		Loop
+	}
+}
+
+ACTOR SnowSpawner 3250
+{
+    //$Category "BlooM Weather"
+	//$Title "Snow Spawner"
+	//$Color 13
+	//$Sprite SNOWA0
+	//$Arg0 "Radius"
+	//$Arg0Tooltip "Radius in map units\nDefault: 0"
+	//$Arg1 "Frequency"
+	//$Arg1Tooltip "The lower the number, the heavier the snowfall\nRange: 0 - 255"
+	//$Arg2 "Area"
+	//$Arg2Type 11
+	//$Arg2Enum { 0 = "Square"; 1 = "Circle"; }
+	Radius 1
+	Height 1
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+NOINTERACTION
+	+NOSECTOR
+	+SPAWNCEILING
+	-SOLID
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_CheckSight("Unsighted")
+		TNT1 A 0 A_JumpIf(Args[2] > 0, "Circle")
+		TNT1 A 8 A_SpawnItemEx ("SnowParticle", frandom(-Args[0], -Args[0]), frandom(-Args[0], -Args[0]), 0, frandom(-1.0, 1.0), frandom(-1.0, 1.0), frandom(-1.0, -3.0), 0, 128, Args[1])
+		TNT1 A 8 A_SpawnItemEx ("SnowParticle2", frandom(-Args[0], -Args[0]), frandom(-Args[0], -Args[0]), 0, frandom(-1.0, 1.0), frandom(-1.0, 1.0), frandom(-1.0, -3.0), 0, 128, Args[1])
+		Loop
+	Circle:
+		TNT1 A 8 A_SpawnItemEx ("SnowParticle", frandom(-Args[0], -Args[0]), 0, 0, frandom(-1.0, 1.0), frandom(-1.0, 1.0), frandom(-1.0, -3.0), frandom(0, 360), 128, Args[1])
+		TNT1 A 8 A_SpawnItemEx ("SnowParticle2", frandom(-Args[0], -Args[0]), 0, 0, frandom(-1.0, 1.0), frandom(-1.0, 1.0), frandom(-1.0, -3.0), frandom(0, 360), 128, Args[1])
+		Loop
+	Unsighted:
+		TNT1 A 1
+		Goto Spawn
+	}
+}
+
+ACTOR SnowParticle
+{
+	Radius 1
+	Height 1
+	Damage 0
+	Projectile
+	RenderStyle Translucent
+	Alpha 0
+	Scale 0.6
+	+MISSILE
+	+NOBLOCKMAP
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		SNOW AAAAAAA 2 A_FadeIn(0.1)
+		SNOW A 3
+		Goto Spawn+9
+	Death:
+		SNOW A 1 A_FadeOut(0.05)
+		Loop
+	Death.Sky:
+		SNOW A 1 A_FadeOut(1.05)
+		Loop
+	}
+}
+
+ACTOR SnowParticle2
+{
+	Radius 1
+	Height 1
+	PROJECTILE
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+NOBLOCKMAP
+	-ACTIVATEIMPACT
+	-ACTIVATEMCROSS
+	-ACTIVATEPCROSS
+	-CANPUSHWALLS
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+		SGSB A 5000
+		Stop
+	Death:
+		SGSB A 1
+		Stop
+	Death.Sky:
+		SNOW A 1 A_FadeOut(1.05)
+		Loop
+	}
+}
+
+ACTOR Thunder_GeneratorWhite : SwitchableDecoration 31999
+{
+	//$Category "BlooM Weather"
+	//$Title "Thunder Generator, White"
+	//$Color 13
+	//$Sprite GZDBB0
+	//$Arg2 "Sound"
+	//$Arg2Type 11
+	//$Arg2Enum { 0 = "No"; 1 = "Yes"; }
+	Renderstyle Add
+	Height 1
+	Radius 1
+	Alpha 0.2
+	Scale 4.0
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+NOINTERACTION
+	-SOLID
+	States
+	{
+	Spawn:
+	Active:
+		TNT1 A 0 A_JumpIf(Args[2] > 0, "WithSound")
+		TNT1 A 0
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0
+		THND AAAA 1 BRIGHT A_FadeIn(0.2)
+		THND AAAA 2 BRIGHT A_FadeOut(0.2)
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 1
+		Goto Inactive
+	WithSound:
+		TNT1 A 0
+		TNT1 A 0 A_PlaySoundEx("thunder/hit", "Auto", 0, 2)
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0
+		THND AAAA 1 BRIGHT A_FadeIn(0.2)
+		THND AAAA 2 BRIGHT A_FadeOut(0.2)
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 1 BRIGHT A_SpawnItemEx("Thunder_Smoke", 0, 0, 0, frandom(0,3), 0, frandom(2,3), frandom(0,359), 128)
+		Goto Inactive
+	Inactive:
+		TNT1 A 1
+		Loop
+	}
+}
+
+ACTOR Thunder_GeneratorTan : Thunder_GeneratorWhite 31998
+{
+	//$Title "Thunder Generator, Tan"
+	Translation "80:111=48:79"
+}
+
+ACTOR Thunder_GeneratorGreen : Thunder_GeneratorWhite 31997
+{
+	//$Title "Thunder Generator, Green"
+	Translation "80:111=112:127"
+}
+
+ACTOR Thunder_GeneratorRed : Thunder_GeneratorWhite 31996
+{
+	//$Title "Thunder Generator, Red"
+	Translation "80:111=171:191"
+}
+
+ACTOR Thunder_GeneratorBlue : Thunder_GeneratorWhite 31995
+{
+	//$Title "Thunder Generator, Blue"
+	Translation "80:111=192:207"
+}
+
+ACTOR Thunder_Spark
+{
+	Speed 3
+	Height 2
+	Radius 1
+	Mass 0
+	+MISSILE
+	+LOWGRAVITY
+	RenderStyle Add
+	DamageType "Fire"
+	DamageType "Shock"
+	Scale 0.4
+	States
+	{
+	Spawn:
+	    TNT1 A 0
+        SPRK A 1 A_Jump(80, 4)
+        SPRK A 1 A_Jump(80, 4)
+        SPRK A 1 A_Jump(80, 4)
+	    SPRK A 32 BRIGHT
+	    SPRK A 32 BRIGHT
+	    SPRK A 32 BRIGHT
+	    SPRK A 32 BRIGHT
+	    SPRK ABCDEFGHHH 1 BRIGHT A_FadeOut(0.1)
+	    Stop
+	Death:
+	    SPRK ABCDEFGHHH 1 BRIGHT A_FadeOut(0.1)
+		TNT1 A 0 A_Explode(100,64)
+ 	    Stop
+	}
+}
+
+ACTOR Thunder_Smoke
+{
+    Height 2
+    Radius 1
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+NOINTERACTION
+    +MISSILE
+    RenderStyle Translucent
+    Alpha .5
+    Scale .65
+    States
+    {
+    Spawn:
+    	SMK1 IHGFEEDDCCBBBBAAAAAA 2 A_FadeOut(0.05)
+        Stop
+    }
+}
+
+/////////////////////////
+// FOG by TORMENTOR667 //
+//   edits by zrrion   //
+/////////////////////////
+
+ACTOR FogCloud_Generator 3274
+{
+	//$Category "BlooM Weather"
+	//$Title "Fog Spawner"
+	//$Color 13
+	//$Sprite "GZDBA0"
+	//$Arg0 "Radius"
+	//$Arg0Tooltip "Radius in map units"
+	Radius 1
+	Height 1
+	+CLIENTSIDEONLY
+	+MISSILE
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+NOSECTOR
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(ARGS[0]!=0,"MaperInput")
+		TNT1 A 0 A_Jump(128,1,2)
+		TNT1 A 0 A_SpawnItemEx ("FogCloud_V1", frandom(frandom(-96, 96), frandom(-64, 64)), 0, frandom(0, frandom(32, 48)), 0, 0, 0, frandom(0, 360), 129)
+		TNT1 A 0 A_SpawnItemEx ("FogCloud_V2", frandom(frandom(-96, 96), frandom(-64, 64)), 0, frandom(0, frandom(32, 48)), 0, 0, 0, frandom(0, 360), 129)
+		TNT1 A 0 A_SpawnItemEx ("FogCloud_V3", frandom(frandom(-96, 96), frandom(-64, 64)), 0, frandom(0, frandom(32, 48)), 0, 0, 0, frandom(0, 360), 129)
+		Stop
+	MaperInput:
+		TNT1 A 0 A_Jump(128,1,2)
+		TNT1 A 0 A_SpawnItemEx ("FogCloud_V1", frandom(-ARGS[0],ARGS[0]), 0, frandom(0, frandom(32, 48)), 0, 0, 0, frandom(0, 360), 129)
+		TNT1 A 0 A_SpawnItemEx ("FogCloud_V2", frandom(-ARGS[0],ARGS[0]), 0, frandom(0, frandom(32, 48)), 0, 0, 0, frandom(0, 360), 129)
+		TNT1 A 0 A_SpawnItemEx ("FogCloud_V3", frandom(-ARGS[0],ARGS[0]), 0, frandom(0, frandom(32, 48)), 0, 0, 0, frandom(0, 360), 129)
+		Stop
+	}
+}
+
+ACTOR FogCloud_V1
+{
+	Radius 1
+	Height 1
+	Speed 0
+	RenderStyle add
+	Alpha 1.1
+	+MISSILE
+	+NOBLOCKMAP
+	+NOGRAVITY
+	-SPAWNCEILING
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_SetScale(frandom(2,2.25))
+		TNT1 A 0 A_Jump(256,1,2,3,4)
+		AWCF ABCD 0 A_Jump(256,"Coolness")
+	Coolness:
+		"----" AAAAAAAAAAAAAAAAAAAA 10 A_FadeIn(0.002)
+		"----" A 0 A_Jump(256,0,1,2,3,4,5,6,7,8,9,10,11,12,13)
+		"----" AAAAAAAAAAAAAA 4
+		"----" AAAAAAAAAAAAAAAAAAAA 10 A_FadeOut(0.002)
+		"----" A 0 A_Jump(256,0,1,2,3,4,5,6,7,8,9,10,11,12,13)
+		AWCF AAAAAAAAAAAAAA 4
+		Loop
+	}
+}
+
+ACTOR FogCloud_V2 : FogCloud_V1
+{
+	States
+	{
+	Coolness:
+		"----" AAAAAAAAAAAAAA 11 A_FadeIn(0.002)
+		"----" A 0 A_Jump(256,0,1,2,3,4,5,6,7,8,9,10,11,12,13)
+		"----" AAAAAAAAAAAAAA 5
+		"----" AAAAAAAAAAAAAA 11 A_FadeOut(0.002)
+		"----" A 0 A_Jump(256,0,1,2,3,4,5,6,7,8,9,10,11,12,13)
+		"----" AAAAAAAAAAAAAA 5
+		Loop
+	}
+}
+
+ACTOR FogCloud_V3 : FogCloud_V1
+{
+	States
+	{
+	Coolness:
+		"----" AAAAAAAAAAAAAA 12 A_FadeIn(0.002)
+		"----" A 0 A_Jump(256,0,1,2,3,4,5,6,7,8,9,10,11,12,13)
+		"----" AAAAAAAAAAAAAA 6
+		"----" AAAAAAAAAAAAAA 12 A_FadeOut(0.002)
+		"----" A 0 A_Jump(256,0,1,2,3,4,5,6,7,8,9,10,11,12,13)
+		"----" AAAAAAAAAAAAAA 6
+		Loop
+	}
+}
+
+ACTOR SteamSpawner : SwitchableDecoration 3275
+{
+	//$Category "BlooM Weather"
+	//$Title "Steam Spawner"
+	//$Color 13
+	//$Sprite STEMA0
+	//$Arg0 "Direction"
+	//$Arg0Tooltip "0 is up, 1 is down, 2 is forward (downfacing spawners should be placed 4 map units below the ceiling)"
+	//$Arg0Type 11
+	//$Arg0Enum { 0 = "Up"; 1 = "Down"; 2 = "Forward"; }
+	//$Arg1 "Type"
+	//$Arg1Tooltip "Second argument chooses if it's a constant spawner, or spawns in bursts. Burst spawners use the third argument and play a different sound."
+	//$Arg1Type 11
+	//$Arg1Enum { 0 = "Constant"; 1 = "Bursts"; }
+	//$Arg2 "Frequency"
+	//$Arg2Tooltip "Third argument controls the frequency of the bursts (divided by 16. I.e, 128 will end up as 8). This is only used by the second argument."
+	//$Arg3 "Sound"
+	//$Arg3Type 11
+	//$Arg3Enum { 0 = "Yes"; 1 = "No"; }
+	Height 2
+	Radius 1
+	Mass 0
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] == 1, "Down")
+		TNT1 A 0 A_JumpIf(Args[0] > 1, "Forward")
+		TNT1 A 0 A_JumpIf(Args[1] > 0, "UpBurst")
+		TNT1 A 0 A_JumpIf(Args[3] > 0, 2)
+		TNT1 A 0 A_PlaySoundEx("Steam/Loop", "SoundSlot7", 1)
+		TNT1 A 1 A_SpawnItemEx("SteamParticle", 0, 0, 1, (0.1)*frandom(0, 4), 0, (0.1)*frandom(35, 40), frandom(0, 360), 128)
+		Loop
+	Down:
+		TNT1 A 0 A_JumpIf(Args[1] > 0, "DownBurst")
+		TNT1 A 0 A_JumpIf(Args[3] > 0, 2)
+		TNT1 A 0 A_PlaySoundEx("Steam/Loop", "SoundSlot7", 1)
+		TNT1 A 1 A_SpawnItemEx("SteamParticle", 0, 0, 0, (0.1)*frandom(0, 4), 0, (-0.1)*frandom(35, 40), frandom(0, 360), 128)
+		Loop
+	Forward:
+		TNT1 A 0 A_JumpIf(Args[1] > 0, "ForwardBurst")
+		TNT1 A 0 A_JumpIf(Args[3] > 0, 2)
+		TNT1 A 0 A_PlaySoundEx("Steam/Loop", "SoundSlot7", 1)
+		TNT1 A 1 A_SpawnItemEx("SteamParticle", 0, 0, 0, (0.1)*frandom(35, 40), 0, (0.1)*frandom(-5, 5), frandom(-8, 8), 128)
+		Loop
+	UpBurst:
+		TNT1 A 1 A_Jump(Args[2]/16, 1)
+		Loop
+		TNT1 A 0 A_JumpIf(Args[3] > 0, 2)
+		TNT1 A 0 A_PlaySoundEx("Steam/Fire", "SoundSlot7", 0)
+		TNT1 AAAAAAAAAA 1 A_SpawnItemEx("SteamParticle", 0, 0, 1, (0.1)*frandom(0, 4), 0, (0.1)*frandom(35, 40), frandom(0, 360), 128)
+		TNT1 AAAAAAAAAA 1 A_SpawnItemEx("SteamParticle", 0, 0, 1, (0.1)*frandom(0, 4), 0, (0.1)*frandom(35, 40), frandom(0, 360), 128)
+		TNT1 AAAAAAAAAA 1 A_SpawnItemEx("SteamParticle", 0, 0, 1, (0.1)*frandom(0, 4), 0, (0.1)*frandom(35, 40), frandom(0, 360), 128)
+		Loop
+	DownBurst:
+		TNT1 A 1 A_Jump(Args[2]/16, 1)
+		Loop
+		TNT1 A 0 A_JumpIf(Args[3] > 0, 2)
+		TNT1 A 0 A_PlaySoundEx("Steam/Fire", "SoundSlot7", 0)
+		TNT1 AAAAAAAAAA 1 A_SpawnItemEx("SteamParticle", 0, 0, 0, (0.1)*frandom(0, 4), 0, (-0.1)*frandom(35, 40), frandom(0, 360), 128)
+		TNT1 AAAAAAAAAA 1 A_SpawnItemEx("SteamParticle", 0, 0, 0, (0.1)*frandom(0, 4), 0, (-0.1)*frandom(35, 40), frandom(0, 360), 128)
+		TNT1 AAAAAAAAAA 1 A_SpawnItemEx("SteamParticle", 0, 0, 0, (0.1)*frandom(0, 4), 0, (-0.1)*frandom(35, 40), frandom(0, 360), 128)
+		Loop
+	ForwardBurst:
+		TNT1 A 1 A_Jump(Args[2]/16, 1)
+		Loop
+		TNT1 A 0 A_JumpIf(Args[3] > 0, 2)
+		TNT1 A 0 A_PlaySoundEx("Steam/Fire", "SoundSlot7", 0)
+		TNT1 AAAAAAAAAA 1 A_SpawnItemEx("SteamParticle", 0, 0, 0, (0.1)*frandom(35, 40), 0, (0.1)*frandom(-5, 5), frandom(-8, 8), 128)
+		TNT1 AAAAAAAAAA 1 A_SpawnItemEx("SteamParticle", 0, 0, 0, (0.1)*frandom(35, 40), 0, (0.1)*frandom(-5, 5), frandom(-8, 8), 128)
+		TNT1 AAAAAAAAAA 1 A_SpawnItemEx("SteamParticle", 0, 0, 0, (0.1)*frandom(35, 40), 0, (0.1)*frandom(-5, 5), frandom(-8, 8), 128)
+		Loop
+	Inactive:
+		TNT1 A 1 A_StopSoundEx("SoundSlot7")
+		TNT1 A 1
+		Goto Inactive+1
+	}
+}
+
+ACTOR SteamParticle
+{
+	Height 1
+	Radius 1
+	RenderStyle Add
+	Scale 0.4
+	Alpha 0.65
+	+MISSILE
+	+NOBLOCKMAP
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		STEM A 2 A_SetTranslucent(0.6, 1)
+		STEM B 2 A_SetTranslucent(0.55, 1)
+		STEM C 2 A_SetTranslucent(0.5, 1)
+		STEM D 2 A_SetTranslucent(0.45, 1)
+		STEM E 2 A_SetTranslucent(0.4, 1)
+		STEM F 2 A_SetTranslucent(0.35, 1)
+		STEM G 2 A_SetTranslucent(0.3, 1)
+		STEM H 2 A_SetTranslucent(0.25, 1)
+		STEM I 2 A_SetTranslucent(0.2, 1)
+		STEM J 2 A_SetTranslucent(0.15, 1)
+		STEM K 2 A_SetTranslucent(0.1, 1)
+		STEM L 2 A_SetTranslucent(0.05, 1)
+		Stop
+	}
+}
+
+ACTOR Floorfog 3287
+{
+	//$Category "BlooM Weather"
+	//$Title "Foggy Floor Effect"
+	//$Color 13
+	+FLOORCLIP
+	+NOGRAVITY
+	Renderstyle Add
+	Alpha 0.3
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_Jump(128,"Spawn2")
+		CVFG A -1
+		Stop
+	Spawn2:
+		CVFG B -1
+		Stop
+	}
+}
+
+ACTOR GreenFloorfog
+{
+	+FLOORCLIP
+	+NOGRAVITY
+	Renderstyle Add
+	Alpha 0.3
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(128,"Spawn2")
+	Spawn1:
+		CVF2 AA 4 A_FadeOut(0.002)
+		TNT1 A 0 A_RadiusGive("Raiser",256.0,RGF_CORPSES|RGF_MONSTERS,1)
+		Loop
+	Spawn2:
+		CVF2 BB 4 A_FadeOut(0.002)
+		TNT1 A 0 A_RadiusGive("Raiser",256.0,RGF_CORPSES|RGF_MONSTERS,1)//Trioxin making their job
+		Loop
+	}
+}
+
+ACTOR Raiser : CustomInventory
+{
+   States
+   {
+   Pickup:
+      TNT1 A 0 Thing_Raise(0)
+      Stop
+   }
+}

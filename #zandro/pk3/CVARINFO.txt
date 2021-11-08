@@ -1,0 +1,4 @@
+server bool blm_hybrid = TRUE;
+server bool blm_traps = FALSE;
+server noarchive bool blm_script = FALSE;
+user int blm_blood = 1;

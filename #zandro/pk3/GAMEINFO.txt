@@ -1,0 +1,3 @@
+STARTUPTYPE = "Hexen"
+STARTUPTITLE = "==> BlooM <=="
+STARTUPCOLORS = "00 00 00", "FF 00 00"

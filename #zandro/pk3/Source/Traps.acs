@@ -1,0 +1,55 @@
+#library "Traps"
+#include "zcommon.acs"
+
+Script "TrapsIwad" Enter
+{//Checks the doom iwad maps and add traps randomly
+	if ((GameType () != GAME_TITLE_MAP) && (GetCvar("blm_traps") == TRUE)) 
+	{
+		int numlevel = GetLevelInfo (LEVELINFO_LEVELNUM);
+		switch(numlevel)
+		{
+			case 1:
+				Switch(random(1,2))
+				{
+				Case 1:
+					spawn("TortureSpike1",32.0,1632.0,56.0);
+					spawn("TortureSpike2",32.0,1632.0,56.0);
+					spawn("TortureSpike1",344.0,1088.0,56.0);
+					spawn("TortureSpike2",344.0,1088.0,56.0);
+				Case 2:
+					spawn("TortureSpike1",-104.0,1472.0,56.0);
+					spawn("TortureSpike2",-104.0,1472.0,56.0);
+					spawn("TortureSpike1",424.0,1424.0,56.0);
+					spawn("TortureSpike2",424.0,1424.0,56.0);
+				break;	
+				Default:
+				}
+				spawn("Firetrap1",-124.0,1440.0,72.0,0,0); 
+				spawn("Firetrap1",444.0,1376.0,72.0,0,128);
+			case 2:
+				spawn("Firetrap1",1596.0,1240.0,-8.0,0,128);
+				spawn("Firetrap1",1476.0,1240.0,-8.0,0,0);
+			case 99: //TESTMAP2
+				Switch(random(1,2))
+				{
+				Case 1:
+					spawn("TortureSpike1",32.0,1632.0,56.0);
+					spawn("TortureSpike2",32.0,1632.0,56.0);
+					spawn("TortureSpike1",344.0,1088.0,56.0);
+					spawn("TortureSpike2",344.0,1088.0,56.0);
+				Case 2:
+					spawn("TortureSpike1",-104.0,1472.0,56.0);
+					spawn("TortureSpike2",-104.0,1472.0,56.0);
+					spawn("TortureSpike1",424.0,1424.0,56.0);
+					spawn("TortureSpike2",424.0,1424.0,56.0);
+				break;	
+				Default:
+				}
+				spawn("Firetrap1",-124.0,1440.0,72.0,0,0); 
+				spawn("Firetrap1",444.0,1376.0,72.0,0,128);				
+			break;
+			default:
+			break;				
+		}
+	}
+}

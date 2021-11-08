@@ -1,0 +1,1544 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81, IvanDobrovski/Cruduxy/Marinelol
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+ACTOR FrostPlasma
+{
+	Radius 13
+	Height 8
+	Speed 100
+	Damage 5
+	DamageType "Ice"
+	Projectile
+	+RANDOMIZE
+	RenderStyle Add
+	Alpha 0.75
+	SeeSound "king/iceshot"
+	DeathSound "king/icehit"
+	Obituary "$OB_FROST"
+	States
+	{
+	Spawn:
+		FROM C 0
+		FROM C 0 A_SpawnItemEx("FrostTrail")
+		FROM C 1 BRIGHT
+		FROM D 0 A_SpawnItemEx("FrostTrail")
+		FROM D 1 BRIGHT
+		Loop
+	Death:
+		FROM E 0
+		FROM E 0 A_Explode(8, 32)
+		FROM EFGHI 3 BRIGHT
+		Stop
+	}
+}
+
+ACTOR FrostTrail
+{
+	RenderStyle Translucent
+	Alpha 0.75
+	Scale 0.7
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+NOTELEPORT
+	States
+	{
+	Spawn:
+		FROM A 0
+		FROM A 1 A_SetTranslucent(0.70, 1)
+		FROM B 1 A_SetTranslucent(0.65, 1)
+		FROM A 1 A_SetTranslucent(0.60, 1)
+		FROM B 1 A_SetTranslucent(0.55, 1)
+		FROM A 1 A_SetTranslucent(0.50, 1)
+		FROM B 1 A_SetTranslucent(0.45, 1)
+		FROM A 1 A_SetTranslucent(0.40, 1)
+		FROM B 1 A_SetTranslucent(0.35, 1)
+		FROM A 1 A_SetTranslucent(0.20, 1)
+		FROM B 1 A_SetTranslucent(0.15, 1)
+		FROM A 1 A_SetTranslucent(0.10, 1)
+		FROM B 1 A_SetTranslucent(0.05, 1)
+		Stop
+	}
+}
+
+ACTOR CleaverTrail1
+{
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+RANDOMIZE
+	-SOLID
+	DamageType "Spiritual"
+	States
+	{
+	Spawn:
+		CLVR A 1 A_FadeOut(0.04)
+		Loop
+	}
+}
+
+ACTOR SpitTrail : CleaverTrail1
+{
+	Scale 0.8
+	-RANDOMIZE
+	DamageType "PoisonCloud"
+	States
+	{
+	Spawn:
+		SPIT A 1 A_FadeOut(0.04)
+		Loop
+	}
+}
+
+ACTOR CleaverTrail2 : CleaverTrail1
+{
+	States
+	{
+	Spawn:
+		CLVR B 1 A_FadeOut(0.04)
+		Loop
+	}
+}
+
+ACTOR CleaverTrail3 : CleaverTrail1
+{
+	States
+	{
+	Spawn:
+		CLVR C 1 A_FadeOut(0.04)
+		Loop
+	}
+}
+
+ACTOR CleaverTrail4 : CleaverTrail1
+{
+	States
+	{
+	Spawn:
+		CLVR D 1 A_FadeOut(0.04)
+		Loop
+	}
+}
+
+ACTOR CleaverTrail5 : CleaverTrail1
+{
+	States
+	{
+	Spawn:
+		CLVR E 1 A_FadeOut(0.04)
+		Loop
+	}
+}
+
+ACTOR CleaverTrail6 : CleaverTrail1
+{
+	States
+	{
+	Spawn:
+		CLVR F 1 A_FadeOut(0.04)
+		Loop
+	}
+}
+
+ACTOR CleaverTrail7 : CleaverTrail1
+{
+	States
+	{
+	Spawn:
+		CLVR G 1 A_FadeOut(0.04)
+		Loop
+	}
+}
+
+ACTOR CleaverTrail8 : CleaverTrail1
+{
+	States
+	{
+	Spawn:
+		CLVR H 1 A_FadeOut(0.04)
+		Loop
+	}
+}
+
+ACTOR Cleaver
+{
+	Radius 6
+	Height 16
+	Speed 8
+	Damage (8)
+	DamageType "Spiritual"
+	DeathSound "dspfwood"
+	PROJECTILE
+	+RANDOMIZE
+	+RIPPER
+	States
+	{
+	Spawn:
+		CLVR A 4 A_SpawnItem("CleaverTrail1")
+		CLVR B 4 A_SpawnItem("CleaverTrail2")
+		CLVR C 4 A_SpawnItem("CleaverTrail3")
+		CLVR D 4 A_SpawnItem("CleaverTrail4")
+		CLVR E 4 A_SpawnItem("CleaverTrail5")
+		CLVR F 4 A_SpawnItem("CleaverTrail6")
+		CLVR G 4 A_SpawnItem("CleaverTrail7")
+		CLVR H 4 A_SpawnItem("CleaverTrail8")
+		Loop
+	Death:
+		CLVR IIIIJJJJKKKKLLLL 1 A_FadeOut(0.05)
+		Stop
+	Crash:
+		CLVR II 1 A_PlaySoundEX("Butcher/Cleaver",2)
+		Goto Death
+	Death.Sky:
+		CLVR I 1
+		Stop
+	}
+}
+
+ACTOR SpiderSpit : Cleaver
+{
+	Radius 8
+	Height 8
+	Speed 28
+	Damage 6
+	DamageType "PoisonCloud"
+	PoisonDamage 20
+	+THRUSPECIES
+	-RANDOMIZE
+	-RIPPER
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		SPIT A 4 A_SpawnItem("SpitTrail")
+		Loop
+	Death:
+		SPIT AAAAAAAAAAAAAAAA 1 A_FadeOut(0.05)
+		Stop
+	Crash:
+		SPIT AA 1 A_PlaySoundEX("Spider/Spit",2)
+		Goto Death
+	}
+}
+
+ACTOR SpiderSpit2 : SpiderSpit
+{
+	Speed 20
+	Damage 3
+	Scale 0.8
+	PoisonDamage 10
+	States
+	{
+	XDeath:
+		"####" A 0 A_RadiusGive("PoisonIntensity", 48, RGF_PLAYERS | RGF_CUBE, 35)
+		"####" A 0 A_RadiusGive("PoisonStop", 48, RGF_PLAYERS | RGF_CUBE, 1)
+	Death:
+		SPIT AAAAAAAAAAAAAAAA 1 A_FadeOut(0.05)
+		Stop
+	}
+}
+
+ACTOR EWWW
+{
+	Height 2
+	Radius 2
+	Damage 0
+	Scale 0.2
+	Alpha 0.85
+	RenderStyle "Add"
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+LOWGRAVITY
+	-SOLID
+	States
+	{
+	Spawn:
+		BARF ABCDEFABCDEFABCDEF 3 LIGHT("GGLOW2")
+	Death:
+		BARF AAAA 4 A_FadeOut(0.25)
+		Stop
+	}
+}
+
+ACTOR ButcherVomit
+{
+	Height 8
+	Radius 8
+	Damage (frandom(16,40))
+	Speed 18
+	Scale 0.4
+	PROJECTILE
+	ReactionTime 3
+	Alpha 0.85
+	RenderStyle "Add"
+	States
+	{
+	Spawn:
+		BARF AB 3 LIGHT("GGLOW") A_SetAngle(angle+frandom(-5,5))
+		BARF AA 0 A_SpawnItemEx("EWWW",frandom(-2,2),frandom(-2,2),frandom(-3,3),frandom(-2,2),frandom(-2,2),frandom(-2,2))
+		BARF CDEF 3 LIGHT("GGLOW") A_SetAngle(angle+frandom(-5,5))
+		BARF AA 0 A_SpawnItemEx("EWWW",frandom(-2,2),frandom(-2,2),frandom(-3,3),frandom(-2,2),frandom(-2,2),frandom(-2,2))
+		BARF EF 3 LIGHT("GGLOW") A_SetAngle(angle+frandom(-5,5))
+		BARF AA 0 A_SpawnItemEx("EWWW",frandom(-2,2),frandom(-2,2),frandom(-3,3),frandom(-2,2),frandom(-2,2),frandom(-2,2))
+		Loop
+	Death:
+		TNT1 A 1 A_PlaySound("Butcher/Wall")
+		Stop
+	Crash:
+		TNT1 A 0 A_PlaySound("Butcher/Wall")
+		Stop
+	Death.Sky:
+		TNT1 A 1 //no sound
+		Stop
+	}
+}
+
+ACTOR ButcherBarfSplash : CleaverTrail1
+{
+	Scale 0.5
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Animate1","Animate2","Animate3")
+	Animate1:
+		XWCD ABCDE 3
+		XWCD E 0 A_SpawnDebris("FlyingAcidrop")
+		Stop
+	Animate2:
+		XWCD ABCDE 3
+		XWCD E 0 A_SpawnDebris("FlyingAcidrop")
+		Stop
+	Animate3:
+		XWCD ABCDE 3
+		XWCD E 0 A_SpawnDebris("FlyingAcidrop")
+		Stop
+	}
+}
+
+ACTOR Blower
+{
+	Speed 0
+	Gravity 10
+	Alpha .35
+	DamageType "Blast"	// players are affected less
+	RenderStyle "None"
+	PROJECTILE
+	+BLOODLESSIMPACT
+	+DONTSPLASH
+	+FLOORHUGGER
+	+NOBLOCKMAP
+	+RIPPER
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		MISL A 0 A_AlertMonsters
+		TNT1 A 1
+		MISL A 0 A_Explode(96,160,1)
+		TNT1 A 1 A_Explode(96,140,1)
+		TNT1 A 1 A_Explode(96,96,1)
+		MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
+	Damage:
+		MISL A 1 A_Explode(2,768*alpha,1)
+		MISL A 0 A_FadeOut(.01)
+		Goto Damage
+	}
+}
+
+ACTOR Blower2 : Blower
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		MISL A 0 A_AlertMonsters
+		MISL A 0 A_Explode(128,128,1)
+		TNT1 A 1 A_Explode(60,128,1)
+		TNT1 A 1 A_Explode(60,128,1)
+		MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
+	Damage:
+		MISL A 1 A_Explode(2,768*alpha,1)
+		MISL A 0 A_FadeOut(.01)
+		Goto Damage
+	}
+}
+
+ACTOR VBlower : Blower
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		MISL A 0 A_AlertMonsters
+		TNT1 A 1
+		MISL A 0 //A_Explode(96,160,1)
+		TNT1 A 1 //A_Explode(96,140,1)
+		TNT1 A 1 //A_Explode(96,96,1)
+		MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
+	Damage:
+		MISL A 1 A_FadeOut(.01)
+		Goto Damage
+	}
+}
+
+ACTOR VBlower2 : Blower
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		MISL A 0 A_AlertMonsters
+		MISL A 0 //A_Explode(128,128,1)
+		TNT1 A 1 //A_Explode(60,128,1)
+		TNT1 A 1 //A_Explode(60,128,1)
+		MISL A 0 A_ChangeFlag("EXTREMEDEATH",0)
+	Damage:
+		MISL A 1 //A_Explode(2,768*alpha,1)
+		MISL A 0 A_FadeOut(.01)
+		Goto Damage
+	}
+}
+
+ACTOR BFireTrail : BulletPuff
+{
+	Radius 13
+	Height 8
+	RenderStyle "Add"
+	Scale 0.3
+	Alpha 0.9
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+RANDOMIZE
+	+WINDTHRUST
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		SFIR ABCDEFGH 4 BRIGHT A_Recoil(random(-1,1))
+		Stop
+	}
+}
+
+ACTOR BFireTrail2 : BFireTrail
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		SFIR IJKLMNOP 4 BRIGHT A_Recoil(random(-1,1))
+		Stop
+	}
+}
+
+ACTOR BurningAlive
+{
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+RANDOMIZE
+	States
+	{
+	Spawn :
+		TNT1 AAAAAAAAAA 2 A_SpawnItemEx("BFireTrail",Random(-35,35),random(-30,60),random(0,60),0,0,random(0,3))
+		Stop
+	}
+}
+
+ACTOR TFireTrail : BFireTrail
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TFIR ABCDEFGH 4 BRIGHT
+		Stop
+	}
+}
+
+ACTOR TFireTrail2 : BFireTrail
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TFIR IJKLMNOP 4 BRIGHT
+		Stop
+	}
+}
+
+ACTOR BSmokeTrail
+{
+	Radius 13
+	Height 8
+	RenderStyle "Translucent"
+	Alpha 0.30
+	Scale 0.1
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+RANDOMIZE
+	+WINDTHRUST
+	States
+	{
+	Spawn:
+		NSMK A 0 A_Jump(128,24)
+		NSMK GGGGHHHHIIIIJJJJKKKKLLLL 1 A_FadeOut(0.01)
+		Stop
+		NSMK AAAABBBBCCCCDDDDEEEEFFFF 1 A_FadeOut(0.01)
+		Stop
+	}
+}
+
+ACTOR TeslaProjectile : FastProjectile
+{
+	Speed 72
+	Radius 8
+	Height 8
+	RenderStyle "Add"
+	Damage (random(24,32))
+	DamageType "Shock"
+	PROJECTILE
+	+BLOODLESSIMPACT //No more insane blood on wall
+	+FOILINVUL
+	+THRUGHOST
+	Obituary "$OB_TESL"
+	States
+	{
+	Spawn:
+		TESP AAAAAAA 1 BRIGHT A_Fadeout(0.16)
+		TESP A 0 A_PlaySound("weap/tsla/see",0)
+		TESP AAAAAAA 1 BRIGHT A_FadeIn(0.16)
+		TESP A 0 A_PlaySound("weap/tsla/see",0)
+		Loop
+	Death:
+		TNT1 A 0 A_Explode(random(3,6), 24, 0)
+		TNT1 A 0 A_SpawnItem("BoltShrink1")
+		TNT1 A 0 A_PlaySound("TESLFIR",0)
+		TNT1 AAAAA 0 A_SpawnItemEx("TeslaFX", random(-8,8), random(-8,8), random(0,3), random(-12,12), random(-12,12), random(0,3))
+		Stop
+	}
+}
+
+ACTOR CultistTesla : TeslaProjectile
+{
+	Speed 60
+	Scale 0.8
+	Damage(random(5,12))
+	-FOILINVUL
+}
+
+ACTOR BGargBone
+{
+	Scale 0.58
+	Radius 6
+	Height 8
+	Speed 10
+	Gravity 1.5
+	Damage (random(20,25))
+	DamageType "Spiritual"
+	SeeSound "GargoyleMelee"
+	PROJECTILE
+	+DONTSPLASH
+	+NOGRAVITY
+	+RANDOMIZE
+	-SOLID
+	States
+	{
+	Spawn:
+		BONE ABCD 4
+		Loop
+	Death:
+		BONE E 0 A_UnSetSolid
+		BONE E 6 A_Recoil(-12)
+		BONE E 6 A_Explode(7,20,0)
+		BONE F 6 A_Explode(7,20,0)
+		BONE F 6 A_Explode(7,20,0)
+		BONE G 9 A_Explode(7,20,0)
+		BONE G 6 A_Explode(7,20,0)
+		Stop
+	Death.Sky:
+		BONE E 1
+		Stop
+	}
+}
+
+ACTOR Kaboom : BulletPuff
+{
+	Radius 32
+	Height 50
+	RenderStyle "Add"
+	Alpha 0.45
+	+DONTSPLASH
+	+NOGRAVITY
+	+RANDOMIZE
+	States
+	{
+	Spawn:
+		MISL B 0
+		Goto See
+	See:
+		MISL B 0 Radius_Quake(2,8,0,16,0)
+		MISL B 0 A_JumpIf(waterlevel>2,"Vapor")
+		MISL B 0 A_SpawnItemEx("KaboomDouble",0,0,0,momx,momy,momz,0,SXF_NOCHECKPOSITION)
+		Goto Death
+	Vapor:
+		MISL AAAAAA 0 A_SpawnItemEx("SmokeTrailIn4OutSlow",0,0,0,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+	Death:
+		MISL BBBBB 0 A_CustomMissile("NapalmDebris", 0, 0, random[Puffs](0,360), 2, random[Puffs](-90,90))
+		MISL B 0 A_SpawnDebris ("NapalmDebris")
+		MISL B 0 A_Jump(128,"AltDeath")
+		MISL BCD 3 BRIGHT
+		MISL D 0 Radius_Quake (1,10,0,16,0)
+		MISL A 0 A_JumpIf(waterlevel>2,"DeathVapor")
+		MISL EFGHI 3 BRIGHT
+		MISL JKL 2 BRIGHT
+		MISL MN 2 BRIGHT
+		Stop
+	DeathVapor:
+		MISL EFGHI 3 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",0,0,0,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		MISL JKL 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		MISL MN 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		Stop
+	AltDeath:
+		MISL OPQ 3 BRIGHT
+		MISL Q 0 BRIGHT Radius_Quake (1,10,0,16,0)
+		MISL A 0 A_JumpIf(waterlevel>2,"AltDeathVapor")
+		MISL RSTUV 3 BRIGHT
+		MISL WXY 2 BRIGHT
+		MISL "Z[" 2 BRIGHT
+		Stop
+	AltDeathVapor:
+		MISL RSTUV 3 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",0,0,0,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		MISL WXY 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		MISL "Z[" 2 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		Stop
+	}
+}
+
+ACTOR BigFireTrail
+{
+	Radius 13
+	Height 8
+	XScale 0.45
+	YScale 0.3
+	RenderStyle "Add"
+	Alpha 0.9
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+RANDOMIZE
+	+WINDTHRUST
+	States
+	{
+	Spawn:
+		TEX2 KL 2 BRIGHT A_Recoil(Random(-1,1))
+		Stop
+	}
+}
+
+ACTOR TchernobogKaboom
+{
+	Radius 32
+	Height 50
+	RenderStyle "Add"
+	Alpha 0.75
+	+DONTSPLASH
+	+NOGRAVITY
+	+RANDOMIZE
+	States
+	{
+	Spawn:
+	See:
+		TNT1 A 0 Radius_Quake(2,8,0,16,0)
+		TEX2 ABC 3 BRIGHT
+		TNT1 A 0 Radius_Quake(1,10,0,16,0)
+		TEX2 DEFG 3 BRIGHT
+		TEX2 HIJ 2 BRIGHT
+		TEX2 KL 2 BRIGHT
+		Stop
+	}
+}
+
+ACTOR KaboomDouble : Kaboom
+{
+	States
+	{
+	Spawn:
+		MISL A 0
+		MISL B 0 A_Jump(128,"AltDeath")
+		MISL BCD 1 BRIGHT
+		MISL E 2 BRIGHT A_JumpIf(waterlevel>2,"DeathVapor")
+		MISL FGHI 2 BRIGHT
+		MISL JKL 2 BRIGHT
+		MISL MN 2 BRIGHT
+		Stop
+	DeathVapor:
+		MISL EFGHI 1 BRIGHT
+		MISL JKL 1 BRIGHT
+		MISL MN 1 BRIGHT
+		Stop
+	AltDeath:
+		MISL OPQ 2 BRIGHT
+		MISL R 2 BRIGHT A_JumpIf(waterlevel>2,"AltDeathVapor")
+		MISL STUV 2 BRIGHT
+		MISL WXY 2 BRIGHT
+		MISL "Z[" 2 BRIGHT
+		Stop
+	AltDeathVapor:
+		MISL RSTUV 1 BRIGHT
+		MISL WXY 1 BRIGHT
+		MISL "Z[" 1 BRIGHT
+		Stop
+	}
+}
+
+ACTOR FloorKaboom //Why did it have a blocking area.. it isn't even a tangible thing. All that did was make tnt damage luck based.
+{
+	Radius 0
+	Height 0
+	RenderStyle "Add"
+	Alpha 0.45
+	PROJECTILE
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+RANDOMIZE
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+		MISL B 0
+		DEXP A 0 A_SpawnItemEx ("FloorKaboomDouble",0,0,0,momx,momy,momz,0,SXF_NOCHECKPOSITION)
+		Goto Death
+	Death:
+		DEXP A 0 Radius_Quake(2,7,0,16,0)
+		DEXP A 0 A_SpawnDebris ("NapalmDebris")
+		DEXP A 0 A_Jump(128,"AltDeath")
+		DEXP ABC 2 BRIGHT
+		DEXP D 0 Radius_Quake (1,10,0,16,0)
+		MISL A 0 A_JumpIf(waterlevel>2,"DeathVapor")
+		DEXP DEFGHI 3 BRIGHT
+		DEXP JKLM 2 BRIGHT
+		Stop
+	DeathVapor:
+		DEXP DEFGHI 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		DEXP JKLM 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		Stop
+	AltDeath:
+		DEXP NOP 2 BRIGHT
+		DEXP P 0 Radius_Quake (1,10,0,16,0)
+		MISL A 0 A_JumpIf(waterlevel>2,"AltDeathVapor")
+		DEXP QRSTU 3 BRIGHT
+		DEXP VWXYZ 2 BRIGHT
+		Stop
+	AltDeathVapor:
+		DEXP DEFGHI 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-10,10),random[Puffs](-10,10),15,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		DEXP JKLM 1 BRIGHT A_SpawnItemEx("SmokeTrailIn4OutSlow",random[Puffs](-20,20),random[Puffs](-20,20),30,random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](random[Puffs](-4,0),random[Puffs](0,4)),random[Puffs](2,4))
+		Stop
+	Death.Sky:
+		DEXP A 1
+		Stop
+	}
+}
+
+ACTOR FloorKaboomDouble : FloorKaboom
+{
+	States
+	{
+	Spawn:
+		MISL B 0
+		DEXP A 0 A_Jump(128,"AltDeath")
+		DEXP ABC 1 BRIGHT
+		MISL A 0 A_JumpIf(waterlevel>2,"DeathVapor")
+		DEXP DEFGHI 2 BRIGHT
+		DEXP JKLM 2 BRIGHT
+		Stop
+	DeathVapor:
+		DEXP DEFGHI 1 BRIGHT
+		DEXP JKLM 1 BRIGHT
+		Stop
+	AltDeath:
+		DEXP NOP 1 BRIGHT
+		MISL A 0 A_JumpIf(waterlevel>2,"AltDeathVapor")
+		DEXP QRSTU 2 BRIGHT
+		DEXP VWXYZ 2 BRIGHT
+		Stop
+	AltDeathVapor:
+		DEXP DEFGHI 1 BRIGHT
+		DEXP JKLM 1 BRIGHT
+		Stop
+	}
+}
+
+ACTOR TNTExplo : FloorKaboom
+{
+	Scale 0.6
+	States
+	{
+	Spawn:
+		MISL B 0
+		DEXP A 0 A_SpawnItemEx ("TNTExploDouble",0,0,0,momx,momy,momz,0,SXF_NOCHECKPOSITION)
+		Goto Super::Death
+	}
+}
+
+ACTOR TNTExploDouble : FloorKaboomDouble { Scale 0.5 }
+
+ACTOR GargoyleBlastLight
+{
+	Radius 8
+	Height 8
+	Scale 0.5
+	+NOGRAVITY
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+		OMG2 A 4
+		OMG2 A 1
+		Stop
+	}
+}
+
+ACTOR GargoyleBallLight : GargoyleBlastLight { }
+
+ACTOR StoneGargBall
+{
+	Radius 6
+	Height 8
+	Speed 56
+	Scale 0.65
+	Damage (random(18,28))
+	DamageType "GOUPBOY"
+	DamageType "Spiritual"
+	RenderStyle "Add"
+	Alpha 0.9
+	PROJECTILE
+	+RANDOMIZE
+	+SEEKERMISSILE
+	+THRUGHOST
+	DeathSound "SARGFX"
+	States
+	{
+	Spawn:
+		EYEB AA 1 BRIGHT A_PlaySound("SARGBLST",0)
+		EYEB AA 1 BRIGHT A_SeekerMissile(10,10)
+		EYEB ABCD 1 BRIGHT A_SpawnItemEx("GargoyleBallLight")
+		Goto Spawn+4
+	Death:
+		BAL2 E 0 A_RadiusThrust(600,270,0)
+		BAL2 EEEEEEEEEEEEEEEEEE 0 A_CustomMissile("StoneGargFX", 0, 0, random(0,360), 2, random(-90,90))
+		BAL2 A 0 A_SpawnItemEx("GargoyleBlastLight")
+		BAL2 EFG 0 BRIGHT A_SCREAM
+		BAL2 HI 0 BRIGHT
+		Stop
+	Death.Sky:
+		BAL2 E 1
+		Stop
+	}
+}
+
+ACTOR PhantasmProjectile
+{
+	Radius 6
+	Height 8
+	Speed 16
+	Scale 0.65
+	Damage (random(9,15))
+	DamageType "Spiritual"
+	RenderStyle "Add"
+	Alpha 0.78
+	PROJECTILE
+	+RANDOMIZE
+	+SEEKERMISSILE
+	SeeSound "PhantasmMissile"
+	States
+	{
+	Spawn:
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM B 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 0 A_PlaySound("SKULAIR")
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM B 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 0 A_PlaySound("SKULAIR")
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM B 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 0 A_PlaySound("SKULAIR")
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM B 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 0 A_PlaySound("SKULAIR")
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM B 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM A 3 A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM E 2 BRIGHT A_SpawnItem("PhantasmTrail")
+		PHAM A 0 A_Explode(random(12,30),50,0)
+		PHAM D 0 A_PlaySound("SKULAIR")
+	Death:
+		PHAM D 0
+		Stop
+	}
+}
+
+ACTOR PhantasmTrail
+{
+	Height 1
+	Radius 1
+	Speed 0
+	Scale 0.65
+	RenderStyle "Add"
+	Alpha 0.5
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		PHAM ABCDE 3 A_Fadeout(0.08)
+		Stop
+	}
+}
+
+ACTOR PhantasmLauncher : PhantasmProjectile
+{
+	States
+	{
+	Spawn:
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TCHN M 1 A_SpawnItemEx("PhantasmProjectile",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 60 A_Quake(6,60,0,800)
+		Stop
+	}
+}
+
+ACTOR GrayCircle
+{
+	Scale 0.9
+	RenderStyle "Add"
+	Alpha 1
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		GBAL FFFFGGGGHHHHIIII 1 A_FadeOut(.0333)
+		Stop
+	}
+}
+
+ACTOR SprayCanFire
+{
+	SpawnId 51
+	Radius 13
+	Height 8
+	Speed 12
+	Scale 0.2
+	Damage (random(2,4))
+	DamageType "Fire"
+	RenderStyle "Add"
+	Alpha 0.9
+	PROJECTILE
+	+BLOODLESSIMPACT
+	+CANNOTPUSH
+	+NODAMAGETHRUST
+	+RANDOMIZE
+	+RIPPER
+	States
+	{
+	Spawn:
+		NSMK G 0 A_Jump(128,6)
+		SPFI AABBCCDD 1 BRIGHT A_SpawnItem ("BFireTrail",8+random(-7,7),8+random(-7,7),0,0)
+		TNT1 A 0 ThrustThingZ(0, 4, 0, 1)
+		SPFI EFGHI 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-7,7),0,0)
+		Goto Death
+		SPFI ABCD 2 A_SpawnItem ("BFireTrail",8+random(-5,5),8+random(-7,7),0,0)
+		TNT1 A 0 ThrustThingZ(0, 4, 0, 1)
+		SPFI EF 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-5,5),0,0)
+		Goto Death
+		NSMK G 0
+		Goto XDeath
+	Death:
+		NSMK A 0 A_Jump(128,15)
+		SPFI GHI 2 BRIGHT A_SpawnItem ("BFireTrail",8+random(-5,5),8+random(-5,5),0,0)
+		SFIR ABCDEFGH 2 BRIGHT
+		Stop
+		SPFI GHI 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-5,5),0,0)
+		SFIR IJKLMNOP 2 BRIGHT
+		Stop
+	Death.Sky:
+	XDeath:
+		FTRL H 0 BRIGHT
+		Stop
+	}
+}
+
+ACTOR FlamethrowFire : SprayCanFire
+{
+	Speed 14
+	Scale 0.1
+	DeathSound "Flamethrower/Hit"
+	States
+	{
+	Spawn:
+		NSMK G 0 A_PlaySound("flamethrower/Flame")
+		NSMK G 0 A_Jump(128,6)
+		SPFI AABBCCDD 1 BRIGHT A_SpawnItem ("BFireTrail",8+random(-7,7),8+random(-7,7),0,0)
+		TNT1 A 0 ThrustThingZ(0, 4, 0, 1)
+		SPFI EFGHI 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-7,7),0,0)
+		Goto Death
+		SPFI A 0 A_PlaySound("flamethrower/Flame")
+		SPFI ABCD 2 A_SpawnItem ("BFireTrail",8+random(-5,5),8+random(-7,7),0,0)
+		TNT1 A 0 ThrustThingZ(0, 4, 0, 1)
+		SPFI EF 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-5,5),0,0)
+		Goto Death
+		NSMK G 0
+		Goto XDeath
+	Death:
+		NSMK A 0 A_Scream
+		NSMK A 0 A_Jump(128,15)
+		SPFI GHI 2 BRIGHT A_SpawnItem ("BFireTrail",8+random(-5,5),8+random(-5,5),0,0)
+		SFIR ABCDEFGH 2 BRIGHT
+		Stop
+		SPFI GHI 2 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-5,5),0,0)
+		SFIR IJKLMNOP 2 BRIGHT
+		Stop
+	XDeath:
+		FTRL H 0 A_Scream
+		FTRL H 0 BRIGHT
+		Stop
+	}
+}
+
+ACTOR HellHoundFire : SprayCanFire
+{
+	Speed 14
+	Damage (3)
+	DamageType "SpecialFire"
+	-RIPPER
+	SeeSound ""
+	DeathSound ""
+	States
+	{
+	Spawn:
+		SPFI AB 1 BRIGHT A_SpawnItem ("BFireTrail",8+random(-5,5),8+random(-5,5),0,0)
+		SPFI CD 1 BRIGHT
+		SPFI EF 1 BRIGHT A_SpawnItem ("BFireTrail2",8+random(-5,5),8+random(-5,5),0,0)
+		SPFI GH 1
+		Goto Death
+	}
+}
+
+ACTOR StoneGargBall2 : StoneGargBall
+{
+	Damage (random(16,24))
+	States
+	{
+	Spawn:
+		EYEB ABCD 1 BRIGHT A_SpawnItemEx("GargoyleBallLight")
+		Loop
+	Death:
+		BAL2 E 0 A_RadiusThrust(40,100,0)
+		BAL2 EEEEEEEEEEEEEEEEEE 0 A_CustomMissile("StoneGargFX", 0, 0, random(0,360), 2, random(-90,90))
+		BAL2 A 0 A_SpawnItemEx("GargoyleBlastLight")
+		TNT1 A 0 A_Explode(9, 24, 0)
+		BAL2 EFG 0 BRIGHT A_SCREAM
+		BAL2 HI 0 BRIGHT
+		Stop
+	}
+}
+
+ACTOR StoneGargFX
+{
+	Health 5
+	Radius 1
+	Height 1
+	Speed 10
+	Scale 0.2
+	RenderStyle "Add"
+	PROJECTILE
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+RANDOMIZE
+	+WINDTHRUST
+	-NOGRAVITY
+	-SOLID
+	States
+	{
+	Spawn:
+		EYEP A 0 BRIGHT
+		EYEP A 10 BRIGHT
+		EYEP A 200 BRIGHT A_LowGravity
+		Stop
+		EYEP B 10 BRIGHT
+		EYEP B 200 BRIGHT A_LowGravity
+		Stop
+		EYEP C 10 BRIGHT
+		EYEP C 200 BRIGHT A_LowGravity
+		Stop
+		EYEP D 10 BRIGHT
+		EYEP D 200 BRIGHT A_LowGravity
+		Stop
+		EYEP E 10 BRIGHT
+		EYEP E 200 BRIGHT A_LowGravity
+		Stop
+		EYEP F 10 BRIGHT
+		EYEP F 200 BRIGHT A_LowGravity
+		Stop
+	Death:
+		EYEP F 5 A_FadeOut(0.1)
+		Loop
+	Death.Sky:
+		EYEP F 1
+		Stop
+	}
+}
+
+ACTOR BloodFire : ArchvileFire
+{
+	Alpha 0.0
+	RenderStyle "Add"
+	+ACTIVATEMCROSS
+	+CANPASS
+	+CANPUSHWALLS
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		FIRE A 0 A_FireCrackle
+		FIRE A 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeIn(0.18)
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE B 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeIn(0.18)
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE C 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeIn(0.18)
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE D 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeIn (0.18)
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE E 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE F 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE G 2 BRIGHT A_Fire
+		FIRE A 0 A_FireCrackle
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE A 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE B 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE C 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE D 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE E 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE F 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE G 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE A 2 BRIGHT A_Fire
+		FIRE A 0 A_FireCrackle
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE B 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE C 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE D 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE E 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE F 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE G 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE A 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE B 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE C 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE D 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE E 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE F 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeOut(0.18)
+		FIRE A 0 A_StartFire
+		FIRE AAAA 0 BRIGHT A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-25,25),0,0)
+		FIRE G 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeOut(0.18)
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE A 2 BRIGHT A_Fire
+		FIRE A 0 A_FadeOut(0.18)
+		FIRE AAAA 0 BRIGHT A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE B 2 BRIGHT A_Fire
+		FIRE AAAA 0 A_SpawnItem ("BFireTrail",1+random(-25,25),38+random(-5,5),0,0)
+		FIRE A 0 A_FadeOut(0.18)
+		Stop
+	}
+}
+
+ACTOR SmokeTrail
+{
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+NOINTERACTION
+	RenderStyle "Add"
+	States
+	{
+	Spawn:
+		SMOK ABCDEFGHIJKLMNOPQ 1
+		Stop
+	}
+}
+
+ACTOR SmokeTrailSmall : SmokeTrail {Scale .25}
+
+ACTOR SmokeTrailSlow : SmokeTrail
+{
+	States
+	{
+	Spawn:
+		SMOK ABCDEFGH 2
+		SMOK IJKLMNOPQ 1
+		Stop
+	}
+}
+
+ACTOR SmokeTrailIn4OutSlow : SmokeTrail
+{
+	VSpeed 1
+	Alpha 0
+	States
+	{
+	Spawn:
+		SMOK A 0
+		SMOK A 1 A_SetTranslucent(.125,1)
+		SMOK A 1 A_SetTranslucent(.25,1)
+		SMOK B 1 A_SetTranslucent(.375,1)
+		SMOK B 1 A_SetTranslucent(.5,1)
+		SMOK C 1 A_SetTranslucent(.625,1)
+		SMOK C 1 A_SetTranslucent(.75,1)
+		SMOK D 1 A_SetTranslucent(.875,1)
+		SMOK D 1 A_SetTranslucent(1,1)
+		SMOK EFGH 2
+		SMOK IJKLMNOPQ 1
+		Stop
+	}
+}
+
+ACTOR SmokeTrailVerySlow : SmokeTrail
+{
+	States
+	{
+	Spawn:
+		SMOK ABC 3
+		SMOK DEFGHIJKLMNOPQ 2
+		Stop
+	}
+}
+
+ACTOR SmokeTrailSmallSlow : SmokeTrailSlow {Scale .25}
+ACTOR SmokeTrailTiny : SmokeTrail {Scale .125}
+ACTOR SmokeTrailTinySlow : SmokeTrailSlow {Scale .125}
+
+ACTOR KingFX1 : IceGuyFX
+{
+	DeathSound "king/icehit"
+	Speed 30
+	States
+	{
+	Spawn:
+		ICPR ABC 3 Bright LIGHT("KINGICE") A_SpawnItemEx("KingFXPuff", 0, 0, 2)
+		Loop
+	}
+}
+
+ACTOR KingFX2 : KingFX1 { Speed 40 }
+ACTOR KingFX3 : KingFX1 { Speed 50 }
+ACTOR KingFX4 : KingFX1 { Speed 60 }
+ACTOR DeepFX1 : KingFX1 { Speed 10 }
+ACTOR BrambleFX : KingFX1 { Speed 6 Scale 0.85 Species "Bramble" +THRUSPECIES}
+ACTOR IcePodFX : KingFX1 { Speed 20 Species "Bramble" +THRUSPECIES}
+
+ACTOR KingFXPuff : IceFXPuff {} //nothing new defined yet
+
+ACTOR KingTornado
+{
+	Height 4
+	Speed 50
+	Radius 50
+	Height 16
+	PROJECTILE
+	+RANDOMIZE
+	+SEEKERMISSILE
+	States
+	{
+	Spawn:
+		TNT1 AAAAAAAAAAAA 1 A_RadiusThrust(256,1024,RTF_NOIMPACTDAMAGE)
+		Stop
+	}
+}
+
+ACTOR FatDog
+{
+	Radius 6
+	Height 8
+	Speed 20
+	Damage 8
+	Projectile
+	+RANDOMIZE
+	RenderStyle Add
+	Alpha 1
+	SeeSound "fatso/attack"
+	DeathSound "fatso/shotx"
+	States
+	{
+	Spawn:
+		MHOU AB 4
+		Loop
+	Death:
+		MEL2 C 8
+		MEL2 D 6
+		MEL2 E 4
+		Stop
+	}
+}
+
+ACTOR FatFish
+{
+	Radius 6
+	Height 8
+	Speed 20
+	Damage 8
+	Projectile
+	+RANDOMIZE
+	SeeSound "fatso/attack"
+	DeathSound "fatso/shotx"
+	States
+	{
+	Spawn:
+		MELF AB 4
+		Loop
+	Death:
+		MEL2 C 8
+		MEL2 D 6
+		MEL2 E 4
+		Stop
+	}
+}
+
+ACTOR MiniFatFish : FatFish
+{
+	Radius 4
+	Height 4
+	Speed 24
+	Damage 4
+	Scale 0.65
+}
+
+ACTOR SonicBeam
+{
+	Radius 20
+	Height 20
+	Speed 40
+	Damage 20
+	RenderStyle Add
+	Alpha 1
+	DeathSound "weapons/bfgx"
+	Projectile
+	+BRIGHT
+	+RIPPER
+	States
+	{
+	Spawn:
+		SONB ABCDEFGHIJKLMNOP 8
+		Loop
+	Death:
+		KAXP B 2 A_Quake(4,12,0,400)
+		KAXP B 1 A_Explode(70,400,0)
+		KAXP CDEFGHIJKLM 3 A_Quake(2,12,0,800)
+		Stop
+	}
+}
+
+ACTOR BeamFlash : CustomInventory
+{
+	+INVENTORY.QUIET
+	+INVENTORY.UNDROPPABLE
+	+INVENTORY.ALWAYSPICKUP
+	+INVENTORY.AUTOACTIVATE
+	+COUNTITEM
+	Inventory.Amount 1
+	Inventory.MaxAmount 0
+	States
+	{
+	Pickup:
+		TNT1 A 1 A_SetBlend("green",1,100)
+		Stop
+	}
+}
+
+ACTOR PowerWeb : PowerSpeed {Powerup.Duration -4 Speed 0.33}
+ACTOR Entanglement : PowerupGiver {+INVENTORY.AUTOACTIVATE +INVENTORY.ADDITIVETIME -INVENTORY.INVBAR Powerup.Type "Web"}
+
+ACTOR ShialWeb : FastProjectile
+{
+	Radius 8
+	Height 8
+	Speed 32
+	Scale 1.1
+	Projectile
+	Damage (random(5,8))
+	DamageType "Web"
+	SeeSound "ShialWeb" //requires sound
+	Renderstyle "Add"
+	Alpha 0.9
+	+BLOODSPLATTER
+	+FORCERADIUSDMG
+	+SEEKERMISSILE
+	+THRUSPECIES
+	Species "Spiders"
+	States
+	{
+	Spawn:
+	See:
+		WEBD A 1 A_SpawnItemEx("WebTrail")
+		"####" "#" 0 A_SeekerMissile(1, 3)
+		Loop
+	XDeath:
+		WEBX A 0 A_PlaySound("WebHit") //requires sound
+		"####" A 0 A_RadiusGive("Entanglement", 48, RGF_PLAYERS | RGF_CUBE, 1)
+	Death:
+		WEBX ABCDEFGHIJKLMA 1 A_FadeOut(0.1)
+		Stop
+	Death.Sky:
+		WEBX "#" 1
+		Stop
+	}
+}
+
+ACTOR WebTrail
+{
+	Radius 8
+	Height 8
+	Renderstyle "Add"
+	Alpha 0.7
+	+NOINTERACTION
+	+THRUSPECIES
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		WEBT AABBCDEFG 1
+		Stop
+	}
+}

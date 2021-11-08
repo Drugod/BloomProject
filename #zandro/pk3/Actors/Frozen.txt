@@ -1,0 +1,1009 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+ACTOR CongealedBase //scaling still needs to be fixed - ozy81
+{
+	//$Category "BlooM Frozen Stuff"
+	//$Color 18
+	Health 2
+	Mass 0x7ffffff
+	+DONTCORPSE
+	+NOBLOOD
+	+NOTELESTOMP
+	+SOLID
+	+SHOOTABLE
+	States
+	{
+	Death:
+		"####" "#" 10 A_FreezeDeathChunks
+		Stop
+	XDeath:
+		"####" "#" 5 A_IceGuyDie
+		Stop
+	}
+}
+
+ACTOR CongealedBody1 : CongealedBase 23700
+{
+	//$Title Congealed Butcher
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FBUT O -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody2 : CongealedBase 23701
+{
+	//$Title Congealed Cultist
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FCUL G -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody3 : CongealedBase 23702
+{
+	//$Title Congealed Beast
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FESP A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody4 : CongealedBase 23703
+{
+	//$Title Congealed Gargoyle
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FGAR J -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody5 : CongealedBase 23704
+{
+	//$Title Congealed Ghost
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FHAF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody6 : CongealedBase 23705
+{
+	//$Title Congealed GillBeast
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FILF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody7 : CongealedBase 23706
+{
+	//$Title Congealed Spider
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FKUF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody8 : CongealedBase 23707
+{
+	//$Title Congealed Moron
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FORF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody9 : CongealedBase 23708
+{
+	//$Title Congealed Hell Hound
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FOUF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody10 : CongealedBase 23709
+{
+	//$Title Congealed Pod
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FPOF A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody11 : CongealedBase 23710
+{
+	//$Title Congealed Pod Tendril A
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FVIF A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody12 : CongealedBase 23711
+{
+	//$Title Congealed Pod Tendril B
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FVIF B -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody13 : CongealedBase 23712
+{
+	//$Title Congealed Zombie
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FZOM H -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody14 : CongealedBase 23713
+{
+	//$Title Congealed Rat
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FRAT R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody15 : CongealedBase 23714
+{
+	//$Title Congealed Gargovile
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		ARCF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody16 : CongealedBase 23715
+{
+	//$Title Congealed Arachnoid
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		ARND R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody17 : CongealedBase 23716
+{
+	//$Title Congealed ArchZombie Headless
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		ARZF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody18 : CongealedBase 23717
+{
+	//$Title Congealed ArchZombie
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		ARZF Z -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody19 : CongealedBase 23718
+{
+	//$Title Congealed Moron with Barrel A
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		BAFM A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody20 : CongealedBase 23719
+{
+	//$Title Congealed Moron with Barrel B
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		BAFN A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody21 : CongealedBase 23720
+{
+	//$Title Congealed Moron with Barrel C
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		BAFP A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody22 : CongealedBase 23721
+{
+	//$Title Congealed Moron with Barrel D
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		BAFQ A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody23 : CongealedBase 23722
+{
+	//$Title Congealed Werewolf of Hell
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		BOSF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody24 : CongealedBase 23723
+{
+	//$Title Congealed Werewolf of Hell Alt
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FAUF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody25 : CongealedBase 23724
+{
+	//$Title Congealed Fanatic Chaingunner
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FCOF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody26 : CongealedBase 23725
+{
+	//$Title Congealed Fanatic Chaingunner Alt
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		BUOF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody27 : CongealedBase 23726
+{
+	//$Title Congealed CvltImp
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		CIOF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody28 : CongealedBase 23727
+{
+	//$Title Congealed CvltImp Alt
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		CIOF Z -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody29 : CongealedBase 23728
+{
+	//$Title Congealed Cacoyle (Winged)
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		CYAF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody30 : CongealedBase 23729
+{
+	//$Title Congealed Cacoyle
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		CYAF Z -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody31 : CongealedBase 23730
+{
+	//$Title Congealed DemonHound
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		DHRF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody32 : CongealedBase 23731
+{
+	//$Title Congealed DemonHound Alt
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		DHRF Z -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody33 : CongealedBase 23732
+{
+	//$Title Congealed DeepOne
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FISF A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody34 : CongealedBase 23733
+{
+	//$Title Congealed ArachnoPod
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FPOD A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody35 : CongealedBase 23734
+{
+	//$Title Congealed EelCubus
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FSTF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody36 : CongealedBase 23735
+{
+	//$Title Congealed EelCubus Alt
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		FS3F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody37 : CongealedBase 23736
+{
+	//$Title Congealed GargoDemon
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		GARF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody38 : CongealedBase 23737
+{
+	//$Title Congealed Ghoul A
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		GH1F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody39 : CongealedBase 23738
+{
+	//$Title Congealed Ghoul B
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		GH2F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody40 : CongealedBase 23739
+{
+	//$Title Congealed Ghoul C
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		GH3F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody41 : CongealedBase 23740
+{
+	//$Title Congealed Ghoul D
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		GH4F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody42 : CongealedBase 23741
+{
+	//$Title Congealed Ghoul E
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		GH5F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody43 : CongealedBase 23742
+{
+	//$Title Congealed Ghoul F
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		GH6F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody44 : CongealedBase 23743
+{
+	//$Title Congealed Gargoyle Soul
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		GKUF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody45 : CongealedBase 23744
+{
+	//$Title Congealed Possessed A
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		HAFR A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody46 : CongealedBase 23745
+{
+	//$Title Congealed Possessed B
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		HBFR A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody47 : CongealedBase 23746
+{
+	//$Title Congealed Possessed C
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		HCFR A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody48 : CongealedBase 23747
+{
+	//$Title Congealed Possessed D
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		HDFR A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody49 : CongealedBase 23748
+{
+	//$Title Congealed Aberration Moron A
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		MF3S A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody50 : CongealedBase 23749
+{
+	//$Title Congealed Aberration Moron B
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		MFR4 A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody51 : CongealedBase 23750
+{
+	//$Title Congealed Aberration Moron C
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		MFR5 A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody52 : CongealedBase 23751
+{
+	//$Title Congealed Aberration Moron D
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		MFZ5 A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody53 : CongealedBase 23752
+{
+	//$Title Congealed Aberration Moron E
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		MOFR A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody54 : CongealedBase 23753
+{
+	//$Title Congealed Elemental Gargoyle
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		PGIF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody55 : CongealedBase 23754
+{
+	//$Title Congealed RatDemon
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		RATF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody56 : CongealedBase 23755
+{
+	//$Title Congealed Pink Gargoyle
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		SARF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody57 : CongealedBase 23756
+{
+	//$Title Congealed Ghost Revenant A
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		SK1F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody58 : CongealedBase 23757
+{
+	//$Title Congealed Ghost Revenant B
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		SK2F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody59 : CongealedBase 23758
+{
+	//$Title Congealed Ghost Revenant C
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		SK3F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody60 : CongealedBase 23759
+{
+	//$Title Congealed Ghost Revenant D
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		SK4F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody61 : CongealedBase 23760
+{
+	//$Title Congealed Ghost Revenant E
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		SKT1 R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody62 : CongealedBase 23761
+{
+	//$Title Congealed Ghost Revenant F
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		SKT2 R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody63 : CongealedBase 23762
+{
+	//$Title Congealed DeepOne Alt
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		TRFR A -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody64 : CongealedBase 23763
+{
+	//$Title Congealed Possessed Cultist A
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		WPOF R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody65 : CongealedBase 23764
+{
+	//$Title Congealed Possessed Cultist B
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		WPOF Z -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody66 : CongealedBase 23765
+{
+	//$Title Congealed Zombie Imp A
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		ZI1F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody67 : CongealedBase 23766
+{
+	//$Title Congealed Zombie Imp B
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		ZI2F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody68 : CongealedBase 23767
+{
+	//$Title Congealed Zombie Imp C
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		ZI3F R -1
+		Stop
+	}
+}
+
+ACTOR CongealedBody69 : CongealedBase 23768
+{
+	//$Title Congealed Zombie Imp D
+	Radius 24
+	Height 56
+	Scale 0.64
+	States
+	{
+	Spawn:
+		ZI4F R -1
+		Stop
+	}
+}

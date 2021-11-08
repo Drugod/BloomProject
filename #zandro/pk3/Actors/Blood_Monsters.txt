@@ -1,0 +1,6248 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81, IvanDobrovski/Cruduxy/Marinelol
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+ACTOR ------HANDOFDOOM------ {}
+ACTOR ChokingHand : BloodEnemy_Base 6190
+{
+	//$Title Choking Hand
+	Height 12
+	Radius 12
+	Speed 12
+	Health 11
+	MeleeRange 60
+	MeleeDamage 1
+	DamageType "ChokeEM"
+	DamageFactor "Fire",2
+	MaxStepHeight 0
+	SeeSound "Hand/Roam"
+	DeathSound "Hand/Die"
+	ActiveSound "Hand/Spot"
+	PainSound "Hand/Pain"
+	Scale 0.56
+	Obituary "$OB_CHOKE"
+	Species "Possessed"
+	+DROPOFF
+	+FLOORCLIP
+	-COUNTKILL
+	-FRIENDLY
+    -ISMONSTER
+	States
+	{
+	Idle:
+		WHAN ABCDEABCDEABCDE 1 A_Wander
+		TNT1 A 0 A_Look
+		Loop
+	Spawn:
+		WHAN A 4 A_Look
+		Loop
+	See: //See state attacking the player
+		TNT1 A 0 A_FaceTarget
+		WHAN ABCDE 1 A_Chase
+		TNT1 A 0 A_CheckRange(250.0,"YesFriendly")//if choking hand is far from player try to posses
+		TNT1 A 0 A_Jump(192,2)//Avoid jump looping
+		TNT1 A 0 A_JumpIfCloser(250.0, "Jump")
+		TNT1 A 0 A_JumpIfInTargetInventory("ChokeMe",1,"Idle")
+		Loop
+	YesFriendly:
+		TNT1 A 0 A_ChangeFlag("FRIENDLY", TRUE)
+		WHAN ABCDE 1 A_Wander
+		Goto SeeChase
+	SeeChase: //possess of a monster
+		TNT1 A 0 A_FaceTarget
+		WHAN ABCDE 1 A_Chase
+		TNT1 A 0 A_JumpIfInTargetInventory("isPossessed",1,"ChangeTarget")//Avoiding already possessed
+		TNT1 A 0 A_Jump(192,2)//Avoid jump looping
+		TNT1 A 0 A_JumpIfCloser(250.0, "Jump")
+		TNT1 A 0 A_JumpIfInTargetInventory("ChokeMe",1,"Idle")
+		Loop
+	Jump:
+		TNT1 A 0 A_FaceTarget
+		WHAN FG 1 A_Chase
+		WHAN HI 2 ThrustThingz(0,30,0,0)
+		WHAN JK 2 A_Recoil(-10)
+		Goto SeeChase
+	Melee:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_JumpIfInTargetInventory("ChokeMe",1,"Idle")
+		TNT1 A 0 A_JumpIfInTargetInventory("isPossessed",1,"ChangeTarget")
+		WHAN ABCDE 1 A_CustomMeleeAttack(10,"","","ChokeEM")
+		TNT1 A 0 A_GiveToTarget("ChokeMe",1)
+		Stop
+	ChangeTarget:
+		TNT1 A 0 A_RearrangePointers(AAPTR_NULL, AAPTR_DEFAULT, AAPTR_DEFAULT)//Removing the target and forcing get a new one
+		WHAN ABCDE 1 A_Wander
+		TNT1 A 0 A_LookEx(0,0,0,0,0,"SeeChase")
+		Loop
+	Death:
+		TNT1 A 0 A_TakeInventory("AmAlReadyChoked",0,AAPTR_TARGET)
+		TNT1 A 0 Thing_Damage(0,400)
+		TNT1 A 0 A_Explode(0)
+		WHAN L 5 A_Scream
+		WHAN M 5 A_Fall
+		WHAN NOPQ 4
+		WHAN A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		WHAN Q -1
+		Stop
+	Death.Fade:
+		WHAN Q 1 A_FadeOut(0.1)
+		Loop
+	Burn:
+		TNT1 A 0 A_Scream
+		WHAN RSTURSTURSTURSTURSTU 4
+		TNT1 A 0 A_Jump(120,"Burn")
+		WHAN V 4 A_Fall
+		WHAN WX 4
+		WHAN Y -1
+		Stop
+	}
+}
+
+ACTOR ChokeMe : Weapon
+{
+	+ALWAYSPICKUP
+	+AUTOACTIVATE
+	+INVENTORY.UNDROPPABLE
+	+WEAPON.CHEATNOTWEAPON
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	States
+	{
+	Ready:
+		TNT1 A 1 A_Explode(5, 1)
+		WHAX A 0 A_PlaySound("Hand/Choke",TRUE)
+		WHAX A 1 A_WeaponReady(WRF_DISABLESWITCH)
+		WHAX ABCDEFGABCDEFG 3
+		Loop
+    Select:
+		WHAX A 1 A_SetDamageType("ChokeEM")
+		WHAX ABCDEFGABCDEFG 3 A_Raise
+		TNT1 A 1 A_PRINT("$HANDMSG")
+		Loop
+	Deselect:
+		WHAX ABCDEFGABCDEFG 3
+		Goto Ready
+    Fire:
+		TNT1 A 1 A_Explode(5, 1)
+		WHAX A 0 A_PlaySound("Hand/Choke",TRUE)
+		Goto Ready
+	AltFire:
+		WHAX A 1 A_FireCustomMissile("FlyingHand",0)
+	    TNT1 A 1 A_TakeInventory("ChokeMe",99999) //make sure that everything gets removed so hands can attack players again- Ozy81
+	    TNT1 A 1 A_TakeInventory("iSPossessed",99999) //make sure that everything gets removed so hands can attack players again
+		TNT1 A 1 A_StopSound(1)
+		Goto Ready
+	}
+}
+
+ACTOR FlyingHand
+{
+	Radius 11
+	Height 8
+	Speed 32
+	Scale 0.5
+	Damage 10
+	BounceCount 3
+	SeeSound "DSHEDBON"
+	DeathSound "Hand/Pain"
+	ActiveSound "Old/DSNAPALM"
+	PROJECTILE
+	+BOUNCEONACTORS
+	+CANBOUNCEWATER
+	+DONTSPLASH
+	+DOOMBOUNCE
+	+RANDOMIZE
+	-NOGRAVITY
+	DamageType "ChokeEM"
+	Species "Possessed"
+	States
+	{
+	Spawn:
+		WHAN A 1
+	Fire:
+		WHAN AABBCCDDEE 1
+		Loop
+	Death:
+		WHAN A 1 A_SpawnItemEx("ChokingHand",0,0,0,0,0,0,-180,SXF_NOCHECKPOSITION | SXF_TRANSFERPOINTERS)
+		Stop
+	}
+}
+
+ACTOR FlyingHandCorpse
+{
+	Radius 11
+	Height 8
+	Speed 14
+	Damage 0
+	Scale 0.5
+	Projectile
+	BounceCount 3
+	+BOUNCEONACTORS
+	+DONTSPLASH
+	+DOOMBOUNCE
+	-NOGRAVITY
+	DeathSound "Hand/Die"
+	States
+	{
+	Spawn:
+		WHAC A 1 A_SetMass(5000)
+	See:
+		WHAC ABBCCDD 1
+		WHAC A 1 A_JumpIf(waterlevel > 2, "Death")
+		Loop
+	Death:
+		WHAN L 5 A_Scream
+		WHAN M 5 A_Fall
+		WHAN NOPQ 4
+		WHAN Q -1
+		Stop
+	}
+}
+
+ACTOR -------GARGOYLES----------- {}
+ACTOR BloodGargoyle : BloodEnemy_Base 3123
+{
+	//$Title Gargoyle
+	Spawnid 5
+	Scale 0.55
+	Obituary "$OB_BGARG"
+	HitObituary "$HB_BGARG"
+	Health 400
+	Radius 31
+	Height 56
+	Mass 400
+	Speed 9
+	FloatSpeed 10
+	GibHealth 30
+	MeleeDamage 7
+	MeleeRange 64
+	PainChance 160
+	PainChance "SawedOff", 64
+	PainChance "Fire", 0
+	PainChance "Flare", 0
+	PainChance "Tommy", 0
+	PainChance "PitchFork", 255
+	PainChance "LifeLeech", 192
+	PainChance "Napalm", 0
+	PainChance "Dynamite", 0
+	PainChance "Blast", 0
+	PainChance "Shock", 128
+	PainChance "SawedoffLess", 0
+	PainChance "ZBloodBullet", 0
+	PainChance "StunningHead",255
+	DamageFactor "PitchFork",1.5
+	DamageFactor "Napalm", 0.55
+	DamageFactor "LifeLeech", 1.5
+	DamageFactor "Dynamite", 0.65
+	DamageFactor "ZbloodBullet", 0.71
+	DamageFactor "SawedOff",0.8
+	DamageFactor "LifeLeech",1.49
+	DamageFactor "Shock", 2.0
+	DamageFactor "Stomping", 0
+	DamageFactor "Tommy", 1.02
+	DamageFactor "Flare",1.1
+	DamageFactor "Fire",0.61
+	DropItem "UselessStuff" 64
+	MeleeSound "GargoyleMelee"
+	SeeSound "GargoyleSee"
+	PainSound "GargoylePain"
+	DeathSound "GargoyleDie"
+	ActiveSound "GargoyleAct"
+	DamageType "Stun"
+	+FLOAT
+	+FLOORCLIP
+	+LONGMELEERANGE
+	+NOGRAVITY
+	+NOSPLASHALERT
+	+NOTELEPORT
+	Species "Cacos"
+	States
+	{
+	Spawn:
+		BGAR ABCD 10 A_Look
+		Loop
+	Pain.PitchFork:
+		BGAR A 4 A_FaceTarget
+	EscapeWater:
+		BGAR ABCD 4 ThrustThingZ(0,5,0,0)
+		TNT1 A 0 A_Jumpif(waterlevel<1,"See")
+		Loop
+	See:
+		TNT1 A 0 A_Jumpif(waterlevel>0,"EscapeWater")
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Floating")
+		TNT1 A 0 A_Jump(36,"Sweep")
+		BGAR A 0 ThrustThingZ(0,frandom(12,15),1,0)
+		TNT1 A 0 A_SentinelBob
+		TNT1 A 0 A_PlaySound ("GarWing")
+		BGAR A 1 A_Chase
+		BGAR A 1 A_ExtChase(0,0,0,0)
+		BGAR A 1 A_Chase
+		BGAR A 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		BGAR B 1 A_Chase
+		BGAR B 1 A_ExtChase(0,0,0,0)
+		BGAR B 1 A_Chase
+		BGAR B 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		BGAR C 1 A_Chase
+		BGAR C 1 A_ExtChase(0,0,0,0)
+		BGAR C 1 A_Chase
+		BGAR C 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		BGAR D 1 A_Chase
+		BGAR D 1 A_ExtChase(0,0,0,0)
+		BGAR D 1 A_Chase
+		BGAR D 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		BGAR A 0 ThrustThingZ(0,frandom(-15,-12),1,0)
+		TNT1 A 0 A_SentinelBob
+		TNT1 A 0 A_PlaySound ("GarWing")
+		BGAR A 1 A_Chase
+		BGAR A 1 A_ExtChase(0,0,0,0)
+		BGAR A 1 A_Chase
+		BGAR A 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		BGAR B 1 A_Chase
+		BGAR B 1 A_ExtChase(0,0,0,0)
+		BGAR B 1 A_Chase
+		BGAR B 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		BGAR C 1 A_Chase
+		BGAR C 1 A_ExtChase(0,0,0,0)
+		BGAR C 1 A_Chase
+		BGAR C 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		BGAR D 1 A_Chase
+		BGAR D 1 A_ExtChase(0,0,0,0)
+		BGAR D 1 A_Chase
+		BGAR D 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 A_LoopActiveSound
+		Loop
+	Sweep:
+		BGAR A 0
+		BGAR AA 1 ThrustThingZ(0,35,0,0)
+		BGAR BB 1 A_Recoil(-1)
+		BGAR BB 1 ThrustThingZ(0,35,0,0)
+		BGAR CC 1 A_Recoil(-1)
+		BGAR CC 1 ThrustThingZ(0,35,0,0)
+		BGAR AA 1 A_Recoil(-1)
+		BGAR AA 1 ThrustThingZ(0,35,0,0)
+		BGAR BB 1 A_Recoil(-1)
+		BGAR BB 1 ThrustThingZ(0,55,0,0)
+		BGAR CC 1 A_Recoil(-2)
+		BGAR CC 1 ThrustThingZ(0,25,0,0)
+		BGAR AA 1 A_Recoil(-1)
+		BGAR A 0 A_Jump(128,"HawkAttack","Surprise")
+		Goto See
+	HawkAttack:
+		BGAR A 0 A_FaceTarget
+		BGAR ABCD 1 ThrustThingZ(0,-10,0,1)
+		BGAR A 1 A_Recoil(-10)
+		BGAR ABCD 1 ThrustThingZ(0,-10,0,0)
+		BGAR A 1 A_Recoil(-10)
+		BGAR A 1 A_Stop
+		BGAR A 0 A_FaceTarget
+		BGAR A 0 A_SetAngle(angle+frandom(-90,90))
+		BGAR ABCD 1 ThrustThingZ(0,-10,0,1)
+		BGAR A 1 A_Recoil(-10)
+		BGAR ABCD 1 ThrustThingZ(0,-10,0,1)
+		BGAR A 1 A_Recoil(-10)
+		BGAR A 0 A_Jump(96,"Surprise")
+		Goto See
+	Surprise:
+		BGAR AAA 4 A_FaceTarget
+		BGAR A 0 A_Recoil(-16)
+		BGAR ABCDABCD 1
+		BGAR A 0 A_Stop
+		BGAR A 0 A_Jump(96,"Sweep")
+		Goto See
+	Floating:
+		BGAR A 1 ThrustThing(angle*256/360+64,1,0,0)
+		BGAR A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((1 + angle) * 65536)/360)
+		BGAR A 1 ThrustThing(angle*256/360+64,1,0,0)
+		BGAR A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((1 + angle) * 65536)/360)
+		BGAR A 1 ThrustThing(angle*256/360+64,1,0,0)
+		BGAR A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((1 + angle) * 65536)/360)
+		BGAR B 1 ThrustThing(angle*256/360+64,1,0,0)
+		BGAR B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((1 + angle) * 65536)/360)
+		BGAR B 1 ThrustThing(angle*256/360+64,1,0,0)
+		BGAR B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((1 + angle) * 65536)/360)
+		BGAR B 1 ThrustThing(angle*256/360+64,1,0,0)
+		BGAR B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((1 + angle) * 65536)/360)
+		BGAR C 1 ThrustThing(angle*256/360+64,1,0,0)
+		BGAR C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((1 + angle) * 65536)/360)
+		BGAR C 1 ThrustThing(angle*256/360+64,1,0,0)
+		BGAR C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((1 + angle) * 65536)/360)
+		BGAR C 1 ThrustThing(angle*256/360+64,1,0,0)
+		BGAR C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((1 + angle) * 65536)/360)
+		BGAR D 1 ThrustThing(angle*256/360+64,1,0,0)
+		BGAR D 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((1 + angle) * 65536)/360)
+		BGAR D 1 ThrustThing(angle*256/360+64,1,0,0)
+		BGAR D 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((1 + angle) * 65536)/360)
+		BGAR D 1 ThrustThing(angle*256/360+64,1,0,0)
+		BGAR D 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((1 + angle) * 65536)/360)
+		BGAR D 0 A_SentinelRefire
+		BGAR D 0 A_Jump(192,"Floating")
+		Goto See
+	Melee:
+		TNT1 A 0 A_Stop
+		BGAR E 0 A_Recoil(frandom(-2,0))
+		BGAR E 0 A_PlaySound("GargoyleMelee")
+		BGAR E 7 A_FaceTarget
+		BGAR F 7 A_CustomMeleeAttack (frandom(3,6)*7,"imp/melee","imp/melee", "Stun",1)
+		BGAR GHI 6
+		Goto See
+	Missile:
+		TNT1 A 0 A_Jump(90,"See")
+		TNT1 A 0 A_Stop
+		BGAR E 9 A_FaceTarget
+		BGAR F 7 A_CustomMissile("BGargBone",30,0,0,0)
+		Goto See
+	Pain.StunningHead:
+		BGAR JJ 9 A_Pain
+		BGAR A 6
+		BGAR ABCDABCD 3 A_Wander
+		Goto See
+	Pain:
+		BGAR J 4
+		BGAR J 4 A_Pain
+		TNT1 A 0 A_Stop
+		BGAR J 0 A_Jump(77,"Sweep","Surprise")
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0 A_Jump(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("GargoylePain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		XARZ A 7
+		XARZ A 7
+		XARZ A 7
+		XARZ A 7
+		XARZ A 7
+		XARZ A 7
+		XARZ A 7
+		XARZ A 7
+		Goto See
+	Death:
+		BGAR K 0 A_Jump(90,"DeathCorpus")
+		BGAR K 8 A_Scream
+		BGAR L 8
+		BGAR M 6
+		BGAR N 6 A_Fall
+		BGAR O 6
+		BGAR P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BGAR P -1
+		Stop
+	DeathCorpus:
+		BGAR K 8 A_Scream
+		BGAR L 8
+		BGAR M 6
+		BGAR MMMMMMMMMMMMMMMMM 0 A_SpawnItemEx("FlyingBlood",0,0,frandom(20,40),frandom(-10,10),frandom(-10,10),frandom(-10,10))
+		BGAR N 6 A_Fall
+		BGAR O 6
+		BGAR P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BGAR P -1
+		Stop
+	XDeath:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BGAR J 5 A_XScream
+		TNT1 AAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("WingDebris")
+		TNT1 A 0 A_SpawnDebris("GargHed")
+		TNT1 AAA 0 A_SpawnDebris("Bloodliver")
+		TNT1 AAAAAA 0 A_SpawnDebris("FlyingBlood")
+		BGAR Q 5
+		BGAR R 5
+		BGAR S 5 A_NoBlocking
+		BGAR T 5
+		BGAR U -1
+		Stop
+	Death.Fade:
+		BGAR "#" 1 A_FadeOut(0.1)
+		Loop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		GARF A 8 A_Scream
+		GARF A 0 A_PlayWeaponSound("DSFRBALL")
+		GARF ABCDABCDABCDABCDABC 5 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF A 0 A_PlayWeaponSound("DSFRBALL")
+		GARF A 0 A_SpawnItem("BurnDeathSmoke")
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF D 0 A_PlaySound("GarWing")
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF D 0 A_PlaySound("GarWing")
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF D 0 A_PlaySound("GarWing")
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF D 0 A_PlaySound("GarWing")
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF D 0 A_PlaySound("GarWing")
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF D 0 A_PlaySound("GarWing")
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF D 0 A_PlaySound("GarWing")
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF D 0 A_PlaySound("GarWing")
+		GARF DABC 6 A_SpawnItem ("BFireTrail",8+frandom(-10,10),50+frandom(-5,5))
+		GARF D 0 A_PlaySound("GarWing")
+		TNT1 A 0 A_PlaySound("GargoyleBurn")
+		GARF A 0 A_SpawnDebris("NapalmDebris")
+		GARF A 4
+		GARF B 4
+		GARF C 4 A_Fall
+		GARF EFG 4
+		GARF HIJIJHJIJIHIJHHIJHJHIHJHIJHIHJHIJIHIJ 4
+		GARF K -1
+		Stop
+	Ice:
+		FGAR J 0 A_SetMass(999999)
+		FGAR J 5 A_FreezeDeath
+		FGAR J 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR LivingGargStatue 3270
+{
+	//$Category "Blood Monsters"
+	//$Title Living Gargoyle Statue
+	//$Color 5
+	Scale 0.6
+	Radius 10
+	Height 35
+	Mass 0x7ffffff
+	Gravity 0.6
+	+DROPPED
+	+FIXMAPTHINGPOS
+	+LOOKALLAROUND
+	+NOTAUTOAIMED
+	+SHOOTABLE
+	+SOLID
+	States
+	{
+	Spawn:
+		GRGS A 320 A_SetTics(frandom((Health / 20)+950,2100))
+		GRGS A 1 A_Look
+		Loop
+	See:
+		GRGS A 1 A_JumpIfCloser(196,"Unmorph")
+		TNT1 A 0 A_FaceTarget
+		Loop
+	Unmorph:
+		XARG FGH 5 A_FaceTarget
+		TNT1 A 0 A_UnSetSolid
+		XARG I 1 A_SpawnItemEx("BloodGargoyle",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		XARG I -1
+		Stop
+	}
+}
+
+ACTOR GargBurn
+{
+	Radius 20
+	Height 56
+	Speed 4
+	Mass 100
+	Scale 0.6
+	+DONTSPLASH
+	+FIREDAMAGE
+	+LOOKALLAROUND
+	+RANDOMIZE
+	-DONTSPLASH
+	Obituary "$OB_GBURN"
+	ActiveSound "DSFRBALL"
+	ExplosionDamage 4
+	ExplosionRadius 40
+	States
+	{
+	Spawn:
+		GARF A 0
+		Goto See
+	See:
+		GARF A 0 A_LoopActiveSound
+		GARF A 0 A_PlaySound("imp/death")
+		GARF ABCDABCDABCDABCDABC 4 A_SpawnItem ("BFireTrail",8+frandom(-5,5),20+frandom(-5,5))
+		GARF A 0 A_SpawnItem("BurnDeathSmoke")
+		GARF DABCDABCDABCDABCDABCDDABCDABCDABCDABCDABCD 3 A_SpawnItem ("BFireTrail",8+frandom(-5,5),20+frandom(-5,5))
+		Goto Death
+	Death:
+		GARF A 0 A_SpawnDebris("NapalmDebris")
+		GARF A 4 A_StopSound
+		GARF B 4
+		GARF C 4 A_Fall
+		GARF EFG 4
+		GARF HIJIJHJIJIHIJHHIJHJHIHJHIJHIHJHIJIHIJ 4
+		GARF K -1
+		Stop
+	}
+}
+
+ACTOR ---------HELLFISH---------- {}
+ACTOR HellFish : Cacodemon 3100
+{
+	//$Category "Blood Monsters"
+	//$Title HellFish
+	//$Color 5
+	Health 15
+	GibHealth 25
+	Radius 8
+	Height 15
+	Scale 0.6
+	Mass 35
+	Speed 16
+	FastSpeed 16
+	FloatSpeed 0.5
+	Damage 1
+	MeleeRange 50
+	MeleeDamage 1
+	MaxTargetRange 25
+	BloodColor "DarkRed"
+	PainChance 200
+    PainChance "Shock", 256
+    DamageFactor "Shock", 0.1
+	Obituary "$OB_HFISH"
+	HitObituary "$OB_HFISH"
+	+DONTHARMSPECIES
+	-NOTELEPORT
+	AttackSound "dsdolstb"
+	PainSound "SpiderPain"
+	DeathSound "SpiderDie"
+	SeeSound "SpiderSee"
+	ActiveSound ""
+	ProjectilePassHeight 64
+	Species "Fishes"
+	States
+	{
+	Spawn:
+		HFSS ABCABCABCABCABCABCABCABCABCABCABCABC 4 A_Look
+		TNT1 A 0 A_JumpIf(waterlevel < 3, "GoDown")
+		Loop
+	Idle:
+		HFSS ABCABCABCABCABCABCABCABCABCABCABCABC 4 A_Wander
+		TNT1 A 0 A_JumpIf(waterlevel < 3, "GoDown")
+		Loop
+	See:
+		TNT1 A 0 A_ChangeFlag("FRIGHTENED",0)
+		TNT1 A 0 A_Jump(160, 2)
+		TNT1 A 0 A_ChangeFlag("FRIGHTENED",1)
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"SwimAround")
+		TNT1 A 0 A_UnSetFloorClip
+		TNT1 A 0 A_JumpIf((waterlevel < 3 || waterlevel <= 1), "GoDown")
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",1)
+		HFSS A 2 A_Chase
+		TNT1 A 0 A_JumpIf((waterlevel < 3 || waterlevel <= 1), "GoDown")
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		HFSS A 2 A_Chase
+		TNT1 A 0 A_JumpIf((waterlevel < 3 || waterlevel <= 1), "GoDown")
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		HFSS C 2 A_Chase
+		TNT1 A 0 A_JumpIf((waterlevel < 3 || waterlevel <= 1), "GoDown")
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		HFSS C 2 A_Chase
+		TNT1 A 0 A_JumpIf((waterlevel < 3 || waterlevel <= 1), "GoDown")
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		Loop
+	SwimAround:
+		HFSS A 0 A_Recoil(-1)
+		HFSS A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 A_JumpIf(waterlevel < 3, "GoDown")
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel < 3, "GoDown")
+		HFSS B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 A_JumpIf(waterlevel < 3, "GoDown")
+		HFSS B 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 A_JumpIf(waterlevel < 3, "GoDown")
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		HFSS C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 A_JumpIf(waterlevel < 3, "GoDown")
+		HFSS C 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 A_JumpIf(waterlevel < 3, "GoDown")
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		HFSS A 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 A_JumpIf(waterlevel < 3, "GoDown")
+		Goto See
+	Missile:
+	Melee:
+		TNT1 A 0 A_JumpIf((waterlevel <= 2 || waterlevel <= 1), "GoDown")
+		HFSS B 4 FAST A_FaceTarget
+		TNT1 A 0 A_JumpIf((waterlevel <= 2 || waterlevel <= 1), "GoDown")
+		HFSS D 4 FAST A_CustomMeleeAttack(frandom(3,6),"dsdolstb")
+		TNT1 A 0 A_JumpIf((waterlevel <= 2 || waterlevel <= 1), "GoDown")
+		HFSS B 4 FAST A_FaceTarget
+		TNT1 A 0 A_JumpIf((waterlevel <= 2 || waterlevel <= 1), "GoDown")
+		HFSS D 4 FAST A_CustomMeleeAttack(frandom(3,6),"dsdolstb")
+		Goto See
+	Pain:
+		HFSS E 3 A_Pain
+		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_JumpIf((waterlevel <= 2 || waterlevel <= 1), "GoDown")
+		HFSS E 0 A_ScaleVelocity(.25)
+		TNT1 A 0 A_JumpIf((waterlevel <= 2 || waterlevel <= 1), "GoDown")
+		HFSS EEEEEEEEEEEEEEEEEEEEEEEEEEEEEE random(2,6)
+		TNT1 A 0 A_JumpIf((waterlevel <= 2 || waterlevel <= 1), "GoDown")
+		Goto See
+	Burn:
+	Death.LifeLeech:
+	Death.Flare:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		HFSS K 0 A_HideThing
+		Goto XDeath //shouldn't "burn" inside water, so let's prevent it and since we don't have fitting anim, XDeath works fine - ozy81
+	Death:
+		TNT1 A 0 A_UnSetFloorClip
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+		HFSS GH 8 A_Scream
+		HFSS I 7 A_NoBlocking
+		HFSS J -1 A_SetFloorClip
+		Stop
+	XDeath: //using Neocvltist sprites for gibs, before it was weird seeing the GillBeast XD - ozy81
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+		TNT1 A 0 A_Scream
+		WPOS OOOPP 1 A_SpawnItemEx ("OrganDebris",frandom(0,16),frandom(0,16),frandom(0,16),frandom(0,10),frandom(0,10),frandom(0,10),frandom(-360,360))
+		WPOS QRRSSTT 1 A_SpawnItemEx ("OrganDebris",frandom(0,16),frandom(0,16),frandom(0,16),frandom(0,10),frandom(0,10),frandom(0,10),frandom(-360,360))
+		TNT1 A 0 A_Fall
+		WPOS UUUUUUUUUU 0 A_SpawnItemEx("FlyingBlood",frandom(0,16),frandom(0,16),frandom(0,16),frandom(0,10),frandom(0,10),frandom(0,10),frandom(-360,360))
+		WPOS U -1
+		Stop
+	GoDown:
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+		HFSS A 1 ThrustThingZ(0, 10, 1, 1)
+		Goto See
+	}
+}
+
+ACTOR ------BUTCHER-------- {}
+ACTOR BloatedButcher : BloodEnemy_Base 3122
+{
+	//$Title Bloated Butcher
+	Spawnid 20
+	Obituary "$OB_BLOAT"
+	HitObituary "$HB_BLOAT"
+	Health 500
+	Radius 24
+	Height 56
+	GibHealth 20
+	Mass 300
+	Speed 2
+	PainChance 100
+	PainChance "PitchFork", 0
+	PainChance "LifeLeech", 128
+	PainChance "Tommy", 0
+	PainChance "Fire", 0
+	PainChance "SawedOff", 64
+	PainChance "SawedoffLess", 0
+	PainChance "Disintegrate", 0
+	PainChance "Shock", 255
+	PainChance "Blast", 16
+	PainChance "ZBloodBullet", 0
+	SeeSound "ButcherSee"
+	PainSound "ButcherPain"
+	DeathSound "ButcherDeath"
+	ActiveSound "ButcherAct"
+	DamageFactor "Fire", 2.0
+	DamageFactor "Flare", 3.0
+	DamageFactor "LifeLeech", 2.0
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Disintegrate", 1.75
+	DamageFactor "Dynamite", 4.2
+	DamageFactor "Shock", 2.4
+	DamageFactor "Stomping", 0
+	DropItem "UselessStuff" 102
+	Scale 0.64
+	+FLOORCLIP
+	+LONGMELEERANGE
+	+MISSILEEVENMORE
+	+MISSILEMORE
+	+NODROPOFF
+	+NOSPLASHALERT
+	+NOSPLASHALERT
+	Species "Bruisers"
+	States
+	{
+	Idle:
+		BBUT AAAABBBBCCCCDDDDEEEEFFFF 1 A_Wander
+		Loop
+	Spawn:
+		BBUT A 10 A_Look
+		Loop
+	See:
+		BBUT A 1 A_Chase
+		BBUT A 1 A_ExtChase(0,0,0,0)
+		BBUT A 1 A_Chase
+		BBUT A 1 A_ExtChase(0,0,0,0)
+		BBUT B 1 A_Chase
+		BBUT B 1 A_ExtChase(0,0,0,0)
+		BBUT B 1 A_Chase
+		BBUT B 1 A_ExtChase(0,0,0,0)
+		BBUT C 1 A_Chase
+		BBUT C 1 A_ExtChase(0,0,0,0)
+		BBUT C 1 A_Chase
+		BBUT C 1 A_ExtChase(0,0,0,0)
+		BBUT D 1 A_Chase
+		BBUT D 1 A_ExtChase(0,0,0,0)
+		BBUT D 1 A_Chase
+		BBUT D 1 A_ExtChase(0,0,0,0)
+		BBUT E 1 A_Chase
+		BBUT E 1 A_ExtChase(0,0,0,0)
+		BBUT E 1 A_Chase
+		BBUT E 1 A_ExtChase(0,0,0,0)
+		BBUT F 1 A_Chase
+		BBUT F 1 A_ExtChase(0,0,0,0)
+		BBUT F 1 A_Chase
+		BBUT F 1 A_ExtChase(0,0,0,0)
+		Loop
+	Melee:
+		BBUT G 0 A_FaceTarget
+		BBUT G 5 A_FaceTarget
+		BBUT H 5
+		BBUT I 5 A_FaceTarget
+		BBUT J 5 A_SkelFist
+		Goto See
+	Decide:
+		BBUT AAAABBBBCCCCDDDD 1 A_Chase
+		TNT1 A 0 A_Jump(192, "Axe", "Missile")
+		Goto See
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(360, "Axe")
+		TNT1 A 0 A_FaceTarget
+		BBUT K 8 A_FaceTarget
+		TNT1 A 0 A_PlaySound("ButcherVomit")
+		BBUT L 4
+		BBUT M 6 A_CustomMissile("ButcherVomit", 40)
+		BBUT N 14 A_FaceTarget
+		Goto Decide
+	Axe:
+		BBUT G 0 A_FaceTarget
+		BBUT H 6
+		BBUT G 6 A_FaceTarget
+		BBUT I 0 A_CustomMissile ("Cleaver",30,7,0,1,0)
+		BBUT I 6 A_FaceTarget
+		Goto See
+	Pain:
+		BBUT O 3 A_Jump(120,"Pain.SideFatStep","Pain.SideFatStep2")
+		BBUT O 7 A_Pain
+		Goto See
+	Pain.SideFatStep:
+		BBUT A 0 A_SetAngle(Angle+90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(Angle-90)
+		BBUT AB 3
+		BBUT A 0 A_SetAngle(Angle+90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(Angle-90)
+		BBUT CD 3
+		BBUT A 0 A_SetAngle(Angle+90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(Angle-90)
+		BBUT EF 3
+		BBUT A 0 A_SetAngle(Angle+90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(Angle-90)
+		BBUT AB 3
+		BBUT A 0 A_SetAngle(Angle+90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(Angle-90)
+		BBUT CD 3
+		BBUT A 0 A_SetAngle(Angle+90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(Angle-90)
+		BBUT EF 3
+		BBUT A 0 A_SetAngle(Angle+90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(Angle-90)
+		BBUT AB 3
+		BBUT A 0 A_SetAngle(Angle+90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(Angle-90)
+		BBUT CD 3
+		BBUT A 0 A_SetAngle(Angle+90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(Angle-90)
+		BBUT EF 3
+		Goto Missile
+	Pain.SideFatStep2:
+		BBUT A 0 A_SetAngle(angle-90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(angle+90)
+		BBUT AB 3
+		BBUT A 0 A_SetAngle(angle-90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(angle+90)
+		BBUT CD 3
+		BBUT A 0 A_SetAngle(angle-90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(angle+90)
+		BBUT EF 3
+		BBUT A 0 A_SetAngle(angle-90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(angle+90)
+		BBUT AB 3
+		BBUT A 0 A_SetAngle(angle-90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(angle+90)
+		BBUT CD 3
+		BBUT A 0 A_SetAngle(angle-90)
+		BBUT A 0 A_Recoil(-2)
+		BBUT A 0 A_SetAngle(angle+90)
+		BBUT EF 3
+		Goto Missile
+	Pain.Shock:
+		TNT1 A 0 A_ChangeFlag("NOPAIN",1)
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BBUZ AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockButcher",frandom(-10,10)/10,frandom(-10,10)/10)
+		BBUZ A 4 A_Pain
+		TNT1 A 0 A_ChangeFlag("NOPAIN",0)
+		TNT1 A 0 A_JumpIfHealthLower(200,2)
+		TNT1 A 0 A_Jump(192,"See")
+		BBUZ AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockButcher",frandom(-10,10)/10,frandom(-10,10)/10)
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0 A_Jump(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Death:
+	Death.Shock:
+		BBUT P 7 A_Jump(77,"DeathFlyingblood","DeathFountain")
+		TNT1 A 0 A_Scream
+		BBUT QR 7
+		BBUT S 5 A_NoBlocking
+		BBUT TU 5
+		BBUT V 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BBUT V -1
+		Stop
+	DeathFountain:
+		BBUT P 7
+		TNT1 A 0 A_Scream
+		BBUT QR 7
+		BBUT S 5 A_NoBlocking
+		BBUT TU 5
+		BBUT V 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BBUT VVVVVVV 4 A_SpawnItemEx("BloodTrail",frandom(-5,5),frandom(-5,5),frandom(5,10),frandom(-3,3),frandom(-3,3),frandom(4,10),frandom(-30,30))
+		BBUT V -1
+		Stop
+	DeathFlyingblood:
+		BBUT P 7
+		TNT1 A 0 A_Scream
+		BBUT QR 7
+		BBUT S 5 A_NoBlocking
+		BBUT TU 5
+		BBUT V 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BBUT VVVVVVV 4 A_SpawnItemEx("FlyingBlood",frandom(-5,5),frandom(-5,5),frandom(5,10),frandom(-3,3),frandom(-3,3),frandom(4,10),frandom(-30,30))
+		BBUT V -1
+	XDeath:
+		TNT1 A 0 A_Jump(160,"Death")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BBT2 L 0 A_Fall
+		BBT2 M 5 A_XScream
+		BBT2 M 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BBT2 LLL 0 A_SpawnDebris("OrganDebris")
+		BBT2 L 0 A_SpawnDebris("Bloodliver")
+		BBT2 L 0 A_SpawnDebris("Hand1")
+		BBT2 LLLLLLL 0 A_SpawnDebris("FlyingBlood")
+		BBT2 N 5
+		BBT2 O 5
+		BBT2 P 5
+		BBT2 PQRSTUV 5
+		BBT2 VWVWVWVWVVWVWVWVWVVWVWVWVWVVWVWVWVWV 5
+		BBT2 W -1
+		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
+	Raise:
+		BBUT QPONML 5
+		Goto See
+	Death.SpecialFire:
+	Burn:
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		TNT1 A 0 A_Jump(128,"SpecialBurn")
+		BZOM L 0 A_Fall
+		BZOM L 0 A_PlaySound("ButcherPain")
+		BBUT L 3
+		BZOM L 0 A_SpawnItem("BurnDeathBBT",1,0,0)
+		Stop
+	SpecialBurn:
+		TNT1 A 0 A_Scream
+		BBT2 M 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BABD ABCDEFGH 8 A_SpawnItem("YouAreOnFireSir")
+		BABD I 20 A_Fall
+		BABD IJKLMNOP 6
+		BABD Q -1
+	Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:
+	Death.LifeLeech:
+		BBT2 A 6 A_Scream
+		BBT2 B 5 A_Fall
+		BBT2 CDEF 4
+		BBT2 G 25
+		BBT2 HIJK 6
+		BBT2 L -1
+		Stop
+	Ice:
+		FBUT O 0 A_SetMass(999999)
+		FBUT O 5 A_FreezeDeath
+		FBUT O 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR ------CULTIST------------ {}
+ACTOR GreyCultist : BloodEnemy_Base 3125
+{
+	//$Title Grey Cultist
+	Spawnid 2
+	Health 120
+	Radius 20
+	Height 56
+	Mass 50
+	Speed 3
+	Scale 0.53
+	PainChance 90
+	PainChance "Fire", 0
+	PainChance "Flare", 0
+	PainChance "Voodoo", 256
+	DamageFactor "Stomping", 0
+	+FLOORCLIP
+	+NODROPOFF
+	+NOSPLASHALERT
+	SeeSound "CultistSee"
+	PainSound "CultistPain"
+	AttackSound ""
+	DeathSound "CultistDie"
+	ActiveSound "CultistAct"
+	DropItem "Tommygun" 64
+	DropItem "Bullets" 200, 30
+	DropItem "TNTBundle", 128
+	Obituary "$OB_GREYCUL"
+	Translation "112:120=[128,128,128]:[48,48,48]","120:127=[48,48,48]:[8,8,8]","209:223=193:207","192:200=[192,192,192]:[64,64,64]","200:207=[64,64,64]:[16,16,16]","240:247=[16,16,16]:[0,0,0]"
+	Species "Cultist"
+	States
+	{
+	Idle:
+		BCUL AAAAAAA 1 A_Wander
+		BCUL A 1 A_Look
+		BCUL BBBBBBB 1 A_Wander
+		BCUL B 1 A_Look
+		BCUL CCCCCCC 1 A_Wander
+		BCUL C 1 A_Look
+		BCUL DDDDDDD 1 A_Wander
+		BCUL D 1 A_Look
+		BCUL "\\\\\\\" 1 A_Wander
+		BCUL A 1 A_Look
+		Loop
+	Spawn:
+		BCUL A 10 A_Look
+		Goto Spawn
+	See:
+		BCUL A 1 A_Chase("","Missile",CHF_FASTCHASE)
+		BCUL AA 1 A_ExtChase(0,0,0,0)
+		BCUL A 1 A_Recoil(-1)
+		BCUL AA 1 A_ExtChase(0,0,0,0)
+		BCUL A 1 A_FastChase
+		BCUL AA 1 A_ExtChase(0,0,0,0)
+		BCUL B 1 A_Chase("","Missile",CHF_FASTCHASE)
+		BCUL BB 1 A_ExtChase(0,0,0,0)
+		BCUL B 1 A_FastChase
+		BCUL BB 1 A_ExtChase(0,0,0,0)
+		BCUL B 1 A_Chase("","Missile",CHF_FASTCHASE)
+		BCUL BB 1 A_ExtChase(0,0,0,0)
+		BCUL C 1 A_Recoil(-1)
+		BCUL CC 1 A_ExtChase(0,0,0,0)
+		BCUL C 1 A_FastChase
+		BCUL CC 1 A_ExtChase(0,0,0,0)
+		BCUL C 1 A_Chase("","Missile",CHF_FASTCHASE)
+		BCUL CC 1 A_ExtChase(0,0,0,0)
+		BCUL D 1 A_FastChase
+		BCUL DD 1 A_ExtChase(0,0,0,0)
+		BCUL D 1 A_Chase("","Missile",CHF_FASTCHASE)
+		BCUL DD 1 A_ExtChase(0,0,0,0)
+		BCUL D 1 A_Recoil(-1)
+		BCUL DD 1 A_ExtChase(0,0,0,0)
+		BCUL "\" 1 A_Chase
+		BCUL "\\" 1 A_ExtChase(0,0,0,0)
+		BCUL "\" 1 A_Chase
+		BCUL "\\" 1 A_ExtChase(0,0,0,0)
+		BCUL "\" 1 A_Chase
+		BCUL "\\" 1 A_ExtChase(0,0,0,0)
+		BCUL F 0 A_CheckFloor("Jump")
+		Loop
+	Missile:
+		BCUL E 2 A_FaceTarget
+		TNT1 A 0 A_PlaySound("chainguy/attack")
+		BCUL F 0 A_CustomMissile("TommygunCasing",30,4,24,1)
+		BCUL F 2 A_CustomBulletAttack(5.6,5.6,1,frandom(1,2),"ZBulletCultist")
+		BCUL E 2
+		BCUL E 0 A_CPosRefire
+		BCUL E 2 A_FaceTarget
+		TNT1 A 0 A_PlaySound("chainguy/attack")
+		BCUL F 2 A_CustomMissile("TommygunCasing",30,4,24,1)
+		BCUL E 2 A_FastChase
+		BCUL E 1
+		BCUL E 0 A_CPosRefire
+		BCUL E 1 A_FaceTarget
+		TNT1 A 0 A_PlaySound("chainguy/attack")
+		BCUL F 1 A_CustomMissile("TommygunCasing",30,4,24,1)
+		BCUL E 2 A_FastChase
+		BCUL E 0 A_CPosRefire
+		BCUL E 2
+		BCUL E 0 A_CPosRefire
+		TNT1 A 0 A_Jump(160,"see")
+	MissileCont:
+		BCUL F 2 A_CustomBulletAttack(5.6,5.6,1,frandom(5,7),"ZBulletCultist")
+		TNT1 A 0 A_PlaySound("chainguy/attack")
+		BCUL A 0 A_AlertMonsters
+		BCUL F 0 A_CustomMissile("TommygunCasing",30,4,24,1)
+		BCUL E 3
+		BCUL E 0 A_CPosRefire
+		Loop
+		BCUL X 5 A_FaceTarget
+		BCUL YZ 5
+		BCUL "[" 0 A_ThrowGrenade("GreenCultistTNT",0,20,4,0)
+		BCUL "[]" 5
+		BCL2 A 5
+		Goto See
+	Pain:
+		BCUL G 3
+		BCUL G 3 A_Pain
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0 A_Jump(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("CultistPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		Goto See
+	Death:
+		BCUL H 5
+		BCUL I 5 A_Scream
+		BCUL J 5 A_Fall
+		BCUL KLMN 5
+		BCUL NONON 10
+		BCUL O 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BCUL O -1
+		Stop
+	XDeath:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BCUL P 0 A_Fall
+		BCUL P 5 A_XScream
+		BCUL P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BCUL P 0 A_SpawnDebris("OrganDebris")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris("Bloodliver")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris("EyeGuts")
+		BCUL P 0 A_Jump(92,2)
+		BCUL PP 0 A_SpawnDebris("Hand1")
+		BCUL PPPPPPPP 0 A_SpawnDebris("FlyingBlood")
+		BCUL P 5
+		BCUL Q 5
+		BCUL RSTUV 5
+		BCUL V -1
+		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
+	Burn:
+	Death.SpecialFire:
+	Death.LifeLeech:
+	Death.Flare:
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		BCUL I 0 A_Fall
+		BCUL I 0 A_SpawnItem("BurnDeath2",1,0,0)
+		Stop
+	Pain.Tommy:
+	Pain.Fire:
+		BCUL A 0 A_Jump(127,"Pain.Tommy2")
+		BCUL A 0 A_FaceTarget
+		BCUL A 0 A_SetAngle(angle+90)
+		BCUL A 0 A_Recoil(-7)
+		BCUL A 0 A_SetAngle(angle-90)
+		BCUL ABCDEFABCDEF 3
+		BCUL A 2 A_FaceTarget
+		Goto MissileCont
+	Pain.Tommy2:
+		BCUL A 0 A_Jump(127,"Pain.Tommy2")
+		BCUL A 0 A_FaceTarget
+		BCUL A 0 A_SetAngle(angle-90)
+		BCUL A 0 A_Recoil(-7)
+		BCUL A 0 A_SetAngle(angle+90)
+		BCUL ABCDEFABCDEF 3
+		BCUL A 2 A_FaceTarget
+		Goto MissileCont
+	Jump:
+		WCUY A 1 A_Chase
+		WCUY AABB 2 ThrustThingz(0,15,0,0)
+		WCUY BBCC 2 A_Recoil(-6)
+		WCUY DD 1
+		Goto See
+	Ice:
+		FCUL G 0 A_SetMass(999999)
+		FCUL G 5 A_FreezeDeath
+		FCUL G 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+//Old Brighter Translation, possible for a new cultist, napalm?
+//Translation "112:120=[224,160,64]:[192,48,20]","120:127=[120,24,10]:[16,0,0]","209:223=[192,160,128]:[128,80,64]"
+
+ACTOR RedCultist : BloodEnemy_Base 10310
+{
+	//$Title Red Cultist
+	Spawnid 116
+	Health 300
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 3
+	Scale 0.53
+	PainChance 170
+	PainChance "Fire", 0
+	PainChance "Flare", 0
+	PainChance "Voodoo", 256
+	DamageFactor "Stomping", 0
+	DropItem "Medikit", 32
+	+DROPOFF
+	+FLOORCLIP
+	+NOSPLASHALERT
+	-DONTGIB
+	SeeSound "CultistSee"
+	AttackSound "shotguy/attack"
+	PainSound "CultistPain"
+	DeathSound "CultistDie"
+	ActiveSound "CultistAct"
+	Obituary "$OB_REDCUL"
+	Translation "112:120=[208,144,48]:[160,32,14]","120:127=[120,24,10]:[16,0,0]","209:223=[192,160,128]:[128,80,64]"
+	Species "Cultist"
+	States
+	{
+	Spawn:
+		BCUL E 10 A_Look
+		Goto Spawn
+	See:
+		BCUL A 1 A_Chase("","Missile",CHF_FASTCHASE)
+		BCUL AA 1 A_ExtChase(0,0,0,0)
+		BCUL A 1 A_Chase
+		BCUL AA 1 A_ExtChase(0,0,0,0)
+		BCUL A 1 A_FastChase
+		BCUL AA 1 A_ExtChase(0,0,0,0)
+		BCUL B 1 A_Chase
+		BCUL BB 1 A_ExtChase(0,0,0,0)
+		BCUL B 1 A_Chase("","Missile",CHF_FASTCHASE)
+		BCUL BB 1 A_ExtChase(0,0,0,0)
+		BCUL B 1 A_Chase
+		BCUL BB 1 A_ExtChase(0,0,0,0)
+		BCUL C 1 A_FastChase
+		BCUL CC 1 A_ExtChase(0,0,0,0)
+		BCUL C 1 A_Recoil(-1)
+		BCUL CC 1 A_ExtChase(0,0,0,0)
+		BCUL C 1 A_Chase("","Missile",CHF_FASTCHASE)
+		BCUL CC 1 A_ExtChase(0,0,0,0)
+		BCUL D 1 A_Chase
+		BCUL DD 1 A_ExtChase(0,0,0,0)
+		BCUL D 1 A_Recoil(-1)
+		BCUL DD 1 A_ExtChase(0,0,0,0)
+		BCUL D 1 A_Chase("","Missile",CHF_FASTCHASE)
+		BCUL DD 1 A_ExtChase(0,0,0,0)
+		BCUL "\" 1 A_Chase
+		BCUL "\\" 1 A_ExtChase(0,0,0,0)
+		BCUL "\" 1 A_Chase
+		BCUL "\\" 1 A_ExtChase(0,0,0,0)
+		BCUL "\" 1 A_Chase
+		BCUL "\\" 1 A_ExtChase(0,0,0,0)
+		BCUL F 0 A_CheckFloor("jump")
+		Loop
+	Missile:
+		BCUL A 0 A_Jump (192, 6)
+		BCUL E 10 A_FaceTarget
+		BCUL F 4 A_CustomBulletAttack(5.6,10.6,1,4,"ZBulletCultist")
+		BCUL E 6 A_FaceTarget
+		BCUL F 4 A_CustomBulletAttack(5.6,10.6,1,4,"ZBulletCultist")
+		BCUL E 1 A_SentinelRefire
+		Goto Missile+1
+		BCUL X 5 A_FaceTarget
+		BCUL YZ 5
+		BCUL "[" 0 A_ThrowGrenade("GreenCultistTNT",0,20,4,0)
+		BCUL "[]" 5
+		BCL2 A 5
+		Goto See
+	Pain:
+		BCUL H 3
+		BCUL H 3 A_Pain
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0 A_Jump(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("CultistPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		Goto See
+	Death:
+		BCUL H 3
+		BCUL H 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BCUL N 7 A_Jump(256,"Transformation")
+		Stop
+	XDeath:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BCUL P 0 A_Fall
+		BCUL P 5 A_XScream
+		BCUL P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BCUL P 0 A_SpawnDebris("OrganDebris")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris("Bloodliver")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris("EyeGuts")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris("Hand1")
+		BCUL PPPPPPPP 0 A_SpawnDebris("FlyingBlood")
+		BCUL P 5
+		BCUL Q 5
+		BCUL RSTUV 5
+		BCUL V -1
+		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
+	Raise:
+		BCUL N 5 A_UnHideThing
+		BCUL MLKJIH 5
+		Goto See
+	Burn:
+	Death.LifeLeech:
+	Death.Flare:
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		BCUL I 0 A_HideThing
+		BCUL I 0 A_Fall
+		BCUL I 0 A_SpawnItem("BurnDeath2",1,0,0)
+		Stop
+	Jump:
+		WCUY A 1 A_Chase
+		WCUY AABB 2 ThrustThingz(0,15,0,0)
+		WCUY BBCC 2 A_Recoil(-6)
+		WCUY DD 1
+		Goto See
+	Transformation:
+		BCUZ BCDEFGH 5
+		BCUZ H 1 A_SpawnItemEx("BloodBeast",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	Ice:
+		FCUL G 0 A_SetMass(999999)
+		FCUL G 5 A_FreezeDeath
+		FCUL G 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR GreenCultist : BloodEnemy_Base 3128
+{
+	//$Title Green Cultist
+	Spawnid 4
+	Obituary "$OB_GRENCUL"
+	Health 105
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 3
+	PainChance 100
+	PainChance "Fire", 0
+	PainChance "Flare", 0
+	PainChance "Voodoo", 256
+	SeeSound "CultistSee"
+	PainSound "CultistPain"
+	DeathSound "CultistDie"
+	ActiveSound "CultistAct"
+	AttackSound ""
+	DropItem "HappyBundle", 256
+	Translation "112:120=[154,169,154]:[132,153,132]","120:127=[90,109,88]:[2,4,2]","209:223=[192,160,128]:[128,80,64]"
+	DamageFactor "Fire", 0.25
+	DamageFactor "Flare", 0.35
+	DamageFactor "CultistTNT", 0.0
+	DamageFactor "CultistTNT2", 0.0
+	DamageFactor "Stomping", 0
+	Scale 0.53
+	+DROPOFF
+	+FLOORCLIP
+	+MISSILEEVENMORE
+	+MISSILEMORE
+	+NOSPLASHALERT
+	-DONTGIB
+	Species "CultistG" //OTHERS WERE IMMUNE TO TNT!
+	States
+	{
+	Idle:
+		BCUL AAAABBBBCCCCDDDD 1 A_Wander
+		BCUL "\\\\\\" 1 A_Wander
+		BCUL AAA 0 A_Look
+	Spawn:
+		BCUL E 10 A_Look
+		Goto Spawn
+	See:
+		BCUL A 1 A_Chase("","Missile",CHF_FASTCHASE)
+		BCUL AA 1 A_ExtChase(0,0,0,0)
+		BCUL A 1 A_Chase
+		BCUL AA 1 A_ExtChase(0,0,0,0)
+		BCUL A 1 A_FastChase
+		BCUL A 0 A_Recoil(-1)
+		BCUL AA 1 A_ExtChase(0,0,0,0)
+		BCUL B 1 A_Chase
+		BCUL BB 1 A_ExtChase(0,0,0,0)
+		BCUL B 1 A_Chase("","Missile",CHF_FASTCHASE)
+		BCUL BB 1 A_ExtChase(0,0,0,0)
+		BCUL B 1 A_Chase
+		BCUL BB 1 A_ExtChase(0,0,0,0)
+		BCUL A 0 A_Recoil(-1)
+		BCUL C 1 A_FastChase
+		BCUL CC 1 A_ExtChase(0,0,0,0)
+		BCUL C 1 A_Chase
+		BCUL CC 1 A_ExtChase(0,0,0,0)
+		BCUL C 1 A_Chase("","Missile",CHF_FASTCHASE)
+		BCUL CC 1 A_ExtChase(0,0,0,0)
+		BCUL A 0 A_Recoil(-1)
+		BCUL D 1 A_Chase
+		BCUL DD 1 A_ExtChase(0,0,0,0)
+		BCUL D 1 A_FastChase
+		BCUL DD 1 A_ExtChase(0,0,0,0)
+		BCUL D 1 A_Chase
+		BCUL DD 1 A_ExtChase(0,0,0,0)
+		BCUL A 0 A_Recoil(-1)
+		BCUL "\" 1 A_Chase
+		BCUL "\\" 1 A_ExtChase(0,0,0,0)
+		BCUL "\" 1 A_Chase
+		BCUL "\\" 1 A_ExtChase(0,0,0,0)
+		BCUL "\" 1 A_Chase
+		BCUL "\\" 1 A_ExtChase(0,0,0,0)
+		BCUL F 0 A_CheckFloor("jump")
+		Loop
+	Missile:
+		BCUL X 4 A_FaceTarget
+		BCUL YZ 3 A_SetAngle(angle+frandom(-15,15))
+		TNT1 A 0 A_Jump(128, "Missile2")
+		TNT1 A 0 A_ThrowGrenade("GreenCultistTNT",0,20,4,0)
+		BCUL "[]" 3
+		BCL2 A 2
+		TNT1 A 0 A_Jump(160, "See")
+		Goto Missile
+	Missile2:
+		TNT1 A 0 A_ThrowGrenade("GreenCultistTNT2",0,20,4,0)
+		Goto Missile+5
+	Pain:
+		BCUL G 3
+		BCUL G 3 A_Pain
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0 A_Jump(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("CultistPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		Goto See
+	Death:
+		BCUL H 5
+		BCUL I 5 A_Scream
+		BCUL J 5 A_Fall
+		BCUL KLMN 5
+		BCUL NONON 10
+		BCUL O 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BCUL O -1
+		Stop
+	XDeath:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BCUL P 0 A_Fall
+		BCUL P 5 A_XScream
+		BCUL P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BCUL P 0 A_SpawnDebris("OrganDebris")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris("Bloodliver")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris("EyeGuts")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris("Hand1")
+		BCUL PPPPPPPP 0 A_SpawnDebris("FlyingBlood")
+		BCUL P 5
+		BCUL Q 5
+		BCUL RSTUV 5
+		BCUL V -1
+		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
+	Raise:
+		BCUL N 5 A_UnHideThing
+		BCUL MLKJIH 5
+		Goto See
+	Burn:
+	Death.LifeLeech:
+	Death.SpecialFire:
+	Death.Flare:
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		BCUL I 0 A_HideThing
+		BCUL I 0 A_Fall
+		BCUL I 0 A_SpawnItem("BurnDeath2",1,0,0)
+		Stop
+	Jump:
+		WCUY A 1 A_Chase
+		WCUY AABB 2 ThrustThingz(0,15,0,0)
+		WCUY BBCC 2 A_Recoil(-6)
+		WCUY DD 1
+		Goto See
+	Ice:
+		FCUL G 0 A_SetMass(999999)
+		FCUL G 5 A_FreezeDeath
+		FCUL G 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR GreenCultistTNT
+{
+	Radius 16
+	Height 4
+	Speed 39
+	Scale 0.5
+	Gravity 0.9
+	ExplosionDamage 84
+	ExplosionRadius 200
+	DamageType "CultistTNT"
+	Damage 0
+	PROJECTILE
+	+BOUNCEONACTORS
+	+DONTGIB
+	+DONTSPLASH
+	+NOBOUNCESOUND
+	+PUSHABLE
+	+RANDOMIZE
+	-NOGRAVITY
+	-SOLID
+	SeeSound "TNTTOSS"
+	ActiveSound "TNTFUSE"
+	States
+	{
+	Spawn:
+		ADYN A 0 A_LoopActiveSound
+		Goto See
+	See:
+		ADYN A 0 ThrustThingZ(0,frandom(-15,30),0,1)
+		ADYN A 0 A_Recoil(frandom(-2,10))
+		ADYN A 0 A_LoopActiveSound
+		ADYN EEEE 1 A_SpawnItem("TNTSmoke")
+		ADYN FFFF 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN GGGG 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN HHHH 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN AAAA 1 A_SpawnItem("TNTSmoke")
+		ADYN EEEE 1 A_SpawnItem("TNTSmoke")
+		ADYN FFFF 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN GGGG 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN HHHH 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN AAAA 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN BBBB 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN CCCC 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN DDDD 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN EEEE 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN FFFF 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN GGGG 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN HHHH 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN AAAA 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN BBBB 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN CCCC 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN DDDD 1 A_SpawnItem("TNTSmoke")
+		Goto Death
+	Death:
+		ADYN A 0 A_Recoil(frandom(-1,-30))
+		ADYN IJK 4 BRIGHT
+		ADYN A 0 A_AlertMonsters
+		ADYN A 0 A_LoopActiveSound
+		ADYN IJK 4 BRIGHT
+		ADYN A 0 A_LoopActiveSound
+		ADYN IJK 4 BRIGHT
+		ADYN A 0 A_LoopActiveSound
+		ADYN IJK 4 BRIGHT
+		ADYN A 0 A_LoopActiveSound
+		ADYN IJK 4 BRIGHT
+		MISL B 0 A_Explode
+		MISL B 0 A_PlaySound ("MediumExplosion")
+		MISL B 0 A_SpawnItem("FloorKaboom",-32)
+		Stop
+	Death.Sky:
+		ADYN A 1
+		Stop
+	}
+}
+
+ACTOR GreenCultistTNT2 : GreenCultistTNT
+{
+	Damage 1
+	ExplosionDamage 108
+	ExplosionRadius 200
+	-BOUNCEONACTORS
+	-DONTGIB
+	-PUSHABLE
+	States
+	{
+	See:
+		ADYN A 0 A_LoopActiveSound
+		ADYN EE 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN FF 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_Recoil(frandom(-2,10))
+		ADYN A 0 ThrustThingZ(0,frandom(-10,10),frandom(0,1),1)
+		ADYN GG 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN HH 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN AA 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN BB 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN CC 1 A_SpawnItem("TNTSmoke")
+		ADYN GG 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN HH 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN AA 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN BB 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN CC 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN DD 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN EE 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN FF 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN GG 1 A_SpawnItem("TNTSmoke")
+		ADYN A 0 A_LoopActiveSound
+		ADYN HH 1 A_SpawnItem("TNTSmoke")
+		Goto Super::Death
+	}
+}
+
+ACTOR BlueCultist : BloodEnemy_Base 10309
+{
+	//$Title Blue Cultist
+	Spawnid 116
+	Obituary "$OB_BLUCUL"
+	Health 250 //These were the tankiest and deadlist
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 3
+	PainChance 80
+	PainChance "Fire", 0
+	PainChance "Flare", 0
+	PainChance "Shock", 16
+	PainChance "Voodoo", 256
+	DamageFactor "Dynamite",0.75
+	DamageFactor "Napalm",0.75
+	DamageFactor "Tommy",0.91
+	DamageFactor "Shock", 0.0
+	DamageFactor "Stomping", 0
+	SeeSound "CultistSee"
+	AttackSound "shotguy/attack"
+	PainSound "CultistPain"
+	DeathSound "CultistDie"
+	ActiveSound "CultistAct"
+	DropItem "TeslaCharge", 128
+	DropItem "RTNTAMMO", 128
+	+DROPOFF
+	+FLOORCLIP
+	+NOSPLASHALERT  // ,,180/108 108 148/76 76 104/ 30 30 70
+	-DONTGIB
+	Translation "112:120=[108,108,140]:[84,84,128]","120:127=[64,64,98]:[18,18,32]","209:223=[192,160,132]:[124,92,92]","224:231=[256,192,160]:[216,160,128]","160:167=[255,192,160]:[216,160,128]"
+	Scale 0.53
+	Species "Cultist"
+	States
+	{
+	Spawn:
+		BCUL E 10 A_Look
+		Goto Spawn
+	See:
+		BCUL AAA 1 A_FastChase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		BCUL AAA 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		BCUL BBB 1 A_Chase("","Missile",CHF_FASTCHASE)
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		BCUL BBB 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		BCUL CCC 1 A_FastChase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		BCUL CCC 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		BCUL DDD 1 A_Chase("","Missile",CHF_FASTCHASE)
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		BCUL DDD 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		BCUL "\\\" 1 A_Chase("","Missile",CHF_FASTCHASE)
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		BCUL "\\\" 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		BCUL F 0 A_CheckFloor("jump")
+		Loop
+	Missile:
+		TNT1 A 0 A_Jump(128,"Proximity")
+		BCUL A 0 A_AlertMonsters
+		TNT1 A 0 A_Stop
+		BCUL E 10 A_FaceTarget
+		TNT1 A 0 A_PlaySound("TESLFIR")
+		BCUL F 1 A_CustomMissile("CultistTesla", 28)
+		BCUL F 2 A_Wander
+		BCUL E 1 A_FaceTarget
+		BCUL E 0 A_CposRefire
+		TNT1 Y 0 A_Jump(90, "See")
+		Goto Missile+4
+	Proximity:
+		BCUL X 4 A_FaceTarget
+		BCUL YZ 4 A_SetAngle(angle+frandom(-50,50))
+		BCUL "[" 4
+		TNT1 A 0 A_ThrowGrenade("ProximityAerial7",0,20,4,0)
+		BCUL "]" 5
+		BCUL A 5
+		TNT1 Y 0 A_Jump(160, "See")
+		Goto See
+	Pain:
+		BCUL H 3
+		BCUL H 3 A_Pain
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0 A_Jump(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Death:
+		BCUL H 5
+		BCUL A 0 A_AlertMonsters
+		BCUL I 5 A_Scream
+		BCUL J 5 A_Fall
+		BCUL KLMN 5
+		BCUL NONON 10
+		BCUL O 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BCUL O -1
+		Stop
+	XDeath:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BCUL P 0 A_Fall
+		BCUL P 5 A_XScream
+		BCUL P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BCUL P 0 A_AlertMonsters
+		BCUL P 0 A_SpawnDebris("OrganDebris")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris("Bloodliver")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris("EyeGuts")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris("Hand1")
+		BCUL PPPPPPPP 0 A_SpawnDebris("FlyingBlood")
+		BCUL P 5
+		BCUL Q 5
+		BCUL RSTUV 5
+		BCUL V -1
+		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
+	Raise:
+		BCUL N 5 A_UnHideThing
+		BCUL MLKJIH 5
+		Goto See
+	Burn:
+	Death.SpecialFire:
+	Death.LifeLeech:
+	Death.Flare:
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		BCUL A 0 A_AlertMonsters
+		BCUL I 0 A_HideThing
+		BCUL I 0 A_Fall
+		BCUL I 0 A_SpawnItem("BurnDeath2",1,0,0)
+		Stop
+	Jump:
+		WCUY A 1 A_Chase
+		WCUY AABB 2 ThrustThingz(0,15,0,0)
+		WCUY BBCC 2 A_Recoil(-6)
+		WCUY DD 1
+		Goto See
+	Ice:
+		FCUL G 0 A_SetMass(999999)
+		FCUL G 5 A_FreezeDeath
+		FCUL G 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR BrownCultist : BloodEnemy_Base 3129
+{
+	//$Title Brown Cultist
+	Spawnid 1
+	Obituary "$OB_BROCUL"
+	Health 100
+	Radius 20
+	Height 56
+	Mass 40
+	Speed 3
+	PainChance 128
+	PainChance "SunningHead",255
+	DamageFactor "StunningHead",3
+	PainChance "Fire", 230
+	PainChance "Voodoo", 256
+	PainChance "PitchFork",210
+	PainChance "Flare", 230
+	DamageFactor "Stomping", 0
+	SeeSound "CultistSee"
+	PainSound "CultistPain"
+	DeathSound "CultistDie"
+	AttackSound "CultistShotgun"
+	DamageFactor "PitchFork",0.7
+	DamageFactor "Shock", 0.7
+	ActiveSound "CultistAct"
+	DropItem "Sawedoff" 100
+	DropItem "Bloodshells" 160
+	DropItem "TNTBundle" 64
+	Scale 0.53
+	DamageFactor "CultistTNT",1
+	+FLOORCLIP
+	+NODROPOFF
+	+NOSPLASHALERT
+	Species "Cultist"
+	States
+	{
+	Idle:
+		YCUF A 0 A_PlaySound("CultistGotYou",0)
+		YCUL AAABBBCCCDDDEEEFFF 2 A_Wander
+		YCUL A 0 A_Recoil(-1)
+		YCUL A 0 A_Look
+		YCUL AAABBBCCCDDDEEEFFF 2 A_Wander
+		YCUL A 0 A_Recoil(-1)
+		YCUL A 0 A_Look
+		YCUL AAABBBCCCDDDEEEFFF 2 A_Wander
+		YCUL A 0 A_Recoil(-1)
+		YCUL A 0 A_Look
+		YCUL AAABBBCCCDDDEEEFFF 2 A_Wander
+		YCUL A 0 A_Recoil(-1)
+		YCUL A 0 A_Look
+		YCUL AAABBBCCCDDDEEEFFF 2 A_Wander
+		YCUL A 0 A_Recoil(-1)
+		YCUL A 0 A_Look
+		YCUL AAABBBCCCDDDEEEFFF 2 A_Wander
+		YCUL A 0 A_Recoil(-1)
+		YCUL A 0 A_Look
+		YCUL AAABBBCCCDDDEEEFFF 2 A_Wander
+		YCUL A 0 A_Recoil(-1)
+		YCUL A 0 A_Look
+		Loop
+	Spawn:
+		YCUF A 10 A_Look
+		Goto Spawn
+	See:
+		YCUL A 1 A_Chase("","Missile",CHF_FASTCHASE)
+		YCUL AA 1 A_ExtChase(0,0,0,0)
+		YCUL A 1 A_Chase
+		YCUL BB 1 A_ExtChase(0,0,0,0)
+		YCUL B 1 A_Chase
+		YCUL B 1 A_Recoil(-1)
+		YCUL BB 1 A_ExtChase(0,0,0,0)
+		YCUL C 1 A_Chase
+		YCUL CC 1 A_ExtChase(0,0,0,0)
+		YCUL C 1 A_Chase("","Missile",CHF_FASTCHASE)
+		YCUL D 1 A_Chase
+		YCUL DD 1 A_ExtChase(0,0,0,0)
+		YCUL D 1 A_Chase
+		YCUL EE 1 A_ExtChase(0,0,0,0)
+		YCUL E 1 A_Recoil(-1)
+		YCUL E 1 A_Chase
+		YCUL FF 1 A_ExtChase(0,0,0,0)
+		YCUL F 1 A_Chase("","Missile",CHF_FASTCHASE)
+		YCUL F 1 A_ExtChase(0,0,0,0)
+		YCUL F 0 A_Jump(128,"crouch.see2")
+		YCUL F 0 A_CheckFloor("jump")
+		YCUL F 0 A_Jump(40,"Moronic")
+		Loop
+	Crouch.See2:
+		CCUL A 1 A_Chase("","Crouch.Missile2",CHF_FASTCHASE)
+		CCUL AA 1 A_ExtChase(0,0,0,0)
+		CCUL A 1 A_Chase
+		CCUL BB 1 A_ExtChase(0,0,0,0)
+		CCUL B 1 A_Chase
+		CCUL B 1 A_Recoil(-1)
+		CCUL BB 1 A_ExtChase(0,0,0,0)
+		CCUL C 1 A_Chase
+		CCUL CC 1 A_ExtChase(0,0,0,0)
+		CCUL C 1 A_Chase("","Crouch.Missile2",CHF_FASTCHASE)
+		CCUL D 1 A_Chase
+		CCUL DD 1 A_ExtChase(0,0,0,0)
+		CCUL D 1 A_Chase
+		CCUL EE 1 A_ExtChase(0,0,0,0)
+		CCUL E 1 A_Recoil(-1)
+		CCUL E 1 A_Chase
+		CCUL E 0 A_Jump(64,"See")
+		Loop
+	Moronic:
+		YCUL AAA 1 A_Wander
+		YCUL A 1 A_Look
+		YCUL BBB 1 A_Wander
+		YCUL B 1 A_Look
+		YCUL CCC 1 A_Wander
+		YCUL C 1 A_Look
+		YCUL DDD 1 A_Wander
+		YCUL C 1 A_Look
+		YCUL EEE 1 A_Wander
+		YCUL E 1 A_Look
+		YCUL FFF 1 A_Wander
+		YCUL F 1 A_Look
+		YCUL F 0 A_Jump(120,"Forgot")
+		Loop
+	Forgot:
+		YCUL A 0 A_ClearTarget
+		Goto Spawn
+	Missile:
+		YCUL E 0 A_Jump (107,10)
+		YCUF A 8 A_FaceTarget //A lot slower...
+		YCUF B 4 A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "ZBulletCultist", 0, CBAF_NORANDOM)
+		TNT1 A 0 A_PlaySound("CultistShotgun", CHAN_Body)
+		YCUL A 0 A_AlertMonsters
+		TNT1 A 0 A_Chase
+		YCUF A 5 A_Jump(90,"See")
+		BCUL F 0 A_CustomMissile("ShotgunCasing",30,4,24,1)
+		YCUF A 0 A_CposRefire
+		Goto Missile+1
+		YCUL X 4 A_FaceTarget
+		YCUL YZ 3 A_SetAngle(angle+frandom(-30,40))
+		YCUL "[" 4
+		TNT1 A 0 A_ThrowGrenade("BrownCultistTNT",0,20,4,0)
+		YCUL "^" 5
+		YCUB A 5
+		TNT1 Y 0 A_Jump(160, "See")
+		Goto Missile
+		Goto See
+	Crouch.Missile2:
+		CCUL E 0 A_Jump (107,8)
+		CCUL C 8 A_FaceTarget
+		CCUL F 4 A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "ZBulletCultist", 0, CBAF_NORANDOM)
+		TNT1 A 0 A_PlaySound("CultistShotgun", CHAN_Body)
+		CCUL A 0 A_AlertMonsters
+		TNT1 A 0 A_Chase
+		CCUL A 5 A_Jump(90,"crouch.see2")
+		CCUL F 0 A_CustomMissile("ShotgunCasing",30,4,24,1)
+		CCUL A 0 A_CposRefire
+		Goto Crouch.Missile2+1
+		Goto Crouch.See2
+	Pain.Flare:
+	Pain.Fire:
+		YCUL AAA 2 A_Wander
+		Goto See
+	Pain:
+		YCUL G 3
+		YCUL G 3 A_Pain
+		YCUL G 0 A_Jump(90,"Pain.Tommy")
+		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("CultistPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7
+		BCUZ A 7 A_Jump(32,"Transformation")
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0 A_Jump(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Transformation:
+		BCUZ BCDEFGH 5
+		BCUZ H 1 A_SpawnItemEx("BloodBeast",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	Death:
+		YCUL H 5 A_Jump(90,"DeathBloodFountain","DeathBOOMEDBACK")
+		YCUL I 5 A_Scream
+		YCUL J 5 A_Fall
+		YCUL KLMN 5
+		YCUL NONON 10
+		YCUL N 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		YCUL N 0 A_Jump(40,"Boomya")
+		YCUL N 0 A_Jump(128,"Dissolution")
+		YCUL O 1 A_SpawnItemEx("DeadBrownCultist",0,0,0)
+		Stop
+	Dissolution:
+		PCUL A 1 A_SetTics(random(10,100))
+		PCUL ABCDEFGH 10
+		PCUL H 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		PCUL H -1
+		Stop
+	DeathBloodFountain:
+		YCUL H 5
+		YCUL I 5 A_Scream
+		YCUL J 5 A_Fall
+		YCUL KLMN 5
+		YCUL NONON 10
+		YCUL N 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		YCUL N 0 A_Jump(40,"Boomya")
+		YCUL OOOOOOOOOOOOOOOOO 4 A_SpawnItemEx("FlyingBlood",0,0,frandom(7,10),frandom(0,10),frandom(0,10),frandom(5,25),frandom(0,360))
+		TNT1 A 0 A_SpawnItemEx("FlyingBlood",0,0,frandom(7,10),frandom(0,10),frandom(0,10),frandom(5,25),frandom(0,360))
+		TNT1 A 0 A_SpawnItemEx("FlyingBlood",0,0,frandom(7,10),frandom(0,10),frandom(0,10),frandom(5,25),frandom(0,360))
+		TNT1 A 0 A_SpawnItemEx("FlyingBlood",0,0,frandom(7,10),frandom(0,10),frandom(0,10),frandom(5,25),frandom(0,360))
+		YCUL O -1
+		Stop
+	DeathBOOMEDBACK:
+		YCUL H 5 A_FaceTarget
+		YCUL HHHHH 0 A_SpawnItemEx("flyingblood",0,0,36,25,0,0,180)
+		YCUL I 5 A_Scream
+		YCUL J 5 A_Fall
+		YCUL KLMN 5
+		YCUL NONON 10
+		YCUL N 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		YCUL N 0 A_Jump(40,"Boomya")
+		YCUL O -1
+		Stop
+	XDeath:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		YCUL P 0 A_Fall
+		YCUL P 5 A_XScream
+		YCUL P 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BCUL P 0 A_SpawnDebris("OrganDebris")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris("Bloodliver")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris("EyeGuts")
+		BCUL P 0 A_Jump(92,2)
+		BCUL P 0 A_SpawnDebris("Hand1")
+		BCUL P 0 A_Jump(60,"Boomya")
+		BCUL PPPPPPPP 0 A_SpawnDebris("FlyingBlood")
+		ZBOX UUUUUUU 0 A_SpawnItemEx("Blood_",frandom(-20,20),frandom(-20,20),frandom(-20,20),frandom(0,15),frandom(0,15),frandom(0,15),frandom(0,360),0,120)
+		YCUL P 5
+		YCUL Q 5
+		YCUL RSTUV 5
+		YCUL V -1
+		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
+	Boomya:
+		BCUL PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	Raise:
+		YCUL N 5 A_UnHideThing
+		YCUL MLKJIH 5
+		Goto See
+	Death.SpecialFire:
+	Burn:
+	Death.LifeLeech:
+	Death.Flare:
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 1 A_GiveToTarget("DoTaunt", 1)
+		BCUL I 1 A_HideThing
+		BCUL I 0 A_Fall
+		BCUL I 0 A_SpawnItem("BurnDeath2",1,0,0)
+		Stop
+	Pain.Tommy:
+		YCUL A 0 A_Jump(127,"Pain.Tommy2")
+		YCUL A 0 A_FaceTarget
+		YCUL A 0 A_SetAngle(angle+90)
+		YCUL A 0 A_Recoil(frandom(-6,-8))
+		YCUL A 0 A_SetAngle(angle-90)
+		YCUL ABCDEFABCDEF 3
+		YCUL A 2 A_FaceTarget
+		Goto See
+	Pain.Fire:
+		YCUL A 0 A_Jump(127,"Pain.Tommy2")
+		YCUL A 0 A_FaceTarget
+		YCUL A 0 A_SetAngle(angle+90)
+		YCUL A 0 A_Recoil(frandom(-6,-8))
+		YCUL A 0 A_SetAngle(angle-90)
+		YCUL ABCDEFABCDEF 3 A_SpawnItem("BurningAlive")
+		YCUL A 2 A_FaceTarget
+		Goto See
+	Pain.Tommy2:
+		YCUL A 0 A_Jump(127,"Pain.Tommy2")
+		YCUL A 0 A_FaceTarget
+		YCUL A 0 A_SetAngle(angle-90)
+		YCUL A 0 A_Recoil(-7)
+		YCUL A 0 A_SetAngle(angle+90)
+		YCUL ABCDEFABCDEF 3
+		YCUL A 2 A_FaceTarget
+		Goto See
+	Jump:
+		WCUZ A 1 A_Chase
+		WCUZ AABB 2 ThrustThingz(0,15,0,0)
+		WCUZ BBCC 2 A_Recoil(-3)
+		WCUZ DD 1
+		Goto See
+	Ice:
+		FCUL G 0 A_SetMass(999999)
+		FCUL G 5 A_FreezeDeath
+		FCUL G 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR BrownCultistTNT : GreenCultistTNT { +CANNOTPUSH }
+
+ACTOR ------ZOMBIE------------- {}
+ACTOR BloodZombie : BloodEnemy_Base 3120
+{
+	//$Title Zombie
+	Radius 16
+	Height 56
+	Scale 0.5
+	Mass 40
+	Speed 6 //Faster
+	Health 200 //Extra Crispy
+	GibHealth 30
+	MeleeRange 48
+	MaxTargetRange 49
+	PainChance "Blast", 190 //When they survive tnt they usually fake
+	PainChance "Dynamite", 90
+	PainChance "Fire", 0
+	PainChance "Flare", 0
+	PainChance "LifeLeech", 192
+	PainChance "PitchFork", 64
+	PainChance "SawedOff", 125
+	PainChance "SawedoffLess", 170 //Nop not less
+	PainChance "Shock", 255
+	PainChance "SunningHead",230
+	PainChance "Tommy", 64//11 //Never seen them fake from this but oh well
+	PainChance "ZBloodBullet", 64
+	PainChance 100 //The old annoying zombie faking spam
+	DamageFactor "Fire", 3.35
+	DamageFactor "Flare", 3.5
+	DamageFactor "Stomping", 0
+	DamageFactor "StunningHead",3
+	ActiveSound "ZombieSee"
+	AttackSound ""
+	DeathSound "ZombieDeath"
+	MeleeSound "ZombieAxe"
+	PainSound ""
+	SeeSound "ZombieSee"
+	Obituary "$OB_ZAXE"
+	DropItem "UselessStuff", 80
+	+DONTOVERLAP
+	+DROPOFF
+	+FLOORCLIP
+	+NOSPLASHALERT
+	+RANDOMIZE
+	-DONTGIB
+	Species "Zombies"
+	States
+	{
+	Spawn:
+		BZOM I 10 A_Look
+		Loop
+	Idle:
+		BZOM I 0 A_Look
+		BZOM AAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFFAAAABBBBCCCCDDDDEEEEFFFF 1 A_Wander
+		Loop
+	See:
+		BZOM AAAABBBBCCCC 1 A_Chase
+		BZOM A 0 A_Stop //Balance regain
+		BZOM DDDEEEFFF 1 A_Chase
+		BZOM A 0 A_Stop
+		BZOM AAAABBBBCCCC 1 A_Chase
+		BZOM A 0 A_Stop
+		BZOM DDDEEEFFF 1 A_Chase
+		BZOM A 0 A_Stop
+		BZOM AAAABBBBCCCC 1 A_Chase
+		BZOM A 0 A_Stop
+		BZOM DDDEEEFFF 1 A_Chase
+		BZOM A 0 A_Stop
+		BZOM AAAABBBBCCCC 1 A_Chase
+		BZOM A 0 A_Stop
+		BZOM DDDEEEFFF 1 A_Chase
+		BZOM A 0 A_Stop
+		BZOM AAAABBBBCCCC 1 A_Chase
+		BZOM A 0 A_Stop
+		BZOM DDDEEEFFF 1 A_Chase
+		BZOM A 0 A_Stop
+		BZOM AAAABBBBCCCC 1 A_Chase
+		BZOM A 0 A_Stop
+		BZOM DDDEEEFFF 1 A_Chase
+		BZOM A 0 A_Stop
+		BZOM AAAABBBBCCCC 1 A_Chase
+		BZOM A 0 A_Stop
+		BZOM DDDEEEFFF 1 A_Chase
+		BZOM A 0 A_Stop
+		BZOM A 0 A_Jump(150,1)
+		Goto StupidMode
+		Loop
+	StupidMode:
+		BZOM AAAABBBBCCCC 1 A_Wander
+		BZOM A 0 A_Look //Balance regain
+		BZOM DDDEEEFFF 1 A_Wander
+		BZOM A 0 A_Look
+		BZOM A 0 A_Jump(150,2)
+		BZOM A 0 A_ClearTarget
+		Goto Spawn
+		Loop
+	Melee:
+		BZOM J 4 A_FaceTarget
+		BZOM J 0 A_Recoil(-2)
+		TNT1 A 0 A_PlaySound("ZombieAxe")
+		BZOM KL 4 A_FaceTarget
+		BZOM J 0 A_Recoil(-1)
+		BZOM M 4 A_CustomMeleeAttack(frandom(16,34), "", "", "Axe", 1)
+		BZOM NO 4
+		TNT1 A 0 A_ClearTarget
+		Goto See
+	Pain:
+		TNT1 A 0 A_JumpIfInventory("AmAlReadyFaking",1,"ContFake")
+		TNT1 A 0 A_Jump (140, "Fake")
+		BZOM H 4 A_TakeInventory("AmAlReadyFaking",99)
+		Goto See
+	Fake:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		BZOD A 1
+		BZOD N 0 A_UnSetSolid
+		BZOD AB 4
+		BZOD B 4 A_GiveInventory("AmAlReadyFaking",1)
+		BZOD CDE 4
+	PainEL:
+	ContFake:
+		BZOD EEEE 20
+		BZOD E 0 A_JumpIfCloser(70,"HAHAHA")
+		BZOD EEEE 20
+		BZOD E 0  A_JumpIfCloser(70,"HAHAHA")
+		BZOD EEEEEEEE 20
+		BZOD E 0 A_Jump(120,"PainEL")
+		BZOD E 5
+		BZOD N 0 A_ChangeFlag("THRUSPECIES",0)
+		BZOD O 0 A_SetShootable
+		BZOD O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		BZOD E 0 A_PlaySound("Zombie/Fake")
+		BZOD EDCBA 4
+		TNT1 A 0 A_TakeInventory("AmAlReadyFaking",99)
+		Goto See
+	HAHAHA:
+		BZOD E 0 A_TakeInventory("AmAlReadyFaking",99)
+		BZOD E 0 A_FaceTarget
+		BZOD E 1
+		BZOM O 0 A_SetSolid
+		BZOM O 0 A_SetSolid //Only regretable if zombies stuck another Monster lol
+		BZOD E 0 A_PlaySound("Zombie/Fake")
+		BZOD EDCBA 2 A_Recoil(-1)
+		Goto Melee+2
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		ZOMZ A 7
+		ZOMZ A 7
+		ZOMZ A 7
+		ZOMZ A 7
+		ZOMZ A 7
+		ZOMZ A 7
+		ZOMZ A 7
+		ZOMZ A 7
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Death:
+		TNT1 A 0 A_Scream
+		BZOD H 0 A_Jump(100,"DeathKickableHead")
+		BZOD H 0 A_JumpIfHealthLower (-9, 8)
+		BZOD A 8
+		BZOD B 8
+		BZOD C 4
+		BZOD D 4 A_Fall
+		BZOD D 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BZOD E 1 A_SpawnItemEx("DeadBloodZombie",0,0,0)
+		Stop
+		BZOD H 0 A_PlaySound("DSBDSPRY")
+		BZO2 A 0 A_ThrowGrenade("ZombieHead",0,5,10,0)
+		BZOD LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD H 0 A_Fall
+		BZOD OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD RR 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD H 0 A_PlaySound("DSBDSPRY")
+		BZOD SSSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD H 0 A_PlaySound("DSBDSPRY")
+		BZOD SSSSSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		BZOD S -1
+	DeathKickableHead:
+		BZOD H 0 A_PlaySound("DSBDSPRY")
+		BZOD H 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BZOD H 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		BZOD LL 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD MM 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD NN 1 A_ThrowGrenade("FlyingBlood",0,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD H 0 A_Fall
+		BZOD OO 1 A_ThrowGrenade("FlyingBlood",-5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD PP 2 A_ThrowGrenade("FlyingBlood",-10,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD QQ 1 A_ThrowGrenade("FlyingBlood",-15,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD R 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD H 0 A_PlaySound("DSBDSPRY")
+		BZOD SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),10+frandom(-4,4),0)
+		BZOD H 0 A_PlaySound("DSBDSPRY")
+		BZOD SSSSS 1 A_ThrowGrenade("FlyingBlood",-20,5+frandom(-3,3),5+frandom(-4,4),0)
+		BZOD S -1
+		Stop
+	Death.Shock:
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 2)
+		Goto Death //Well it looked goofy when they suddenly disappeared out of the world
+	XDeath:
+		TNT1 A 0 A_Jump(120,"XDeath.KickableAlt")
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BZOX U 0 A_XScream
+		BZOX U 0 A_Fall
+		BZOX A 5
+		BZOX A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BZOX UUU 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("OrganDebris2")
+		BZOX B 5
+		BZOX U 0 A_ThrowGrenade("ZombieHead",0,5,10,0)
+		BZOX C 5
+		BZOX U 0 A_SpawnDebris("Bloodliver")
+		BZOX U 0 A_SpawnDebris("Hand1")
+		TNT1 A 0 A_SpawnItemEx("Intestines",frandom(-50,50),frandom(-50,50),0)
+		TNT1 A 0 A_SpawnItemEx("Entrails",frandom(-50,50),frandom(-50,50),0)
+		BZOX UUUUUUU 0 A_SpawnDebris("FlyingBlood")
+		ZBOX UUUUUUU 0 A_SpawnItemEx("Blood_",frandom(-20,20),frandom(-20,20),frandom(-20,20),frandom(0,15),frandom(0,15),frandom(0,15),frandom(0,360),0,120)
+		BZOX DEFG 5
+		BZOX H -1
+		Stop
+	XDeath.KickableAlt:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BZOX U 0 A_XScream
+		BZOX U 0 A_Fall
+		BZOX A 5
+		BZOX A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
+		BZOX UUU 0 A_SpawnDebris("OrganDebris")
+		BZOX B 5
+		BZOX U 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		BZOX C 5
+		BZOX U 0 A_SpawnDebris("Bloodliver")
+		BZOX U 0 A_SpawnDebris("Hand1")
+		BZOX UUUUUUU 0 A_SpawnDebris("FlyingBlood")
+		BZOX DEFG 5
+		BZOX H -1
+		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_ThrowGrenade("KickableFlying",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		BZOM A 1
+		BZOM I 0 A_Fall
+		BZOM I 0 A_Pain
+		TNT1 A 0 A_PlaySound("demon/Pain")
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		BZOM I 0 A_SpawnItem("BurnDeathZombie",1,0,0)
+		Stop
+	Disintegrate:
+	Death.Voodoo:
+	Death.VoodooAlt:
+		BZOS I 0 A_Scream
+		BZOS ABCD 6
+		BZOS L 0 A_Fall
+		BZOS EFGH 3
+		BZOS I -1
+		Stop
+	Raise:
+		BZOD FGHIJ 5
+		Goto See
+	Death.Dynamite:
+		BZOS I 0 A_Jump(190,"Death")
+		BZOS I 0 ThrustThingZ(0,frandom(25,45),0,0)
+		Goto Death
+	Ice:
+		FZOM H 0 A_SetMass(999999)
+		FZOM H 5 A_FreezeDeath
+		FZOM H 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR BuriedZombie : BloodZombie 3121
+{
+	//$Title Zombie, Buried
+	+NOTAUTOAIMED
+	-SHOOTABLE
+	-SOLID
+	Species "Zombies"
+    States
+	{
+	Idle:
+		Goto Super::Spawn
+	Spawn:
+		UGZZ J 320 A_Look
+		Loop
+	See:
+		UGZZ A 0 A_ChangeFlag("SOLID",1)
+		UGZZ A 0 A_ChangeFlag("SHOOTABLE",1)
+		UGZZ A 0 A_ChangeFlag("NOTAUTOAIMED",0)
+		UGZZ A 0 A_JumpifInventory("ChokeMe",1,11)
+		UGZZ A 0 A_GiveInventory("ChokeMe",1)
+		UGZZ A 0 A_PlaySound("Zombie/Raise")
+		UGZZ ABCDEFGHI 4 A_FaceTarget
+		Goto Super::See
+	}
+}
+
+ACTOR -----GILLBEAST------- {}
+ACTOR GillBeast : Cacodemon 3126
+{
+	//$Category "Blood Monsters"
+	//$Title Gill Beast
+	//$Color 5
+	Radius 20
+	Height 64
+	Health 600
+	Mass 300
+	GibHealth 70
+	Speed 2
+	FastSpeed 3
+	FloatSpeed 3
+	Damage 6
+	Scale 0.8//0.6
+	MeleeRange 56
+	MeleeDamage 7
+	MaxTargetRange 49
+	BloodColor "DarkRed"
+	DamageFactor "Blast",1.6
+	DamageFactor "Flare",1.0
+	DamageFactor "Shock",1.5
+	PainChance "Blast", 0
+	PainChance "Dynamite", 0
+	PainChance "Fire", 255
+	PainChance "Flare", 255
+	PainChance "LifeLeech", 0
+	PainChance "Napalm", 0
+	PainChance "Pitchfork", 0
+	PainChance "Sawedoff", 64
+	PainChance "Sawedoff2", 64
+	PainChance "SawedoffLess", 0
+	PainChance "Shock", 255
+	PainChance "Shock",32
+	PainChance "Tommy", 0
+	PainChance "Voodoo", 16
+	PainChance "ZBloodBullet", 0
+	PainChance 200
+	ProjectilePassHeight 64
+	SeeSound "GillBeastSee"
+	PainSound "GillBeastPain"
+	DeathSound "GillBeastDie"
+	ActiveSound "GillBeastSee"
+	AttackSound "dsdolstb"
+	+NOTELEPORT
+	Obituary "$OB_GILLB"
+	HitObituary "$OB_GILLB"
+	Species "Fishes"
+	States
+	{
+	Forget:
+		TNT1 A 0 A_GiveInventory("GillBeastChecks",1)
+		TNT1 A 0 A_JumpIfInventory("GillBeastChecks",28,"Memory")
+		Goto See+1
+	Memory:
+		TNT1 A 0 A_ClearTarget
+  	Spawn:
+	Water.Idle:
+		GILW AAAAAAAAAAAAAAAAAA 4 A_Look
+		GILW F 0 A_JumpIf(waterlevel<1,"Ground.Idle")
+		GILW AAAAAAAAAAAAAAAAAA 4 A_Look
+		GILW F 0 A_JumpIf(waterlevel<1,"Ground.Idle")
+		GILW AAAAAAAAAAAAAAAAAA 4 A_Look
+		GILW F 0 A_JumpIf(waterlevel<1,"Ground.Idle")
+		GILW AAAAAAAAAAAAAAAAAA 4 A_Look
+		GILW F 0 A_JumpIf(waterlevel<1,"Ground.Idle")
+		GILW AAAAAAAAAAAAAAAAAA 4 A_Look
+		GILW F 0 A_JumpIf(waterlevel<1,"Ground.Idle")
+	SpawnCont:
+		GILW A 4 A_Look
+		Loop
+	Water.See:
+	Water:
+	See:
+		TNT1 A 0 A_CheckSight("Forget")
+		TNT1 A 0 A_UnSetFloorClip
+		TNT1 A 0 ThrustThingZ(0,5,0,0)
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",1)
+		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"SwimAround")
+		GILW F 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW F 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW F 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW G 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW G 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW G 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW H 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW H 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW H 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW I 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW I 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW I 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW J 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW J 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW J 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
+		TNT1 A 0 A_UnSetFloorClip
+		TNT1 A 0 ThrustThingZ(0,5,0,0)
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",1)
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"SwimAround")
+		GILW F 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW F 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW F 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW G 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW G 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW G 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW H 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW H 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW H 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW I 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW I 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW I 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW J 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW J 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILW J 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
+		TNT1 A 0 A_CheckSight("Forget")
+		Loop
+	SwimAround:
+		GILW F 0 A_Recoil(-1)
+		GILW F 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		GILW F 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 //ThrustThing(angle*256/360+64,1,0,0)
+		GILW F 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		GILW G 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 //ThrustThing(angle*256/360+64,1,0,0)
+		GILW A 0 A_Playsound("GillBeastSee")
+		GILW G 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		GILW G 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 //ThrustThing(angle*256/360+64,1,0,0)
+		GILW H 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		GILW H 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 //ThrustThing(angle*256/360+64,1,0,0)
+		GILW H 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+frandom[GillBeast](0,64),1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
+		GILW I 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		GILW I 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 //ThrustThing(angle*256/360+64,1,0,0)
+		GILW I 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+frandom[GillBeast](0,64),1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
+		GILW A 0 A_Playsound("GillBeastSee")
+		GILW J 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+64,1,0,0)
+		GILW J 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 //ThrustThing(angle*256/360+64,1,0,0)
+		GILW J 1 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-10,20)/10 + angle) * 65536)/360)
+		TNT1 A 0 ThrustThing(angle*256/360+frandom[GillBeast](0,64),1,0,0)
+		TNT1 A 0 A_JumpIf(waterlevel<1,"Ground.See")
+		TNT1 A 0 A_CheckSight("Forget")
+		Goto See
+	Missile:
+	Melee:
+		GILB D 1 A_FaceTarget
+		GILB D 1 A_Recoil(-1)
+		GILB D 1 A_JumpIf(waterlevel<1,"Ground.Melee")
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILB D 1 A_FaceTarget
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILB D 1 A_FaceTarget
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GILB F 4 A_CustomMeleeAttack(frandom(36,49),"dsdolstb")
+		GILB E 5
+		Goto See
+	Pain:
+		GILP B 3 A_JumpIf(waterlevel<1,"Ground.Pain")
+		GILP B 3 A_Pain
+		Goto See
+	Pain.Shock:
+		GSOK A 0 A_ChangeFlag("NOPAIN",1)
+		GSOK A 0 A_ScaleVelocity(.25)
+		GSOK A 0 A_Jump(192,1,2,3,4,5,6,7,8,9,10)
+		GSOK AAAAAAAAAAAAAAAAAAAAAAAA 1
+		GSOK A 4 A_Pain
+		GSOK A 0 A_ChangeFlag("NOPAIN",0)
+		GSOK A 0 A_ChangeFlag("NOPAIN",0)
+		GSOK A 0 A_JumpIfHealthLower(100,2)
+		GSOK A 0 A_Jump(192,"See")
+		GSOK AAAAAAAAAAAAAAAAAAAAAAAA 1
+		Goto See
+	Death:
+		TNT1 A 0 A_UnSetFloorClip
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+		GILD G 9 A_JumpIf(waterlevel<1,"Ground.Death")
+		GILD H 8 A_Scream
+		GILD IJ 7 A_NoBlocking
+		GILD K -1 A_SetFloorClip
+		Stop
+	XDeath:
+		TNT1 A 0 //A_JumpIf(waterlevel>2,"Apart")
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+		TNT1 A 0 A_Scream
+		GILG AAABB 1 A_SpawnItemEx ("OrganDebris",frandom(0,16),frandom(0,16),frandom(0,16),frandom(0,10),frandom(0,10),frandom(0,10),frandom(-360,360))
+		GILG BCCDDEE 1 A_SpawnItemEx ("OrganDebris",frandom(0,16),frandom(0,16),frandom(0,16),frandom(0,10),frandom(0,10),frandom(0,10),frandom(-360,360))
+		TNT1 A 0 A_Fall
+		GILG FFFFFFFFFF 0 A_SpawnItemEx("FlyingBlood",frandom(0,16),frandom(0,16),frandom(0,16),frandom(0,10),frandom(0,10),frandom(0,10),frandom(-360,360))
+		GILG F -1
+		Stop
+	Burn:
+	Death.LifeLeech:
+	Death.Flare:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		GILD K 0 A_HideThing
+		GILD K 0 A_Fall
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		GILD K 0 A_SpawnItem("BurnDeath2",1,0,0)
+		Stop
+	Ground.Idle:
+		TNT1 A 0 A_SetFloorClip
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+		TNT1 A 0 A_Look
+		GILW A 1 A_JumpIf(waterlevel>0,"Water.Idle")
+		GILW AAAAAAAAAA 0 A_Look
+		GILW A 1 A_JumpIf(waterlevel>0,"Water.Idle")
+		GILW AAAAAAAAAA 0 A_Look
+		GILW A 1 A_JumpIf(waterlevel>0,"Water.Idle")
+		GILW AAAAAAAAAA 0 A_Look
+		GILW A 1 A_JumpIf(waterlevel>0,"Water.Idle")
+		GILW AAAAAAAAAA 0 A_Look
+		GILW A 1 A_JumpIf(waterlevel>0,"Water.Idle")
+		GILW AAAAAAAAAA 0 A_Look
+		GILW A 1 A_JumpIf(waterlevel>0,"Water.Idle")
+		GILW AAAAAAAAAA 0 A_PlaySound("GillBeastAct")
+	Ground.IdleCont:
+		GILW A 6 A_Look
+		Loop
+	Ground.See:
+		TNT1 A 0 A_SetFloorClip
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Ground.Wander")
+		TNT1 A 0 A_Jump(128,2,3,4)
+		GILW AAAAAAA 1 A_Chase("Ground.Melee","Ground.Melee",CHF_NOPLAYACTIVE)
+		TNT1 A 0 A_JumpIf(waterlevel>0,"Water")
+		TNT1 A 0 A_Jump(224,2,3,4)
+		GILW BBBBBBBB 1 A_Chase("Ground.Melee","Ground.Melee",CHF_NOPLAYACTIVE)
+		TNT1 A 0 A_JumpIf(waterlevel>0,"Water")
+		TNT1 A 0 A_Jump(128,2,3,4)
+		TNT1 A 0 A_PlaySound("GillBeastAct")
+		GILW CCCCCCC 1 A_Chase("Ground.Melee","Ground.Melee",CHF_NOPLAYACTIVE)
+		TNT1 A 0 A_JumpIf(waterlevel>0,"Water")
+		TNT1 A 0 A_Jump(224,2,3,4)
+		GILW DDDDDDDD 1 A_Chase("Ground.Melee","Ground.Melee",CHF_NOPLAYACTIVE)
+		TNT1 A 0 A_JumpIf(waterlevel>0,"Water")
+		TNT1 A 0 A_Jump(224,2,3,4)
+		GILW EEEEEEEE 1 A_Chase("Ground.Melee","Ground.Melee",CHF_NOPLAYACTIVE)
+		TNT1 A 0 A_JumpIf(waterlevel>0,"Water")
+		TNT1 A 0 A_CheckSight("Forget")
+		Loop
+	Ground.Wander:
+		TNT1 A 0 A_SetFloorClip
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+		GILW AAAAAABBBBBBCCCCCCDDDDDDEEEEEE 1 A_Wander
+		Goto Ground.See
+	Ground.Pain:
+		TNT1 A 0 A_SetFloorClip
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+		GILP A 3
+		GILP A 3 A_Pain
+		Goto Ground.See
+	Ground.Melee:
+		TNT1 A 0 A_SetFloorClip
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+		GILB A 6 A_FaceTarget
+		GILB B 5 A_MeleeAttack
+		GILB C 7 A_FaceTarget
+		Goto Ground.See
+	Ground.Death:
+		TNT1 A 0 A_SetFloorClip
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+		GILD A 7
+		GILD B 6 A_Scream
+		GILD C 5 A_Fall
+		GILD DE 5
+		GILD F -1
+		Stop
+	Ice:
+		FILF R 0 A_SetMass(999999)
+		FILF R 5 A_FreezeDeath
+		FILF R 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR -----PHANTASM------- {}
+ACTOR Phantasm : BloodEnemy_Base  3134
+{
+	//$Title Phantasm
+    Game Doom
+	Health 150
+	Radius 24
+	Height 40
+	Mass 100
+	Speed 5
+	FastSpeed 7
+	FloatSpeed 5
+	Scale 0.65
+	Alpha 0.75
+	RenderStyle "Add"
+	MinMissileChance 40
+	MaxTargetRange 1024
+	MeleeRange 76
+	ProjectilePassHeight 56
+	DamageType "InsaneBleed"
+	DamageFactor "Blast", 0.5
+	DamageFactor "Disintegrate", 1.25
+	DamageFactor "Dynamite", 1.0
+	DamageFactor "Fire", 0
+	DamageFactor "Flare", 0.0
+	DamageFactor "LifeLeech", 1.0
+	DamageFactor "Napalm", 1.0
+	DamageFactor "Shock", 1.0
+	DamageFactor "Stomping", 0
+	PainChance "Disintegrate", 0
+	PainChance "Dynamite", 0
+	PainChance "Fire", 0
+	PainChance "Flare", 0
+	PainChance "LifeLeech", 0
+	PainChance "Napalm", 0
+	PainChance "PitchFork", 0
+	PainChance "SawedoffLess", 0
+	PainChance "Shock", 128
+	PainChance "Tommy", 0
+	PainChance "ZBloodBullet", 0
+	PainChance 60
+	RadiusDamageFactor 0.20
+	SeeSound "PhantasmSee"
+	PainSound "PhantasmPain"
+	DeathSound "PhantasmDie"
+	ActiveSound "PhantasmSee"
+	+CANNOTPUSH
+	+FLOAT
+	+NOCLIP
+	+NOGRAVITY
+	+NOICEDEATH
+	-SOLID
+    -CANUSEWALLS
+	Obituary "$OB_PHANT"
+	HitObituary "$HB_PHANT"
+	Species "Ghosts"
+	States
+	{
+  	Spawn:
+		PHAN A 1
+  	Idle:
+		TNT1 A 0 A_PlaySound("PhantomWin")
+		TNT1 A 0 A_UnSetSolid
+		TNT1 A 0 A_UnSetShootable
+		PHAN ABCDE 5 A_Look
+		Goto Idle+3
+	See:
+		PHAN K 0 A_Changeflag("NOCLIP",1)
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnSetSolid
+		TNT1 A 0 A_UnSetShootable
+		TNT1 A 0 A_Jump(122,"WhoopWhoop")
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnSetSolid
+		TNT1 A 0 A_UnSetShootable
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		PHAN A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		PHAN A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN B 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		PHAN B 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN B 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		PHAN B 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		PHAN C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		PHAN C 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		PHAN D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		PHAN D 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		PHAN E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		PHAN E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		PHAN E 1 A_RadiusThrust(128,32,1)
+		TNT1 A 0 A_LoopActiveSound
+		Loop
+	WhoopWhoop:
+		TNT1 A 0 A_SetTranslucent(0.45,0)
+		TNT1 A 0 A_UnSetSolid
+		TNT1 A 0 A_UnSetShootable
+		PHAN A 0 A_JumpIfCloser(400,"Cont") //U ran away? I CHASE
+		Goto See
+	Cont:
+		PHAN A 1 A_SetAngle(angle+22.5)
+		PHAN B 2 A_Recoil(-14)
+		PHAN B 0 A_Jump(128,2)
+		PHAN B 0 ThrustThingZ(0,frandom(0,20),0,1)
+		PHAN B 0 A_Jump(255,1)
+		PHAN B 0 ThrustThingZ(0,frandom(0,6),0,0)
+		PHAN C 0 A_SetAngle(angle+22.5)
+		PHAN C 1 A_Jump(21,"CHARGEE")
+		PHAN DE 1 A_Recoil(-7)
+		PHAN A 0 A_Stop
+		Loop
+	Descend:// WATCH ME GO UP SLOWLY, I'LL SOON KILL YOU HAHAHA
+		PHAN K 4 // A_Changeflag("NOCLIP",0)
+		TNT1 A 0 A_SetTranslucent(1,0)
+		TNT1 A 0 A_UnSetSolid
+		TNT1 A 0 A_UnSetShootable
+		PHAN ABCD 5 A_FadeOut(0.2)
+		PHAN E 5 A_FadeOut(0.1)
+		PHAN E 0 A_SetSolid
+		PHAN E 4 A_Recoil(-30)
+		PHAN E 0 A_SetAngle(angle+frandom(0,360))
+		PHAN E 0 A_SetSolid
+		PHAN E 4 A_Recoil(-30)
+		PHAN E 0 A_SetSolid
+		PHAN E 4 A_Recoil(-30)
+		PHAN E 0 A_SetSolid
+		PHAN E 4 A_Recoil(-30)
+		PHAN E 0 A_Stop
+		PHAN E 0 A_SetSolid
+		PHAN E 4 A_Recoil(-30)
+		PHAN E 0 A_SetSolid
+		PHAN E 4 A_Recoil(-30)
+		PHAN E 0 A_SetAngle(angle+frandom(0,360))
+		PHAN E 0 A_SetSolid
+		PHAN E 4 A_Recoil(-30)
+		PHAN E 0 A_SetAngle(angle+frandom(0,360))
+		PHAN E 0 A_SetSolid
+		PHAN E 4 A_Recoil(-30)
+		PHAN E 0 A_Stop
+		PHAN K 4// A_Changeflag("NOCLIP",0)
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnSetSolid
+		TNT1 A 0 A_UnSetShootable
+		TNT1 A 0 A_PlaySound("PhantomWin")
+		Goto See
+	WTF:
+		PHAN A 1 A_SetAngle(angle-22.5)
+		PHAN B 1 A_Recoil(-14)
+		PHAN B 0 A_Jump(128,2)
+		PHAN B 0 ThrustThingZ(0,frandom(0,20),0,1)
+		PHAN B 0 A_Jump(255,1)
+		PHAN B 0 ThrustThingZ(0,frandom(0,20),0,0)
+		PHAN C 0 A_SetAngle(angle-22.5)
+		PHAN C 1 A_Jump(30,"CHARGEE")
+		PHAN DE 1 A_Recoil(-7)
+		PHAN A 0 A_Stop
+		PHAN A 0
+		Loop
+	CHARGEE:
+		PHAN A 0 A_Jump(80,"WTF")
+		PHAN A 0 A_FaceTarget
+		PHAN A 1 A_Recoil(-20)
+		Goto See+8
+	Rambo:
+		PHAN K 4 A_Changeflag("NOCLIP",1)
+		TNT1 A 0 A_SetTranslucent(1,0)
+		TNT1 A 0 A_UnSetSolid
+		TNT1 A 0 A_UnSetShootable
+		PHAN E 0 A_SetTranslucent(0.14)
+		PHAN ABCDEABCDEABCDE 4 A_ExtChase(255,0,10)
+		PHAN ABCDEABCDEABCDE 4 A_ExtChase(255,0,10)
+	Missile:
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_SetTranslucent(1,0)
+		TNT1 A 0 A_SetSolid
+		PHAN A 4 A_SetShootable
+		PHAN FGH 4 A_FaceTarget
+		PHAN I 4 A_FaceTarget
+		TNT1 A 0 A_PlaySound("LLFireInitiate")
+		PHAN I 2  A_CustomMissile("PhantasmProjectile",24,0,0)
+		TNT1 A 0 A_Changeflag("NOCLIP",1)
+		PHAN J 0 A_Jump(100,"Descend","Rambo")
+		PHAN J 0 A_Jump(140,"WhoopWhoop")
+		Goto See
+	Melee:
+		TNT1 A 0 A_Changeflag("NOCLIP",0)
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_SetTranslucent(1,0)
+		TNT1 A 0 A_SetSolid
+		TNT1 A 0 A_SetShootable
+		PHAN FGH 4 A_FaceTarget
+		PHAN I 1  A_FaceTarget
+		TNT1 A 0 A_PlaySound("PhantasmMelee")
+		PHAN I 4  A_CustomMeleeAttack(frandom(43,80),"","none","InsaneBleed")
+		PHAN J 6 A_Changeflag("NOCLIP",1)
+		PHAN J 0 A_Jump(70,"Rambo")
+		Goto See
+	Pain:
+		PHAN K 4
+		TNT1 A 0 A_SetTranslucent(0.5,0)
+		TNT1 A 0 A_UnSetSolid
+		TNT1 A 0 A_UnSetShootable
+		PHAN K 3 A_Pain
+		PHAN K 0 A_Jump(110,"Descend")
+		PHAN K 0
+		Goto WhoopWhoop
+	Pain.Shock:
+		TNT1 A 0 A_ChangeFlag("NOPAIN",1)
+		PSOK AAAAAAAAAAAAAAAAAAAAAAAA 3
+		TNT1 A 0 A_ChangeFlag("NOPAIN",0)
+		Goto See
+	Death:
+		PHAN L 5 BRIGHT
+		PHAN M 5 A_Scream
+		PHAN NOPQRS 5 BRIGHT
+		Stop
+	Ice:
+		FHAF R 0 A_SetMass(999999)
+		FHAF R 5 A_FreezeDeath
+		FHAF R 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR ------HELLHOUND------- {}
+ACTOR HellHound : HellKnight 3130
+{
+    //$Category "Blood Monsters"
+	//$Title Hell Hound
+	//$Color 5
+	Radius 20
+	Health 250
+	Mass 100
+	Speed 8
+	Height 32
+	MeleeDamage 4
+	MaxstepHeight 46
+	FastSpeed 8
+	Scale .6
+	ProjectilePassHeight 40
+	DamageFactor "Fire", 0
+	DamageFactor "Flare", 0.4
+	DamageFactor "Shock", 2.6
+	DamageFactor "LifeLeech", 1.3
+	DamageFactor "Stomping", 0
+	DamageFactor "Tommy", 1.25
+	DamageFactor "Dynamite", 0.65
+	DamageFactor "Napalm", 0.65
+	DamageFactor "Blast", 0.65
+	DamageFactor "ZBloodBullet" ,1.0
+	PainChance 128
+	PainChance "Napalm", 64
+	PainChance "Flare", 64
+	PainChance "Fire", 64
+	PainSound "HellHoundPain"
+	DeathSound "HellHoundDie"
+	SeeSound "HellHoundSee"
+	ActiveSound "HellHoundSee"
+	+DROPOFF //Their secret tactic!
+	MaxTargetRange 256
+	MeleeSound "dsdolstb"
+	MeleeRange 50
+	MeleeThreshold 128
+	HitObituary "$HB_PUPPY"
+	Obituary "$OB_PUPPY"
+	DamageType "GOUPBOY"
+	Species "HellDog"
+	States
+	{
+  	Spawn:
+		HOUN A 10 A_Look
+		Loop
+	See:
+	    HOUN A 0 A_Jump(30,"Hunter")
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
+		TNT1 A 0 A_JumpIf(waterlevel>2,"Sunk")
+		HOUN AAAABBBB 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,6,0,0)
+		HOUN CCCCDDDD 1 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360,6,0,0)
+		HOUN EEEEFFFF 1 A_Chase
+		HOUN E 0 A_Jump(112,"Sproink")
+		Loop
+	Hunter:
+		HOUN ABCDABCD 2 A_FaceTarget
+		HOUN ABCDABCDABCD 1 A_Recoil(-1)
+		HOUN ABCD 1 A_Recoil(-40)
+		Goto Missile
+	Sunk:
+		TNT1 A 0 Thing_Damage(0,Health,0)
+		Loop
+	Sproink:
+		HOUN C 2 ThrustThingZ(0,frandom(35,50),0,1)
+		HOUN DDDD 1 A_Recoil(-6)
+		HOUN EEEEFFFF 1
+	Fallin:
+		HOUN FFFFFFFFFFFFFFFFF 3 A_CheckFloor("See")
+		Goto See
+	Wander:
+		HOUN AAAAABBBBB 1 A_Wander
+		TNT1 A 0 ThrustThing(angle*256/360,2,0,0)
+		HOUN CCCCCDDDDDD 1 A_Wander
+		TNT1 A 0 ThrustThing(angle*256/360,2,0,0)
+		HOUN EEEEEFFFFF 1 A_Wander
+		Goto See
+	Melee:
+		HOUN H 5 A_FaceTarget
+		HOUN I 7 A_Recoil(-2)
+		TNT1 A 0 A_CustomMeleeAttack(frandom(4,20),"dsdolstb","HellHound/Bite")
+		TNT1 A 0 A_CustomMeleeAttack(frandom(2,12),"dsdolstb","HellHound/Bite")
+		HOUN A 0 A_Jump(125,"Sproink")
+		HOUN AAAAAAAA 1 A_Chase
+		Goto Spawn
+	MeleeFurious:
+		HOUN H 3 A_FaceTarget
+		HOUN I 5 A_Recoil(-12)
+		TNT1 A 0 A_CustomMeleeAttack(frandom(10,25),"dsdolstb","HellHound/Bite")
+		TNT1 A 0 A_CustomMeleeAttack(frandom(10,20),"dsdolstb","HellHound/Bite")
+		HOUN H 4 A_JumpIfInTargetInventory("BurnTics",1,"MeleeFurious")
+		Goto See
+	Missile:
+		HOUN H 6 A_JumpIfInTargetInventory("BurnTics",1,"MeleeFurious")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_FaceTarget
+		HOUN H 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOUN H 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOUN H 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOUN H 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOUN H 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOUN H 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOUN H 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOUN H 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOUN H 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		HOUN H 4 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_JumpIfCloser(200,1)
+		Goto See
+		HOUN AAAAAAAA 0 A_SentinelRefire
+		Goto Missile+1
+	Pain:
+		HOUN J 3
+		HOUN J 5 A_Pain
+		HOUN J 0 A_SetAngle(frandom(-90,90))
+		Goto Sproink
+	Pain.Fire:
+			//TNT1 A 0 A_GiveInventory("BurningToken",1)
+			//TNT1 A 0 A_SpawnItemEx("BurningInit",0,0,16)
+		TNT1 A 0 Healthing(1)
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0 A_Jump(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+	    Goto See
+	Pain.Shock:
+		HSOK A 0 A_ChangeFlag("NOPAIN",1)
+		HSOK A 0 A_ScaleVelocity(.25)
+		HSOK A 0 A_Jump(192,1,2,3,4,5,6,7,8)
+		HSOK AAAAAAAAAAAAAAAAAAAAAAAA 1
+		HSOK A 4 A_Pain
+		HSOK A 0 A_ChangeFlag("NOPAIN",0)
+		HSOK A 0 A_JumpIfHealthLower(64,2)
+		HSOK A 0 A_Jump(192,"See")
+		HSOK AAAAAAAAAAAAAAAAAAAAAAAA 1
+		Goto See
+	Death:
+		HOUN K  6
+		HOUN L  5 A_Scream
+		HOUN M  4
+		HOUN N  4 A_NoBlocking
+		HOUN OPQRQQQRQRQRRRQ 4
+		HOUN R -1
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		Stop
+	Ice:
+		FOUF R 0 A_SetMass(999999)
+		FOUF R 5 A_FreezeDeath
+		FOUF R 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR ------WEREWOLF------- {}
+ACTOR BloodBeast : BloodEnemy_Base 6123
+{
+	//$Title Beast
+	Health 1000
+	Radius 24
+	Height 56
+	Mass 666
+	Speed 7
+	Scale 0.6
+	MeleeDamage 10
+	MeleeRange 64
+	MeleeThreshold 96
+	ProjectilePassHeight 62
+	PainChance 8
+	PainChance "Blast", 2
+	PainChance "Dynamite", 0
+	PainChance "Fire", 0
+	PainChance "LifeLeech", 0
+	PainChance "Napalm", 0
+	PainChance "PitchFork", 0
+	PainChance "SawedOff", 4
+	PainChance "SawedoffLess", 0
+	PainChance "Shock", 128
+	PainChance "Tommy", 0
+	PainChance "ZBloodBullet", 0
+	PainChance "Disintegrate", 0
+	ActiveSound "BeastAct"
+	MeleeSound "BeastSlash"
+	SeeSound "BeastSee"
+	PainSound "BeastPain"
+	DeathSound "BeastDie"
+	+BOSSDEATH
+	+FLOORCLIP
+	+MISSILEEVENMORE
+	+MISSILEMORE
+	+NOTARGET
+	+QUICKTORETALIATE
+	+SHORTMISSILERANGE
+	Obituary "$OB_BEAST"
+	HitObituary "$HB_BEAST"
+	Species "Bruisers"
+	States
+	{
+	Spawn:
+		BESC A 10 A_Look
+		Loop
+	See:
+		BESW A 1 A_Chase
+		BESW A 1 A_ExtChase(0,0,0,0)
+		BESW A 1 A_Chase
+		BESW A 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		TNT1 A 0 A_JumpIfCloser(256, "Stomp")
+		BESW B 1 A_Chase
+		BESW B 1 A_ExtChase(0,0,0,0)
+		BESW B 1 A_Chase
+		BESW B 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		TNT1 A 0 A_JumpIfCloser(256, "Stomp")
+		BESW C 1 A_Chase
+		BESW C 1 A_ExtChase(0,0,0,0)
+		BESW C 1 A_Chase
+		BESW C 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		TNT1 A 0 A_JumpIfCloser(256, "Stomp")
+		BESW D 1 A_Chase
+		BESW D 1 A_ExtChase(0,0,0,0)
+		BESW D 1 A_Chase
+		BESW D 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		TNT1 A 0 A_JumpIfCloser(256, "Stomp")
+		BESW E 1 A_Chase
+		BESW E 1 A_ExtChase(0,0,0,0)
+		BESW E 1 A_Chase
+		BESW E 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		TNT1 A 0 A_JumpIfCloser(256, "Stomp")
+		BESW F 1 A_Chase
+		BESW F 1 A_ExtChase(0,0,0,0)
+		BESW F 1 A_Chase
+		BESW F 1 A_ExtChase(0,0,0,0)
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		TNT1 A 0 A_CheckFloor("jump")
+		TNT1 A 0 A_JumpIfCloser(256, "Stomp")
+		Loop
+	Stomp:
+		BESS A 10 A_FaceTarget
+		BESS B 10 A_FaceTarget
+		BESS C 10 A_FaceTarget
+		TNT1 A 0 A_Playsound("BeastStomp")
+		BESS D 5 A_SpawnItemEx("BeastStomp")
+		BESS E 6
+		Goto See
+	Melee:
+		BESC AB 4 A_FaceTarget
+		BESC C 3 A_FaceTarget
+		BESC D 2 A_MeleeAttack
+		BESC E 2 A_FaceTarget
+		BESC FG 3 A_FaceTarget
+		BESC H 4 A_MeleeAttack
+		BESC IJ 3
+		Goto See
+	Pain:
+		BESP A 5
+		BESP A 5 A_Pain
+		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("BeastPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BEAS A 7
+		BEAS A 7
+		BEAS A 7
+		BEAS A 7
+		BEAS A 7
+		BEAS A 7
+		BEAS A 7
+		BEAS A 7
+		Goto See
+	Death.Shock:
+		TNT1 A 0 A_PlaySound("BeastPain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		BEAS A 7
+		BEAS A 7
+		BEAS A 7 A_Scream
+		BEAS A 7 A_BossDeath
+		BEAS A 7 A_NoBlocking
+		Goto Death+6
+	XDeath:
+	Death:
+		BESD A 7 A_Scream
+		BESD B 6 A_BossDeath
+		BESD C 5 A_NoBlocking
+		BESD DE 4
+		BESD FFFFFFFF 4 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD EE 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD EE 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A  0 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD DD 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD DD 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD DD 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD D 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD EE 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD E 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		BESD F -1
+		Stop
+	Burn:
+		TNT1 A 0 A_Scream
+		"####" A 1 A_JumpIf(waterlevel > 1, "Death")
+		BABD ABCDEFGH 8 A_SpawnItem("YouAreOnFireSir")
+		BABD I 20 A_Fall
+		BABD IJKLMNOP 6
+		BABD Q -1 A_BossDeath
+		Stop
+	Jump:
+		BESS DDD 2 A_Chase
+		BESS BBB 2 ThrustThingz(0,30,0,0)
+		BESS CCC 2 A_Recoil(-4)
+		BESS EEE 2
+		Goto See
+	Ice:
+		FESP A 0 A_SetMass(999999)
+		FESP A 5 A_FreezeDeath
+		FESP A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR BeastStomp
+{
+	Radius 1
+	Height 1
+	Damage 0
+	DamageType "BeastStomp"
+	+BLOODLESSIMPACT
+	+DONTSPLASH
+	+NODAMAGETHRUST
+	+NOTIMEFREEZE
+	+PAINLESS
+	Obituary "$OB_STOMP"
+    States
+	{
+	Spawn:
+		TNT1 A 1
+		Goto Death
+	Death:
+		TNT1 A 5 A_Quake(4,12,0,400)
+		TNT1 A 10 A_Quake(2,12,0,800)
+		TNT1 A 1 A_Explode(70,400,0)
+		Stop
+	}
+}
+
+ACTOR ------BOSSES----------- {}
+ACTOR Cheogh : BloodEnemy_Base 3124
+{
+	//$Title Cheogh
+	Spawnid 3
+	Health 3000
+	Radius 24
+	Height 64
+	Mass 1000
+	Speed 8
+	Scale 0.88
+	FloatSpeed  14
+	MeleeDamage 13
+	MeleeRange  80
+	PainChance 50
+	DamageType "Stun"
+	DamageFactor "Blast", 0.45
+	DamageFactor "Disintegrate", 2.8
+	DamageFactor "Dynamite", 0.6
+	DamageFactor "Fire", 0.05
+	DamageFactor "Flare", 1
+	DamageFactor "GargoyleBlast", 0.0
+	DamageFactor "LifeLeech", 0.85
+	DamageFactor "Napalm", 0.35
+	DamageFactor "Sawedoff", 1
+	DamageFactor "Shock", 2.3
+	DamageFactor "Stomping", 2
+	DamageFactor "Tommy", 1.3
+	DamageFactor "ZBloodBullet", 1
+	PainChance "Blast", 0
+	PainChance "Dynamite", 0
+	PainChance "Fire", 0
+	PainChance "Flare", 0
+	PainChance "LifeLeech", 32
+	PainChance "PitchFork", 0
+	PainChance "SawedOff", 0
+	PainChance "SawedOff2", 0
+	PainChance "SawedoffLess", 0
+	PainChance "Shock", 192
+	PainChance "Tommy", 0
+	PainChance "ZBloodBullet", 0
+	PainChance "Napalm", 0
+	SeeSound "Cheogh/Roam"
+	PainSound "Cheogh/Pain"
+	DeathSound "Cheogh/Die"
+	ActiveSound "Cheogh/Roam"
+	MeleeSound "Cheogh/Slap"
+	Obituary "$OB_CHEOGH"
+	HitObituary "$HB_CHEOGH"
+	+FLOAT
+	+FLOORCLIP
+	+LONGMELEERANGE
+	+MISSILEMORE
+	+NOGRAVITY
+	+NOSPLASHALERT
+	+SHORTMISSILERANGE
+	Species "Cacos"
+	States
+	{
+	Spawn:
+		GARG ABCD 9 A_Look
+		Loop
+	Idle:
+		GARG ABCDABCDABCDABCD 9 A_Wander
+		GARG A 0 A_Look
+		Loop
+	See:
+		GARG A 0 A_SentinelBob
+		GARG A 1 A_Chase
+		GARG AA 1 A_ExtChase(0,0,1,0)
+		GARG A 1 A_Chase
+		GARG AA 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
+		GARG A 1 A_Chase
+		GARG AA 1 A_ExtChase(0,0,1,0)
+		GARG B 1 A_Chase
+		GARG BB 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
+		GARG B 1 A_Chase
+		GARG BB 1 A_ExtChase(0,0,1,0)
+		GARG B 1 A_Chase
+		GARG BB 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
+		GARG C 1 A_Chase
+		GARG CC 1 A_ExtChase(0,0,1,0)
+		GARG C 1 A_Chase
+		GARG CC 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,frandom(5,10),0,1)
+		GARG C 1 A_Chase
+		GARG CC 1 A_ExtChase(0,0,1,0)
+		GARG D 1 A_Chase
+		GARG DD 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		GARG D 1 A_Chase
+		GARG D 0 A_pLAYsOUND("Cheogh/Roam",0)
+		GARG DD 1 A_ExtChase(0,0,1,0)
+		GARG D 1 A_Chase
+		GARG DD 1 A_ExtChase(0,0,1,0)
+		TNT1 A 0 ThrustThing(angle*256/360,1,0,0)
+		Loop
+	COME:
+		GARG F 0 A_Recoil(-3)
+	Melee:
+		GARG F 6 A_FaceTarget
+		GARG G 5 A_Recoil(-1)
+		GARG HH 3 A_CustomMeleeAttack (frandom(3,6)*7,"Cheogh/Slap","Cheogh/Slap", "GOUPBOY",1)
+		GARG IJ 6
+		Goto See
+	Missile:
+		GARG A 9 A_FaceTarget
+		GARG A 0 A_JumpIfCloser(250,"COME")
+		TNT1 A 0 A_CustomMissile ("StoneGargBall",42,10,0,1,0)
+		TNT1 A 0 A_CustomMissile ("StoneGargBall",42,-10,0,1,0)
+		GARG L 10 BRIGHT
+		GARG A 5
+		GARG A 9 A_FaceTarget
+		GARG A 0 A_JumpIfCloser(250,"COME")
+		TNT1 A 0 A_CustomMissile ("StoneGargBall",42,10,0,1,0)
+		TNT1 A 0 A_CustomMissile ("StoneGargBall",42,-10,0,1,0)
+		GARG L 10 BRIGHT
+		GARG A 4
+		Goto See
+	Pain:
+		GARG K 4
+		GARG K 8 A_Pain
+		GARG A 4
+		Goto See
+	Pain.Shock:
+		GARG K 6 A_Pain
+		GARG KKK 20
+		GARG AAAAA 7
+		Goto See
+	Pain.LifeLeech:
+		TNT1 A 0 A_Jump(64,1)
+		Goto See
+		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Death:
+		GARG M 8
+		GARG N 8 A_Scream
+		GARG O 8 A_Fall
+		GARG PQ 8
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		GARG R -1 A_BossDeath
+		Stop
+	Ice:
+		FGAR J 0 A_SetMass(999999)
+		FGAR J 5 A_FreezeDeath
+		FGAR J 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR Cerberus : BloodEnemy_Base 3127
+{
+	//$Title Cerberus
+	Spawnid 112
+	Obituary "$OB_CERB"
+	Health 3000
+	Radius 128
+	Height 100
+	ProjectilePassHeight 72
+	Mass 60
+	Speed 5
+	PainChance 24
+	SeeSound "CerberusSee"
+	PainSound "CerberusPain"
+	DeathSound "CerberusDie"
+	ActiveSound "Cerberus/Roam"
+	Scale 1.0
+	+BOSS
+	+DROPOFF
+	+FLOORCLIP
+	+MISSILEMORE
+	+QUICKTORETALIATE
+	-NORADIUSDMG
+	RadiusDamageFactor .2
+	DamageFactor "Blast", 1.0
+	DamageFactor "Disintegrate", 1.8
+	DamageFactor "Dynamite", 1.0
+	DamageFactor "Fire", 0.1
+	DamageFactor "Flare", 0.1
+	DamageFactor "LifeLeech", 1.0
+	DamageFactor "Napalm", 1.0
+	DamageFactor "Shock", 1.5
+	DamageFactor "Stomping", 0
+	PainChance "Dynamite", 2
+	PainChance "Fire",0
+	PainChance "Flare", 0
+	PainChance "LifeLeech", 0
+	PainChance "Napalm", 2
+	PainChance "Sawedoff", 8
+	PainChance "Sawedoff2", 48
+	PainChance "SawedoffLess", 0
+	PainChance "Shock",28
+	PainChance "Tommy", 0
+	PainChance "ZBloodBullet", 0
+	Species "HellDog"
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_JumpIfInventory("LowerThanHp", 1, 2)
+		TNT1 A 0 A_JumpIfHealthLower(2300, "PainX")
+		TNT1 A 0 A_JumpIfHealthLower (2300, "Spawn2")
+		CERB A 14 A_Look
+		Loop
+	Spawn2:
+		CERB N 14 A_Look
+		Loop
+	See:
+		TNT1 A 0 A_JumpIfInventory("LowerThanHp", 1, 2)
+		TNT1 A 0 A_JumpIfHealthLower(2300, "PainX")
+		TNT1 A 0 A_JumpIfHealthLower (2300,21)
+		CERB BBBBCCCCDDDDEEEEFFFF 1 A_Chase
+		Loop
+		CERX AAAABBBBCCCCDDDDEEEE 1 A_Chase
+		Loop
+	Missile:
+		TNT1 A 0 A_JumpIfInventory("LowerThanHp", 1, 2)
+		TNT1 A 0 A_JumpIfHealthLower(2300, "PainX")
+		CEBR F 0 A_JumpIfHealthLower (2300,8)
+		CEBR F 0 A_Jump(70,"Pattern1")
+		CERB G 7 //A_FatRaise
+		CERB H 6 A_FaceTarget
+		CEBR H 0 A_CustomMissile ("CerberusShot1",45,20,frandom(-27,28),1,-5)
+		CEBR H 0 A_CustomMissile ("CerberusShot1",45,-20,frandom(-28,28),1,-5)
+		CERB I 5 BRIGHT
+		CERB J 4
+		Goto See
+		CERX F 3 //A_FatRaise
+		CERX G 4 A_FaceTarget
+		CRB2 J 0 A_CustomMissile ("CerberusShot1",45,20,0,1,-5)
+		CERB N 5
+		CERB N 3 A_SentinelRefire
+		Goto Missile
+	Pattern1:
+		CERB G 4 //A_FatRaise
+		CERB H 9 A_FaceTarget
+		CEBR H 0 A_CustomMissile("CerberusShot1",45,20,-50,1,-5)
+		CEBR H 0 A_CustomMissile("CerberusShot1",45,-20,50,1,-5)
+		CERB I 5 BRIGHT
+		CERB J 5
+		CERB H 3 A_FaceTarget
+		CEBR H 0 A_CustomMissile("CerberusShot1",45,20,-35,1,-5)
+		CEBR H 0 A_CustomMissile("CerberusShot1",45,-20,35,1,-5)
+		CERB I 4 BRIGHT
+		CERB J 4
+		CERB H 3 A_FaceTarget
+		CEBR H 0 A_CustomMissile("CerberusShot1",45,20,-5,1,-5)
+		CEBR H 0 A_CustomMissile("CerberusShot1",45,-20,5,1,-5)
+		CERB I 4 BRIGHT
+		CERB J 4
+		CERB H 3 A_FaceTarget
+		CEBR H 0 A_CustomMissile("CerberusShot1",45,20,-2,1,-5)
+		CEBR H 0 A_CustomMissile("CerberusShot1",45,-20,0,1,-5)
+		CERB I 4 BRIGHT
+		CERB J 4
+		CERB H 3 A_FaceTarget
+		CEBR H 0 A_CustomMissile("CerberusShot1",45,20,20,1,-5)
+		CEBR H 0 A_CustomMissile("CerberusShot1",45,-20,-20,1,-5)
+		CERB I 4 BRIGHT
+		CERB J 4
+		CERB H 3 A_FaceTarget
+		CEBR H 0 A_CustomMissile("CerberusShot1",45,20,40,1,-5)
+		CEBR H 0 A_CustomMissile("CerberusShot1",45,-20,-40,1,-5)
+		CERB I 4 BRIGHT
+		CERB J 4
+		Goto See
+	Pain:
+		TNT1 A 0 A_JumpIfInventory("LowerThanHp", 1, "See")
+		TNT1 A 0 A_JumpIfHealthLower (2300,"PainX")
+		CERB K 11 A_Pain
+		Goto See
+	PainX:
+		TNT1 A 0 A_GiveInventory("LowerThanHp", 1)
+		CERB K 7 A_Pain
+		CERB LM 7
+		Goto Missile
+	Death:
+		CERX H 6 A_Scream
+		CEBR LLLLLLLLLLLLLLL 0 A_SpawnDebris("FlyingBlood")
+		CERX I 6 A_Fall
+		CEBR LLLLLLLLLLLLLLL 0 A_SpawnDebris("FlyingBlood")
+		CERX J 6 A_FaceTarget
+		CEBR LLLLLLLLLLLLLLL 0 A_SpawnDebris("FlyingBlood")
+		CERX KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK 1 A_SpawnItemEx("FlyingBlood",frandom[Cerberus](25,-25),(frandom[Cerberus](-1,1)*25)+frandom[Cerberus](-6,6),frandom[Cerberus](8,24),frandom[Cerberus](2,4),frandom[Cerberus](-2,2),frandom[Cerberus](-1,3))
+		CEBR LLLLLLLLLLLLLLL 0 A_SpawnItemEx("FlyingBlood",frandom[Cerberus](25,-25),(frandom[Cerberus](-1,1)*25)+frandom[Cerberus](-6,6),frandom[Cerberus](8,24),frandom[Cerberus](2,4),frandom[Cerberus](-2,2),frandom[Cerberus](-1,3))
+		CERX L 10 A_FaceTarget
+		CEBR LLLLLLLLLLLLLLL 0 A_SpawnItemEx("FlyingBlood",frandom[Cerberus](25,-15),(frandom[Cerberus](-1,1)*25)+frandom[Cerberus](-6,6),frandom[Cerberus](8,24),frandom[Cerberus](2,4),frandom[Cerberus](-2,2),frandom[Cerberus](-1,3))
+		CERX M 10 A_FaceTarget
+		CEBR LLLLLLLLLLLLLLL 0 A_SpawnItemEx("FlyingBlood",frandom[Cerberus](25,-5),(frandom[Cerberus](-1,1)*25)+frandom[Cerberus](-6,6),frandom[Cerberus](8,24),frandom[Cerberus](2,4),frandom[Cerberus](-2,2),frandom[Cerberus](-1,3))
+		CERX N 10 A_FaceTarget
+		CEBR LLLLLLLLLLLLLLL 0 A_SpawnItemEx("FlyingBlood",frandom[Cerberus](25,5),(frandom[Cerberus](-1,1)*25)+frandom[Cerberus](-6,6),frandom[Cerberus](8,24),frandom[Cerberus](2,4),frandom[Cerberus](-2,2),frandom[Cerberus](-1,3))
+		CERX O 10 A_FaceTarget
+		CEBR LLLLLLLLLLLLLLL 0 A_SpawnItemEx("FlyingBlood",frandom[Cerberus](25,15),(frandom[Cerberus](-1,1)*25)+frandom[Cerberus](-6,6),frandom[Cerberus](8,24),frandom[Cerberus](2,4),frandom[Cerberus](-2,2),frandom[Cerberus](-1,3))
+		CERX P 10 A_FaceTarget
+		CEBR LLLLLLLLLLLLLLL 0 A_SpawnItemEx("FlyingBlood",25,(frandom[Cerberus](-1,1)*25)+frandom[Cerberus](-6,6),frandom[Cerberus](4,12),frandom[Cerberus](8,4),frandom[Cerberus](-2,2),frandom[Cerberus](-1,3))
+		CERX Q 10 A_FaceTarget
+		CEBR LLLLLLLLLLLLLLL 0 A_SpawnItemEx("FlyingBlood",frandom[Cerberus](25,35),(frandom[Cerberus](-1,1)*25)+frandom[Cerberus](-6,6),frandom[Cerberus](8,24),frandom[Cerberus](2,4),frandom[Cerberus](-2,2),frandom[Cerberus](-1,3))
+		TNT1 A 0 A_GiveToTarget("CerberusDead", 1)
+		CERX Q -1 A_BossDeath
+		Stop
+	}
+}
+
+ACTOR CerberusShot1
+{
+	Spawnid 153
+	Radius 6
+	Height 32
+	Speed 25
+	Damage (frandom(28,76))
+	DamageType "Fire"
+	Scale 0.5
+	SeeSound "dsnapalm"
+	ActiveSound "DSFRBALL"
+	DeathSound "DSEXPBRL"
+	PROJECTILE
+	+RANDOMIZE
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_LoopActiveSound
+		TNT1 A 0 A_Jump(205,2,3,4)
+		NAPP ABCDE 1 A_SpawnItemEx("BFireTrail",0+frandom[Cerberus](-5,5),0+frandom[Cerberus](-5,5),0+frandom[Cerberus](-5,5),0,0,1,0,128)
+		Loop
+	Death:
+		TNT1 A 0 A_Explode(24, 96, 0)
+		BFE1 A 1 A_SpawnItemEx("Kaboom",0,0,-15+frandom[Cerberus](-2,2),0,0,1,0,128)
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		Stop
+	Death.Sky:
+		BFE1 A 1
+		Stop
+	}
+}
+
+ACTOR CerberusShot2 : CerberusShot1
+{
+	Spawnid 154
+	Radius 32
+	Speed 35
+	Damage (frandom(30,80))
+	Scale 1.5
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_LoopActiveSound
+		TNT1 A 0 A_Jump(205,2,3,4)
+		NAPP ABCDE 1 A_SpawnItemEx("BFireTrail",0+frandom[Cerberus](-5,5),0+frandom[Cerberus](-5,5),0+frandom[Cerberus](-5,5),0,0,1,0,128)
+		Loop
+	Death:
+		TNT1 A 0 A_Explode(48, 192, 0)
+		BFE1 A 1 A_SpawnItemEx("Kaboom",0,0,-15+frandom[Cerberus](-2,2),0,0,1,0,128)
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR Tchernobog : BloodEnemy_Base 6134
+{
+	//$Title Tchernobog
+	Obituary "$OB_TCHERNO"
+	Health 4000
+	Radius 50
+	Height 160
+	Mass 2400
+	Speed 5
+	PainChance 4
+	ProjectilePassHeight 160
+	MaxTargetRange 1280
+	SeeSound "Omni/Laugh"
+	PainSound "Omni/Pain"
+	DeathSound "Omni/Death"
+	ActiveSound "Omni/Search"
+	Scale 1.0
+	+BOSS
+	+DROPOFF
+	+FLOORCLIP
+	+MISSILEMORE
+	+QUICKTORETALIATE
+	-NORADIUSDMG
+	RadiusDamageFactor .2
+	DamageFactor "Blast", 0.1
+	DamageFactor "Disintegrate", 1.25
+	DamageFactor "Dynamite", 0.75
+	DamageFactor "Fire", 0.1
+	DamageFactor "Flare", 0.1
+	DamageFactor "LifeLeech", 1.5
+	DamageFactor "Napalm", 0.75
+	DamageFactor "Shock", 0.75
+	DamageFactor "Stomping", 0
+	PainChance "Blast", 0
+	PainChance "Dynamite", 2
+	PainChance "Fire", 0
+	PainChance "Flare", 0
+	PainChance "LifeLeech", 0
+	PainChance "Napalm", 2
+	PainChance "Sawedoff", 2
+	PainChance "Sawedoff2", 8
+	PainChance "SawedoffLess", 0
+	PainChance "Shock", 16
+	PainChance "Tommy", 0
+	PainChance "ZBloodBullet", 0
+	Species "Horror"
+	States
+	{
+	Spawn:
+		TCHR A 10 A_Look
+		Loop
+	See:
+		TNT1 A 0 A_JumpIfTargetINLos("See2", 120)
+		TCHR AAAAABBBBBCCCCC 1 A_Chase
+		TNT1 A 0 A_PlaySound("TchernobogHoof")
+		TNT1 A 0 A_SpawnItemEx("TchernoStomp")
+		TCHR DDDDDEEEEEFFFFF 1 A_Chase
+		TNT1 A 0 A_PlaySound("TchernobogHoof")
+		TNT1 A 0 A_SpawnItemEx("TchernoStomp")
+		Loop
+	See2:
+		TCHR AAAAABBBBBCCCCC 1 A_Chase
+		TNT1 A 0 A_PlaySound("TchernobogHoof")
+		TNT1 A 0 A_SpawnItemEx("TchernoStomp")
+		TNT1 A 0 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-24,24) + angle) * 65536)/360)
+		TCHR DDDDDEEEEEFFFFF 1 A_Chase
+		TNT1 A 0 A_PlaySound("TchernobogHoof")
+		TNT1 A 0 A_SpawnItemEx("TchernoStomp")
+		TNT1 A 0 ACS_NamedExecuteAlways("ResetAngle", 0, ((frandom(-24,24) + angle) * 65536)/360)
+		Goto See
+	Missile:
+		TCHR G 5 A_Jump(90,"Maximalion")
+		TNT1 A 0 A_GiveToTarget("PlayerBurner", frandom(1,2))
+		TCHR H 3 A_FaceTarget
+		TNT1 A 0 A_GiveToTarget("PlayerBurner", frandom(1,2))
+		TCHR I 3 A_FaceTarget
+		TNT1 A 0 A_GiveToTarget("PlayerBurner", frandom(1,2))
+		TCHR H 3 A_FaceTarget
+		TNT1 A 0 A_GiveToTarget("PlayerBurner", frandom(1,2))
+		TCHR I 3 A_FaceTarget
+		TNT1 A 0 A_GiveToTarget("PlayerBurner", frandom(1,2))
+		TNT1 A 0 A_CustomMissile("TchernobogMissile2", 108, 24)
+		TNT1 A 0 A_CustomMissile("TchernobogMissile", 108, -24)
+		TCHR J 6
+		TCHR G 5
+		Goto See
+	Maximalion:
+		TCHR G 5
+		TCHR H 4 A_FaceTarget
+		TCHR I 4 A_FaceTarget
+		TCHR J 0 A_CustomMissile("TchernobogMaximo", 108, 0)
+		TCHR J 6
+		TCHR G 5
+	Pain:
+		TNT1 A 0 A_JumpIfHealthLower(2400, "PainX")
+		TCHR L 11 A_Pain
+		Goto See
+	PainX:
+		TCHR L 11 A_PlaySound("TchernobogPain4")
+		TNT1 A 0 Radius_quake(2,18,0,16,0)
+		Goto See
+	Death:
+		TCHR MM 7 A_Scream
+		TCHR MM 10 A_Quake(6,60,0,800)
+		TCHR MM 1 A_SpawnItemEx("Phantasmlauncher")
+		TCHR MM 1 A_SpawnItemEx("Phantasmlauncher")
+		TCHR MM 1 A_SpawnItemEx("Phantasmlauncher")
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 10 A_Quake(6,60,0,800)
+		TCHR MM 4 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 4 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 4 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 4 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 10 A_Quake(7,60,0,800)
+		TCHR MM 3 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 3 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 3 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 3 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 3 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 10 A_Quake(8,60,0,800)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 10 A_Quake(9,30,0,400)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR MM 1 A_SpawnItemEx("TchernobogKaboom",frandom(0,50),frandom(0,50),frandom(0,150),0,0,1,0,SXF_NOCHECKPOSITION)
+		TCHR NOPQ 7
+		TCHR Q 55 A_BossDeath
+		TCHR RS 8 BRIGHT
+		TNT1 A 0 A_UnsetShootable
+		TCHR TUVTUVTUVTUVTUV 6 BRIGHT
+		TNT1 A 0 A_UnSetSolid
+		TCHR WXY 8
+		TNT1 A 2 A_SpawnItemEx("Thunder_GeneratorWhite",frandom(0,50),frandom(0,50))
+		TNT1 A 2 A_SpawnItemEx("Thunder_GeneratorWhite",frandom(0,50),frandom(0,50))
+		TNT1 A 2 A_SpawnItemEx("Thunder_GeneratorWhite",frandom(0,50),frandom(0,50))
+		TNT1 A 4 A_GiveToTarget("TchernobogDead", 1)
+		TCHR Y 2 A_Fadeout(0.007)
+		Wait
+	}
+}
+
+ACTOR TchernobogMissile
+{
+	Radius 16
+	Height 9
+	XScale 0.65
+	YScale 0.55
+	Speed 20
+	RenderStyle "Add"
+	Damage (frandom(90,160))
+	DamageType "Fire"
+	PROJECTILE
+	+DONTSPLASH
+	DeathSound "world/barrelx"
+	States
+	{
+	Spawn:
+		TROK AAAABBBBCCCCDDDDEEEE 1 A_SpawnItemEx ("TFireTrail",frandom(-2,-1),0+frandom(-1,1),0,0)
+		Loop
+	Death:
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 1 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		TROK AAAAAAAA 2 A_FadeOut(0.15)
+		Stop
+	Death.Sky:
+		TROK A 1
+		Stop
+	}
+}
+
+ACTOR TchernobogMissile2 : TchernobogMissile
+{
+	States
+	{
+	Spawn:
+		TROK AAAABBBBCCCCDDDDEEEE 1 A_SpawnItemEx ("TFireTrail2",0+frandom(-1,1),0+frandom(-1,1),0,0)
+		Loop
+	}
+}
+
+ACTOR TchernobogMaximo : TchernobogMissile
+{
+	Speed 30
+	States
+	{
+	Spawn:
+		TROK AAAABBBBCCCCDDDDEEEE 1 A_SpawnItemEx ("TFireTrail",frandom(-2,-1),0+frandom(-1,1),0,0)
+		Loop
+	Death:
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TROK A 6 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		TNT1 A 0 A_SpawnItemEx("TchernoMaximo2")
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TROK A 8 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		TROK AAAAAAAA 2 A_FadeOut(0.15)
+		Stop
+	}
+}
+
+ACTOR TchernoMaximo2 : TchernobogMissile
+{
+	XScale 1
+	YScale 1
+	States
+	{
+	Death:
+		TNT1 A 0 A_SpawnItem("BlueFlameFurrel")
+		TNT1 A 0 A_PlaySound("world/barrelx")
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TROK A 8 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		TNT1 A 0 A_SpawnItemEx("TchernoMaximo3")
+		TNT1 A 0 A_PlaySound("world/barrelx")
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TROK A 8 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		TROK AAAAAAAA 2 A_FadeOut(0.15)
+		Stop
+	}
+}
+
+ACTOR TchernoMaximo3 : TchernobogMissile
+{
+	XScale 1.7
+	YScale 1.7
+	States
+	{
+	Spawn:
+		TROK AAAABBBBCCCCDDDDEEEE 1 A_SpawnItemEx ("TFireTrail",frandom(-2,-1),0+frandom(-1,1),0,0)
+	Death:
+		TNT1 A 0 A_PlaySound("world/barrelx")
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TROK A 14 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		TNT1 A 0 A_SpawnItemEx("TchernoMaximo4")
+		TNT1 A 0 A_PlaySound("world/barrelx")
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TROK A 14 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		TROK AAAAAAAA 2 A_FadeOut(0.15)
+		Stop
+	}
+}
+
+ACTOR TchernoMaximo4 : TchernobogMissile
+{
+	XScale 2.5
+	YScale 2.5
+	States
+	{
+	Spawn:
+		TROK AAAABBBBCCCCDDDDEEEE 1 A_SpawnItemEx ("TFireTrail",frandom(-2,-1),0+frandom(-1,1),0,0)
+	Death:
+		TNT1 A 0 A_SpawnItem("BlueFlameFurrel")
+		TNT1 A 0 A_PlaySound("world/barrelx")
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TROK A 13 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		TNT1 A 0 A_SpawnItemEx("TchernoMaximo5")
+		TNT1 A 0 A_PlaySound("world/barrelx")
+		TROK A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TROK A 13 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		TROK AAAAAAAA 2 A_FadeOut(0.15)
+		Stop
+	}
+}
+
+ACTOR TchernoMaximo5 : TchernobogMissile
+{
+	XScale 3.4
+	YScale 3.4
+	States
+	{
+	Spawn:
+		TROK AAAABBBBCCCCDDDDEEEE 1 A_SpawnItemEx ("TFireTrail",frandom(-2,-1),0+frandom(-1,1),0,0)
+	Death:
+		TNT1 A 0 A_SpawnItem("BlueFlameFurrel")
+		TNT1 A 0 A_PlaySound("world/barrelx")
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TROK A 16 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		TNT1 A 0 A_PlaySound("world/barrelx")
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TROK A 16 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		TNT1 A 0 A_PlaySound("world/barrelx")
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TROK A 16 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		TNT1 A 0 A_PlaySound("world/barrelx")
+		TNT1 A 0 A_SpawnItemEx("Blower",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("Blower2",-12,0,-2,0,0,-10,0,SXF_NOCHECKPOSITION)
+		TROK A 16 A_SpawnItemEx("TchernobogKaboom",0,0,-15+frandom(-2,2),0,0,1,0,128)
+		TROK AAAAAAAA 2 A_FadeOut(0.15)
+		Stop
+	}
+}
+
+ACTOR BlueFlameFurrel
+{
+	+NOGRAVITY
+	PROJECTILE
+	States
+	{
+	Spawn:
+	Death:
+		TNT1 AAAA 3 A_SpawnItemEx("TFireTrail",frandom(-10,10),frandom(-10,10),frandom(-10,10),frandom(-10,10),frandom(-10,10),frandom(-10,10))
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR TchernoStomp
+{
+	Radius 1
+	Height 1
+	Damage 0
+	+DONTSPLASH
+	+PAINLESS
+	+NOTIMEFREEZE
+	+BLOODLESSIMPACT
+	+NODAMAGETHRUST
+	DamageType "TchernoStomp"
+	Obituary "$OB_STOMP2"
+    States
+	{
+	Spawn:
+		TNT1 A 1
+		Goto Death
+	Death:
+		TNT1 A 1 A_Explode(128,96,0)
+	    TNT1 A 5 A_Quake(4,12,0,400)
+		TNT1 A 10 A_Quake(2,12,0,800)
+		Stop
+	}
+}
+
+ACTOR ------DEADLYPODS----------- {}
+ACTOR ChrysalidPod : BloodEnemy_Base 6147
+{
+	//$Title Chrysalid Pod
+	Obituary "$OB_CRYPOD"
+	Health 154
+	GibHealth -40
+	PainChance 0
+	Height 32
+	ProjectilePassHeight 48
+	Radius 20
+	Mass 5000
+	Speed 0
+	Scale 0.7
+	ActiveSound "PodOpen"
+	DeathSound "PodDie"
+	SeeSound "PodOpen"
+	BloodColor "Green"
+	DamageFactor "Disintegrate",0
+	DamageFactor "Stomping", 0.5
+	MinMissileChance 16
+	+BOSSDEATH
+	+DONTMORPH
+	+DONTSPLASH
+	+FLOORCLIP
+	+LOOKALLAROUND
+	+MISSILEEVENMORE
+	+MISSILEMORE
+	-CANPUSHWALLS
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		GPOD AAAB 10 A_Look
+		Loop
+	See:
+		GPOD AAA 10 A_Chase
+		TNT1 A 0 A_Jump(64,1,11,28)
+		Loop
+	    TNT1 A 0 A_SpawnItemEx("ChrysalidBarf",0,0,40,frandom[HellRose](-10,10)/10,frandom[HellRose](-10,10)/10,frandom[HellRose](10,100)/10,0,/*SXF_TRANSFERPOINTERS|*/SXF_NOCHECKPOSITION)
+		GPOD BBCC 3 A_Chase
+		TNT1 AAA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GPOD B 3 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Loop
+		GPOD BBCCDD 3 A_Chase
+		TNT1 AAAA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GPOD C 3 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AAA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GPOD B 3 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Loop
+		GPOD BBCCDDEE 3 A_Chase
+		TNT1 AAAA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GPOD D 3 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AAAA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GPOD C 3 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AAA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GPOD B 3 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Loop
+	Missile:
+		TNT1 A 0 A_PLAYSOUND ("PodSpit")
+		TNT1 A 0 A_Jump(256,"Bramble","Barf2","Barf3","Barf2","Barf3")
+	Bramble:
+		GPOD B 1
+		GPOD BBCC 2 A_JumpIfCloser(256, "DoBramble")
+		Goto Barf2
+	DoBramble:
+		TNT1 A 0 A_PlaySound("TentacleUp")
+		TNT1 AAAA 0 A_SpawnItemEx("HellroseBramble", frandom[HellRose](32,80) * (frandom[HellRose](0,1)*2-1), frandom[HellRose](32,80) * (frandom[HellRose](0,1)*2-1), 0, 0,0,0,0, SXF_SETMASTER /*SXF_TRANSFERPOINTERS*/)
+		TNT1 AAA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GPOD B 3 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 A 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Goto See
+	Barf2:
+		GPOD BBCCDD 3 A_FaceTarget
+	    GPOD E 4 A_CustomMissile("ChrysalidBarf",0,0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40))
+	    TNT1 A 0 A_CustomMissile("ChrysalidBarf",0,0,frandom(-3,3),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40))
+		TNT1 AAAA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GPOD C 3 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AAA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GPOD B 3 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Goto See
+	Barf3:
+		GPOD BBCCDDEE 3 A_FaceTarget
+	    TNT1 A 0 A_CustomMissile ("ChrysalidBarf",0,0,frandom(-8,8),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(10,30))
+		GPOD E 4 A_CustomMissile ("ChrysalidBarf",0,0,frandom(-4,4),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(10,40))
+		TNT1 AAAA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GPOD D 3 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AAAA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+	    TNT1 A 0 A_CustomMissile ("ChrysalidBarf",0,0,frandom(-2,2),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(25,40))
+		GPOD C 3 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AAA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GPOD B 3 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		TNT1 AA 0 A_SpawnItemEx("Spore", 0, 0, 40, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Goto See
+	Death:
+		GPOD F 5
+	    TNT1 A 0 A_SpawnItemEx("ChrysalidBarf",0,0,40,frandom[HellRose](-10,10)/10,frandom[HellRose](-10,10)/10,frandom[HellRose](10,100)/10,0,/*SXF_TRANSFERPOINTERS|*/SXF_NOCHECKPOSITION)
+		GPOD G 5 A_Scream
+		GPOD H 5 A_Fall
+		GPOD I 5 A_KillChildren
+		GPOD J 5
+	    TNT1 A 0 A_SpawnItemEx("ChrysalidBarf",0,0,30,frandom[HellRose](-20,20)/10,frandom[HellRose](-20,20)/10,frandom[HellRose](10,50)/10,0,/*SXF_TRANSFERPOINTERS|*/SXF_NOCHECKPOSITION)
+		GPOD K 103
+		TNT1 A 0 A_KillChildren
+	    TNT1 A 0 A_SpawnItemEx("ChrysalidBarf",0,0,20,frandom[HellRose](-20,20)/10,frandom[HellRose](-20,20)/10,frandom[HellRose](0,20)/10,0,/*SXF_TRANSFERPOINTERS|*/SXF_NOCHECKPOSITION)
+		GPOD K -1
+		Stop
+	XDeath:
+		GPOD L 5
+	    TNT1 A 0 A_SpawnItemEx("ChrysalidBarf",0,0,40,frandom[HellRose](-10,10)/10,frandom[HellRose](-10,10)/10,frandom[HellRose](10,100),0,SXF_NOCHECKPOSITION)
+		GPOD M 5 A_XScream
+		GPOD N 5 A_Fall
+	    TNT1 A 0 A_SpawnItemEx("ChrysalidBarf",0,0,40,frandom[HellRose](-10,10)/10,frandom[HellRose](-10,10)/10,frandom[HellRose](10,100)/10,0,SXF_NOCHECKPOSITION)
+		GPOD O 5 A_KillChildren
+		GPOD PQ 5
+		GPOD R 98
+		TNT1 A 0 A_KillChildren
+		GPOD R -1
+		Stop
+	Ice:
+		FPOF A 0 A_SetMass(999999)
+		FPOF A 5 A_FreezeDeath
+		FPOF A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR ChrysalidBarf
+{
+	Height 8
+	Radius 8
+	Damage (random(16,32))
+	Speed 18
+	PROJECTILE
+	ReactionTime 3
+	Scale 0.75
+	SeeSound "PodSpit"
+	DeathSound "PodDie"
+	DamageType "Disintegrate"
+	Gravity 1
+	+DONTSPLASH
+	-NOGRAVITY
+	States
+  	{
+  	Spawn:
+		BARF AA 0
+    	BARF AB 2
+		Loop
+  	Death:
+		BARF A 0 A_Explode(16,32,0)
+		BARF A 1 A_SpawnItemEx("AcidPool")
+		BARF AABB 1 A_SpawnItemEx("ButcherBarfSplash",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION,32)
+		Stop
+	Death.Sky:
+		BARF A 1
+		Stop
+	}
+}
+
+ACTOR HellroseBramble
+{
+	Height 8
+	Radius 8
+	Speed 0
+	Health 50
+	Mass 3000
+	MeleeDamage 2
+	MeleeRange 52
+	PainChance 128
+	Scale 0.5
+	DamageFactor "Disintegrate",0
+	DamageFactor "Stomping", 0.5
+	DeathSound "TentacleExplode"
+	MeleeSound "TentacleSwipe"
+	BloodColor "10 70 10"
+	Obituary "$OB_BRAMB"
+	Monster
+	+DONTSPLASH
+	+FLOORCLIP
+	+LOOKALLAROUND
+	+NOTARGETSWITCH
+	+STRIFEDAMAGE
+	-COUNTKILL
+	-SOLID
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		GVIN RQMNOP 4 A_Look
+		Loop
+	See:
+		TNT1 A 0 A_Jump(256,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN QM 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN NO 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN PP 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN ON 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN MQ 3 A_Chase
+		GVIN R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Goto Melee
+	Melee:
+		TNT1 A 0 A_SetShootable
+		TNT1 A 0 A_SetSolid
+		GVIN AB 4
+		GVIN RRRRRR 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN C 4 A_MeleeAttack
+		GVIN DEFG 4
+		GVIN HIJ 4
+	Attack:
+		ROSX D 0 A_FaceTarget
+		GVIN D 3 A_MeleeAttack
+		ROSX A 0 A_Jump(64,"Anim2")
+		GVIN EF 5
+		ROSX G 0 A_FaceTarget
+		GVIN G 3 A_MeleeAttack
+		TNT1 A 0 A_Jump(130, "See")
+		TNT1 A 0 A_CposRefire
+		Goto Attack
+	Anim2:
+		GVIN JKL 4
+		GVIN H 3 A_MeleeAttack
+		TNT1 A 0 A_Jump(130, "See")
+		TNT1 A 0 A_CposRefire
+		Goto Attack
+	Pain:
+		GVIN LMNOPQR 3
+		TNT1 A 0 A_UnSetSolid
+		TNT1 A 0 A_UnSetShootable
+		Goto See
+	Death:
+		GVIN S 5
+		GVIN T 5 A_Scream
+		GVIN U 5 A_Fall
+		GVIN V 5
+		Stop
+	Ice: //to add random frame, there is also B --ozy81
+		FVIF A 0 A_SetMass(999999)
+		FVIF A 5 A_FreezeDeath
+		FVIF A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR BaseBramble
+{
+    PROJECTILE
+    -NOGRAVITY
+    -NOBLOCKMAP
+    -NOTELEPORT
+    +RANDOMIZE
+	+DONTSPLASH
+	Gravity 0.5
+    Radius 2
+    Damage 0
+    Speed 1
+}
+
+ACTOR Spore : BaseBramble
+{
+    RenderStyle "Translucent"
+    States
+    {
+    Spawn:
+        TNT1 A 0
+        TNT1 A 0 ThrustThingZ (0, frandom[HellRose](18,22), 0, 1)
+        Goto Death
+    Death:
+        SPOR AAA 3
+        SPOR AAAAAAAAAAAAAAAAAA 1 A_FadeOut (0.03)
+        Stop
+	Death.Sky:
+		SPOR A 1
+		Stop
+    }
+}
+
+ACTOR Drt : BaseBramble
+{
+    Speed 5
+    States
+    {
+    Spawn:
+        DIRT A 0
+        DIRT A 0 ThrustThingZ (0, 15, 0, 1)
+		DIRT A 0 A_Jump(256,"A","B","C")
+    A:
+        DIRT ABC 5 A_FadeOut (0.03)
+        Loop
+	B:
+		TNT1 A 0 A_PlaySound("PLZ2")
+	B2:
+        DIRT DEF 5 A_FadeOut (0.03)
+        Loop
+	C:
+        DIRT GHI 5 A_FadeOut (0.03)
+        Loop
+    Death:
+        DIRT JKL 3
+        Stop
+    }
+}
+
+ACTOR LavaPod : ChrysalidPod 6148
+{
+    //$Category "Blood Monsters"
+	//$Title Lava Pod
+	//$Color 5
+  	Obituary "$OB_LAVPOD"
+	Health 324
+	Mass 6666
+	Scale 0.7
+	BloodColor "50 50 0"
+	DamageFactor "Fire", 0
+	DamageFactor "Flare", 0.5
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		LPOD AAAB 10 A_Look
+		Loop
+	See:
+		LPOD AAA 10 A_Chase
+		TNT1 A 0 A_Jump(64,1,11,28)
+		Loop
+	    LPOD BBCC 3 A_Chase
+		LPOD CCC 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD B 3 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD BB 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Loop
+		LPOD BBCCDD 3 A_Chase
+		LPOD DDDD 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD C 3 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD CCC 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD B 3 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD BB 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Loop
+		LPOD BBCCDDEE 3 A_Chase
+		LPOD EEEE 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD D 3    A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD DDDD 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD C 3    A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD CCC 0  A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD B 3    A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD BB 0   A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Loop
+	Missile:
+		LPOD A 0
+		LPOD A 0 A_Jump(256,"Bramble","Barf2","Barf3")
+	Bramble:
+		LPOD BBCC 2 A_JumpIfInventory("ProxScan",1,"DoBramble")
+		Goto Barf2
+	DoBramble:
+		LPOD CCCC 0 A_SpawnItemEx("HellroseBrambleRed", frandom[HellRose](32,80) * (frandom[HellRose](0,1)*2-1), frandom[HellRose](32,80) * (frandom[HellRose](0,1)*2-1), 0, 0,0,0,0, SXF_SETMASTER /*, SXF_TRANSFERPOINTERS */)
+		LPOD CCC 0  A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD B 3    A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD BB 0   A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Goto See
+	Barf2:
+		LPOD BBCCDD 3 A_FaceTarget
+		LPOD E 0 A_PLAYSOUND ("PodSpit")
+	    LPOD E 4 A_CustomMissile("LavaBarf",40,0,frandom(-10,10),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40))
+		LPOD E 0 A_PLAYSOUND ("PodSpit")
+	    LPOD E 0 A_CustomMissile("LavaBarf",40,0,frandom(-3,3),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40))
+		LPOD DDDD 1 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD C 3 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD CCC 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD B 3 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD BB 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Goto See
+	Barf3:
+		LPOD BBCCDDEE 3 A_FaceTarget
+	    LPOD E 0 A_PLAYSOUND ("PodSpit")
+		LPOD E 0 A_CustomMissile ("LavaBarf",40,0,frandom(-8,8),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40))
+		LPOD E 4 A_CustomMissile ("LavaBarf",40,0,frandom(-4,4),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(20,40))
+		LPOD EEEE 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD D 3 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD DDDD 1 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+	    LPOD E 0 A_PLAYSOUND ("PodSpit")
+		LPOD E 0 A_CustomMissile ("LavaBarf",40,0,frandom(-2,2),CMF_AIMDIRECTION,(ACS_NamedExecuteWithResult("SetActivatorTarget", 0, tidtohate)*10)/frandom(25,40))
+		LPOD C 3 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD CCC 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD B 3 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LPOD BB 0 A_SpawnItemEx("BFireTrail2", frandom(-4,4), frandom(-4,4), frandom(32,40), frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Goto See
+	Death:
+		LPOD F 5
+		LPOD G 5 A_Scream
+		LPOD H 5 A_Fall
+		LPOD I 5
+		LPOD J 5
+		LPOD K 103
+		LPOD K 0 A_KillChildren
+		LPOD K -1
+		Stop
+	XDeath:
+		LPOD L 5
+		LPOD M 5 A_XScream
+		LPOD N 5 A_Fall
+		LPOD O 5 A_KillChildren
+		LPOD PQ 5
+		LPOD R 98
+		LPOD R 0 A_KillChildren
+		LPOD R -1
+		Stop
+	Ice:
+		FPOF A 5 A_FreezeDeath
+		FPOF A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR LavaBarf : NapalmRocketAlt1
+{
+	Speed 20
+	Gravity 0.75
+	Scale 0.5
+	DamageType "Fire"
+    BounceCount 4
+	RenderStyle "Add"
+	+DONTSPLASH
+	-NOGRAVITY
+	DeathSound "dsexpbrl"
+	States
+  	{
+  	Spawn:
+		NAPP A 1
+		NAPP A 1 A_JumpIf(waterlevel>2,"AltFire")
+	Fire:
+		NAPP A 1 A_Jump(256,1,2,3,4,5,6)
+		NAPP AABBCCDDEEAABBCCDDEEAABBCCDDEEAABBCCDDEEAABBCCDDEEAABBCCDDEE 1 A_Explode(4,32)
+		NAPP A 1 A_Die
+		Goto Death
+	AltFire:
+		NAPP A 1 A_Jump(256,1,2,3,4,5,6)
+		NAPP AABBCCDDEEAABBCCDDEE 1 A_SpawnItemEx("SmokeTrail",0,0,0,0,0,frandom[Incinerator](1,4),0,0,192)
+		Goto Death
+  	Death:
+		MISL A 1 A_Scream
+		MISL A 1 A_Explode(30,64,1)
+		MISL B 0 A_SpawnItem("NapalmKaboom",0+frandom[Incinerator](-4,4),0+frandom[Incinerator](-2,2))
+		Stop
+	}
+}
+
+ACTOR HellroseBrambleRed : HellRoseBramble
+{
+	Health 60
+	BloodColor "70 70 10"
+	Obituary "$OB_BRAMB2"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		LVIN RQMNOP 4 A_Look
+		Loop
+	See:
+		TNT1 A 0 A_Jump(256,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LVIN QM 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LVIN NO 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LVIN PP 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LVIN ON 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LVIN MQ 3 A_Chase
+		GVIN R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		GVIN RR 3 A_Chase
+		ROSX R 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		Goto Melee
+	Melee:
+		TNT1 A 0 A_SetShootable
+		TNT1 A 0 A_SetSolid
+		LVIN AB 4
+		GVIN RRRRRR 0 A_SpawnItemEx("Drt", 0, 0, 0, frandom[HellRose](-3,3), frandom[HellRose](-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		LVIN C 4 A_MeleeAttack
+		LVIN DEFG 4
+		LVIN HIJ 4
+	Attack:
+		ROSX D 0 A_FaceTarget
+		LVIN D 3 A_MeleeAttack
+		ROSX A 0 A_Jump(64,"Anim2")
+		LVIN EF 5
+		ROSX G 0 A_FaceTarget
+		LVIN G 3 A_MeleeAttack
+		TNT1 A 0 A_Jump(130, "See")
+		TNT1 A 0 A_CposRefire
+		Goto Attack
+	Anim2:
+		LVIN JKL 4
+		LVIN H 3 A_MeleeAttack
+		TNT1 A 0 A_Jump(130, "See")
+		TNT1 A 0 A_CposRefire
+		Goto Attack
+	Pain:
+		LVIN LMNOPQR 3
+		TNT1 A 0 A_UnSetSolid
+		TNT1 A 0 A_UnSetShootable
+		Goto See
+	Death:
+		LVIN S 5
+		LVIN T 5 A_Scream
+		LVIN U 5 A_Fall
+		LVIN V 5
+		Stop
+	}
+}
+
+ACTOR ------VANILLA_BAT------ {} //imported from Blade of Agony - courtesy of Ozy81
+ACTOR BatFamiliar : BloodEnemy_Base 18500
+{
+    //$Category "Blood Monsters"
+	//$Title Bat
+	//$Color 5
+	Health 4
+	Radius 16
+	Height 32
+	FloatSpeed 4.3
+	Speed 3.3
+	PainChance 200
+	Scale 0.57
+	Monster
+	+FLOAT
+	+NOGRAVITY
+	-CANPUSHWALLS
+	-CANUSEWALLS
+	Species "Spiders"
+	SeeSound "batfam/idle"
+	PainSound "batfam/pain"
+	DeathSound "batfam/death"
+	ActiveSound "batfam/idle"
+	HitObituary "$OB_BATS"
+	Species "Nuisance"
+	States
+	{
+	Spawn:
+		BFAM ABCB 3 A_Look
+		Loop
+	See:
+		BFAM A 1 A_Chase
+		"####" AA 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		"####" B 1 A_Chase
+		"####" BB 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		"####" C 1 A_Chase
+		"####" CC 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		"####" D 1 A_Chase
+		"####" DD 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		Loop
+	Melee:
+		BFAM A 3 A_FaceTarget
+		"####" A 0 A_Jump(64,"Missed")
+		"####" B 3 A_CustomMeleeAttack(random(3,8),"batfam/idle")
+		"####" CB 3 A_FaceTarget
+		Goto See
+	Missed: //here in order to avoid looping attacks, so the critter is less threatening
+		"####" B 3
+		"####" CB 3 A_FaceTarget
+		Goto See
+	Pain:
+		BFAM A 2
+		"####" A 2 A_Pain
+		Goto See
+	Pain.LifeLeech:
+		BFAM A 0 A_Jump(64,1)
+		Goto See
+		BFAM A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Death:
+		BFAM D 3 A_Scream
+		"####" D 2 A_UnSetSolid
+		"####" D 1 A_ChangeFlag("NOGRAVITY",0)
+		"####" D 1 A_NoBlocking
+		"####" EFD 5
+		"####" F 5
+		"####" G 5 A_Fall
+		"####" HI 5
+		"####" J -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.LifeLeech:
+	Death.Flare:
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		BATB A 1 A_Scream
+		"####" A 1 A_UnSetSolid
+		"####" A 1 A_NoBlocking
+		"####" B 2
+		"####" CBACBA 4 A_PlaySound("batfam/pain")
+		"####" DEFDEF 3 A_PlaySound("batfam/idle")
+		"####" F 1 A_ChangeFlag("NOGRAVITY",0)
+		"####" GH 2 A_PlaySound("batfam/pain")
+		"####" I -1
+		Stop
+	XDeath:
+		BFAM G 6 A_PlaySound("batfam/crash")
+		"####" H 7
+		"####" I 8
+		"####" J -1
+		Stop
+	}
+}
+
+ACTOR DaisyBat : BatFamiliar 18501 //here for inheritances
+{
+	//$Category "BlooM Monsters"
+	//$Title Daisy Vampire
+	//$Color 3
+	FloatSpeed 5.3
+	Speed 4.3
+	Species "Nuisance"
+	States
+	{
+	Spawn:
+		DAYS ABCB 3 A_Look
+		Loop
+	See:
+		DAYS A 1 A_Chase
+		"####" AA 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		"####" B 1 A_Chase
+		"####" BB 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		"####" C 1 A_Chase
+		"####" CC 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		"####" D 1 A_Chase
+		"####" DD 1 A_Chase("","",CHF_NOPLAYACTIVE)
+		Loop
+	Melee:
+		DAYS A 3 A_FaceTarget
+		"####" A 0 A_Jump(64,"Missed")
+		"####" B 3 A_CustomMeleeAttack(random(3,8),"batfam/idle")
+		"####" CB 3 A_FaceTarget
+		Goto See
+	Missed: //here in order to avoid looping attacks, so the critter is less threatening
+		"####" B 3
+		"####" CB 3 A_FaceTarget
+		Goto See
+	Pain:
+		DAYS A 2
+		"####" A 2 A_Pain
+		Goto See
+	Pain.LifeLeech:
+		DAYS A 0 A_Jump(64,1)
+		Goto See
+		DAYS A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
+		Goto See
+	Death:
+		DAYS D 3 A_Scream
+		"####" D 2 A_UnSetSolid
+		"####" D 1 A_ChangeFlag("NOGRAVITY",0)
+		"####" D 1 A_NoBlocking
+		"####" EFD 5
+		"####" F 5
+		"####" G 5 A_Fall
+		"####" HI 5
+		"####" J -1
+		Stop
+	Burn:
+	Death.SpecialFire:
+	Death.LifeLeech:
+	Death.Flare:
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		BATB A 1 A_Scream
+		"####" A 1 A_UnSetSolid
+		"####" A 1 A_NoBlocking
+		"####" B 2
+		"####" CBACBA 4 A_PlaySound("batfam/pain")
+		"####" DEFDEF 3 A_PlaySound("batfam/idle")
+		"####" F 1 A_ChangeFlag("NOGRAVITY",0)
+		"####" GH 2 A_PlaySound("batfam/pain")
+		"####" I -1
+		Stop
+	XDeath:
+		DAYS G 6 A_PlaySound("batfam/crash")
+		"####" H 7
+		"####" I 8
+		"####" J -1
+		Stop
+	}
+}
+
+ACTOR ------VANILLA_RATS------ {}
+ACTOR BloodRatSpawner 19069
+{
+    //$Category "Blood Monsters"
+	//$Title "Blood Rats Spawner"
+	//$Color 5
+	-ISMONSTER
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("BloodRat",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BloodRatBlack",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("BloodRatGrey",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",0,0,0,0,0,0,0,BLM_FLAGS1)
+		Stop
+	}
+}
+
+ACTOR BloodRat : BloodEnemy_Base 3132
+{
+    //$Category "Blood Monsters"
+	//$Title Blood Rat, Brown
+	//$Color 5
+	Tag "Rat"
+	Health 10
+	Radius 8
+	Height 8
+	Mass 20
+	Speed 6
+	FastSpeed 10
+	Scale .4
+	MeleeDamage 2
+	MeleeRange 22
+	MaxTargetRange 24
+	MaxStepHeight 9
+	+FLOORCLIP
+	+THRUSPECIES
+	+TOUCHY
+	-CANUSEWALLS
+	Obituary "$OB_MOUS"
+	SeeSound "Ratsee"
+	PainSound "RatPain"
+	DeathSound "Ratdie"
+	PainChance "Fire", 256
+	PainChance "Disintegrate", 0
+	PainChance "LifeLeech", 0
+	DamageFactor "Stomping", 0.5
+	DamageFactor "Tommy", 1.15
+	DamageFactor "Fire",2
+	Species "Nuisance"
+	States
+	{
+	Spawn:
+		RATW A Random(1,10) A_Look
+		Loop
+	See.Flee:
+		RATW A 0 A_ChangeFlag("FRIGHTENED", TRUE)
+		Goto See+2
+	See: // We check so rat doesnt really act like a retard moving at a wall...
+		RATW A 0 A_CheckFlag("FRIGHTENED","See.Flee", AAPTR_MASTER)
+		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
+		RATW A 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RATW B 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RATW C 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RATW D 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
+		RATW A 1 A_Jump(150,1)
+		Goto StupidMode
+		TNT1 A 0
+		Loop
+	StupidMode:
+		RATW AAAABBBBCCCC 1 A_Wander
+		RATW CCCCCC 1 A_Wander
+		RATW DDDDD 1 A_Wander
+		TNT1 A 0 A_Jump(64,2)
+		TNT1 A 0 A_ClearTarget
+		Goto Spawn
+		TNT1 A 0
+		Loop
+	See2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
+		TNT1 A 0 A_GiveInventory("Fighting", 1)
+		RATW AAAAAABBBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Fighting", 1)
+		RATW CCCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RATW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RATW AAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RATW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RATW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RATW DDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RATW AAAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RATW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RATW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RATW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		RATW A 1 A_Jump(150,1)
+		Goto StupidMode
+		TNT1 A 0
+		Goto See
+	Wander:
+		TNT1 A 0
+		TNT1 A 0 A_GiveInventory("Afraid", 1)
+		RATW AAAAAABBBBBCCCCCCDDDDAAAAABBBBCCCCCDDDDDAAAAAABBBBCCCCCDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Afraid", 1)
+		Goto See
+	Missile:
+	Melee:
+		RATW A 5 A_FaceTarget
+		TNT1 A 0 A_Playsound("RatBite")
+		RATW B 5 A_CustomMeleeAttack(frandom(4,9),"","none")
+		RATW C 5
+		Goto See
+	Pain:
+		RATW D 3
+		RATW D 3 A_Pain
+		Goto See
+	Death:
+		TNT1 A 0 A_Jump(224, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		RATW E 5 A_Scream
+		RATW F 5 A_Fall
+		RATW GHI 5
+		RATW J -1
+		Stop
+	Death.SpecialFire:
+	Burn:
+	Death.LifeLeech:
+	Death.Flare:
+		"####" A 1 A_JumpIf(waterlevel > 1, "Death")
+		RATN A 8 A_Scream
+		TNT1 A 0 A_GiveToTarget("DoRat", 1)
+		RATN B 7 A_Fall
+		RATN CBCBCBCBC 5
+		RATN DEFEFDEDFEDFEFDEFEDF 5
+		RATN G -1
+		Stop
+	Ice:
+		FRAT R 0 A_SetMass(999999)
+		FRAT R 5 A_FreezeDeath
+		FRAT R 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR BloodRatBlack : BloodRat 19066
+{
+	//$Title Blood Rat, Black
+	Species "Nuisance"
+	States
+	{
+	Spawn:
+		RABW A 1 A_Look
+		Loop
+	See.Flee:
+		RABW A 0 A_ChangeFlag("FRIGHTENED", TRUE)
+		Goto See+2
+	See:
+		RABW A 0 A_CheckFlag("FRIGHTENED","See.Flee", AAPTR_MASTER)
+		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
+		RABW A 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RABW B 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RABW C 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RABW D 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
+		RABW A 1 A_Jump(150,1)
+		Goto StupidMode
+		TNT1 A 0
+		Loop
+	StupidMode:
+		RABW AAAABBBBCCCC 1 A_Wander
+		RABW CCCCCC 1 A_Wander
+		RABW DDDDD 1 A_Wander
+		TNT1 A 0 A_Jump(64,2)
+		TNT1 A 0 A_ClearTarget
+		Goto Spawn
+		TNT1 A 0
+		Loop
+	See2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
+		TNT1 A 0 A_GiveInventory("Fighting", 1)
+		RABW AAAAAABBBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Fighting", 1)
+		RABW CCCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW AAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW DDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW AAAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RABW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		RABW A 1 A_Jump(150,1)
+		Goto StupidMode
+		TNT1 A 0
+		Goto See
+	Wander:
+		TNT1 A 0
+		TNT1 A 0 A_GiveInventory("Afraid", 1)
+		RABW AAAAAABBBBBCCCCCCDDDDAAAAABBBBCCCCCDDDDDAAAAAABBBBCCCCCDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Afraid", 1)
+		Goto See
+	Missile:
+	Melee:
+		RABW A 5 A_FaceTarget
+		TNT1 A 0 A_Playsound("RABBite")
+		RABW B 5 A_CustomMeleeAttack(frandom(4,9),"","none")
+		RABW C 5
+		Goto See
+	Pain:
+		RABW D 3
+		RABW D 3 A_Pain
+		Goto See
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(224, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		RABW E 5 A_Scream
+		RABW F 5 A_Fall
+		RABW GHI 5
+		RABW J -1
+		Stop
+	Death.SpecialFire:
+	Burn:
+	Death.LifeLeech:
+	Death.Flare:
+		TNT1 A 0
+		"####" A 1 A_JumpIf(waterlevel > 1, "Death")
+		RABB A 8 A_Scream
+		TNT1 A 0 A_GiveToTarget("DoRat", 1)
+		RABB B 7 A_Fall
+		RABB CBCBCBCBC 5
+		RABB CBCBCBCBCBCBCBCBCB 5
+		RATN DEFEFDEDFEDFEFDEFEDF 5
+		RATN G -1
+		Stop
+	}
+}
+
+ACTOR BloodRatGrey : BloodRat 19067
+{
+	//$Title Blood Rat, Grey
+	Species "Nuisance"
+	States
+	{
+	Spawn:
+		RAGW A 1 A_Look
+		Loop
+	See.Flee:
+		RAGW A 0 A_ChangeFlag("FRIGHTENED", TRUE)
+		Goto See+2
+	See:
+		RAGW A 0 A_CheckFlag("FRIGHTENED","See.Flee", AAPTR_MASTER)
+		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
+		RAGW A 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RAGW B 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RAGW C 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RAGW D 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
+		RAGW A 1 A_Jump(150,1)
+		Goto StupidMode
+		TNT1 A 0
+		Loop
+	StupidMode:
+		RAGW AAAABBBBCCCC 1 A_Wander
+		RAGW CCCCCC 1 A_Wander
+		RAGW DDDDD 1 A_Wander
+		TNT1 A 0 A_Jump(64,2)
+		TNT1 A 0 A_ClearTarget
+		Goto Spawn
+		TNT1 A 0
+		Loop
+	See2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
+		TNT1 A 0 A_GiveInventory("Fighting", 1)
+		RAGW AAAAAABBBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Fighting", 1)
+		RAGW CCCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW AAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW DDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW AAAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAGW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		RAGW A 1 A_Jump(150,1)
+		Goto StupidMode
+		TNT1 A 0
+		Goto See
+	Wander:
+		TNT1 A 0
+		TNT1 A 0 A_GiveInventory("Afraid", 1)
+		RAGW AAAAAABBBBBCCCCCCDDDDAAAAABBBBCCCCCDDDDDAAAAAABBBBCCCCCDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Afraid", 1)
+		Goto See
+	Missile:
+	Melee:
+		RAGW A 5 A_FaceTarget
+		TNT1 A 0 A_Playsound("RAGBite")
+		RAGW B 5 A_CustomMeleeAttack(frandom(4,9),"","none")
+		RAGW C 5
+		Goto See
+	Pain:
+		RAGW D 3
+		RAGW D 3 A_Pain
+		Goto See
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(224, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		RAGW E 5 A_Scream
+		RAGW F 5 A_Fall
+		RAGW GHI 5
+		RAGW J -1
+		Stop
+	Death.SpecialFire:
+	Burn:
+	Death.LifeLeech:
+	Death.Flare:
+		TNT1 A 0
+		"####" A 1 A_JumpIf(waterlevel > 1, "Death")
+		RAGB A 8 A_Scream
+		TNT1 A 0 A_GiveToTarget("DoRat", 1)
+		RAGB B 7 A_Fall
+		RAGB CBCBCBCBC 5
+		RAGB CBCBCBCBCBCBCBCBCB 5
+		RATN DEFEFDEDFEDFEFDEFEDF 5
+		RATN G -1
+		Stop
+	}
+}
+
+ACTOR BloodRatWhite : BloodRat 19068
+{
+	//$Title Blood Rat, White
+	Species "Nuisance"
+	States
+	{
+	Spawn:
+		RAWW A 1 A_Look
+		Loop
+	See.Flee:
+		RAWW A 0 A_ChangeFlag("FRIGHTENED", TRUE)
+		Goto See+2
+	See:
+		RAWW A 0 A_CheckFlag("FRIGHTENED","See.Flee", AAPTR_MASTER)
+		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
+		RAWW A 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RAWW B 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RAWW C 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		RAWW D 4 A_Chase
+		TNT1 A 0 ThrustThing(angle*256/360, 1, 0, 0)
+		TNT1 A 0 A_JumpIfTargetInLos("See2", 160)
+		RAWW A 1 A_Jump(150,1)
+		Goto StupidMode
+		TNT1 A 0
+		Loop
+	StupidMode:
+		RAWW AAAABBBBCCCC 1 A_Wander
+		RAWW CCCCCC 1 A_Wander
+		RAWW DDDDD 1 A_Wander
+		TNT1 A 0 A_Jump(64,2)
+		TNT1 A 0 A_ClearTarget
+		Goto Spawn
+		TNT1 A 0
+		Loop
+	See2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInTargetInventory("PowerInvisibility",1,"Wander")
+		TNT1 A 0 A_GiveInventory("Fighting", 1)
+		RAWW AAAAAABBBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Fighting", 1)
+		RAWW CCCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW AAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW DDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW AAAAAA 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW BBBB 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW CCCCC 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 C 0 A_Chase("Melee","Missile",CHF_DONTMOVE)
+		RAWW DDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		RAWW A 1 A_Jump(150,1)
+		Goto StupidMode
+		TNT1 A 0
+		Goto See
+	Wander:
+		TNT1 A 0
+		TNT1 A 0 A_GiveInventory("Afraid", 1)
+		RAWW AAAAAABBBBBCCCCCCDDDDAAAAABBBBCCCCCDDDDDAAAAAABBBBCCCCCDDDD 1 A_GiveInventory("A_ChaseXMelee",1)
+		TNT1 A 0 A_TakeInventory("Afraid", 1)
+		Goto See
+	Missile:
+	Melee:
+		RAWW A 5 A_FaceTarget
+		TNT1 A 0 A_Playsound("RAWBite")
+		RAWW B 5 A_CustomMeleeAttack(frandom(4,9),"","none")
+		RAWW C 5
+		Goto See
+	Pain:
+		RAWW D 3
+		RAWW D 3 A_Pain
+		Goto See
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(224, 2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		RAWW E 5 A_Scream
+		RAWW F 5 A_Fall
+		RAWW GHI 5
+		RAWW J -1
+		Stop
+	Death.SpecialFire:
+	Burn:
+	Death.LifeLeech:
+	Death.Flare:
+		TNT1 A 0
+		"####" A 1 A_JumpIf(waterlevel > 1, "Death")
+		RAWB A 8 A_Scream
+		TNT1 A 0 A_GiveToTarget("DoRat", 1)
+		RAWB B 7 A_Fall
+		RAWB CBCBCBCBC 5
+		RAWB CBCBCBCBCBCBCBCBCB 5
+		RATN DEFEFDEDFEDFEFDEFEDF 5
+		RATN G -1
+		Stop
+	}
+}
+
+ACTOR ----------SPIDERS--------- {}
+ACTOR SpiderMother : BloodEnemy_Base 3135
+{
+	//$Title Spider Mother
+    Speed 5
+	Health 500
+	Radius 40
+	Height 40
+	Scale 0.85
+	Mass 25
+	PoisonDamage 40
+	RadiusDamageFactor 0.155
+	MaxStepHeight 60
+	DamageFactor "Dynamite", 1.45
+	DamageFactor "Fire", 1.01
+	DamageFactor "Flare",1.02
+	DamageFactor "Napalm", 1.6
+	DamageFactor "PitchFork", 1.42
+	DamageFactor "SawedOff", 0.50
+	DamageFactor "Shock", 0.7
+	DamageFactor "Stomping", 0
+	DamageFactor "Tommy", 0.73
+	DamageFactor "ZBloodBullet",0.46
+	PainChance "Blast", 0
+	PainChance "Dynamite", 0
+	PainChance "Fire", 0
+	PainChance "Flare", 0
+	PainChance "LifeLeech", 0
+	PainChance "Napalm", 255
+	PainChance "Pitchfork", 40
+	PainChance "Sawedoff", 3
+	PainChance "Sawedoff2", 3
+	PainChance "SawedoffLess", 3
+	PainChance "Shock", 255
+	PainChance "Tommy", 2
+	PainChance "Voodoo", 16
+	PainChance "ZBloodBullet", 0
+	PainChance 50
+	PainSound "MotherSpiderPain"
+	DeathSound "MotherSpiderDie"
+	ActiveSound "MotherSpiderSee"
+	SeeSound "MotherSpiderSee"
+	+DROPOFF
+	+MISSILEMORE
+	+MISSILEEVENMORE
+	+SLIDESONWALLS
+	+THRUSPECIES
+	-CANUSEWALLS
+	Obituary "$OB_SPIDS"
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		SPDW A 10 A_Look
+		Goto Spawn+3
+	Idle:
+		SPDW A 10 A_Look
+		Loop
+	See:
+		SPDW AABB 2 A_ExtChase(0,0,0,0)
+		SPDW CCDD 2 A_ExtChase(0,0,0,0)
+		SPDW A 1 A_Chase
+		SPDW A 0 A_Recoil(-2)
+		TNT1 A 0 A_Stop
+		SPDW B 3 A_ExtChase(0,0,0,0)
+		SPDW A 1 A_Jump(25,"Jeroonemo")
+		Goto See+3
+	IAMCRAB:
+		SPDW A 0 A_FaceTarget
+		SPDW A 0 A_SetAngle(angle+90)
+		SPDW A 0 A_Recoil(-3)
+		SPDW W 0 A_SetAngle(angle-90)
+		SPDW AABBCCDD 3
+		SPDW A 0 A_SetAngle(angle+90)
+		SPDW A 0 A_Recoil(-3)
+		SPDW W 0 A_SetAngle(angle-90)
+		SPDW AABBCCDD 3
+		SPDW A 0 A_SetAngle(angle+90)
+		SPDW A 0 A_Recoil(-3)
+		SPDW W 0 A_SetAngle(angle-90)
+		SPDW AABBCCDD 3
+		SPDW A 0 A_SetAngle(angle+90)
+		SPDW A 0 A_Recoil(-3)
+		SPDW W 0 A_SetAngle(angle-90)
+		SPDW AABBCCDD 3
+		Goto See
+	IAMCRAB2:
+		SPDW  A 0 A_SetAngle(angle-90)
+		SPDW A 0 A_Recoil(-4)
+		SPDW W 0 A_SetAngle(angle+90)
+		SPDW AABBCCDD 3
+		SPDW A 0 A_SetAngle(angle-90)
+		SPDW A 0 A_Recoil(-3)
+		SPDW W 0 A_SetAngle(angle+90)
+		SPDW AABBCCDD 3
+		SPDW A 0 A_SetAngle(angle-90)
+		SPDW A 0 A_Recoil(-3)
+		SPDW W 0 A_SetAngle(angle+90)
+		SPDW AABBCCDD 3
+		SPDW A 0 A_SetAngle(angle-90)
+		SPDW A 0 A_Recoil(-3)
+		SPDW W 0 A_SetAngle(angle+90)
+		SPDW AABBCCDD 3
+		SPDW A 0 A_SetAngle(angle-90)
+		SPDW A 0 A_Recoil(-3)
+		SPDW W 0 A_SetAngle(angle+90)
+		SPDW AABBCCDD 3
+		Goto See
+	Pain.Napalm:
+		SPDF A 0 A_Recoil(-40)
+	Pain.Shock:
+	Jeroonemo:
+		SPDF A 0 A_ActiveSound
+		SPDF A 0 A_SeTAngle(angle+frandom(-50,50))
+		SPDF A 0 A_Recoil(-19)
+		SPDF AAA 4 ThrustThingZ(0,22,0,0)
+		SPDF A 1 A_JumpIfInventory("SpawnCounter",8,"Jeroneemo.End")
+		SPDF A 0 A_Jump(255,"Missile.Jeroneemo1","Missile.Jeroneemo2","Missile.Jeroneemo3","Missile.Jeroneemo4","Missile.Jeroneemo5","Missile.Jeroneemo6","Missile.Jeroneemo7","Missile.Jeroneemo8")
+	Missile.Jeroneemo1:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("NewSpiderRed",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDF A 0 A_ActiveSound
+		Goto Jeroneemo.End
+	Missile.Jeroneemo2:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("SpiderClimber",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDF A 0 A_ActiveSound
+		Goto Jeroneemo.End
+	Missile.Jeroneemo3:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("GreenSpider",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDF A 0 A_ActiveSound
+		Goto Jeroneemo.End
+	Missile.Jeroneemo4:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("BlueSpider",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDF A 0 A_ActiveSound
+		Goto Jeroneemo.End
+	Missile.Jeroneemo5:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("YellowSpider",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDF A 0 A_ActiveSound
+		Goto Jeroneemo.End
+	Missile.Jeroneemo6:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("PurpleSpider",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDF A 0 A_ActiveSound
+		Goto Jeroneemo.End
+	Missile.Jeroneemo7:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("CyanSpider",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDF A 0 A_ActiveSound
+		Goto Jeroneemo.End
+	Missile.Jeroneemo8:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("BlackSpider",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDF A 0 A_ActiveSound
+		Goto Jeroneemo.End
+	Jeroneemo.End:
+		SPDF AA 4
+		SPDF AAA 3 ThrustThingZ(0,10,0,0)
+		Goto Missile
+	Melee:
+		SPDF A 0 A_FaceTarget
+		SPDF A 0 A_Recoil(4)
+		SPDW AABBCCDD 2
+		SPDF A 0 A_Recoil(4)
+		SPDW AABBCCDD 2
+		SPDF A 0 A_Recoil(4)
+		SPDW AABBCCDD 2
+		SPDF A 0 A_Recoil(4)
+		SPDW AABBCCDD 2
+		SPDF A 0 A_Recoil(4)
+		SPDW AABBCCDD 2
+		SPDF A 0 A_Recoil(4)
+		SPDW AABBCCDD 2
+	Missile:
+		SPDW EE 4
+		SPDW E 1 A_JumpIfInventory("SpawnCounter",8,"Missile.Spit")
+		SPDW E 0 A_Jump(64,"Missile.Spit") //sometimes change the kind of attack
+		SPDW E 0 A_Jump(255,"Missile.Spider1","Missile.Spider2","Missile.Spider3","Missile.Spider4","Missile.Spider5","Missile.Spider6","Missile.Spider7","Missile.Spider8")
+	Missile.Spider1:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("NewSpiderRed",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDW A 0 A_ActiveSound
+		Goto See
+	Missile.Spider2:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("SpiderClimber",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDW A 0 A_ActiveSound
+		Goto See
+	Missile.Spider3:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("GreenSpider",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDW A 0 A_ActiveSound
+		Goto See
+	Missile.Spider4:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("BlueSpider",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDW A 0 A_ActiveSound
+		Goto See
+	Missile.Spider5:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("YellowSpider",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDW A 0 A_ActiveSound
+		Goto See
+	Missile.Spider6:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("PurpleSpider",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDW A 0 A_ActiveSound
+		Goto See
+	Missile.Spider7:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("CyanSpider",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDW A 0 A_ActiveSound
+		Goto See
+	Missile.Spider8:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		TNT1 A 0 A_SpawnItemEx("BlackSpider",0,0,0,0,0,0,0,SXF_SETMASTER)
+		SPDW A 0 A_ActiveSound
+		Goto See
+	Missile.Spit:
+		SPDW EE 4 A_FaceTarget
+		SPDW E 8 A_CustomMissile("SpiderSpit",8.0, 0.0, 0, 2, 0)
+		Goto See
+	Pain:
+		SPDW A 2 A_Pain
+		SPDW BCD 2 A_Chase
+		SPDW C 0 A_Jump(127,"See")
+		SPDW C 0 A_Jump(80,"IAMCRAB","IAMCRAB2")
+		Goto Jeroonemo
+	Death:
+		SPDD AA 2 A_Scream
+		SPDD BB 2 A_NoBlocking
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_Burst("FlyingBlood")
+		SPDD CDE 2
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		SPDD F -1 A_BossDeath
+		Stop
+	Death.Fire:
+		"####" A 1 A_JumpIf(waterlevel > 1, "Death")
+		SPBD A 0 A_PlaySound("SpiderBurn")
+		SPBD ABEGHFECABEGHFEC 5
+		SPBD IJK 5
+		SPBD LMNLMNLMNLMNLMNLMNLMNLMNLMN 15
+		SPBD O 0 A_NoBlocking
+		SPBD O 0 A_Scream
+		SPBD O -1 A_BossDeath
+		Stop
+	Ice:
+		FKUF R 5 A_FreezeDeath
+		FKUF R 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR SpiderRed
+{
+	Health 12
+	Radius 16
+	Height 8
+	Mass 10
+	Speed 3
+	FastSpeed 5
+	PainChance 128
+	Damage 1
+	Monster
+	GibHealth 50
+	MaxTargetRange 20
+	MeleeRange 20
+	Scale .35
+	Gravity .6
+	RadiusDamageFactor 1
+	DamageType "Turner"
+	DamageFactor "Stomping", 0.5
+	DamageFactor "Fire", 2.5
+	DamageFactor "Flare",1.25
+	AttackSound "dsdolstb"
+	PainSound "SpiderPain"
+	DeathSound "SpiderDie"
+	ActiveSound "SpiderSee"
+	+AMBUSH
+	+DONTSPLASH
+	+DROPOFF
+	+FLOORCLIP
+	+SLIDESONWALLS
+	-CANUSEWALLS
+	-NODROPOFF
+	-NORADIUSDMG
+	-THRUSPECIES
+	Translation "112:127=176:191","128:151=32:47","152:159=32:47","96:111=32:47","9:11=45:47"
+	Obituary "$OB_SPIDS2"
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		YKUL AB 10 A_Look
+		Loop
+	See: // We check so rat doesnt really act like a retard moving at a wall...
+		YKUL A 20
+		YKUL AAAABBBBCCCC 1 A_Chase
+		YKUL DDDDEEEEFFFF 1 A_Chase
+		YKUL A 0 A_Jump(16,"Jump")
+		Goto See+1
+	Jump:
+		YKUL A 0 ThrustThingZ(0,frandom[Spiders](8,20),0,0)
+		YKUL A 0 ThrustThing(angle*256/360,frandom[Spiders](3,10),0,0)
+		Goto See+1
+	Melee:
+	Missile:
+		YKUL G 3
+		YKUL I 6 A_CustomMeleeAttack(frandom(1,2),"dsdolstb","none","Turner",true)
+		YKUL I 5
+		Goto See+1
+	Pain:
+		YKUL G 3
+		YKUL G 3 A_Pain
+		Goto See+1
+	Death:
+		YKUL I 0 A_Scream
+		YKUL IJKLMNO 3 A_SpawnDebris("FlyingBlood")
+		YKUL O -1 A_SpawnDebris("FlyingBlood")
+		Stop
+	XDeath:
+		YKUL J 0 A_PlaySound("DSSLOP")
+		YKUL JKLMNO 1 A_SpawnItemEx("FlyingBlood",frandom[Spiders](-4,4),frandom[Spiders](-4,4),frandom[Spiders](4,16),((-Health/200)*frandom[Spiders](frandom[Spiders]((-momx-momy-momz)*10,40)/10,-frandom[Spiders](-momx-momy-momz,4)))+momx,((-Health/200)*frandom[Spiders](frandom[Spiders]((-momx-momy-momz)*10,40)/10,-frandom[Spiders](-momx-momy-momz,4)))+momy,((-Health/200)*frandom[Spiders](-2,frandom[Spiders]((momx+momy+momz)*10,10)/10))+momz,0,SXF_NOCHECKPOSITION)
+		Stop
+	Death.Fire:
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		SPBD A 0 A_PlaySound("SpiderBurn")
+		SPBD ABEGHFECABEGHFEC 5
+		SPBD IJK 5
+		SPBD LMNLMNLMNLMNLMNLMNLMNLMNLMN 15
+		SPBD O 0 A_NoBlocking
+		SPBD O 0 A_Scream
+		SPBD O -1
+		Stop
+	Ice:
+		FKUF R 0 A_SetMass(999999)
+		FKUF R 5 A_FreezeDeath
+		FKUF R 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR NewSpiderRed : BloodEnemy_Base 6161
+{
+	//$Title Red Spider (BlooM)
+	Health 12
+	Radius 16
+	Height 8
+	Mass 10
+	Speed 4
+	FastSpeed 8
+	PainChance 128
+	Damage (frandom(5,10))
+	DamageType "Turner"
+	GibHealth 50
+	MaxTargetRange 30
+	MeleeRange 30
+	Scale .35
+	Gravity .45
+	DamageFactor "Fire", 2.5
+	DamageFactor "Stomping", 0.4
+	RadiusDamageFactor 1
+	AttackSound "dsdolstb"
+	PainSound "SpiderPain"
+	DeathSound "SpiderDie"
+	ActiveSound "SpiderSee"
+	+AMBUSH
+	+CANNOTPUSH
+	+DONTSPLASH
+	+DROPOFF
+	+FLOORCLIP
+	+SLIDESONWALLS
+	+THRUSPECIES
+	-CANUSEWALLS
+	-NODROPOFF
+	-NORADIUSDMG
+	Translation "112:127=176:191","128:151=32:47","152:159=32:47","96:111=32:47","9:11=45:47" //Translation "80:95 = 220:223","96:111 = [255,128,0]:[0,0,0]"
+	Obituary "$OB_SPIDS3"
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		SHIA AC 10 A_Look
+		Loop
+	See: // We check so rat doesnt really act like a retard moving at a wall...
+		SHIA AAAAAAACCCCCCC 1 A_Chase
+		SHIA DDDDDDDEEEEEEE 1 A_Chase
+		SHIA A 0 A_Jump(16,"Bounce")
+		Goto See+4
+	RUN:
+		SHIA A 0 A_PlaySound("SpiderBurn")
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_PlaySound("SpiderBurn")
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA BBB 1 ThrustThingZ(0,frandom[Spiders](11,20),0,0)
+		SHIA A 0 ThrustThing(angle*256/360,frandom[Spiders](5,8),0,0)
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		SHIA A 0 A_Recoil(-2)
+		SHIA AAACCCDDDEEEFFFAAACCCDDDEEEFFF 1 A_Wander
+		Goto See+3
+	Bounce:
+		SHIA A 0 A_SetAngle(angle+frandom(-90,90))
+		SHIA A 0 A_Recoil(-8)
+		SHIA BBB 1 ThrustThingZ(0,frandom[Spiders](11,20),0,0)
+		SHIA A 4 ThrustThing(angle*256/360,frandom[Spiders](5,8),0,0)
+		Goto See+4
+	Melee:
+		SHIA A 0 A_Jump(90,"JumpAndMunch")
+		SHIA A 0 A_Recoil(-1)
+		SHIA A 0 ThrustThing(angle*256/360,frandom[Spiders](3,8),0,0)
+	Missile:
+		SHIA A 3
+		SHIA G 6 A_CustomMeleeAttack(frandom(1,2),"dsdolstb","none","Turner",true)
+		SHIA A 5
+		SHIA A 0 A_JumpIfInTargetInventory("HoldingSpray",1,"RUN")
+		Goto See+4
+	JumpAndMunch:
+		SHIA BBB 1 ThrustThingZ(0,frandom[Spiders](11,20),0,0)
+		SHIA A 0 ThrustThing(angle*256/360,frandom[Spiders](5,8),0,0)
+		SHIA A 4 A_CustomMeleeAttack(frandom(1,2),"dsdolstb","none","Turner",true)
+		Goto See+4
+	Pain:
+		SHIA A 3
+		SHIA A 3 A_Pain
+		Goto See+4
+	Death:
+		SHIA H 0 A_Scream
+		SHIA IJ 3 A_SpawnDebris("FlyingBlood")
+		SHIA IJKLM 3 A_Fall
+		SHIA M -1 A_SpawnDebris("FlyingBlood")
+		Stop
+	XDeath:
+		SHIA H 0 A_PlaySound("DSSLOP")
+		SHIA IJ 1 A_SpawnItemEx("FlyingBlood",frandom[Spiders](-4,4),frandom[Spiders](-4,4),frandom[Spiders](4,16),((-Health/200)*frandom[Spiders](frandom[Spiders]((-momx-momy-momz)*10,40)/10,-frandom[Spiders](-momx-momy-momz,4)))+momx,((-Health/200)*frandom[Spiders](frandom[Spiders]((-momx-momy-momz)*10,40)/10,-frandom[Spiders](-momx-momy-momz,4)))+momy,((-Health/200)*frandom[Spiders](-2,frandom[Spiders]((momx+momy+momz)*10,10)/10))+momz,0,SXF_NOCHECKPOSITION)
+		SHIA KLM 3 A_Fall
+		Stop
+	Burn:
+	Death.Fire:
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		SPBD A 0 A_PlaySound("SpiderBurn")
+		SPBD ABEGHFECABEGHFEC 5
+		SPBD IJK 5
+		SPBD LMNLMNLMNLMNLMNLMNLMNLMNLMN 15
+		SPBD O 0 A_NoBlocking
+		SPBD O 0 A_Scream
+		SPBD O -1
+	}
+}
+
+ACTOR NewRedSpider : NewSpiderRed
+{
+	-SOLID
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		SHIA AAAACCCC 1 A_Chase
+		SHIA DDDDEEEE 1 A_Chase
+		TNT1 A 0 A_SetSolid
+		Goto See
+	}
+}
+
+ACTOR SpiderClimber : NewSpiderRed { -THRUSPECIES Species "Spiders" }
+
+ACTOR SpiderGreen : NewSpiderRed 6191
+{
+	//$Title Green Spider (BlooM)
+	Speed 3
+	FastSpeed 6
+	PoisonDamage 4
+	Gravity .7
+	Damage 4
+	DamageFactor "Stomping", 0.2
+	DamageType "BlindingPoison"
+	DamageFactor "Fire", 1.35
+	Obituary "$OB_SPIDS4"
+	+THRUSPECIES
+	Translation "64:79 = 115:127","232:235 = 160:163","236:239 = 123:127","144:151 = 119:127","13:15=124:126"
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		SHIA AA 10 A_Look
+		Loop
+	See:
+		SHIA A 5
+		SHIA AAAAACCCCC 1 A_Chase
+		SHIA DDDDDEEEEE 1 A_Chase
+		SHIA A 0 A_Jump(64,"Bounce")
+		Goto See+4
+	Melee:
+		SHIA A 3 A_Recoil(-1)
+		SHIA G 7 A_CustomMeleeAttack(frandom(3,5),"dsdolstb","none","BlindingPoison",true)
+		SHIA G 0 A_GiveToTarget("PoisonIntensity", 35)
+		SHIA G 0 A_GiveToTarget("PoisonStop", 1)
+		SHIA A 7
+		Goto See+4
+	}
+}
+
+ACTOR GreenSpider : SpiderGreen
+{
+	-SOLID
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		SHIA AAAACCCC 1 A_Chase
+		SHIA DDDDEEEEFFF 1 A_Chase
+		TNT1 A 0 A_SetSolid
+		Goto See
+	}
+}
+
+ACTOR SpiderBlue : NewSpiderRed 6192
+{
+	//$Title Blue Spider (BlooM)
+	Speed 13
+	FastSpeed 17
+	Damage 2
+	PoisonDamage 16
+	DamageFactor "Stomping", 0
+	Obituary "$OB_SPIDS5"
+	Translation "96:111=192:207", "80:95=192:207", "128:151=192:199", "64:79=192:200", "5:15=240:247", "0:2=204:207", "236:239=193:196"
+	Species "Spiders"
+	States
+	{
+	Melee:
+		SHIA A 3
+		SHIA G 7 A_CustomMeleeAttack(frandom[Spiders](3,5),"dsdolstb","none","PoisonCloud",TRUE)
+		SHIA G 0 A_GiveToTarget("PoisonIntensity", 35)
+		SHIA G 0 A_GiveToTarget("PoisonStop", 1)
+		SHIA A 5
+		Goto See+1
+	}
+}
+
+ACTOR BlueSpider : SpiderBlue
+{
+	-SOLID
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		SHIA AAAABBBBCCCC 1 A_Chase
+		SHIA DDDDEEEEFFFF 1 A_Chase
+		TNT1 A 0 A_SetSolid
+		Goto See
+	}
+}
+
+ACTOR SpiderYellow : SpiderGreen 6164
+{
+	//$Title Yellow Spider (BlooM)
+	Health 50
+	DamageType "PoisonCloud"
+	Obituary "%OB_SPIDS6"
+	Translation "96:111=160:167", "80:95=160:167", "128:151=160:167", "64:79=160:167", "5:15=236:239", "0:2=236:239", "236:239=161:164", "3:3=163:165"
+	Species "Spiders"
+	States
+	{
+	Melee:
+		SHIA A 4
+		SHIA G 6 A_CustomMeleeAttack(frandom[Spiders](5,35),"dsdolstb","none")
+		SHIA A 8
+		Goto See+1
+	}
+}
+
+ACTOR YellowSpider : SpiderYellow
+{
+	-SOLID
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		SHIA AAAABBBBCCCC 1 A_Chase
+		SHIA DDDDEEEEFFFF 1 A_Chase
+		TNT1 A 0 A_SetSolid
+		Goto See
+	}
+}
+
+ACTOR SpiderPurple : NewSpiderRed 6165
+{
+	//$Title Purple Spider (BlooM)
+	Speed 4
+	PoisonDamage 3
+	Damage 2
+	Height 10
+	Radius 13
+	Scale 0.28
+	Obituary "$OB_SPIDS7"
+	Translation "96:111=248:253", "80:95=248:253", "128:151=248:253", "64:79=248:253", "5:15=236:239", "0:2=236:239", "236:239=248:249", "3:3=248:249"
+	Species "Spiders"
+	States
+	{
+	Melee:
+		SHIA A 2
+		SHIA GG 1 A_CustomMeleeAttack(3,"dsdolstb","none")
+		SHIA A 2
+		Goto See+1
+	}
+}
+
+ACTOR PurpleSpider : SpiderPurple
+{
+	-SOLID
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		SHIA AAAABBBBCCCC 1 A_Chase
+		SHIA DDDDEEEEFFFF 1 A_Chase
+		TNT1 A 0 A_SetSolid
+		Goto See
+	}
+}
+
+ACTOR SpiderCyan : SpiderGreen 6166
+{
+	//$Title Cyan Spider (BlooM)
+	Speed 15
+	FastSpeed 30
+	PoisonDamage 0
+	Damage 1
+	DamageType "Numbness"
+	Obituary "$OB_SPIDS8"
+	Translation "96:111=196:199", "80:95=196:198", "128:151=197:207", "64:79=197:201", "5:15=200:207", "0:2=199:201", "236:239=200:203"
+	Species "Spiders"
+	States
+	{
+	Melee:
+		SHIA A 2
+		SHIA GG 1 A_CustomMeleeAttack(frandom[Spiders](2,3),"dsdolstb","none","Numbness")
+		SHIA A 6
+		Goto See+1
+	}
+}
+
+ACTOR CyanSpider : SpiderCyan
+{
+	-SOLID
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		SHIA AAAABBBBCCCC 1 A_Chase
+		SHIA DDDDEEEEFFFF 1 A_Chase
+		TNT1 A 0 A_SetSolid
+		Goto See
+	}
+}
+
+ACTOR PowerNumbness : PowerSpeed { Speed 0.5 }
+
+ACTOR CurseNumbness : PowerupGiver
+{
+	PowerUp.Type Numbness
+	PowerUp.Duration -1
+	Powerup.Color "00 00 22",.2
+	Inventory.MaxAmount 0
+	Inventory.PickupMessage "$CURSE"
+	+AUTOACTIVATE
+	+INVENTORY.QUIET
+	+INVENTORY.ADDITIVETIME
+}
+
+ACTOR SpiderBlack : SpiderGreen 6167
+{
+	//$Title Black Spider (BlooM)
+	Health 150
+	Gravity .3
+	PoisonDamage 15
+	Damage 1
+	DamageType "Fragility"
+	Obituary "$OB_SPIDS9"
+	Translation "48:79=[16,16,16]:[0,0,0]","128:151=[48,48,48]:[0,0,0]","80:111=[64,64,64]:[16,16,16]","112:127=[32,32,32]:[0,0,0]"
+	Species "Spiders"
+	States
+	{
+	Melee:
+		SHIA A 2
+		SHIA GG 1 A_CustomMeleeAttack(3,"dsdolstb","none","Fragility")
+		SHIA A 6
+		Goto See+1
+	}
+}
+
+ACTOR BlackSpider : SpiderBlack
+{
+	-SOLID
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		SHIA AAAABBBBCCCC 1 A_Chase
+		SHIA DDDDEEEEFFFF 1 A_Chase
+		TNT1 A 0 A_SetSolid
+		Goto See
+	}
+}
+
+ACTOR PowerFragility : PowerProtection { DamageFactor "normal", 2 }
+
+ACTOR CurseFragility : PowerupGiver
+{
+	Inventory.MaxAmount 0
+	Powerup.Color "22 00 00" 0.2
+	PowerUp.Type Fragility
+	PowerUp.Duration -1
+	+AUTOACTIVATE
+	+INVENTORY.QUIET
+	+INVENTORY.ADDITIVETIME
+}
+
+ACTOR SpiderWhite : SpiderRed 6168 // A mediocre version of spider mother
+{
+	//$Category "Blood Monsters"
+	//$Title White Spider (BlooM)
+	//$Color 5
+	Health 250
+	Scale .5
+	PoisonDamage 0
+	Damage 0
+	MeleeRange 30
+	MaxTargetRange 1024
+	+FRIGHTENED
+	-MISSILEMORE
+	-MISSILEEVENMORE
+	Translation "48:79=[255,255,255]:[128,128,128]","128:151=80:95","80:111=88:103","112:127=[192,192,192]:[32,32,40]"
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		YKUL AB 10 A_Look
+		Loop
+	Missile:
+		YKUL I 1 A_JumpIfInventory("SpawnCounter",5,"Missile.Spit")
+		YKUL I 1
+		TNT1 A 0 A_Jump(240,"Red","Green")
+		Goto See
+	Missile.Spit:
+		YKUL II 4 A_FaceTarget
+		YKUL I 8 A_CustomMissile("SpiderSpit2",8.0, 0.0, 0, 2, 0)
+		Goto See
+	Red:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		YKUL I 6 A_SpawnItemEx("SpiderRed",16,0,0,0,0,0,frandom[Spiders](0,256),SXF_NOCHECKPOSITION)
+		YKUL A 4
+		Goto See+1
+	Green:
+		SPDW A 0 A_GiveInventory("SpawnCounter",1)
+		YKUL I 4 A_SpawnItemEx("GreenSpider",16,0,0,0,0,0,frandom[Spiders](0,256),SXF_NOCHECKPOSITION)
+		YKUL A 6
+		Goto See+1
+	}
+}
+
+ACTOR WhiteSpider : SpiderWhite
+{
+	-SOLID
+	Species "Spiders"
+	States
+	{
+	Spawn:
+		YKUL AAAABBBBCCCC 1 A_Chase
+		YKUL DDDDEEEEFFFF 1 A_Chase
+		TNT1 A 0 A_SetSolid
+		Goto See
+	}
+}

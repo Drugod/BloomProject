@@ -1,0 +1,342 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+ACTOR -----CVLTIMPS-------- {}
+ACTOR Cvltimp : BloomHybrid_Base 19028
+{
+	//$Title Cvltimp
+	Health 60
+	Speed 12
+	PainChance 200
+	+FLOORCLIP
+	SeeSound "imp/sight"
+	PainSound "imp/pain"
+	DeathSound "imp/death"
+	ActiveSound "imp/active"
+	HitObituary "$OB_IMPHIT"
+	Obituary "$OB_IMP"
+	DropItem "Flaregun" 16
+	DropItem "Flare" 64
+	DropItem "FlameGas" 8
+	Dropitem "UselessStuff" 16
+	States
+	{
+	Spawn:
+		CIOO AB 10 A_Look
+		Loop
+	See:
+		CIOO AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(200,"Missile2")
+		CIOO EF 8 A_FaceTarget
+		CIOO G 6 A_TroopAttack
+		Goto See
+	Missile2:
+		CIO1 AB 4 A_FaceTarget
+		CIO1 CD 4 A_FaceTarget
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_PlaySound("Spray/Alt")
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_FaceTarget
+		CIO1 E 6 A_CustomMissile("HellHoundFire",20,0,frandom(-20,20),0)
+		TNT1 A 0 A_JumpIfCloser(200,1)
+		Goto See
+		TNT1 AAAAAAAA 0 A_SentinelRefire
+		Goto Missile2+5
+	Pain:
+		CIOO H 2
+		CIOO H 2 A_Pain
+		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto See
+	Death:
+		CIOO I 8
+		CIOO J 8 A_Scream
+		CIOO K 6
+		CIOO L 6 A_NoBlocking
+		CIOO M -1
+		Stop
+	Death.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto XDeath
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombImp1",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		CIOO A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		TNT1 A 0 A_SpawnItem("BurnDeathZombieSilent",1,0,0) //avoid usage of BloodZombie death sounds - ozy81
+		Stop
+	XDeath:
+		CIOO N 5
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombImp1",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		CIOO O 5 A_XScream
+		CIOO P 5 A_NoBlocking
+		CIOO Q 5
+		CIOO RST 5
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		CIOO U -1
+		Stop
+	Raise:
+		CIOO ML 8
+		CIOO KJI 6
+		Goto See
+	Ice:
+		COIF R 0 A_SetMass(999999)
+		CIOF R 5 A_FreezeDeath
+		CIOF R 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR CvltimpAlt : BloomHybrid_Base 19029
+{
+	//$Title Cvltimp Alt
+	Health 60
+	Speed 12
+	PainChance 200
+	+FLOORCLIP
+	SeeSound "imp/sight"
+	PainSound "imp/pain"
+	DeathSound "imp/death"
+	ActiveSound "imp/active"
+	HitObituary "$OB_IMPHIT"
+	Obituary "$OB_IMP"
+	Dropitem "UselessStuff" 16
+	States
+	{
+	Spawn:
+		CI2O AB 10 A_Look
+		Loop
+	See:
+		CI2O AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+		CI2O EF 8 A_FaceTarget
+		CI2O G 6 A_TroopAttack
+		Goto See
+	Missile:
+		CI21 AB 4 A_FaceTarget
+		CI21 CD 4 A_FaceTarget
+		TNT1 A 0 A_FaceTarget
+		CI21 E 6 A_CustomMissile("PhantasmProjectile",24,0,0)
+		Goto See
+	Pain:
+		CI2O H 2
+		CI2O H 2 A_Pain
+		Goto See
+	Pain.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto See
+	Death:
+		CI2O I 8
+		CI2O J 8 A_Scream
+		CI2O K 6
+		CI2O L 6 A_NoBlocking
+		CI2O M 6
+		TNT1 A 0 A_Jump(200,2)
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		CI2O N -1
+		Stop
+	Death.Shock:
+		TNT1 A 0 A_PlaySound("imp/pain")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_ClearTarget
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		GCUZ A 3
+		Goto XDeath
+	Burn:
+	Death.SpecialFire:
+	Death.Flare:
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_ThrowGrenade("KickableFlyingZombImp1",0,5,10,0)
+		TNT1 A 0 A_Jump(128, 2)
+		TNT1 A 0 A_GiveToTarget("DoTaunt", 1)
+		CI2O A 1
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Pain
+		"####" A 1 A_JumpIf(waterlevel > 1, "XDeath")
+		TNT1 A 0 A_SpawnItem("BurnDeathZombieSilent",1,0,0)
+		Stop
+	XDeath:
+		CI2O N 5
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_ThrowGrenade ("KickableFlyingZombImp1",0,5,10,0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("EyeGuts")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("HeadBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Hand1")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Intestines",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("OrganDebris2")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnDebris ("FlyingBlood")
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx ("Entrails",random(-50,50),random(-50,50),0)
+		TNT1 A 0 A_SetAngle(frandom(0.0,360.0))
+		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
+		CI2O O 5 A_XScream
+		CI2O P 5 A_NoBlocking
+		CI2O Q 5
+		CI2O RST 5
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		CI2O U -1
+		Stop
+	Raise:
+		CI2O ML 8
+		CI2O KJI 6
+		Goto See
+	Ice:
+		CIOF Z 0 A_SetMass(999999)
+		CIOF Z 5 A_FreezeDeath
+		CIOF Z 1 A_FreezeDeathChunks
+		Wait
+	}
+}

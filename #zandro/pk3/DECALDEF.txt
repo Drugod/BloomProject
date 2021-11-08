@@ -1,0 +1,604 @@
+/*
+ * Copyright (c) 2009-2021 Nash Muhandes, Enjay, Drugod, Ozymandias81
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+decal DecalTech 100
+{
+    pic MTEXT2
+    x-scale 1.0
+    y-scale 1.0
+}
+
+decal DecalNature 101
+{
+    pic XTEX018W
+    x-scale 1.0
+    y-scale 1.0
+}
+
+decal DecalTech2 102
+{
+    pic MTEXT5
+    x-scale 1.0
+    y-scale 1.0
+}
+
+decal ZBloodBulletChip1 103
+{
+	pic BPU1A0
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal NewScorch
+{
+	pic FMSLSCRH
+	fullbright
+	animator GoAway
+	x-scale 0.2
+	y-scale 0.2
+}
+
+//NASHGORES - from hgarden.wad//
+//***** Animators ***********************************************************/
+
+fader FastGoAway
+{
+	DecayStart	0.2
+	DecayTime	0.5
+}
+
+fader GoAway
+{
+	DecayStart	0.5
+	DecayTime	1.0
+}
+
+fader GoAway2
+{
+	DecayStart	1.0
+	DecayTime	3.0
+}
+
+colorchanger ToBlack
+{
+	FadeStart	0.5
+	FadeTime	1.0
+}
+
+stretcher BloodStretcher
+{
+	StretchTime	10
+	GoalY		2.0
+}
+
+slider BloodSlider
+{
+	SlideTime	10
+	DistY		-132
+}
+
+combiner BloodSmearer
+{
+	BloodStretcher
+	BloodSlider
+}
+
+//***** Blood decals *****//
+decal BloodSplat01
+{
+pic BSPLAT01
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decal BloodSplat02
+{
+pic BSPLAT02
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decal BloodSplat03
+{
+pic BSPLAT03
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decal BloodSplat04
+{
+pic BSPLAT04
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decal BloodSplat05
+{
+pic BSPLAT05
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decal BloodSplat06
+{
+pic BSPLAT06
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decal BloodSplat07
+{
+pic BSPLAT07
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decal BloodSplat08
+{
+pic BSPLAT08
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decal BloodSplat09
+{
+pic BSPLAT09
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decal BloodSplat10
+{
+pic BSPLAT10
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decal BloodSplat11
+{
+pic BSPLAT11
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decal BloodSplat12
+{
+pic BSPLAT12
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decal BloodSplat13
+{
+pic BSPLAT13
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decal BloodSplat14
+{
+pic BSPLAT14
+shade "60 00 00"
+x-scale 0.5
+y-scale 0.5
+randomflipx
+randomflipy
+}
+
+decalgroup BloodSplat
+{
+BloodSplat01 6
+BloodSplat02 6
+BloodSplat03 6
+BloodSplat04 6
+BloodSplat05 6
+BloodSplat06 6
+BloodSplat07 6
+BloodSplat08 6
+BloodSplat09 6
+BloodSplat10 6
+BloodSplat11 6
+BloodSplat12 6
+BloodSplat13 6
+BloodSplat14 6
+}
+
+decal BloodSmear1
+{
+pic BSMEAR1
+x-scale 0.625
+y-scale 0.625
+shade "60 00 00"
+randomflipx
+randomflipy
+animator BloodSmearer
+}
+
+decal BloodSmear2
+{
+pic BSMEAR1
+x-scale 0.625
+y-scale 0.625
+shade "60 00 00"
+randomflipx
+randomflipy
+animator BloodSmearer
+}
+
+decalgroup BloodSmear
+{
+BloodSmear1		6
+BloodSmear2		6
+}
+//ENJAY & T667 Enhancements - from hgarden.wad//
+//***** Bullet Chips *****/
+decal BulletChip1
+{
+	pic CHIP1
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.8
+	y-scale 0.8
+	randomflipx
+	randomflipy
+}
+
+decal BulletChip2
+{
+	pic CHIP2
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.8
+	y-scale 0.8
+	randomflipx
+	randomflipy
+}
+
+decal BulletChip3
+{
+	pic CHIP3
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.8
+	y-scale 0.8
+	randomflipx
+	randomflipy
+}
+
+decal BulletChip4
+{
+	pic CHIP4
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.8
+	y-scale 0.8
+	randomflipx
+	randomflipy
+}
+
+decal BulletChip5
+{
+	pic CHIP5
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.8
+	y-scale 0.8
+	randomflipx
+	randomflipy
+}
+
+decalgroup BulletChip
+{
+	BulletChip1	1
+	BulletChip2	1
+	BulletChip3	1
+	BulletChip4	1
+	BulletChip5	1
+}
+
+decal Bullet1
+{
+pic CHIP1
+shade "FF C8 00"
+fullbright
+x-scale 0.4
+y-scale 0.4
+lowerdecal BulletChip
+animator GoAway
+}
+
+decal Bullet2
+{
+pic CHIP2
+shade "FF C8 00"
+fullbright
+x-scale 0.4
+y-scale 0.4
+lowerdecal BulletChip
+animator GoAway
+}
+
+decal Bullet3
+{
+pic CHIP3
+shade "FF C8 00"
+fullbright
+x-scale 0.4
+y-scale 0.4
+lowerdecal BulletChip
+animator GoAway
+}
+
+decal Bullet4
+{
+pic CHIP4
+shade "FF C8 00"
+fullbright
+x-scale 0.4
+y-scale 0.4
+lowerdecal BulletChip
+animator GoAway
+}
+
+decal Bullet5
+{
+pic CHIP5
+shade "FF C8 00"
+fullbright
+x-scale 0.4
+y-scale 0.4
+lowerdecal BulletChip
+animator GoAway
+}
+
+decalgroup Bullet
+{
+	Bullet1	1
+	Bullet2	1
+	Bullet3	1
+	Bullet4	1
+	Bullet5	1
+}
+
+//**** Chainsaw marks *****/
+decal ChainsawMarkLower
+{
+	pic SAWMARK
+	translucent 0.75
+	shade "00 00 00"
+	x-scale 0.2
+	y-scale 0.5
+	randomflipx
+	randomflipy
+}
+
+decal ChainsawMark
+{
+	pic SAWMARK
+	fullbright
+	shade "FF C8 00"
+	x-scale 0.1
+	y-scale 0.4
+	randomflipx
+	randomflipy
+	lowerdecal ChainsawMarkLower
+	animator FastGoAway
+}
+
+//***** Plasma Rifle Scorches ***********************************************/
+decal PlasmaScorchLower1
+{
+	pic PLASMA1
+	shade "00 00 00"
+	x-scale 0.3
+	y-scale 0.3
+	randomflipx
+	randomflipy
+}
+
+decal PlasmaScorch1
+{
+	pic PLSEB0
+	add 1.0
+	fullbright
+	animator GoAway
+	x-scale 0.5
+	y-scale 0.5
+	lowerdecal PlasmaScorchLower1
+	randomflipx
+	randomflipy
+}
+
+decal PlasmaScorchLower2
+{
+	pic PLASMA2
+	shade "00 00 00"
+	x-scale 0.3
+	y-scale 0.3
+	randomflipx
+	randomflipy
+}
+
+decal PlasmaScorch2
+{
+	pic PLSEC0
+	add 1.0
+	fullbright
+	animator GoAway
+	x-scale 0.5
+	y-scale 0.5
+	lowerdecal PlasmaScorchLower2
+	randomflipx
+	randomflipy
+}
+
+decalgroup PlasmaScorchLower
+{
+	PlasmaScorchLower1	1
+	PlasmaScorchLower2	1
+}
+
+decalgroup PlasmaScorch
+{
+	PlasmaScorch1	1
+	PlasmaScorch2	1
+}
+
+//***** Arachnotron Plasma Scorches *****************************************/
+decal ArachScorch1
+{
+	pic APBXB0
+	add 1.0
+	animator GoAway
+	x-scale 0.5
+	y-scale 0.5
+	lowerdecal PlasmaScorchLower1
+	randomflipx
+	randomflipy
+}
+
+decal ArachScorch2
+{
+	pic APBXC0
+	add 1.0
+	animator GoAway
+	x-scale 0.5
+	y-scale 0.5
+	lowerdecal PlasmaScorchLower2
+	randomflipx
+	randomflipy
+}
+
+decalgroup ArachnotronScorch
+{
+	ArachScorch1	1
+	ArachScorch2	1
+}
+
+//***** Generators **********************************************************//
+generator Acid							BloodSplat
+generator ArachnotronPlasma				ArachnotronScorch
+generator BFGBallX						BFGLightning
+generator BaronBall						BaronScorch
+generator Blood_						BloodSplat
+generator BrownCultist					ZBloodBulletChip1
+generator CacodemonBall					CacoScorch
+generator CerberusShot1					Scorch
+generator CerberusShot2					Scorch
+generator ChaingunGuy_					Bullet
+generator Chaingun_						ZBloodBulletChip1
+generator Chainsaw_						ChainsawMark
+generator Cleaver						ChainsawMark
+generator Colt							ZBloodBulletChip1
+generator DoomImpBall_					DoomImpScorch
+generator DoubleChaingun_				ZBloodBulletChip1
+generator DoublePistol_					ZBloodBulletChip1
+generator DoublePlasmaRifle_			PlasmaScorch
+generator DoubleSawedOff				ZBloodBulletChip1
+generator DoubleTommyGun				ZBloodBulletChip1
+generator DualShotgun_					ZBloodBulletChip1
+generator DualSuperShotgun_				ZBloodBulletChip1
+generator FatShot						NewScorch //Scorch replaced with new
+generator FlareAlt						BFGScorch
+generator FloorKaboom					Scorch
+generator FlyingAcidrop					BloodSmear
+generator FlyingBlood					BloodSmear
+generator Flyingbloodrop				BloodSmear
+generator FrostPlasma					DoomImpScorch
+generator GreenCultist					Scorch
+generator GreyCultist					ZBloodBulletChip1
+generator HeadBlood						BloodSmear
+generator HellButcherBall				BaronScorch
+generator HoundKnightBall				BaronScorch
+generator Kaboom						Scorch
+generator LavaBall						Scorch
+generator LifeLeechShot					none
+generator NapalmGreen					Scorch
+generator NapalmRocket					Scorch
+generator NapalmRocketAlt1				Scorch
+generator OrganDebris					BloodSmear
+generator OrganDebris2					BloodSmear2
+generator Pistol_						ZBloodBulletChip1
+generator PitchforkPuff					ZBloodBulletChip1
+generator PlasmaBallX					PlasmaScorch
+generator PlasmaRifle_					PlasmaScorch
+generator PlayerTNT						Scorch
+generator RedCultist					ZBloodBulletChip1
+generator RevenantTracer				RevenantScorch
+generator RocketX						NewScorch //Scorch replaced with new
+generator SawedOff						ZBloodBulletChip1
+generator ShotgunGuy_					Bullet
+generator Shotgun_						ZBloodBulletChip1
+generator SingleShotgun					ZBloodBulletChip1
+generator SpiderMastermind_				Bullet
+generator SprayCanAlt					Scorch
+generator SprayCanFire					PlasmaScorchLower1
+generator SuperMimeMissile				Scorch
+generator SuperShotgun_					ZBloodBulletChip1
+generator TchernobogKaboom				Scorch
+generator TchernobogMissile				Scorch
+generator TeslaBallBig					PlasmaScorchLower1
+generator TommyGun						ZBloodBulletChip1
+generator WallBomb						Scorch
+generator WoodDebris					Scorch
+generator ZombieMan_					Bullet

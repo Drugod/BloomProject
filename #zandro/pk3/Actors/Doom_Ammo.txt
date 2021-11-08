@@ -1,0 +1,223 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+ACTOR NewAmmos_little replaces Cell
+{
+    //$Category "Ammunition"
+    //$Title Ammo for PR/FT/TC Spawner
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("new_ammos_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	PlasmarifleSpawner:
+		TNT1 A 0 A_SpawnItemEx("Cell_",0,0,0,0,0,0,0)
+		Stop
+	FlamethrowerSpawner:
+		TNT1 A 0 A_SpawnItemEx("FlameGas",0,0,0,0,0,0,0)
+		Stop
+	TeslacannonSpawner:
+		TNT1 A 0 A_SpawnItemEx("TeslaCharge",0,0,0,0,0,0,0)
+		Stop
+	FrostgunSpawner:
+		TNT1 A 0 A_SpawnItemEx("FrostAmmo",0,0,0,0,0,0,0)
+		Stop
+	}
+}
+
+ACTOR NewAmmos_Big replaces CellPack
+{
+    //$Category "Ammunition"
+    //$Title Big Ammo for PR/FT/TC Spawner
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("new_ammos_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	PlasmarifleSpawner:
+		TNT1 A 0 A_SpawnItemEx("CellPack_",0,0,0,0,0,0,0)
+		Stop
+	FlamethrowerSpawner:
+		TNT1 A 0 A_SpawnItemEx("FlameBigGas",0,0,0,0,0,0,0)
+		Stop
+	TeslacannonSpawner:
+		TNT1 A 0 A_SpawnItemEx("TeslaChargeBox",0,0,0,0,0,0,0)
+		Stop
+	FrostgunSpawner:
+		TNT1 A 0 A_SpawnItemEx("FrostAmmo",0,0,0,0,0,0,0)
+		Stop
+	}
+}
+
+ACTOR -------CELLPACKS------------ {}
+ACTOR Cell_ : Cell 19078
+{
+    //$Category "Ammunition"
+	//$Sprite CELLA0
+	+INVENTORY.RESTRICTABSOLUTELY
+	Inventory.ForbiddenTo "Caleb"
+	VisibleToPlayerClass "DoomDude"
+	Inventory.PickupMessage "$GOTCELL" // "Picked up an energy cell."
+	Inventory.Amount 20
+	Inventory.MaxAmount 300
+	Ammo.BackpackAmount 20
+	Ammo.BackpackMaxAmount 600
+	Inventory.Icon "CELLA0"
+	States
+	{
+	Spawn:
+		CELL A 1
+		CELL A -1 A_SpawnItemEx("EssencePower",0,0,0)
+		Stop
+	}
+}
+
+ACTOR CellPack_ : Cell_ 19079
+{
+    //$Category "Ammunition"
+	//$Sprite CELPA0
+	Inventory.PickupMessage "$GOTCELLBOX" // "Picked up an energy cell pack."
+	Inventory.Amount 100
+	States
+	{
+	Spawn:
+		CELP A 1
+		CELP A -1 A_SpawnItemEx("EssencePower",0,0,0)
+		Stop
+	}
+}
+
+ACTOR ---------CLIPSBULLETS------ {}
+ACTOR Clip_ : Clip replaces Clip
+{
+	//$Sprite CLIPA0
+	+INVENTORY.RESTRICTABSOLUTELY
+	Inventory.ForbiddenTo "Caleb"
+	VisibleToPlayerClass "DoomDude"
+	Inventory.PickupMessage "$GOTCLIP" // "Picked up a clip."
+	Inventory.Amount 10
+	Inventory.MaxAmount 200
+	Ammo.BackpackAmount 10
+	Ammo.BackpackMaxAmount 400
+	Inventory.Icon "CLIPA0"
+	States
+	{
+	Spawn:
+		CLIP A 1
+		CLIP A -1 A_SpawnItemEx("Bullets",0,0,0)
+		Stop
+	}
+}
+
+ACTOR ClipBox_ : Clip_ replaces Clipbox
+{
+	//$Sprite AMMOA0
+	Inventory.PickupMessage "$GOTCLIPBOX" // "Picked up a box of bullets."
+	Inventory.Amount 50
+	States
+	{
+	Spawn:
+		AMMO A 1
+		AMMO A -1 A_SpawnItemEx("Randombullets",0,0,0)
+		Stop
+	}
+}
+
+ACTOR -------ROCKETS------------ {}
+ACTOR RocketAmmo_ : RocketAmmo replaces RocketAmmo
+{
+	//$Sprite ROCKA0
+	+INVENTORY.RESTRICTABSOLUTELY
+	Inventory.ForbiddenTo "Caleb"
+	VisibleToPlayerClass "DoomDude"
+	Inventory.PickupMessage "$GOTROCKET" // "Picked up a rocket."
+	Inventory.Amount 1
+	Inventory.MaxAmount 50
+	Ammo.BackpackAmount 1
+	Ammo.BackpackMaxAmount 100
+	Inventory.Icon "ROCKA0"
+	States
+	{
+	Spawn:
+		ROCK A 1
+		ROCK A -1 A_SpawnItemEx("MiniGasolineCan",0,0,0)
+		Stop
+	}
+}
+
+ACTOR RocketBox_ : RocketAmmo_ replaces RocketBox
+{
+	//$Sprite BROKA0
+	Inventory.PickupMessage "$GOTROCKBOX" // "Picked up a box of rockets."
+	Inventory.Amount 5
+	States
+	{
+	Spawn:
+		BROK A 1
+		BROK A -1 A_SpawnItemEx("GasolineCan",0,0,0)
+		Stop
+	}
+}
+
+ACTOR -----SHELLS-------------- {}
+ACTOR Shell_ : Shell replaces Shell
+{
+	//$Sprite SHELA0
+	+INVENTORY.RESTRICTABSOLUTELY
+	Inventory.ForbiddenTo "Caleb"
+	VisibleToPlayerClass "DoomDude"
+	Inventory.PickupMessage "$GOTSHELLS" // "Picked up 4 shotgun shells."
+	Inventory.Amount 4
+	Inventory.MaxAmount 50
+	Ammo.BackpackAmount 4
+	Ammo.BackpackMaxAmount 100
+	Inventory.Icon "SHELA0"
+	States
+	{
+	Spawn:
+		SHEL A 1
+		SHEL A -1 A_SpawnItemEx("BloodShells",0,0,0)
+		Stop
+	}
+}
+
+ACTOR ShellBox_ : Shell_ replaces ShellBox
+{
+	//$Sprite SBOXA0
+	Inventory.PickupMessage "$GOTSHELLBOX" // "Picked up a box of shotgun shells."
+	Inventory.Amount 20
+	States
+	{
+	Spawn:
+		SBOX A 1
+		SBOX A -1 A_SpawnItemEx("BloodShellBox",0,0,0)
+		Stop
+	}
+}

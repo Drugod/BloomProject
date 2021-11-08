@@ -1,0 +1,516 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+//Blood enemies Actors for endcast sequence
+ACTOR ------ZOMBIES-------------- {}
+ACTOR BloodZombie_Cast : BloodZombie
+{
+	Scale 0.56
+	States
+	{
+	Spawn:
+		SARG AB 10 A_Look
+		Loop
+	See:
+		BZOM AABBCCDDEEFF 2 Fast A_Chase
+		Loop
+	Melee:
+		BZOM KLM 4 Fast A_FaceTarget
+		BZOM NO 4 Fast A_SargAttack
+		Goto See
+	Pain:
+		BZOM H 2 Fast
+		BZOM H 2 Fast A_Pain
+		Goto See
+	Death:
+		BZOD A 6
+		BZOD B 6 A_Scream
+		BZOD C 6
+		BZOD D 5 A_NoBlocking
+		BZOD E 4
+		BZOD E -1
+		Stop
+	}
+}
+
+ACTOR -----CULTISTS--------------- {}
+ACTOR BrownCultist_Cast : BrownCultist
+{
+	States
+	{
+	Spawn:
+		YCUF A 10 A_Look
+		Loop
+	See:
+		YCUL AABBCCDDEEFF 2 Fast A_Chase
+		Loop
+	Missile:
+		YCUF A 4 Fast A_FaceTarget
+		YCUF B 4 Fast A_SPosAttackUseAtkSound
+		YCUF A 4
+		Goto See
+	Pain:
+		YCUL G 2 Fast
+		YCUL G 2 Fast A_Pain
+		Goto See
+	Death:
+		YCUL H 5
+		YCUL I 5 A_Scream
+		YCUL J 5 A_Fall
+		YCUL KLMN 5
+		YCUL NONON 10
+		YCUL O -1
+		Stop
+	}
+}
+
+ACTOR -----FANATICS--------------- {}
+ACTOR GreyCultist_Cast : GreyCultist
+{
+	States
+	{
+	Spawn:
+		BCUL A 10 A_Look
+		Loop
+	See:
+		BCUL AABBCCDD 2 Fast A_Chase
+		Loop
+	Missile:
+		BCUL E 2 A_FaceTarget
+		BCUL F 2 A_SPosAttackUseAtkSound
+		BCUL E 2
+		BCUL E 2 A_FaceTarget
+		BCUL F 2 A_SPosAttackUseAtkSound
+		BCUL E 2
+		BCUL E 2 A_FaceTarget
+		BCUL F 2 A_SPosAttackUseAtkSound
+		BCUL E 2
+		Goto See
+	Pain:
+		BCUL G 2 Fast
+		BCUL G 2 Fast A_Pain
+		Goto See
+	Death:
+		BCUL H 5
+		BCUL I 5 A_Scream
+		BCUL J 5 A_Fall
+		BCUL KLMN 5
+		BCUL NONON 10
+		BCUL O -1
+		Stop
+	}
+}
+
+ACTOR -----BELIEVERS-------------- {}
+ACTOR GreenCultist_Cast : GreyCultist
+{
+	SeeSound "CultistSee"
+	PainSound "CultistPain"
+	DeathSound "CultistDie"
+	ActiveSound "CultistAct"
+	AttackSound ""
+	Translation "112:120=[154,169,154]:[132,153,132]","120:127=[90,109,88]:[2,4,2]","209:223=[192,160,128]:[128,80,64]"
+	States
+	{
+	Spawn:
+		BCUL A 10 A_Look
+		Loop
+	See:
+		BCUL AABBCCDD 2 Fast A_Chase
+		Loop
+	Missile:
+		BCUL X 4 A_FaceTarget
+		BCUL "[]" 3
+		BCUL YZ 3 A_SetAngle(angle+frandom(-15,15))
+		BCL2 A 2
+		Goto See
+	Pain:
+		BCUL G 2 Fast
+		BCUL G 2 Fast A_Pain
+		Goto See
+	Death:
+		BCUL H 5
+		BCUL I 5 A_Scream
+		BCUL J 5 A_Fall
+		BCUL KLMN 5
+		BCUL NONON 10
+		BCUL O -1
+		Stop
+	}
+}
+
+ACTOR -----PRIEST--------------- {}
+ACTOR RedCultist_Cast : GreyCultist
+{
+	SeeSound "CultistSee"
+	AttackSound "CultistShotgun"
+	PainSound "CultistPain"
+	DeathSound "CultistDie"
+	ActiveSound "CultistAct"
+	Translation "112:120=[208,144,48]:[160,32,14]","120:127=[120,24,10]:[16,0,0]","209:223=[192,160,128]:[128,80,64]"
+	States
+	{
+	Spawn:
+		BCUL A 10 A_Look
+		Loop
+	See:
+		BCUL AABBCCDD 2 A_Chase
+		Loop
+	Melee:
+		BCUL AABBCCDD 2 A_Chase
+		Loop
+	Missile:
+		BCUL E 2 A_FaceTarget
+		BCUL F 2 A_SPosAttackUseAtkSound
+		BCUL E 2
+		Goto See
+	Pain:
+		BCUL G 2 Fast
+		BCUL G 2 Fast A_Pain
+		Goto See
+	Death:
+		BCUL H 5
+		BCUL I 5 A_Scream
+		BCUL J 5 A_Fall
+		BCUL KLMN 5
+		BCUL NONON 10
+		BCUL O -1
+		Stop
+	}
+}
+
+ACTOR ------BLOATEDBUTCHER-------------- {}
+ACTOR BloatedButcher_Cast : BloatedButcher
+{
+	States
+	{
+	Spawn:
+		BBUT AB 10 A_Look
+		Loop
+	See:
+		BBUT AABBCCDDEEFF 2 Fast A_Chase
+		Loop
+	Melee:
+		BBUT G 0 A_FaceTarget
+		BBUT G 5 A_FaceTarget
+		BBUT H 5
+		BBUT I 5 A_FaceTarget
+		BBUT J 5 A_SkelFist
+		Goto See
+	Missile:
+		BBUT K 8 A_FaceTarget
+		BBUT L 4
+		BBUT M 6 A_CustomMissile("ButcherVomit", 40)
+		BBUT N 14 A_FaceTarget
+		Goto See
+	Pain:
+		BBUT O 2 Fast
+		BBUT O 2 Fast A_Pain
+		Goto See
+	Death:
+		BBUT P 7
+		BBUT QR 7
+		BBUT S 5 A_NoBlocking
+		BBUT TU 5
+		BBUT V -1
+		Stop
+	}
+}
+
+ACTOR ------GARGOYLE-------------- {}
+ACTOR BloodGargoyle_Cast : BloodGargoyle
+{
+	States
+	{
+	Spawn:
+		BGAR ABCD 10 A_Look
+		Loop
+	See:
+		BGAR AABBCCDD 2 Fast A_Chase
+		Loop
+	Melee:
+		BGAR E 7 A_FaceTarget
+		BGAR F 7 A_CustomMeleeAttack (frandom(3,6)*7,"imp/melee","imp/melee", "Stun",1)
+		BGAR GHI 6
+		Goto See
+	Missile:
+		BGAR E 7 A_FaceTarget
+		BGAR F 7 A_CustomMeleeAttack (frandom(3,6)*7,"imp/melee","imp/melee", "Stun",1)
+		BGAR GHI 6
+		Goto See
+	Pain:
+		BGAR J 4
+		BGAR J 4 A_Pain
+		Goto See
+	Death:
+		BGAR K 8 A_Scream
+		BGAR L 8
+		BGAR M 6
+		BGAR N 6 A_Fall
+		BGAR O 6
+		BGAR P -1
+		Stop
+	}
+}
+
+ACTOR ----THEHAND---------------- {}
+ACTOR ChokingHand_Cast : ChokingHand
+{
+	States
+	{
+	Spawn:
+		WHAN A 10 A_Look
+		Loop
+	See:
+		WHAN AABBCCDDEE 2 FAST A_Chase
+		Loop
+	Melee:
+		WHAN AABBCCDDEE 2 FAST A_Chase
+		Goto See
+	Pain:
+		WHAN L 4
+		WHAN L 4 A_Pain
+		Goto See
+	Death:
+		WHAN L 5 A_Scream
+		WHAN M 5 A_Fall
+		WHAN NOPQ 4
+		WHAN Q -1
+		Stop
+	}
+}
+
+ACTOR -----HELLHOUND--------------- {}
+ACTOR HellHound_Cast : BloodZombie
+{
+	PainSound "HellHoundPain"
+	DeathSound "HellHoundDie"
+	SeeSound "HellHoundSee"
+	ActiveSound "HellHoundSee"
+	States
+	{
+	Spawn:
+		HOUN A 10 A_Look
+		Loop
+	See:
+		HOUN AABBCCDDEEFF 2 A_Chase
+		Loop
+	Melee:
+		HOUN H 5 A_FaceTarget
+		HOUN I 7 A_Recoil(-2)
+		Goto See
+	Missile:
+		HOUN AABBCCDDEEFF 2 A_Chase
+		Goto See
+	Pain:
+		HOUN J 3
+		HOUN J 5 A_Pain
+		Goto See
+	Death:
+		HOUN K  6
+		HOUN L  5 A_Scream
+		HOUN M  4
+		HOUN N  4 A_NoBlocking
+		HOUN OPQRQQQRQRQRRRQ 4
+		HOUN R -1
+		Stop
+	}
+}
+
+ACTOR ----GILLBEAST---------------- {}
+ACTOR GillBeast_Cast : BloodZombie
+{
+	SeeSound "GillBeastSee"
+	PainSound "GillBeastPain"
+	DeathSound "GillBeastDie"
+	ActiveSound "GillBeastSee"
+	AttackSound "dsdolstb"
+	States
+	{
+	Spawn:
+		GILW A 10 A_Look
+		Loop
+	See:
+		GILW AABBCCDDEE 2 A_Chase
+		Loop
+	Melee:
+		GILB A 6 A_FaceTarget
+		GILB B 5 A_MeleeAttack
+		GILB C 7 A_FaceTarget
+		Goto See
+	Missile:
+		GILW AABBCCDDEE 2 A_Chase
+		Goto See
+	Pain:
+		GILP A 3
+		GILP A 3 A_Pain
+		Goto See
+	Death:
+		GILD A 7
+		GILD B 6 A_Scream
+		GILD C 5 A_Fall
+		GILD DE 5
+		GILD F -1
+		Stop
+	}
+}
+
+ACTOR ----WEREWOLF---------------- {}
+ACTOR BloodBeast_Cast : BloodBeast
+{
+	States
+	{
+	Spawn:
+		BESC A 10 A_Look
+		Loop
+	See:
+		BESW AABBCCDDEEFF 2 A_Chase
+		Loop
+	Melee:
+		BESC AB 4 A_FaceTarget
+		BESC C 3 A_FaceTarget
+		BESC D 2 A_MeleeAttack
+		BESC E 2 A_FaceTarget
+		BESC FG 3 A_FaceTarget
+		BESC H 4 A_MeleeAttack
+		BESC IJ 3
+		Goto See
+	Missile:
+		BESS A 10 A_FaceTarget
+		BESS B 10 A_FaceTarget
+		BESS C 10
+		BESS D 5
+		BESS E 6 A_Playsound("BeastStomp")
+		Goto See
+	Pain:
+		BESP A 5
+		BESP A 5 A_Pain
+		Goto See
+	Death:
+		BESD A 7 A_Scream
+		BESD B 6
+		BESD C 5 A_NoBlocking
+		BESD DE 4
+		BESD FFFFFFFF 4 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD EE 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD EE 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD DD 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD DD 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD DD 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD D 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD EE 2 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD E 1 A_ThrowGrenade("FlyingBlood",5,5+frandom(-3,3),10+frandom(-4,4),0)
+		BESD F -1
+		Stop
+	}
+}
+
+ACTOR -----CHRISALIDPOD--------------- {}
+ACTOR ChrysalidPod_Cast : ChrysalidPod
+{
+	States
+	{
+	Spawn:
+		GPOD A 10 A_Look
+		Loop
+	See:
+		GPOD A 10 A_Chase
+		Loop
+	Melee:
+		GPOD AABBCCDDEE 2 A_Chase
+		Goto See
+	Missile:
+		GPOD AABBCCDDEE 2 A_Chase
+		Goto See
+	Pain:
+		GPOD AABBAABB 2 A_Chase
+		Goto See
+	Death:
+		GPOD F 5
+		GPOD G 5 A_Scream
+		GPOD H 5 A_Fall
+		GPOD I 5 A_KillChildren
+		GPOD J 5
+		GPOD K 55
+		GPOD K -1
+		Stop
+	}
+}
+
+ACTOR ----RATS---------------- {}
+ACTOR BloodRat_Cast : BloodRat
+{
+	States
+	{
+	Spawn:
+		RATW AB 10 A_Look
+		Loop
+	See:
+		RATW AABBCCDD 2 A_Chase
+		Loop
+	Missile:
+	Melee:
+		RATW A 5 A_FaceTarget
+		RATW B 5 A_CustomMeleeAttack(frandom(4,9),"","none")
+		RATW C 5
+		Goto See
+	Pain:
+		RATW D 3
+		RATW D 3 A_Pain
+		Goto See
+	Death:
+		RATW E 5 A_Scream
+		RATW F 5 A_Fall
+		RATW GHI 5
+		RATW J -1
+		Stop
+	}
+}
+
+ACTOR -----CALEB--------------- {}
+ACTOR Caleb_Cast : Caleb
+{
+	States
+	{
+	Spawn:
+		CALB A -1
+		Loop
+	See:
+		CALB ABCDEF 4
+		Loop
+	Melee:
+	Missile:
+		CALB G 4
+		Goto Spawn
+	Pain:
+		CALB H 4
+		CALB H 4
+		Goto Spawn
+	Death:
+		CALB J 10
+		CALB K 10
+		CALB L 10
+		CALB MN 10
+		CALB O -1
+		Stop
+	}
+}

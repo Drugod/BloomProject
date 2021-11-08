@@ -1,0 +1,1558 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81, IvanDobrovski/Cruduxy/Marinelol
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+ACTOR Bloom_Flora
+{
+	//$Category "BlooM Nature"
+	//$Color 7
+	+SOLID
+	Mass 0x7ffffff
+}
+
+ACTOR Bloom_FloraNoGrav
+{
+	//$Category "BlooM Nature/NoGravity"
+	//$Color 7
+	+DONTFALL
+	+NOGRAVITY
+	+SOLID
+	+SPAWNCEILING
+	Mass 0x7ffffff
+}
+
+ACTOR Bloom_Flora2
+{
+	//$Category "BlooM Nature"
+	//$Color 7
+	Health 15
+	Mass 0x7ffffff
+	+NOBLOOD
+	+NOBLOODDECALS
+	+NOTAUTOAIMED
+	+SHOOTABLE
+	+SOLID
+}
+
+ACTOR Bloom_Flora2NoGrav
+{
+	//$Category "BlooM Nature/NoGravity"
+	//$Color 7
+	Health 15
+	Mass 0x7ffffff
+	+DONTFALL
+	+NOBLOOD
+	+NOBLOODDECALS
+	+NOGRAVITY
+	+NOTAUTOAIMED
+	+SHOOTABLE
+	+SOLID
+	+SPAWNCEILING
+}
+
+ACTOR Bloom_Flora3
+{
+	//$Category "BlooM Nature"
+	//$Color 7
+	Scale 0.6
+}
+
+ACTOR Bloom_Flora3NoGrav
+{
+	//$Category "BlooM Nature/NoGravity"
+	//$Color 7
+	Scale 0.6
+	+DONTFALL
+	+NOGRAVITY
+	+SPAWNCEILING
+}
+
+ACTOR TreeSpawner : RandomSpawner 3251
+{
+	//$Category "BlooM Nature"
+	//$Title Trees Spawner, random
+	//$Sprite B2ILC0
+	Scale 0.5
+    DropItem "LeafLess"
+    DropItem "TheTree2"
+    DropItem "TheTree3"
+    DropItem "TheTree4"
+	DropItem "TheTree5"
+	DropItem "TheTree6"
+	DropItem "TheTree7"
+	DropItem "TheTree8"
+	DropItem "TheTree9"
+	DropItem "TheTree10"
+	DropItem "BurnedTree1"
+	DropItem "BurnedTree2"
+	DropItem "MacabreTree"
+}
+
+ACTOR TreeSpawnerNoGrav : RandomSpawner 19132
+{
+	//$Category "BlooM Nature/NoGravity"
+	//$Title Flipped Trees Spawner, random
+	//$Sprite LI2BC0
+	Scale 0.5
+    DropItem "LeafLessNoGrav"
+    DropItem "TheTree2NoGrav"
+    DropItem "TheTree3NoGrav"
+    DropItem "TheTree4NoGrav"
+	DropItem "TheTree5NoGrav"
+	DropItem "TheTree6NoGrav"
+	DropItem "TheTree7NoGrav"
+	DropItem "TheTree8NoGrav"
+	DropItem "TheTree9NoGrav"
+	DropItem "TheTree10NoGrav"
+	DropItem "BurnedTree1NoGrav"
+	DropItem "BurnedTree2NoGrav"
+	DropItem "MacabreTreeNoGrav"
+}
+
+ACTOR BushSpawner : RandomSpawner 3257
+{
+	//$Category "BlooM Nature"
+	//$Title Bushes Spawner, random
+	//$Sprite B2ILA0
+	Scale 0.5
+	DropItem "Bush1"
+	DropItem "Bush2"
+	DropItem "Bush3"
+}
+
+ACTOR BushSpawnerNoGrav : RandomSpawner 19133
+{
+	//$Category "BlooM Nature/NoGravity"
+	//$Title Flipped Bushes Spawner, random
+	//$Sprite LI2BA0
+	Scale 0.5
+	DropItem "Bush1NoGrav"
+	DropItem "Bush2NoGrav"
+	DropItem "Bush3NoGrav"
+}
+
+ACTOR PlantSpawner : RandomSpawner 3262
+{
+	//$Category "BlooM Nature"
+	//$Title Vases Spawner, random
+	//$Sprite B2ILB0
+	Scale 0.5
+	DropItem "Plant1"
+	DropItem "Plant2"
+	DropItem "Plant3"
+}
+
+ACTOR MacabreTree : Bloom_Flora 3213
+{
+	//$Title Macabre Tree
+	Height 100
+	States
+	{
+	Spawn:
+		MTRE A -1
+		Stop
+	}
+}
+
+ACTOR MacabreTreeNoGrav : Bloom_FloraNoGrav 19116
+{
+	//$Title Flipped Macabre Tree
+	Height 100
+	States
+	{
+	Spawn:
+		ERTM A -1
+		Stop
+	}
+}
+
+ACTOR LeafLess : Bloom_Flora2 3221
+{
+	//$Title Leafless Tree
+	Height 100
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	States
+	{
+	Spawn:
+		TREE A -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		TREE A 1 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR LeafLessNoGrav : Bloom_Flora2NoGrav 19117
+{
+	//$Title Flipped Leafless Tree
+	Height 100
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	States
+	{
+	Spawn:
+		EERT A -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		EERT A 1 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree2 : Bloom_Flora2 3222
+{
+	//$Title Tree 2, shootable
+	Height 80
+	States
+	{
+	Spawn:		
+		TREE B -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		TREE D 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree2NoGrav : Bloom_Flora2NoGrav 19118
+{
+	//$Title Flipped Tree 2, shootable
+	
+	Height 80
+	States
+	{
+	Spawn:
+		EERT B -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		EERT D 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree3 : Bloom_Flora2 3223
+{
+	//$Title Tree 3, shootable
+	Height 100
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	States
+	{
+	Spawn:	
+		XR33 A -1
+		Stop
+	XDeath:
+	Death.Dynamite:
+		TREE D 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	Burn:
+		XR33 BCD 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		XR33 EFG 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		XR33 HIJ 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItem("BurnedTree2")
+		Stop
+	}
+}
+
+ACTOR TheTree3NoGrav : Bloom_Flora2NoGrav 19119
+{
+	//$Title Flipped Tree 3, shootable
+	Height 100
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	States
+	{
+	Spawn:
+		33RX A -1
+		Stop
+	XDeath:
+	Death.Dynamite:
+		EERT D 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	Burn:
+		33RX BCD 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		33RX EFG 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		33RX HIJ 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItem("BurnedTree2NoGrav")
+		Stop
+	}
+}
+
+ACTOR TheTree4 : Bloom_Flora2 3224
+{
+	//$Title Tree 4, shootable
+	Height 80
+	States
+	{
+	Spawn:			
+		TREE D -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		TREE D 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree4NoGrav : Bloom_Flora2NoGrav 19120
+{
+	//$Title Flipped Tree 4, shootable
+	Height 80
+	States
+	{
+	Spawn:
+		EERT D -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		EERT D 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree5 : Bloom_Flora2 3225
+{
+	//$Title Tree 5, shootable
+	Height 80
+	States
+	{
+	Spawn:		
+		TREE E -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		TREE E 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree5NoGrav : Bloom_Flora2NoGrav 19121
+{
+	//$Title Flipped Tree 5, shootable
+	Height 80
+	States
+	{
+	Spawn:
+		EERT E -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		EERT E 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree6 : Bloom_Flora2 3226
+{
+	//$Title Tree 6, shootable
+	Height 100
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	States
+	{
+	Spawn:			
+		TREE F -1
+		Stop
+	Death:
+		TNT1 A 0 A_SpawnItem("LeafLess")
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		TREE F 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree6NoGrav : Bloom_Flora2NoGrav 19122
+{
+	//$Title Flipped Tree 6, shootable
+	Height 100
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	States
+	{
+	Spawn:
+		EERT F -1
+		Stop
+	Death:
+		TNT1 A 0 A_SpawnItem("LeafLessNoGrav")
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 1 A_SpawnItemEx ("LeafDebris2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		TREE F 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree7 : Bloom_Flora2 3227
+{
+	//$Title Tree 7, shootable
+	Height 80
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	States
+	{
+	Spawn:
+		XR23 A -1
+		Stop
+	XDeath:
+		TREE E 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	Burn:
+		XR23 BCD 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		XR23 EFG 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		XR23 HIJ 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItem("BurnedTree1")
+		Stop
+	}
+}
+
+ACTOR TheTree7NoGrav : Bloom_Flora2NoGrav 19123
+{
+	//$Title Flipped Tree 7, shootable
+	Height 80
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	States
+	{
+	Spawn:
+		32RX A -1
+		Stop
+	XDeath:
+		EERT E 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	Burn:
+		32RX BCD 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		32RX EFG 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		32RX HIJ 4 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		"####" "#" 1 A_SpawnItem("BurnedTree1NoGrav")
+		Stop
+	}
+}
+
+ACTOR TheTree8 : Bloom_Flora2 3228
+{
+	//$Title Tree 8, shootable
+	Height 80
+	States
+	{
+	Spawn:
+		TREE H -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		TREE H 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree8NoGrav : Bloom_Flora2NoGrav 19124
+{
+	//$Title Flipped Tree 8, shootable
+	Height 80
+	States
+	{
+	Spawn:
+		EERT H -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		EERT H 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree9 : Bloom_Flora2 3229
+{
+	//$Title Tree 9, shootable
+	Height 80
+	States
+	{
+	Spawn:			
+		TREE I -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		TREE H 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree9NoGrav : Bloom_Flora2NoGrav 19125
+{
+	//$Title Flipped Tree 9, shootable
+	Height 80
+	States
+	{
+	Spawn:
+		EERT I -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		EERT H 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree10 : Bloom_Flora2 3258
+{
+	//$Title Tree 10, shootable
+	Height 80
+	States
+	{
+	Spawn:
+		TREE J -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		TREE H 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR TheTree10NoGrav : Bloom_Flora2NoGrav 19126
+{
+	//$Title Flipped Tree 10, shootable
+	Height 80
+	States
+	{
+	Spawn:
+		EERT J -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		EERT H 1 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("SmokeDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("LeafDebris",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR BurnedTree1 : Bloom_Flora2 3237
+{
+	//$Title Burnt Tree 1, shootable
+	Height 80
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	States
+	{
+	Spawn:
+		XR23 J -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		XR23 J 1 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR BurnedTree1NoGrav : Bloom_Flora2NoGrav 19127
+{
+	//$Title Flipped Burnt Tree 1, shootable
+	Height 80
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	States
+	{
+	Spawn:
+		32RX J -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		32RX J 1 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR BurnedTree2 : Bloom_Flora2 3238
+{
+	//$Title Burnt Tree 2, shootable
+	
+	Height 80
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	States
+	{
+	Spawn:				
+		XR33 K -1
+		Stop
+	Spawn2:
+		VX17 A -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		XR33 K 1 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR BurnedTree2NoGrav : Bloom_Flora2NoGrav 19128
+{
+	//$Title Flipped Burnt Tree 2, shootable
+	Height 80
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	States
+	{
+	Spawn:
+		33RX K -1
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+		TNT1 A 0 A_SpawnItemEx ("BigSmoke",0,0,0)
+		33RX K 1 BRIGHT A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("WoodDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		TNT1 A 0 A_SpawnItemEx ("FireDebris",random(0,16),random(0,16),random(0,16),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	}
+}
+
+ACTOR Alga : Bloom_Flora3 3284
+{
+	//$Title Algae, Normal
+	States
+	{
+	Spawn:
+		ALGA ABCD 4
+		Loop
+	}
+}
+
+ACTOR BigAlga : Bloom_Flora3 3285
+{
+	//$Title Algae, Big
+	States
+	{
+	Spawn:
+		ALGB ABCD 4
+		Loop
+	}
+}
+
+ACTOR Bush1 : Bloom_Flora2 3230
+{
+	//$Title Bush 1
+	Height 8
+	Scale 0.7
+	RenderStyle Translucent
+	Alpha 0.7
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	-SOLID
+	States
+	{
+	Spawn:		
+		ARBX A -1
+		Stop
+	Death:
+		ARBX J 1
+		TNT1 A 1
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+	Burn:
+		ARBX ABC 5
+		"####" AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		ARBX DEF 4
+		"####" AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		ARBX GHI 3
+		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		ARBX J 1
+		Stop
+	Ice:
+		FRBX A 0 A_SetMass(999999)
+		FRBX A 5 A_FreezeDeath
+		FRBX A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR Bush1NoGrav : Bloom_Flora2NoGrav 19129
+{
+	//$Title Flipped Bush 1
+	Height 32
+	Scale 0.7
+	RenderStyle Translucent
+	Alpha 0.7
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	-SOLID
+	States
+	{
+	Spawn:
+		BRAX A -1
+		Stop
+	Death:
+		BRAX J 1
+		TNT1 A 1
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+	Burn:
+		BRAX ABC 5
+		"####" AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		BRAX DEF 4
+		"####" AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		BRAX GHI 3
+		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		BRAX J 1
+		Stop
+	Ice:
+		BRFX A 0 A_SetMass(999999)
+		BRFX A 5 A_FreezeDeath
+		BRFX A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR Bush2 : Bloom_Flora2 3255
+{
+	//$Title Bush 2
+	Height 8
+	//Height 40
+	Scale 0.7
+	RenderStyle Translucent
+	Alpha 0.7
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	-SOLID
+	States
+	{
+	Spawn:
+		ARB2 A -1
+		Stop
+	Death:
+		ARB2 K 1
+		TNT1 A 1
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+	Burn:
+		ARB2 ABC 5
+		"####" AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		ARB2 DEF 4
+		"####" AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		ARB2 GHIJ 3
+		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		ARB2 K 1
+		Stop
+	Ice:
+		FRB2 A 0 A_SetMass(999999)
+		FRB2 A 5 A_FreezeDeath
+		FRB2 A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR Bush2NoGrav : Bloom_Flora2NoGrav 19130
+{
+	//$Title Flipped Bush 2
+	Height 40
+	Scale 0.7
+	RenderStyle Translucent
+	Alpha 0.7
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	-SOLID
+	States
+	{
+	Spawn:
+		BRA2 A -1
+		Stop
+	Death:
+		BRA2 K 1
+		TNT1 A 1
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+	Burn:
+		BRA2 ABC 5
+		"####" AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		BRA2 DEF 4
+		"####" AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		BRA2 GHIJ 3
+		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		BRA2 K 1
+		Stop
+	Ice:
+		BRF2 A 0 A_SetMass(999999)
+		BRF2 A 5 A_FreezeDeath
+		BRF2 A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR Bush3 : Bloom_Flora2 3256
+{
+	//$Title Bush 3
+	Height 8
+	Scale 0.7
+	RenderStyle Translucent
+	Alpha 0.7
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	-SOLID
+	States
+	{
+	Spawn:
+		ARB3 A -1
+		Stop
+	Death:
+		ARB3 J 1
+		TNT1 A 1
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+	Burn:
+		ARB3 ABC 5
+		"####" AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		ARB3 DEF 4
+		"####" AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		ARB3 GHI 3
+		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), frandom(2,4), frandom(-3,3), frandom(-3,3), 3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		ARB3 J 1
+		Stop
+	Ice:
+		FRB3 A 0 A_SetMass(999999)
+		FRB3 A 5 A_FreezeDeath
+		FRB3 A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR Bush3NoGrav : Bloom_Flora2NoGrav 19131
+{
+	//$Title Flipped Bush 3
+	Height 32
+	Scale 0.7
+	RenderStyle Translucent
+	Alpha 0.7
+	DamageFactor "Fire", 3.35
+	DamageFactor "Disintegrate", 6.0
+	DamageFactor "Flare", 3.5
+	DamageFactor "Napalm", 6.0
+	DamageFactor "Dynamite", 6.0
+	-SOLID
+	States
+	{
+	Spawn:
+		BRA3 A -1
+		Stop
+	Death:
+		BRA3 J 1
+		TNT1 A 1
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft6",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		Stop
+	XDeath:
+	Death.Flare:
+	Death.Napalm:
+	Death.Dynamite:
+	Burn:
+		BRA3 ABC 5
+		"####" AAAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		BRA3 DEF 4
+		"####" AAAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		BRA3 GHI 3
+		"####" AAA 0 A_SpawnItemEx("BFireTrail", frandom(-4,4), frandom(-4,4), 0, frandom(-3,3), frandom(-3,3), -3, 0, SXF_NOCHECKPOSITION|SXF_CLIENTSIDE)
+		BRA3 J 1
+		Stop
+	Ice:
+		BRF3 A 0 A_SetMass(999999)
+		BRF3 A 5 A_FreezeDeath
+		BRF3 A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR Plant1 : Bloom_Flora3 3259
+{
+	//$Title Plant Vase 1, shootable
+	Radius 8
+	Height 16
+	Health 15
+	Scale 1.0
+	+NOBLOOD
+	+NOTAUTOAIMED
+	+SHOOTABLE
+	+SOLID
+	DeathSound "PotteryBreak"
+	Translation "118:118=63:63", "118:118=65:65", "121:121=64:64", "120:120=70:70", "117:117=61:61", "119:119=71:71", "122:122=75:75"
+	States
+	{
+	Spawn:
+		VASE A -1
+		Stop
+	Pain:
+	Death:
+		VASE A 0 A_Fall
+		VASE A 0 A_Scream
+		TNT1 A 1 A_SpawnDebris ("GlassDebris",1)
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		Stop
+	Ice:
+		FASE A 0 A_SetMass(999999)
+		FASE A 5 A_FreezeDeath
+		FASE A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR Plant2 : Bloom_Flora3 3260
+{
+	//$Title Plant Vase 2, shootable
+	Radius 8
+	Height 16
+	Health 15
+	Scale 1.0
+	+NOBLOOD
+	+NOTAUTOAIMED
+	+SHOOTABLE
+	+SOLID
+	DeathSound "PotteryBreak"
+	Translation "118:118=63:63", "118:118=65:65", "121:121=64:64", "120:120=70:70", "117:117=61:61", "119:119=71:71", "122:122=75:75"
+	States
+	{
+	Spawn:
+		VASE B -1
+		Stop
+	Pain:
+	Death:
+		VASE B 0 A_Fall
+		VASE B 0 A_Scream
+		TNT1 A 1 A_SpawnDebris ("GlassDebris",1)
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		Stop
+	Ice:
+		FASE B 0 A_SetMass(999999)
+		FASE B 5 A_FreezeDeath
+		FASE B 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+
+ACTOR Plant3 : Bloom_Flora3 3261
+{
+	//$Title Plant Vase 3, shootable
+	Radius 8
+	Height 16
+	Health 15
+	Scale 1.0
+	+NOBLOOD
+	+NOTAUTOAIMED
+	+SHOOTABLE
+	+SOLID
+	DeathSound "PotteryBreak"
+	Translation "118:118=63:63", "118:118=65:65", "121:121=64:64", "120:120=70:70", "117:117=61:61", "119:119=71:71", "122:122=75:75"
+	States
+	{
+	Spawn:
+		VASE C -1
+		Stop
+	Pain:
+	Death:
+		VASE B 0 A_Fall
+		VASE B 0 A_Scream
+		TNT1 A 1 A_SpawnDebris ("GlassDebris",1)
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		TNT1 A 1 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56))
+		Stop
+	Ice:
+		FASE C 0 A_SetMass(999999)
+		FASE C 5 A_FreezeDeath
+		FASE C 1 A_FreezeDeathChunks
+		Wait
+	}
+}

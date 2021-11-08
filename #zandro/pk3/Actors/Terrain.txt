@@ -1,0 +1,288 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81, Tormentor667
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+ACTOR ParticleBase
+{
+	Height 0
+	Radius 0
+	Mass 0
+	Speed 2
+	Scale 1.0
+	RenderStyle Add
+	BounceFactor 0.1
+	Gravity 0.5
+	Alpha 0.5
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+DOOMBOUNCE
+	+FORCEXYBILLBOARD
+	+MISSILE
+	+NOBLOCKMAP
+	+NOTELEPORT
+	+THRUACTORS
+	-NOGRAVITY
+}
+
+//WATER//
+ACTOR WaterParticleX : ParticleBase
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 0 A_ChangeFlag(DOOMBOUNCE, 0)
+		TNT1 A 1
+		Goto Stand
+	Stand:
+		SPSH ABCD 4
+		Stop
+	Death:
+		TNT1 A 1
+		TNT1 A 0
+		Stop
+	}
+}
+
+ACTOR WaterParticleXFAster: WaterParticleX {Speed 4}
+
+ACTOR WaterSplashBase2
+{
+	Radius 1
+	Height 1
+	Mass 1
+	Alpha .6
+	Scale 1.0
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+NOGRAVITY
+	+NOTELEPORT
+	+THRUACTORS
+	States
+	{
+	Spawn:
+		TNT1 FFFFFF 0 A_CustomMissile ("WaterParticleX", 2, random(-5,5), random (0, 360), 2, random (50, 140))
+		TNT1 FFFFFF 0 A_CustomMissile ("WaterParticleXFaster", 2, random(-5,5), random (0, 360), 2, random (50, 140))
+		SPSH HIHI 6
+		Stop
+	}
+}
+
+ACTOR WaterSplashBaseSmall : WaterSplashBase2
+{
+	Scale 0.5
+	States
+	{
+	Spawn:
+		SPSH E 6
+		TNT1 FFFF 0 A_CustomMissile ("WaterParticleX", 2, 0, random (0, 360), 2, random (50, 140))
+		TNT1 FFFF 0 A_CustomMissile ("WaterParticleXFaster", 2, 0, random (0, 360), 2, random (50, 140))
+		SPSH HIHI 6
+		Stop
+	}
+}
+
+//BLOOD//
+ACTOR BloodParticleX : WaterParticleX
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 0 A_ChangeFlag(DOOMBOUNCE, 0)
+		TNT1 A 1
+		Goto Stand
+	Stand:
+		BSPH ABCD 4
+		Stop
+	Death:
+		TNT1 A 1
+		TNT1 A 0
+		Stop
+	}
+}
+
+ACTOR BloodParticleXFaster: BloodParticleX {Speed 4}
+
+ACTOR BloodSplashBase3
+{
+	Radius 1
+	Height 1
+	Mass 1
+	Alpha .6
+	Scale 1.0
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+NOGRAVITY
+	+NOTELEPORT
+	+THRUACTORS
+	States
+	{
+	Spawn:
+		TNT1 FFFFFF 0 A_CustomMissile ("BloodParticleX", 2, random(-5,5), random (0, 360), 2, random (50, 140))
+		TNT1 FFFFFF 0 A_CustomMissile ("BloodParticleXFaster", 2, random(-5,5), random (0, 360), 2, random (50, 140))
+		BSPH HIHI 6
+		Stop
+	}
+}
+
+ACTOR BloodSplashBaseSmall : BloodSplashBase3
+{
+	Scale 0.5
+	States
+	{
+	Spawn:
+		BSPH E 6
+		TNT1 FFFF 0 A_CustomMissile ("BloodParticleX", 2, 0, random (0, 360), 2, random (50, 140))
+		TNT1 FFFF 0 A_CustomMissile ("BloodParticleXFaster", 2, 0, random (0, 360), 2, random (50, 140))
+		BSPH HIHI 6
+		Stop
+	}
+}
+
+//NUKAGE//
+ACTOR NukageParticleX
+{
+	Height 2
+	Radius 2
+	Mass 0
+	Speed 3
+	Scale 1.0
+	Gravity 0.5
+	RenderStyle Add
+	Alpha 0.5
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+FORCEXYBILLBOARD
+	+MISSILE
+	+NOTELEPORT
+	+THRUACTORS
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 0 A_ChangeFlag(DOOMBOUNCE, 0)
+		TNT1 A 1
+		Goto Stand
+	Stand:
+		SLDG ABCD 4
+		Stop
+	Death:
+		TNT1 A 1
+		TNT1 A 0
+		Stop
+	}
+}
+
+ACTOR NukageParticleXFaster: NukageParticleX {Speed 5}
+
+ACTOR NukageSplashBase
+{
+	Radius 1
+	Height 1
+	Mass 1
+	Alpha .6
+	Scale 1.0
+	+DONTSPLASH
+	+NOGRAVITY
+	+NOTELEPORT
+	+THRUACTORS
+	States
+	{
+	Spawn:
+		TNT1 FFFFFF 0 A_CustomMissile ("NukageParticleX", 2, random(-5,5), random (0, 360), 2, random (50, 140))
+		TNT1 FFFFFF 0 A_CustomMissile ("NukageParticleXFaster", 2, random(-5,5), random (0, 360), 2, random (50, 140))
+		SLDG HIHI 6
+		Stop
+	}
+}
+
+ACTOR NukageSplashBaseSmall : NukageSplashBase
+{
+	Scale 0.5
+	States
+	{
+	Spawn:
+		SLDG E 6
+		TNT1 FFFF 0 A_CustomMissile ("NukageParticleX", 2, 0, random (0, 360), 2, random (50, 140))
+		TNT1 FFFF 0 A_CustomMissile ("NukageParticleXFaster", 2, 0, random (0, 360), 2, random (50, 140))
+		SLDG HIHI 6
+		Stop
+	}
+}
+
+//SLIME//
+ACTOR SlimeParticleX : WaterParticleX
+{
+	Alpha 0.8
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 0 A_ChangeFlag(DOOMBOUNCE, 0)
+		TNT1 A 1
+		Goto Stand
+	Stand:
+		SLIM ABCD 4
+		Stop
+	Death:
+		TNT1 A 1
+		TNT1 A 0
+		Stop
+	}
+}
+
+ACTOR SlimeParticleXFAster: SlimeParticleX {Speed 4}
+
+ACTOR SlimeSplashBase
+{
+	Radius 1
+	Height 1
+	Mass 1
+	Alpha .6
+	Scale 1.0
+	+DONTSPLASH
+	+NOGRAVITY
+	+NOTELEPORT
+	+THRUACTORS
+	States
+	{
+	Spawn:
+		TNT1 FFFFFF 0 A_CustomMissile ("SlimeParticleX", 2, random(-5,5), random (0, 360), 2, random (50, 140))
+		TNT1 FFFFFF 0 A_CustomMissile ("SlimeParticleXFaster", 2, random(-5,5), random (0, 360), 2, random (50, 140))
+		SLIM HIHI 6
+		Stop
+	}
+}
+
+ACTOR SlimeSplashBaseSmall : SlimeSplashBase
+{
+	Scale 0.5
+	States
+	{
+	Spawn:
+		TNT1 FFFF 0 A_CustomMissile ("SlimeParticleX", 2, 0, random (0, 360), 2, random (50, 140))
+		TNT1 FFFF 0 A_CustomMissile ("SlimeParticleXFaster", 2, 0, random (0, 360), 2, random (50, 140))
+		SLIM HIHI 6
+		Stop
+	}
+}

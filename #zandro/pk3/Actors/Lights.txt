@@ -1,0 +1,702 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+//LIGHT SOURCES//
+ACTOR ClassicCellLamp : SwitchableDecoration 3201
+{
+	//$Category "BlooM Light Sources"
+	//$Title Classic Ceil Lamp, Interactive
+	//$Color 17
+	Scale 0.8
+	Height 100
+	Radius 20
+	+NOBLOOD
+	+NODAMAGE
+	+NOGRAVITY
+	+SPAWNCEILING
+	+USESPECIAL
+	-SOLID
+	Activation THINGSPEC_Activate
+	States
+	{
+	Spawn:
+		XLAP A 1
+		Loop
+	Active:
+		XLAP BCD 4
+		Wait
+	Inactive:
+		XLAP A 1
+		Wait
+	}
+}
+
+ACTOR FloorLamp : SwitchableDecoration 3276
+{
+	//$Category "BlooM Light Sources"
+	//$Title Floor Lamp, Interactive
+	//$Color 17
+	Scale 0.8
+	Height 20
+	Radius 8
+	+CANPASS
+	+NOBLOOD
+	+NODAMAGE
+	+NOGRAVITY
+	+SOLID
+	+USESPECIAL
+	Activation THINGSPEC_Switch
+	States
+	{
+	Spawn:
+		JILM A 1
+		Loop
+	Active:
+		JILM B 1 A_PlaySound("SMSWITCH")
+		JILM B 1
+		Wait
+	Inactive:
+		JILM A 1 A_PlaySound("SMSWITCH")
+		JILM A 1
+		Wait
+	}
+}
+
+ACTOR CeilLamp : SwitchableDecoration 3277
+{
+	//$Category "BlooM Light Sources"
+	//$Title Modern Ceil Lamp, Interactive
+	//$Color 17
+	Scale 0.8
+	Height 20
+	Radius 8
+	+CANPASS
+	+NOBLOOD
+	+NODAMAGE
+	+NOGRAVITY
+	+SPAWNCEILING
+	+USESPECIAL
+	-SOLID
+	Activation THINGSPEC_Switch
+	States
+	{
+	Spawn:
+		HILM A 1
+		Loop
+	Active:
+		HILM B 1 A_PlaySound("SMSWITCH")
+		HILM B 1
+		Wait
+	Inactive:
+		HILM A 1 A_PlaySound("SMSWITCH")
+		HILM A 1
+		Wait
+	}
+}
+
+ACTOR CeilLampSimple : SwitchableDecoration 3202
+{
+	//$Category "BlooM Light Sources"
+	//$Title Simple Ceil Lamp, Interactive
+	//$Color 17
+	Scale 0.8
+	Height 40
+	Radius 8
+	+CANPASS
+	+NOBLOOD
+	+NODAMAGE
+	+NOGRAVITY
+	+SPAWNCEILING
+	+USESPECIAL
+	-SOLID
+	Activation THINGSPEC_Switch
+	States
+	{
+	Spawn:
+		KILM A 1
+		Loop
+	Active:
+		KILM B 1 A_PlaySound("SMSWITCH")
+		KILM B 1
+		Wait
+	Inactive:
+		KILM A 1 A_PlaySound("SMSWITCH")
+		KILM A 1
+		Wait
+	}
+}
+
+ACTOR DamageFire
+{
+	Radius 24
+	Height 16
+	DamageType "Fire"
+	+BLOODLESSIMPACT
+	+CANNOTPUSH
+	+DONTSPLASH
+	+INVISIBLE
+	+NODAMAGETHRUST
+	+NOGRAVITY
+	+RIPPER
+	Obituary "$OB_FCULT"
+	States
+	{
+	Spawn:
+		UNKN A 16 A_Explode(random(10,20), Radius, 0, FALSE, Radius)
+		Loop
+	}
+}
+
+ACTOR FlameCult : SwitchableDecoration 3236
+{
+	//$Category "BlooM Light Sources"
+	//$Title Cvltist Flames
+	//$Color 17
+	//$Sprite CVLTA0
+	//$Arg0 "Sound"
+	//$Arg0Type 11
+	//$Arg0Enum { 0 = "Yes"; 1 = "No"; }
+	Radius 8
+	Height 54
+	Speed 12
+	Scale 0.8
+	RenderStyle "Translucent"
+	Alpha 0.8
+	+BRIGHT
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("DamageFire", 0, 0, Height, 0, 0, 0, 0, SXF_SETMASTER | SXF_NOCHECKPOSITION, 0, tid)
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 1.0, TRUE)
+	SpawnCheck:
+		TNT1 A 0 A_Jump(50,"Spawn1")
+		TNT1 A 0 A_Jump(50,"Spawn2")
+		TNT1 A 0 A_Jump(50,"Spawn3")
+		TNT1 A 0 A_Jump(50,"Spawn4")
+		TNT1 A 0 A_Jump(50,"Spawn5")
+		Loop
+	Spawn1:
+		CVLT ABCDEFGHIJKLMN 4
+		Goto SpawnCheck
+	Spawn2:
+		CVLT FGHIJKLMNABCDE 4
+		Goto SpawnCheck
+	Spawn3:
+		CVLT JKLMNABCDEFGHI 4
+		Goto SpawnCheck
+	Spawn4:
+		CVLT LMNABCDEFGHIJK 4
+		Goto SpawnCheck
+	Spawn5:
+		CVLT EFGHIABCDJKLMN 4
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		TNT1 A 1 A_PlaySound("SFX/FireDie", 7)
+		TNT1 A 0 A_RemoveChildren //(TRUE, RMVF_MISC) //not for zandro - ozy81
+		TNT1 A -1 A_StopSound(6)
+		Stop
+	}
+}
+
+ACTOR BloomVases : SwitchableDecoration
+{
+	//$Category "BlooM Light Sources"
+	//$Color 17
+	//$Arg0 "Sound"
+	//$Arg0Type 11
+	//$Arg0Enum { 0 = "Yes"; 1 = "No"; }
+	Radius 8
+	Height 54
+	Scale 0.8
+	+NOGRAVITY
+	+RANDOMIZE
+	+SOLID
+}
+
+ACTOR BloomVase1 : BloomVases 3400
+{
+	//$Title Burning Vase, ACS Switchable
+	//$Sprite FLV1B0
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.6, TRUE)
+	SpawnCheck:
+		TNT1 A 0
+		FLV1 BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		FLV1 A 1 A_PlaySound("SFX/FireDie", 7)
+		FLV1 A -1 A_StopSound(6)
+		Stop
+	}
+}
+
+ACTOR BloomVase2A : BloomVases 3401
+{
+	//$Title Burning Idol A, ACS Switchable
+	//$Sprite FLV2B0
+	Scale 0.65
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.5, TRUE)
+	SpawnCheck:
+		TNT1 A 0
+		FLV2 BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		FLV2 A 1 A_PlaySound("SFX/FireDie", 7)
+		FLV2 A -1 A_StopSound(6)
+		Stop
+	}
+}
+
+ACTOR BloomVase2B : BloomVases 3402
+{
+	//$Title Burning Idol B, ACS Switchable
+	//$Sprite FLV3B0
+	Scale 0.65
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.5, TRUE)
+	SpawnCheck:
+		TNT1 A 0
+		FLV3 BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		FLV3 A 1 A_PlaySound("SFX/FireDie", 7)
+		FLV3 A -1 A_StopSound(6)
+		Stop
+	}
+}
+
+ACTOR CaveTorch : BloomVases 3263
+{
+	//$Title Cave Torch, ACS Switchable
+	Radius 4
+	Height 35
+	Scale 0.8
+	+FIXMAPTHINGPOS
+	+SPAWNCEILING
+	-SOLID
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.3, TRUE)
+	SpawnCheck:
+		TORC BCDE 4 BRIGHT
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		TORC A 1 A_PlaySound("SFX/FireDie", 7)
+		TORC A -1 A_StopSound(6)
+		Stop
+	}
+}
+
+ACTOR CastleTorch : BloomVases 3333
+{
+	//$Title Castle Torch, ACS Switchable
+	Radius 8
+	Height 35
+	Scale 0.7
+	+FIXMAPTHINGPOS
+	+SPAWNCEILING
+	-SOLID
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.3, TRUE)
+	SpawnCheck:
+		WTCH BCDEFGHIJKLMNO 3 BRIGHT
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		WTCH A 1 A_PlaySound("SFX/FireDie", 7)
+		WTCH A -1 A_StopSound(6)
+		Stop
+	}
+}
+
+ACTOR FireLamp : BloomVases 3214
+{
+	//$Title Fire Lamp
+	Radius 16
+	+NOGRAVITY
+	+SPAWNCEILING
+	-SOLID
+	Height 90
+
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.3, TRUE)
+	SpawnCheck:
+		DECO ABCDEFG 4
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		DECO H 1 A_PlaySound("SFX/FireDie", 7)
+		DECO H -1 A_StopSound(6)
+		Stop
+	}
+}
+
+ACTOR Farol : SwitchableDecoration 3215
+{
+	//$Category "BlooM Light Sources"
+	//$Title Lantern, ACS Switchable
+	//$Color 17
+	Height 30
+	Scale 0.8
+	+SOLID
+	States
+	{
+	Spawn:
+	Active:
+		TNT1 A 0
+		FARO A -1 BRIGHT
+		Stop
+	Inactive:
+		TNT1 A 0
+		FARO B -1
+		Stop
+	}
+}
+
+ACTOR CeilFarol : SwitchableDecoration 3278
+{
+	//$Category "BlooM Light Sources"
+	//$Title Ceiling Lantern, ACS Switchable
+	//$Color 17
+	Radius 8
+	Height 50
+	Scale 0.8
+	+NOGRAVITY
+	+SPAWNCEILING
+	-SOLID
+	States
+	{
+	Spawn:
+	Active:
+		MILM A -1 BRIGHT
+		Stop
+	Inactive:
+		MILM B -1
+		Stop
+	}
+}
+
+ACTOR LittleLamp : SwitchableDecoration 3210
+{
+	//$Category "BlooM Light Sources"
+	//$Title Little Lamp, ACS Switchable
+	//$Color 17
+	Height 10
+	Scale 0.6
+	+SOLID
+	States
+	{
+	Spawn:
+	Active:
+		WLLA A -1 BRIGHT
+		Stop
+	Inactive:
+		WLLA B -1
+		Stop
+	}
+}
+
+ACTOR TheDeath : SwitchableDecoration 3212
+{
+	//$Category "BlooM Light Sources"
+	//$Title The Death, ACS Switchable
+	//$Color 17
+	Height 80
+	Scale 0.6
+	+SOLID
+	States
+	{
+	Spawn:
+	Active:
+		WDEA A -1 BRIGHT
+		Stop
+	Inactive:
+		WDEA B -1
+		Stop
+	}
+}
+
+ACTOR SkullCandle : SwitchableDecoration 3172
+{
+	//$Category "BlooM Light Sources"
+	//$Title Skull Candle, ACS Switchable
+	//$Color 17
+	Radius 16
+	Height 16
+	Scale 0.3
+	States
+	{
+	Spawn:
+	Active:
+		TNT1 A 0
+		SKLC ABC 3
+		Loop
+	Inactive:
+		TNT1 A 0
+		SKLC D -1
+		Stop
+
+	}
+}
+
+ACTOR SingleCandle : SwitchableDecoration 3279
+{
+	//$Category "BlooM Light Sources"
+	//$Title Simple Candle, ACS Switchable
+	//$Color 17
+	Radius 4
+	Height 4
+	Scale 0.3
+	States
+	{
+	Spawn:
+	Active:
+		NILM BCDE 4 BRIGHT
+		Loop
+	Inactive:
+		NILM A -1
+		Stop
+	}
+}
+
+ACTOR ClassicCellCandle : SwitchableDecoration 3280
+{
+	//$Category "BlooM Light Sources"
+	//$Title Classic Ceiling Candle, ACS Switchable
+	//$Color 17
+	Height 100
+	Radius 20
+	Scale 0.8
+	+NOGRAVITY
+	+SOLID
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+	Active:
+		OILM AB 1 BRIGHT
+		Loop
+	Inactive:
+		OILM C -1
+		Stop
+	}
+}
+
+ACTOR CandleOff : SwitchableDecoration 3281
+{
+	//$Category "BlooM Light Sources"
+	//$Title Burnt Candle, ACS Switchable
+	//$Color 17
+	Radius 4
+	Height 4
+	Scale 0.8
+	+SOLID
+	States
+	{
+	Spawn:
+	Active:
+		TNT1 A 0
+		PILM BCDE 4
+		Loop
+	Inactive:
+		TNT1 A 0
+		PILM A -1
+		Stop
+	}
+}
+
+ACTOR BloodCandelabra : SwitchableDecoration 3288
+{
+	//$Category "BlooM Light Sources"
+	//$Title Blood Candelabra, ACS Switchable
+	//$Color 17
+	Radius 16
+	Height 60
+	ProjectilePassHeight -16
+	+SOLID
+	States
+	{
+	Spawn:
+	Active:
+		XBRA ABCD 4 BRIGHT
+		Loop
+	Inactive:
+		XBRA E -1
+		Stop
+	}
+}
+
+ACTOR BloodCandlestick : SwitchableDecoration 3289
+{
+	//$Category "BlooM Light Sources"
+	//$Title Blood Candlestick, ACS Switchable
+	//$Color 17
+	Radius 20
+	Height 14
+	ProjectilePassHeight -16
+	+SOLID
+	States
+	{
+	Spawn:
+	Active:
+		XAND ABCD 4 BRIGHT
+		Loop
+	Inactive:
+		XAND E -1
+		Stop
+	}
+}
+
+ACTOR LampPost : SwitchableDecoration 3290
+{
+	//$Category "BlooM Light Sources"
+	//$Title Lamp Post, ACS Switchable
+	//$Color 17
+	Radius 16
+	Height 60
+	ProjectilePassHeight -16
+	+SOLID
+	States
+	{
+	Spawn:
+	Active:
+		TNT1 A 0
+		XLP2 A -1 BRIGHT
+		Stop
+	Inactive:
+		TNT1 A 0
+		XLP2 B -1
+		Stop
+	}
+}
+
+ACTOR BloomTallTorch1 : BloomVases 3404
+{
+	//$Title Burning Tall Torch 1, ACS Switchable
+	//$Sprite TORAA0
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.5, TRUE)
+	SpawnCheck:
+		TORA BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		TORA A 1 A_PlaySound("SFX/FireDie", 7)
+		TORA A -1 A_StopSound(6)
+		Stop
+	}
+}
+
+ACTOR BloomTallTorch2 : BloomVases 3808
+{
+	//$Title Burning Tall Torch 2, ACS Switchable
+	//$Sprite STORA0
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_PlaySound("SFX/FireStart", 7)
+	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Args[0] > 0,"SpawnCheck")
+	ActiveCheck:
+		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.5, TRUE)
+	SpawnCheck:
+		STOR BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
+		Goto SpawnCheck
+	Inactive:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		STOR A 1 A_PlaySound("SFX/FireDie", 7)
+		STOR A -1 A_StopSound(6)
+		Stop
+	}
+}

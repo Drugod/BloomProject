@@ -1,0 +1,1262 @@
+//MENU SOUNDS
+menu/activate		DSHEDKCK	// Activate a new menu
+menu/backup			DSHEDKCK	// Backup to previous menu
+menu/prompt			DSHEDKCK	// Activate a prompt "menu"
+menu/cursor			dspfwood	// Move cursor up/down
+menu/change			dsstnmov	// Select new value for option
+menu/invalid		dsoof		// Menu not available
+menu/dismiss		dsswtchx	// Dismiss a prompt message
+menu/choose			SAWNALT		// Choose a menu item
+menu/clear			dsswtchx	// Close top menu
+
+$Random RIFFS { RIFF1 RIFF2 RIFF3 }
+RIFF1		RIFF1
+RIFF2		RIFF2
+RIFF3		RIFF3
+
+$Random menu/quit1 { Caleb/Death1 Moron/Please demon/pain Caleb/Death2 grunt/pain Caleb/Death3 misc/gibbed ButcherSee misc/teleport CultistDie3 grunt/sight1 PhantasmSee grunt/sight3 GargoyleAct demon/melee }
+$Random menu/quit2 { vile/active ZombieSee1 misc/p_pkup Moron/Cry1 brain/cube PICKMEGA misc/gibbed PotteryBreak skeleton/swing MetalMess knight/death Hand/Die1 baby/active Voodoo/Chant demon/melee Worship1 }
+
+//CALEB
+Caleb/Again				AGAIN
+Caleb/Alldead			ALLDEAD
+Caleb/Asshole			ASSHOLE
+Caleb/Busines			SHOWBUZ
+Caleb/Deadyet			DEADYET
+Caleb/Donateb			DONATEB
+Caleb/Draven			NEVERMOR
+Caleb/Everlove		    EVERLOVE
+Caleb/Feeling			FEELING
+Caleb/Goba				GOBA
+Caleb/GoodDoggy			DOGGY
+Caleb/Home				HOMES
+Caleb/Longwat			LONGWAY
+Caleb/Paintre			PAINTRE
+Caleb/Promises			PROMISES
+Caleb/Ratburger			RTBRGR
+Caleb/Robbers			ROBBERS
+Caleb/Rowboat			ROWBOAT
+Caleb/Sing				SINGIN
+Caleb/Smellba			SMELLBA
+Caleb/Strange			STRANGER
+Caleb/Sunwill			SUNWILL
+
+$Random CalebSpeech { CalebSpeech1 CalebSpeech2 CalebSpeech3 CalebSpeech4 CalebSpeech5 CalebSpeech6	CalebSpeech7 CalebSpeech8 CalebSpeech9 CalebSpeech10 CalebSpeech11 CalebSpeech12 CalebSpeech13 CalebSpeech14 CalebSpeech15 CalebSpeech16 CalebSpeech17 CalebSpeech18 CalebSpeech19 CalebSpeech20 CalebSpeech21 CalebSpeech22 CalebSpeech23 CalebSpeech24 CalebSpeech25 }
+CalebSpeech1		ALLFOLKS
+CalebSpeech2		SOBPAY
+CalebSpeech3		RESTPIE
+CalebSpeech4		RESTPIE
+CalebSpeech5		HANDBLOD
+CalebSpeech6		DIDMYWAY
+CalebSpeech7		WHENHURT
+CalebSpeech8		LAUGH1
+CalebSpeech9		LAUGH2
+CalebSpeech10		LAUGH3
+CalebSpeech11		LAUGH4
+CalebSpeech12		LAUGH5
+CalebSpeech13		LAUGH6
+CalebSpeech14		LAUGH7
+CalebSpeech15		LAUGH8
+CalebSpeech16       SPEEC10
+CalebSpeech17       SPEEC11
+CalebSpeech18       SPEEC12
+CalebSpeech19       SPEEC13
+CalebSpeech20       SPEEC14
+CalebSpeech21       SPEEC15
+CalebSpeech22       SPEEC16
+CalebSpeech23       SPEEC17
+CalebSpeech24       SPEEC18
+CalebSpeech25       SPEEC19
+
+JACKED      		JACK
+
+$Random Caleb/Death { Caleb/Death1 Caleb/Death2 Caleb/Death3 Caleb/Death1 Caleb/Death1 Caleb/Death1 }
+Caleb/Death1	CDIE
+Caleb/Death2	Die2
+Caleb/Death3	Die3
+
+$Random Caleb/CalebPain { CalebPain1 CalebPain2 CalebPain3 }
+CalebPain1		CPAIN1
+CalebPain2		CPAIN2
+CalebPain3		CPAIN3
+
+$Random CalebTaunt { CalebTaunt0 CalebTaunt1 CalebTaunt2 CalebTaunt3 CalebTaunt4 CalebTaunt5 CalebTaunt6 CalebTaunt7 CalebTaunt8 CalebTaunt9 }
+CalebTaunt0		TAUNT0
+CalebTaunt1		TAUNT1
+CalebTaunt2		TAUNT2
+CalebTaunt3		TAUNT3
+CalebTaunt4 	TAUNT4
+CalebTaunt5		TAUNT5
+CalebTaunt6		TAUNT6
+CalebTaunt7		TAUNT7
+CalebTaunt8		TAUNT8
+CalebTaunt9	    TAUNT9
+
+$Random Caleb/CALEBKEY { Caleb/CalebTry1 Caleb/CalebTry2 }
+Caleb/CalebTry1	    LOCKEDC1
+Caleb/CalebTry2  	LOCKEDC2
+
+$playersound	Caleb	male	*death		Caleb/Death
+$playersound	Caleb	male	*xdeath		Caleb/Death
+$playersound	Caleb	male	*gibbed		Caleb/CDIE
+$playeralias	Caleb	male	*pain100	Caleb/CalebPain
+$playeralias	Caleb	male	*pain75		Caleb/CalebPain
+$playeralias	Caleb	male	*pain50		Caleb/CalebPain
+$playeralias	Caleb	male	*pain25		Caleb/CalebPain
+$playersound	Caleb	male	*grunt		COOF
+$playersound	Caleb	male	*land		COOF
+$playersound	Caleb	male	*jump		CJUMP
+$playersound	Caleb	male	*fist		dsnone
+$playersound	Caleb	male	*usefail	CNOWAY
+$playeralias	Caleb	male	*taunt		CalebTaunt
+$playersound    Caleb	male    *falling    CFALL
+$playersound	Caleb	male    *burndeath	DSCLBURN
+$playeralias	Caleb	male    *keytry	    Caleb/CALEBKEY
+
+Caleb/CalebStuck	ITSTUCK
+
+Caleb/Burns1	CITBURN
+Caleb/Burns2	CITBURN2
+Caleb/Burns3	CITBURN3
+$Random Caleb/Burns	{Caleb/Burns1 Caleb/Burns2 Caleb/Burns3}
+
+//PLAYER MORPH INTO BEAST
+$playeralias	Werewolf	male	*death		BeastDie
+$playeralias	Werewolf	male	*xdeath		BeastDie
+$playeralias	Werewolf	male	*gibbed		BeastDie
+$playeralias	Werewolf	male	*pain100	BeastPain
+$playeralias	Werewolf	male	*pain75		BeastPain
+$playeralias	Werewolf	male	*pain50		BeastPain
+$playeralias	Werewolf	male	*pain25		BeastPain
+$playeralias    Werewolf    male    *grunt      BeastAct
+$playeralias	Werewolf	male	*land		BeastStomp
+$playeralias	Werewolf	male	*jump		BeastSee
+$playeralias	Werewolf	male	*fist		BeastSlash
+$playeralias	Werewolf	male	*usefail	BeastSee
+$playeralias	Werewolf	male	*taunt		BeastSee
+$playeralias    Werewolf	male    *falling    BeastPain
+$playeralias	Werewolf	male    *burndeath	BeastDie
+
+//Doomdude
+$Playersound	DoomDude	male	*death		dspldeth
+$Playersound	DoomDude	male	*xdeath		dspdiehi
+$Playersound	DoomDude	male	*gibbed		dsslop
+$Playersound	DoomDude	male	*pain100	dsplpain
+$Playersounddup	DoomDude	male	*pain75		*pain100
+$Playersounddup	DoomDude	male	*pain50		*pain100
+$Playersounddup	DoomDude	male	*pain25		*pain100
+$Playersound	DoomDude	male	*grunt		dsoof
+$Playersounddup	DoomDude	male	*land		*grunt
+$Playersound	DoomDude	male	*jump		dsjump
+$Playersound	DoomDude	male	*fist		dspunch
+$Playersound	DoomDude	male	*usefail	dsnoway
+
+$Playersound	DoomDude	female	*death		dsfldeth
+$Playersound	DoomDude	female	*xdeath		dsfdiehi
+$Playersound	DoomDude	female	*gibbed		dsslop
+$Playersound	DoomDude	female	*pain100	dsflpain
+$Playersounddup	DoomDude	female	*pain75		*pain100
+$Playersounddup	DoomDude	female	*pain50		*pain100
+$Playersounddup	DoomDude	female	*pain25		*pain100
+$Playersound	DoomDude	female	*grunt		dsfoof
+$Playersounddup	DoomDude	female	*land		*grunt
+$Playersound	DoomDude	female	*jump		dsfjump
+$Playersound	DoomDude	female	*fist		dspunch
+$Playersound	DoomDude	female	*usefail	dsfnoway
+
+$Playersound	DoomDude	other	*death		dscldeth
+$Playersound	DoomDude	other	*xdeath		dscdiehi
+$Playersound	DoomDude	other	*gibbed		dsslop
+$Playersound	DoomDude	other	*pain100	dsclpain
+$Playersounddup	DoomDude	other	*pain75		*pain100
+$Playersounddup	DoomDude	other	*pain50		*pain100
+$Playersounddup	DoomDude	other	*pain25		*pain100
+$Playersound	DoomDude	other	*grunt		dscoof
+$Playersounddup	DoomDude	other	*land		*grunt
+$Playersound	DoomDude	other	*jump		dscjump
+$Playersound	DoomDude	other	*fist		dspunch
+$Playersound	DoomDude	other	*usefail	dscnoway
+
+$Playercompat	DoomDude	male	*death		DoomDude/male/death1
+$Playercompat	DoomDude	male	*death		DoomDude/male/death2
+$Playercompat	DoomDude	male	*death		DoomDude/male/death3
+$Playercompat	DoomDude	male	*death		DoomDude/male/death4
+$Playercompat	DoomDude	male	*xdeath		DoomDude/male/xdeath1
+$Playercompat	DoomDude	male	*pain100	DoomDude/male/pain100_1
+$Playercompat	DoomDude	male	*pain100	DoomDude/male/pain100_2
+$Playercompat	DoomDude	male	*pain75		DoomDude/male/pain75_1
+$Playercompat	DoomDude	male	*pain75		DoomDude/male/pain75_2
+$Playercompat	DoomDude	male	*pain50		DoomDude/male/pain50_1
+$Playercompat	DoomDude	male	*pain50		DoomDude/male/pain50_2
+$Playercompat	DoomDude	male	*pain25		DoomDude/male/pain25_1
+$Playercompat	DoomDude	male	*pain25		DoomDude/male/pain25_2
+$Playercompat	DoomDude	male	*grunt		DoomDude/male/grunt1
+$Playercompat	DoomDude	male	*land		DoomDude/male/land1
+$Playercompat	DoomDude	male	*jump		DoomDude/male/jump1
+$Playercompat	DoomDude	male	*gibbed		DoomDude/male/gibbed
+$Playercompat	DoomDude	male	*fist		DoomDude/male/fist
+
+$Playercompat	DoomDude	female	*death		DoomDude/female/death1
+$Playercompat	DoomDude	female	*death		DoomDude/female/death2
+$Playercompat	DoomDude	female	*death		DoomDude/female/death3
+$Playercompat	DoomDude	female	*death		DoomDude/female/death4
+$Playercompat	DoomDude	female	*xdeath		DoomDude/female/xdeath1
+$Playercompat	DoomDude	female	*pain100	DoomDude/female/pain100_1
+$Playercompat	DoomDude	female	*pain100	DoomDude/female/pain100_2
+$Playercompat	DoomDude	female	*pain75		DoomDude/female/pain75_1
+$Playercompat	DoomDude	female	*pain75		DoomDude/female/pain75_2
+$Playercompat	DoomDude	female	*pain50		DoomDude/female/pain50_1
+$Playercompat	DoomDude	female	*pain50		DoomDude/female/pain50_2
+$Playercompat	DoomDude	female	*pain25		DoomDude/female/pain25_1
+$Playercompat	DoomDude	female	*pain25		DoomDude/female/pain25_2
+$Playercompat	DoomDude	female	*grunt		DoomDude/female/grunt1
+$Playercompat	DoomDude	female	*land		DoomDude/female/land1
+$Playercompat	DoomDude	female	*jump		DoomDude/female/jump1
+$Playercompat	DoomDude	female	*gibbed		DoomDude/female/gibbed
+$Playercompat	DoomDude	female	*fist		DoomDude/female/fist
+
+$Playercompat	DoomDude	other	*death		DoomDude/cyborg/death1
+$Playercompat	DoomDude	other	*death		DoomDude/cyborg/death2
+$Playercompat	DoomDude	other	*death		DoomDude/cyborg/death3
+$Playercompat	DoomDude	other	*death		DoomDude/cyborg/death4
+$Playercompat	DoomDude	other	*xdeath		DoomDude/cyborg/xdeath1
+$Playercompat	DoomDude	other	*pain100	DoomDude/cyborg/pain100_1
+$Playercompat	DoomDude	other	*pain100	DoomDude/cyborg/pain100_2
+$Playercompat	DoomDude	other	*pain75		DoomDude/cyborg/pain75_1
+$Playercompat	DoomDude	other	*pain75		DoomDude/cyborg/pain75_2
+$Playercompat	DoomDude	other	*pain50		DoomDude/cyborg/pain50_1
+$Playercompat	DoomDude	other	*pain50		DoomDude/cyborg/pain50_2
+$Playercompat	DoomDude	other	*pain25		DoomDude/cyborg/pain25_1
+$Playercompat	DoomDude	other	*pain25		DoomDude/cyborg/pain25_2
+$Playercompat	DoomDude	other	*grunt		DoomDude/cyborg/grunt1
+$Playercompat	DoomDude	other	*land		DoomDude/cyborg/land1
+$Playercompat	DoomDude	other	*jump		DoomDude/cyborg/jump1
+$Playercompat	DoomDude	other	*gibbed		DoomDude/cyborg/gibbed
+$Playercompat	DoomDude	other	*fist		DoomDude/cyborg/fist
+
+doomdude/punch	SWPUNCH
+
+//INHERITANCES from vanilla defs - ozy81
+baby/active		dsbspact
+baron/sight		dsbrssit
+brain/cube		dsboscub
+demon/melee		dssgtatk
+demon/pain		dsdmpain
+grunt/pain		dspopain
+grunt/sight1	dsposit1
+grunt/sight3	dsposit3
+knight/death	dskntdth
+misc/gibbed		dsslop
+misc/p_pkup		dsgetpow
+misc/teleport	dstelept
+skeleton/swing	dsskeswg
+vile/active		dsvilact
+$rollOff baron/sight 1200 1400
+
+//DOORS
+DOORCLOS				DOORCLOS
+DOOROPEN				DOOROPEN
+DORCREAK				DORCREAK
+DORCREAK				DORCREAK
+ELEVMOVE				ELEVMOVE
+ELEVSTRT				ELEVSTRT
+ELSTOP2					ELSTOP2
+ELSTOP3					ELSTOP3
+ELVMID2					ELVMID2
+ELVSTR2					ELVSTR2
+FENCSLID				FENCSLID
+OLDOR1					OLDOR1
+OLDORS					OLDORS
+
+//MAP FEATURES
+PotteryBreak	POTTERY
+MetalMess		RENMETAL
+RING			RING
+BUSYSIG			BUSYSIG
+TRANN           TRANN
+TRAINS          TRAINS
+TRAIN2          TRAIN2
+RINGT			RINGT
+QHYDRO1         QHYDRO1
+ERTHLOOP        ERTHLOOP
+ERTHRMBL		ERTHRMBL
+TRNHRN			TRNHRN
+
+//Misc/Chat		MESSAGE
+OPHELIA				OPHELIA
+SLEEPOPH			SLEEPOPH
+LEFTOVERS			LEFTOVER
+CRYPTLP 			CRYPTLP
+
+//EXPLOSION
+LLFireInitiate		LLINIT
+LLFire				LLFIRE
+LLFireExplode		EXPLODFM
+$limit LLFireExplode 12
+LLFireExplode2		EXPLODFM // Needs to be done otherwise it sounds too loud.
+$limit LLFireExplode2 2
+
+LargeExplosions		EXPLODCL //wont add CM AND CS THEY SOUND SAME
+
+MediumExplosion/A	EXPLODFL
+MediumExplosion/B	EXPLODFM
+MediumExplosion/C	EXPLODFS
+$Random MediumExplosion {MediumExplosion/A	MediumExplosion/B	MediumExplosion/C}
+
+Smallexplosion/A	EXPLODUL	//more like airplane on e3m2
+Smallexplosion/B	EXPLODUM
+Smallexplosion/C	EXPLODUS
+$Random SmallExplosion	{SmallExplosion/A SmallExplosion/B	SmallExplosion/C}
+
+/* OLD DEFINITIONS */
+
+SFX/FireStart	FIRESTRT
+SFX/FireLoop	FIRELOP1
+SFX/FireDie		FIREDIE
+$limit SFX/FireStart	0
+$limit SFX/FireLoop		1
+$limit SFX/FireDie		0
+
+CVLTFIR		CVLTFIR
+DSBALPOP	DSBALPOP
+DSBDSPRY	DSBDSPRY
+DSBDYBRN	DSBDYBRN
+DSBLANK		DSBLANK
+DSBLSHL1	DSBLSHL1
+DSBLSHL2	DSBLSHL2
+DSBLSHL3	DSBLSHL3
+DSBLSHL4	DSBLSHL4
+DSBLUD		DSBLUD
+DSBLUD2		DSBLUD2
+DSBLUD3		DSBLUD3
+DSBLUD4		DSBLUD4
+DSBLUD5		DSBLUD5
+DSCLBURN	DSCLBURN
+DSCULT2		DSCULT2
+DSCULTF1	DSCULTF1
+DSCULTF2	DSCULTF2
+DSCULTF3	DSCULTF3
+DSDOLLAF	DSDOLLAF
+DSDOLSTB	DSDOLSTB
+DSEXPBRL	DSEXPBRL
+DSEXPLRG	DSEXPLRG
+DSFLAP1		DSFLAP1
+DSFLRAIR	DSFLRAIR
+DSFLRFIR	DSFLRFIR
+DSFRBALL	DSFRBALL
+DSGIB1		DSGIB1
+DSGIB2		DSGIB2
+DSGIB3		DSGIB3
+DSGIB4		DSGIB4
+DSHEDBON	DSCLBDET
+DSHEDKCK	DSHEDKCK
+DSNAPALM	DSNAPALM
+DSNAPLM2	DSNAPLM2
+DSPFWOOD	DSPFWOOD
+DSPUNCH		DSPUNCH
+DSRICO1		DSRICO1
+DSRICO2		DSRICO2
+DSRICO3		DSRICO3
+DSSAWFIR	DSSAWFIR
+DSSAWLOD	DSSAWLOD
+DSSTSHL1	DSSTSHL1
+DSSTSHL2	DSSTSHL2
+DSSTSHL3	DSSTSHL3
+DSSTSHL4	DSSTSHL4
+DSTOMCOK	DSTOMCOK
+DSZIPCLS	DSZIPCLS
+PICKKEY     PICKKEY
+PICKMEGA    PICKMEGA
+PICKWEAP    PICKWEAP
+PICKQUAD	PICKQUAD
+AMMO	   AMMO
+ARMR	   ARMR
+PISTOL     PISTOL
+items/heartpickup		HEARTPIC
+weapons/sawedoffload	SWSLOAD
+weapons/tommygun    	TOM1
+
+$limit DSPFWOOD 1
+SARGBLST	SARGBLST
+SARGFX		SARGFX
+
+$random world/glassbreak { GLASS1 GLASS2 GLASS3 }
+GLASS1 GLASS1
+GLASS2 GLASS2
+GLASS3 GLASS3
+
+$random crows/death { CRWCAW1 CRWCAW2 CRWCAW3 }
+CRWCAW1 CRWCAW1
+CRWCAW2 CRWCAW2
+CRWCAW3 CRWCAW3
+
+annoy/music	DSMUZAK
+$rolloff annoy/music 250 1250
+$pitchshift annoy/music 0
+$limit annoy/music 1
+
+$Random fireguy/run 	{dsCULTF1 dsCULTF2 dsCULTF3}
+$Random Shoot/Bullet 	{DSRICO1 DSRICO2 DSRICO3 DSBLANK DSBLANK DSBLANK}
+$rolloff DSRICO1 150 250
+$rolloff DSRICO2 150 200
+$rolloff DSRICO3 150 200
+
+$Random Body/Blood 		{DSBLUD DSBLUD2 DSBLUD3 DSBLUD4 DSBLANK DSBLANK DSBLANK}
+$Random Body/Gibs 		{dsgib1 dsgib2 dsgib3 dsgib4 DSBLANK DSBLANK DSBLANK}
+
+$Random Shotgun/Shells	{dsstshl1 dsstshl2 dsstshl3 dsstshl4}
+$limit dsstshl1 0
+$limit dsstshl2 0
+$limit dsstshl3 0
+$limit dsstshl4 0
+$Random Tommy/Shells	{dsblshl1 dsblshl2 dsblshl3 dsblshl4}
+$limit dsblshl1 0
+$limit dsblshl2 0
+$limit dsblshl3 0
+$limit dsblshl4 0
+$rolloff dsblshl1 90 450
+$rolloff dsblshl2 90 450
+$rolloff dsblshl3 90 450
+$rolloff dsblshl4 90 450
+$rolloff dsstshl1 90 450
+$rolloff dsstshl2 90 450
+$rolloff dsstshl3 90 450
+$rolloff dsstshl4 90 450
+SAWNALT				SAWNALT
+
+TESLFIR				TESLFIR
+TESLWI				TESLWI
+TESLWIX				TESLWIX
+TESLFX				TESLFX
+TNTFUSE				TNTFUSE
+TNTTOSS				TNTTOSS
+
+weap/tsla/see1		teslsee1
+weap/tsla/see2		teslsee2
+weap/tsla/see3		teslsee3
+weap/tsla/see4		teslsee4
+$Random weap/tsla/see {weap/tsla/see1 weap/tsla/see2 weap/tsla/see3 weap/tsla/see4}
+$Limit weap/tsla/see 1
+
+grenades/grnpin			GRNPIN
+grenades/grntoss		GRNTOSS
+grenades/grnbnce		GRNBNCE
+
+human/imonfire			dsburnme
+
+//Tesla Stuff
+tesla/active ELCLOOP
+$limit tesla/active 4
+
+//Flamethrower
+flamethrower/Pick	FLMTPK
+flamethrower/Fire	FMTRFIRE
+flamethrower/Hit	FMTRHIT
+flamethrower/Flame	FMTRFLAM
+
+//Frostgun
+frostgun/Fire1	FROSHOT1
+frostgun/Fire2	FROSHOT2
+$Random frostgun/Fire {frostgun/Fire1 frostgun/Fire2}
+
+frostgun/Pick	FROSPK
+
+//Ice attacks
+king/iceshot	DSICESHT
+king/icehit		DSICEHIT
+
+//FleshTrap
+ftrap/death 	DSBLDPUK
+
+//RAIN
+Ambient/Rain	AMBRAIN
+$rolloff Ambient/Rain 250 1250
+$pitchshift Ambient/Rain 0
+$limit Ambient/Rain 2
+
+$random thunder/hit { thunder/hit1 thunder/hit2 }
+thunder/hit1 THNDS01
+thunder/hit2 THNDS02
+
+Steam/Loop	STEMLOOP
+Steam/Fire	STEMFIRE
+
+//QUAKE
+//CHTON
+Chton/Attack	CHATK
+Chton/Death		CHDEATH
+Chton/Pain		CHPAIN
+Chton/Rise		CHRISE
+Chton/Walk		CHSEE
+
+//AMBIENCE HOUSE OF CHTON
+WIND1           WIND
+MPLAT1          MEDPLAT1
+MPLAT2	    	MEDPLAT2
+DRONE           DRONE6
+
+//ZOMBIES
+$Random SummonZombies { 13CHA 13CHU 13KILL 13DEATH }
+13CHA	13CHA
+13CHU	13CHU
+13KILL	13KILL
+13DEATH	13DEATH
+
+//EEL
+Eel/Die1	EELDIE1
+Eel/Die2	EELDIE2
+Eel/Die3	EELDIE3
+$Random Eel/Die {Eel/Die1	Eel/Die2	Eel/Die3}
+Eel/Pain	EELPAIN
+Eel/Roam	EELROAM
+Eel/Spot	EELSPOT
+
+ELCHARGE	ELCHARGE
+ELBEAM		ELBEAM
+
+//HAND OF DOOM
+Hand/Die1	HANDDIE1
+Hand/Die2	HANDDIE2
+Hand/Die3	HANDDIE3
+$Random Hand/Die	{Hand/Die1	Hand/Die2	Hand/Die3}
+Hand/Pain	HANDPAIN
+Hand/Roam	HANDROAM
+Hand/Spot	HANDSPOT
+Hand/Roam	HANDROAM
+Hand/Choke	UNDCHOKE
+
+Sand/Die1	SANDDIE1
+Sand/Die2	SANDDIE2
+Sand/Die3	SANDDIE3
+$Random Sand/Die	{Sand/Die1	Sand/Die2	Sand/Die3}
+Sand/Pain	SANDPAIN
+Sand/Roam	SANDROAM
+Sand/Spot	SANDSPOT
+Sand/Roam	SANDROAM
+
+//MORON
+Moron/Inhale	INHALE
+Moron/Home		INOPLACE
+Moron/Please	IPLEASE
+
+Moron/Cry1	ICRYING
+Moron/Cry2	ICRYING2
+$Random Moron/Crying	{Moron/Cry1	Moron/Cry2}
+
+Moron/Chew1	MORATK1
+Moron/Chew2	MORATK2
+$Random Moron/Attacks	{Moron/Chew1 Moron/Chew2}
+
+Moron/NOHURT	IDONHME
+Moron/GoAway1	IGOAWAY2
+Moron/GoAway2	IGOAWAY3
+$Random Moron/GoAway {Moron/GoAway1	Moron/GoAway2}
+
+Moron/Scream1	ISCREAM1
+Moron/Scream2	ISCREAM2
+$Random Moron/Scream {Moron/Scream1	Moron/Scream2}
+$Random Moron/Beg {Moron/Crying Moron/NOHURT Moron/GoAway}
+
+//MUTANT
+Mutant/Home		MTNPLC
+
+Mutant/Cry1	MTCRY
+Mutant/Cry2	MTCRY2
+$Random Mutant/Crying	{Mutant/Cry1	Mutant/Cry2}
+
+Mutant/NOHURT	MTDHM
+Mutant/GoAway1	MTGWY2
+Mutant/GoAway2	MTGWY3
+$Random Mutant/GoAway {Mutant/GoAway1	Mutant/GoAway2}
+
+Mutant/Scream1	MTSCRM1
+Mutant/Scream2	MTSCRM1
+Mutant/Please	MTPLS
+$Random Mutant/Scream {Mutant/Scream1	Mutant/Scream2  Mutant/Please}
+$Random Mutant/Beg {Mutant/Crying Mutant/NOHURT Mutant/GoAway}
+
+//ZOMBIE
+ZombieAxe			ZOMAXE
+
+$Random ZombieSee { ZombieSee1 ZombieSee2 ZombieSee3 }
+ZombieSee1			ZOMSEE1
+ZombieSee2			ZOMSEE2
+ZombieSee3			ZOMSEE3
+
+$Random ZombieDeath { ZombieDeath1 ZombieDeath2 }
+ZombieDeath1		ZOMDTH1
+ZombieDeath2		ZOMDTH2
+
+$Random ZombieDeathB { ZombieDeath1 ZombieDeath2 ZombieBurnDeath }
+ZombieDeath1		ZOMDTH1
+ZombieDeath2		ZOMDTH2
+ZombieBurnDeath		ZOMBDTH
+
+Zombie/Fake	ZOMFAKE
+Zombie/Raise ZOMRUS
+
+//BUTCHER
+ButcherSee			BBUTSEE
+ButcherPain			BBUTPN
+ButcherBurn			DSFZDIE3
+ButcherVomit		BBUTVO
+
+Butcher/Wall1	ACIDHIT1
+Butcher/Wall2	ACIDHIT2
+Butcher/Cleaver	CLEAVER
+$Random Butcher/Wall	{Butcher/Wall1	Butcher/Wall2}
+
+Butcher/Active	BBUTACT
+
+$Random ButcherDeath { ButcherDeath1 ButcherDeath2 ButcherDeath3}
+ButcherDeath1		BBUTDT1
+ButcherDeath2		BBUTDT2
+ButcherDeath3       BBUTDT3
+
+//CVLTIST
+$Random CultistShotgun { CShotgun1 CShotgun2 }
+CShotgun1			CSGUN1
+$rolloff CShotgun1 800 2000
+CShotgun2			CSGUN2
+$rolloff CShotgun2 800 2000
+
+$Random CultistSee { CultistSee1 CultistSee2 CultistSee3 CultistSee4 CultistSee5 }
+CultistSee1			CULTSEE1
+CultistSee2			CULTSEE2
+CultistSee3			CULTSEE3
+CultistSee4			CULTSEE4
+CultistSee5			CULTSEE5
+
+$Random CultistAct { CultistSee1 CultistSee2 CultistSee3 CultistSee4 CultistSee5 CultistAct1 }
+CultistSee1			CULTSEE1
+CultistSee2			CULTSEE2
+CultistSee3			CULTSEE3
+CultistSee4			CULTSEE4
+CultistSee5			CULTSEE5
+CultistAct1			CULTACT
+
+$Random CultistPain { CultistPain1 CultistPain2 /*CultistPain3 CultistPain4 CultistPain5 */ }
+CultistPain1		CULTPAN1
+CultistPain2		CULTPAN2
+CultistPain3		CULTPAN3
+CultistPain4		CULTPAN4
+CultistPain5		CULTPAN5
+
+$Random CultistDie { CultistDie1 CultistDie2 CultistDie3 }
+CultistDie1			CULTDIE1
+CultistDie2			CULTDIE2
+CultistDie3			CULTDIE3
+
+
+$Random CultistGotYou { CultistGotYou1 CultistGotYou2 CultistGotYou3 CultistGotYou4 }
+CultistGotYou1		CULTKIL1
+CultistGotYou2		CULTKIL2
+CultistGotYou3		CULTKIL3
+CultistGotYou4		CULTKIL4
+$rolloff CultistGotYou1 384 1024
+$rolloff CultistGotYou2 384 1024
+$rolloff CultistGotYou3 384 1024
+$rolloff CultistGotYou4 384 1024
+
+$Random CultistFire {CultistFire1 CultistFire2 CultistFire3}
+CultistFire1	CULTFIR1
+CultistFire2	CULTFIR2
+CultistFire3	CULTFIR3
+
+Cultists/Toss	CULTNT
+
+//NEOCVLTIST
+$Random NCultistSee { NCultistSee1 NCultistSee2 NCultistSee3 NCultistSee4 NCultistSee5 }
+$pitchshiftrange 4
+NCultistSee1			CULTSEE1
+NCultistSee2			CULTSEE2
+NCultistSee3			CULTSEE3
+NCultistSee4			CULTSEE4
+NCultistSee5			CULTSEE5
+$pitchshiftrange 4
+
+$Random NCultistAct { NCultistSee1 NCultistSee2 NCultistSee3 NCultistSee4 NCultistSee5 NCultistAct1 }
+$pitchshiftrange 4
+NCultistSee1			CULTSEE1
+NCultistSee2			CULTSEE2
+NCultistSee3			CULTSEE3
+NCultistSee4			CULTSEE4
+NCultistSee5			CULTSEE5
+NCultistAct1			CULTACT
+$pitchshiftrange 4
+
+$Random NCultistPain { NCultistPain1 NCultistPain2  NCultistPain3 NCultistPain4 NCultistPain5 }
+$pitchshiftrange 4
+NCultistPain1			CULTPAN1
+NCultistPain2			CULTPAN2
+NCultistPain3			CULTPAN3
+NCultistPain4			CULTPAN4
+NCultistPain5			CULTPAN5
+$pitchshiftrange 4
+
+$Random NCultistDie { NCultistDie1 NCultistDie2 NCultistDie3 }
+$pitchshiftrange 4
+NCultistDie1			CULTDIE1
+NCultistDie2			CULTDIE2
+NCultistDie3			CULTDIE3
+$pitchshiftrange 4
+
+$Random NCultistShotgun { NCultistShot1 NCultistShot2 NCultistShot3 }
+$pitchshiftrange 4
+NCultistShot1			DSSAWFIR
+NCultistShot2			CSGUN1
+NCultistShot3			CSGUN2
+$pitchshiftrange 4
+
+//PHANTASM
+PhantasmSee			PHANSEE
+$RollOff PhantasmSee 300 1150 //Scarier than ever
+PhantasmDie1    	PHANDIE
+PhantasmDie2		PHANDI2
+PhantasmPain		PHANPN
+PhantasmMelee		PHANMEL
+PhantasmMissile		PHANMIS
+$RollOff PhantasmMissile 1600 2600
+$Random PhantasmDie { PhantasmDie1 PhantasmDie2 }
+PhantomWin PhaROAM
+$RollOff PhantomWin 2000 4000 //Creep factor
+Phantasm/Creepy	PHAROAM
+Phantasm/Skull	SKULAIR
+
+//BATS - From Blade of Agony, courtesy by Ozy81
+batfam/idle1 batidle1
+batfam/idle2 batidle2
+$random batfam/idle { batfam/idle1 batfam/idle2 }
+batfam/pain batpain
+batfam/death batdie
+batfam/crash batcrash
+
+//RATS
+RATB RTBRGR
+RatSee				RATSEE
+RatPain				RATPAIN
+RatDie1				RATDIE1
+RatDie2				RATDIE2
+RatDie3				RATDIE3
+$Random RatDie { RatDie1 RatDie2 RatDie3 }
+RatBite				dsdolstb
+
+//DEMON RATS
+SatSee				SATSEE
+SatPain				SATPAIN
+SatDie1				SATDIE1
+SatDie2				SATDIE2
+SatDie3				SATDIE3
+$Random SatDie { SatDie1 SatDie2 SatDie3 }
+
+//CERBERUS
+CerberusSee			CERBSEE
+$RollOff CerberusSee 3000 9600
+CerberusDie			CERBDIE
+$RollOff CerberusDie 3000 9600
+CerberusPain1		CERBPN1
+CerberusPain2		CERBPN2
+$Random CerberusPain { CerberusPain1 CerberusPain2 }
+Cerberus/Roam	CERBROAM
+$RollOff Cerberus/Roam 1400 2700
+
+//HELLHOUND
+HellHoundSee		HOUNDSEE
+HellHoundPain		HOUNDPN
+HellHoundDie1		HOUNDD1
+HellHoundDie2		HOUNDD2
+HellHoundDie3		HOUNDD3
+$Random HellhoundDie { HellHoundDie1 HellHoundDie2 HellHoundDie3 }
+HellHound/BiteHit	HOUNDBIT
+HellHound/Bite		HOUNDBT3
+$RollOff HellHound/Bite 1400 1800
+
+//GARGOYLE
+GargoyleAct			GARGACT
+GargoyleBurn		GARGDIE3
+GargoyleMelee		GARGMLE
+GargoylePain		GARGPAIN
+GargoyleSee			GARGSEE
+GargoyleFlap1 		GARWING
+GargoyleFlap2 		KINGFLAP
+$Random GargoyleDie { GargoyleDie1 GargoyleDie2 }
+GargoyleDie1		GARGDIE1
+GargoyleDie2		GARGDIE2
+
+//CHEOGH
+Cheogh/Slap	SARGCLAW
+Cheogh/Die1	SARGDIE1
+Cheogh/Die2	SARGDIE2
+Cheogh/Die3	SARGDIE3
+$Random Cheogh/Die {Cheogh/Die1 Cheogh/Die2 Cheogh/Die3}
+Cheogh/Pain	SARGPAIN
+Cheogh/Roam	SARGROAM
+
+
+//GILLBEAST
+GillBeastSee		GILLSEE
+$RollOff GillBeastSee 700 2000
+GillBeastAct		GILLACT
+$RollOff GillBeastAct 200 600
+GillBeastPain		GILLPAIN
+GillbeastDie1		GILLDIE1
+GillBeastDie2		GILLDIE2
+$Random GillBeastDie { GillbeastDie1 GillbeastDie2 }
+
+//POD
+PodDie1				PODDIE1
+PodDie2				PODDIE2
+PodDie3				PODDIE3
+PodSpit1			PODSPT1
+PodSpit2			PODSPT2
+PodExplode			PODEXPL
+PodSquish			PODSQUI
+PodOpen				PODOPEN
+$Random PodDie { PodDie1 PodDie2 PodDie3 }
+$Random PodSpit { PodSpit1 PodSpit2 }
+
+TentacleUp			TENTUP
+TentacleDown		TENTDWN
+TentacleExplode		TENTEXP
+TentacleSwipe		TENTSWP //not present
+
+//BEAST
+BeastSee			BSTSEE
+BeastDie			BSTDIE
+BeastPain			BSTPAIN
+BeastAct1			BSTACT1
+BeastAct2			BSTACT2
+BeastAct3			BSTACT3
+BeastSlash1			BSTCUT1
+BeastSlash2			BSTCUT2
+BeastSlash3			BSTCUT3
+BeastStomp			BSTSTOMP
+$Random BeastAct { BeastAct1 BeastAct2 BeastAct3 }
+$Random BeastSlash { BeastSlash1 BeastSlash2 BeastSlash3 }
+
+//SPIDERS
+Spider/Spit			SPIDSPIT
+SpiderSee			SPIDSEE
+SpiderAct			SPIDACT
+SpiderBurn			SPIDBURN
+SpiderPain			SPIDPAIN
+SpiderDie1			SPIDDIE1
+SpiderDie2			SPIDDIE2
+$Random Spiderdie { SpiderDie1 Spiderdie2 }
+
+//MOTHERSPIDER
+MotherSpiderSee1	MSPISEE
+MotherSpiderDie		MSPIDIE
+MotherSpiderPain	MSPIPAIN
+MotherSpiderSee2 	MSPISE2
+$Random MotherSpiderSee { MotherSpiderSee1 MotherSpiderSee2 }
+
+//TCHERNOBORG
+TchernobogAct1		TBACT1
+TchernobogAct2		TBACT2
+TchernobogAct3		TBACT3
+TchernobogAct4		TBACT4
+TchernobogAct5		TBACT5
+TchernobogAct6		TBACT6
+TchernobogAct7		TBACT7
+TchernobogAct8		TBACT8
+TchernobogPain1		TBPAIN1
+TchernobogPain1B	TBPAIN1B
+TchernobogPain2		TBPAIN2
+TchernobogPain2B	TBPAIN2B
+TchernobogPain3		TBPAIN3
+TchernobogPain3B	TBPAIN3B
+TchernobogPain4		TBPAIN4 // Extreme Pain
+TchernobogDie		TBDIE
+TchernobogWait		TBWAIT
+TchernobogLaugh		TBLAUGH
+TchernobogKneel 	TBKNEEL
+TchernobogHoof		TBHOOF
+TchernobogBurn 		TBEVAP
+
+$rolloff TchernobogAct1	384 1200
+$rolloff TchernobogAct2	384 1200
+$rolloff TchernobogAct3	384 1200
+$rolloff TchernobogAct4	384 1200
+$rolloff TchernobogAct5	384 1200
+$rolloff TchernobogAct6	384 1200
+$rolloff TchernobogAct7	384 1200
+$rolloff TchernobogAct8	384 1200
+$rolloff TchernobogPain1 384 1200
+$rolloff TchernobogPain2 384 1200
+$rolloff TchernobogPain3 384 1200
+$rolloff TchernobogPain4 384 1200
+$rolloff TchernobogDie 384 1200
+
+$Random TchernobogPain { TchernobogPain1 TchernobogPain2 TchernobogPain3 TchernobogPain1B TchernobogPain2B TchernobogPain3B }
+$Random TchernobogAct { TchernobogAct1 TchernobogAct2 TchernobogAct3 TchernobogAct4 TchernobogAct5 TchernobogAct6 TchernobogAct7 TchernobogAct8 }
+
+//Jojo
+jojo/death	JOJODETH
+
+JOJOPAI1	JOJOPAI1
+JOJOPAI2	JOJOPAI2
+JOJOPAI3	JOJOPAI3
+$random jojo/pain	{ JOJOPAI1 JOJOPAI2 JOJOPAI3 }
+
+JOJOHMR1    JOJOHMR1
+JOJOHMR2    JOJOHMR2
+JOJOHMR3    JOJOHMR3
+$random jojo/hmr	{ JOJOHMR1 JOJOHMR2 JOJOHMR3 }
+
+JOJOKCK1   JOJOKCK1
+JOJOKCK2   JOJOKCK2
+JOJOKCK3   JOJOKCK3
+$random jojo/kick	{ JOJOKCK1 JOJOKCK2 JOJOKCK3 }
+
+JOJOCHS1   JOJOCHS1
+JOJOCHS2   JOJOCHS2
+JOJOCHS3   JOJOCHS3
+$random jojo/active	{ JOJOCHS1 JOJOCHS2 JOJOCHS3 }
+$random jojo/sight	{ JOJOCHS1 JOJOCHS2 JOJOCHS3 }
+
+//Sloth
+SLTHCHS1	SLTHCHS1
+SLTHCHS2	SLTHCHS2
+SLTHCHS3	SLTHCHS3
+$random sloth/chs	{ SLTHCHS1 SLTHCHS2 SLTHCHS3 }
+
+SLTHDTH1	SLTHDTH1
+SLTHDTH2	SLTHDTH2
+$random sloth/dth	{ SLTHDTH1 SLTHDTH2 }
+
+SLTHPAI1	SLTHPAI1
+SLTHPAI2	SLTHPAI2
+SLTHPAI3	SLTHPAI3
+SLTHPAI4	SLTHPAI4
+SLTHPAI5	SLTHPAI5
+SLTHPAI6	SLTHPAI6
+$random sloth/pain	{ SLTHPAI1 SLTHPAI2 SLTHPAI3 SLTHPAI4 SLTHPAI5 SLTHPAI6 }
+
+SLTHSTP1	SLTHSTP1
+SLTHSTP2	SLTHSTP2
+
+$random sloth/ste1	{ SLTHSTP1 SLTHSTP2 }
+
+SLTHSTP3	SLTHSTP3
+SLTHSTP4	SLTHSTP4
+$random sloth/ste2	{ SLTHSTP3 SLTHSTP4 }
+
+//Romerotron
+RMRTRN01    RMRTRN01
+RMRTRN02    RMRTRN02
+RMRTRN03    RMRTRN03
+RMRTRN04    RMRTRN04
+RMRTRN05    RMRTRN05
+RMRTRN06    RMRTRN06
+RMRTRN07    RMRTRN07
+$random trn/active { RMRTRN01 RMRTRN02 RMRTRN03 RMRTRN04 RMRTRN05 RMRTRN06 RMRTRN07 }
+
+//Hand Mastermind
+Hmm/Pai1	HMMP1
+Hmm/Pai2	HMMP2
+Hmm/Pai3	HMMP3
+$Random Hmm/Pain {Hmm/Pai1	Hmm/Pai2	Hmm/Pai3}
+Hmm/Die 	HMMD
+Hmm/Spot	HMMS
+Hmm/Choke	HMMC
+
+//Hand Slavemind
+Hsm/Pain	HSMP
+Hsm/Die1	HSMD1
+Hsm/Die2	HSMD2
+Hsm/Die3	HSMD3
+$Random Hsm/Die {Hsm/Die1 Hsm/Die2	Hsm/Die3}
+Hsm/Spot	HSMS
+Hsm/Choke	HSMC
+Hsm/Roam	HSMC
+
+//////////////////////////////////
+//TERRAIN SOUNDS - Defs by Enjay//
+//////////////////////////////////
+
+//world related defs
+$random world/watersplash { world/watersplash1 world/watersplash2 }
+world/watersplash1 dssplash
+world/watersplash2 dsspla2
+
+$random world/watersplashsmall { world/watersplashsmall1 world/watersplashsmall2 }
+world/watersplashsmall1	dssplsml
+world/watersplashsmall2	dssplsm2
+
+$random world/sludgegloop { world/sludgegloop1 world/sludgegloop2 }
+world/sludgegloop1 dsploosh
+world/sludgegloop2 dsploo2
+
+$random world/sludgegloopsmall { world/sludgegloopsmall1 world/sludgegloopsmall2 }
+world/sludgegloopsmall1	dsplosml
+world/sludgegloopsmall2	dsplosm2
+
+$random world/lavasizzle { world/lavasizzle1 world/lavasizzle2 }
+world/lavasizzle1 dslvsiz
+world/lavasizzle2 dslvsiz3
+
+$random world/lavsiz2 { world/lavsiz21 world/lavsiz22 }
+world/lavsiz21 dslvsiz2
+world/lavsiz22 dslvsiz4
+
+$random world/lavasizzlesmall { world/lavasizzlesmall1 world/lavasizzlesmall2 }
+world/lavasizzlesmall1 dslavsml
+world/lavasizzlesmall2 dslavsm2
+
+//Carpet - soft ground
+$random floor/carpet { floor/carpet01 floor/carpet02 floor/carpet03 }
+floor/carpet01	dscarp1
+floor/carpet02	dscarp2
+floor/carpet03	dscarp3
+
+$limit floor/carpet 1
+
+//Dirt
+$random floor/dirt { floor/dirt01 floor/dirt02 floor/dirt03 floor/dirt04 floor/dirt05 floor/dirt06 }
+floor/dirt01	dsdirt1
+floor/dirt02	dsdirt2
+floor/dirt03	dsdirt3
+floor/dirt04	dsdirt4
+floor/dirt05	dsdirt5
+floor/dirt06	dsdirt6
+
+$limit floor/dirt 1
+
+//Gravel - loose crunchy surface
+$random floor/gravel { floor/grav01 floor/grav02 floor/grav03 floor/grav04 }
+floor/grav01	dsgrav1
+floor/grav02	dsgrav2
+floor/grav03	dsgrav3
+floor/grav04	dsgrav4
+
+$limit floor/gravel 1
+
+//Metal - hard metal
+$random floor/metal	{ floor/metl01 floor/metl02 floor/metl03 floor/metl04 floor/metl05 floor/metl06 }
+floor/metl01	dsmet01
+floor/metl02	dsmet02
+floor/metl03	dsmet03
+floor/metl04	dsmet04
+floor/metl05	dsmet05
+floor/metl06	dsmet06
+
+$limit floor/metal 1
+
+//Metal2 - clanky metal
+$random floor/met2 { floor/met201 floor/met202 floor/met203 floor/met204 }
+floor/met201	dsmet201
+floor/met202	dsmet202
+floor/met203	dsmet203
+floor/met204	dsmet204
+
+$limit floor/met2 1
+
+//Rock - Hard outdoor type floor
+$random floor/rock { floor/rock01 floor/rock02 floor/rock03 floor/rock04 floor/rock05 floor/rock06 floor/rock07 floor/rock08 }
+floor/rock01	dsrock1
+floor/rock02	dsrock2
+floor/rock03	dsrock3
+floor/rock04	dsrock4
+floor/rock05	dsrock5
+floor/rock06	dsrock6
+floor/rock07	dsrock7
+floor/rock08	dsrock8
+
+$limit floor/rock 1
+
+//Snow
+$random floor/snow { floor/snow01 floor/snow02 floor/snow03 floor/snow04 floor/snow05 floor/snow06 }
+floor/snow01	dssnow1
+floor/snow02	dssnow2
+floor/snow03	dssnow3
+floor/snow04	dssnow4
+floor/snow05	dssnow5
+floor/snow06	dssnow6
+
+$limit floor/snow 1
+
+//Hard - generic hard floor
+$random floor/hard { floor/hard01 floor/hard02 floor/hard03 floor/hard04 floor/hard05 floor/hard06 }
+floor/hard01	dshard1
+floor/hard02	dshard2
+floor/hard03	dshard3
+floor/hard04	dshard4
+floor/hard05	dshard5
+floor/hard06	dshard6
+
+$limit floor/hard 1
+
+//Tile - Hard indoor floor
+$random floor/tile	{ floor/tile01 floor/tile02 floor/tile03 floor/tile04 floor/tile05 floor/tile06 }
+floor/tile01	dstile01
+floor/tile02	dstile02
+floor/tile03	dstile03
+floor/tile04	dstile04
+floor/tile05	dstile05
+floor/tile06	dstile06
+
+$limit floor/tile 1
+
+//Tile2 - More echoey traditional tile
+$random floor/tile2	{ floor/tile201 floor/tile202 floor/tile203 floor/tile204 floor/tile205 floor/tile206 floor/tile207 floor/tile208 }
+floor/tile201	dstile21
+floor/tile202	dstile22
+floor/tile203	dstile23
+floor/tile204	dstile24
+floor/tile205	dstile25
+floor/tile206	dstile26
+floor/tile207	dstile27
+floor/tile208	dstile28
+
+$limit floor/tile2 1
+
+//Wood
+$random floor/wood { floor/wood01 floor/wood02 floor/wood03 floor/wood04 }
+floor/wood01	dswood1
+floor/wood02	dswood2
+floor/wood03	dswood3
+floor/wood04	dswood4
+
+$limit floor/wood 1
+
+//Slimy - for the Doom snake floors
+$random floor/slimy	{ floor/slimy01 floor/slimy02 floor/slimy03 floor/slimy04 }
+floor/slimy01	dsslimy1
+floor/slimy02	dsslimy2
+floor/slimy03	dsslimy3
+floor/slimy04	dsslimy4
+
+$limit floor/slimy 1
+
+//Fans and electrical stuff
+$random floor/electric { floor/elec1 floor/elec2 floor/elec3 }
+floor/elec1	dselec1
+floor/elec2	dselec2
+floor/elec3	dselec3
+
+$limit floor/electric 1
+
+//Flesh - Meat related floors
+$random floor/flesh	{ floor/flesh1 floor/flesh2 floor/flesh3 floor/flesh4 floor/flesh5 floor/flesh6 }
+floor/flesh1	dsflesh1
+floor/flesh2	dsflesh2
+floor/flesh3	dsflesh3
+floor/flesh4	dsflesh4
+floor/flesh5	dsflesh5
+floor/flesh6	dsflesh6
+
+/////////////////////////
+//END OF TERRAIN SOUNDS//
+/////////////////////////
+
+/*
+============================
+==== MAP RELATED SOUNDS ====
+============================
+*/
+
+//Small Switches - some activation sounds from BoA for completeness - ozy81
+ELECSW ELECSW
+LKDIGI LKDIGI
+SMSWITCH SMSWITCH
+SWMECH SWMECH
+
+Omnibow1 OMNIBOW
+omnibow2 OMNIBOW2
+$Random Omni/Bow {Omnibow1 Omnibow2}
+$rolloff Omnibow1 3200 6400
+$rolloff Omnibow2 3200 6400
+OmniKneel1 OMNIKNL1
+OmniKneel2 OMNIKNL2
+OmniKneel3 OMNIKNL3
+OmniKneel4 OMNIKNL4
+$Random Omni/Kneel {OmniKneel1 OmniKneel2 OmniKneel3 OmniKneel4}
+$rolloff OmniKneel1 2200 4400
+$rolloff OmniKneel2 2200 4400
+$rolloff OmniKneel3 2200 4400
+$rolloff OmniKneel4 2200 4400
+OmniWait OMNWAI1
+Omniwait2 OMNWAI2
+$rolloff OmniWait 1800 3400
+$rolloff OmniWait2 1800 3400
+$Random Omni/Wait {OmniWait Omniwait2}
+OMLaugh OMLAUGH
+OMLaugh2 OMLAUGH2
+OMLaugh3 OMLAUGH3
+OMLaugh4 OMLAUGH4
+OMLaugh5 OMLAUGH5
+$rolloff OMLaugh 2400 5600
+$rolloff OMLaugh2 2400 5600
+$rolloff OMLaugh3 2400 5600
+$rolloff OMLaugh4 2400 5600
+$rolloff OMLaugh5 2400 5600
+$Random Omni/Laugh {OMLaugh OMLaugh2 OMLaugh3 OMLaugh4 OMLaugh4 OMLaugh5}
+
+Sacrifice1 SACRI1
+Sacrifice2 SACRI2
+Sacrifice3 SACRI3
+$rolloff Sacrifice1 2400 2400
+$rolloff Sacrifice2 2400 2400
+$rolloff Sacrifice3 2400 2400
+$Random Omni/Sacrifice {Sacrifice1 Sacrifice2 Sacrifice3}
+
+Worship1 OMWOR1
+Worship2 OMWOR2
+$Random Omni/Worship {Worship1 Worship2}
+
+Opain1 OMPAIN1
+Opain2 OMPAIN2
+Opain3 OMPAIN3
+Opain4 OMPAIN4
+Opain5 OMPAIN5
+Opain6 OMPAIN6
+Opain7 OMPAIN7
+$Random Omni/Pain {Opain1 Opain2 Opain3 Opain4 Opain5 Opain6 Opain7}
+$Random Omni/Search {Omni/Wait Omni/Worship Omni/Laugh Omni/Bow Omni/Sacrifice}
+Omni/Death OMDIE
+
+Napalm/Exp2		NAPLMEX2
+Proximity/Arm	PROXARM
+Proximity/Det	PROXDET
+Stone/Stab		PSTONE
+$limit Stone/Stab 20
+Spray/Can	SPRAYCAN
+Spray/ALT	SPRAYFIR
+Leech/Torment	STAFFIRE
+
+Lighter/Close	ZIPCLOSE
+Lighter/Light	ZIPLIGHT
+Lighter/Open	ZIPOPEN
+
+Voodoo/Burn	 VOOBURN	//Man this would've been awesome ingame
+Voodoo/Chant VOOCHANT
+Voodoo/Laugh VOOLAUGH
+Voodoo/Stab	 VOOSTAB
+
+//AMBIENT
+CHAMBER		QAMB4
+CHANT1LP	CHANT1LP
+DRIPS		QAMB3
+DSEMPTY		DSEMPTY
+ELECT		ELECGEN2
+MOAN2		MOAN2
+MOAN2LP		MOAN2LP
+MOAN3		MOAN3
+MOAN4		MOAN4
+MOANS		MOANS
+SIREN1		SIREN1
+SWAMP		SWAMP
+TEMPLE		WHISPERS
+TRAINMOVE	TRAIN1
+WATERFALL	AMB13
+
+$ambient 2 DRIPS point random 5.0 10.0 64
+$ambient 3 TEMPLE point continuous 0.1
+$ambient 4 CHAMBER point continuous 127
+$ambient 5 ELECT point continuous 0.1
+$ambient 6 WATERFALL point continuous 127
+$ambient 7 SWAMP point continuous 0.1
+$ambient 8 TRAINMOVE point continuous 127
+$ambient 9 WIND1 point continuous 255
+$ambient 10 DRONE point continuous 255

@@ -1,0 +1,1008 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81, IvanDobrovski/Cruduxy/Marinelol
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+//lump containing all classes which create effects or are necessary to reduce rows amount and have less spaghetti codes - ozy81
+ACTOR ------------------INHERITS----------------------{}
+ACTOR BloodEnemy_Base
+{
+    //$Category "Blood Monsters"
+	//$Color 5
+	Monster
+	+DONTHARMSPECIES
+}
+
+ACTOR DoomEnemy_Base
+{
+	//$Category "Doom Monsters"
+	//$Color 8
+	Height 56
+	Speed 8
+	Monster
+	+DONTHARMSPECIES
+}
+
+ACTOR BloomHybrid_Base
+{
+	//$Category "BlooM Monsters"
+	//$Color 3
+	Health 30
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 8
+	PainChance 170
+	Monster
+	+DONTHARMSPECIES
+}
+
+ACTOR BloomBossHybrid_Base
+{
+	//$Category "BlooM Bosses"
+	//$Color 9
+	Health 30
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 8
+	PainChance 170
+	Monster
+	+DONTHARMSPECIES
+}
+
+ACTOR --------------------DEBRIS----------------------{}
+ACTOR Base_Debris
+{
+	Health 5
+	Radius 1
+	Height 1
+	Speed 10
+	Mass 1
+	Scale 0.5
+	Gravity 0.4
+	BounceCount 3
+	Projectile
+	+BOUNCEONACTORS
+	+BOUNCEONCEILINGS
+	+BOUNCEONFLOORS
+	+BOUNCEONWALLS
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+DOOMBOUNCE
+	+FLOORCLIP
+	+PUSHABLE
+	+RANDOMIZE
+	+SOLID
+	+WINDTHRUST
+	-NOBLOCKMAP
+	-NOGRAVITY
+}
+
+ACTOR Base_Debris2
+{
+	Radius 13
+	Height 8
+	Speed 12
+	Scale 0.5
+	PROJECTILE
+	+BLOODLESSIMPACT
+	+CANNOTPUSH
+	+NODAMAGETHRUST
+	+RANDOMIZE
+	-NOBLOCKMAP
+	-NOGRAVITY
+}
+
+ACTOR BarrelFrags //from Blade of Agony, but doesn't disappear - courtesy by Ozy81
+{
+	Scale 0.75
+	States
+	{
+	Spawn:
+		FRAG ABCDEFGHIJKLM 3
+	Death:
+		FRAG N -1
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR WoodDebris : Base_Debris
+{
+	States
+	{
+	Spawn:
+		WOOD ABCDEFGH 5 BRIGHT
+		Loop
+	Death:
+		TNT1 A 0 BRIGHT A_SpawnItemEx ("Woodfire",0,0,0)
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR Leaves
+{
+	Radius 8
+	Height 16
+	Speed 15
+    +FLOAT
+    +NOGRAVITY
+	-SOLID
+	States
+	{
+	Spawn:
+		LEAF ABCDDCBA 1
+		LEAF ABCDDCBA 1
+		LEAF ABCDDCBA 1
+		LEAF ABCDDCBA 1
+		Goto Death
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
+	Spawn1:
+		LEAF A -1 A_FadeOut(0.01)
+		Loop
+	Spawn2:
+		LEAF B -1 A_FadeOut(0.01)
+		Loop
+	Spawn3:
+		LEAF C -1 A_FadeOut(0.01)
+		Loop
+	Spawn4:
+		LEAF D -1 A_FadeOut(0.01)
+		Loop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR LeafDebris
+{
+	Radius 1
+	Height 1
+	Speed 10
+	Mass 1
+	Scale 0.5
+	Gravity 0.5
+	BounceCount 1
+	PROJECTILE
+	+BOUNCEONFLOORS
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+FLOORCLIP
+	+NOBLOCKMAP
+	+RANDOMIZE
+	+WINDTHRUST
+	-NOGRAVITY
+	-SOLID
+	States
+	{
+	Spawn:
+		LEAF ABCD 2
+		Loop
+	Death:
+		TNT1 A 0 A_SpawnItemEx ("LeafLeft",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR LeafDebris2 : LeafDebris
+{
+	States
+	{
+	Death:
+		TNT1 A 0 A_SpawnItemEx ("LeafLeft2",frandom(-16,16),frandom(-16,16),frandom(48,56),random(0,10),random(0,10),random(0,10),random(-360,360))
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR LeafLeft : Feather
+{
+	Radius 1
+	Height 1
+	Mass 1
+	Scale 0.45
+	Gravity 0.125
+	+NOBLOCKMAP
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_Jump(127,"Spawn1")
+		TNT1 A 0 A_Jump(127,"Spawn2")
+		TNT1 A 0 A_Jump(127,"Spawn3")
+		TNT1 A 0 A_Jump(127,"Spawn4")
+		Stop
+	Spawn1:
+		NLE1 ABCDEDCB 5
+		Loop
+	Spawn2:
+		NLE2 ABCDEDCB 5
+		Loop
+	Spawn3:
+		NLE3 ABCDEDCB 5
+		Loop
+	Spawn4:
+		NLE4 ABCDEDCB 5
+		Loop
+	Death:
+		"####" C 35 A_Fadeout(0.35)
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR LeafLeft2 : LeafLeft
+{
+	States
+	{
+	Spawn:
+		NLE1 ABCDEDCB 5
+		Loop
+	Death:
+		"####" C 35 A_Fadeout(0.35)
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR LeafLeft3 : LeafLeft
+{
+	States
+	{
+	Spawn:
+		NLE2 ABCDEDCB 5
+		Loop
+	Death:
+		"####" C 35 A_Fadeout(0.35)
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR LeafLeft4 : LeafLeft
+{
+	States
+	{
+	Spawn:
+		NLE3 ABCDEDCB 5
+		Loop
+	Death:
+		"####" C 35 A_Fadeout(0.35)
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR LeafLeft5 : LeafLeft
+{
+	States
+	{
+	Spawn:
+		NLE4 ABCDEDCB 5
+		Loop
+	Death:
+		"####" C 35 A_Fadeout(0.35)
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR LeafLeft6 : LeafLeft { Scale 0.25 }
+
+ACTOR FireDebris : Base_Debris
+{
+	States
+	{
+	Spawn:
+		WOOD ABCDEFGH 5 BRIGHT
+		Loop
+	Death:
+		TNT1 A 0 BRIGHT A_SpawnItemEx ("Minifire",0,0,0)
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR SmokeDebris : Base_Debris
+{
+	States
+	{
+	Spawn:
+		WOOD ABCDEFGH 5 BRIGHT
+		Loop
+	Death:
+		TNT1 A 0 BRIGHT A_SpawnItemEx ("Smokefire",0,0,0)
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR Woodfire : Base_Debris2
+{
+	States
+	{
+	Spawn:
+		MI2F ABCDEFGHIJKLMN 4 BRIGHT A_FadeOut(0.009)
+		Loop
+	}
+}
+
+ACTOR Minifire : Base_Debris2
+{
+	RenderStyle Translucent
+	Alpha 0.8
+	States
+	{
+	Spawn:
+		MINF ABCDEFGHIJKLMN 4 BRIGHT A_FadeOut(0.009)
+		Loop
+	}
+}
+
+ACTOR Smokefire : Base_Debris2
+{
+	RenderStyle Translucent
+	Alpha 0.4
+	States
+	{
+	Spawn:
+		STEA ABCD 4 A_FadeOut(frandom(0.01,0.09))
+		Loop
+	}
+}
+
+ACTOR NapalmDebris
+{
+	Health 5
+	Radius 1
+	Height 1
+	Speed 10
+	Scale 0.2
+	Projectile
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+RANDOMIZE
+	+WINDTHRUST
+	-NOGRAVITY
+	-SOLID
+	States
+	{
+	Spawn:
+		FSPK A 0 BRIGHT A_Jump(192,3,4,6,8)
+		FSPK A 10 BRIGHT
+		FSPK A 200 BRIGHT A_LowGravity
+		Stop
+		FSPK B 10 BRIGHT
+		FSPK B 200 BRIGHT A_LowGravity
+		Stop
+		FSPK C 10 BRIGHT
+		FSPK C 200 BRIGHT A_LowGravity
+		Stop
+		FSPK D 10 BRIGHT
+		FSPK D 200 BRIGHT A_LowGravity
+		Stop
+		FSPK E 10 BRIGHT
+		FSPK E 200 BRIGHT A_LowGravity
+		Stop
+	Death:
+		FSPK A 1
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR BalloonDebris : NapalmDebris
+{
+	Health 10
+	Scale 0.5
+	RenderStyle "Translucent"
+	Alpha 0.9
+	States
+	{
+	Spawn:
+		SGSA T 0 A_Jump(128,8)
+		SGSA PQRSTQRS 3
+		Goto Spawn+1
+		SGSA SRQTSRQP 3
+		Goto Spawn+9
+	Death:
+		SGSA T 0 A_Jump(128,3)
+		SGSA T 1
+		SGSA T -1
+		Stop
+		SGSA P 1
+		SGSA P -1
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR GlassDebris : NapalmDebris
+{
+	Health 10
+	Scale 0.5
+	RenderStyle "Translucent"
+	Alpha 0.9
+	States
+	{
+	Spawn:
+		GLAS A 0 A_Jump(128,8)
+		GLAS BCDEFGH 3
+		Goto Spawn+1
+		GLAS ABCDEFGH 3
+		Goto Spawn+9
+	Death:
+		GLAS A 0 A_Jump(128,2)
+		GLAS A 1
+		Stop
+		GLAS A 0 A_Jump(128,2)
+		GLAS B 1
+		Stop
+		GLAS A 0 A_Jump(128,2)
+		GLAS C 1
+		Stop
+		GLAS A 0 A_Jump(128,2)
+		GLAS D 1
+		Stop
+		GLAS A 0 A_Jump(128,2)
+		GLAS E 1
+		Stop
+		GLAS A 0 A_Jump(128,2)
+		GLAS F 1
+		Stop
+		GLAS A 0 A_Jump(128,2)
+		GLAS G 1
+		Stop
+		GLAS H 1
+		Stop
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR --------PUFFS--------- {}
+ACTOR BulletSpark
+{
+	Radius 3
+	Height 4
+	Speed 25
+	RenderStyle "Add"
+	Scale 0.7
+	+CANNOTPUSH
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+RANDOMIZE
+	+THRUGHOST
+	SeeSound "Shoot/Bullet"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		BSPR A 0 A_Jump(128,7)
+		BSPR ABCDEFG 2 BRIGHT
+		Stop
+		BSPR HIJKLMN 2 BRIGHT
+		Stop
+	XDeath:
+		TNT1 A 0
+		BLD2 A 0 A_Jump(128,"XDeath2")
+		BLD2 FGHI 4
+		Stop
+	XDeath2:
+		BLD2 OPQR 4
+		Stop
+	}
+}
+
+ACTOR ZBBulletPuff : BulletPuff replaces BulletPuff
+{
+	Scale 0.8
+	Renderstyle Translucent
+	Alpha 0.75
+	DamageType "ZBloodBullet"
+	+ALLOWPARTICLES
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+RANDOMIZE
+	+THRUGHOST
+	+THRUSPECIES
+	AttackSound "Shoot/Bullet"
+	Species "Zombies"
+	States
+	{
+	Spawn:
+		BSPR A 0
+	Melee:
+		PUFF A 0 A_SpawnItem("BulletSpark")
+		PUFF A 0 A_Jump(128,32)
+		PUFF AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHH 1 A_FadeOut(0.01)
+		Stop
+		PUFF IIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPP 1 A_FadeOut(0.01)
+		Stop
+	XDeath:
+		TNT1 A 0
+		BLD2 A 0 A_Jump(128,"XDeath2")
+		BLD2 FGHI 4
+		Stop
+	XDeath2:
+		BLD2 OPQR 4
+		Stop
+	}
+}
+
+ACTOR PitchforkSpark
+{
+	Radius 3
+	Height 4
+	Speed 25
+	RenderStyle "Add"
+	Scale 0.7
+	+CANNOTPUSH
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+RANDOMIZE
+	+THRUGHOST
+	SeeSound "Voodoo/Stab"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		BSPR A 0 A_Jump(128,7)
+		BSPR ABCDEFG 2 BRIGHT
+		Stop
+		BSPR HIJKLMN 2 BRIGHT
+		Stop
+	XDeath:
+		TNT1 A 0
+		TNT1 A 0 A_PlaySound("Voodoo/Stab")
+		BLD2 A 0 A_Jump(128,"XDeath2")
+		BLD2 FGHI 4
+		Stop
+	XDeath2:
+		BLD2 OPQR 4
+		Stop
+	}
+}
+
+ACTOR PitchforkPuff
+{
+	Scale 0.8
+	DamageType "PitchFork"
+	Renderstyle Translucent
+	Alpha 0.5
+	+ALLOWPARTICLES
+	+NOBLOCKMAP
+	+NODAMAGETHRUST
+	+NOGRAVITY
+	+RANDOMIZE
+	+THRUGHOST
+	+PUFFONACTORS
+	AttackSound "Stone/Stab"
+	ActiveSound ""
+	SeeSound "Voodoo/Stab"
+	States
+	{
+	Spawn:
+		PUFF A 0
+		Stop
+	Melee:
+		TNT1 A 0
+		PUFF A 1 A_SpawnItem("PitchforkSpark")
+		PUFF A 0 A_Jump(128,9)
+		PUFF ABCDEFGH 4
+		Stop
+		PUFF IJKLMNOP 4
+		Stop
+	Crash:
+		TNT1 A 0
+		TNT1 A 0 A_PlaySound("Stone/Stab")		
+		BSPR A 0 A_Jump(128,8)
+		BSPR ABCDEFG 2 BRIGHT
+		Stop
+		BSPR HIJKLMN 2 BRIGHT
+		Stop		
+	XDeath:
+		TNT1 A 0 
+		TNT1 A 0 A_PlaySound("Voodoo/Stab")
+		BLD2 A 0 A_Jump(128,"XDeath2")
+		BLD2 FGHI 4
+		Stop
+	XDeath2:
+		BLD2 OPQR 4
+		Stop
+	}
+}
+
+ACTOR ZBulletPuffS : ZBBulletPuff { DamageType "Sawedoff" }
+ACTOR ZBulletPuffS2 : ZBBulletPuff { DamageType "Sawedoff2" }
+ACTOR ZBulletPuffS3 : ZBBulletPuff { DamageType "SawedoffLess" }
+
+ACTOR ZBulletPuffT : ZBBulletPuff
+{
+	DamageType "Tommy"
+	+NODAMAGETHRUST
+}
+
+ACTOR ZBulletCultist : ZBBulletPuff
+{
+	DamageType "Cultist"
+	+THRUGHOST
+	+THRUSPECIES
+    Species "Zombies"
+}
+
+ACTOR ------------------MISCSTUFF--------------------{}
+ACTOR GlitterBridge : Bridge
+{
+	SpawnId 121
+	RenderStyle "Add"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		TLGL ABCDE 5 BRIGHT
+		Loop
+	}
+}
+
+ACTOR ZBloodTeleportFog : TeleportFog replaces TeleportFog
+{
+	RenderStyle "Add"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	SeeSound "misc/teleport"
+	States
+	{
+	Spawn:
+		TFOG ABCD 5 BRIGHT
+		TFOG EEEEFFFFGGGGHHHHIIIIJJJJ 1 BRIGHT A_FadeOut(0.04)
+		Stop
+	}
+}
+
+ACTOR Acid : Blood
+{
+	Gravity 0.6
+	Alpha 0.90
+	RenderStyle "Translucent"
+	+CANNOTPUSH
+	States
+	{
+	Spawn:
+		BLUD A 0 A_Jump(127,6)
+		BLUD A 5
+		BLUD B 4 A_SpawnDebris("FlyingAcidrop")
+		BLUD CDE 3
+		Stop
+		BLUD FF 3
+		BLUD G 4 A_SpawnDebris("FlyingAcidrop")
+		BLUD HIJ 3
+		Stop
+	}
+}
+
+ACTOR HangedBloodDrip
+{
+	Radius 1
+	Height 1
+	+DONTSPLASH
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+		BNDR A 1 A_CheckFloor("Death")
+		Loop
+	Death:
+		BNDR BCDEFGH 3
+		POB2 A 510 A_FadeOut(0.8)
+		Stop
+	}
+}
+
+ACTOR RainBlood
+{
+	Radius 1
+	Height 1
+	Gravity 0.65
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+NOBLOCKMAP
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+		BLD2 FGHI 3 A_Stop
+	Death:
+	See:
+		BLD2 FGHI 7
+		Stop
+	}
+}
+
+ACTOR FlyingAcidrop
+{
+	Health 1
+	Radius 1
+	Height 1
+	Gravity 0.60
+	Mass 30
+	Projectile
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+FLOORCLIP
+	+NOBLOCKMAP
+	+NOPAIN
+	+WINDTHRUST
+	-NOGRAVITY
+	-SOLID
+	States
+	{
+	Spawn:
+		ACID AA 0 A_Recoil(Random(-5,5))
+		ACID A 0 A_Setangle(angle+Random(0,360))
+		ACID A 0 A_Jump(127,27)
+		ACID A 9
+		ACID AAAAABBBBBCCCCCDDDDEEEEEE 2 A_SpawnItemEX("AcidTrail",Random(-15,15),Random(-15,15))
+		Stop
+		ACID FFFFFGGGGGHHHHHIIJJJJJJ 3 A_SpawnItem("AcidTrail",Random(-2,2),Random(-2,2))
+		Stop
+		Death:
+		ACID EEEEE 2 A_SpawnitemEx("RainAcid",Random(-15,15),Random(-15,15))
+		ACID EEEEEEEEEE 25 A_FadeOut(0.25)
+		ACID E 2
+		Stop
+	}
+}
+
+ACTOR AcidPool //The floor will be a bit dirty this time,these make an i5 LOSE 90 fps so no they wont be ever back
+{
+	Scale 0.65
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+	Death:
+		ACI2 A 0
+		ACI2 A 10 A_FadeOut(0.25)
+		Loop
+	}
+}
+
+ACTOR AcidPool2 : AcidPool
+{
+	Scale 1
+	States
+	{
+	Spawn:
+	Death:
+		ACI2 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 1 //A_FadeIn(0.01)
+		ACI2 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 1 //A_FadeOut(0.01)
+		Stop
+	}
+}
+
+ACTOR RainAcid
+{
+	Radius 1
+	Height 1
+	Gravity 0.65
+	+CANNOTPUSH
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+		ACI2 FGHI 3 A_Stop
+	Death:
+	See:
+		ACI2 FGHI 7
+		Stop
+	}
+}
+
+ACTOR AcidTrail
+{
+	Radius 1
+	Gravity 0.55
+	Height 1
+	Speed 1
+	Scale 0.5
+	Projectile
+	+CANNOTPUSH
+	+DONTSPLASH
+	+FLOORCLIP
+	+NOBLOCKMAP
+	+NOPAIN
+	+RANDOMIZE
+	+WINDTHRUST
+	-NOGRAVITY
+	-SOLID
+	States
+	{
+	Spawn:
+		//Once I added rain blood and blood pools this turned game into a lagfest
+		ACI2 J 0 A_Jump (128,2,3,4,5,6,7,8,9,10)
+		ACI2 "ABEJKLCDMN" 3
+		ACI2 J 0 A_Jump (128,2,3,4,5,6,7,8,9,10)
+		ACI2 "AJKLBCDEMN" 5
+		ACI2 J 0 A_Jump (128,2,3,4,5,6,7,8,9,10)
+		ACI2 "ABLMNCDEJK" 4
+		ACI2 J 0 A_Jump (128,2,3,4,5,6,7,8,9,10)
+		ACI2 "EJKABCDLMN" 3
+		ACI2 J 0 A_Jump (128,2,3,4,5,6,7,8,9,10)
+		ACI2 "AJKLMBCDEN" 5
+		Stop
+	Death:
+		TNT1 A 0
+		ACI2 N 0 A_Jump (92, 2)
+		ACI2 A 6
+		Stop
+		ACI2 F 0 A_Jump (128, 7)
+		ACI2 F 4 A_PlaySound("Body/Blood")
+		ACI2 GHI 8
+		ACI2 I 0 A_Jump (128, 1)
+		Goto XDeath
+		ACI2 A 5
+		ACI2 A 50 A_FadeOut(0.07)
+		Goto Death+9
+		ACI2 O 4 A_PlaySound("Body/Blood")
+		ACI2 PQR 4
+		ACI2 R 0 A_Jump (128, 1)
+		Goto XDeath
+		ACI2 A 5
+		ACI2 A 50 A_FadeOut(0.07)
+		Goto Death+19
+	XDeath:
+		ACI2 B 5 A_SpawnItemEX("AcidPool",Random(-10,10),Random(-10,10))
+		ACI2 B 50 A_FadeOut(0.07)
+		Goto XDeath+1
+	Death.Sky:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR BaseLensflare
+{
+	Health -1
+	Radius 0
+	Height 0
+	RenderStyle "Add"
+	Alpha 1
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+ISMONSTER
+	+NOCLIP
+	+NOGRAVITY
+	+NOINTERACTION
+	-COUNTKILL
+	-SHOOTABLE
+	-SOLID
+}
+
+ACTOR BlueFlare : BaseLensflare
+{
+	Scale 0.4
+	States
+	{
+	Spawn:
+		LEFL B 0
+		LEFL BBBB 1 BRIGHT A_FadeOut(.25)
+		Stop
+	}
+}
+
+ACTOR BlueFlareSmall : BlueFlare { Scale 0.2 }
+
+ACTOR ShockButcher : BaseLensflare
+{
+	Scale 0.5
+	Alpha 0.5
+	Translation Ice
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		BBUZ AA 1 A_SetTranslucent(random(0,5)/10,1)
+		Stop
+	}
+}
+
+ACTOR BurnDeathSmoke
+{
+	Radius 64
+	Height 16
+	RenderStyle "Translucent"
+	Alpha 0.30
+	+CANNOTPUSH
+	+DONTSPLASH
+	+FIXMAPTHINGPOS
+	+NOBLOCKMAP
+	+NOGRAVITY
+	-SOLID
+	States
+	{
+	Spawn:
+		LVAS KGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJGHIJK 4
+		Stop
+	}
+}
+
+ACTOR BigSmoke
+{
+	Radius 13
+	Height 8
+	Speed 12
+	Scale 0.5
+	Alpha 0.7
+	RenderStyle "Translucent"
+	+BLOODLESSIMPACT
+	+CANNOTPUSH
+	+NODAMAGETHRUST
+	+RANDOMIZE
+	States
+	{
+	Spawn:
+		BTEA ABCD 4 A_FadeOut(0.01)
+		Loop
+	}
+}

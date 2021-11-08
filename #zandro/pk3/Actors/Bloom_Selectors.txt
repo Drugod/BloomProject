@@ -1,0 +1,1566 @@
+/*
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+**/
+
+ACTOR --------SHOTGUN_MONSTERS_SELECTOR------------ {}
+ACTOR ShotgunMonsters replaces ShotgunGuy
+{
+    //$Category "Monsters Selectors"
+    //$Title ShotgunGuy Spawner (ShotgunGuy)
+    //$Color 3
+	//$Sprite B1ILA0
+	Scale 0.5 //needed for gzdb - ozy81
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridShotgunSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalShotgunSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalShotgunSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("BrownCultist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("ShotgunGuy_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridPossesedShotgunSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("PossesedShotgunguy",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("PossesedNeoCultist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("PossesedApocalypticNeoCultist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridShotgunSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Apocalyptic_NeoCvltist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("NeoCvltist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("ShotgunMonk",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("DeepOneShot",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn5:
+		TNT1 A 0 A_SpawnItemEx("HybridPossesedShotgunSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------CHAINGUN_MONSTERS_SELECTOR------------ {}
+ACTOR ChaingunMonsters replaces ChaingunGuy
+{
+    //$Category "Monsters Selectors"
+    //$Title Chaingun Spawner (ChaingunGuy)
+    //$Color 3
+	//$Sprite B1ILB0
+	Scale 0.5 //needed for gzdb - ozy81
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("checkheight",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	RandomHybrid:
+		TNT1 A 0 A_SpawnItemEx("HybridChaingunnerSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	lowz:
+		TNT1 A 0 A_SpawnItemEx("Fanatic_Chaingunner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalChaingunnerSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalChaingunnerSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("GreyCultist",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("ChaingunGuy_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridChaingunnerSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Fanatic_Chaingunner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Fanatic_ChaingunnerAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("DeepOneChain",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------EELMONSTERS_SELECTOR------------ {}
+ACTOR Eelmonsters replaces Fatso
+{
+    //$Category "Monsters Selectors"
+    //$Title Eel/Mancubus Spawner (Mancubus/Fatso)
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridFishMancubus",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalFishMancubus",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalFishMancubus
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("GillBeast",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Fatso_",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridFishMancubus
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Eelcubus",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Gillcubus",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------ELEMENTAL_GARMONSTERS_SELECTOR------------ {}
+ACTOR ElementalGarmonsters replaces PainElemental
+{
+    //$Category "Monsters Selectors"
+    //$Title Elemental Garmonsters Spawner (PainElemental)
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridElementalGarmonsters",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalElementalGarmonsters",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalElementalGarmonsters
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("BloodGargoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("PainElemental_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridElementalGarmonsters
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Elemental_Gargoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------HOUND_SELECTOR------------ {}
+ACTOR HoundSpawner replaces Demon
+{
+    //$Category "Monsters Selectors"
+    //$Title Hounds Spawner (Demon/Pinky)
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridHoundSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalHoundSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalHoundSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Demon_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("HellHound",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridHoundSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("DemonHound",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("DemonhoundAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("Gargodemon",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("Ratdemons",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn5:
+		TNT1 A 0 A_SpawnItemEx("PinkGargoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------RAT_SELECTOR------------ {}
+ACTOR RatDemonSpawner 19060
+{
+    //$Category "Monsters Selectors"
+    //$Title RatDemon Spawner
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridRatDemonSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalRatDemonSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalRatDemonSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Demon_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BloodRat",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridRatDemonSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("RatDemons",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------SPECTRE_HOUND_SELECTOR------------ {}
+ACTOR SpectreSpawner replaces Spectre
+{
+    //$Category "Monsters Selectors"
+    //$Title Hounds Spectre Spawner (Spectre)
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridSpectreSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalSpectreSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalSpectreSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Spectre_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridSpectreSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Spectrehound",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("SpectrehoundAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------CACOYLES_SELECTOR------------ {}
+ACTOR Garmonsters replaces Cacodemon
+{
+    //$Category "Monsters Selectors"
+    //$Title Garmonsters Spawner (Cacodemon)
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridGarmonsters",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalGarmonsters",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalGarmonsters
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("BloodGargoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Cacodemon_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridGarmonsters
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Cacoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Cacoyle_Variant",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------GHOST_REVENANTS_SELECTOR------------ {}
+ACTOR GhostandRevenants replaces Revenant
+{
+    //$Category "Monsters Selectors"
+    //$Title Ghost & Revenants Spawner (Revenant)
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridGhostandRevenants",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalGhostandRevenants",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalGhostandRevenants
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Revenant_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Phantasm",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridGhostandRevenants
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("SuperGhostRevenantSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("SuperGhostRevenantTerrainSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("RevenantMoronSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("RevenantMimeSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------SOULS_SELECTOR------------ {}
+ACTOR TheSouls replaces LostSoul
+{
+    //$Category "Monsters Selectors"
+    //$Title The Souls (LostSoul)
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheSoulsHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheSoulsNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR TheSoulsNormal
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("LostSoul_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BatFamiliar",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR TheSoulsHybrid
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("GargoylSoul",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------ARACHNOID_SELECTOR------------ {}
+ACTOR TheArachnoids replaces Arachnotron
+{
+    //$Category "Monsters Selectors"
+    //$Title The Arachnoids (Arachnotron)
+    //$Color 3
+	//$Sprite B1ILD0
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("ArachnoidHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("ArachnoidNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR ArachnoidNormal
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("chk_actspecial",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Arachnotron_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("SpiderMother",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("ChrysalidPod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("LavaPod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR ArachnoidHybrid
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("chk_actspecial",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Arachnoid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Green_Arachnopod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("Magma_Arachnopod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("Ice_Arachnopod",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------CVLTIMPS_ZombImpS_SELECTOR------------ {}
+ACTOR TheCvltimpZombImps replaces DoomImp
+{
+    //$Category "Monsters Selectors"
+    //$Title The Cvltimps and ZombImps (IMP)
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("CvltImpHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("CvltImpNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR CvltImpNormal
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("DoomImp_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR CvltImpHybrid
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("CvltImp",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("CvltImpAlt",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("ZombImps",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("DeepOneTri",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------WOLFKNIGHTS_SELECTOR------------ {}
+ACTOR TheWolfKnights replaces BaronOfHell
+{
+    //$Category "Monsters Selectors"
+    //$Title WereWolfs of Hell (BaronOfHell)
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("BaronofHellHybrid",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("BaronofHellNormal",0,0,0,0,0,0,0,BLM_FLAGS2,0,tid)
+		Stop
+	}
+}
+
+ACTOR BaronofHellNormal
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("BaronOfHell_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BloodBeast",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR BaronofHellHybrid
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("WerewolvesSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Zombarons",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------GHOULSZOMBIES_SELECTOR------------ {}
+ACTOR TheGhoulsZombies replaces ZombieMan
+{
+    //$Category "Monsters Selectors"
+    //$Title Ghouls and Zombies (ZombieMan)
+    //$Color 3
+	Skip_Super
+	+NOTDMATCH
+	-ISMONSTER
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("GhoulZombieHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("GhoulZombieNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR GhoulZombieNormal
+{
+	-ISMONSTER
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("ZombieMan_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BloodZombie",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR GhoulZombieHybrid
+{
+	-ISMONSTER
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("GhoulsZombies",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("PossesedZombieMan",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------ARCHVILESZOMBIES_SELECTOR------------ {}
+ACTOR TheArchZombies replaces Archvile
+{
+    //$Category "Monsters Selectors"
+    //$Title Archviles and Zombies (Archvile)
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("ArchZombieHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("ArchZombieNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR ArchZombieNormal
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Archvile_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR ArchZombieHybrid
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Archzombie",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Gargovile",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------HELLBUTCHER_SELECTOR------------ {}
+ACTOR TheHellButchers replaces HellKnight
+{
+    //$Category "Monsters Selectors"
+    //$Title Hell Butchers (HellKnight)
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL //not necessary but here in case of future inheritances - ozy81
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheHellButchersHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheHellButchersNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR TheHellButchersNormal
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("HellKnight_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BloatedButcher",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR TheHellButchersHybrid
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("HellButcherSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("HoundKnightOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------GARGOL_LIVING_STATUE------------ {}
+ACTOR TheGargolLivingStatue 19044
+{
+    //$Category "Monsters Selectors"
+    //$Title The Gargovile Living Statue
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheGargolsStatueHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheGargolsStatueNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR TheGargolsStatueNormal
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("LivingGargStatue",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR TheGargolsStatueHybrid
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("LivingGargovileStatue",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------GARGOL_STATUE------------ {}
+ACTOR TheGargolStatue 19045
+{
+    //$Category "Monsters Selectors"
+    //$Title The Gargovile Statue
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheStatueHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheStatueNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR MerryGargStatue
+{
+	//$Category "BlooM Ambient"
+	Scale 0.6
+	Radius 10
+	Height 35
+	Mass 10
+	Gravity 0.6
+	+NOBLOOD
+	+NODAMAGE
+	+NOTAUTOAIMED
+	+SHOOTABLE
+	+SOLID
+	States
+	{
+	Spawn:
+		GRGS A -1
+		Stop
+	}
+}
+
+ACTOR MerryGargovileStatue : MerryGargStatue
+{
+	Scale 1.0
+	States
+	{
+	Spawn:
+		ARCS A -1
+		Stop
+	}
+}
+
+ACTOR TheStatueNormal
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("MerryGargStatue",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR TheStatueHybrid
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("MerryGargovileStatue",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------DEEPONES_SELECTOR------------ {}
+ACTOR TheDeepones 19055
+{
+    //$Category "Monsters Selectors"
+    //$Title DeepOne Selector
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL //not necessary but here in case of future inheritances - ozy81
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheDeeponesHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheDeeponesNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR TheDeeponesNormal
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("GillBeast",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("OriginalShotgunSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR TheDeeponesHybrid
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("DeepOneShot",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("DeepOneTri",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("DeepOneChain",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------MORON_SELECTOR------------ {}
+ACTOR TheMorons 19080
+{
+    //$Category "Monsters Selectors"
+    //$Title Moron Selector
+    //$Color 3
+	+NOTDMATCH
+	-COUNTKILL //not necessary but here in case of future inheritances - ozy81
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheMoronHybrid",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("TheMoronNormal",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR TheMoronNormal
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Spectre_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Demon_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR TheMoronHybrid
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("AberrationMoron",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("AberrationMoron2",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("AberrationMoron3",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("AberrationMoron4",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------BARRELS------------ {}
+ACTOR HybridBarrels replaces ExplosiveBarrel
+{
+    //$Category "Monsters Selectors"
+    //$Title Hybrid Barrels (ExplosiveBarrel)
+    //$Color 3
+	//$Sprite BARMA1
+	Scale 0.5 //needed for gzdb - ozy81
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridBarrelsSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalBarrelsSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalBarrelsSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("ExplosiveMoronSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BloodExBarrel",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("TNTBarrel1",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("ExplosiveBarrel_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridBarrelsSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("ExplosiveMoronSpawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("BloodExBarrel",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("TNTBarrel1",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("ExplosiveBarrel_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------BOSSES------------ {}
+ACTOR HybridBosses1 replaces Cyberdemon
+{
+    //$Category "Monsters Selectors"
+    //$Title Hybrid Bosses 1 (Cyberdemon)
+    //$Color 3
+	//$Sprite B1ILC0
+	Scale 0.5 //needed for gzdb - ozy81
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridBoss1Spawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalBoss1Spawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalBoss1Spawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Cheogh",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Cyberdemon_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("Tchernobog",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridBoss1Spawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5","Spawn6")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("CyberCheogh",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Cyberbog",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("Tchernodemon",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("Sloth",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn5:
+		TNT1 A 0 A_SpawnItemEx("Jojo",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn6:
+		TNT1 A 0 A_SpawnItemEx("HoundBaronOfHell",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+
+	}
+}
+
+ACTOR HybridBosses2 replaces SpiderMastermind
+{
+    //$Category "Monsters Selectors"
+    //$Title Hybrid Bosses 2 (SpiderMastermind)
+    //$Color 3
+	//$Sprite B1ILE0
+	Scale 0.5 //needed for gzdb - ozy81
+	+NOTDMATCH
+	-COUNTKILL
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 ACS_NamedExecuteAlways("hybrid_selection",0)
+		TNT1 A 1 A_Jump(256,"Deciding")
+	Deciding:
+		TNT1 A 1
+		Loop
+	HybridSpawner:
+		TNT1 A 0 A_SpawnItemEx("HybridBoss2Spawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	NormalSpawner:
+		TNT1 A 0 A_SpawnItemEx("OriginalBoss2Spawner",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR OriginalBoss2Spawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("Cerberus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("SpiderMastermind_",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("SpiderMother",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR HybridBoss2Spawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5")
+		Stop
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("KingCacoyle",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnItemEx("Pinkberus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnItemEx("HandMastermind",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnItemEx("Cerbcubus",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	Spawn5:
+		TNT1 A 0 A_SpawnItemEx("ShialMastermind",0,0,0,0,0,0,0,BLM_FLAGS1,0,tid)
+		Stop
+	}
+}
+
+ACTOR --------CUSTOMEYE_SELECTOR------------ {}
+ACTOR CustomEye : BossEye replaces BossEye
+{
+	DropItem "ShotgunMonsters"
+	DropItem "ChaingunMonsters"
+	DropItem "Eelmonsters"
+	DropItem "ElementalGarmonsters"
+	DropItem "HoundSpawner"
+	DropItem "SpectreSpawner"
+	DropItem "Garmonsters"
+	DropItem "GhostandRevenants"
+	DropItem "TheSouls"
+	DropItem "TheArachnoids"
+	DropItem "TheCvltimpZombImps"
+	DropItem "TheWolfKnights"
+	DropItem "TheGhoulsZombies"
+	DropItem "TheArchZombies"
+	DropItem "TheHellButchers"
+}

@@ -1,0 +1,91 @@
+//These skills were defined inside ZBlood, we should override these with something proper - For now renamed ZB as BLM
+//Don't forget that we can also use replacers for high skills, also names can be transferred to LANGUAGE - Ozy81
+
+clearskills
+// ================================================
+// Skill level: Easy
+// Still too young to die
+// ================================================
+skill BLM_Easy
+{
+	name = "Still too young to die"
+	textcolor = black
+	acsreturn = 0
+	spawnfilter = "Easy"
+	damagefactor = 0.3
+	aggressiveness = 0.5
+	ammofactor = 1.4
+	doubleammofactor = 1
+	easybossbrain
+	MonsterFallingDamage
+}
+
+// ================================================
+// Skill level: Moderate
+// Hey, too pink
+// ================================================
+skill BLM_Moderate
+{
+	name = "Hey, too pink"
+	textcolor = black
+	acsreturn = 1
+	spawnfilter = "Easy"
+	damagefactor = 0.5
+	aggressiveness = 0.9
+	ammofactor = 1.2
+	doubleammofactor = 1
+	MonsterFallingDamage
+}
+
+// ================================================
+// Skill level: Recommended
+// Plenty broiled
+// ================================================
+skill BLM_Normal
+{
+	name = "Plenty broiled"
+	textcolor = black
+	acsreturn = 2
+	spawnfilter = "Normal"
+	damagefactor = 0.75
+	aggressiveness = 1
+	ammofactor = 1.0
+	doubleammofactor = 1
+	MonsterFallingDamage
+}
+
+// ================================================
+// Skill level: Difficult
+// Ultra-crispy
+// ================================================
+skill BLM_Difficult
+{
+	name = "Ultra-crispy"
+	textcolor = black
+	acsreturn = 3
+	spawnfilter = "Hard"
+	damagefactor = 1
+	aggressiveness = 1.1
+	ammofactor = 1.0
+	doubleammofactor = 1
+	MonsterFallingDamage
+	DefaultSkill
+}
+
+// ================================================
+// Skill level: Extreme
+// Caleb's nightmare!
+// ================================================
+skill BLM_Extreme
+{
+	name = "Caleb's nightmare!"
+	textcolor = black
+	acsreturn = 4
+	spawnfilter = "Nightmare"
+	damagefactor = 1.25
+	aggressiveness = 2
+	ammofactor = 1.0
+	doubleammofactor = 1
+	MonsterFallingDamage
+	MustConfirm = "Are you sure?"
+}
