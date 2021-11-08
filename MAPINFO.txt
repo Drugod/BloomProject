@@ -1,5 +1,7 @@
-//These skills were defined inside ZBlood, we should override these with something proper - For now renamed ZB as BLM
-//Don't forget that we can also use replacers for high skills, also names can be transferred to LANGUAGE - Ozy81
+gameinfo
+{
+	AddEventHandlers = "WaterHandler", "TcPostProcessShaderHandler"
+}
 
 clearskills
 // ================================================

@@ -111,6 +111,8 @@ OptionMenu "BloomOptions"
 {
 	Title  "BlooM Options"
 	Statictext " "
+	Submenu "Bloom Shader Options",			"BloomShadersOptions"
+	Statictext " "
 	StaticText "Gameplay Options", 1
 	Option "Hybrid Bloom monsters?", "blm_hybrid", "YesOrNo"
 	Option "Traps on iwad maps? (NOTE: These have not fully implemented)", "blm_traps", "YesOrNo"
@@ -132,6 +134,44 @@ OptionMenu "BloomOptions"
 	Control "Doomguy toss grenade", "grenadetoss"
 	StaticText " "
 	SafeCommand "Set BlooM Default Setup", "bloom_setup"
+}
+
+OptionMenu "BloomShadersOptions"
+{
+	Position -15
+	Title "Shaders Options"
+	StaticText " "
+	Submenu "Motion Blur",			"BlooMBlurOpts"
+	StaticText " "
+	Option "$GLPREFMNU_BLOOM",		 			gl_bloom,						"OnOff"
+	Option "$GLPREFMNU_SSAO",		 			gl_ssao,						"SSAOModes"
+	Slider "$GLPREFMNU_SSAO_PORTALS",			gl_ssao_portals,				0.0, 4.0, 1.0, 0
+	Option "$GLPREFMNU_FXAA",		 			gl_fxaa,						"FXAAQuality"
+	Option "$GLPREFMNU_DITHER",		 			gl_dither_bpc,					"DitherModes"
+}
+
+OptionValue "BlooMBlurBlendModes"
+{
+	0, "Normal"
+	1, "Lighten"
+}
+
+OptionMenu "BlooMBlurOpts"
+{
+	Position -15
+	Title "Motion Blur"
+	Option "Enabled", 							"blm_mblur", "YesNo"
+	Option "Disabled", 							"blm_mblur_blendmode", "BlooMBlurBlendModes"
+	StaticText " "
+	Slider "Samples", 							"blm_mblur_samples", 1, 100, 1, 0
+	Slider "Strenght", 							"blm_mblur_strength", 1, 500, 8, 2
+	Slider "Recovery", 							"blm_mblur_recovery", 4, 100, 4, 1
+	StaticText " "
+	StaticText "$MB_ADV"
+	StaticText " "
+	Option "Auto-Stop", 						"blm_mblur_autostop", OnOff
+	Slider "Stop Recovery", 					"blm_mblur_recovery2", 0, 100, 5, 2
+	Slider "Stop Threshold", 					"blm_mblur_threshold", 0, 100, 10, 2
 }
 
 OptionValue "YesOrNo"
