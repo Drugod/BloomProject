@@ -140,6 +140,7 @@ Object Farol
 Object TheDeath
 {
 	Frame WDEAA { light FarolLight }
+	Frame VX21A { light FarolLight }
 }
 
 FlickerLight TorchCavelight

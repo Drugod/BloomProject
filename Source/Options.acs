@@ -31,3 +31,12 @@ Script "LightingVoxel" (void){
 		SetCvar("r_drawvoxels", 1);			
 		SetResultValue(GetCVar("blm_voxlit"));	
 }}
+
+Script "ObjectVoxel" (void){
+	if(GetCVar("blm_voxcnt")== 0){
+		SetCvar("r_drawvoxels", 0);			
+		SetResultValue(0);
+	}else{
+		SetCvar("r_drawvoxels", 1);			
+		SetResultValue(GetCVar("blm_voxobj"));	
+}}

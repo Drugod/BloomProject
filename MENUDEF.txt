@@ -119,15 +119,14 @@ OptionMenu "BloomOptions"
 	
 	StaticText " "
 	StaticText "Performance Options (Huge impact on performance, map restart required)", 1
-    //SafeCommand "Disable Models/Voxels", "vox_off-mod_off" 	//, "Do you want to disable models and voxels for weapons, objects & items?"
-	//SafeCommand "Enable Voxels", "vox_on-mod_off" 	//, "Do you want to enable voxels but not models for weapons, objects & items? Restart not required."
-	//SafeCommand "Enable Models (Restart required)", "vox_off-mod_on"	//, "Do you want to enable models but not voxels for weapons, objects & items? This requires a game restart."
 	Option "Enable Voxels", "blm_voxcnt", "YesOrNo"	
+	Option "Enable Voxels for Pickups?", "blm_voxpkp", "YesOrNo", "blm_voxcnt"						
+	Option "Enable Voxels for Objects?", "blm_voxobj", "YesOrNo", "blm_voxcnt"						
+	Option "Enable Voxels for Lighting Props?", "blm_voxlit", "YesOrNo", "blm_voxcnt"					
 	Option "Enable Voxels for Vegetation?", "blm_voxnat", "YesOrNo", "blm_voxcnt"			
-	Option "Enable Voxels for Pickups?", "blm_voxpkp", "YesOrNo", "blm_voxcnt"				
-	Option "Enable Voxels for Lighting Props?", "blm_voxlit", "YesOrNo", "blm_voxcnt"				
+
 	StaticText " "	
-	StaticText "Draw Distance (Gzdoom only)", 1	
+	StaticText "Draw Distance", 1	
 	Option "Trees Distance","blm_lod","BlmDist"
 	StaticText " "
 	StaticText "Key config for advanced movements", 1

@@ -5,6 +5,7 @@ server bool blm_voxlit = FALSE; //Lighting props Voxels Control
 server bool blm_voxmod = FALSE; //General Voxels/Model Control
 server bool blm_voxnat = FALSE; //Nature Voxels Control
 server bool blm_voxpkp = FALSE; //Pickups Voxels Control
+server bool blm_voxobj = FALSE; //Pickups Voxels Control
 server noarchive bool blm_script = FALSE;
 user float blm_uweffectsize = 0.015; //Underwater effect parameter
 user int blm_blood = 1;

@@ -199,7 +199,12 @@ ACTOR LeafLess : Bloom_Flora2 3221
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("NatureVoxel")==1, "Spawn2")		
 		TREE A -1
+		Stop
+	Spawn2:
+		VX18 A -1
 		Stop
 	XDeath:
 	Death.Flare:

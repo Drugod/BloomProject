@@ -579,7 +579,6 @@ ACTOR BloodyTable : HeartColumn 19095
 	//$Title Blood Table
 	Height 12
 	Mass 5
-	Scale 0.5
 	+PUSHABLE
 	States
 	{
@@ -1243,7 +1242,7 @@ ACTOR Jar2 : ShortCol 3207
 {
 	//$Category "BlooM Ambient"
 	//$Title "Jar 2"
-	Scale 1.0
+	Scale 0.5
 	States
 	{
 	Spawn:
@@ -1320,6 +1319,7 @@ ACTOR RocksSpawner 18601
 	Radius 8
 	Height 8
 	Mass 0x7ffffff
+	Scale 0.5
 	+NOTAUTOAIMED
 	+SOLID
 	States
@@ -1337,6 +1337,7 @@ ACTOR RocksSpawner 18601
 ACTOR RocksSnowy : RocksSpawner 18602
 {
 	//$Title "Rock Spawner, snowy"
+	Scale 0.5	
 	States
 	{
 	Spawn:
@@ -1351,6 +1352,7 @@ ACTOR FishBones 18603
 	//$Title "Rotten Fish Skeleton"
 	Radius 4
 	Height 4
+	Scale 0.3
 	-SOLID
 	States
 	{

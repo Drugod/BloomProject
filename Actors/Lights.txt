@@ -101,16 +101,32 @@ ACTOR CeilLamp : SwitchableDecoration 3277
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Spawn2")		
 		HILM A 1
+		Loop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Spawn")		
+		VX20 A 1
 		Loop
 	Active:
 		HILM B 1 A_PlaySound("SMSWITCH")
 		HILM B 1
 		Wait
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		HILM A 1 A_PlaySound("SMSWITCH")
 		HILM A 1
 		Wait
+	Inactive2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Inactive")		
+		VX20 A 1 A_PlaySound("SMSWITCH")
+		VX20 A 1
+		Wait
+		
 	}
 }
 
@@ -542,7 +558,12 @@ ACTOR TheDeath : SwitchableDecoration 3212
 	{
 	Spawn:
 	Active:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
 		WDEA A -1 BRIGHT
+		Stop
+	Active2:
+		VX21 A -1 BRIGHT
 		Stop
 	Inactive:
 		WDEA B -1
@@ -748,13 +769,28 @@ ACTOR BloomTallTorch1 : BloomVases 3404
 	ActiveCheck:
 		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.5, TRUE)
 	SpawnCheck:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "SpawnCheck2")		
 		TORA BCDEFGHIJKLMNO 3 LIGHT("FLAMVAS1")
 		Goto SpawnCheck
+	SpawnCheck2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "SpawnCheck")		
+		VX19 BCDEFGHIJKLMNO 3 BRIGHT LIGHT("FLAMVAS1")
+		Goto SpawnCheck2		
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
 		TORA A 1 A_PlaySound("SFX/FireDie", 7)
 		TORA A -1 A_StopSound(6)
 		Stop
+	Inactive2:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		VX19 A 1 A_PlaySound("SFX/FireDie", 7)
+		VX19 A -1 A_StopSound(6)
+		Stop
+		
 	}
 }
 
