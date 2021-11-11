@@ -394,8 +394,13 @@ ACTOR BloodPile : HeartColumn 3253
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		BJAR A -1
 		Stop
+	Spawn2:
+		VX25 A -1
+		Stop		
 	Death:
 		BJAR A 0 A_Scream
 		BJAR A 5

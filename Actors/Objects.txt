@@ -236,8 +236,13 @@ ACTOR BloodBeer 3177
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		BOTL A -1
 		Stop
+	Spawn2:
+		VX27 A -1
+		Stop		
 	Death:
 		"####" "#" 0 A_Fall
 		"####" "#" 0 A_Scream
@@ -310,11 +315,20 @@ ACTOR RandomCup : BrownBottles 18614
 	States
 	{
 	Spawn:
-		BEAK A -1 NODELAY A_Jump(128,1,2,3)
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
+		BEAK A -1 //NODELAY A_Jump(128,1,2,3)
+		Stop
+		/*BEAK B -1
+		BEAK C -1
+		BEAK D -1*/
+		Stop
+	Spawn2:
+		VX24 A -1 NODELAY A_Jump(128,1,2,3)
 		BEAK B -1
 		BEAK C -1
 		BEAK D -1
-		Stop
+		Stop		
 	Death:
 		"####" "#" 0 A_Fall
 		"####" "#" 0 A_Scream
@@ -733,7 +747,12 @@ ACTOR BloodExBarrel : ExplosiveBarrel 3182
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
 		BBAR A -1
+		Stop
+	Spawn2:
+		VX23 A -1
 		Stop
 	Death:
 		BBAR A 5
@@ -803,8 +822,13 @@ ACTOR Balloon : HeadOnAStick 3186
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		BLON A -1
 		Stop
+	Spawn2:
+		VX26 A -1
+		Stop		
 	Death:
 		BLON A 1 A_Scream
 		BLON A 0 A_SpawnDebris ("BalloonDebris",1)
