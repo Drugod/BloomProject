@@ -51,7 +51,6 @@ ACTOR RatDemon_Brown : BloomHybrid_Base 19059
 		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",-15.0,-15.0,0,0,0,0,0,BLM_FLAGS4)
 		TNT1 A 0 A_SpawnItemEx("BloodRat",15.0,-15.0,0,0,0,0,0,BLM_FLAGS4) //two normal rats since it is brown
 		TNT1 A 0 A_SpawnItemEx("BloodRat",0.0,0.0,0,0,0,0,0,BLM_FLAGS4)
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 	Spawn2:
 		RATA AB 10 A_Look
 		Loop
@@ -59,7 +58,6 @@ ACTOR RatDemon_Brown : BloomHybrid_Base 19059
 		TNT1 A 0
 		TNT1 A 0 A_Jump(200,2)
 		TNT1 A 0 A_CheckFloor("Jump")
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATA AABBCCDD 2 Fast A_Chase
 		TNT1 A 0 A_Jump(4,1)
 	Loop
@@ -67,7 +65,6 @@ ACTOR RatDemon_Brown : BloomHybrid_Base 19059
 		Goto See+2
 	Bounce:
 		TNT1 A 0 A_FaceTarget
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RAJA A 8 A_Recoil(-4)
 		RAJA B 8 ThrustThingZ(0,frandom(30,40),0,0)
 		RAJA C 8 ThrustThing(angle*256/360,random(10,16),0,0)
@@ -75,24 +72,20 @@ ACTOR RatDemon_Brown : BloomHybrid_Base 19059
 		Goto See
 	Jump:
 		TNT1 A 0 A_FaceTarget
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RAJA A 8 A_Recoil(-4)
 		RAJA B 8 ThrustThingZ(0,frandom(30,40),0,0)
 		RAJA C 8 ThrustThing(angle*256/360,random(10,16),0,0)
 		RAJA D 8
 		Goto See
 	Melee:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATA EF 8 Fast A_FaceTarget
 		RATA G 8 Fast A_SargAttack
 		Goto See
 	Pain:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATA H 2 Fast
 		RATA H 2 Fast A_Pain
 		Goto See
 	Death:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATA I 8
 		RATA J 8 A_Scream
 		RATA K 4
@@ -106,12 +99,10 @@ ACTOR RatDemon_Brown : BloomHybrid_Base 19059
 		RATA P -1
 		Stop
 	Raise:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATA N 5
 		RATA MLKJI 5
 		Goto See
 	Ice: //these states have been copy-pasted even on others to avoid possible issues with inheritances --ozy81
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATF R 0 A_SetMass(999999)
 		RATF R 5 A_FreezeDeath
 		RATF R 1 A_FreezeDeathChunks
@@ -134,7 +125,6 @@ ACTOR RatDemon_Grey : RatDemon_Brown 19062
 		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",-15.0,-15.0,0,0,0,0,0,BLM_FLAGS4)
 		TNT1 A 0 A_SpawnItemEx("BloodRatGrey",15.0,-15.0,0,0,0,0,0,BLM_FLAGS4) //two greys
 		TNT1 A 0 A_SpawnItemEx("BloodRat",0.0,0.0,0,0,0,0,0,BLM_FLAGS4)
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 	Spawn2:
 		RATG AB 10 A_Look
 		Loop
@@ -142,7 +132,6 @@ ACTOR RatDemon_Grey : RatDemon_Brown 19062
 		TNT1 A 0
 		TNT1 A 0 A_Jump(200,2)
 		TNT1 A 0 A_CheckFloor("Jump")
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATG AABBCCDD 2 Fast A_Chase
 		TNT1 A 0 A_Jump(4,1)
 		Loop
@@ -150,7 +139,6 @@ ACTOR RatDemon_Grey : RatDemon_Brown 19062
 		Goto See+2
 	Bounce:
 		TNT1 A 0 A_FaceTarget
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RAJG A 8 A_Recoil(-4)
 		RAJG B 8 ThrustThingZ(0,frandom(30,40),0,0)
 		RAJG C 8 ThrustThing(angle*256/360,random(10,16),0,0)
@@ -158,25 +146,21 @@ ACTOR RatDemon_Grey : RatDemon_Brown 19062
 		Goto See
 	Jump:
 		TNT1 A 0 A_FaceTarget
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RAJG A 8 A_Recoil(-4)
 		RAJG B 8 ThrustThingZ(0,frandom(30,40),0,0)
 		RAJG C 8 ThrustThing(angle*256/360,random(10,16),0,0)
 		RAJG D 8
 		Goto See
 	Melee:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATG EF 8 Fast A_FaceTarget
 		RATG G 8 Fast A_SargAttack
 		Goto See
 	Pain:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATG H 2 Fast
 		RATG H 2 Fast A_Pain
 		Goto See
 	Death:
 		RATG I 8
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATG J 8 A_Scream
 		RATG K 4
 		RATG L 4 A_NoBlocking
@@ -189,12 +173,10 @@ ACTOR RatDemon_Grey : RatDemon_Brown 19062
 		RATG P -1
 		Stop
 	Raise:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATG N 5
 		RATG MLKJI 5
 		Goto See
 	Ice:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATF R 0 A_SetMass(999999)
 		RATF R 5 A_FreezeDeath
 		RATF R 1 A_FreezeDeathChunks
@@ -217,7 +199,6 @@ ACTOR RatDemon_Black : RatDemon_Brown 19063
 		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",-15.0,-15.0,0,0,0,0,0,BLM_FLAGS4)
 		TNT1 A 0 A_SpawnItemEx("BloodRatBlack",15.0,-15.0,0,0,0,0,0,BLM_FLAGS4) //two blacks
 		TNT1 A 0 A_SpawnItemEx("BloodRat",0.0,0.0,0,0,0,0,0,BLM_FLAGS4)
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 	Spawn2:
 		RATB AB 10 A_Look
 		Loop
@@ -225,7 +206,6 @@ ACTOR RatDemon_Black : RatDemon_Brown 19063
 		TNT1 A 0
 		TNT1 A 0 A_Jump(200,2)
 		TNT1 A 0 A_CheckFloor("Jump")
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATB AABBCCDD 2 Fast A_Chase
 		TNT1 A 0 A_Jump(4,1)
 		Loop
@@ -233,7 +213,6 @@ ACTOR RatDemon_Black : RatDemon_Brown 19063
 		Goto See+2
 	Bounce:
 		TNT1 A 0 A_FaceTarget
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RAJB A 8 A_Recoil(-4)
 		RAJB B 8 ThrustThingZ(0,frandom(30,40),0,0)
 		RAJB C 8 ThrustThing(angle*256/360,random(10,16),0,0)
@@ -241,25 +220,21 @@ ACTOR RatDemon_Black : RatDemon_Brown 19063
 		Goto See
 	Jump:
 		TNT1 A 0 A_FaceTarget
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RAJB A 8 A_Recoil(-4)
 		RAJB B 8 ThrustThingZ(0,frandom(30,40),0,0)
 		RAJB C 8 ThrustThing(angle*256/360,random(10,16),0,0)
 		RAJB D 8
 		Goto See
 	Melee:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATB EF 8 Fast A_FaceTarget
 		RATB G 8 Fast A_SargAttack
 		Goto See
 	Pain:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATB H 2 Fast
 		RATB H 2 Fast A_Pain
 		Goto See
 	Death:
 		RATB I 8
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATB J 8 A_Scream
 		RATB K 4
 		RATB L 4 A_NoBlocking
@@ -272,12 +247,10 @@ ACTOR RatDemon_Black : RatDemon_Brown 19063
 		RATB P -1
 		Stop
 	Raise:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATB N 5
 		RATB MLKJI 5
 		Goto See
 	Ice:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATF R 0 A_SetMass(999999)
 		RAFT R 5 A_FreezeDeath
 		RATF R 1 A_FreezeDeathChunks
@@ -300,7 +273,6 @@ ACTOR RatDemon_White : RatDemon_Brown 19064
 		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",-15.0,-15.0,0,0,0,0,0,BLM_FLAGS4)
 		TNT1 A 0 A_SpawnItemEx("BloodRatWhite",15.0,-15.0,0,0,0,0,0,BLM_FLAGS4) //two whites
 		TNT1 A 0 A_SpawnItemEx("BloodRat",0.0,0.0,0,0,0,0,0,BLM_FLAGS4)
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 	Spawn2:
 		R2TW AB 10 A_Look
 		Loop
@@ -308,7 +280,6 @@ ACTOR RatDemon_White : RatDemon_Brown 19064
 		TNT1 A 0
 		TNT1 A 0 A_Jump(200,2)
 		TNT1 A 0 A_CheckFloor("Jump")
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		R2TW AABBCCDD 2 Fast A_Chase
 		TNT1 A 0 A_Jump(4,1)
 		Loop
@@ -316,7 +287,6 @@ ACTOR RatDemon_White : RatDemon_Brown 19064
 		Goto See+2
 	Bounce:
 		TNT1 A 0 A_FaceTarget
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		R2JW A 8 A_Recoil(-4)
 		R2JW B 8 ThrustThingZ(0,frandom(30,40),0,0)
 		R2JW C 8 ThrustThing(angle*256/360,random(10,16),0,0)
@@ -324,24 +294,20 @@ ACTOR RatDemon_White : RatDemon_Brown 19064
 		Goto See
 	Jump:
 		TNT1 A 0 A_FaceTarget
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		R2JW A 8 A_Recoil(-4)
 		R2JW B 8 ThrustThingZ(0,frandom(30,40),0,0)
 		R2JW C 8 ThrustThing(angle*256/360,random(10,16),0,0)
 		R2JW D 8
 		Goto See
 	Melee:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		R2TW EF 8 Fast A_FaceTarget
 		R2TW G 8 Fast A_SargAttack
 		Goto See
 	Pain:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		R2TW H 2 Fast
 		R2TW H 2 Fast A_Pain
 		Goto See
 	Death:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		R2TW I 8
 		R2TW J 8 A_Scream
 		R2TW K 4
@@ -355,12 +321,10 @@ ACTOR RatDemon_White : RatDemon_Brown 19064
 		R2TW P -1
 		Stop
 	Raise:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		R2TW N 5
 		R2TW MLKJI 5
 		Goto See
 	Ice:
-		TNT1 A 0 ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid)
 		RATF R 0 A_SetMass(999999)
 		RATF R 5 A_FreezeDeath
 		RATF R 1 A_FreezeDeathChunks

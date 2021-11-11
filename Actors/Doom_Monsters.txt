@@ -72,6 +72,9 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 		POSS K 5
 		POSS L -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Pain.ChokeEM:
 	Death.ChokeEM:
 		POSS G 1 A_UnSetSolid
@@ -242,6 +245,9 @@ ACTOR ShotgunGuy_ : DoomEnemy_Base 18999
 		TNT1 A 0 A_SpawnItemEx("Blood_",random(-20,20),random(-20,20),random(-20,20),random(0,15),random(0,15),random(0,15),random(0,360),0,120)
 		SPOS U -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Raise:
 		SPOS L 5
 		SPOS KJIH 5
@@ -353,6 +359,9 @@ ACTOR ChaingunGuy_ : DoomEnemy_Base 18998
 		TNT1 A 0 A_SpawnDebris("FlyingBlood")
 		CPOS T -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Raise:
 		CPOS N 5
 		CPOS MLKJIH 5
@@ -538,6 +547,9 @@ ACTOR BurnFormerHuman
 		Stop
 		BRZ3 H -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	}
 }
 
@@ -616,6 +628,9 @@ ACTOR Demon_ : DoomEnemy_Base 19013
 		TNT1 A 0 A_SpawnDebris("FlyingBlood")//A_SpawnDebris ("OrganDebris")
 		SARR I -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Death.Flare:
 	Death.Fire:
 	Burn:
@@ -732,6 +747,9 @@ ACTOR DoomImp_ : DoomEnemy_Base 19030
 		TROO RST 5 A_SpawnDebris("FlyingBlood")
 		TROO U -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Raise:
 		TROO ML 8
 		TROO KJI 6
@@ -839,6 +857,9 @@ ACTOR BaronOfHell_ : DoomEnemy_Base 19041
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		BOSS O -1 A_BossDeath
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Death.Flare:
 	Death.Fire:
 	Burn:
@@ -904,6 +925,9 @@ ACTOR HellKnight_ : BaronOfHell_ 19034
 		BOS2 MN 8
 		BOS2 O -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Death.Flare:
 	Death.Fire:
 	Burn:
@@ -1146,6 +1170,9 @@ ACTOR Fatso_ : DoomEnemy_Base 19006
 		FATT NOPQRS 6
 		FATT T -1 A_BossDeath
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Raise:
 		FATT R 5
 		FATT QPONMLK 5
@@ -1193,6 +1220,9 @@ ACTOR PainElemental_ : DoomEnemy_Base 19010
 		PAIN L 8 BRIGHT A_PainDie
 		PAIN M 8 BRIGHT
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Raise:
 		PAIN MLKJIH 8
 		Goto See
@@ -1240,6 +1270,9 @@ ACTOR Cacodemon_ : DoomEnemy_Base 19015
 		HEAD K 8 A_NoBlocking
 		HEAD L -1 A_SetFloorClip
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Raise:
 		HEAD L 8 A_UnSetFloorClip
 		HEAD KJIHG 8
@@ -1293,6 +1326,9 @@ ACTOR Arachnotron_ : DoomEnemy_Base 19023
 		BSPI LMNO 7
 		BSPI P -1 A_BossDeath
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Raise:
 		BSPI P 5
 		BSPI ONMLKJ 5
@@ -1351,6 +1387,9 @@ ACTOR Revenant_ : DoomEnemy_Base 19019
 		SKEL P 7
 		SKEL Q -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	Raise:
 		SKEL Q 5
 		SKEL PONML 5
@@ -1410,5 +1449,8 @@ ACTOR Archvile_ : DoomEnemy_Base 19038
 		VILE TUVWXY 7
 		VILE Z -1
 		Stop
+	Death.Fade:
+		"####" "#" 1 A_FadeOut(0.1)
+		Loop
 	}
 }

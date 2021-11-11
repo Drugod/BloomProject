@@ -151,7 +151,6 @@ class FloatingModel : Actor
 
 class BlooMBase : Actor
 {
-	bool skydeath;
 	bool bird;
 	bool fish;
 	bool spider;
@@ -160,7 +159,6 @@ class BlooMBase : Actor
 	int user_count3;		//attacks counters
 	int user_count4;		//attacks counters
 
-	Property SkyDeath:skydeath;
 	Property Bird:bird;
 	Property Fish:fish;
 	Property Spider:spider;
@@ -183,7 +181,7 @@ class BlooMBase : Actor
 			else { bFloat = Default.bFloat; }
 		}
 		
-		else if (Default.bFloat && bird) // birds should float but not swim
+	else if (Default.bFloat && bird) // birds should float but not swim
 		{
 			if (waterlevel > 0) 
 			{
@@ -194,7 +192,7 @@ class BlooMBase : Actor
 		else { bFloat = Default.bFloat; }
 		}
 		
-		else if (Default.Species == "Spiders" && spider) // spiders should not float neither swim
+	else if (Default.Species == "Spiders" && spider) // spiders should not float neither swim
 		{
 			if (waterlevel > 0) 
 			{
@@ -203,14 +201,13 @@ class BlooMBase : Actor
 			}
 		else { Species = Default.Species; }
 		}
+	
+	else if (health <= 0 || !bShootable)
+		{
+			ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid);
+		}
 		
 	Super.Tick();
-	}
-	
-	state A_SkyCheck() //needs to be worked on --ozy81
-	{
-		if (skydeath == TRUE) { return ResolveState("Death.Fade"); }
-		return ResolveState(null);
 	}
 	
 }

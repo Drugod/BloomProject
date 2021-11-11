@@ -75,7 +75,6 @@ ACTOR Cacoyle : BloomHybrid_Base 19014
 	HitObituary "HB_CACOY"
 	DropItem "UselessStuff" 32
 	Species "Cacos"
-	BlooMBase.SkyDeath
 	States
 	{
 	Spawn:
@@ -162,7 +161,7 @@ ACTOR Cacoyle : BloomHybrid_Base 19014
 	Death:
 		CYAD I 8
 		CYAD J 8 A_Scream
-		CYAD KL 8 A_SkyCheck
+		CYAD KL 8
 		CYAD M 8 A_NoBlocking
 		TNT1 A 0 A_ChangeFlag("FLOATBOB",FALSE)
 		TNT1 A 0 A_Jump(200,2)
