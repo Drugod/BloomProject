@@ -33,7 +33,7 @@ ACTOR Modelcars : RandomSpawner 18172
 	DropItem "Modelcar5"
 }
 
-ACTOR Modelcar1
+ACTOR Modelcar1 : FloatingModel
 {
 	Radius 52
     Height 52
@@ -41,6 +41,7 @@ ACTOR Modelcar1
 	Mass 1000
 	+NOGRAVITY
 	+SOLID
+	FloatingModel.Buoyancy 0.2
 	States
 	{
 	Spawn:
@@ -414,7 +415,7 @@ ACTOR BloodLamp5: BloodLamp1 18317
 	//$Title 3d City Lamp 5
 }
 
-ACTOR Room_Base
+ACTOR Room_Base : FloatingModel
 {
 	//$Category BlooM Models
 	//$Color 9
@@ -1096,7 +1097,7 @@ ACTOR CreepyTVSpawner : RandomSpawner 18412
 	DropItem "CreepyTV5"
 }
 
-ACTOR CreepyTV1 18413
+ACTOR CreepyTV1 : FloatingModel 18413
 {
 	//$Category BlooM Models
 	//$Title 3d Creepy TV 1
@@ -1108,6 +1109,7 @@ ACTOR CreepyTV1 18413
 	+RANDOMIZE
 	+SOLID
 	+SYNCHRONIZED
+	FloatingModel.Buoyancy 0.2
 	States
 	{
 	Spawn:
@@ -1487,7 +1489,7 @@ ACTOR MonitorSpawner : RandomSpawner 18353
 	DropItem "Monitor5"
 }
 
-ACTOR Monitor1 18354
+ACTOR Monitor1 : FloatingModel 18354
 {
 	//$Category BlooM Models
 	//$Title 3d Monitor 1
@@ -1501,6 +1503,7 @@ ACTOR Monitor1 18354
 	+RANDOMIZE
 	+SOLID
 	+SYNCHRONIZED
+	FloatingModel.Buoyancy 0.2
 	States
 	{
 	Spawn:

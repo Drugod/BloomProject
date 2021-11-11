@@ -75,6 +75,80 @@ class Buoyancy : Actor
 	}
 }
 
+mixin class GiveBuoyancy
+{
+	bool inwater;
+	int offset;
+	double user_buoyancy;
+
+	Property Buoyancy:user_buoyancy;
+
+	void DoBuoyancy()
+	{
+		if (!user_buoyancy) { return; }
+
+		if (offset == 0) { offset = Random(-64, 64); }
+
+		bool iswater;
+		double waterheight;
+		[waterheight, iswater] = Buoyancy.GetWaterHeight(self);
+
+		if (iswater && waterheight > floorz && pos.z < waterheight)
+		{
+			inwater = true;
+
+			bNoGravity = true;
+			bPushable = false;
+
+			double heightoffset = min(abs(user_buoyancy) - 0.05, 0.1) * sin(level.time + offset);
+			double waterclip = Default.height * ((1.0 - user_buoyancy) + heightoffset);
+
+			if (waterheight > pos.z + waterclip + 1)
+			{
+				vel.z = 2.0 * abs(user_buoyancy);
+			}
+			else
+			{
+				SetOrigin((pos.xy, max(waterheight - waterclip, floorz)), true);
+			}
+		}
+		else if (inwater)
+		{
+			inwater = false;
+
+			bNoGravity = Default.bNoGravity;
+			bPushable = Default.bPushable;
+		}
+	}
+}
+
+class FloatingModel : Actor
+{
+	mixin GiveBuoyancy;
+
+	Default
+	{
+		Height 56;
+		+FLOORCLIP
+		+DONTSPLASH
+		+NOGRAVITY
+		FloatingModel.Buoyancy 0.0;
+	}
+
+	States
+	{
+		Spawn:
+			UNKN A -1;
+			Stop;
+	}
+
+	override void Tick()
+	{
+		Super.Tick();
+		DoBuoyancy();
+	}
+}
+
 class BlooMBase : Actor
 {
 	bool skydeath;
