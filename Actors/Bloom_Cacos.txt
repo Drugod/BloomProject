@@ -168,9 +168,6 @@ ACTOR Cacoyle : BloomHybrid_Base 19014
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		CYAD N -1 A_SetFloorClip
 		Stop
-	Death.Fade:
-		CYAD "#" 1 A_FadeOut(0.1)
-		Loop
 	Raise:
 		CYAD N 8 A_UnSetFloorClip
 		CYAD MLKJI 8

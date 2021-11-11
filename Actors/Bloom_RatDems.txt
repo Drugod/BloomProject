@@ -107,9 +107,6 @@ ACTOR RatDemon_Brown : BloomHybrid_Base 19059
 		RATF R 5 A_FreezeDeath
 		RATF R 1 A_FreezeDeathChunks
 		Wait
-	Death.Fade:
-		RATA I 1 A_FadeOut(0.1)
-		Loop
 	}
 }
 
@@ -181,9 +178,6 @@ ACTOR RatDemon_Grey : RatDemon_Brown 19062
 		RATF R 5 A_FreezeDeath
 		RATF R 1 A_FreezeDeathChunks
 		Wait
-	Death.Fade:
-		RATG I 1 A_FadeOut(0.1)
-		Loop
 	}
 }
 
@@ -255,9 +249,6 @@ ACTOR RatDemon_Black : RatDemon_Brown 19063
 		RAFT R 5 A_FreezeDeath
 		RATF R 1 A_FreezeDeathChunks
 		Wait
-	Death.Fade:
-		RATB I 1 A_FadeOut(0.1)
-		Loop
 	}
 }
 
@@ -329,9 +320,6 @@ ACTOR RatDemon_White : RatDemon_Brown 19064
 		RATF R 5 A_FreezeDeath
 		RATF R 1 A_FreezeDeathChunks
 		Wait
-	Death.Fade:
-		R2TW I 1 A_FadeOut(0.1)
-		Loop
 	}
 }
 
