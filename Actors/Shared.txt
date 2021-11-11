@@ -22,7 +22,7 @@
 
 //lump containing all classes which create effects or are necessary to reduce rows amount and have less spaghetti codes - ozy81
 ACTOR ------------------INHERITS----------------------{}
-ACTOR BloodEnemy_Base
+ACTOR BloodEnemy_Base : BloomBase
 {
     //$Category "Blood Monsters"
 	//$Color 5
@@ -30,7 +30,7 @@ ACTOR BloodEnemy_Base
 	+DONTHARMSPECIES
 }
 
-ACTOR DoomEnemy_Base
+ACTOR DoomEnemy_Base : BloomBase
 {
 	//$Category "Doom Monsters"
 	//$Color 8
@@ -40,7 +40,7 @@ ACTOR DoomEnemy_Base
 	+DONTHARMSPECIES
 }
 
-ACTOR BloomHybrid_Base
+ACTOR BloomHybrid_Base : BloomBase
 {
 	//$Category "BlooM Monsters"
 	//$Color 3
@@ -54,7 +54,7 @@ ACTOR BloomHybrid_Base
 	+DONTHARMSPECIES
 }
 
-ACTOR BloomBossHybrid_Base
+ACTOR BloomBossHybrid_Base : BloomBase
 {
 	//$Category "BlooM Bosses"
 	//$Color 9
