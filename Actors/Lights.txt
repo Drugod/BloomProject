@@ -564,11 +564,21 @@ ACTOR CeilFarol : SwitchableDecoration 3278
 	{
 	Spawn:
 	Active:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
 		MILM A -1 BRIGHT
 		Stop
+	Active2:
+		VX58 A -1 BRIGHT
+		Stop
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		MILM B -1
 		Stop
+	Inactive2:
+		VX58 B -1
+		Stop		
 	}
 }
 
