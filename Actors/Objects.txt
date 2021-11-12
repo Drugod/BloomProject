@@ -942,12 +942,12 @@ ACTOR ChurchCross 3193
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
-	BaseSpawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		YCRS A -1
 		Stop
-	ModelSpawn:
-		UNKN A -1
+	Spawn2:
+		VX50 A -1
 		Stop
 	Death:
 	XDeath:
@@ -985,12 +985,12 @@ ACTOR WoodCross : ChurchCross 3194
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
-	BaseSpawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		YCRW A -1
 		Stop
-	ModelSpawn:
-		UNKN A -1
+	Spawn2:
+		VX51 A -1
 		Stop
 	}
 }
@@ -1022,12 +1022,12 @@ ACTOR SkullCross : ChurchCross 3195
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
-	BaseSpawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		YCSS A -1
 		Stop
-	ModelSpawn:
-		UNKN A -1
+	Spawn2:
+		VX52 A -1
 		Stop
 	}
 }
@@ -1064,12 +1064,12 @@ ACTOR LapidaBlood 3196
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
-	BaseSpawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		YLPB A -1
 		Stop
-	ModelSpawn:
-		UNKN A -1
+	Spawn2:
+		VX53 A -1
 		Stop
 	}
 }
@@ -1101,12 +1101,12 @@ ACTOR LapidaNormal : LapidaBlood 3197
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
-	BaseSpawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		YLPD A -1
 		Stop
-	ModelSpawn:
-		UNKN A -1
+	Spawn2:
+		VX54 A -1
 		Stop
 	}
 }
@@ -1138,12 +1138,12 @@ ACTOR LapidaSkull : LapidaBlood 3198
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
-	BaseSpawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		YLPS A -1
 		Stop
-	ModelSpawn:
-		UNKN A -1
+	Spawn2:
+		VX55 A -1
 		Stop
 	}
 }
@@ -1176,12 +1176,12 @@ ACTOR LapidaWood : LapidaBlood 3199
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
-	BaseSpawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		YLPW A -1
 		Stop
-	ModelSpawn:
-		UNKN A -1
+	Spawn2:
+		VX56 A -1
 		Stop
 	}
 }
@@ -1213,12 +1213,12 @@ ACTOR LapidaDraven : LapidaBlood 3200
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
-	BaseSpawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		YLDD A -1
 		Stop
-	ModelSpawn:
-		UNKN A -1
+	Spawn2:
+		VX57 A -1
 		Stop
 	}
 }

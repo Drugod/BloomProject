@@ -555,7 +555,7 @@ ACTOR CeilFarol : SwitchableDecoration 3278
 	//$Title Ceiling Lantern, ACS Switchable
 	//$Color 17
 	Radius 8
-	Height 50
+	Height 32
 	Scale 0.8
 	+NOGRAVITY
 	+SPAWNCEILING
