@@ -69,15 +69,38 @@ ACTOR FloorLamp : SwitchableDecoration 3276
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Spawn2")		
 		JILM A 1
 		Loop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Spawn")		
+		VX48 A 1
+		Loop
 	Active:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
 		JILM B 1 A_PlaySound("SMSWITCH")
 		JILM B 1
 		Wait
+	Active2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Active")		
+		VX48 B 1 A_PlaySound("SMSWITCH")
+		VX48 B 1
+		Wait
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		JILM A 1 A_PlaySound("SMSWITCH")
 		JILM A 1
+		Wait
+	Inactive2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Inactive")		
+		VX48 A 1 A_PlaySound("SMSWITCH")
+		VX48 A 1
 		Wait
 	}
 }
@@ -149,15 +172,38 @@ ACTOR CeilLampSimple : SwitchableDecoration 3202
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Spawn2")		
 		KILM A 1
 		Loop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Spawn")		
+		VX47 A 1
+		Loop
 	Active:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
 		KILM B 1 A_PlaySound("SMSWITCH")
 		KILM B 1
 		Wait
+	Active2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Active")		
+		VX47 B 1 A_PlaySound("SMSWITCH")
+		VX47 B 1
+		Wait
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		KILM A 1 A_PlaySound("SMSWITCH")
 		KILM A 1
+		Wait
+	Inactive2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Inactive")		
+		VX47 A 1 A_PlaySound("SMSWITCH")
+		VX47 A 1
 		Wait
 	}
 }

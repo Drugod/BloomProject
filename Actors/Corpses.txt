@@ -356,7 +356,14 @@ ACTOR ZombieCan 3179
 	States
 	{
 	Spawn:
+		TNT1 A 0 	
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		BZBR ABBABAAB 48
+		Loop
+	Spawn2:
+		TNT1 A 0 	
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==0, "Spawn")		
+		VX34 ABBABAAB 48
 		Loop
 	Death:
 		BZBR A 0 A_Scream
@@ -437,8 +444,13 @@ ACTOR GreenBrain : HeartColumn 3243
 	States
 	{
 	Spawn:
+		TNT1 A 0 	
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		GBRN A -1
 		Stop
+	Spawn2:
+		VX33 A -1
+		Stop		
 	Death:
 		GBRN A 0 A_Scream
 		GBRN A 5
@@ -475,7 +487,12 @@ ACTOR RedBrain : HeartColumn 3244
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
 		RBRN A -1
+		Stop
+	Spawn2:
+		VX37 A -1
 		Stop
 	Death:
 		RBRN A 0 A_Scream

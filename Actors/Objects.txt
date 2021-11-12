@@ -273,13 +273,22 @@ ACTOR BrownBottles 24000
 	States
 	{
 	Spawn:
-		TNT1 A 0
-		TNT1 A 0 A_Jump(128,"Spawn2")
+		TNT1 A 0 	
+		TNT1 A 0 A_Jump(128,"Randomizer")
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		BOTL C -1
 		Stop
-	Spawn:
+	Spawn2:
+		VX28 A -1
+		Stop		
+	Randomizer:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Randomizer2")			
 		BOTL D -1
 		Stop
+	Randomizer2:
+		VX29 A -1
+		Stop		
 	Death:
 		"####" "#" 0 A_Fall
 		"####" "#" 0 A_Scream
@@ -296,7 +305,12 @@ ACTOR BigBottle : BrownBottles 24001
 	States
 	{
 	Spawn:
+		TNT1 A 0 	
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
 		BOTL B -1
+		Stop
+	Spawn2:
+		VX30 A -1
 		Stop
 	Death:
 		"####" "#" 0 A_Fall
@@ -317,13 +331,17 @@ ACTOR RandomCup : BrownBottles 18614
 	Spawn:
 		TNT1 A 0 
 		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
-		BEAK A -1 A_Jump(128,1,2,3)
+		BEAK A -1 //NODELAY A_Jump(128,1,2,3)
+		Stop
+		/*BEAK B -1
+		BEAK C -1
+		BEAK D -1*/
+		Stop
+	Spawn2:
+		VX24 A -1 NODELAY A_Jump(128,1,2,3)
 		BEAK B -1
 		BEAK C -1
 		BEAK D -1
-		Stop
-	Spawn2:
-		VX24 A -1 //insert new voxels when ready here
 		Stop		
 	Death:
 		"####" "#" 0 A_Fall
@@ -342,9 +360,22 @@ ACTOR KitchenCan : BrownBottles 18615
 	States
 	{
 	Spawn:
-		KICN A -1 NODELAY A_Jump(128,1)
+		TNT1 A 0 	
+		TNT1 A 0 A_Jump(128,"Spawner")			
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		KICN A -1
+		Stop
+	Spawn2:
+		VX35 A -1
+		Stop
+	Spawner:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawner2")			
 		KICN B -1
 		Stop
+	Spawner2:
+		VX35 B -1
+		Stop		
 	Death:
 		"####" "#" 0 A_Fall
 		"####" "#" 0 A_Scream
@@ -364,7 +395,12 @@ ACTOR BloodStalags1 : Stalagmite 24002
 	Spawn:
 		STGL A 0 A_Jump(256,"Stag1", "Stag2")
 	Stag1:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Stag12")				
 		STGL A -1
+		Stop
+	Stag12:
+		VX39 A -1
 		Stop
 	Stag2:
 		STGL C -1
@@ -383,8 +419,13 @@ ACTOR BloodStalags2 : BloodStalags1 24003
 	Spawn:
 		STGL B 0 A_Jump(256,"Stag1", "Stag2")
 	Stag1:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Stag12")		
 		STGL B -1
 		Stop
+	Stag12:
+		VX39 B -1
+		Stop		
 	Stag2:
 		STGL D -1
 		Stop
@@ -481,7 +522,12 @@ ACTOR PlateWater 3286
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		PLAT A -1
+		Stop
+	Spawn2:
+		VX36 A -1
 		Stop
 	Pain:
 	Death:
@@ -584,8 +630,14 @@ ACTOR BloodyChair : HeartColumn 3267
 	States
 	{
 	Spawn:
+		TNT1 A 0 	
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
 		CHAI A -1
 		Stop
+	Spawn2:
+		VX32 A -1
+		Stop
+		
 	}
 }
 
@@ -599,7 +651,12 @@ ACTOR BloodyTable : HeartColumn 19095
 	States
 	{
 	Spawn:
+		TNT1 A 0 	
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		TABL A -1
+		Stop
+	Spawn2:
+		VX40 A -1
 		Stop
 	}
 }
@@ -654,7 +711,12 @@ ACTOR SkullCrow : HeartColumn 3272
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		SCRE A -1
+		Stop
+	Spawn2:
+		VX38 A -1
 		Stop
 	}
 }
@@ -687,13 +749,13 @@ ACTOR OldChair : HeartColumn 3273
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
-	BaseSpawn:
+		TNT1 A 0 	
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")	
 		CHA2 A -1
 		Stop
-	ModelSpawn:
-		UNKN A -1
-		Stop
+	Spawn2:
+		VX31 A -1
+		Stop		
 	}
 }
 
@@ -1183,7 +1245,12 @@ ACTOR ShortCol2 : ShortCol 3204
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		WPI2 A -1
+		Stop
+	Spawn2:
+		VX45 A -1
 		Stop
 	}
 }
@@ -1195,7 +1262,12 @@ ACTOR ChildCol : ShortCol 3205
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		WSCH A -1
+		Stop
+	Spawn2:
+		VX46 A -1
 		Stop
 	}
 }
@@ -1217,7 +1289,12 @@ ACTOR Jar1A 3206
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		WJA1 A -1
+		Stop
+	Spawn2:
+		VX42 A -1
 		Stop
 	Death:
 		"####" "#" 0 A_Fall
@@ -1235,8 +1312,13 @@ ACTOR Jar1B : Jar1A 24006
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")	
 		WJA1 B -1
 		Stop
+	Spawn2:
+		VX42 B -1
+		Stop		
 	Death:
 		"####" "#" 0 A_Fall
 		"####" "#" 0 A_Scream
@@ -1253,8 +1335,13 @@ ACTOR Jar1C : Jar1A 24007
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")	
 		WJA1 C -1
 		Stop
+	Spawn2:
+		VX42 C -1
+		Stop		
 	Death:
 		"####" "#" 0 A_Fall
 		"####" "#" 0 A_Scream
@@ -1272,8 +1359,13 @@ ACTOR Jar2 : ShortCol 3207
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")	
 		WJA2 A -1
 		Stop
+	Spawn2:
+		VX43 A -1
+		Stop			
 	}
 }
 
@@ -1298,7 +1390,12 @@ ACTOR Mourn : ShortCol 3209
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
 		WMOU A -1
+		Stop
+	Spawn2:
+		VX44 A -1
 		Stop
 	}
 }

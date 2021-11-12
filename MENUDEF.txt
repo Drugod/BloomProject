@@ -120,10 +120,10 @@ OptionMenu "BloomOptions"
 	StaticText " "
 	StaticText "Performance Options (Huge impact on performance, map restart required)", 1
 	Option "Enable Voxels", "blm_voxcnt", "YesOrNo"	
-	Option "Enable Voxels for Pickups?", "blm_voxpkp", "YesOrNo", "blm_voxcnt"						
-	Option "Enable Voxels for Objects?", "blm_voxobj", "YesOrNo", "blm_voxcnt"						
-	Option "Enable Voxels for Lighting Props?", "blm_voxlit", "YesOrNo", "blm_voxcnt"					
-	Option "Enable Voxels for Vegetation?", "blm_voxnat", "YesOrNo", "blm_voxcnt"			
+	Option "(Ultra specs) Enable Voxels for Vegetation?", "blm_voxnat", "YesOrNo", "blm_voxcnt"				
+	Option "(High specs) Enable Voxels for Lighting Props?", "blm_voxlit", "YesOrNo", "blm_voxcnt"						
+	Option "(medium specs) Enable Voxels for Objects?", "blm_voxobj", "YesOrNo", "blm_voxcnt"						
+	Option "(Low specs) Enable Voxels for Pickups?", "blm_voxpkp", "YesOrNo", "blm_voxcnt"							
 
 	StaticText " "	
 	StaticText "Draw Distance", 1	
