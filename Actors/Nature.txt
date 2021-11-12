@@ -1024,7 +1024,12 @@ ACTOR TheTree10 : Bloom_Flora2 3258
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("NatureVoxel")==1, "Spawn2")			
 		TREE J -1
+		Stop
+	Spawn2:
+		VX49 A -1
 		Stop
 	XDeath:
 	Death.Flare:
