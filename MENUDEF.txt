@@ -122,7 +122,7 @@ OptionMenu "BloomOptions"
 	Option "Enable Voxels", "blm_voxcnt", "YesOrNo"	
 	Option "(Ultra specs) Enable Voxels for Vegetation?", "blm_voxnat", "YesOrNo", "blm_voxcnt"				
 	Option "(High specs) Enable Voxels for Lighting Props?", "blm_voxlit", "YesOrNo", "blm_voxcnt"						
-	Option "(medium specs) Enable Voxels for Objects?", "blm_voxobj", "YesOrNo", "blm_voxcnt"						
+	Option "(Medium specs) Enable Voxels for Objects?", "blm_voxobj", "YesOrNo", "blm_voxcnt"						
 	Option "(Low specs) Enable Voxels for Pickups?", "blm_voxpkp", "YesOrNo", "blm_voxcnt"							
 
 	StaticText " "	
