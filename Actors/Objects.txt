@@ -1234,7 +1234,12 @@ ACTOR ShortCol 3203
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		WPI1 A -1
+		Stop
+	Spawn2:
+		VX59 A -1
 		Stop
 	}
 }

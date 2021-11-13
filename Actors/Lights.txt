@@ -441,13 +441,28 @@ ACTOR CaveTorch : BloomVases 3263
 	ActiveCheck:
 		TNT1 A 1 A_PlaySound("SFX/FireLoop", 6, 0.3, TRUE)
 	SpawnCheck:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "SpawnCheck2")		
 		TORC BCDE 4 BRIGHT
 		Goto SpawnCheck
+	SpawnCheck2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "SpawnCheck")		
+		VX61 BCDE 4 BRIGHT
+		Goto SpawnCheck2
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Inactive2")		
 		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
 		TORC A 1 A_PlaySound("SFX/FireDie", 7)
 		TORC A -1 A_StopSound(6)
 		Stop
+	Inactive2:
+		TNT1 A 0 A_JumpIf(Args[0] > 0,2)
+		VX61 A 1 A_PlaySound("SFX/FireDie", 7)
+		VX61 A -1 A_StopSound(6)
+		Stop
+		
 	}
 }
 
@@ -656,7 +671,6 @@ ACTOR SkullCandle : SwitchableDecoration 3172
 	Inactive2:
 		SKLC D -1
 		Stop
-		
 	}
 }
 
@@ -672,10 +686,22 @@ ACTOR SingleCandle : SwitchableDecoration 3279
 	{
 	Spawn:
 	Active:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
 		NILM BCDE 4 BRIGHT
 		Loop
+	Active2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Active")			
+		VX60 BCDE 4 BRIGHT
+		Loop		
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		NILM A -1
+		Stop
+	Inactive2:
+		VX60 A -1
 		Stop
 	}
 }

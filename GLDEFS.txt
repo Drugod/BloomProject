@@ -120,6 +120,10 @@ Object SingleCandle
 	Frame NILMC { light floorlight }
 	Frame NILMD { light floorlight }
 	Frame NILME { light floorlight }
+	Frame VX60B { light floorlight }
+	Frame VX60C { light floorlight }
+	Frame VX60D { light floorlight }
+	Frame VX60E { light floorlight }
 }
 
 PointLight FarolLight
@@ -171,6 +175,10 @@ Object CaveTorch
 	Frame TORCC { light TorchCavelight }
 	Frame TORCD { light TorchCavelight }
 	Frame TORCE { light TorchCavelight }
+	Frame VX61B { light TorchCavelight }
+	Frame VX61C { light TorchCavelight }
+	Frame VX61D { light TorchCavelight }
+	Frame VX61E { light TorchCavelight }
 }
 
 Object CastleTorch
