@@ -67,6 +67,7 @@ Object CeilLampSimple
 Object CeilFarol
 {
 	Frame MILMA { light ceillight }
+	Frame VX58A { light ceillight }
 }
 
 FlickerLight floorlight
@@ -267,6 +268,8 @@ Object ClassicCellCandle
 {
 	Frame OILMA { light floorlight }
 	Frame OILMB { light floorlight }
+	Frame VX62A { light floorlight }
+	Frame VX62B { light floorlight }
 }
 
 PointLight BurnLight

@@ -722,10 +722,22 @@ ACTOR ClassicCellCandle : SwitchableDecoration 3280
 	{
 	Spawn:
 	Active:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
 		OILM AB 1 BRIGHT
 		Loop
+	Active2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Active")		
+		VX62 AB 1 BRIGHT
+		Loop
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive")		
 		OILM C -1
+		Stop
+	Inactive2:
+		VX62 C -1
 		Stop
 	}
 }
