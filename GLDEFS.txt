@@ -24,6 +24,13 @@ FlickerLight2 TESLIT2
 }
 
 //LIGHT SOURCES//
+PointLight LAMTABL1 //
+{
+	Color 0.7 0.7 0.7
+	Size 32
+	Attenuate 1
+}
+
 FlickerLight2 FLAMVAS1
 {
 	Color 0.9 0.5 0.0
