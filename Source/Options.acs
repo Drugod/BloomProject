@@ -40,3 +40,12 @@ Script "ObjectVoxel" (void){
 		SetCvar("r_drawvoxels", 1);			
 		SetResultValue(GetCVar("blm_voxobj"));	
 }}
+
+Script "CorpseVoxel" (void){
+	if(GetCVar("blm_voxcnt")== 0){
+		SetCvar("r_drawvoxels", 0);			
+		SetResultValue(0);
+	}else{
+		SetCvar("r_drawvoxels", 1);			
+		SetResultValue(GetCVar("blm_voxcrp"));	
+}}
