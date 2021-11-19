@@ -96,6 +96,7 @@ Object FloorLamp
 Object LittleLamp
 {
 	Frame WLLAA { light floorlight }
+	Frame VX67A { light floorlight }
 }
 
 Object SkullCandle
@@ -266,9 +267,12 @@ Object FireLamp
 
 Object ClassicCellLamp
 {
-	Frame XLAPB { light floorlight }
-	Frame XLAPC { light floorlight }
-	Frame XLAPD { light floorlight }
+	Frame XLAPB { light GrandTorchCavelight }
+	Frame XLAPC { light GrandTorchCavelight }
+	Frame XLAPD { light GrandTorchCavelight }
+	Frame VX66B { light GrandTorchCavelight }
+	Frame VX66C { light GrandTorchCavelight }
+	Frame VX66D { light GrandTorchCavelight }	
 }
 
 Object ClassicCellCandle
@@ -3135,6 +3139,18 @@ Object BloodCandelabra
 	Frame CBRAB { light CANDELLIGHT }
 	Frame CBRAC { light CANDELLIGHT }
 	Frame CBRAD { light CANDELLIGHT }
+}
+
+Object BloodCandlestick
+{
+	Frame XANDA { light CANDELLIGHT }
+	Frame XANDB { light CANDELLIGHT }
+	Frame XANDC { light CANDELLIGHT }
+	Frame XANDD { light CANDELLIGHT }
+	Frame VX64A { light CANDELLIGHT }
+	Frame VX64B { light CANDELLIGHT }
+	Frame VX64C { light CANDELLIGHT }
+	Frame VX64D { light CANDELLIGHT }
 }
 
 /*Object BloodCandle

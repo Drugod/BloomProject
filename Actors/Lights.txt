@@ -39,14 +39,36 @@ ACTOR ClassicCellLamp : SwitchableDecoration 3201
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Spawn2")		
 		XLAP A 1
 		Loop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Spawn")		
+		VX66 A 1
+		Loop
 	Active:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
 		XLAP BCD 4
-		Wait
+		Loop
+	Active2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Active")		
+		VX66 BCD 4 BRIGHT
+		Loop
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		XLAP A 1
 		XLAP A 1
+		Wait
+	Inactive2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Inactive")		
+		VX66 A 1
+		VX66 A 1
 		Wait
 	}
 }
@@ -609,10 +631,22 @@ ACTOR LittleLamp : SwitchableDecoration 3210
 	{
 	Spawn:
 	Active:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
 		WLLA A -1 BRIGHT
 		Stop
+	Active2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Active")		
+		VX67 A -1 BRIGHT
+		Stop
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		WLLA B -1
+		Stop
+	Inactive2:
+		VX67 A -1
 		Stop
 	}
 }
@@ -826,11 +860,23 @@ ACTOR BloodCandlestick : SwitchableDecoration 3289
 	{
 	Spawn:
 	Active:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")		
 		XAND ABCD 4 BRIGHT
 		Loop
+	Active2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Active")		
+		VX64 ABCD 4 BRIGHT
+		Loop
 	Inactive:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Inactive2")		
 		XAND E -1
 		Stop
+	Inactive2:
+		VX64 E -1
+		Stop		
 	}
 }
 

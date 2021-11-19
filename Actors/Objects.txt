@@ -555,17 +555,34 @@ ACTOR BlooDonation : HeartColumn 3247
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		FLUI A -1
 		Stop
+	Spawn2:
+		VX71 A -1
+		Stop
 	Death:
-		FLUI A 0 A_Scream
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Death2")			
+		TNT1 A 0 A_Scream
 		FLUI A 5
-		FLUI A 0 A_Fall
-		FLUI AAAAA 0 A_SpawnDebris("FlyingBlood")
-		FLUI AAAAA 0 A_SpawnDebris("FlyingBlood")
-		FLUI AAAAA 0 A_SpawnDebris("FlyingBlood")
-		FLUI A 0 A_XScream
-		FLUI A 0
+		TNT1 A 0 A_Fall
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_XScream
+		TNT1 A 0
+		Stop
+	Death2:
+		TNT1 A 0 A_Scream
+		VX71 A 5
+		TNT1 A 0 A_Fall
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_XScream
+		TNT1 A 0
 		Stop
 	}
 }
@@ -576,18 +593,35 @@ ACTOR PlasmaDonation : BlooDonation 3264
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		FLU2 A -1
 		Stop
-	Death:
-		FLU2 A 0 A_Scream
-		FLU2 A 5
-		FLU2 A 0 A_Fall
-		FLU2 AAAAA 0 A_SpawnDebris("FlyingBlood")
-		FLU2 AAAAA 0 A_SpawnDebris("FlyingBlood")
-		FLU2 AAAAA 0 A_SpawnDebris("FlyingBlood")
-		FLU2 A 0 A_XScream
-		FLU2 A 0
+	Spawn2:
+		VX70 A -1
 		Stop
+	Death:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Death2")			
+		TNT1 A 0 A_Scream
+		FLU2 A 5
+		TNT1 A 0 A_Fall
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_XScream
+		TNT1 A 0
+		Stop
+	Death2:
+		TNT1 A 0 A_Scream
+		VX70 A 5
+		TNT1 A 0 A_Fall
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_XScream
+		TNT1 A 0
+		Stop		
 	}
 }
 
@@ -679,7 +713,12 @@ ACTOR LovingMemory 3268
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
 		LOVI A -1
+		Stop
+	Spawn2:
+		VX65 A -1
 		Stop
 	Death:
 		XATT FGH 1 A_SpawnDebris("GlassDebris",1)
@@ -732,7 +771,12 @@ ACTOR KnightArmor : HeartColumn 3271
 	States
 	{
 	Spawn:
+		TNT1 A 0 	
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")	
 		KNIT A -1
+		Stop
+	Spawn2:
+		VX69 A -1
 		Stop
 	}
 }
@@ -1382,7 +1426,12 @@ ACTOR Jar3 : ShortCol 3208
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")	
 		WJA3 A -1
+		Stop
+	Spawn2:
+		VX68 A -1
 		Stop
 	}
 }
