@@ -3069,7 +3069,14 @@ ACTOR OrganDebris
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn2")		
 		OSPN ABCD 3 A_SpawnItem("BloodTrail")
+		Loop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		VXA4 ABCD 3 A_SpawnItem("BloodTrail")
 		Loop
 	Death:
 		BLUD F 2 A_PlaySound("Body/Gibs")
@@ -3089,7 +3096,14 @@ ACTOR OrganDebris2 : OrganDebris
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn2")		
 		OSPN ABCD 3 A_SpawnItem("BloodTrail")
+		Loop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		VXA4 ABCD 3 A_SpawnItem("BloodTrail")
 		Loop
 	Death:
 		BLUD F 2 A_PlaySound("Body/Gibs")
@@ -3178,10 +3192,37 @@ ACTOR Bloodliver
 	States
 	{
 	Spawn:
-		BLVR A 0 A_Jump(171,2,3)
+		TNT1 A 0
+		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
+	Spawn1:		
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn12")		
 		BLVR A -1
+		Stop
+	Spawn12:
+		TNT1 A 0 
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		VXA1 A -1
+		Stop		
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn22")		
 		GUT2 A -1
+		Stop
+	Spawn22:
+		TNT1 A 0 
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		VX99 A -1
+		Stop		
+	Spawn3:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn32")		
 		GUT1 A -1
+		Stop
+	Spawn32:
+		TNT1 A 0 
+		TNT1 A 0 A_SetAngle(frandom(0,360))
+		VXA3 A -1
 		Stop
 	Death:
 		ZHED AAAAAA 0 A_CustomMissile("HeadBlood", 10, 0, 0, 2, 45)
@@ -3198,7 +3239,14 @@ ACTOR EyeGuts : Bloodliver
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn2")		
 		BEYE A -1
+		Stop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_SetAngle(frandom(0,360))	
+		VXA2 A -1
 		Stop
 	}
 }
@@ -3235,8 +3283,15 @@ ACTOR Hand1 : Bloodliver
 	States
 	{
 	Spawn:
-		BLVR A 0 A_Jump(128,"Spawn2","Spawn3")
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn12")		
+		TNT1 A 0 A_Jump(128,"Spawn2","Spawn3")
 		HND1 A -1
+		Stop
+	Spawn12:
+		TNT1 A 0 
+		TNT1 A 0 A_SetAngle(frandom(0,360))	
+		VX98 A -1
 		Stop
 	Spawn2:
 		HND2 A -1
@@ -3293,7 +3348,7 @@ ACTOR TentacleSkulls
 	Rest:
 		TNT1 A 0
 		TNT1 A 0 A_QueueCorpse
-		TNT1 A 0 A_Jump(255, "Rest1", "Rest2")
+		TNT1 A 0 A_Jump(256, "Rest1", "Rest2")
 	Rest1:
         MTED I 800
         MTED I -1
@@ -3341,7 +3396,7 @@ ACTOR FlyingArms : TentacleSkulls
 	Rest:
 		TNT1 A 0
 		TNT1 A 0 A_QueueCorpse
-		TNT1 A 0 A_Jump(255, "Rest1", "Rest2")
+		TNT1 A 0 A_Jump(256, "Rest1", "Rest2")
 	Rest1:
         MARM C 400
         MARM C -1

@@ -1137,6 +1137,13 @@ FlickerLight2 FIREBARREL
 Object BurningBarrel
 {
     frame FCAN { light FIREBARREL }
+    frame VX97 { light FIREBARREL }	
+}
+
+Object BurningBarrel_
+{
+    frame FCAN { light FIREBARREL }
+    frame VX97 { light FIREBARREL }	
 }
 
 // Skulls w/candles
