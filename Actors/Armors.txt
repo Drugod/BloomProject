@@ -23,6 +23,8 @@
 //ARMORS//
 ACTOR RedArmor : BasicArmorPickup
 {
+	//$Category "Health and Armor"
+	Tag "Red Armor"	
 	Radius 20
 	Height 16
 	Inventory.PickupMessage "$REDA"

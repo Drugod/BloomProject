@@ -1717,3 +1717,25 @@ ACTOR GhostGenerator2 : GhostGenerator 3800 //for blm08
 		Loop
 	}
 }
+
+ACTOR BurningBarrel_ replaces BurningBarrel
+{
+  //$Sprite FCANA0
+  Radius 16
+  Height 32
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+	TNT1 A 0 
+	TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
+    FCAN ABC 4 Bright
+    Loop
+  Spawn2:
+	TNT1 A 0 
+	TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==0, "Spawn")		
+    VX97 ABC 4 Bright
+    Loop
+  }
+}
