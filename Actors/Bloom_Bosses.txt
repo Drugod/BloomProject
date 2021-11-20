@@ -286,7 +286,6 @@ ACTOR KingCacoyle : BloomBossHybrid_Base 19053
 ACTOR CyberCheogh : BloomBossHybrid_Base 19057
 {
 	//$Title Cyber-Cheogh
-	Spawnid 3
 	Health 4000
 	Radius 64
 	Height 105
@@ -543,7 +542,6 @@ ACTOR CyberCheogh : BloomBossHybrid_Base 19057
 ACTOR Pinkberus : BloomBossHybrid_Base 19103
 {
 	//$Title Pinkberus
-	Spawnid 112
 	Obituary "$OB_PERB"
 	Health 3000
 	Radius 64

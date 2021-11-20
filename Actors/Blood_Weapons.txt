@@ -195,7 +195,7 @@ ACTOR Flaregun : CalebW 3136//Weapon 3136
 {
 	//$Sprite FGRNA0
 	Tag "Flaregun"
-	Weapon.SelectionOrder 1500	
+	Weapon.SelectionOrder 1500
 	Scale 0.8
 	Obituary "$OB_FGUN"
 	Height 16
@@ -866,7 +866,7 @@ ACTOR --------COLT------------ {}
 ACTOR Colt : CalebW 31370
 {
 	//$Sprite COLTA0
-	Weapon.SelectionOrder 2200	
+	Weapon.SelectionOrder 2200
 	Tag "Colt"
 	Scale 0.5
 	Weapon.AmmoUse 1
@@ -960,7 +960,7 @@ ACTOR SingleShotgun : CalebW 31371
 		Loop
 	Fire:
 		SP03 A 2
-		TNT1 A 0 A_GunFlash													
+		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_FireBullets (7.2, 6.4, 7, 5, "BulletPuff")
 		TNT1 A 0 A_PlaySound("DSSAWFIR", CHAN_WEAPON)
 		SP03 BCD 1 BRIGHT
@@ -974,8 +974,8 @@ ACTOR SingleShotgun : CalebW 31371
 		TNT1 A 0 A_Quake(2,6,0,50)
 		TNT1 A 0 A_SetPitch(pitch-2.5)
 		TNT1 A 0 A_SetPitch(pitch+0.25)
-		TNT1 A 0 A_PlaySound("Weapons/sawedoffload")						
-		SP0F A 1 BRIGHT				
+		TNT1 A 0 A_PlaySound("Weapons/sawedoffload")
+		SP0F A 1 BRIGHT
 		SP0F BCD 1
 		Goto LightDone
 	}
@@ -2034,7 +2034,6 @@ ACTOR ProxTNT : Ammo
 //========== SPRAY CAN ==========//
 ACTOR Spraycan : CalebW
 {
-	//Spawnid 30
 	Tag "Spray can"
 	Scale 0.5
 	Height 16
@@ -2973,7 +2972,6 @@ ACTOR NapalmLauncher : CalebW 3139 // 2003
 {
 	//$Sprite NLAGA0
 	Tag "Napalm Launcher"
-	Spawnid 29
 	Scale 0.6
 	Height 16
 	Weapon.Selectionorder 900
@@ -3072,7 +3070,6 @@ ACTOR NapalmLauncher : CalebW 3139 // 2003
 
 ACTOR WallBomb
 {
-	Spawnid 127
 	Radius 11
 	Height 8
 	Speed 20
@@ -3479,7 +3476,6 @@ ACTOR NapalmEnemy : NapalmRocket
 
 ACTOR NapalmRocketMapSpecial : NapalmRocket
 {
-	SpawnID 207
 	SeeSound "Weapons/NAPLMEX2"
 }
 
@@ -4047,7 +4043,7 @@ ACTOR LifeLeech : CalebW 3141 //this weapon needs a primary fire mode - ozy81
 	Inventory.PickupMessage "$LECHPICK"
 	Inventory.PickupSound "PICKWEAP"
 	Obituary "$OB_LECH"
-	Weapon.SelectionOrder 4700	
+	Weapon.SelectionOrder 4700
 	AttackSound "LLFireInitiate"
 	States
 	{
@@ -4351,7 +4347,6 @@ ACTOR VoodooDoll : CalebW 3142
 {
 	//$Sprite VDLFA0
 	Tag "Voodoo Doll"
-	Spawnid 32
 	Height 16
 	Scale 0.6
 	Weapon.Selectionorder 500
@@ -4366,7 +4361,7 @@ ACTOR VoodooDoll : CalebW 3142
 	Inventory.PickupMessage "$VODOPICK"
 	Inventory.PickupSound "PICKWEAP"
 	Obituary "%OB_VODO"
-	Weapon.SelectionOrder 3600	
+	Weapon.SelectionOrder 3600
 	States
 	{
 	Spawn:

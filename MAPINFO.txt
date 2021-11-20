@@ -86,3 +86,94 @@ skill BLM_Extreme
 	doubleammofactor = 1
 	MustConfirm = "Are you sure?"
 }
+
+DoomEdNums
+{
+	//FireArmorPickup
+	3100=HellFish
+	3120=BloodZombie
+	3121=BuriedZombie
+	3122=BloatedButcher
+	3123=BloodGargoyle
+	3124=Cheogh
+	3125=GreyCultist
+	3126=GillBeast
+	3127=Cerberus
+	3128=GreenCultist
+	3129=BrownCultist
+	3130=HellHound
+	3132=BloodRat
+	3134=Phantasm
+	3135=SpiderMother
+	3144=SprayCanisterPickup
+	3145=TNTBundle
+	3146=GasolineCan
+	3147=BulletDrum
+	3148=BulletBox
+	3149=Bullets
+	3155=BodyArmorPickup
+	3156=RedArmor
+	3157=SpiritArmorPickup
+	3160=BasicArmorPickup_
+	3161=SuperArmorPickup
+	3166=TNTAmmoBox
+	3167=VoodooDollPickup
+	3168=BloodShellBox
+	3169=BloodShells
+	3170=RTNTBox
+	3248=DTNTBox
+	3270=LivingGargStatue
+	6123=BloodBeast
+	6134=Tchernobog
+	6147=ChrysalidPod
+	6148=LavaPod
+	6161=NewSpiderRed
+	6164=SpiderYellow
+	6165=SpiderPurple
+	6166=SpiderCyan
+	6167=SpiderBlack
+	6168=SpiderWhite
+	6190=ChokingHand
+	6191=SpiderGreen
+	6192=SpiderBlue
+	6235=FireArmorPickupLower
+	6237=SpiritArmorPickupLower
+	10309=BlueCultist
+	10310=RedCultist
+	12002=TeslaCharge
+	12004=EssencePower
+	18500=BatFamiliar
+	18501=DaisyBat
+	19066=BloodRatBlack
+	19067=BloodRatGrey
+	19068=BloodRatWhite
+	19069=BloodRatSpawner
+	20080=Flares
+	20081=Flare
+	20082=TeslaChargeBox
+	20083=MiniGasolineCan
+}
+
+SpawnNums
+{
+	1=BrownCultist
+	2=GreyCultist
+	3=Cheogh
+	3=CyberCheogh
+	4=GreenCultist
+	5=BloodGargoyle
+	20=BloatedButcher
+	29=NapalmLauncher
+	32=VoodooDoll
+	51=SprayCanFire
+	112=Cerberus
+	112=Pinkberus
+	116=BlueCultist
+	116=RedCultist
+	121=GlitterBridge
+	127=WallBomb
+	142=EssencePower
+	153=CerberusShot1
+	154=CerberusShot2
+	207=NapalmRocketMapSpecial
+}

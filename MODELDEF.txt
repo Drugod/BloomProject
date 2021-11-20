@@ -314,8 +314,8 @@ Model Modelcar1
    Path "Models/Cars"
    Model 0 "car001.md3"
    Skin 0 "CarTest01_TX.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -326,8 +326,8 @@ Model Modelcar2
    Path "Models/Cars"
    Model 0 "car002.md3"
    Skin 0 "CarTest02_TX.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -338,8 +338,8 @@ Model Modelcar3
    Path "Models/Cars"
    Model 0 "car003.md3"
    Skin 0 "CarTest02b_TX.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -350,8 +350,8 @@ Model Modelcar4
    Path "Models/Cars"
    Model 0 "car004.md3"
    Skin 0 "CarTest03_TX.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -362,8 +362,8 @@ Model Modelcar5
    Path "Models/Cars"
    Model 0 "car005.md3"
    Skin 0 "CarTest03b_TX.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -375,8 +375,8 @@ Model VortexBuilding1
    Path "Models/Buildings/Rolls"
    Model 0 "vortexbuilding001.md2"
    Skin 0 "VortexBuilding_1.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -386,8 +386,8 @@ Model VortexBuilding2
    Path "Models/Buildings/Rolls"
    Model 0 "vortexbuilding002.md2"
    Skin 0 "VortexBuilding_1.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -397,16 +397,16 @@ Model VortexBuilding3 //animated
    Path "Models/Buildings/Rolls"
    Model 0 "vortexbuilding003.md2"
    Skin 0 "VortexBuilding_1.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 
    Path "Models/Buildings/Rolls"
    Model 0 "vortexbuilding003.md2"
    Skin 0 "VortexBuilding_2.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
 }
@@ -416,8 +416,8 @@ Model VortexBuilding4
    Path "Models/Buildings/Rolls"
    Model 0 "vortexbuilding004.md2"
    Skin 0 "VortexBuilding_1.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -427,8 +427,8 @@ Model VortexBuilding5
    Path "Models/Buildings/Rolls"
    Model 0 "vortexbuilding005.md2"
    Skin 0 "VortexBuilding_1.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -438,8 +438,8 @@ Model VortexBuilding6
    Path "Models/Buildings/Rolls"
    Model 0 "vortexbuilding006.md2"
    Skin 0 "VortexBuilding_1.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -449,16 +449,16 @@ Model VortexBuilding7 //animated
    Path "Models/Buildings/Rolls"
    Model 0 "vortexbuilding007.md2"
    Skin 0 "VortexBuilding_1.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 
    Path "Models/Buildings/Rolls"
    Model 0 "vortexbuilding007.md2"
    Skin 0 "VortexBuilding_2.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
 }
@@ -468,8 +468,8 @@ Model VortexBricks1
    Path "Models/Buildings/Rolls"
    Model 0 "vortexbuildingbricks.md2"
    Skin 0 "VortexBuilding_1.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -478,8 +478,8 @@ Model Building1
 {
    Path "Models/Buildings"
    Model 0 "building1.md3"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -489,8 +489,8 @@ Model Building2
 {
    Path "Models/Buildings"
    Model 0 "building2.md3"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -500,8 +500,8 @@ Model Building3
 {
    Path "Models/Buildings"
    Model 0 "building3.md3"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    Rotation-Speed 0.05
    FrameIndex UNKN A 0 0
@@ -513,8 +513,8 @@ Model Buildingbase1
 {
    Path "Models/Buildings/Rolls"
    Model 0 "Base01.md3"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -525,8 +525,8 @@ Model Buildingbase2
    Path "Models/Buildings/Rolls"
    Model 0 "Base02.md2"
    Skin 0 "BaseTX.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -537,8 +537,8 @@ Model Buildingbase3
    Path "Models/Buildings/Rolls"
    Model 0 "Base03.md3"
    Skin 0 "BaseTX.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -549,8 +549,8 @@ Model Buildingbase4
    Path "Models/Buildings/Rolls"
    Model 0 "Base04.md2"
    Skin 0 "BaseTX.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -561,8 +561,8 @@ Model Buildingbase5
    Path "Models/Buildings/Rolls"
    Model 0 "Base05.md2"
    Skin 0 "BaseTX.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -573,8 +573,8 @@ Model Buildingbase6
    Path "Models/Buildings/Rolls"
    Model 0 "Base06.md2"
    Skin 0 "BaseTx06.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -585,8 +585,8 @@ Model Floorbase1
    Path "Models/Buildings/Rolls"
    Model 0 "Floor1.md2"
    Skin 0 "Floor1.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -597,8 +597,8 @@ Model Floorbase2
    Path "Models/Buildings/Rolls"
    Model 0 "Floor2.md2"
    Skin 0 "Floor2.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    Rotation-Speed 0.07
    FrameIndex UNKN A 0 0
@@ -611,8 +611,8 @@ Model Floorbase3
    Path "Models/Carnival"
    Model 0 "Floor1.md2"
    Skin 0 "Floor.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -623,8 +623,8 @@ Model Floorbase4
    Path "Models/Carnival"
    Model 0 "Floor2.md2"
    Skin 0 "Floor.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -635,8 +635,8 @@ Model Buildingpiece1
    Path "Models/Buildings/Rolls"
    Model 0 "Building01.md2"
    Skin 0 "Building001.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -647,8 +647,8 @@ Model Buildingpiece2
    Path "Models/Buildings/Rolls"
    Model 0 "Building02.md2"
    Skin 0 "Building002.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -658,8 +658,8 @@ Model Buildingpiece3
 {
    Path "Models/Buildings/Rolls"
    Model 0 "Building03.md3"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -669,8 +669,8 @@ Model Buildingpiece3b
 {
    Path "Models/Buildings/Rolls"
    Model 0 "Building03trozos.md3"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    Rotation-Speed 0.05
    FrameIndex UNKN A 0 0
@@ -682,8 +682,8 @@ Model Buildingpiece4
 {
    Path "Models/Buildings/Rolls"
    Model 0 "Building04.md3"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -694,8 +694,8 @@ Model Buildingpiece5
    Path "Models/Buildings/Rolls"
    Model 0 "Building05.md2"
    Skin 0 "Building005.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    Rotation-Speed 0.05
    Rotation-Vector 0.0 1.0 0.0
@@ -709,8 +709,8 @@ Model Cloaca1
    Path "Models/Buildings"
    Model 0 "Cloaca.md2"
    Skin 0 "Cloaca_TX.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    Rotation-Speed 0.09
    Rotation-Vector 1.0 0.0 0.0
@@ -722,8 +722,8 @@ Model lamp1
 {
    Path "Models/Buildings/Rolls"
    Model 0 "lamp01.md3"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -733,8 +733,8 @@ Model lamp2
 {
    Path "Models/Buildings/Rolls"
    Model 0 "lamp02.md3"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -744,8 +744,8 @@ Model lamp3
 {
    Path "Models/Buildings/Rolls"
    Model 0 "lamp03.md3"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -755,8 +755,8 @@ Model lamp4
 {
    Path "Models/Buildings/Rolls"
    Model 0 "lamp04.md3"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -766,8 +766,8 @@ Model lamp5
 {
    Path "Models/Buildings/Rolls"
    Model 0 "lamp05.md3"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -778,8 +778,8 @@ Model Bloodlamp1
    Path "Models/Buildings/Rolls"
    Model 0 "Lampblood01.md2"
    Skin 0 "Lampblood.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -790,8 +790,8 @@ Model Bloodlamp2
    Path "Models/Buildings/Rolls"
    Model 0 "Lampblood02.md2"
    Skin 0 "Lampblood.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -802,8 +802,8 @@ Model Bloodlamp3
    Path "Models/Buildings/Rolls"
    Model 0 "Lampblood03.md2"
    Skin 0 "Lampblood.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -814,8 +814,8 @@ Model Bloodlamp4
    Path "Models/Buildings/Rolls"
    Model 0 "Lampblood04.md2"
    Skin 0 "Lampblood.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -826,8 +826,8 @@ Model Bloodlamp5
    Path "Models/Buildings/Rolls"
    Model 0 "Lampblood05.md2"
    Skin 0 "Lampblood.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -838,8 +838,8 @@ Model Contenedor1
    Path "Models/Buildings/Rolls"
    Model 0 "Contenedor1.md2"
    Skin 0 "Contenedor1.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -850,8 +850,8 @@ Model Contenedor2
    Path "Models/Buildings/Rolls"
    Model 0 "Contenedor2.md2"
    Skin 0 "Contenedor2.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -862,8 +862,8 @@ Model Sataniccube
    Path "Models/Buildings/Rolls"
    Model 0 "Sataniccube.md2"
    Skin 0 "SatanicCube.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    Rotation-Speed 0.05
    Rotation-Vector 0.0 1.0 0.0
@@ -877,8 +877,8 @@ Model CylinderSquare1
    Path "Models/Buildings/Rolls"
    Model 0 "Squarescylinder01.md2"
    Skin 0 "Squares.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    Rotation-Speed 0.05
    Rotation-Vector 0.0 1.0 0.0
@@ -892,8 +892,8 @@ Model CylinderSquare2
    Path "Models/Buildings/Rolls"
    Model 0 "Squarescylinder02.md2"
    Skin 0 "Squares.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    Rotation-Speed 0.05
    Rotation-Vector 0.0 1.0 0.0
@@ -907,8 +907,8 @@ Model Bricks
    Path "Models/Buildings/Rolls"
    Model 0 "Bricks.md2"
    Skin 0 "Bricks.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -919,8 +919,8 @@ Model Corner1
    Path "Models/Buildings/Rolls"
    Model 0 "Corner1.md2"
    Skin 0 "Buildingcorner1.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -931,8 +931,8 @@ Model Corner2
    Path "Models/Buildings/Rolls"
    Model 0 "Corner2.md2"
    Skin 0 "Buildingcorner2.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -943,8 +943,8 @@ Model Corner3
    Path "Models/Buildings/Rolls"
    Model 0 "Corner3.md2"
    Skin 0 "Buildingcorner3.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -955,8 +955,8 @@ Model Squares01
    Path "Models/Buildings/Rolls"
    Model 0 "Squares01.md2"
    Skin 0 "Squares.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -967,8 +967,8 @@ Model Squares02
    Path "Models/Buildings/Rolls"
    Model 0 "Squares02.md2"
    Skin 0 "Squares.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -979,8 +979,8 @@ Model Squares03
    Path "Models/Buildings/Rolls"
    Model 0 "Squares03.md2"
    Skin 0 "Squares.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -991,8 +991,8 @@ Model Squares04
    Path "Models/Buildings/Rolls"
    Model 0 "Squares04.md2"
    Skin 0 "Squares.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1003,8 +1003,8 @@ Model Squares05
    Path "Models/Buildings/Rolls"
    Model 0 "Squares05.md2"
    Skin 0 "Squares.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1015,8 +1015,8 @@ Model Room1
    Path "Models/Buildings/Rolls"
    Model 0 "Room1.md2"
    Skin 0 "Room1.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1027,8 +1027,8 @@ Model Room2a
    Path "Models/Buildings/Rolls"
    Model 0 "Room2A.md2"
    Skin 0 "Room2.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1039,8 +1039,8 @@ Model Room2b
    Path "Models/Buildings/Rolls"
    Model 0 "Room2B.md2"
    Skin 0 "Room2.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1051,8 +1051,8 @@ Model bed
    Path "Models/Buildings/Rolls"
    Model 0 "Bed.md2"
    Skin 0 "Bed.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1063,8 +1063,8 @@ Model armario1
    Path "Models/Buildings/Rolls"
    Model 0 "armario1.md2"
    Skin 0 "armarios.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1075,8 +1075,8 @@ Model armario2
    Path "Models/Buildings/Rolls"
    Model 0 "armario2.md2"
    Skin 0 "armarios.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1087,8 +1087,8 @@ Model armario3
    Path "Models/Buildings/Rolls"
    Model 0 "armario3.md2"
    Skin 0 "armarios.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1099,8 +1099,8 @@ Model armario4
    Path "Models/Buildings/Rolls"
    Model 0 "armario4.md2"
    Skin 0 "armarios.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1111,8 +1111,8 @@ Model armario5
    Path "Models/Buildings/Rolls"
    Model 0 "armario5.md2"
    Skin 0 "armarios.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1123,8 +1123,8 @@ Model brokewin1
    Path "Models/Buildings/Rolls"
    Model 0 "brokwin1.md2"
    Skin 0 "brokwin.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1135,8 +1135,8 @@ Model brokewin2
    Path "Models/Buildings/Rolls"
    Model 0 "brokwin2.md2"
    Skin 0 "brokwin.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1147,8 +1147,8 @@ Model machin
    Path "Models/Buildings/Rolls"
    Model 0 "machin.md2"
    Skin 0 "machin.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1159,8 +1159,8 @@ Model mesa
    Path "Models/Buildings/Rolls"
    Model 0 "mesa.md2"
    Skin 0 "mesa.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1171,8 +1171,8 @@ Model WallBrok1
    Path "Models/Buildings/Rolls"
    Model 0 "WallBrok1.md2"
    Skin 0 "wallsbrok.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1183,8 +1183,8 @@ Model WallBrok2
    Path "Models/Buildings/Rolls"
    Model 0 "WallBrok2.md2"
    Skin 0 "wallsbrok.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1195,8 +1195,8 @@ Model WallBrok3
    Path "Models/Buildings/Rolls"
    Model 0 "WallBrok3.md2"
    Skin 0 "wallsbrok.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1207,8 +1207,8 @@ Model WallBrok4
    Path "Models/Buildings/Rolls"
    Model 0 "WallBrok4.md2"
    Skin 0 "wallsbrok.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1219,8 +1219,8 @@ Model WallBrok5
    Path "Models/Buildings/Rolls"
    Model 0 "WallBrok5.md3"
    Skin 0 "WallBrok5.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1231,8 +1231,8 @@ Model WallBrok6
    Path "Models/Carnival"
    Model 0 "WALY1.md2"
    Skin 0 "WALY_TX.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1243,8 +1243,8 @@ Model WallBrok7
    Path "Models/Carnival"
    Model 0 "WALY2.md2"
    Skin 0 "WALY_TX.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
    Zoffset 1
@@ -1567,8 +1567,8 @@ Model Decal_CeilFloor1
    Path "Models/FloorDecal"
    Model 0 "FloorDecal.md3" //embedded
    Scale 64.0 64.0 64.0
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    Zoffset 1
    FrameIndex DECF A 0 2
 }
@@ -1579,8 +1579,8 @@ Model Decal_CeilFloor2
    Model 0 "FloorDecal.md3"
    Skin  0 "FloorDecal2.png"
    Scale 32.0 32.0 32.0
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    Zoffset 1
    FrameIndex DECF B 0 2
 }
@@ -1591,8 +1591,8 @@ Model Decal_CeilFloor3
    Model 0 "FloorDecal.md3"
    Skin  0 "FloorDecal3.png"
    Scale 48.0 48.0 48.0
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    Zoffset 1
    FrameIndex DECF C 0 2
 }
@@ -1604,8 +1604,8 @@ Model BigSignSpawner
    Model 0 "sign.md2"
    Skin 0 "sign1.jpg"
    Scale 1.0 1.0 1.0
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
 }
 
@@ -1615,8 +1615,8 @@ Model BigSignSpawner
    Model 0 "sign.md2"
    Skin 0 "sign2.jpg"
    Scale 1.0 1.0 1.0
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN B 0 0
 }
 
@@ -1626,8 +1626,8 @@ Model BigSignSpawner
    Model 0 "sign.md2"
    Skin 0 "sign3.jpg"
    Scale 1.0 1.0 1.0
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN C 0 0
 }
 
@@ -2479,8 +2479,8 @@ Model CreepyTV1
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_000.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2490,8 +2490,8 @@ Model CreepyTV1
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_001.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2501,8 +2501,8 @@ Model CreepyTV1
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_002.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2512,8 +2512,8 @@ Model CreepyTV1
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_003.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2523,8 +2523,8 @@ Model CreepyTV1
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_004.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2534,8 +2534,8 @@ Model CreepyTV1
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_005.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN F 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2545,8 +2545,8 @@ Model CreepyTV1
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_006.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN G 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2556,8 +2556,8 @@ Model CreepyTV1
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_007.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN H 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2567,8 +2567,8 @@ Model CreepyTV1
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_008.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN I 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2578,8 +2578,8 @@ Model CreepyTV1
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_009.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2589,8 +2589,8 @@ Model CreepyTV2
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_000.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2600,8 +2600,8 @@ Model CreepyTV2
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_001.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2611,8 +2611,8 @@ Model CreepyTV2
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_002.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2622,8 +2622,8 @@ Model CreepyTV2
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_003.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2633,8 +2633,8 @@ Model CreepyTV2
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_004.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2644,8 +2644,8 @@ Model CreepyTV2
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_005.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN F 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2655,8 +2655,8 @@ Model CreepyTV2
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_006.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN G 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2666,8 +2666,8 @@ Model CreepyTV2
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_007.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN H 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2677,8 +2677,8 @@ Model CreepyTV2
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_008.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN I 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2688,8 +2688,8 @@ Model CreepyTV2
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_009.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2699,8 +2699,8 @@ Model CreepyTV3
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_001.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2710,8 +2710,8 @@ Model CreepyTV3
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_002.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2721,8 +2721,8 @@ Model CreepyTV3
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_003.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2732,8 +2732,8 @@ Model CreepyTV3
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_004.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2743,8 +2743,8 @@ Model CreepyTV3
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_005.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2754,8 +2754,8 @@ Model CreepyTV3
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_006.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN F 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2765,8 +2765,8 @@ Model CreepyTV3
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_007.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN G 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2776,8 +2776,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_000.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2787,8 +2787,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_001.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2798,8 +2798,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_002.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2809,8 +2809,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_003.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2820,8 +2820,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_004.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2831,8 +2831,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_005.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN F 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2842,8 +2842,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_006.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN G 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2853,8 +2853,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_007.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN H 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2864,8 +2864,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_008.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN I 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2875,8 +2875,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV001_009.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2886,8 +2886,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_000.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN K 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2897,8 +2897,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_001.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN L 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2908,8 +2908,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_002.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN M 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2919,8 +2919,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_003.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN N 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2930,8 +2930,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_004.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN O 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2941,8 +2941,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_005.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN P 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2952,8 +2952,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_006.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN Q 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2963,8 +2963,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_007.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN R 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2974,8 +2974,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_008.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN S 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2985,8 +2985,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV002_009.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN T 0 0
    Scale 1.0 1.0 1.0
 }
@@ -2996,8 +2996,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_001.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN U 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3007,8 +3007,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_002.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN V 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3018,8 +3018,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_003.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN W 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3029,8 +3029,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_004.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN X 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3040,8 +3040,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_005.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN Y 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3051,8 +3051,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_006.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN Z 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3062,8 +3062,8 @@ Model CreepyTV4
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV003_007.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex POSS A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3073,8 +3073,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_000.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3084,8 +3084,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_001.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3095,8 +3095,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_002.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3106,8 +3106,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_003.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3117,8 +3117,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_004.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3128,8 +3128,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_005.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN F 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3139,8 +3139,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_006.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN G 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3150,8 +3150,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_007.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN H 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3161,8 +3161,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_008.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN I 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3172,8 +3172,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_009.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3183,8 +3183,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_010.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN K 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3194,8 +3194,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_011.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN L 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3205,8 +3205,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_012.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN M 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3216,8 +3216,8 @@ Model CreepyTV5
    Path "Models/TV"
    Model 0 "CreepyTV.md3"
    Skin 0 "TV004_013.jpg"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    FrameIndex UNKN N 0 0
    Scale 1.0 1.0 1.0
 }
@@ -3228,8 +3228,8 @@ Model Monitor1
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR1.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
@@ -3240,8 +3240,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR200.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
@@ -3252,8 +3252,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR201.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
@@ -3264,8 +3264,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR202.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
@@ -3276,8 +3276,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR203.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
@@ -3288,8 +3288,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR204.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
@@ -3300,8 +3300,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR205.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN F 0 0
    Scale 1.0 1.0 1.0
@@ -3313,8 +3313,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR206.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN G 0 0
    Scale 1.0 1.0 1.0
@@ -3325,8 +3325,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR207.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN H 0 0
    Scale 1.0 1.0 1.0
@@ -3337,8 +3337,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR208.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN I 0 0
    Scale 1.0 1.0 1.0
@@ -3349,8 +3349,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR209.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
@@ -3361,8 +3361,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR210.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN K 0 0
    Scale 1.0 1.0 1.0
@@ -3373,8 +3373,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR211.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN L 0 0
    Scale 1.0 1.0 1.0
@@ -3385,8 +3385,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR212.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN M 0 0
    Scale 1.0 1.0 1.0
@@ -3397,8 +3397,8 @@ Model Monitor2
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "MONITOR213.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN N 0 0
    Scale 1.0 1.0 1.0
@@ -3409,8 +3409,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor300.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
@@ -3421,8 +3421,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor301.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
@@ -3433,8 +3433,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor302.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
@@ -3445,8 +3445,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor303.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
@@ -3457,8 +3457,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor304.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
@@ -3469,8 +3469,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor305.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN F 0 0
    Scale 1.0 1.0 1.0
@@ -3482,8 +3482,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor306.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN G 0 0
    Scale 1.0 1.0 1.0
@@ -3494,8 +3494,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor307.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN H 0 0
    Scale 1.0 1.0 1.0
@@ -3506,8 +3506,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor308.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN I 0 0
    Scale 1.0 1.0 1.0
@@ -3518,8 +3518,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor309.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
@@ -3530,8 +3530,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor310.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN K 0 0
    Scale 1.0 1.0 1.0
@@ -3542,8 +3542,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor311.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN L 0 0
    Scale 1.0 1.0 1.0
@@ -3554,8 +3554,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor312.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN M 0 0
    Scale 1.0 1.0 1.0
@@ -3566,8 +3566,8 @@ Model Monitor3
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor313.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN N 0 0
    Scale 1.0 1.0 1.0
@@ -3578,8 +3578,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor400.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
@@ -3590,8 +3590,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor401.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
@@ -3602,8 +3602,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor402.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
@@ -3614,8 +3614,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor403.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
@@ -3626,8 +3626,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor404.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
@@ -3638,8 +3638,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor405.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN F 0 0
    Scale 1.0 1.0 1.0
@@ -3651,8 +3651,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor406.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN G 0 0
    Scale 1.0 1.0 1.0
@@ -3663,8 +3663,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor407.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN H 0 0
    Scale 1.0 1.0 1.0
@@ -3675,8 +3675,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor408.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN I 0 0
    Scale 1.0 1.0 1.0
@@ -3687,8 +3687,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor409.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
@@ -3699,8 +3699,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor410.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN K 0 0
    Scale 1.0 1.0 1.0
@@ -3711,8 +3711,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor411.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN L 0 0
    Scale 1.0 1.0 1.0
@@ -3723,8 +3723,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor412.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN M 0 0
    Scale 1.0 1.0 1.0
@@ -3735,8 +3735,8 @@ Model Monitor4
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor413.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN N 0 0
    Scale 1.0 1.0 1.0
@@ -3747,8 +3747,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor500.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN A 0 0
    Scale 1.0 1.0 1.0
@@ -3759,8 +3759,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor501.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN B 0 0
    Scale 1.0 1.0 1.0
@@ -3771,8 +3771,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor502.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN C 0 0
    Scale 1.0 1.0 1.0
@@ -3783,8 +3783,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor503.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN D 0 0
    Scale 1.0 1.0 1.0
@@ -3795,8 +3795,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor504.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN E 0 0
    Scale 1.0 1.0 1.0
@@ -3807,8 +3807,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor505.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN F 0 0
    Scale 1.0 1.0 1.0
@@ -3820,8 +3820,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor506.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN G 0 0
    Scale 1.0 1.0 1.0
@@ -3832,8 +3832,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor507.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN H 0 0
    Scale 1.0 1.0 1.0
@@ -3844,8 +3844,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor508.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN I 0 0
    Scale 1.0 1.0 1.0
@@ -3856,8 +3856,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor509.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN J 0 0
    Scale 1.0 1.0 1.0
@@ -3868,8 +3868,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor510.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN K 0 0
    Scale 1.0 1.0 1.0
@@ -3880,8 +3880,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor511.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN L 0 0
    Scale 1.0 1.0 1.0
@@ -3892,8 +3892,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor512.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN M 0 0
    Scale 1.0 1.0 1.0
@@ -3904,8 +3904,8 @@ Model Monitor5
    Path "Models/Carnival/Monitors"
    Model 0 "Monitor.md2"
    Skin 0 "Monitor513.png"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    FrameIndex UNKN N 0 0
    Scale 1.0 1.0 1.0
@@ -4048,8 +4048,8 @@ Model Lavaball
    Model 0 "Lavaball.md2"
    Skin 0 "skin0.pcx"
    FrameIndex UNKN A 0 0
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    Scale 1.0 1.0 1.0
 }
@@ -4059,8 +4059,8 @@ Model QuakeColumns
 	Path "Models\Quake"
 	Model 0 "Quake.md2"
 	Skin 0 "Quake_TX.jpg"
-	INHERITACTORROLL
-	INHERITACTORPITCH
+	USEACTORROLL
+	USEACTORPITCH
 	FrameIndex UNKN A 0 1
 	FrameIndex QCOL B 0 2
 	FrameIndex QCOL C 0 3
@@ -4096,8 +4096,8 @@ Model RuneQuake
    Path "Models/Quake"
    Model 0 "END1.md2"
    Skin 0 "end1.pcx"
-   INHERITACTORROLL
-   INHERITACTORPITCH
+   USEACTORROLL
+   USEACTORPITCH
    ROTATING
    Rotation-Speed 1.0
    FrameIndex UNKN A 0 0

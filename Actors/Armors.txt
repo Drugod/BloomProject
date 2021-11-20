@@ -21,7 +21,7 @@
 **/
 
 //ARMORS//
-ACTOR RedArmor : BasicArmorPickup 3156 //uses FireArmor DoomEdNum - ozy81
+ACTOR RedArmor : BasicArmorPickup
 {
 	Radius 20
 	Height 16
@@ -40,7 +40,7 @@ ACTOR RedArmor : BasicArmorPickup 3156 //uses FireArmor DoomEdNum - ozy81
 
 ACTOR ArmorPicker : PuzzleItem { Inventory.MaxAmount 2 -INVBAR }
 
-ACTOR BodyArmorPickup : CustomInventory 3155
+ACTOR BodyArmorPickup : CustomInventory
 {
 	//$Category "BlooM Armor"
 	//$Sprite XRM1A0
@@ -97,7 +97,7 @@ ACTOR FireArmorPickup : BodyArmorPickup
 	}
 }
 
-ACTOR SpiritArmorPickup : BodyArmorPickup 3157 //replace with GreenArmor
+ACTOR SpiritArmorPickup : BodyArmorPickup
 {
 	//$Sprite SARMA0
 	Tag "Spirit Armor"
@@ -126,7 +126,7 @@ ACTOR SpiritArmorPickup : BodyArmorPickup 3157 //replace with GreenArmor
 	}
 }
 
-ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup 3160 //replace with BlueArmor
+ACTOR BasicArmorPickup_ : CustomInventory replaces BasicArmorPickup
 {
 	//$Category "BlooM Armor"
 	//$Sprite XARMA0
@@ -201,7 +201,7 @@ ACTOR BodyArmorPickupLower : CustomInventory
 	}
 }
 
-ACTOR FireArmorPickupLower : BodyArmorPickupLower //6235
+ACTOR FireArmorPickupLower : BodyArmorPickupLower
 {
 	//$Sprite ARMFA0
 	DamageFactor "Dynamite",0.75
@@ -238,7 +238,7 @@ ACTOR FireArmorPickupLower : BodyArmorPickupLower //6235
 	}
 }
 
-ACTOR SpiritArmorPickupLower : BodyArmorPickupLower //6237
+ACTOR SpiritArmorPickupLower : BodyArmorPickupLower
 {
 	//$Sprite SARMA0
 	DamageFactor "Spiritual",0.75
@@ -272,7 +272,7 @@ ACTOR SpiritArmorPickupLower : BodyArmorPickupLower //6237
 	}
 }
 
-ACTOR SuperArmorPickup : CustomInventory 3161
+ACTOR SuperArmorPickup : CustomInventory
 {
 	//$Category "BlooM Armor"
 	//$Sprite XRM2A0

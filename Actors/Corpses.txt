@@ -218,7 +218,7 @@ ACTOR DeadMoron 3174
 		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		HORR B -1
 		Stop
-	Spawn:
+	Spawn2:
 		TNT1 A 0 
 		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
 		VX84 A -1
