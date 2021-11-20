@@ -207,28 +207,52 @@ ACTOR DeadMoron 3174
 	Radius 14
 	Height 10
 	Health 40
-	Scale 0.8
+	Scale 0.6
 	+NOTAUTOAIMED
 	+SHOOTABLE
 	Translation "209:223=64:71","112:127=64:79"
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		HORR B -1
 		Stop
-	Death:
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
-		HORR B 0 A_Fall
-		HORR B 5 A_XScream
-		HORR B 0 A_SpawnDebris("OrganDebris")
-		HORR B 0 A_Jump(92,2)
-		HORR B 0 A_SpawnDebris("Bloodliver")
-		HORR B 0 A_Jump(92,2)
-		HORR BB 0 A_SpawnDebris("EyeGuts")
-		HORR B 0 A_Jump(92,2)
-		HORR BB 0 A_SpawnDebris("Hand1")
-		HORR BBBBBBBB 0 A_SpawnDebris("FlyingBlood")
+	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		VX84 A -1
 		Stop
+	Death:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		TNT1 A 0 A_Fall
+		HORR B 5 A_XScream
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 AA 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 AA 0 A_SpawnDebris("Hand1")
+		TNT1 AAAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	Death2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		TNT1 A 0 A_Fall
+		VX84 A 5 A_XScream
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 AA 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 AA 0 A_SpawnDebris("Hand1")
+		TNT1 AAAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop		
 	}
 }
 
@@ -237,24 +261,49 @@ ACTOR DeadMoron2 : DeadMoron 3175
 	//$Title Dead Moron 2, Shootable
 	Health 20
 	Radius 10
+	Scale 0.6	
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		HORR C -1
 		Stop
-	Death:
-		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
-		HORR C 0 A_Fall
-		HORR C 5 A_XScream
-		HORR C 0 A_SpawnDebris("OrganDebris")
-		HORR C 0 A_Jump(92,2)
-		HORR C 0 A_SpawnDebris("Bloodliver")
-		HORR C 0 A_Jump(92,2)
-		HORR CC 0 A_SpawnDebris("EyeGuts")
-		HORR C 0 A_Jump(92,2)
-		HORR CC 0 A_SpawnDebris("Hand1")
-		HORR CCCCCCCC 0 A_SpawnDebris("FlyingBlood")
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		VX85 A -1
 		Stop
+	Death:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		TNT1 A 0 A_Fall
+		HORR C 5 A_XScream
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 AA 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 AA 0 A_SpawnDebris("Hand1")
+		TNT1 AAAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	Death2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		TNT1 A 0 A_Fall
+		VX85 A 5 A_XScream
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 AA 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 AA 0 A_SpawnDebris("Hand1")
+		TNT1 AAAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop		
 	}
 }
 
@@ -264,24 +313,48 @@ ACTOR DeadMoron3 : DeadMoron 3173
 	Height 30
 	Radius 15
 	Health 60
-	Scale 0.7
+	Scale 0.6
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		HORR A -1
 		Stop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		VX86 A -1
+		Stop
 	Death:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
-		HORR A 0 A_Fall
+		TNT1 A 0 A_Fall
 		HORR A 5 A_XScream
-		HORR A 0 A_SpawnDebris("OrganDebris")
-		HORR A 0 A_Jump(92,2)
-		HORR A 0 A_SpawnDebris("Bloodliver")
-		HORR A 0 A_Jump(92,2)
-		HORR AA 0 A_SpawnDebris("EyeGuts")
-		HORR A 0 A_Jump(92,2)
-		HORR AA 0 A_SpawnDebris("Hand1")
-		HORR AAAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 AA 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 AA 0 A_SpawnDebris("Hand1")
+		TNT1 AAAAAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	Death2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
+		TNT1 A 0 A_Fall
+		VX86 A 5 A_XScream
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 AA 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_Jump(92,2)
+		TNT1 AA 0 A_SpawnDebris("Hand1")
+		TNT1 AAAAAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	}
 }
@@ -323,19 +396,40 @@ ACTOR LiveHead 3178
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		XAHE A 250
 		XAHE B 50
 		Loop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		VX90 A 250
+		VX90 B 50
+		Loop
 	Death:
-		BCUL O 0 A_Scream
-		BCUL OOOOO 0 A_SpawnDebris("FlyingBlood")
-		BCUL O 0 A_XScream
-		BCUL O 0 A_Jump(32,2)
-		BCUL O 0 A_SpawnDebris("Bloodliver")
-		BCUL O 0 A_Jump(32,2)
-		BCUL OO 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0 A_Scream
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Jump(32,2)
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_Jump(32,2)
+		TNT1 AA 0 A_SpawnDebris("EyeGuts")
 		BCUL O 5
 		Stop
+	Death2:
+		TNT1 A 0 A_Scream
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Jump(32,2)
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
+		TNT1 A 0 A_Jump(32,2)
+		TNT1 AA 0 A_SpawnDebris("EyeGuts")
+		VX90 A 5
+		Stop
+		
 	}
 }
 
@@ -631,17 +725,34 @@ ACTOR BlindfoldedGuyHang : HangingMeat 3189
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		HOLG AB random(30,100)
+		TNT1 A 0 A_Jump(random(128,256),"Drip")
+		Loop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		VX83 AB random(30,100)
 		TNT1 A 0 A_Jump(random(128,256),"Drip")
 		Loop
 	Drip:
 		TNT1 A 0 A_SpawnItem("HangedBloodDrip")
 		Goto Spawn
 	Death:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
 		HOLG A 1 A_XScream
-		HOLG AAAAA 0 A_SpawnDebris("OrganDebris")
-		HOLG AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
+	Death2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		VX83 A 1 A_XScream
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop		
 	}
 }
 
@@ -651,16 +762,33 @@ ACTOR BlindfoldedAsh : HangingMeat 3190
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		XBFA A 1
+		TNT1 A 0 A_Jump(random(1,4),"Drip")
+		Loop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		VX82 A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
 	Drip:
 		TNT1 A 0 A_SpawnItem("HangedBloodDrip")
 		Goto Spawn
 	Death:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
 		XBFA A 1 A_XScream
-		XBFA AAAAA 0 A_SpawnDebris("OrganDebris")
-		XBFA AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	Death2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		VX82 A 1 A_XScream
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	}
 }
@@ -671,16 +799,33 @@ ACTOR HanginDeadChick : HangingMeat 3191
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		XXAO A 1
+		TNT1 A 0 A_Jump(random(1,4),"Drip")
+		Loop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		VX79 A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
 	Drip:
 		TNT1 A 0 A_SpawnItem("HangedBloodDrip")
 		Goto Spawn
 	Death:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
 		XXAO A 1 A_XScream
-		XXAO AAAAA 0 A_SpawnDebris("OrganDebris")
-		XXAO AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	Death2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		VX79 A 1 A_XScream
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	}
 }
@@ -691,16 +836,33 @@ ACTOR HanginDeadChick2 : HangingMeat 3180
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		XDC2 A 1
+		TNT1 A 0 A_Jump(random(1,4),"Drip")
+		Loop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		VX78 A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
 	Drip:
 		TNT1 A 0 A_SpawnItem("HangedBloodDrip")
 		Goto Spawn
 	Death:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death2")		
 		XDC2 A 1 A_XScream
-		XDC2 AAAAA 0 A_SpawnDebris("OrganDebris")
-		XDC2 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	Death2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death")		
+		VX78 A 1 A_XScream
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	}
 }
@@ -711,16 +873,33 @@ ACTOR HanginDeadChick3 : HangingMeat 3184
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		XDC3 A 1
+		TNT1 A 0 A_Jump(random(1,4),"Drip")
+		Loop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		VX77 A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
 	Drip:
 		TNT1 A 0 A_SpawnItem("HangedBloodDrip")
 		Goto Spawn
 	Death:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
 		XDC3 A 1 A_XScream
-		XDC3 AAAAA 0 A_SpawnDebris("OrganDebris")
-		XDC3 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	Death2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		VX77 A 1 A_XScream
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	}
 }
@@ -731,8 +910,13 @@ ACTOR SkeletonX : HangingMeat 3216
 	States
 	{
 	Spawn:
-		XXAA A 1
-		Loop
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		XXAA A -1
+		Stop
+	Spawn2:
+		VX76 A -1
+		Stop
 	Death:
 		XXAA A 1 A_XScream
 		XXAA AAAAA 0 A_SpawnDebris("OrganDebris")
@@ -747,7 +931,12 @@ ACTOR SkeletonX2 : HangingMeat 3217
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		XXAB A -1
+		Stop
+	Spawn2:
+		VX92 A -1
 		Stop
 	Death:
 		XXAB A 1 A_XScream
@@ -763,12 +952,28 @@ ACTOR SkeletonX3 : HangingMeat 3218
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		XXAC A -1
 		Stop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		VX81 A -1
+		Stop
 	Death:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
 		XXAC A 1 A_XScream
-		XXAC AAAAA 0 A_SpawnDebris("OrganDebris")
-		XXAC AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	Death2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		VX81 A 1 A_XScream
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	}
 }
@@ -779,7 +984,12 @@ ACTOR SkeletonX4 : HangingMeat 3219
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		XXAE A -1
+		Stop
+	Spawn2:
+		VX75 A -1
 		Stop
 	Death:
 		XXAE A 1 A_XScream
@@ -795,16 +1005,33 @@ ACTOR Skeletonx5 : HangingMeat 3220
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		XXAF A 1
+		TNT1 A 0 A_Jump(random(1,4),"Drip")
+		Loop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		VX80 A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
 	Drip:
 		TNT1 A 0 A_SpawnItem("HangedBloodDrip")
 		Goto Spawn
 	Death:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
 		XXAF A 1 A_XScream
-		XXAF AAAAA 0 A_SpawnDebris ("OrganDebris")
-		XXAF AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 AAAAA 0 A_SpawnDebris ("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop
+	Death2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		VX80 A 1 A_XScream
+		TNT1 AAAAA 0 A_SpawnDebris ("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	}
 }
@@ -978,15 +1205,33 @@ ACTOR BloodyLeg : HangingMeat 3192
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		LEGX A -1
 		Stop
+	Spawn2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		VX87 A -1
+		Stop
 	Death:
-		BCUL OOOOO 0 A_SpawnDebris("FlyingBlood")
-		BCUL O 0 A_XScream
-		BCUL O 0 A_Jump(32,2)
-		BCUL O 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Jump(32,2)
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
 		BCUL O 5
 		Stop
+	Death2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_Jump(32,2)
+		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		VX87 A 5
+		Stop		
 	}
 }
 
@@ -1002,7 +1247,12 @@ ACTOR SkullCow 3211
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		WCOW A -1
+		Stop
+	Spawn2:
+		VX91 A -1
 		Stop
 	}
 }
@@ -1016,7 +1266,12 @@ ACTOR PileSkulls 3231
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		PILS A -1
+		Stop
+	Spawn2:
+ 		VX74 A -1
 		Stop
 	}
 }
@@ -1027,7 +1282,12 @@ ACTOR ImpaledSkullX : PileSkulls 3232
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		1SKL A -1
+		Stop
+	Spawn2:
+		VX89 A -1
 		Stop
 	}
 }
@@ -1038,7 +1298,12 @@ ACTOR ImpaledSkullX2 : PileSkulls 3234
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		RSKL A -1
+		Stop
+	Spawn2:
+		VX88 A -1
 		Stop
 	}
 }
@@ -1049,7 +1314,12 @@ ACTOR HatchedSkull : PileSkulls 3233
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
 		QSKL A -1
+		Stop
+	Spawn2:
+		VX93 A -1
 		Stop
 	}
 }

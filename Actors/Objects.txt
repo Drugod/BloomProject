@@ -331,18 +331,19 @@ ACTOR RandomCup : BrownBottles 18614
 	Spawn:
 		TNT1 A 0 
 		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
-		BEAK A -1 //NODELAY A_Jump(128,1,2,3)
-		Stop
-		/*BEAK B -1
-		BEAK C -1
-		BEAK D -1*/
+		BEAK A -1
 		Stop
 	Spawn2:
-		VX24 A -1 NODELAY A_Jump(128,1,2,3)
+		TNT1 A 0 
+		TNT1 A 0 //A_Jump(128,1,2,3,4)
+		VX24 A -1
+		/*Stop				
 		BEAK B -1
+		Stop				
 		BEAK C -1
+		Stop				
 		BEAK D -1
-		Stop		
+		Stop		*/
 	Death:
 		"####" "#" 0 A_Fall
 		"####" "#" 0 A_Scream
@@ -393,7 +394,8 @@ ACTOR BloodStalags1 : Stalagmite 24002
 	States
 	{
 	Spawn:
-		STGL A 0 A_Jump(256,"Stag1", "Stag2")
+		TNT1 A 0 	
+		TNT1 A 0 A_Jump(256,"Stag1", "Stag2")
 	Stag1:
 		TNT1 A 0 
 		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Stag12")				
@@ -413,10 +415,11 @@ ACTOR BloodStalags2 : BloodStalags1 24003
 	//$Title "Brown Stalagtite, random"
 	+NOGRAVITY
 	+SPAWNCEILING
-	Height 28
+	Height 32
 	States
 	{
 	Spawn:
+		TNT1 A 0 		
 		STGL B 0 A_Jump(256,"Stag1", "Stag2")
 	Stag1:
 		TNT1 A 0 
@@ -427,7 +430,12 @@ ACTOR BloodStalags2 : BloodStalags1 24003
 		VX39 B -1
 		Stop		
 	Stag2:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Stag22")		
 		STGL D -1
+		Stop
+	Stag22:
+		VX96 A -1
 		Stop
 	}
 }
@@ -634,7 +642,12 @@ ACTOR WoodImpSkull : HeartColumn 3265
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		IMSK A -1
+		Stop
+	Spawn2:
+		VX94 A -1
 		Stop
 	}
 }
@@ -648,7 +661,12 @@ ACTOR WoodImpSkulls : HeartColumn 3266
 	States
 	{
 	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
 		IMSS A -1
+		Stop
+	Spawn2:
+		VX95 A -1
 		Stop
 	}
 }
