@@ -21,7 +21,7 @@
 **/
 
 ACTOR ---------GARGOYLESOULS----------- {}
-ACTOR GargoylSoul : BloomHybrid_Base 19005
+ACTOR GargoylSoul : BloomHybrid_Base
 {
 	//$Title Gargoyle's Soul
 	Health 100
@@ -29,7 +29,6 @@ ACTOR GargoylSoul : BloomHybrid_Base 19005
 	Mass 50
 	Damage 3
 	PainChance 256
-	//+DONTFALL
 	+FLOAT
 	+MISSILEMORE
 	+NOGRAVITY
@@ -77,7 +76,7 @@ ACTOR GargoylSoul : BloomHybrid_Base 19005
 }
 
 ACTOR ----------ELEMENTAL_GARGOYLES---------- {}
-ACTOR Elemental_Gargoyle : BloomHybrid_Base 19009
+ACTOR Elemental_Gargoyle : BloomHybrid_Base
 {
 	//$Title GargoElemental
 	Health 400

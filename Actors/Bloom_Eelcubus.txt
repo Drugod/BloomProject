@@ -141,7 +141,7 @@ ACTOR Eelcubus_Base
 	}
 }
 
-ACTOR Eelcubus : Eelcubus_Base 19007
+ACTOR Eelcubus : Eelcubus_Base
 {
 	//$Title Eelcubus
 	Obituary "$OB_EELCUB"
@@ -283,7 +283,7 @@ ACTOR Eelcubus : Eelcubus_Base 19007
 	}
 }
 
-ACTOR Gillcubus : Eelcubus_Base 19027
+ACTOR Gillcubus : Eelcubus_Base
 {
 	//$Title Gillcubus
 	Obituary "$OB_GILLC"

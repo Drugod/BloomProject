@@ -690,9 +690,9 @@ ACTOR PitchforkPuff
 	}
 }
 
-ACTOR ZBulletPuffS : ZBBulletPuff { DamageType "Sawedoff" }
-ACTOR ZBulletPuffS2 : ZBBulletPuff { DamageType "Sawedoff2" }
-ACTOR ZBulletPuffS3 : ZBBulletPuff { DamageType "SawedoffLess" }
+ACTOR ZBulletPuffS : ZBBulletPuff { DamageType "SawedOff" }
+ACTOR ZBulletPuffS2 : ZBBulletPuff { DamageType "SawedOff2" }
+ACTOR ZBulletPuffS3 : ZBBulletPuff { DamageType "SawedOffLess" }
 
 ACTOR ZBulletPuffT : ZBBulletPuff
 {

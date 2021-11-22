@@ -64,7 +64,7 @@ ACTOR Caleb : PlayerPawn
 	Player.WeaponSlot 0, "VoodooDoll"
 	Player.WeaponSlot 1, "PitchFork"
 	Player.WeaponSlot 2, "Flaregun","Colt"
-	Player.WeaponSlot 3, "SingleShotgun","Sawedoff"
+	Player.WeaponSlot 3, "SingleShotgun","SawedOff"
 	Player.WeaponSlot 4, "TommyGun"
 	Player.WeaponSlot 5, "NapalmLauncher"
 	Player.WeaponSlot 6, "ProximityDynamite","RemoteDynamite","Dynamite"

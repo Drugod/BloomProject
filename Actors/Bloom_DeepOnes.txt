@@ -217,7 +217,7 @@ ACTOR DeepOne_Base
 	}
 }
 
-ACTOR DeepOneShot : DeepOne_Base 19052
+ACTOR DeepOneShot : DeepOne_Base
 {
 	//$Title Deep One (Shotgun)
 	Health 30
@@ -412,7 +412,7 @@ ACTOR DeepOneShot : DeepOne_Base 19052
 	}
 }
 
-ACTOR DeepOneChain : DeepOne_Base 19061
+ACTOR DeepOneChain : DeepOne_Base
 {
 	//$Title Deep One (Chaingunner)
 	AttackSound "chainguy/attack"
@@ -596,7 +596,7 @@ ACTOR DeepOneChain : DeepOne_Base 19061
 	}
 }
 
-ACTOR DeepOneTri : DeepOne_Base 19054
+ACTOR DeepOneTri : DeepOne_Base
 {
 	//$Title Deep One (Trident)
 	Health 60

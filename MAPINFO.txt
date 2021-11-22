@@ -1,6 +1,6 @@
 gameinfo
 {
-	AddEventHandlers = "WaterHandler", "TcPostProcessShaderHandler"
+	AddEventHandlers = "BloomWaterHandler", "BloomPPShaderHandler"
 }
 
 clearskills
@@ -76,7 +76,7 @@ skill BLM_Difficult
 // ================================================
 skill BLM_Extreme
 {
-	name = "Caleb's nightmare!"
+	name = "Caleb's Nightmare!"
 	textcolor = black
 	acsreturn = 4
 	spawnfilter = "Nightmare"
@@ -89,7 +89,7 @@ skill BLM_Extreme
 
 DoomEdNums
 {
-	//FireArmorPickup
+	3099=FireArmorPickup
 	3100=HellFish
 	3120=BloodZombie
 	3121=BuriedZombie
@@ -105,6 +105,13 @@ DoomEdNums
 	3132=BloodRat
 	3134=Phantasm
 	3135=SpiderMother
+	3136=FlareGun
+	3137=SawedOff
+	3138=TommyGun
+	3139=NapalmLauncher
+	3140=TeslaRifle
+	3141=LifeLeech
+	3142=VoodooDoll
 	3144=SprayCanisterPickup
 	3145=TNTBundle
 	3146=GasolineCan
@@ -142,34 +149,89 @@ DoomEdNums
 	10310=RedCultist
 	12002=TeslaCharge
 	12004=EssencePower
+	17900=ZombaronOfHell
+	17901=AxeZombaronOfHell
+	18322=FlyingGargovile
 	18500=BatFamiliar
 	18501=DaisyBat
+	19004=Fanatic_Chaingunner
+	19005=GargoylSoul
+	19007=Eelcubus
+	19009=Elemental_Gargoyle
+	19011=Arachnoid
+	19012=DemonHound
+	19014=Cacoyle
+	19016=Cacoyle_Variant
+	19017=Shielded_Ghost_Revenant
+	19018=Ghost_Revenant
+	19020=Shielded_Ghost_Revenant_Alt
+	19021=Ghost_Revenant_Alt
+	19024=GhostRevenantTerrain
+	19025=GhostRevenantTerrainAlt
+	19026=DemonHoundAlt
+	19027=Gillcubus
+	19028=Cvltimp
+	19029=CvltimpAlt
+	19031=WerewolvesSpawner
+	19035=LivingCacoyleStatue
+	19039=ArchZombie
+	19040=Gargovile
+	19042=HellButcherSpawner
+	19043=LivingGargovileStatue
+	19046=Fanatic_ChaingunnerAlt
+	19049=SpectreHound
+	19050=SpectreHoundAlt
+	19051=GargoDemon
+	19052=DeepOneShot
+	19053=KingCacoyle
+	19054=DeepOneTri
+	19057=CyberCheogh
+	19061=DeepOneChain
 	19066=BloodRatBlack
 	19067=BloodRatGrey
 	19068=BloodRatWhite
 	19069=BloodRatSpawner
+	19070=Green_Arachnopod
+	19071=Magma_Arachnopod
+	19072=Ice_Arachnopod
+	19083=Eeldercubus
+	19093=HoundKnightOfHell
+	19094=HoundBaronOfHell
+	19103=Pinkberus
+	19104=Zombarons
+	19105=TchernoDemon
+	19107=Sloth
+	19108=Cyberbog
+	19109=Jojo
+	19135=PinkGargoyle
+	19137=RomeroTron
+	19138=HandMastermind
+	19139=Cerbcubus
+	19141=ShialMastermind
 	20080=Flares
 	20081=Flare
 	20082=TeslaChargeBox
 	20083=MiniGasolineCan
+	31370=Colt
+	31371=SingleShotgun
 }
 
 SpawnNums
 {
 	1=BrownCultist
 	2=GreyCultist
-	3=Cheogh
 	3=CyberCheogh
 	4=GreenCultist
 	5=BloodGargoyle
+	6=Cheogh //3
 	20=BloatedButcher
 	29=NapalmLauncher
 	32=VoodooDoll
 	51=SprayCanFire
 	112=Cerberus
-	112=Pinkberus
-	116=BlueCultist
+	113=Pinkberus //112
 	116=RedCultist
+	117=BlueCultist //116
 	121=GlitterBridge
 	127=WallBomb
 	142=EssencePower

@@ -191,7 +191,7 @@ ACTOR BeastHands : Weapon
 }
 
 ACTOR --------FLAREGUN------------ {}
-ACTOR Flaregun : CalebW 3136//Weapon 3136
+ACTOR Flaregun : CalebW
 {
 	//$Sprite FGRNA0
 	Tag "Flaregun"
@@ -662,8 +662,8 @@ ACTOR FlareTrail1
 
 ACTOR FlareKaboom
 {
-	Radius 1//64
-	Height 40//16
+	Radius 1
+	Height 40
 	+DONTSPLASH
 	+FIXMAPTHINGPOS
 	+NOBLOCKMAP
@@ -863,7 +863,7 @@ ACTOR DoubleFlaregun : Flaregun
 }
 
 ACTOR --------COLT------------ {}
-ACTOR Colt : CalebW 31370
+ACTOR Colt : CalebW
 {
 	//$Sprite COLTA0
 	Weapon.SelectionOrder 2200
@@ -925,7 +925,7 @@ ACTOR Colt : CalebW 31370
 	}
 }
 ACTOR --------SINGLESHOTGUN------------ {}
-ACTOR SingleShotgun : CalebW 31371
+ACTOR SingleShotgun : CalebW
 {
 	//$Category "Blood Weapons"
 	//$Sprite SBSSA0
@@ -974,7 +974,7 @@ ACTOR SingleShotgun : CalebW 31371
 		TNT1 A 0 A_Quake(2,6,0,50)
 		TNT1 A 0 A_SetPitch(pitch-2.5)
 		TNT1 A 0 A_SetPitch(pitch+0.25)
-		TNT1 A 0 A_PlaySound("Weapons/sawedoffload")
+		TNT1 A 0 A_PlaySound("Weapons/SawedOffload")
 		SP0F A 1 BRIGHT
 		SP0F BCD 1
 		Goto LightDone
@@ -2335,7 +2335,7 @@ ACTOR ShotgunCasing
 	}
 }
 
-ACTOR SawedOff : CalebW 3137
+ACTOR SawedOff : CalebW
 {
 	//$Sprite SOSPA0
 	Tag "Sawed-Off"
@@ -2349,7 +2349,7 @@ ACTOR SawedOff : CalebW 3137
 	Weapon.AmmoGive 4
 	Weapon.AmmoUse 1
 	Weapon.AmmoUse2 1
-	Weapon.SisterWeapon DoubleSawedoff
+	Weapon.SisterWeapon DoubleSawedOff
 	Xscale 0.8
 	YScale 0.9
 	+THRUGHOST
@@ -2375,20 +2375,20 @@ ACTOR SawedOff : CalebW 3137
 		TNT1 AA 0 A_Raise
 		Loop
 	Fire:
-		TNT1 A 0 A_JumpIfInventory("sawedoffcheck",1,"Fire2")
+		TNT1 A 0 A_JumpIfInventory("SawedOffcheck",1,"Fire2")
 		TNT1 A 0 A_Gunflash
 		SWFL ABC 2 BRIGHT A_WeaponReady(14)
 		TNT1 A 5 A_WeaponReady(14)
-		TNT1 A 0 A_GiveInventory("sawedoffcheck",1)
+		TNT1 A 0 A_GiveInventory("SawedOffcheck",1)
 		Goto Ready
 	Fire2:
 		TNT1 A 0 A_Gunflash
 		SWFL DEF 2 BRIGHT A_WeaponReady(14)
 		TNT1 A 24 A_WeaponReady(14)
-		TNT1 A 0 A_TakeInventory("sawedoffcheck",1)
+		TNT1 A 0 A_TakeInventory("SawedOffcheck",1)
 		Goto Ready
 	AltFire:
-		TNT1 A 0 A_JumpIfInventory("sawedoffcheck",1,"Fire2")
+		TNT1 A 0 A_JumpIfInventory("SawedOffcheck",1,"Fire2")
 		SWF2 A 0 A_JumpIfInventory("shell2", 2, 1)
 		Goto Fire
 		TNT1 A 0 A_Gunflash
@@ -2396,7 +2396,7 @@ ACTOR SawedOff : CalebW 3137
 		TNT1 A 26 A_WeaponReady(14)
 		Goto Ready
 	Flash:
-		TNT1 A 0 A_JumpIfInventory("sawedoffcheck",1,"Flash2")
+		TNT1 A 0 A_JumpIfInventory("SawedOffcheck",1,"Flash2")
 		TNT1 A 0 A_PlayWeaponSound("DSSAWFIR")
 		TNT1 A 0 A_FireBullets(7.2, 6.4, 10, 5, "ZBBulletPuff", 1)
 		TNT1 A 0 A_Quake(2,6,0,100)
@@ -2449,13 +2449,13 @@ ACTOR SawedOff : CalebW 3137
 		ANIM A 1 A_WeaponReady(14)
 		TNT1 A 0 A_SetPitch(pitch+0.25)
 		TNT1 A 0 A_JumpIfNoAmmo("NoAmmo")
-		TNT1 A 0 A_PlaySound("Weapons/sawedoffload")
+		TNT1 A 0 A_PlaySound("Weapons/SawedOffload")
 		WP01 EFG 2 A_WeaponReady(14)
 		TNT1 AA 0 A_FireCustomMissile("ShotgunCasing",-45+frandom(-8,8),0,1,7+frandom(-2,2),0)
 		WP01 HIJKLMNOPQRSTT 1 A_WeaponReady(14)
 		Stop
 	Altflash:
-		TNT1 A 0 A_JumpIfInventory("sawedoffcheck",1,"Flash2")
+		TNT1 A 0 A_JumpIfInventory("SawedOffcheck",1,"Flash2")
 		TNT1 A 0 A_JumpIfInventory("shell2", 2, 1)
 		Goto Flash
 		TNT1 A 0 A_PlayWeaponSound("SAWNALT")
@@ -2484,7 +2484,7 @@ ACTOR SawedOff : CalebW 3137
 		TNT1 A 0 A_SetPitch(pitch+0.5)
 		ANIM FYXC 1 A_WeaponReady(14)
 		TNT1 A 0 A_JumpIfNoAmmo("NoAmmo")
-		TNT1 A 0 A_PlaySound("Weapons/sawedoffload")
+		TNT1 A 0 A_PlaySound("Weapons/SawedOffload")
 		WP01 EF 2 A_WeaponReady(14)
 		WP01 G 1 A_WeaponReady(14)
 		TNT1 AA 0 A_FireCustomMissile("ShotgunCasing",-45+frandom(-8,8),0,1,7+frandom(-2,2),0)
@@ -2496,14 +2496,14 @@ ACTOR SawedOff : CalebW 3137
 	}
 }
 
-ACTOR DoubleSawedoff : Sawedoff
+ACTOR DoubleSawedOff : SawedOff
 {
 	+POWERED_UP
 	+THRUGHOST
 	+WEAPON.BFG
 	Weapon.AmmoUse 1
 	Weapon.AmmoUse2 1
-	Weapon.SisterWeapon Sawedoff
+	Weapon.SisterWeapon SawedOff
 	States
 	{
 	Ready:
@@ -2586,8 +2586,8 @@ ACTOR DoubleSawedoff : Sawedoff
 	}
 }
 
-ACTOR --------TOMMYGUN--------- {}
-ACTOR TommygunCasing
+ACTOR --------TommyGun--------- {}
+ACTOR TommyGunCasing
 {
 	Height 1
 	Radius 3
@@ -2633,7 +2633,7 @@ ACTOR TommygunCasing
 	}
 }
 
-ACTOR Tommygun : CalebW 3138
+ACTOR TommyGun : CalebW
 {
 	//$Sprite TOMPA0
 	Tag "Tommy-Gun"
@@ -2687,8 +2687,8 @@ ACTOR Tommygun : CalebW 3138
 		TOMF A 2 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_FireBullets(4,3,-1,frandom(5,6),"BulletPuff",1)
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_GiveInventory("TommyCounter", 1)
 		TNT1 A 0 A_Refire
 		TOMF A 1 A_WeaponReady(14)
@@ -2697,8 +2697,8 @@ ACTOR Tommygun : CalebW 3138
 		TOMF B 2 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_FireBullets(4,3,-1,frandom(5,6),"BulletPuff",1)
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_GiveInventory("TommyCounter", 1)
 		TNT1 A 0 A_Refire
 		TOMF B 1 A_WeaponReady(14)
@@ -2707,8 +2707,8 @@ ACTOR Tommygun : CalebW 3138
 		TOMF C 2 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_FireBullets(4,3,-1,frandom(5,6),"BulletPuff",1)
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_GiveInventory("TommyCounter", 1)
 		TNT1 A 0 A_Refire
 		TOMF C 1 A_WeaponReady(14)
@@ -2717,8 +2717,8 @@ ACTOR Tommygun : CalebW 3138
 		TOMF D 2 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_FireBullets(4,3,-1,frandom(5,6),"BulletPuff",1)
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_GiveInventory("TommyCounter", 1)
 		TNT1 A 0 A_Refire
 		TOMF D 1 A_WeaponReady(14)
@@ -2727,8 +2727,8 @@ ACTOR Tommygun : CalebW 3138
 		TOMF E 2 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_FireBullets(4,3,-1,frandom(5,6),"BulletPuff",1)
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_GiveInventory("TommyCounter", 1)
 		TNT1 A 0 A_Refire
 		TOMF E 1 A_WeaponReady(14)
@@ -2737,8 +2737,8 @@ ACTOR Tommygun : CalebW 3138
 		TOMF F 2 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_FireBullets(4,3,-1,frandom(5,6),"BulletPuff",1)
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_GiveInventory("TommyCounter", 1)
 		TNT1 A 0 A_Refire
 		TOMF F 1 A_WeaponReady(14)
@@ -2747,8 +2747,8 @@ ACTOR Tommygun : CalebW 3138
 		TOMF G 2 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_FireBullets(4,3,-1,frandom(5,6),"BulletPuff",1)
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_GiveInventory("TommyCounter", 1)
 		TNT1 A 0 A_Refire
 		TOMF G 1 A_WeaponReady(14)
@@ -2757,8 +2757,8 @@ ACTOR Tommygun : CalebW 3138
 		TOMF H 2 BRIGHT A_WeaponReady(14)
 		TNT1 A 0 A_FireBullets(4,3,-1,frandom(5,6),"BulletPuff",1)
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_GiveInventory("TommyCounter", 1)
 		TNT1 A 0 A_Refire
 		TOMF H 1 A_WeaponReady(14)
@@ -2774,103 +2774,103 @@ ACTOR Tommygun : CalebW 3138
 		TNT1 A 0 A_FireBullets(12,1.8,-1, 5,"BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(75,100))
 		TOF2 A 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_JumpifNoAmmo("Ready")
 		TNT1 A 0 A_FireBullets(12,1.8,-1, 5,"BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(75,100))
 		TOF2 B 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-20,-1),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-20,-1),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_JumpifNoAmmo("Ready")
 		TNT1 A 0 A_FireBullets(12,1.8,-1, 5,"BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(75,100))
 		TOF2 C 2 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-4,10),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-4,10),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_JumpifNoAmmo("Ready")
 		TOF2 D 1 A_FireBullets(12,1.8,-1, 5,"BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(75,100))
 		TOF2 E 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",0+frandom(10,20),0,1,8,0)
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-20,20),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",0+frandom(10,20),0,1,8,0)
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-20,20),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_JumpifNoAmmo("Ready")
 		TOF2 F 1 A_FireBullets(12,1.8,-1, 6,"BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(75,100))
 		TOF2 G 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",11+frandom(-8,16),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",11+frandom(-8,16),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_JumpifNoAmmo("Ready")
 		TOF2 H 1 A_FireBullets(12,1.8,-1, 6,"BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(75,100))
 		TOF2 I 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",12+frandom(-8,32),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",12+frandom(-8,32),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_JumpifNoAmmo("Ready")
 		TOF2 H 1 A_FireBullets(12,1.8,-1, 6,"BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(75,100))
 		TOF2 G 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",4+frandom(-32,8),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",4+frandom(-32,8),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_JumpifNoAmmo("Ready")
 		TOF2 F 1 A_FireBullets(12,1.8,-1, 6,"BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(75,100))
 		TOF2 E 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",-12+frandom(-8,0),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",-12+frandom(-8,0),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_JumpifNoAmmo("Ready")
 		TOF2 D 1 A_FireBullets(12,1.8,-1, 6,"BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(75,100))
 		TOF2 C 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",-20+frandom(4,16),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",-20+frandom(4,16),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_JumpifNoAmmo("Ready")
 		TOF2 A 1 A_FireBullets(12,1.8,-1, 6,"BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(75,100))
 		TOF2 ON 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",-60+frandom(-8,8),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",-60+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_JumpifNoAmmo("Ready")
 		TOF2 K 1 A_FireBullets(12,1.8,-1, 6,"BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(75,100))
 		TOF2 L 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-30,60),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-30,60),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_JumpifNoAmmo("Ready")
 		TOF2 M 1 A_FireBullets(12,1.8,-1, 6,"BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(75,100))
 		TOF2 L 1 BRIGHT A_WeaponReady(14)
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",40+frandom(-30,30),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",40+frandom(-30,30),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_GunFlash
 		TOF2 A 0 A_JumpifNoAmmo("Ready")
 		TOF2 K 1 BRIGHT A_WeaponReady(14)
-		TOF2 NO 1 A_FireCustomMissile("TommygunCasing",-30+frandom(-70,0),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TOF2 NO 1 A_FireCustomMissile("TommyGunCasing",-30+frandom(-70,0),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_GunFlash
 		TOF2 PA 1 A_JumpifNoAmmo("Ready")
@@ -2881,11 +2881,11 @@ ACTOR Tommygun : CalebW 3138
 	}
 }
 
-ACTOR DoubleTommyGun : Tommygun
+ACTOR DoubleTommyGun : TommyGun
 {
 	Weapon.AmmoUse 1
 	Weapon.AmmoUse2 1
-	Weapon.SisterWeapon Tommygun
+	Weapon.SisterWeapon TommyGun
 	+POWERED_UP
 	+WEAPON.BFG
 	States
@@ -2905,58 +2905,58 @@ ACTOR DoubleTommyGun : Tommygun
 	Fire:
 		//TOM2 A 0 A_Jump (127, 10) ///??? - drg
 		TOM2 A 0 A_FireBullets (5.6, 1.1, 2, frandom(5,6), "BulletPuff")
-		TOM2 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,-1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TOM2 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,-1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TOM2 B 1 BRIGHT A_Light1
 		TOM2 A 1 BRIGHT A_Light0
 		TOM2 A 0 A_FireBullets (5.6, 1.1, 2, frandom(5,6), "BulletPuff")
-		TOM2 A 0 A_FireCustomMissile("TommygunCasing",-45+frandom(-8,8),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TOM2 A 0 A_FireCustomMissile("TommyGunCasing",-45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TOM2 C 1 BRIGHT A_Light2
 		TOM2 F 1 BRIGHT A_Light0
 		TOM2 A 0 A_ReFire
 		Goto Ready
 		TOM2 A 0 A_FireBullets (5.6, 1.1, 2, frandom(5,6), "BulletPuff")
-		TOM2 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,-1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TOM2 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,-1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TOM2 D 1 BRIGHT A_Light2
 		TOM2 F 1 BRIGHT A_Light0
 		TOM2 A 0 A_FireBullets (5.6, 1.1, 2, frandom(5,6), "BulletPuff")
-		TOM2 A 0 A_FireCustomMissile("TommygunCasing",-45+frandom(-8,8),0,1,8,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TOM2 A 0 A_FireCustomMissile("TommyGunCasing",-45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TOM2 E 1 BRIGHT A_Light1
 		TOM2 A 1 BRIGHT A_Light0
 		TOM2 A 0 A_ReFire
 		Goto Ready
 	AltFire:
 		TOM2 A 0 A_FireBullets (20, 2, 2, frandom(6,7), "BulletPuff")
-		TOM2 HH 0 A_FireCustomMissile("TommygunCasing",0+frandom(-48,48),0,1,9,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TOM2 HH 0 A_FireCustomMissile("TommyGunCasing",0+frandom(-48,48),0,1,9,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TOM2 H 1 BRIGHT A_Light0
 		TOM2 G 1 BRIGHT A_Light1
 		TOM2 A 0 A_FireBullets (20, 2, 2, frandom(6,7), "BulletPuff")
-		TOM2 JJ 0 A_FireCustomMissile("TommygunCasing",0+frandom(-48,48),0,-1,9,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TOM2 JJ 0 A_FireCustomMissile("TommyGunCasing",0+frandom(-48,48),0,-1,9,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TOM2 J 1 BRIGHT A_Light0
 		TOM2 I 1 BRIGHT A_Light2
 		TOM2 A 0 A_FireBullets (20, 2, 2, frandom(6,7), "BulletPuff")
-		TOM2 KK 0 A_FireCustomMissile("TommygunCasing",0+frandom(-48,48),0,1,9,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TOM2 KK 0 A_FireCustomMissile("TommyGunCasing",0+frandom(-48,48),0,1,9,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TOM2 K 1 BRIGHT A_Light0
 		TOM2 L 1 BRIGHT A_Light1
 		TOM2 A 0 A_FireBullets (20, 2, 2, frandom(6,7), "BulletPuff")
-		TOM2 MM 0 A_FireCustomMissile("TommygunCasing",0+frandom(-48,48),0,-1,9,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TOM2 MM 0 A_FireCustomMissile("TommyGunCasing",0+frandom(-48,48),0,-1,9,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TOM2 M 1 BRIGHT A_Light2
 		TOM2 N 1 BRIGHT A_Light0
 		TOM2 A 0 A_FireBullets (20, 2, 2, frandom(6,7), "BulletPuff")
-		TOM2 KK 0 A_FireCustomMissile("TommygunCasing",0+frandom(-48,48),0,1,9,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TOM2 KK 0 A_FireCustomMissile("TommyGunCasing",0+frandom(-48,48),0,1,9,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TOM2 K 1 BRIGHT A_Light1
 		TOM2 L 1 BRIGHT A_Light0
 		TOM2 A 0 A_FireBullets (20, 2, 2, frandom(6,7), "BulletPuff")
-		TOM2 JJ 0 A_FireCustomMissile("TommygunCasing",0+frandom(-48,48),0,-1,9,0)
-		TNT1 A 0 A_PlayWeaponSound("weapons/tommygun")
+		TOM2 JJ 0 A_FireCustomMissile("TommyGunCasing",0+frandom(-48,48),0,-1,9,0)
+		TNT1 A 0 A_PlayWeaponSound("weapons/TommyGun")
 		TOM2 J 1 BRIGHT A_Light2
 		TOM2 I 1 BRIGHT A_Light0
 		Goto Ready
@@ -2968,7 +2968,7 @@ ACTOR DoubleTommyGun : Tommygun
 }
 
 ACTOR --------NAPALMLAUNCHER--------- {}
-ACTOR NapalmLauncher : CalebW 3139 // 2003
+ACTOR NapalmLauncher : CalebW
 {
 	//$Sprite NLAGA0
 	Tag "Napalm Launcher"
@@ -3506,7 +3506,7 @@ ACTOR NapalmKaboom
 }
 
 ACTOR --------TESLARIFLE--------- {}
-ACTOR TeslaRifle : CalebW 3140
+ACTOR TeslaRifle : CalebW
 {
 	//$Sprite TSPIA0
 	Tag "Tesla Rifle"
@@ -3673,8 +3673,9 @@ ACTOR TeslaRifle : CalebW 3140
 		TESR F 2 A_SetBlend("White",5.25,5)
 		TESR A 2 A_SetBlend("White",6.75,5)
 		TESR B 1 A_SetBlend("White",7.25,5)
-		TESR C 0 A_GunFlash //A_DamageSelf(9999999, "Shock", DMSS_FOILINVUL | DMSS_NOPROTECT, "Caleb") - fuck zandro
-		TESR CDEF 1 A_Explode(9999, 1024, 1) //full parameters doesn't work on zandro too, and damage doesn't apply when godmode
+		TESR C 0 A_GunFlash
+		TESR C 0 A_DamageSelf(9999999, "Shock", DMSS_FOILINVUL | DMSS_NOPROTECT, "Caleb") //kills even invulnerable
+		TESR CDEF 1 A_Explode(9999, 1024, 1)
 		Goto Ready
 	}
 }
@@ -4026,7 +4027,7 @@ ACTOR BoltShrink9 : BoltShrink1
 }
 
 ACTOR --------LIFELEECH--------- {}
-ACTOR LifeLeech : CalebW 3141 //this weapon needs a primary fire mode - ozy81
+ACTOR LifeLeech : CalebW
 {
 	//$Sprite LLSPA0
 	Tag "Life Leech"
@@ -4343,7 +4344,7 @@ ACTOR LifeLeechSmallFire2 : LifeLeechSmallFire
 }
 
 ACTOR --------VOODOO_DOLL--------- {}
-ACTOR VoodooDoll : CalebW 3142
+ACTOR VoodooDoll : CalebW
 {
 	//$Sprite VDLFA0
 	Tag "Voodoo Doll"
@@ -4512,9 +4513,6 @@ ACTOR VoodooPuff2 : BulletPuff // Uses tid of it as ammo, in the script the tid 
 		TNT1 A 1 ACS_NamedExecuteAlways("VoodooCheck", 0)
 		TNT1 A 0 A_BFGSpray("VoodooPuff",tid,15)
 		Stop
-	Death.Sky:
-		TNT1 A 1
-		Stop
 	}
 }
 
@@ -4541,8 +4539,8 @@ ACTOR NoWeapon : Weapon
 		Loop
 	Fire:
 		TNT1 A 1 A_JumpIfInventory("TeslaRifle", 1, "PickTesla")
-		TNT1 A 0 A_JumpIfInventory("Tommygun", 1, "PickTommy")
-		TNT1 A 0 A_JumpIfInventory("Sawedoff", 1, "PickSawedoff")
+		TNT1 A 0 A_JumpIfInventory("TommyGun", 1, "PickTommy")
+		TNT1 A 0 A_JumpIfInventory("SawedOff", 1, "PickSawedOff")
 		TNT1 A 0 A_JumpIfInventory("NapalmLauncher", 1, "PickNapalm")
 		TNT1 A 0 A_JumpIfInventory("VoodooDoll", 1, "PickVoodoo")
 		TNT1 A 0 A_JumpIfInventory("LifeLeech", 1, "PickLeech")
@@ -4559,7 +4557,7 @@ ACTOR NoWeapon : Weapon
 		TNT1 A 0 A_Lower
 		Wait
 	PickSawedOff:
-		TNT1 A 0 A_SelectWeapon("Sawedoff")
+		TNT1 A 0 A_SelectWeapon("SawedOff")
 		TNT1 A 0 A_Lower
 		Wait
 	PickNapalm:

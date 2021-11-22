@@ -518,11 +518,11 @@ ACTOR SuperShotgun_ : DoomW replaces SuperShotgun
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
 		SGN2 A 1
-		SGN2 A -1 A_SpawnItemEx("Sawedoff",0,0,0)
+		SGN2 A -1 A_SpawnItemEx("SawedOff",0,0,0)
 		Stop
 	ModelSpawn:
 		UNKN A 1
-		UNKN A -1 A_SpawnItemEx("Sawedoff",0,0,0)
+		UNKN A -1 A_SpawnItemEx("SawedOff",0,0,0)
 		Stop
 	Ready:
 		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")
@@ -703,11 +703,11 @@ ACTOR Chaingun_ : DoomW replaces Chaingun
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("blm_voxmod")==1,"ModelSpawn")
 	BaseSpawn:
 		MGUN A 1
-		MGUN A -1 A_SpawnItemEx("Tommygun",0,0,0)
+		MGUN A -1 A_SpawnItemEx("TommyGun",0,0,0)
 		Stop
 	ModelSpawn:
 		UNKN A 1
-		UNKN A -1 A_SpawnItemEx("Tommygun",0,0,0)
+		UNKN A -1 A_SpawnItemEx("TommyGun",0,0,0)
 		Stop
 	Ready:
 		TNT1 A 0 A_JumpIfInventory("TossGrenade",1,"TossGrenade")
@@ -724,22 +724,22 @@ ACTOR Chaingun_ : DoomW replaces Chaingun
 		PKCG A 0 A_GunFlash
 		PKCG A 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
 		PKCG B 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		PKCG B 0 A_GunFlash("Flash2")
 		PKCG B 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
 		PKCG C 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		PKCG C 0 A_GunFlash("Flash3")
 		PKCG C 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
 		PKCG D 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		PKCG D 0 A_GunFlash("Flash4")
 		PKCG D 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
 		PKCG B 0 A_Refire
 		PKCG A 2 //Stop fire
 		PKCG B 2
@@ -812,25 +812,25 @@ ACTOR DoubleChaingun_ : Chaingun_
 		DKCG E 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_FireBullets(-5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
 		TNT1 A 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		TNT1 A 0 A_GunFlash("Flash2")
 		DKCG F 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_FireBullets(-5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
 		TNT1 A 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		TNT1 A 0 A_GunFlash("Flash3")
 		DKCG G 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_FireBullets(-5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
 		TNT1 A 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
 		TNT1 A 0 A_GunFlash("Flash4")
 		DKCG H 1 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_FireBullets(-5.6, 0, 1, 5, "BulletPuff")
 		TNT1 A 0 A_Quake(2,6,0,random(50,75))
-		TNT1 A 0 A_FireCustomMissile("TommygunCasing",45+frandom(-8,8),0,1,8,0)
+		TNT1 A 0 A_FireCustomMissile("TommyGunCasing",45+frandom(-8,8),0,1,8,0)
 		TNT1 A 0 A_Refire
 		DKCG A 2
 		DKCG B 2

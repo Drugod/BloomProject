@@ -21,7 +21,7 @@
 **/
 
 ACTOR -------FANATIC_CHAINGUNNERS---------- {}
-ACTOR Fanatic_Chaingunner : BloomHybrid_Base 19004
+ACTOR Fanatic_Chaingunner : BloomHybrid_Base
 {
 	//$Title Fanatic Chaingunner
 	Health 70
@@ -133,7 +133,7 @@ ACTOR Fanatic_Chaingunner : BloomHybrid_Base 19004
 	}
 }
 
-ACTOR Fanatic_ChaingunnerAlt : BloomHybrid_Base 19046
+ACTOR Fanatic_ChaingunnerAlt : BloomHybrid_Base
 {
 	//$Title Fanatic Chaingunner Alt
 	Health 105

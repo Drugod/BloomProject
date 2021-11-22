@@ -21,7 +21,7 @@
 **/
 
 ACTOR ----------WEREWOLVES_OF_HELL---------- {}
-ACTOR WerewolvesSpawner 19031
+ACTOR WerewolvesSpawner
 {
 	//$Category BlooM Monsters
 	//$Title Werewolves Barons of Hell
@@ -237,7 +237,7 @@ ACTOR WereWolfOfHell : WereWolfOfHellAlt
 }
 
 ACTOR ----------HELLBUTCHER---------- {}
-ACTOR HellButcherSpawner 19042
+ACTOR HellButcherSpawner
 {
 	//$Category BlooM Monsters
 	//$Title HellButchers
@@ -361,7 +361,7 @@ ACTOR HellButcher : WereWolfOfHellAlt
 	}
 }
 
-ACTOR HellButcherAlt : WereWolfOfHellAlt //19047
+ACTOR HellButcherAlt : WereWolfOfHellAlt
 {
 	Scale 1.0
 	Health 750
@@ -494,7 +494,7 @@ ACTOR HellButcherBall
 }
 
 ACTOR ----------HOUNDKNIGHT---------- {}
-ACTOR HoundKnightOfHell : WereWolfOfHellAlt 19093
+ACTOR HoundKnightOfHell : WereWolfOfHellAlt
 {
 	//$Title Hound Knight of Hell
 	Health 750
@@ -661,7 +661,7 @@ ACTOR HoundKnightBall
 }
 
 ACTOR ----------ZOMBARON---------- {}
-ACTOR ZombaronOfHell : BloomHybrid_Base 17900
+ACTOR ZombaronOfHell : BloomHybrid_Base
 {
 	//$Title Zombaron of Hell
 	Radius 16
@@ -788,7 +788,7 @@ ACTOR ZombaronOfHell : BloomHybrid_Base 17900
 	}
 }
 
-ACTOR AxeZombaronOfHell : ZombaronOfHell 17901
+ACTOR AxeZombaronOfHell : ZombaronOfHell
 {
 	//$Title Zombaron of Hell with Axe
 	Speed 16
@@ -955,7 +955,7 @@ ACTOR BuriedAxeZombaronOfHell : AxeZombaronOfHell
 	}
 }
 
-ACTOR Zombarons : BuriedZombaronOfHell 19104
+ACTOR Zombarons : BuriedZombaronOfHell
 {
 	//$Category BlooM Monsters
 	//$Title Zombarons

@@ -103,7 +103,7 @@ ACTOR Bullets : TommyClip
 	}
 }
 
-ACTOR -------SAWEDOFF---------- {}
+ACTOR -------SawedOff---------- {}
 ACTOR Shell2 : Ammo
 {
 	//$Category "Blood Ammunitions"

@@ -21,7 +21,7 @@
 **/
 
 ACTOR ----------ARCHZOMBIE---------- {}
-ACTOR Gargovile : BloomHybrid_Base 19040
+ACTOR Gargovile : BloomHybrid_Base
 {
 	//$Title Gargovile
 	Health 700
@@ -98,7 +98,7 @@ ACTOR Gargovile : BloomHybrid_Base 19040
 	}
 }
 
-ACTOR FlyingGargovile : BloomHybrid_Base 18322
+ACTOR FlyingGargovile : BloomHybrid_Base
 {
 	//$Title Flying Gargovile
 	Health 700
@@ -169,7 +169,7 @@ ACTOR FlyingGargovile : BloomHybrid_Base 18322
 	}
 }
 
-ACTOR LivingGargovileStatue 19043
+ACTOR LivingGargovileStatue
 {
 	//$Category BlooM Monsters
 	//$Title Living Gargovile Statue
@@ -203,7 +203,7 @@ ACTOR LivingGargovileStatue 19043
 	}
 }
 
-ACTOR ArchZombie : BloomHybrid_Base 19039
+ACTOR ArchZombie : BloomHybrid_Base
 {
 	//$Title ArchZombie
 	Health 700

@@ -20,7 +20,7 @@
  * SOFTWARE.
 **/
 
-class TcPostProcessShaderHandler : StaticEventHandler
+class BloomPPShaderHandler : StaticEventHandler
 {
 
 	//===========================================================================

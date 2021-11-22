@@ -21,7 +21,7 @@
 **/
 
 ACTOR -----CVLTIMPS-------- {}
-ACTOR Cvltimp : BloomHybrid_Base 19028
+ACTOR Cvltimp : BloomHybrid_Base
 {
 	//$Title Cvltimp
 	Health 60
@@ -199,7 +199,7 @@ ACTOR Cvltimp : BloomHybrid_Base 19028
 	}
 }
 
-ACTOR CvltimpAlt : BloomHybrid_Base 19029
+ACTOR CvltimpAlt : BloomHybrid_Base
 {
 	//$Title Cvltimp Alt
 	Health 60

@@ -21,7 +21,7 @@
 **/
 
 ACTOR ----------DEMONHOUNDS---------- {}
-ACTOR DemonHound : BloomHybrid_Base 19012
+ACTOR DemonHound : BloomHybrid_Base
 {
 	//$Title DemonHound
 	Health 150
@@ -155,7 +155,7 @@ ACTOR DemonHound : BloomHybrid_Base 19012
 	}
 }
 
-ACTOR DemonHoundAlt : HellKnight 19026
+ACTOR DemonHoundAlt : HellKnight
 {
 	//$Category BlooM Monsters
 	//$Title DemonHound Alt
@@ -277,7 +277,7 @@ ACTOR DemonHoundAlt : HellKnight 19026
 	Pain.LifeLeech:
 		TNT1 A 0 A_Jump(64,1)
 		Goto See
-		TNT1 A 0 A_GiveToTarget("potionHealth", frandom(0,1))
+		TNT1 A 0 A_GiveToTarget("PotionHealth", frandom(0,1))
 		Goto See
 	Pain.Shock:
 		HSOK A 0 A_ChangeFlag("NoPain",1)
@@ -307,7 +307,7 @@ ACTOR DemonHoundAlt : HellKnight 19026
 	}
 }
 
-ACTOR SpectreHound : DemonHound 19049
+ACTOR SpectreHound : DemonHound
 {
 	//$Title SpectreHound
 	+SHADOW
@@ -328,7 +328,7 @@ ACTOR SpectreHound : DemonHound 19049
 	}
 }
 
-ACTOR SpectreHoundAlt : DemonHoundAlt 19050
+ACTOR SpectreHoundAlt : DemonHoundAlt
 {
 	//$Category BlooM Monsters
 	//$Title SpectreHound Alt
@@ -353,7 +353,7 @@ ACTOR SpectreHoundAlt : DemonHoundAlt 19050
 	}
 }
 
-ACTOR GargoDemon : BloomHybrid_Base 19051
+ACTOR GargoDemon : BloomHybrid_Base
 {
 	//$Title GargoDemon
 	Health 150
@@ -438,7 +438,7 @@ ACTOR GargoDemon : BloomHybrid_Base 19051
 	}
 }
 
-ACTOR PinkGargoyle : BloomHybrid_Base 19135
+ACTOR PinkGargoyle : BloomHybrid_Base
 {
 	//$Title Pink Gargoyle
 	Health 400

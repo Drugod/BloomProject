@@ -20,7 +20,7 @@
  * SOFTWARE.
 **/
 
-class WaterHandler : StaticEventHandler {
+class BloomWaterHandler : StaticEventHandler {
 	override void RenderOverlay(RenderEvent e) {
 		// set the player's timer up correctly (more-than-1-tick precision)
 		PlayerInfo p = players[consoleplayer];

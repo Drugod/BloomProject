@@ -54,7 +54,7 @@ ACTOR LivingCacoyleStatue 19035
 	}
 }
 
-ACTOR Cacoyle : BloomHybrid_Base 19014
+ACTOR Cacoyle : BloomHybrid_Base
 {
 	//$Title Cacoyle
 	Health 400
@@ -180,7 +180,7 @@ ACTOR Cacoyle : BloomHybrid_Base 19014
 	}
 }
 
-ACTOR Cacoyle_Variant : BloomHybrid_Base 19016
+ACTOR Cacoyle_Variant : BloomHybrid_Base
 {
 	//$Title Cacoyle (with arms)
 	Health 400

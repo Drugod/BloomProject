@@ -42,7 +42,7 @@ ACTOR Ghoul_Base
 	Painchance "LifeLeech", 192
 	Painchance "PitchFork", 64
 	Painchance "SawedOff", 125
-	Painchance "SawedoffLess", 170 //Nop not less
+	Painchance "SawedOffLess", 170 //Nop not less
 	Painchance "Shock", 255
 	Painchance "StunningHead",230
 	Painchance "Tommy", 64//11 //Never seen them fake from this but oh well
@@ -816,7 +816,7 @@ ACTOR Ghoul3 : Ghoul_Base
 	Painchance "Dynamite", 90
 	Painchance "Blast", 190 //When they survive tnt they usually fake
 	Painchance "Shock", 255
-	Painchance "SawedoffLess", 170 //Nop not less
+	Painchance "SawedOffLess", 170 //Nop not less
 	Painchance "SawedOff", 125
 	Painchance "ZBloodBullet", 64
 	States

@@ -21,7 +21,7 @@
 **/
 
 ACTOR ----------ARACHNOIDS---------- {}
-ACTOR Arachnoid : BloomHybrid_Base 19011
+ACTOR Arachnoid : BloomHybrid_Base
 {
 	//$Title Arachnoid
 	Health 150
@@ -86,7 +86,7 @@ ACTOR Arachnoid : BloomHybrid_Base 19011
 	}
 }
 
-ACTOR Green_Arachnopod : BloomHybrid_Base 19070
+ACTOR Green_Arachnopod : BloomHybrid_Base
 {
 	//$Title Green Arachnopod
     Health 500
@@ -228,7 +228,7 @@ ACTOR GreenArachnoBramble : HellroseBramble
 	}
 }
 
-ACTOR Magma_Arachnopod : Green_Arachnopod 19071
+ACTOR Magma_Arachnopod : Green_Arachnopod
 {
 	//$Title Magma Arachnopod
 	DamageFactor "Ice", 2.0
@@ -380,7 +380,7 @@ ACTOR MagmaBramble : HellroseBramble
 	}
 }
 
-ACTOR Ice_Arachnopod : Green_Arachnopod 19072
+ACTOR Ice_Arachnopod : Green_Arachnopod
 {
 	//$Title Ice Arachnopod
 	DamageFactor "Ice", 0.0
@@ -513,7 +513,7 @@ ACTOR IceBramble : HellroseBramble
 	}
 }
 
-ACTOR RomeroTron : BloomHybrid_Base 19137
+ACTOR RomeroTron : BloomHybrid_Base
 {
 	//$Title RomeroTron
     Health 1500 //was 500, added more health... maybe Boss? --ozy81
@@ -568,7 +568,7 @@ ACTOR RomeroTron : BloomHybrid_Base 19137
 		RSPI QR 8 A_FaceTarget
 		RSPI R 1 A_MonsterRefire(64,"see")
 		Goto Missile3+1
-	Missile4: //Use Spawn a icon of sin cube
+	Missile4: //Spawn Icon of Sin cube
 		RSPI I 18 A_BrainAwake
 	    RSPI I 1 A_CustomMissile("RomeroSpawnShot")
 		Goto See

@@ -61,7 +61,7 @@ ACTOR SuperGhostRevenantTerrainSpawner
 	}
 }
 
-ACTOR Shielded_Ghost_Revenant : BloomHybrid_Base 19017
+ACTOR Shielded_Ghost_Revenant : BloomHybrid_Base
 {
 	//$Title Ghost Revenant, Armoured
 	Health 250
@@ -182,7 +182,7 @@ ACTOR Shielded_Ghost_Revenant : BloomHybrid_Base 19017
 	}
 }
 
-ACTOR Ghost_Revenant : BloomHybrid_Base 19018
+ACTOR Ghost_Revenant : BloomHybrid_Base
 {
 	//$Title Ghost Revenant, No Armor
 	Health 60
@@ -434,7 +434,7 @@ ACTOR Ghost_Revenant : BloomHybrid_Base 19018
 	}
 }
 
-ACTOR Shielded_Ghost_Revenant_Alt : BloomHybrid_Base 19020
+ACTOR Shielded_Ghost_Revenant_Alt : BloomHybrid_Base
 {
 	//$Title Ghost Revenant Alt, Armoured
 	Health 250
@@ -555,7 +555,7 @@ ACTOR Shielded_Ghost_Revenant_Alt : BloomHybrid_Base 19020
 	}
 }
 
-ACTOR Ghost_Revenant_Alt : BloomHybrid_Base 19021
+ACTOR Ghost_Revenant_Alt : BloomHybrid_Base
 {
 	//$Title Ghost Revenant Alt, No Armor
 	Health 60
@@ -806,7 +806,7 @@ ACTOR Ghost_Revenant_Alt : BloomHybrid_Base 19021
 	}
 }
 
-ACTOR GhostRevenantTerrain : BloomHybrid_Base 19024 //this has an odd name... terrain? - ozy81
+ACTOR GhostRevenantTerrain : BloomHybrid_Base //this has an odd name... terrain? - ozy81
 {
 	//$Title Ghost Revenant, Walking
 	Health 300
@@ -869,7 +869,7 @@ ACTOR GhostRevenantTerrain : BloomHybrid_Base 19024 //this has an odd name... te
 	}
 }
 
-ACTOR GhostRevenantTerrainAlt : BloomHybrid_Base 19025
+ACTOR GhostRevenantTerrainAlt : BloomHybrid_Base
 {
 	//$Title Ghost Revenant Alt, Walking
 	Health 300
