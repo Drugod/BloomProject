@@ -21,7 +21,7 @@
 **/
 
 ACTOR ----------Aberration_Morons---------- {}
-ACTOR Moron 3241
+ACTOR Moron
 {
     //$Category "BlooM Monsters"
 	//$Title Moron, Friendly
@@ -843,7 +843,7 @@ ACTOR Morons_Legs
 	}
 }
 
-ACTOR MoronSpawner 19081
+ACTOR MoronSpawner
 {
     //$Category "BlooM Monsters"
 	//$Title Moron Aberration Spawner
@@ -1173,7 +1173,7 @@ ACTOR ExplosiveMoron4 : ExplosiveMoron_Base
 	}
 }
 
-ACTOR ExplosiveMoronSpawner 19088
+ACTOR ExplosiveMoronSpawner
 {
     //$Category "BlooM Monsters"
 	//$Title Explosive Moron Spawner
@@ -1223,7 +1223,7 @@ ACTOR RevenantMoronSpawner
 	}
 }
 
-ACTOR RevenantMoron 19096
+ACTOR RevenantMoron
 {
 	//$Category "BlooM Monsters"
 	//$Title Revenant Moron
@@ -1244,8 +1244,8 @@ ACTOR RevenantMoron 19096
 	DeathSound "Mutant/Crying"
 	ActiveSound "Mutant/GoAway"
 	PainSound "Mutant/Scream"
-	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
-	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+	HitObituary "$OB_UNDEADHIT"
+	Obituary "$OB_UNDEAD"
 	Species "Ghosts" //not Aberration since it makes more sense to have it in line with other Revenants and Phantasms - ozy81
 	States
 	{
@@ -1291,7 +1291,7 @@ ACTOR RevenantMoron 19096
 	}
 }
 
-ACTOR RevenantMoronAlt 19097
+ACTOR RevenantMoronAlt
 {
 	//$Category "BlooM Monsters"
 	//$Title Revenant Moron Alt
@@ -1312,8 +1312,8 @@ ACTOR RevenantMoronAlt 19097
 	DeathSound "Mutant/Crying"
 	ActiveSound "Mutant/GoAway"
 	PainSound "Mutant/Scream"
-	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
-	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+	HitObituary "$OB_UNDEADHIT"
+	Obituary "$OB_UNDEAD"
 	Species "Ghosts" //not Aberration since it makes more sense to have it in line with other Revenants and Phantasms - ozy81
 	States
 	{
@@ -1358,7 +1358,7 @@ ACTOR RevenantMoronAlt 19097
 	}
 }
 
-ACTOR RevenantMoronAlt2 19098
+ACTOR RevenantMoronAlt2
 {
 	//$Category "BlooM Monsters"
 	//$Title Revenant Moron Alt 2
@@ -1379,8 +1379,8 @@ ACTOR RevenantMoronAlt2 19098
 	DeathSound "Mutant/Crying"
 	ActiveSound "Mutant/GoAway"
 	PainSound "Mutant/Scream"
-	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
-	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+	HitObituary "$OB_UNDEADHIT"
+	Obituary "$OB_UNDEAD"
 	Species "Ghosts" //not Aberration since it makes more sense to have it in line with other Revenants and Phantasms - ozy81
 	States
 	{

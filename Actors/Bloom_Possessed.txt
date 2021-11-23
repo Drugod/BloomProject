@@ -245,7 +245,7 @@ ACTOR BloomPossessed_Base
 	}
 }
 
-ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
+ACTOR PossessedShotgunGuy : BloomPossessed_Base
 {
 	//$Title Possessed ShotgunGuy
 	Health 35
@@ -393,7 +393,7 @@ ACTOR PossesedShotgunguy : BloomPossessed_Base 19089
 	}
 }
 
-ACTOR PossesedZombieMan: BloomPossessed_Base 19091
+ACTOR PossessedZombieMan : BloomPossessed_Base
 {
 	//$Title Possessed Zombieman
 	Health 25
@@ -540,7 +540,7 @@ ACTOR PossesedZombieMan: BloomPossessed_Base 19091
 	}
 }
 
-ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
+ACTOR PossessedNeoCultist : BloomPossessed_Base
 {
 	//$Title Possessed NeoCultist
 	Health 35
@@ -687,7 +687,7 @@ ACTOR PossesedNeoCultist: BloomPossessed_Base 19090
 	}
 }
 
-ACTOR PossesedApocalypticNeoCultist : BloomPossessed_Base 19092
+ACTOR PossessedApocalypticNeoCultist : BloomPossessed_Base
 {
 	//$Title Possessed Apocalyptic NeoCultist
 	Health 35
@@ -834,7 +834,7 @@ ACTOR PossesedApocalypticNeoCultist : BloomPossessed_Base 19092
 	}
 }
 
-ACTOR HandSlavedmind 19136
+ACTOR HandSlavedmind
 {
     //$Category "BlooM Monsters"
 	//$Title Hand Slavedmind
@@ -859,7 +859,7 @@ ACTOR HandSlavedmind 19136
 	PainSound "Hsm/Pain"
 	Obituary "$OB_HANDM"
 	Scale 0.3
-	Species "Horror" //it is also Possessed, to verify - ozy81
+	Species "Horror"
 	States
 	{
 	Spawn:

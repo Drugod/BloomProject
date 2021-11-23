@@ -41,7 +41,7 @@ ACTOR RevenantMimeSpawner
 	}
 }
 
-ACTOR RevenantMime 19099
+ACTOR RevenantMime
 {
 	//$Category "BlooM Monsters"
 	//$Title Revenant Mime
@@ -117,7 +117,7 @@ ACTOR RevenantMime 19099
 	}
 }
 
-ACTOR RevenantMimeAlt : RevenantMime 19100
+ACTOR RevenantMimeAlt : RevenantMime
 {
 	//$Title Revenant Mime Alt
 	States
@@ -170,7 +170,7 @@ ACTOR RevenantMimeAlt : RevenantMime 19100
 	}
 }
 
-ACTOR RevenantMimeAlt2 : RevenantMime 19101
+ACTOR RevenantMimeAlt2 : RevenantMime
 {
 	//$Title Revenant Mime Alt 2
 	States

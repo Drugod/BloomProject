@@ -2197,7 +2197,7 @@ ACTOR FastBuriedGhoul6 : Ghoul6
 	}
 }
 
-ACTOR GhoulsZombies : BuriedGhoul2 19036
+ACTOR GhoulsZombies : BuriedGhoul2
 {
 	//$Category BlooM Monsters
 	//$Title Ghouls Zombies Spawner

@@ -201,7 +201,7 @@ ACTOR NeoCvltist_Base
 	}
 }
 
-ACTOR Apocalyptic_NeoCvltist : NeoCvltist_Base 19001
+ACTOR Apocalyptic_NeoCvltist : NeoCvltist_Base
 {
 	//$Title Apocalyptic Cvltist
 	Obituary "$OB_APOCN"
@@ -356,7 +356,7 @@ ACTOR Apocalyptic_NeoCvltist : NeoCvltist_Base 19001
 	Pain.ChokeEM:
 	Death.ChokeEM:
 		WPOS G 1 A_UnSetSolid
-		WPOS G 1 A_SpawnItemEx("PossesedApocalypticNeoCultist",0,0,0,0)
+		WPOS G 1 A_SpawnItemEx("PossessedApocalypticNeoCultist",0,0,0,0)
 		Stop
 	Ice:
 		WPOF R 0 A_SetMass(999999)
@@ -366,7 +366,7 @@ ACTOR Apocalyptic_NeoCvltist : NeoCvltist_Base 19001
 	}
 }
 
-ACTOR NeoCvltist : NeoCvltist_Base 19003
+ACTOR NeoCvltist : NeoCvltist_Base
 {
 	//$Title NeoCvltist
 	Obituary "$OB_NORMN"
@@ -521,7 +521,7 @@ ACTOR NeoCvltist : NeoCvltist_Base 19003
 	Pain.ChokeEM:
 	Death.ChokeEM:
 		YPOS G 1 A_UnSetSolid
-		YPOS G 1 A_SpawnItemEx("PossesedNeoCultist",0,0,0,0)
+		YPOS G 1 A_SpawnItemEx("PossessedNeoCultist",0,0,0,0)
 		Stop
 	Ice:
 		WPOF R 0 A_SetMass(999999)
@@ -531,7 +531,7 @@ ACTOR NeoCvltist : NeoCvltist_Base 19003
 	}
 }
 
-ACTOR ShotgunMonk : BloomHybrid_Base 18323
+ACTOR ShotgunMonk : BloomHybrid_Base
 {
 	//$Title Shotgun Monk
 	+FLOORCLIP

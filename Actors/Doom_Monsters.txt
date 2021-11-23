@@ -75,7 +75,7 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 	Pain.ChokeEM:
 	Death.ChokeEM:
 		POSS G 1 A_UnSetSolid
-		POSS G 1 A_SpawnItemEx("PossesedZombieMan",0,0,0,0)
+		POSS G 1 A_SpawnItemEx("PossessedZombieMan",0,0,0,0)
 		Stop
 	XDeath:
 		POSS M 5
@@ -208,7 +208,7 @@ ACTOR ShotgunGuy_ : DoomEnemy_Base 18999
 	Pain.ChokeEM:
 	Death.ChokeEM:
 		SPOS G 1 A_UnSetSolid
-		SPOS G 1 A_SpawnItemEx("PossesedShotgunguy",0,0,0,0)
+		SPOS G 1 A_SpawnItemEx("PossessedShotgunGuy",0,0,0,0)
 		Stop
 	Pain:
 		SPOS G 3

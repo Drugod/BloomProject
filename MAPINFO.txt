@@ -128,6 +128,7 @@ DoomEdNums
 	3168=BloodShellBox
 	3169=BloodShells
 	3170=RTNTBox
+	3241=Moron
 	3248=DTNTBox
 	3270=LivingGargStatue
 	6123=BloodBeast
@@ -152,8 +153,11 @@ DoomEdNums
 	17900=ZombaronOfHell
 	17901=AxeZombaronOfHell
 	18322=FlyingGargovile
+	18323=ShotgunMonk
 	18500=BatFamiliar
 	18501=DaisyBat
+	19001=Apocalyptic_NeoCvltist
+	19003=NeoCvltist
 	19004=Fanatic_Chaingunner
 	19005=GargoylSoul
 	19007=Eelcubus
@@ -174,6 +178,7 @@ DoomEdNums
 	19029=CvltimpAlt
 	19031=WerewolvesSpawner
 	19035=LivingCacoyleStatue
+	19036=GhoulsZombies
 	19039=ArchZombie
 	19040=Gargovile
 	19042=HellButcherSpawner
@@ -194,9 +199,21 @@ DoomEdNums
 	19070=Green_Arachnopod
 	19071=Magma_Arachnopod
 	19072=Ice_Arachnopod
+	19081=MoronSpawner
 	19083=Eeldercubus
+	19088=ExplosiveMoronSpawner
+	19089=PossessedShotgunGuy
+	19090=PossessedNeoCultist
+	19091=PossessedZombieMan
+	19092=PossessedApocalypticNeoCultist
 	19093=HoundKnightOfHell
 	19094=HoundBaronOfHell
+	19096=RevenantMoron
+	19097=RevenantMoronAlt
+	19098=RevenantMoronAlt2
+	19099=RevenantMime
+	19100=RevenantMimeAlt
+	19101=RevenantMimeAlt2
 	19103=Pinkberus
 	19104=Zombarons
 	19105=TchernoDemon
@@ -204,6 +221,7 @@ DoomEdNums
 	19108=Cyberbog
 	19109=Jojo
 	19135=PinkGargoyle
+	19136=HandSlavedmind
 	19137=RomeroTron
 	19138=HandMastermind
 	19139=Cerbcubus
