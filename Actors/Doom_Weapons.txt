@@ -1043,7 +1043,7 @@ ACTOR NewWeapons_Plasma replaces PlasmaRifle
 }
 
 ACTOR --------PLASMARIFLE------------ {}
-ACTOR PlasmaRifle_ : DoomW 19077
+ACTOR PlasmaRifle_ : DoomW
 {
     //$Category "Weapons"
 	//$Sprite PLASA0

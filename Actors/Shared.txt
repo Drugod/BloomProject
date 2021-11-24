@@ -28,12 +28,6 @@ ACTOR BloodEnemy_Base : BloomBase
 	//$Color 5
 	Monster
 	+DONTHARMSPECIES
-	States
-	{
-	Death.Fade:
-		"####" # 1 A_FadeOut(0.1)
-		Loop
-	}
 }
 
 ACTOR DoomEnemy_Base : BloomBase
@@ -44,12 +38,6 @@ ACTOR DoomEnemy_Base : BloomBase
 	Speed 8
 	Monster
 	+DONTHARMSPECIES
-	States
-	{
-	Death.Fade:
-		"####" # 1 A_FadeOut(0.1)
-		Loop
-	}
 }
 
 ACTOR BloomHybrid_Base : BloomBase
@@ -64,12 +52,6 @@ ACTOR BloomHybrid_Base : BloomBase
 	PainChance 170
 	Monster
 	+DONTHARMSPECIES
-	States
-	{
-	Death.Fade:
-		"####" # 1 A_FadeOut(0.1)
-		Loop
-	}
 }
 
 ACTOR BloomBossHybrid_Base : BloomBase
@@ -84,12 +66,6 @@ ACTOR BloomBossHybrid_Base : BloomBase
 	PainChance 170
 	Monster
 	+DONTHARMSPECIES
-	States
-	{
-	Death.Fade:
-		"####" # 1 A_FadeOut(0.1)
-		Loop
-	}
 }
 
 ACTOR --------------------DEBRIS----------------------{}

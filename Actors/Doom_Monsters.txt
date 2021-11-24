@@ -21,7 +21,7 @@
 **/
 
 ACTOR ---------HUMANS--------- {}
-ACTOR ZombieMan_ : DoomEnemy_Base 19037
+ACTOR ZombieMan_ : DoomEnemy_Base
 {
 	//$Title ZombieMan (BlooM)
 	Health 20
@@ -165,7 +165,7 @@ ACTOR ZombieMan_ : DoomEnemy_Base 19037
 	}
 }
 
-ACTOR ShotgunGuy_ : DoomEnemy_Base 18999
+ACTOR ShotgunGuy_ : DoomEnemy_Base
 {
 	//$Title ShotgunGuy (BlooM)
 	Health 30
@@ -280,7 +280,7 @@ ACTOR ShotgunGuy_ : DoomEnemy_Base 18999
 	}
 }
 
-ACTOR ChaingunGuy_ : DoomEnemy_Base 18998
+ACTOR ChaingunGuy_ : DoomEnemy_Base
 {
 	//$Title ChaingunGuy (BlooM)
 	Health 70
@@ -542,7 +542,7 @@ ACTOR BurnFormerHuman
 }
 
 ACTOR ---------DEMONS--------- {}
-ACTOR Demon_ : DoomEnemy_Base 19013
+ACTOR Demon_ : DoomEnemy_Base
 {
 	//$Title Demon (BlooM)
 	Health 150
@@ -557,7 +557,7 @@ ACTOR Demon_ : DoomEnemy_Base 19013
 	PainSound "demon/pain"
 	DeathSound "demon/death"
 	ActiveSound "demon/active"
-	Obituary "$OB_DEMONHIT" // "%o was bit by a demon."
+	Obituary "$OB_DEMONHIT"
 	Species "HellDog"
 	States
 	{
@@ -652,7 +652,7 @@ ACTOR Demon_ : DoomEnemy_Base 19013
 	}
 }
 
-ACTOR Spectre_ : Demon_ 19048
+ACTOR Spectre_ : Demon_
 {
 	//$Title Spectre (BlooM)
 	Alpha 0.5
@@ -663,11 +663,11 @@ ACTOR Spectre_ : Demon_ 19048
 	PainSound "spectre/pain"
 	DeathSound "spectre/death"
 	ActiveSound "spectre/active"
-	HitObituary "$OB_SPECTREHIT" // "%o was eaten by a spectre."
+	HitObituary "$OB_SPECTREHIT"
 	Species "HellDog"
 }
 
-ACTOR DoomImp_ : DoomEnemy_Base 19030
+ACTOR DoomImp_ : DoomEnemy_Base
 {
 	//$Title Imp (BlooM)
 	Health 60
@@ -796,7 +796,7 @@ ACTOR DoomImpBall_ replaces DoomImpBall
 }
 
 ACTOR 38----------------- {}
-ACTOR BaronOfHell_ : DoomEnemy_Base 19041
+ACTOR BaronOfHell_ : DoomEnemy_Base
 {
 	//$Title Baron of Hell (BlooM)
 	Health 1000
@@ -867,7 +867,7 @@ ACTOR BaronOfHell_ : DoomEnemy_Base 19041
 }
 
 ACTOR 39----------------- {}
-ACTOR HellKnight_ : BaronOfHell_ 19034
+ACTOR HellKnight_ : BaronOfHell_
 {
 	//$Title Hell Knight (BlooM)
 	Health 500
@@ -932,7 +932,7 @@ ACTOR HellKnight_ : BaronOfHell_ 19034
 }
 
 ACTOR 40----------------- {}
-ACTOR SpiderMastermind_  : DoomEnemy_base 19140
+ACTOR SpiderMastermind_ : DoomEnemy_Base
 {
 	//$Title Spider-Mastermind (BlooM)
 	Health 3000
@@ -992,7 +992,7 @@ ACTOR SpiderMastermind_  : DoomEnemy_base 19140
 }
 
 ACTOR 41----------------- {}
-ACTOR Cyberdemon_ : DoomEnemy_base 19058
+ACTOR Cyberdemon_ : DoomEnemy_Base
 {
 	//$Title Cyberdemon (BlooM)
 	Health 4000
@@ -1051,7 +1051,7 @@ ACTOR Cyberdemon_ : DoomEnemy_base 19058
 }
 
 ACTOR 88----------------- {}
-ACTOR LostSoul_ : DoomEnemy_Base 19022
+ACTOR LostSoul_ : DoomEnemy_Base
 {
 	//$Title Lost Soul (BlooM)
 	Health 100
@@ -1069,7 +1069,7 @@ ACTOR LostSoul_ : DoomEnemy_Base 19022
 	DeathSound "skull/death"
 	ActiveSound "skull/active"
 	RenderStyle SoulTrans
-	Obituary "$OB_SKULL" // "%o was spooked by a lost soul."
+	Obituary "$OB_SKULL"
 	Species "Cacos"
 	States
 	{
@@ -1100,7 +1100,7 @@ ACTOR LostSoul_ : DoomEnemy_Base 19022
 }
 
 ACTOR 89----------------- {}
-ACTOR Fatso_ : DoomEnemy_Base 19006
+ACTOR Fatso_ : DoomEnemy_Base
 {
 	//$Title Mancubus (BlooM)
 	Health 600
@@ -1154,7 +1154,7 @@ ACTOR Fatso_ : DoomEnemy_Base 19006
 }
 
 ACTOR 90----------------- {}
-ACTOR PainElemental_ : DoomEnemy_Base 19010
+ACTOR PainElemental_ : DoomEnemy_Base
 {
 	//$Title Pain Elemental (BlooM)
 	Health 400
@@ -1200,7 +1200,7 @@ ACTOR PainElemental_ : DoomEnemy_Base 19010
 }
 
 ACTOR 135----------------- {}
-ACTOR Cacodemon_ : DoomEnemy_Base 19015
+ACTOR Cacodemon_ : DoomEnemy_Base
 {
 	//$Title Cacodemon (BlooM)
 	Health 400
@@ -1248,7 +1248,7 @@ ACTOR Cacodemon_ : DoomEnemy_Base 19015
 }
 
 ACTOR 136----------------- {}
-ACTOR Arachnotron_ : DoomEnemy_Base 19023
+ACTOR Arachnotron_ : DoomEnemy_Base
 {
 	//$Title Arachnotron (BlooM)
 	Health 500
@@ -1301,7 +1301,7 @@ ACTOR Arachnotron_ : DoomEnemy_Base 19023
 }
 
 ACTOR 137----------------- {}
-ACTOR Revenant_ : DoomEnemy_Base 19019
+ACTOR Revenant_ : DoomEnemy_Base
 {
 	//$Title Revenant (BlooM)
 	Health 300
@@ -1317,8 +1317,8 @@ ACTOR Revenant_ : DoomEnemy_Base 19019
 	DeathSound "skeleton/death"
 	ActiveSound "skeleton/active"
 	MeleeSound "skeleton/melee"
-	HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
-	Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+	HitObituary "$OB_UNDEADHIT"
+	Obituary "$OB_UNDEAD"
 	Species "Ghosts"
 	States
 	{
@@ -1359,7 +1359,7 @@ ACTOR Revenant_ : DoomEnemy_Base 19019
 }
 
 ACTOR --------ARCHVILE------------ {}
-ACTOR Archvile_ : DoomEnemy_Base 19038
+ACTOR Archvile_ : DoomEnemy_Base
 {
 	//$Title Archvile (BlooM)
 	Health 700

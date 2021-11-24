@@ -94,7 +94,7 @@ ACTOR TechPillar_ replaces TechPillar
 	}
 }
 
-ACTOR Double_TechPillar_ : TechPillar_ 18352
+ACTOR Double_TechPillar_ : TechPillar_
 {
 	//$Category "BlooM Ambient"
 	//$Title Doom Double Tech Pillar
@@ -132,6 +132,7 @@ ACTOR PlasmaBallX : PlasmaBall replaces PlasmaBall
 	RenderStyle "Add"
 	Alpha 0.75
 	Projectile
+	+BRIGHT
 	+RANDOMIZE
 	Obituary "$OB_MPPLASMARIFLE"
 	SeeSound "weapons/plasmaf"
@@ -139,10 +140,10 @@ ACTOR PlasmaBallX : PlasmaBall replaces PlasmaBall
 	States
 	{
 	Spawn:
-		PLSS AB 6 BRIGHT
+		PLSS AB 6
 		Loop
 	Death:
-		PLSE ABCDE 4 BRIGHT
+		PLSE ABCDE 4
 		Stop
 	}
 }
@@ -185,18 +186,19 @@ ACTOR BFGBallX : BFGBall replaces BFGBall
 	RenderStyle "Add"
 	Alpha 0.75
 	Projectile
+	+BRIGHT
 	+RANDOMIZE
 	Obituary "$OB_MPBFG_BOOM"
 	DeathSound "weapons/bfgx"
 	States
 	{
 	Spawn:
-		BFS1 AB 4 BRIGHT
+		BFS1 AB 4
 		Loop
 	Death:
-		BFE1 AB 8 BRIGHT
-		BFE1 C 8 BRIGHT A_BFGSpray
-		BFE1 DEF 8 BRIGHT
+		BFE1 AB 8
+		BFE1 C 8 A_BFGSpray
+		BFE1 DEF 8
 		Stop
 	}
 }
@@ -208,12 +210,13 @@ ACTOR BFGExtraX : BFGExtra replaces BFGExtra
 	DamageType "BFGSplash"
 	DamageType "Flare"
 	DamageType "Fire"
+	+BRIGHT
 	+NOBLOCKMAP
 	+NOGRAVITY
 	States
 	{
 	Spawn:
-		BFE2 ABCD 8 BRIGHT
+		BFE2 ABCD 8
 		Stop
 	}
 }

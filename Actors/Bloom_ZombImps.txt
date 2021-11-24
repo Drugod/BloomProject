@@ -1057,7 +1057,7 @@ ACTOR BuriedZombImp5 : ZombImp5
 	}
 }
 
-ACTOR ZombImps : BuriedZombImp1 19033
+ACTOR ZombImps : BuriedZombImp1
 {
 	//$Category BlooM Monsters
 	//$Title ZombImps

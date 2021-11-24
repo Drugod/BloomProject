@@ -2859,12 +2859,9 @@ ACTOR KickableHeadMoron
 		Stop
 	Death:
 		MOHE B 1
-		TNT1 A 0 A_SpawnDebris ("EyeGuts")
-		TNT1 A 0 A_SpawnDebris ("Bloodliver")
+		TNT1 A 0 A_SpawnDebris("EyeGuts")
+		TNT1 A 0 A_SpawnDebris("Bloodliver")
 		TNT1 A 0 A_SpawnDebris("FlyingBlood")
-		Stop
-	Death.Sky: //but it is not a projectile, requires testing - ozy81
-		MOHE "#" 1
 		Stop
 	}
 }
@@ -3069,12 +3066,12 @@ ACTOR OrganDebris
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn2")
 		OSPN ABCD 3 A_SpawnItem("BloodTrail")
 		Loop
 	Spawn2:
-		TNT1 A 0 
+		TNT1 A 0
 		TNT1 A 0 A_SetAngle(frandom(0,360))
 		VXA4 ABCD 3 A_SpawnItem("BloodTrail")
 		Loop
@@ -3096,12 +3093,12 @@ ACTOR OrganDebris2 : OrganDebris
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn2")
 		OSPN ABCD 3 A_SpawnItem("BloodTrail")
 		Loop
 	Spawn2:
-		TNT1 A 0 
+		TNT1 A 0
 		TNT1 A 0 A_SetAngle(frandom(0,360))
 		VXA4 ABCD 3 A_SpawnItem("BloodTrail")
 		Loop
@@ -3194,33 +3191,33 @@ ACTOR Bloodliver
 	Spawn:
 		TNT1 A 0
 		TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3")
-	Spawn1:		
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn12")		
+	Spawn1:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn12")
 		BLVR A -1
 		Stop
 	Spawn12:
-		TNT1 A 0 
+		TNT1 A 0
 		TNT1 A 0 A_SetAngle(frandom(0,360))
 		VXA1 A -1
-		Stop		
+		Stop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn22")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn22")
 		GUT2 A -1
 		Stop
 	Spawn22:
-		TNT1 A 0 
+		TNT1 A 0
 		TNT1 A 0 A_SetAngle(frandom(0,360))
 		VX99 A -1
-		Stop		
+		Stop
 	Spawn3:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn32")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn32")
 		GUT1 A -1
 		Stop
 	Spawn32:
-		TNT1 A 0 
+		TNT1 A 0
 		TNT1 A 0 A_SetAngle(frandom(0,360))
 		VXA3 A -1
 		Stop
@@ -3239,13 +3236,13 @@ ACTOR EyeGuts : Bloodliver
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn2")
 		BEYE A -1
 		Stop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_SetAngle(frandom(0,360))	
+		TNT1 A 0
+		TNT1 A 0 A_SetAngle(frandom(0,360))
 		VXA2 A -1
 		Stop
 	}
@@ -3283,14 +3280,14 @@ ACTOR Hand1 : Bloodliver
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn12")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("GibVoxel")==1, "Spawn12")
 		TNT1 A 0 A_Jump(128,"Spawn2","Spawn3")
 		HND1 A -1
 		Stop
 	Spawn12:
-		TNT1 A 0 
-		TNT1 A 0 A_SetAngle(frandom(0,360))	
+		TNT1 A 0
+		TNT1 A 0 A_SetAngle(frandom(0,360))
 		VX98 A -1
 		Stop
 	Spawn2:

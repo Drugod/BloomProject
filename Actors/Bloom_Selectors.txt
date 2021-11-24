@@ -370,7 +370,7 @@ ACTOR HybridHoundSpawner
 }
 
 ACTOR --------RAT_SELECTOR------------ {}
-ACTOR RatDemonSpawner 19060
+ACTOR RatDemonSpawner
 {
     //$Category "Monsters Selectors"
     //$Title RatDemon Spawner
@@ -1052,7 +1052,7 @@ ACTOR TheHellButchersHybrid
 }
 
 ACTOR --------GARGOL_LIVING_STATUE------------ {}
-ACTOR TheGargolLivingStatue 19044
+ACTOR TheGargolLivingStatue
 {
     //$Category "Monsters Selectors"
     //$Title The Gargovile Living Statue
@@ -1106,7 +1106,7 @@ ACTOR TheGargolsStatueHybrid
 }
 
 ACTOR --------GARGOL_STATUE------------ {}
-ACTOR TheGargolStatue 19045
+ACTOR TheGargolStatue
 {
     //$Category "Monsters Selectors"
     //$Title The Gargovile Statue
@@ -1192,7 +1192,7 @@ ACTOR TheStatueHybrid
 }
 
 ACTOR --------DEEPONES_SELECTOR------------ {}
-ACTOR TheDeepones 19055
+ACTOR TheDeepones
 {
     //$Category "Monsters Selectors"
     //$Title DeepOne Selector
@@ -1255,7 +1255,7 @@ ACTOR TheDeeponesHybrid
 }
 
 ACTOR --------MORON_SELECTOR------------ {}
-ACTOR TheMorons 19080
+ACTOR TheMorons
 {
     //$Category "Monsters Selectors"
     //$Title Moron Selector
@@ -1545,7 +1545,7 @@ ACTOR HybridBoss2Spawner
 	}
 }
 
-ACTOR --------CUSTOMEYE_SELECTOR------------ {}
+ACTOR --------CUSTOMEYE_SELECTOR------------ {} //potential mapbreaker for IWADs
 ACTOR CustomEye : BossEye replaces BossEye
 {
 	DropItem "ShotgunMonsters"

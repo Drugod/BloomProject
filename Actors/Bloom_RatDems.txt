@@ -21,7 +21,7 @@
 **/
 
 ACTOR ----------RatDemons---------- {}
-ACTOR RatDemon_Brown : BloomHybrid_Base 19059
+ACTOR RatDemon_Brown : BloomHybrid_Base
 {
 	//$Title RatDemon (Brown)
 	//$Category BlooM Monsters
@@ -110,7 +110,7 @@ ACTOR RatDemon_Brown : BloomHybrid_Base 19059
 	}
 }
 
-ACTOR RatDemon_Grey : RatDemon_Brown 19062
+ACTOR RatDemon_Grey : RatDemon_Brown
 {
 	//$Title RatDemon (Grey)
 	States
@@ -181,7 +181,7 @@ ACTOR RatDemon_Grey : RatDemon_Brown 19062
 	}
 }
 
-ACTOR RatDemon_Black : RatDemon_Brown 19063
+ACTOR RatDemon_Black : RatDemon_Brown
 {
 	//$Title RatDemon (Black)
 	States
@@ -252,7 +252,7 @@ ACTOR RatDemon_Black : RatDemon_Brown 19063
 	}
 }
 
-ACTOR RatDemon_White : RatDemon_Brown 19064
+ACTOR RatDemon_White : RatDemon_Brown
 {
 	//$Title RatDemon (White)
 	States
@@ -323,7 +323,7 @@ ACTOR RatDemon_White : RatDemon_Brown 19064
 	}
 }
 
-ACTOR RatDemons 19065
+ACTOR RatDemons
 {
 	//$Category BlooM Monsters
 	//$Title RatDemons

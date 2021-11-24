@@ -197,7 +197,7 @@ ACTOR HandGrenade
 ACTOR HandGrenadeDroped: HandGrenade { Speed 4 }
 ACTOR HandGrenadeAlt: HandGrenade { Speed 8 }
 
-ACTOR GrenadeAmmo : Ammo 6666
+ACTOR GrenadeAmmo : Ammo
 {
 	//$Category "BlooM Ammunitions"
 	//$Sprite PGRND0
@@ -249,7 +249,7 @@ ACTOR GrenadeBox : GrenadeAmmo
 }
 
 ACTOR --------FLAMETHROWER------------ {}
-ACTOR FlameThrower_ : BlooMW 19074
+ACTOR FlameThrower_ : BlooMW
 {
 	//$Sprite PMAWA0
 	Tag "UAC FlameThrower"
@@ -326,7 +326,7 @@ ACTOR FlameThrower_ : BlooMW 19074
 	}
 }
 
-ACTOR FlameGas : Ammo 23001
+ACTOR FlameGas : Ammo
 {
 	//$Category "BlooM Ammunitions"
 	//$Title "Flamethrower Canister"
@@ -355,7 +355,7 @@ ACTOR FlameGas : Ammo 23001
 	}
 }
 
-ACTOR FlameBigGas : FlameGas 23002
+ACTOR FlameBigGas : FlameGas
 {
 	//$Title "Flamethrower Big Canister"
 	//$Sprite AGASB0
@@ -378,7 +378,7 @@ ACTOR FlameBigGas : FlameGas 23002
 }
 
 ACTOR --------FROSTGUN------------ {}
-ACTOR Frostgun_ : BlooMW 19076
+ACTOR Frostgun_ : BlooMW
 {
 	//$Sprite FROSA0
 	Tag "UAC FrostGun"
@@ -454,7 +454,7 @@ ACTOR Frostgun_ : BlooMW 19076
 	}
 }
 
-ACTOR FrostAmmo : Ammo 23003 //requires Caleb replacement codewise yet
+ACTOR FrostAmmo : Ammo //requires Caleb replacement codewise yet
 {
 	//$Category "BlooM Ammunitions"
 	//$Title "Frostgun Ammo"
@@ -483,7 +483,7 @@ ACTOR FrostAmmo : Ammo 23003 //requires Caleb replacement codewise yet
 	}
 }
 
-ACTOR BigFrostAmmo : FrostAmmo 23004
+ACTOR BigFrostAmmo : FrostAmmo
 {
 	//$Title "Frostgun Big Ammo"
 	Inventory.Amount 100
@@ -505,7 +505,7 @@ ACTOR BigFrostAmmo : FrostAmmo 23004
 }
 
 ACTOR --------TESLACANNON------------ {}
-ACTOR TeslaCannon_ : BlooMW 19075
+ACTOR TeslaCannon_ : BlooMW
 {
 	//$Sprite TEDWA0
 	Tag "UAC Tesla Cannon"

@@ -167,6 +167,13 @@ class BlooMBase : Actor
 	{
 		-CASTSPRITESHADOW
 	}
+
+	States
+	{
+		Death.Fade:
+			"####" # 1 A_FadeOut(0.1);
+			Loop;
+	}
 	
 	override void Tick()
 	{
@@ -209,5 +216,4 @@ class BlooMBase : Actor
 		
 	Super.Tick();
 	}
-	
 }

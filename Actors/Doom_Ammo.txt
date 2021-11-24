@@ -20,7 +20,7 @@
  * SOFTWARE.
 **/
 
-ACTOR NewAmmos_little replaces Cell
+ACTOR NewAmmos_Little replaces Cell
 {
     //$Category "Ammunition"
     //$Title Ammo for PR/FT/TC Spawner
@@ -77,14 +77,14 @@ ACTOR NewAmmos_Big replaces CellPack
 }
 
 ACTOR -------CELLPACKS------------ {}
-ACTOR Cell_ : Cell 19078
+ACTOR Cell_ : Cell
 {
     //$Category "Ammunition"
 	//$Sprite CELLA0
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.ForbiddenTo "Caleb"
 	VisibleToPlayerClass "DoomDude"
-	Inventory.PickupMessage "$GOTCELL" // "Picked up an energy cell."
+	Inventory.PickupMessage "$GOTCELL"
 	Inventory.Amount 20
 	Inventory.MaxAmount 300
 	Ammo.BackpackAmount 20
@@ -105,11 +105,11 @@ ACTOR Cell_ : Cell 19078
 	}
 }
 
-ACTOR CellPack_ : Cell_ 19079
+ACTOR CellPack_ : Cell_
 {
     //$Category "Ammunition"
 	//$Sprite CELPA0
-	Inventory.PickupMessage "$GOTCELLBOX" // "Picked up an energy cell pack."
+	Inventory.PickupMessage "$GOTCELLBOX"
 	Inventory.Amount 100
 	States
 	{
@@ -133,7 +133,7 @@ ACTOR Clip_ : Clip replaces Clip
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.ForbiddenTo "Caleb"
 	VisibleToPlayerClass "DoomDude"
-	Inventory.PickupMessage "$GOTCLIP" // "Picked up a clip."
+	Inventory.PickupMessage "$GOTCLIP"
 	Inventory.Amount 10
 	Inventory.MaxAmount 200
 	Ammo.BackpackAmount 10
@@ -157,7 +157,7 @@ ACTOR Clip_ : Clip replaces Clip
 ACTOR ClipBox_ : Clip_ replaces Clipbox
 {
 	//$Sprite AMMOA0
-	Inventory.PickupMessage "$GOTCLIPBOX" // "Picked up a box of bullets."
+	Inventory.PickupMessage "$GOTCLIPBOX"
 	Inventory.Amount 50
 	States
 	{
@@ -181,7 +181,7 @@ ACTOR RocketAmmo_ : RocketAmmo replaces RocketAmmo
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.ForbiddenTo "Caleb"
 	VisibleToPlayerClass "DoomDude"
-	Inventory.PickupMessage "$GOTROCKET" // "Picked up a rocket."
+	Inventory.PickupMessage "$GOTROCKET"
 	Inventory.Amount 1
 	Inventory.MaxAmount 50
 	Ammo.BackpackAmount 1
@@ -205,7 +205,7 @@ ACTOR RocketAmmo_ : RocketAmmo replaces RocketAmmo
 ACTOR RocketBox_ : RocketAmmo_ replaces RocketBox
 {
 	//$Sprite BROKA0
-	Inventory.PickupMessage "$GOTROCKBOX" // "Picked up a box of rockets."
+	Inventory.PickupMessage "$GOTROCKBOX"
 	Inventory.Amount 5
 	States
 	{
@@ -229,7 +229,7 @@ ACTOR Shell_ : Shell replaces Shell
 	+INVENTORY.RESTRICTABSOLUTELY
 	Inventory.ForbiddenTo "Caleb"
 	VisibleToPlayerClass "DoomDude"
-	Inventory.PickupMessage "$GOTSHELLS" // "Picked up 4 shotgun shells."
+	Inventory.PickupMessage "$GOTSHELLS"
 	Inventory.Amount 4
 	Inventory.MaxAmount 50
 	Ammo.BackpackAmount 4
@@ -253,7 +253,7 @@ ACTOR Shell_ : Shell replaces Shell
 ACTOR ShellBox_ : Shell_ replaces ShellBox
 {
 	//$Sprite SBOXA0
-	Inventory.PickupMessage "$GOTSHELLBOX" // "Picked up a box of shotgun shells."
+	Inventory.PickupMessage "$GOTSHELLBOX"
 	Inventory.Amount 20
 	States
 	{

@@ -20,7 +20,7 @@
  * SOFTWARE.
 **/
 
-ACTOR HangCorpseSpawner : RandomSpawner 3252
+ACTOR HangCorpseSpawner : RandomSpawner
 {
 	//$Category "BlooM Corpses"
 	//$Title Hanging Corpses Spawner, random
@@ -41,7 +41,7 @@ ACTOR HangCorpseSpawner : RandomSpawner 3252
 	DropItem "HangingExHybridBaron"
 }
 
-ACTOR HangSkeletonSpawner : RandomSpawner 3282
+ACTOR HangSkeletonSpawner : RandomSpawner
 {
 	//$Category "BlooM Corpses"
 	//$Title Hanging Skeletons Spawner, random
@@ -53,7 +53,7 @@ ACTOR HangSkeletonSpawner : RandomSpawner 3282
 	DropItem "SkeletonX5"
 }
 
-ACTOR HangChickSpawner : RandomSpawner 3283
+ACTOR HangChickSpawner : RandomSpawner
 {
 	//$Category "BlooM Corpses"
 	//$Title Hanging Chick Spawner, random
@@ -63,7 +63,7 @@ ACTOR HangChickSpawner : RandomSpawner 3283
 	DropItem "HanginDeadChick3"
 }
 
-ACTOR HangingBloodMeat 3242
+ACTOR HangingBloodMeat
 {
 	//$Category "BlooM Corpses"
 	//$Title Hanging Piece of Meat, Shootable
@@ -157,7 +157,7 @@ ACTOR DeadBrownCultist : DeadBloodZombie
 	}
 }
 
-ACTOR TheShining 3235
+ACTOR TheShining
 {
 	//$Category "BlooM Eastereggs"
 	//$Title Jack from Shining, Shootable
@@ -198,7 +198,7 @@ ACTOR TheShining 3235
 	}
 }
 
-ACTOR DeadMoron 3174
+ACTOR DeadMoron
 {
 	//$Category "BlooM Corpses"
 	//$Title Dead Moron 1, Shootable
@@ -214,18 +214,18 @@ ACTOR DeadMoron 3174
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		HORR B -1
 		Stop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX84 A -1
 		Stop
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		TNT1 A 0 A_Fall
 		HORR B 5 A_XScream
@@ -239,8 +239,8 @@ ACTOR DeadMoron 3174
 		TNT1 AAAAAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	Death2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		TNT1 A 0 A_Fall
 		VX84 A 5 A_XScream
@@ -252,31 +252,31 @@ ACTOR DeadMoron 3174
 		TNT1 A 0 A_Jump(92,2)
 		TNT1 AA 0 A_SpawnDebris("Hand1")
 		TNT1 AAAAAAAA 0 A_SpawnDebris("FlyingBlood")
-		Stop		
+		Stop
 	}
 }
 
-ACTOR DeadMoron2 : DeadMoron 3175
+ACTOR DeadMoron2 : DeadMoron
 {
 	//$Title Dead Moron 2, Shootable
 	Health 20
 	Radius 10
-	Scale 0.6	
+	Scale 0.6
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		HORR C -1
 		Stop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX85 A -1
 		Stop
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		TNT1 A 0 A_Fall
 		HORR C 5 A_XScream
@@ -290,8 +290,8 @@ ACTOR DeadMoron2 : DeadMoron 3175
 		TNT1 AAAAAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	Death2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		TNT1 A 0 A_Fall
 		VX85 A 5 A_XScream
@@ -303,11 +303,11 @@ ACTOR DeadMoron2 : DeadMoron 3175
 		TNT1 A 0 A_Jump(92,2)
 		TNT1 AA 0 A_SpawnDebris("Hand1")
 		TNT1 AAAAAAAA 0 A_SpawnDebris("FlyingBlood")
-		Stop		
+		Stop
 	}
 }
 
-ACTOR DeadMoron3 : DeadMoron 3173
+ACTOR DeadMoron3 : DeadMoron
 {
 	//$Title Dead Moron 3, Shootable
 	Height 30
@@ -317,18 +317,18 @@ ACTOR DeadMoron3 : DeadMoron 3173
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		HORR A -1
 		Stop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX86 A -1
 		Stop
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		TNT1 A 0 A_Fall
 		HORR A 5 A_XScream
@@ -342,8 +342,8 @@ ACTOR DeadMoron3 : DeadMoron 3173
 		TNT1 AAAAAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	Death2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
 		TNT1 A 0 A_GiveToTarget("DoLaugh", 1)
 		TNT1 A 0 A_Fall
 		VX86 A 5 A_XScream
@@ -359,7 +359,7 @@ ACTOR DeadMoron3 : DeadMoron 3173
 	}
 }
 
-ACTOR DeadGargoyle : ZombieMan 3176
+ACTOR DeadGargoyle : ZombieMan
 {
 	//$Category "BlooM Corpses"
 	//$Title Dead Gargoyle
@@ -377,7 +377,7 @@ ACTOR DeadGargoyle : ZombieMan 3176
 	}
 }
 
-ACTOR LiveHead 3178
+ACTOR LiveHead
 {
 	//$Category "BlooM Corpses"
 	//$Title Alive Head, Shootable
@@ -396,20 +396,20 @@ ACTOR LiveHead 3178
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		XAHE A 250
 		XAHE B 50
 		Loop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX90 A 250
 		VX90 B 50
 		Loop
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		TNT1 A 0 A_Scream
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		TNT1 A 0 A_XScream
@@ -429,11 +429,11 @@ ACTOR LiveHead 3178
 		TNT1 AA 0 A_SpawnDebris("EyeGuts")
 		VX90 A 5
 		Stop
-		
+
 	}
 }
 
-ACTOR ZombieCan 3179
+ACTOR ZombieCan
 {
 	//$Category "BlooM Corpses"
 	//$Title Can filled with Zombies, Shootable
@@ -450,13 +450,13 @@ ACTOR ZombieCan 3179
 	States
 	{
 	Spawn:
-		TNT1 A 0 	
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		BZBR ABBABAAB 48
 		Loop
 	Spawn2:
-		TNT1 A 0 	
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==0, "Spawn")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==0, "Spawn")
 		VX34 ABBABAAB 48
 		Loop
 	Death:
@@ -478,7 +478,7 @@ ACTOR ZombieCan 3179
 	}
 }
 
-ACTOR BloodPile : HeartColumn 3253
+ACTOR BloodPile : HeartColumn
 {
 	//$Category "BlooM Corpses"
 	//$Title Blood Waste Bin, Shootable
@@ -495,13 +495,15 @@ ACTOR BloodPile : HeartColumn 3253
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		BJAR A -1
 		Stop
 	Spawn2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==0, "Spawn")
 		VX25 A -1
-		Stop		
+		Stop
 	Death:
 		BJAR A 0 A_Scream
 		BJAR A 5
@@ -521,7 +523,7 @@ ACTOR BloodPile : HeartColumn 3253
 	}
 }
 
-ACTOR GreenBrain : HeartColumn 3243
+ACTOR GreenBrain : HeartColumn
 {
 	//$Category "BlooM Corpses"
 	//$Title Green Brain, Shootable
@@ -538,13 +540,15 @@ ACTOR GreenBrain : HeartColumn 3243
 	States
 	{
 	Spawn:
-		TNT1 A 0 	
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		GBRN A -1
 		Stop
 	Spawn2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==0, "Spawn")
 		VX33 A -1
-		Stop		
+		Stop
 	Death:
 		GBRN A 0 A_Scream
 		GBRN A 5
@@ -564,7 +568,7 @@ ACTOR GreenBrain : HeartColumn 3243
 	}
 }
 
-ACTOR RedBrain : HeartColumn 3244
+ACTOR RedBrain : HeartColumn
 {
 	//$Category "BlooM Corpses"
 	//$Title Red Brain, Shootable
@@ -581,11 +585,13 @@ ACTOR RedBrain : HeartColumn 3244
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		RBRN A -1
 		Stop
 	Spawn2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==0, "Spawn")
 		VX37 A -1
 		Stop
 	Death:
@@ -607,7 +613,7 @@ ACTOR RedBrain : HeartColumn 3244
 	}
 }
 
-ACTOR HangingMeat 3187
+ACTOR HangingMeat
 {
 	//$Category "BlooM Corpses"
 	//$Title Hanging Duke, Shootable
@@ -648,7 +654,7 @@ ACTOR HangingMeat 3187
 	}
 }
 
-ACTOR HangingUrchin1 : HangingMeat 18810
+ACTOR HangingUrchin1 : HangingMeat
 {
 	//$Title Hanging Moving Urchin, Long
 	Health -1
@@ -673,7 +679,7 @@ ACTOR HangingUrchin1 : HangingMeat 18810
 	}
 }
 
-ACTOR HangingUrchin2 : HangingMeat 18811
+ACTOR HangingUrchin2 : HangingMeat
 {
 	//$Title Hanging Moving Urchin, Short
 	Health -1
@@ -698,7 +704,7 @@ ACTOR HangingUrchin2 : HangingMeat 18811
 	}
 }
 
-ACTOR BloodSkelUpsideDown : HangingMeat 3188
+ACTOR BloodSkelUpsideDown : HangingMeat
 {
 	//$Title Blood Skeleton Upside-Down, Shootable
 	Health 10
@@ -719,20 +725,20 @@ ACTOR BloodSkelUpsideDown : HangingMeat 3188
 	}
 }
 
-ACTOR BlindfoldedGuyHang : HangingMeat 3189
+ACTOR BlindfoldedGuyHang : HangingMeat
 {
 	//$Title Blind-folded Hanging Guy, Shootable
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		HOLG AB random(30,100)
 		TNT1 A 0 A_Jump(random(128,256),"Drip")
 		Loop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX83 AB random(30,100)
 		TNT1 A 0 A_Jump(random(128,256),"Drip")
 		Loop
@@ -740,36 +746,36 @@ ACTOR BlindfoldedGuyHang : HangingMeat 3189
 		TNT1 A 0 A_SpawnItem("HangedBloodDrip")
 		Goto Spawn
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		HOLG A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	Death2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
 		VX83 A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
-		Stop		
+		Stop
 	}
 }
 
-ACTOR BlindfoldedAsh : HangingMeat 3190
+ACTOR BlindfoldedAsh : HangingMeat
 {
 	//$Title Blind-folded Ash, Shootable
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		XBFA A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX82 A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
@@ -777,15 +783,15 @@ ACTOR BlindfoldedAsh : HangingMeat 3190
 		TNT1 A 0 A_SpawnItem("HangedBloodDrip")
 		Goto Spawn
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		XBFA A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	Death2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
 		VX82 A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
@@ -793,20 +799,20 @@ ACTOR BlindfoldedAsh : HangingMeat 3190
 	}
 }
 
-ACTOR HanginDeadChick : HangingMeat 3191
+ACTOR HanginDeadChick : HangingMeat
 {
 	//$Title Hanging Dead Chick 1, Shootable
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		XXAO A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX79 A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
@@ -814,15 +820,15 @@ ACTOR HanginDeadChick : HangingMeat 3191
 		TNT1 A 0 A_SpawnItem("HangedBloodDrip")
 		Goto Spawn
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		XXAO A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	Death2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
 		VX79 A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
@@ -830,20 +836,20 @@ ACTOR HanginDeadChick : HangingMeat 3191
 	}
 }
 
-ACTOR HanginDeadChick2 : HangingMeat 3180
+ACTOR HanginDeadChick2 : HangingMeat
 {
 	//$Title Hanging Dead Chick 2, Shootable
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		XDC2 A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX78 A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
@@ -851,15 +857,15 @@ ACTOR HanginDeadChick2 : HangingMeat 3180
 		TNT1 A 0 A_SpawnItem("HangedBloodDrip")
 		Goto Spawn
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		XDC2 A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	Death2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
 		VX78 A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
@@ -867,20 +873,20 @@ ACTOR HanginDeadChick2 : HangingMeat 3180
 	}
 }
 
-ACTOR HanginDeadChick3 : HangingMeat 3184
+ACTOR HanginDeadChick3 : HangingMeat
 {
 	//$Title Hanging Dead Chick 3, Shootable
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		XDC3 A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX77 A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
@@ -888,15 +894,15 @@ ACTOR HanginDeadChick3 : HangingMeat 3184
 		TNT1 A 0 A_SpawnItem("HangedBloodDrip")
 		Goto Spawn
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		XDC3 A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	Death2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
 		VX77 A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
@@ -904,73 +910,95 @@ ACTOR HanginDeadChick3 : HangingMeat 3184
 	}
 }
 
-ACTOR SkeletonX : HangingMeat 3216
+ACTOR SkeletonX : HangingMeat
 {
 	//$Title Hanging Skeleton 1, Shootable
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		XXAA A -1
 		Stop
 	Spawn2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX76 A -1
 		Stop
 	Death:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		XXAA A 1 A_XScream
 		XXAA AAAAA 0 A_SpawnDebris("OrganDebris")
 		XXAA AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
+	Death2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
+		VX76 A 1 A_XScream
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop
 	}
 }
 
-ACTOR SkeletonX2 : HangingMeat 3217
+ACTOR SkeletonX2 : HangingMeat
 {
 	//$Title Hanging Skeleton 2, Shootable
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		XXAB A -1
 		Stop
 	Spawn2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX92 A -1
 		Stop
 	Death:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		XXAB A 1 A_XScream
 		XXAB AAAAA 0 A_SpawnDebris("OrganDebris")
 		XXAB AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
+	Death2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
+		VX92 A 1 A_XScream
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop
 	}
 }
 
-ACTOR SkeletonX3 : HangingMeat 3218
+ACTOR SkeletonX3 : HangingMeat
 {
 	//$Title Hanging Skeleton 3, Shootable
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		XXAC A -1
 		Stop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX81 A -1
 		Stop
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		XXAC A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	Death2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
 		VX81 A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
@@ -978,41 +1006,52 @@ ACTOR SkeletonX3 : HangingMeat 3218
 	}
 }
 
-ACTOR SkeletonX4 : HangingMeat 3219
+ACTOR SkeletonX4 : HangingMeat
 {
 	//$Title Hanging Skeleton 4, Shootable
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		XXAE A -1
 		Stop
 	Spawn2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX75 A -1
 		Stop
 	Death:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		XXAE A 1 A_XScream
 		XXAE AAAAA 0 A_SpawnDebris ("OrganDebris")
 		XXAE AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
+	Death2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
+		VX75 A 1 A_XScream
+		TNT1 AAAAA 0 A_SpawnDebris("OrganDebris")
+		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
+		Stop
 	}
 }
 
-ACTOR Skeletonx5 : HangingMeat 3220
+ACTOR SkeletonX5 : HangingMeat
 {
 	//$Title Hanging Skeleton 5, Shootable
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		XXAF A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX80 A 1
 		TNT1 A 0 A_Jump(random(1,4),"Drip")
 		Loop
@@ -1020,15 +1059,15 @@ ACTOR Skeletonx5 : HangingMeat 3220
 		TNT1 A 0 A_SpawnItem("HangedBloodDrip")
 		Goto Spawn
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		XXAF A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris ("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		Stop
 	Death2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
 		VX80 A 1 A_XScream
 		TNT1 AAAAA 0 A_SpawnDebris ("OrganDebris")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
@@ -1036,7 +1075,7 @@ ACTOR Skeletonx5 : HangingMeat 3220
 	}
 }
 
-ACTOR HangingExMan : HangingMeat 18812
+ACTOR HangingExMan : HangingMeat
 {
 	//$Title Hanging Dismembered Man, Shootable
 	Height 76
@@ -1059,7 +1098,7 @@ ACTOR HangingExMan : HangingMeat 18812
 	}
 }
 
-ACTOR HangingExHead : HangingMeat 18813
+ACTOR HangingExHead : HangingMeat
 {
 	//$Title Hanging Dismembered Head, Shootable
 	Height 78
@@ -1082,7 +1121,7 @@ ACTOR HangingExHead : HangingMeat 18813
 	}
 }
 
-ACTOR HangingExBodies1 : HangingMeat 18814
+ACTOR HangingExBodies1 : HangingMeat
 {
 	//$Title Hanging Dismembered Man Body, Shootable
 	Height 64
@@ -1104,7 +1143,7 @@ ACTOR HangingExBodies1 : HangingMeat 18814
 	}
 }
 
-ACTOR HangingExBodies2 : HangingMeat 18815
+ACTOR HangingExBodies2 : HangingMeat
 {
 	//$Title Hanging Dismembered Woman Body, Shootable
 	Height 56
@@ -1126,7 +1165,7 @@ ACTOR HangingExBodies2 : HangingMeat 18815
 	}
 }
 
-ACTOR HangingExBodies3 : HangingMeat 18816
+ACTOR HangingExBodies3 : HangingMeat
 {
 	//$Title Hanging Dismembered Bodies, Shootable
 	Height 78
@@ -1148,7 +1187,7 @@ ACTOR HangingExBodies3 : HangingMeat 18816
 	}
 }
 
-ACTOR HangingExBaron : HangingMeat 18348
+ACTOR HangingExBaron : HangingMeat
 {
 	//$Title Hanging Dismembered Baron, Shootable
 	Height 78
@@ -1170,7 +1209,7 @@ ACTOR HangingExBaron : HangingMeat 18348
 	}
 }
 
-ACTOR HangingExHybridBaron : HangingMeat 18349
+ACTOR HangingExHybridBaron : HangingMeat
 {
 	//$Title Hanging Dismembered HybridBaron, Shootable
 	Height 78
@@ -1192,7 +1231,7 @@ ACTOR HangingExHybridBaron : HangingMeat 18349
 	}
 }
 
-ACTOR BloodyLeg : HangingMeat 3192
+ACTOR BloodyLeg : HangingMeat
 {
 	//$Title Bloody Leg, Shootable
 	Health 15
@@ -1205,18 +1244,18 @@ ACTOR BloodyLeg : HangingMeat 3192
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		LEGX A -1
 		Stop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX87 A -1
 		Stop
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Death2")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		TNT1 A 0 A_XScream
 		TNT1 A 0 A_Jump(32,2)
@@ -1224,18 +1263,18 @@ ACTOR BloodyLeg : HangingMeat 3192
 		BCUL O 5
 		Stop
 	Death2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Death")
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		TNT1 A 0 A_XScream
 		TNT1 A 0 A_Jump(32,2)
 		TNT1 A 0 A_SpawnDebris ("Bloodliver")
 		VX87 A 5
-		Stop		
+		Stop
 	}
 }
 
-ACTOR SkullCow 3211
+ACTOR SkullCow
 {
 	//$Category "BlooM Corpses"
 	//$Title Cow Skull
@@ -1247,17 +1286,19 @@ ACTOR SkullCow 3211
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		WCOW A -1
 		Stop
 	Spawn2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX91 A -1
 		Stop
 	}
 }
 
-ACTOR PileSkulls 3231
+ACTOR PileSkulls
 {
 	//$Category "BlooM Corpses"
 	//$Title Pile of Skulls
@@ -1266,65 +1307,73 @@ ACTOR PileSkulls 3231
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		PILS A -1
 		Stop
 	Spawn2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
  		VX74 A -1
 		Stop
 	}
 }
 
-ACTOR ImpaledSkullX : PileSkulls 3232
+ACTOR ImpaledSkullX : PileSkulls
 {
 	//$Title Impaled Skull 1
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		1SKL A -1
 		Stop
 	Spawn2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX89 A -1
 		Stop
 	}
 }
 
-ACTOR ImpaledSkullX2 : PileSkulls 3234
+ACTOR ImpaledSkullX2 : PileSkulls
 {
 	//$Title Impaled Skull 2
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		RSKL A -1
 		Stop
 	Spawn2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX88 A -1
 		Stop
 	}
 }
 
-ACTOR HatchedSkull : PileSkulls 3233
+ACTOR HatchedSkull : PileSkulls
 {
 	//$Title Hatched Skull
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==1, "Spawn2")
 		QSKL A -1
 		Stop
 	Spawn2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("CorpseVoxel")==0, "Spawn")
 		VX93 A -1
 		Stop
 	}
 }
 
-ACTOR SideSkull : PileSkulls 3555
+ACTOR SideSkull : PileSkulls
 {
 	//$Title Skull from Side
 	States
@@ -1335,7 +1384,7 @@ ACTOR SideSkull : PileSkulls 3555
 	}
 }
 
-ACTOR ImpaledExBody : PileSkulls 18817
+ACTOR ImpaledExBody : PileSkulls
 {
 	//$Title Hatched Skull
 	States
@@ -2097,7 +2146,7 @@ ACTOR BurnDeath2
 	}
 }
 
-ACTOR CobwebBody 18800
+ACTOR CobwebBody
 {
 	//$Category "BlooM Corpses"
 	//$Title Entangled Body in Cobweb, shootable
@@ -2137,7 +2186,7 @@ ACTOR CobwebBody 18800
 	}
 }
 
-ACTOR CobwebNest : CobwebBody 18801
+ACTOR CobwebNest : CobwebBody
 {
 	//$Title Spiders Nest, shootable
 	Scale 0.5
