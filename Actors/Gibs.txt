@@ -418,7 +418,7 @@ ACTOR ZombImpHead1 : ZombieHead
 	}
 }
 
-ACTOR KickableFlyingZombImp1: ZombImpHead1
+ACTOR KickableFlyingZombImp1 : ZombImpHead1
 {
 	Damage(5)
 	Gravity 0.87
@@ -648,7 +648,7 @@ ACTOR ZombImpHead2
 	}
 }
 
-ACTOR KickableFlyingZombImp2: ZombImpHead2
+ACTOR KickableFlyingZombImp2 : ZombImpHead2
 {
 	Damage(5)
 	Gravity 0.87
@@ -880,7 +880,7 @@ ACTOR ZombImpHead3
 	}
 }
 
-ACTOR KickableFlyingZombImp3: ZombImpHead3
+ACTOR KickableFlyingZombImp3 : ZombImpHead3
 {
 	Damage(5)
 	Gravity 0.87
@@ -1110,7 +1110,7 @@ ACTOR ZombImpHead4
 	}
 }
 
-ACTOR KickableFlyingZombImp4: ZombImpHead4
+ACTOR KickableFlyingZombImp4 : ZombImpHead4
 {
 	Damage(5)
 	Gravity 0.87
@@ -1341,7 +1341,7 @@ ACTOR GhoulHead1
 	}
 }
 
-ACTOR KickableFlyingGhoul1: GhoulHead1
+ACTOR KickableFlyingGhoul1 : GhoulHead1
 {
 	Damage(5)
 	Gravity 0.87
@@ -1572,7 +1572,7 @@ ACTOR GhoulHead2
 	}
 }
 
-ACTOR KickableFlyingGhoul2: GhoulHead2
+ACTOR KickableFlyingGhoul2 : GhoulHead2
 {
 	Damage(5)
 	Gravity 0.87
@@ -1803,7 +1803,7 @@ ACTOR GhoulHead3
 	}
 }
 
-ACTOR KickableFlyingGhoul3: GhoulHead3
+ACTOR KickableFlyingGhoul3 : GhoulHead3
 {
 	Damage(5)
 	Gravity 0.87
@@ -2034,7 +2034,7 @@ ACTOR FanaticHead
 	}
 }
 
-ACTOR KickableFlyingFanatic: FanaticHead
+ACTOR KickableFlyingFanatic : FanaticHead
 {
 	Damage(5)
 	Gravity 0.87
@@ -2265,7 +2265,7 @@ ACTOR GhoulHead6
 	}
 }
 
-ACTOR KickableFlyingGhoul6: GhoulHead6
+ACTOR KickableFlyingGhoul6 : GhoulHead6
 {
 	Damage(5)
 	Gravity 0.87
@@ -2495,7 +2495,7 @@ ACTOR FishHead
 	}
 }
 
-ACTOR KickableFlyingFish: FishHead
+ACTOR KickableFlyingFish : FishHead
 {
 	Damage(5)
 	Gravity 0.87
@@ -2727,7 +2727,7 @@ ACTOR MoronHead
 	}
 }
 
-ACTOR KickableFlyingMoron: MoronHead
+ACTOR KickableFlyingMoron : MoronHead
 {
 	Damage(5)
 	Gravity 0.87
@@ -3425,7 +3425,7 @@ ACTOR Intestines
 	Death:
 		BLUD F 2 A_PlaySound("Body/Gibs")
 		BLUD F 0 A_CustomMissile("BloodTrail",frandom(-4,4),frandom(-4,4),frandom(0,360))
-		TNT1 A 0 A_SpawnDebris ("OrganDebris")
+		TNT1 A 0 A_SpawnDebris("OrganDebris")
 		BLUD GHI 2
 		Stop
 	}

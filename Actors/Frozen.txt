@@ -20,6 +20,8 @@
  * SOFTWARE.
 **/
 
+//FOLLOWING ACTORS HAVE NOT BEEN INCLUDED IN ANY MAPS, THESE ARE HERE FOR MODDER'S CHOICE --ozy81
+
 ACTOR CongealedBase //scaling still needs to be fixed - ozy81
 {
 	//$Category "BlooM Frozen Stuff"
@@ -42,7 +44,7 @@ ACTOR CongealedBase //scaling still needs to be fixed - ozy81
 	}
 }
 
-ACTOR CongealedBody1 : CongealedBase 23700
+ACTOR CongealedBody1 : CongealedBase
 {
 	//$Title Congealed Butcher
 	Radius 24
@@ -56,7 +58,7 @@ ACTOR CongealedBody1 : CongealedBase 23700
 	}
 }
 
-ACTOR CongealedBody2 : CongealedBase 23701
+ACTOR CongealedBody2 : CongealedBase
 {
 	//$Title Congealed Cultist
 	Radius 24
@@ -70,7 +72,7 @@ ACTOR CongealedBody2 : CongealedBase 23701
 	}
 }
 
-ACTOR CongealedBody3 : CongealedBase 23702
+ACTOR CongealedBody3 : CongealedBase
 {
 	//$Title Congealed Beast
 	Radius 24
@@ -84,7 +86,7 @@ ACTOR CongealedBody3 : CongealedBase 23702
 	}
 }
 
-ACTOR CongealedBody4 : CongealedBase 23703
+ACTOR CongealedBody4 : CongealedBase
 {
 	//$Title Congealed Gargoyle
 	Radius 24
@@ -98,7 +100,7 @@ ACTOR CongealedBody4 : CongealedBase 23703
 	}
 }
 
-ACTOR CongealedBody5 : CongealedBase 23704
+ACTOR CongealedBody5 : CongealedBase
 {
 	//$Title Congealed Ghost
 	Radius 24
@@ -112,7 +114,7 @@ ACTOR CongealedBody5 : CongealedBase 23704
 	}
 }
 
-ACTOR CongealedBody6 : CongealedBase 23705
+ACTOR CongealedBody6 : CongealedBase
 {
 	//$Title Congealed GillBeast
 	Radius 24
@@ -126,7 +128,7 @@ ACTOR CongealedBody6 : CongealedBase 23705
 	}
 }
 
-ACTOR CongealedBody7 : CongealedBase 23706
+ACTOR CongealedBody7 : CongealedBase
 {
 	//$Title Congealed Spider
 	Radius 24
@@ -140,7 +142,7 @@ ACTOR CongealedBody7 : CongealedBase 23706
 	}
 }
 
-ACTOR CongealedBody8 : CongealedBase 23707
+ACTOR CongealedBody8 : CongealedBase
 {
 	//$Title Congealed Moron
 	Radius 24
@@ -154,7 +156,7 @@ ACTOR CongealedBody8 : CongealedBase 23707
 	}
 }
 
-ACTOR CongealedBody9 : CongealedBase 23708
+ACTOR CongealedBody9 : CongealedBase
 {
 	//$Title Congealed Hell Hound
 	Radius 24
@@ -168,7 +170,7 @@ ACTOR CongealedBody9 : CongealedBase 23708
 	}
 }
 
-ACTOR CongealedBody10 : CongealedBase 23709
+ACTOR CongealedBody10 : CongealedBase
 {
 	//$Title Congealed Pod
 	Radius 24
@@ -182,7 +184,7 @@ ACTOR CongealedBody10 : CongealedBase 23709
 	}
 }
 
-ACTOR CongealedBody11 : CongealedBase 23710
+ACTOR CongealedBody11 : CongealedBase
 {
 	//$Title Congealed Pod Tendril A
 	Radius 24
@@ -196,7 +198,7 @@ ACTOR CongealedBody11 : CongealedBase 23710
 	}
 }
 
-ACTOR CongealedBody12 : CongealedBase 23711
+ACTOR CongealedBody12 : CongealedBase
 {
 	//$Title Congealed Pod Tendril B
 	Radius 24
@@ -210,7 +212,7 @@ ACTOR CongealedBody12 : CongealedBase 23711
 	}
 }
 
-ACTOR CongealedBody13 : CongealedBase 23712
+ACTOR CongealedBody13 : CongealedBase
 {
 	//$Title Congealed Zombie
 	Radius 24
@@ -224,7 +226,7 @@ ACTOR CongealedBody13 : CongealedBase 23712
 	}
 }
 
-ACTOR CongealedBody14 : CongealedBase 23713
+ACTOR CongealedBody14 : CongealedBase
 {
 	//$Title Congealed Rat
 	Radius 24
@@ -238,7 +240,7 @@ ACTOR CongealedBody14 : CongealedBase 23713
 	}
 }
 
-ACTOR CongealedBody15 : CongealedBase 23714
+ACTOR CongealedBody15 : CongealedBase
 {
 	//$Title Congealed Gargovile
 	Radius 24
@@ -252,7 +254,7 @@ ACTOR CongealedBody15 : CongealedBase 23714
 	}
 }
 
-ACTOR CongealedBody16 : CongealedBase 23715
+ACTOR CongealedBody16 : CongealedBase
 {
 	//$Title Congealed Arachnoid
 	Radius 24
@@ -266,7 +268,7 @@ ACTOR CongealedBody16 : CongealedBase 23715
 	}
 }
 
-ACTOR CongealedBody17 : CongealedBase 23716
+ACTOR CongealedBody17 : CongealedBase
 {
 	//$Title Congealed ArchZombie Headless
 	Radius 24
@@ -280,7 +282,7 @@ ACTOR CongealedBody17 : CongealedBase 23716
 	}
 }
 
-ACTOR CongealedBody18 : CongealedBase 23717
+ACTOR CongealedBody18 : CongealedBase
 {
 	//$Title Congealed ArchZombie
 	Radius 24
@@ -294,7 +296,7 @@ ACTOR CongealedBody18 : CongealedBase 23717
 	}
 }
 
-ACTOR CongealedBody19 : CongealedBase 23718
+ACTOR CongealedBody19 : CongealedBase
 {
 	//$Title Congealed Moron with Barrel A
 	Radius 24
@@ -308,7 +310,7 @@ ACTOR CongealedBody19 : CongealedBase 23718
 	}
 }
 
-ACTOR CongealedBody20 : CongealedBase 23719
+ACTOR CongealedBody20 : CongealedBase
 {
 	//$Title Congealed Moron with Barrel B
 	Radius 24
@@ -322,7 +324,7 @@ ACTOR CongealedBody20 : CongealedBase 23719
 	}
 }
 
-ACTOR CongealedBody21 : CongealedBase 23720
+ACTOR CongealedBody21 : CongealedBase
 {
 	//$Title Congealed Moron with Barrel C
 	Radius 24
@@ -336,7 +338,7 @@ ACTOR CongealedBody21 : CongealedBase 23720
 	}
 }
 
-ACTOR CongealedBody22 : CongealedBase 23721
+ACTOR CongealedBody22 : CongealedBase
 {
 	//$Title Congealed Moron with Barrel D
 	Radius 24
@@ -350,7 +352,7 @@ ACTOR CongealedBody22 : CongealedBase 23721
 	}
 }
 
-ACTOR CongealedBody23 : CongealedBase 23722
+ACTOR CongealedBody23 : CongealedBase
 {
 	//$Title Congealed Werewolf of Hell
 	Radius 24
@@ -364,7 +366,7 @@ ACTOR CongealedBody23 : CongealedBase 23722
 	}
 }
 
-ACTOR CongealedBody24 : CongealedBase 23723
+ACTOR CongealedBody24 : CongealedBase
 {
 	//$Title Congealed Werewolf of Hell Alt
 	Radius 24
@@ -378,7 +380,7 @@ ACTOR CongealedBody24 : CongealedBase 23723
 	}
 }
 
-ACTOR CongealedBody25 : CongealedBase 23724
+ACTOR CongealedBody25 : CongealedBase
 {
 	//$Title Congealed Fanatic Chaingunner
 	Radius 24
@@ -392,7 +394,7 @@ ACTOR CongealedBody25 : CongealedBase 23724
 	}
 }
 
-ACTOR CongealedBody26 : CongealedBase 23725
+ACTOR CongealedBody26 : CongealedBase
 {
 	//$Title Congealed Fanatic Chaingunner Alt
 	Radius 24
@@ -406,7 +408,7 @@ ACTOR CongealedBody26 : CongealedBase 23725
 	}
 }
 
-ACTOR CongealedBody27 : CongealedBase 23726
+ACTOR CongealedBody27 : CongealedBase
 {
 	//$Title Congealed CvltImp
 	Radius 24
@@ -420,7 +422,7 @@ ACTOR CongealedBody27 : CongealedBase 23726
 	}
 }
 
-ACTOR CongealedBody28 : CongealedBase 23727
+ACTOR CongealedBody28 : CongealedBase
 {
 	//$Title Congealed CvltImp Alt
 	Radius 24
@@ -434,7 +436,7 @@ ACTOR CongealedBody28 : CongealedBase 23727
 	}
 }
 
-ACTOR CongealedBody29 : CongealedBase 23728
+ACTOR CongealedBody29 : CongealedBase
 {
 	//$Title Congealed Cacoyle (Winged)
 	Radius 24
@@ -448,7 +450,7 @@ ACTOR CongealedBody29 : CongealedBase 23728
 	}
 }
 
-ACTOR CongealedBody30 : CongealedBase 23729
+ACTOR CongealedBody30 : CongealedBase
 {
 	//$Title Congealed Cacoyle
 	Radius 24
@@ -462,7 +464,7 @@ ACTOR CongealedBody30 : CongealedBase 23729
 	}
 }
 
-ACTOR CongealedBody31 : CongealedBase 23730
+ACTOR CongealedBody31 : CongealedBase
 {
 	//$Title Congealed DemonHound
 	Radius 24
@@ -476,7 +478,7 @@ ACTOR CongealedBody31 : CongealedBase 23730
 	}
 }
 
-ACTOR CongealedBody32 : CongealedBase 23731
+ACTOR CongealedBody32 : CongealedBase
 {
 	//$Title Congealed DemonHound Alt
 	Radius 24
@@ -490,7 +492,7 @@ ACTOR CongealedBody32 : CongealedBase 23731
 	}
 }
 
-ACTOR CongealedBody33 : CongealedBase 23732
+ACTOR CongealedBody33 : CongealedBase
 {
 	//$Title Congealed DeepOne
 	Radius 24
@@ -504,7 +506,7 @@ ACTOR CongealedBody33 : CongealedBase 23732
 	}
 }
 
-ACTOR CongealedBody34 : CongealedBase 23733
+ACTOR CongealedBody34 : CongealedBase
 {
 	//$Title Congealed ArachnoPod
 	Radius 24
@@ -518,7 +520,7 @@ ACTOR CongealedBody34 : CongealedBase 23733
 	}
 }
 
-ACTOR CongealedBody35 : CongealedBase 23734
+ACTOR CongealedBody35 : CongealedBase
 {
 	//$Title Congealed EelCubus
 	Radius 24
@@ -532,7 +534,7 @@ ACTOR CongealedBody35 : CongealedBase 23734
 	}
 }
 
-ACTOR CongealedBody36 : CongealedBase 23735
+ACTOR CongealedBody36 : CongealedBase
 {
 	//$Title Congealed EelCubus Alt
 	Radius 24
@@ -546,7 +548,7 @@ ACTOR CongealedBody36 : CongealedBase 23735
 	}
 }
 
-ACTOR CongealedBody37 : CongealedBase 23736
+ACTOR CongealedBody37 : CongealedBase
 {
 	//$Title Congealed GargoDemon
 	Radius 24
@@ -560,7 +562,7 @@ ACTOR CongealedBody37 : CongealedBase 23736
 	}
 }
 
-ACTOR CongealedBody38 : CongealedBase 23737
+ACTOR CongealedBody38 : CongealedBase
 {
 	//$Title Congealed Ghoul A
 	Radius 24
@@ -574,7 +576,7 @@ ACTOR CongealedBody38 : CongealedBase 23737
 	}
 }
 
-ACTOR CongealedBody39 : CongealedBase 23738
+ACTOR CongealedBody39 : CongealedBase
 {
 	//$Title Congealed Ghoul B
 	Radius 24
@@ -588,7 +590,7 @@ ACTOR CongealedBody39 : CongealedBase 23738
 	}
 }
 
-ACTOR CongealedBody40 : CongealedBase 23739
+ACTOR CongealedBody40 : CongealedBase
 {
 	//$Title Congealed Ghoul C
 	Radius 24
@@ -602,7 +604,7 @@ ACTOR CongealedBody40 : CongealedBase 23739
 	}
 }
 
-ACTOR CongealedBody41 : CongealedBase 23740
+ACTOR CongealedBody41 : CongealedBase
 {
 	//$Title Congealed Ghoul D
 	Radius 24
@@ -616,7 +618,7 @@ ACTOR CongealedBody41 : CongealedBase 23740
 	}
 }
 
-ACTOR CongealedBody42 : CongealedBase 23741
+ACTOR CongealedBody42 : CongealedBase
 {
 	//$Title Congealed Ghoul E
 	Radius 24
@@ -630,7 +632,7 @@ ACTOR CongealedBody42 : CongealedBase 23741
 	}
 }
 
-ACTOR CongealedBody43 : CongealedBase 23742
+ACTOR CongealedBody43 : CongealedBase
 {
 	//$Title Congealed Ghoul F
 	Radius 24
@@ -644,7 +646,7 @@ ACTOR CongealedBody43 : CongealedBase 23742
 	}
 }
 
-ACTOR CongealedBody44 : CongealedBase 23743
+ACTOR CongealedBody44 : CongealedBase
 {
 	//$Title Congealed Gargoyle Soul
 	Radius 24
@@ -658,7 +660,7 @@ ACTOR CongealedBody44 : CongealedBase 23743
 	}
 }
 
-ACTOR CongealedBody45 : CongealedBase 23744
+ACTOR CongealedBody45 : CongealedBase
 {
 	//$Title Congealed Possessed A
 	Radius 24
@@ -672,7 +674,7 @@ ACTOR CongealedBody45 : CongealedBase 23744
 	}
 }
 
-ACTOR CongealedBody46 : CongealedBase 23745
+ACTOR CongealedBody46 : CongealedBase
 {
 	//$Title Congealed Possessed B
 	Radius 24
@@ -686,7 +688,7 @@ ACTOR CongealedBody46 : CongealedBase 23745
 	}
 }
 
-ACTOR CongealedBody47 : CongealedBase 23746
+ACTOR CongealedBody47 : CongealedBase
 {
 	//$Title Congealed Possessed C
 	Radius 24
@@ -700,7 +702,7 @@ ACTOR CongealedBody47 : CongealedBase 23746
 	}
 }
 
-ACTOR CongealedBody48 : CongealedBase 23747
+ACTOR CongealedBody48 : CongealedBase
 {
 	//$Title Congealed Possessed D
 	Radius 24
@@ -714,7 +716,7 @@ ACTOR CongealedBody48 : CongealedBase 23747
 	}
 }
 
-ACTOR CongealedBody49 : CongealedBase 23748
+ACTOR CongealedBody49 : CongealedBase
 {
 	//$Title Congealed Aberration Moron A
 	Radius 24
@@ -728,7 +730,7 @@ ACTOR CongealedBody49 : CongealedBase 23748
 	}
 }
 
-ACTOR CongealedBody50 : CongealedBase 23749
+ACTOR CongealedBody50 : CongealedBase
 {
 	//$Title Congealed Aberration Moron B
 	Radius 24
@@ -742,7 +744,7 @@ ACTOR CongealedBody50 : CongealedBase 23749
 	}
 }
 
-ACTOR CongealedBody51 : CongealedBase 23750
+ACTOR CongealedBody51 : CongealedBase
 {
 	//$Title Congealed Aberration Moron C
 	Radius 24
@@ -756,7 +758,7 @@ ACTOR CongealedBody51 : CongealedBase 23750
 	}
 }
 
-ACTOR CongealedBody52 : CongealedBase 23751
+ACTOR CongealedBody52 : CongealedBase
 {
 	//$Title Congealed Aberration Moron D
 	Radius 24
@@ -770,7 +772,7 @@ ACTOR CongealedBody52 : CongealedBase 23751
 	}
 }
 
-ACTOR CongealedBody53 : CongealedBase 23752
+ACTOR CongealedBody53 : CongealedBase
 {
 	//$Title Congealed Aberration Moron E
 	Radius 24
@@ -784,7 +786,7 @@ ACTOR CongealedBody53 : CongealedBase 23752
 	}
 }
 
-ACTOR CongealedBody54 : CongealedBase 23753
+ACTOR CongealedBody54 : CongealedBase
 {
 	//$Title Congealed Elemental Gargoyle
 	Radius 24
@@ -798,7 +800,7 @@ ACTOR CongealedBody54 : CongealedBase 23753
 	}
 }
 
-ACTOR CongealedBody55 : CongealedBase 23754
+ACTOR CongealedBody55 : CongealedBase
 {
 	//$Title Congealed RatDemon
 	Radius 24
@@ -812,7 +814,7 @@ ACTOR CongealedBody55 : CongealedBase 23754
 	}
 }
 
-ACTOR CongealedBody56 : CongealedBase 23755
+ACTOR CongealedBody56 : CongealedBase
 {
 	//$Title Congealed Pink Gargoyle
 	Radius 24
@@ -826,7 +828,7 @@ ACTOR CongealedBody56 : CongealedBase 23755
 	}
 }
 
-ACTOR CongealedBody57 : CongealedBase 23756
+ACTOR CongealedBody57 : CongealedBase
 {
 	//$Title Congealed Ghost Revenant A
 	Radius 24
@@ -840,7 +842,7 @@ ACTOR CongealedBody57 : CongealedBase 23756
 	}
 }
 
-ACTOR CongealedBody58 : CongealedBase 23757
+ACTOR CongealedBody58 : CongealedBase
 {
 	//$Title Congealed Ghost Revenant B
 	Radius 24
@@ -854,7 +856,7 @@ ACTOR CongealedBody58 : CongealedBase 23757
 	}
 }
 
-ACTOR CongealedBody59 : CongealedBase 23758
+ACTOR CongealedBody59 : CongealedBase
 {
 	//$Title Congealed Ghost Revenant C
 	Radius 24
@@ -868,7 +870,7 @@ ACTOR CongealedBody59 : CongealedBase 23758
 	}
 }
 
-ACTOR CongealedBody60 : CongealedBase 23759
+ACTOR CongealedBody60 : CongealedBase
 {
 	//$Title Congealed Ghost Revenant D
 	Radius 24
@@ -882,7 +884,7 @@ ACTOR CongealedBody60 : CongealedBase 23759
 	}
 }
 
-ACTOR CongealedBody61 : CongealedBase 23760
+ACTOR CongealedBody61 : CongealedBase
 {
 	//$Title Congealed Ghost Revenant E
 	Radius 24
@@ -896,7 +898,7 @@ ACTOR CongealedBody61 : CongealedBase 23760
 	}
 }
 
-ACTOR CongealedBody62 : CongealedBase 23761
+ACTOR CongealedBody62 : CongealedBase
 {
 	//$Title Congealed Ghost Revenant F
 	Radius 24
@@ -910,7 +912,7 @@ ACTOR CongealedBody62 : CongealedBase 23761
 	}
 }
 
-ACTOR CongealedBody63 : CongealedBase 23762
+ACTOR CongealedBody63 : CongealedBase
 {
 	//$Title Congealed DeepOne Alt
 	Radius 24
@@ -924,7 +926,7 @@ ACTOR CongealedBody63 : CongealedBase 23762
 	}
 }
 
-ACTOR CongealedBody64 : CongealedBase 23763
+ACTOR CongealedBody64 : CongealedBase
 {
 	//$Title Congealed Possessed Cultist A
 	Radius 24
@@ -938,7 +940,7 @@ ACTOR CongealedBody64 : CongealedBase 23763
 	}
 }
 
-ACTOR CongealedBody65 : CongealedBase 23764
+ACTOR CongealedBody65 : CongealedBase
 {
 	//$Title Congealed Possessed Cultist B
 	Radius 24
@@ -952,7 +954,7 @@ ACTOR CongealedBody65 : CongealedBase 23764
 	}
 }
 
-ACTOR CongealedBody66 : CongealedBase 23765
+ACTOR CongealedBody66 : CongealedBase
 {
 	//$Title Congealed Zombie Imp A
 	Radius 24
@@ -966,7 +968,7 @@ ACTOR CongealedBody66 : CongealedBase 23765
 	}
 }
 
-ACTOR CongealedBody67 : CongealedBase 23766
+ACTOR CongealedBody67 : CongealedBase
 {
 	//$Title Congealed Zombie Imp B
 	Radius 24
@@ -980,7 +982,7 @@ ACTOR CongealedBody67 : CongealedBase 23766
 	}
 }
 
-ACTOR CongealedBody68 : CongealedBase 23767
+ACTOR CongealedBody68 : CongealedBase
 {
 	//$Title Congealed Zombie Imp C
 	Radius 24
@@ -994,7 +996,7 @@ ACTOR CongealedBody68 : CongealedBase 23767
 	}
 }
 
-ACTOR CongealedBody69 : CongealedBase 23768
+ACTOR CongealedBody69 : CongealedBase
 {
 	//$Title Congealed Zombie Imp D
 	Radius 24

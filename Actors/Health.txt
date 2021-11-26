@@ -60,15 +60,7 @@ ACTOR NoBSMonster : CustomInventory
 	}
 }
 
-ACTOR NewInvisibility : BlurSphere //No DoomEdum defined yet, unused - ozy81
-{
-	//$Category "BlooM Powerups"
-	//$Title Blursphere (BlooM)
-	//$Color 5
-	Scale 0.75
-}
-
-ACTOR LifeLeechHealth : Health 3163
+ACTOR LifeLeechHealth : Health
 {
 	//$Category "BlooM Health"
 	//$Title LifeLeech Health
@@ -89,7 +81,7 @@ ACTOR LifeLeechHealth : Health 3163
 	}
 }
 
-ACTOR PotionHealth : Health 3171
+ACTOR PotionHealth : Health
 {
 	//$Category "BlooM Health"
 	//$Title Health Potion
@@ -110,7 +102,7 @@ ACTOR PotionHealth : Health 3171
 	}
 }
 
-ACTOR HeartHealth : Health 3162
+ACTOR HeartHealth : Health
 {
 	//$Category "BlooM Health"
 	//$Title Heart Health

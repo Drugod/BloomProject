@@ -21,7 +21,7 @@
 **/
 
 ACTOR -------BEASTVISION---------- {}
-ACTOR BeastVision : CustomInventory 3153
+ACTOR BeastVision : CustomInventory
 {
 	//$Category "BlooM Items"
 	//$Title Beast Vision
@@ -65,7 +65,7 @@ ACTOR BeastVisionEffect : PowerupGiver
 }
 
 ACTOR -------JUMPINGBOOTS---------- {}
-ACTOR JumpingBoots : CustomInventory 3154
+ACTOR JumpingBoots : CustomInventory
 {
 	//$Category "BlooM Items"
 	//$Title Jumping Boots
@@ -112,7 +112,7 @@ ACTOR JumpBootsEffect : PowerupGiver
 }
 
 ACTOR -------DIVING-SUIT---------- {}
-ACTOR DivingSuit : CustomInventory 6246
+ACTOR DivingSuit : CustomInventory
 {
 	//$Category "BlooM Items"
 	//$Title Diving Suit
@@ -162,7 +162,7 @@ ACTOR DivingSuitEffect : PowerupGiver
 ACTOR PowerAir : PowerProtection { DamageFactor "Drowning", 0 }
 
 ACTOR -------DOCTORBAG---------- {}
-ACTOR DoctorBag : CustomInventory 20100
+ACTOR DoctorBag : CustomInventory
 {
 	//$Category "BlooM Items"
 	//$Title Doctor Bag

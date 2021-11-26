@@ -21,7 +21,7 @@
 **/
 
 ACTOR ---------CARS--------- {}
-ACTOR Modelcars : RandomSpawner 18172
+ACTOR Modelcars : RandomSpawner
 {
 	//$Category BlooM Models
 	//$Title 3d Random Junkcars
@@ -56,7 +56,7 @@ ACTOR Modelcar4 : Modelcar1 {}
 ACTOR Modelcar5 : Modelcar1 {}
 
 ACTOR ---------BUILDINGS_FIX-------- {}
-ACTOR Building1 18072
+ACTOR Building1
 {
 	//$Category BlooM Models
 	//$Title 3d Building 1
@@ -74,18 +74,18 @@ ACTOR Building1 18072
 	}
 }
 
-ACTOR Building2 : Building1 18073
+ACTOR Building2 : Building1
 {
 	//$Title 3d Building 2
 }
 
-ACTOR Building3 : Building1 18074
+ACTOR Building3 : Building1
 {
 	//$Title 3d Building 3
 }
 
 ACTOR ---------FLOORS_BASES-------- {}
-ACTOR BuildingBase1 18275
+ACTOR BuildingBase1
 {
 	//$Category BlooM Models
 	//$Title 3d Building Base 1
@@ -103,32 +103,32 @@ ACTOR BuildingBase1 18275
 	}
 }
 
-ACTOR BuildingBase2: BuildingBase1 18293
+ACTOR BuildingBase2 : BuildingBase1
 {
 	//$Title 3d Building Base 2
 }
 
-ACTOR BuildingBase3: BuildingBase1 18294
+ACTOR BuildingBase3 : BuildingBase1
 {
 	//$Title 3d Building Base 3
 }
 
-ACTOR BuildingBase4: BuildingBase1 18295
+ACTOR BuildingBase4 : BuildingBase1
 {
 	//$Title 3d Building Base 4
 }
 
-ACTOR BuildingBase5: BuildingBase1 18296
+ACTOR BuildingBase5 : BuildingBase1
 {
 	//$Title 3d Building Base 5
 }
 
-ACTOR BuildingBase6: BuildingBase1 18297
+ACTOR BuildingBase6 : BuildingBase1
 {
 	//$Title 3d Building Base 6
 }
 
-ACTOR FloorBase1 18298
+ACTOR FloorBase1
 {
 	//$Category BlooM Models
 	//$Title 3d Floor Base 1
@@ -146,25 +146,25 @@ ACTOR FloorBase1 18298
 	}
 }
 
-ACTOR FloorBase2: FloorBase1 18299
+ACTOR FloorBase2 : FloorBase1
 {
 	//$Title 3d Floor Base 2
 }
 
-ACTOR FloorBase3: FloorBase1 18346
+ACTOR FloorBase3 : FloorBase1
 {
 	//$Title 3d Floor Base 3
 	Height 8
 }
 
-ACTOR FloorBase4: FloorBase1 18347
+ACTOR FloorBase4: FloorBase1
 {
 	//$Title 3d Floor Base 4
 	Height 8
 }
 
 ACTOR ---------BUILDINGS-------- {}
-ACTOR BuildingPiece1 18278
+ACTOR BuildingPiece1
 {
 	//$Category BlooM Models
 	//$Title 3d Building Piece 1
@@ -184,32 +184,32 @@ ACTOR BuildingPiece1 18278
 	}
 }
 
-ACTOR BuildingPiece2: BuildingPiece1 18279
+ACTOR BuildingPiece2 : BuildingPiece1
 {
 	//$Title 3d Building Piece 2
 }
 
-ACTOR BuildingPiece3: BuildingPiece1 18280
+ACTOR BuildingPiece3 : BuildingPiece1
 {
 	//$Title 3d Building Piece 3
 }
 
-ACTOR BuildingPiece3b: BuildingPiece1 18281
+ACTOR BuildingPiece3b : BuildingPiece1
 {
 	//$Title 3d Building Piece 3b
 }
 
-ACTOR BuildingPiece4: BuildingPiece1 18282
+ACTOR BuildingPiece4 : BuildingPiece1
 {
 	//$Title 3d Building Piece 4
 }
 
-ACTOR BuildingPiece5: BuildingPiece1 18300
+ACTOR BuildingPiece5 : BuildingPiece1
 {
 	//$Title 3d Building Piece 5
 }
 
-ACTOR VortexBuilding1 18417
+ACTOR VortexBuilding1
 {
 	//$Category BlooM Models
 	//$Title Vortex Building Piece 1
@@ -228,7 +228,7 @@ ACTOR VortexBuilding1 18417
 	}
 }
 
-ACTOR VortexBuilding2 : VortexBuilding1 18418
+ACTOR VortexBuilding2 : VortexBuilding1
 {
 	//$Title Vortex Building Piece 2
 	States
@@ -239,7 +239,7 @@ ACTOR VortexBuilding2 : VortexBuilding1 18418
 	}
 }
 
-ACTOR VortexBuilding3 : VortexBuilding1 18419
+ACTOR VortexBuilding3 : VortexBuilding1
 {
 	//$Title Vortex Building Piece 3, Animated
 	States
@@ -250,7 +250,7 @@ ACTOR VortexBuilding3 : VortexBuilding1 18419
 	}
 }
 
-ACTOR VortexBuilding4 : VortexBuilding1 18420
+ACTOR VortexBuilding4 : VortexBuilding1
 {
 	//$Title Vortex Building Piece 4
 	States
@@ -261,7 +261,7 @@ ACTOR VortexBuilding4 : VortexBuilding1 18420
 	}
 }
 
-ACTOR VortexBuilding5 : VortexBuilding1 18421
+ACTOR VortexBuilding5 : VortexBuilding1
 {
 	//$Title Vortex Building Piece 5
 	States
@@ -272,7 +272,7 @@ ACTOR VortexBuilding5 : VortexBuilding1 18421
 	}
 }
 
-ACTOR VortexBuilding6 : VortexBuilding1 18422
+ACTOR VortexBuilding6 : VortexBuilding1
 {
 	//$Title Vortex Building Piece 6
 	States
@@ -283,7 +283,7 @@ ACTOR VortexBuilding6 : VortexBuilding1 18422
 	}
 }
 
-ACTOR VortexBuilding7 : VortexBuilding1 18423
+ACTOR VortexBuilding7 : VortexBuilding1
 {
 	//$Title Vortex Building Piece 7, Animated
 	States
@@ -294,7 +294,7 @@ ACTOR VortexBuilding7 : VortexBuilding1 18423
 	}
 }
 
-ACTOR VortexBricks1 : VortexBuilding1 18424
+ACTOR VortexBricks1 : VortexBuilding1
 {
 	//$Title Vortex Floating Bricks 1, Rotating
 	States
@@ -305,7 +305,7 @@ ACTOR VortexBricks1 : VortexBuilding1 18424
 	}
 }
 
-ACTOR Cloaca1: BuildingBase1 18700
+ACTOR Cloaca1 : BuildingBase1
 {
 	//$Title 3d Floating Cloaca 1
 	Radius 8
@@ -313,7 +313,7 @@ ACTOR Cloaca1: BuildingBase1 18700
 }
 
 ACTOR ---------LAMPS--------- {}
-ACTOR RandomLamps : RandomSpawner 18288
+ACTOR RandomLamps : RandomSpawner
 {
 	//$Category BlooM Models
 	//$Title Random 3d Lamps
@@ -325,7 +325,7 @@ ACTOR RandomLamps : RandomSpawner 18288
 	DropItem "Lamp5"
 }
 
-ACTOR Lamp1 18283
+ACTOR Lamp1
 {
 	//$Category BlooM Models
 	//$Title 3d Street Lamp 1
@@ -344,27 +344,27 @@ ACTOR Lamp1 18283
 	}
 }
 
-ACTOR Lamp2: Lamp1 18284
+ACTOR Lamp2 : Lamp1
 {
 	//$Title 3d Street Lamp 2
 }
 
-ACTOR Lamp3: Lamp1 18285
+ACTOR Lamp3 : Lamp1
 {
 	//$Title 3d Street Lamp 3
 }
 
-ACTOR Lamp4: Lamp1 18286
+ACTOR Lamp4 : Lamp1
 {
 	//$Title 3d Street Lamp 4
 }
 
-ACTOR Lamp5: Lamp1 18287
+ACTOR Lamp5 : Lamp1
 {
 	//$Title 3d Street Lamp 5
 }
 
-ACTOR RandomBloodLamps : RandomSpawner 18318
+ACTOR RandomBloodLamps : RandomSpawner
 {
 	//$Category BlooM Models
 	//$Title Random 3d City Lamps
@@ -376,7 +376,7 @@ ACTOR RandomBloodLamps : RandomSpawner 18318
 	DropItem "BloodLamp5"
 }
 
-ACTOR BloodLamp1 18313
+ACTOR BloodLamp1
 {
 	//$Category BlooM Models
 	//$Title 3d City Lamp 1
@@ -395,22 +395,22 @@ ACTOR BloodLamp1 18313
 	}
 }
 
-ACTOR BloodLamp2: BloodLamp1 18314
+ACTOR BloodLamp2 : BloodLamp1
 {
 	//$Title 3d City Lamp 2
 }
 
-ACTOR BloodLamp3: BloodLamp1 18315
+ACTOR BloodLamp3 : BloodLamp1
 {
 	//$Title 3d City Lamp 3
 }
 
-ACTOR BloodLamp4: BloodLamp1 18316
+ACTOR BloodLamp4 : BloodLamp1
 {
 	//$Title 3d City Lamp 4
 }
 
-ACTOR BloodLamp5: BloodLamp1 18317
+ACTOR BloodLamp5 : BloodLamp1
 {
 	//$Title 3d City Lamp 5
 }
@@ -427,7 +427,7 @@ ACTOR Room_Base : FloatingModel
 	+SOLID
 }
 
-ACTOR Room1 : Room_Base 18325
+ACTOR Room1 : Room_Base
 {
 	//$Title 3d Room 1
 	States
@@ -438,7 +438,7 @@ ACTOR Room1 : Room_Base 18325
 	}
 }
 
-ACTOR Room2a : Room_Base 18326
+ACTOR Room2a : Room_Base
 {
 	//$Title 3d Room 2A
 	States
@@ -449,7 +449,7 @@ ACTOR Room2a : Room_Base 18326
 	}
 }
 
-ACTOR Room2b : Room_Base 18327
+ACTOR Room2b : Room_Base
 {
 	//$Title 3d Room 2B
 	States
@@ -460,7 +460,7 @@ ACTOR Room2b : Room_Base 18327
 	}
 }
 
-ACTOR Bed : Room_Base 18328
+ACTOR Bed : Room_Base
 {
 	//$Title 3d Bed
 	States
@@ -472,7 +472,7 @@ ACTOR Bed : Room_Base 18328
 }
 
 ACTOR ---------CONTAINERS--------- {}
-ACTOR RandomContainers : RandomSpawner 18290
+ACTOR RandomContainers : RandomSpawner
 {
 	//$Category BlooM Models
 	//$Title Random 3d Containers
@@ -481,7 +481,7 @@ ACTOR RandomContainers : RandomSpawner 18290
 	DropItem "Contenedor2"
 }
 
-ACTOR Contenedor1 : Room_Base 18291
+ACTOR Contenedor1 : Room_Base
 {
 	//$Title 3d Trash Container 1
 	States
@@ -492,7 +492,7 @@ ACTOR Contenedor1 : Room_Base 18291
 	}
 }
 
-ACTOR Contenedor2 : Room_Base 18292
+ACTOR Contenedor2 : Room_Base
 {
 	//$Title 3d Trash Container 2
 	States
@@ -504,7 +504,7 @@ ACTOR Contenedor2 : Room_Base 18292
 }
 
 ACTOR ---------SQUARES--------- {}
-ACTOR CylinderSquare1 : Room_Base 18301
+ACTOR CylinderSquare1 : Room_Base
 {
 	//$Title 3d Floating Tiles 1
 	+NOBLOCKMAP
@@ -517,7 +517,7 @@ ACTOR CylinderSquare1 : Room_Base 18301
 	}
 }
 
-ACTOR CylinderSquare2 : Room_Base 18302
+ACTOR CylinderSquare2 : Room_Base
 {
 	//$Title 3d Floating Tiles 2
 	+NOBLOCKMAP
@@ -531,7 +531,7 @@ ACTOR CylinderSquare2 : Room_Base 18302
 }
 
 ACTOR ---------OTHERS--------- {}
-ACTOR SatanicCube : Room_Base 18303
+ACTOR SatanicCube : Room_Base
 {
 	//$Title 3d Satanic Cube
 	Radius 64
@@ -545,7 +545,7 @@ ACTOR SatanicCube : Room_Base 18303
 	}
 }
 
-ACTOR Bricks : Room_Base 18304
+ACTOR Bricks : Room_Base
 {
 	//$Title 3d Bricks
 	States
@@ -556,7 +556,7 @@ ACTOR Bricks : Room_Base 18304
 	}
 }
 
-ACTOR Corner1 : Room_Base 18305
+ACTOR Corner1 : Room_Base
 {
 	//$Title 3d Corner 1
 	States
@@ -567,7 +567,7 @@ ACTOR Corner1 : Room_Base 18305
 	}
 }
 
-ACTOR Corner2 : Room_Base 18306
+ACTOR Corner2 : Room_Base
 {
 	//$Title 3d Corner 2
 	States
@@ -578,7 +578,7 @@ ACTOR Corner2 : Room_Base 18306
 	}
 }
 
-ACTOR Corner3 : Room_Base 18307
+ACTOR Corner3 : Room_Base
 {
 	//$Title 3d Corner 3
 	States
@@ -589,7 +589,7 @@ ACTOR Corner3 : Room_Base 18307
 	}
 }
 
-ACTOR Squares01 : Room_Base 18308
+ACTOR Squares01 : Room_Base
 {
 	//$Title 3d Squares 1
 	States
@@ -600,7 +600,7 @@ ACTOR Squares01 : Room_Base 18308
 	}
 }
 
-ACTOR Squares02 : Room_Base 18309
+ACTOR Squares02 : Room_Base
 {
 	//$Title 3d Squares 2
 	States
@@ -611,7 +611,7 @@ ACTOR Squares02 : Room_Base 18309
 	}
 }
 
-ACTOR Squares03 : Room_Base 18310
+ACTOR Squares03 : Room_Base
 {
 	//$Title 3d Squares 3
 	States
@@ -622,7 +622,7 @@ ACTOR Squares03 : Room_Base 18310
 	}
 }
 
-ACTOR Squares04 : Room_Base 18311
+ACTOR Squares04 : Room_Base
 {
 	//$Title 3d Squares 4
 	States
@@ -633,7 +633,7 @@ ACTOR Squares04 : Room_Base 18311
 	}
 }
 
-ACTOR Squares05 : Room_Base 18312
+ACTOR Squares05 : Room_Base
 {
 	//$Title 3d Squares 5
 	States
@@ -645,7 +645,7 @@ ACTOR Squares05 : Room_Base 18312
 }
 
 ACTOR ---------TRAINS--------- {}
-ACTOR ModelTrains : RandomSpawner 18319
+ACTOR ModelTrains : RandomSpawner
 {
 	//$Category BlooM Models
 	//$Title Random 3d Trains
@@ -655,7 +655,7 @@ ACTOR ModelTrains : RandomSpawner 18319
 	DropItem "ModelTrain3"
 }
 
-ACTOR ModelTrain : SwitchableDecoration 18171
+ACTOR ModelTrain : SwitchableDecoration
 {
 	//$Category BlooM Models
 	//$Title 3d Train Eye-Face
@@ -701,43 +701,43 @@ ACTOR ModelTrain : SwitchableDecoration 18171
 	}
 }
 
-ACTOR ModelTrain2 : ModelTrain 18320
+ACTOR ModelTrain2 : ModelTrain
 {
 	//$Title 3d Tech Train
 }
 
-ACTOR ModelTrain3 : ModelTrain 18321
+ACTOR ModelTrain3 : ModelTrain
 {
 	//$Title 3d Bloody Train 1
 }
 
-ACTOR ModelTrain4 : ModelTrain 18324
+ACTOR ModelTrain4 : ModelTrain
 {
 	//$Title 3d Bloody Train 2
 }
 
-ACTOR GhostTrain1 : ModelTrain 20001
+ACTOR GhostTrain1 : ModelTrain
 {
 	//$Title Ghost Train Eye Face
 	Renderstyle "Shaded"
 	StencilColor "CC CC CC"
 }
 
-ACTOR GhostTrain2 : ModelTrain 20002
+ACTOR GhostTrain2 : ModelTrain
 {
 	//$Title Ghost Tech Train
 	Renderstyle "Shaded"
 	StencilColor "CC CC CC"
 }
 
-ACTOR GhostTrain3 : ModelTrain 20003
+ACTOR GhostTrain3 : ModelTrain
 {
 	//$Title Ghost Bloody Train 1
 	Renderstyle "Shaded"
 	StencilColor "CC CC CC"
 }
 
-ACTOR GhostTrain4 : ModelTrain 20004
+ACTOR GhostTrain4 : ModelTrain
 {
 	//$Title Ghost Bloody Train 2
 	Renderstyle "Shaded"
@@ -773,7 +773,7 @@ ACTOR TrainLight
 }
 
 ACTOR ---------HOSPITAL_ROOMS--------- {}
-ACTOR Armario1 : Room_Base 18329
+ACTOR Armario1 : Room_Base
 {
 	//$Title 3d Cupboard 1
 	States
@@ -784,7 +784,7 @@ ACTOR Armario1 : Room_Base 18329
 	}
 }
 
-ACTOR Armario2 : Room_Base 18330
+ACTOR Armario2 : Room_Base
 {
 	//$Title 3d Cupboard 2
 	States
@@ -795,7 +795,7 @@ ACTOR Armario2 : Room_Base 18330
 	}
 }
 
-ACTOR Armario3 : Room_Base 18331
+ACTOR Armario3 : Room_Base
 {
 	//$Title 3d Cupboard 3
 	States
@@ -806,7 +806,7 @@ ACTOR Armario3 : Room_Base 18331
 	}
 }
 
-ACTOR Armario4 : Room_Base 18332
+ACTOR Armario4 : Room_Base
 {
 	//$Title 3d Cupboard 4
 	States
@@ -817,7 +817,7 @@ ACTOR Armario4 : Room_Base 18332
 	}
 }
 
-ACTOR Armario5 : Room_Base 18333
+ACTOR Armario5 : Room_Base
 {
 	//$Title 3d Cupboard 5
 	States
@@ -828,7 +828,7 @@ ACTOR Armario5 : Room_Base 18333
 	}
 }
 
-ACTOR BrokeWin1 : Room_Base 18334
+ACTOR BrokeWin1 : Room_Base
 {
 	//$Title 3d Broken Windows 1
 	States
@@ -839,7 +839,7 @@ ACTOR BrokeWin1 : Room_Base 18334
 	}
 }
 
-ACTOR BrokeWin2 : Room_Base 18335
+ACTOR BrokeWin2 : Room_Base
 {
 	//$Title 3d Broken Windows 2
 	States
@@ -850,7 +850,7 @@ ACTOR BrokeWin2 : Room_Base 18335
 	}
 }
 
-ACTOR Machin : Room_Base 18336
+ACTOR Machin : Room_Base
 {
 	//$Title 3d Machinery
 	States
@@ -861,7 +861,7 @@ ACTOR Machin : Room_Base 18336
 	}
 }
 
-ACTOR Mesa : Room_Base 18337
+ACTOR Mesa : Room_Base
 {
 	//$Title 3d Mesa
 	States
@@ -872,7 +872,7 @@ ACTOR Mesa : Room_Base 18337
 	}
 }
 
-ACTOR WallBrok1 : Room_Base 18338
+ACTOR WallBrok1 : Room_Base
 {
 	//$Title 3d Broken Walls 1
 	States
@@ -883,27 +883,27 @@ ACTOR WallBrok1 : Room_Base 18338
 	}
 }
 
-ACTOR WallBrok2 : WallBrok1 18339
+ACTOR WallBrok2 : WallBrok1
 {
 	//$Title 3d Broken Walls 2
 }
 
-ACTOR WallBrok3 : WallBrok1 18340
+ACTOR WallBrok3 : WallBrok1
 {
 	//$Title 3d Broken Walls 3
 }
 
-ACTOR WallBrok4 : WallBrok1 18341
+ACTOR WallBrok4 : WallBrok1
 {
 	//$Title 3d Broken Walls 4
 }
 
-ACTOR WallBrok5 : WallBrok1 18342
+ACTOR WallBrok5 : WallBrok1
 {
 	//$Title 3d Broken Walls 5
 }
 
-ACTOR WallBrok6 : WallBrok1 18350
+ACTOR WallBrok6 : WallBrok1
 {
 	//$Title 3d Broken Walls 6
 	Radius 16
@@ -914,7 +914,7 @@ ACTOR WallBrok6 : WallBrok1 18350
 	-SOLID
 }
 
-ACTOR WallBrok7 : WallBrok1 18351
+ACTOR WallBrok7 : WallBrok1
 {
 	//$Title 3d Broken Walls 7
 	Radius 16
@@ -926,7 +926,7 @@ ACTOR WallBrok7 : WallBrok1 18351
 }
 
 ACTOR ---------TRAPS--------- {}
-ACTOR FireTrap1 : SwitchableDecoration 18343
+ACTOR FireTrap1 : SwitchableDecoration
 {
 	//$Category BlooM Hazard
 	//$Title 3d Fire Trap
@@ -1031,7 +1031,7 @@ ACTOR BloodPuke
 	}
 }
 
-ACTOR FleshTrap1 : FireTrap1 18345
+ACTOR FleshTrap1 : FireTrap1
 {
 	//$Title 3d Flesh Trap
 	States
@@ -1061,7 +1061,7 @@ ACTOR FleshTrap1 : FireTrap1 18345
 }
 
 ACTOR ---------SIGNS--------- {}
-ACTOR BigSignSpawner 18400
+ACTOR BigSignSpawner
 {
 	//$Category BlooM Models
 	//$Title Big Sign Spawner
@@ -1082,7 +1082,7 @@ ACTOR BigSignSpawner 18400
 }
 
 ACTOR ---------CREEPYSTUFF--------- {}
-ACTOR CreepyTVSpawner : RandomSpawner 18412
+ACTOR CreepyTVSpawner : RandomSpawner
 {
 	//$Category BlooM Models
 	//$Title 3d Creepy TV, random
@@ -1097,7 +1097,7 @@ ACTOR CreepyTVSpawner : RandomSpawner 18412
 	DropItem "CreepyTV5"
 }
 
-ACTOR CreepyTV1 : FloatingModel 18413
+ACTOR CreepyTV1 : FloatingModel
 {
 	//$Category BlooM Models
 	//$Title 3d Creepy TV 1
@@ -1118,7 +1118,7 @@ ACTOR CreepyTV1 : FloatingModel 18413
 	}
 }
 
-ACTOR CreepyTV2 : CreepyTV1 18414
+ACTOR CreepyTV2 : CreepyTV1
 {
 	//$Title 3d Creepy TV 2
 	States
@@ -1129,7 +1129,7 @@ ACTOR CreepyTV2 : CreepyTV1 18414
 	}
 }
 
-ACTOR CreepyTV3 : CreepyTV1 18415
+ACTOR CreepyTV3 : CreepyTV1
 {
 	//$Title 3d Creepy TV 3
 	States
@@ -1140,7 +1140,7 @@ ACTOR CreepyTV3 : CreepyTV1 18415
 	}
 }
 
-ACTOR CreepyTV4 : CreepyTV1 18416
+ACTOR CreepyTV4 : CreepyTV1
 {
 	//$Title 3d Creepy TV 4
 	States
@@ -1153,7 +1153,7 @@ ACTOR CreepyTV4 : CreepyTV1 18416
 	}
 }
 
-ACTOR CreepyTV5 : CreepyTV1 18427
+ACTOR CreepyTV5 : CreepyTV1
 {
 	//$Title 3d Creepy TV 5
 	States
@@ -1165,7 +1165,7 @@ ACTOR CreepyTV5 : CreepyTV1 18427
 }
 
 ACTOR ---------VORTEX--------- {}
-ACTOR VortexA 18401
+ACTOR VortexA
 {
 	//$Category BlooM Models/Vortex
 	//$Title Vortex, Plane A
@@ -1184,7 +1184,7 @@ ACTOR VortexA 18401
 	}
 }
 
-ACTOR VortexB : VortexA 18402
+ACTOR VortexB : VortexA
 {
 	//$Title Vortex, Plane B
 	Alpha 0.8
@@ -1196,7 +1196,7 @@ ACTOR VortexB : VortexA 18402
 	}
 }
 
-ACTOR VortexC : VortexA 18403
+ACTOR VortexC : VortexA
 {
 	//$Title Vortex, Plane C
 	Alpha 0.7
@@ -1208,7 +1208,7 @@ ACTOR VortexC : VortexA 18403
 	}
 }
 
-ACTOR VortexD : VortexA 18404
+ACTOR VortexD : VortexA
 {
 	//$Title Vortex, Plane D
 	Alpha 0.7
@@ -1220,7 +1220,7 @@ ACTOR VortexD : VortexA 18404
 	}
 }
 
-ACTOR VortexE : VortexA 18405
+ACTOR VortexE : VortexA
 {
 	//$Title Vortex, Plane E
 	Alpha 0.65
@@ -1232,7 +1232,7 @@ ACTOR VortexE : VortexA 18405
 	}
 }
 
-ACTOR VortexF : VortexA 18406
+ACTOR VortexF : VortexA
 {
 	//$Title Vortex, Plane F
 	Alpha 0.6
@@ -1244,7 +1244,7 @@ ACTOR VortexF : VortexA 18406
 	}
 }
 
-ACTOR VortexG : VortexA 18407
+ACTOR VortexG : VortexA
 {
 	//$Title Vortex, Plane G
 	Alpha 0.55
@@ -1256,7 +1256,7 @@ ACTOR VortexG : VortexA 18407
 	}
 }
 
-ACTOR VortexH : VortexA 18408
+ACTOR VortexH : VortexA
 {
 	//$Title Vortex, Plane H
 	Alpha 0.5
@@ -1268,7 +1268,7 @@ ACTOR VortexH : VortexA 18408
 	}
 }
 
-ACTOR VortexI : VortexA 18409
+ACTOR VortexI : VortexA
 {
 	//$Title Vortex, Plane I
 	Alpha 0.48
@@ -1280,7 +1280,7 @@ ACTOR VortexI : VortexA 18409
 	}
 }
 
-ACTOR VortexJ : VortexA 18410
+ACTOR VortexJ : VortexA
 {
 	//$Title Vortex, Plane J
 	Alpha 0.46
@@ -1292,7 +1292,7 @@ ACTOR VortexJ : VortexA 18410
 	}
 }
 
-ACTOR VortexK : VortexA 18411
+ACTOR VortexK : VortexA
 {
 	//$Title Vortex, Plane K
 	Alpha 0.44
@@ -1474,7 +1474,7 @@ ACTOR Decal_CeilFloor3: Decal_CeilFloor1
 }
 
 ACTOR ---------MONITORSTUFF--------- {}
-ACTOR MonitorSpawner : RandomSpawner 18353
+ACTOR MonitorSpawner : RandomSpawner
 {
 	//$Category BlooM Models
 	//$Title 3d Monitor, random
@@ -1489,7 +1489,7 @@ ACTOR MonitorSpawner : RandomSpawner 18353
 	DropItem "Monitor5"
 }
 
-ACTOR Monitor1 : FloatingModel 18354
+ACTOR Monitor1 : FloatingModel
 {
 	//$Category BlooM Models
 	//$Title 3d Monitor 1
@@ -1512,7 +1512,7 @@ ACTOR Monitor1 : FloatingModel 18354
 	}
 }
 
-ACTOR Monitor2 : Monitor1 18355
+ACTOR Monitor2 : Monitor1
 {
 	//$Title 3d Monitor 2
 	States
@@ -1523,7 +1523,7 @@ ACTOR Monitor2 : Monitor1 18355
 	}
 }
 
-ACTOR Monitor3 : Monitor1 18356
+ACTOR Monitor3 : Monitor1
 {
 	//$Title 3d Monitor 3
 	States
@@ -1534,7 +1534,7 @@ ACTOR Monitor3 : Monitor1 18356
 	}
 }
 
-ACTOR Monitor4 : Monitor1 18357
+ACTOR Monitor4 : Monitor1
 {
 	//$Title 3d Monitor 4
 	States
@@ -1545,7 +1545,7 @@ ACTOR Monitor4 : Monitor1 18357
 	}
 }
 
-ACTOR Monitor5 : Monitor1 18358
+ACTOR Monitor5 : Monitor1
 {
 	//$Title 3d Monitor 5
 	States
