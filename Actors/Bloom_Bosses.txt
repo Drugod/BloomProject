@@ -1529,8 +1529,45 @@ ACTOR Jojo : BloomBossHybrid_Base
 		TNT1 A 0 A_JumpIfInventory("SuperGatling", 1, "SuperMelee")
 	Missile: //requires gatling looping sound --ozy81
 		TNT1 A 0 A_JumpIfInventory("SuperGatling", 1, "See2")
-		JO2A A 10 A_FaceTarget
-		JO2A BCDEBCDEBCDEBCDEBCDE 1 A_CPosAttack
+		TNT1 A 0 A_Playsound("jojo/chns")							
+		JO2A A 30 A_FaceTarget
+		
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A B 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A C 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A D 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A E 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A B 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A C 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A D 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A E 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A B 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A C 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A D 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A E 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A B 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A C 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A D 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+		TNT1 A 0 A_PlaySound("jojo/chnm", CHAN_WEAPON)
+		JO2A E 1 A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM)//A_CPosAttack
+
 		TNT1 A 0 A_CustomMissile("JojoCasing",32+frandom(-8,8), frandom(5.0,10.0), random (0, 90), 2, random (0, 45))
 		TNT1 A 0 A_CustomMissile("JojoCasing",32+frandom(-8,8), frandom(5.0,10.0), random (0, 90), 2, random (0, 45))
 		TNT1 A 0 A_CustomMissile("JojoCasing",32+frandom(-8,8), frandom(5.0,10.0), random (0, 90), 2, random (0, 45))

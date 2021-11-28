@@ -915,6 +915,10 @@ JOJOCHS3   JOJOCHS3
 $random jojo/active	{ JOJOCHS1 JOJOCHS2 JOJOCHS3 }
 $random jojo/sight	{ JOJOCHS1 JOJOCHS2 JOJOCHS3 }
 
+jojo/chns   CHAINSTA
+jojo/chnm   DSJOJO
+jojo/chnt   CHAINSTO
+
 //Sloth
 SLTHCHS1	SLTHCHS1
 SLTHCHS2	SLTHCHS2
