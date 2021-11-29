@@ -188,9 +188,9 @@ class BlooMBase : Actor
 			else { bFloat = Default.bFloat; }
 		}
 		
-	else if (Default.bFloat && bird) // birds should float but not swim
+	if (Default.bFloat && bird) // birds should float but not swim
 		{
-			if (waterlevel > 0) 
+			if (waterlevel > 0 && health >0) 
 			{
 				bFloat = false;
 				//something must be added here to prevent corpses to continuosly jump
@@ -199,9 +199,9 @@ class BlooMBase : Actor
 		else { bFloat = Default.bFloat; }
 		}
 		
-	else if (Default.Species == "Spiders" && spider) // spiders should not float neither swim
+	if (Default.Species == "Spiders" && spider) // spiders should not float neither swim
 		{
-			if (waterlevel > 0) 
+			if (waterlevel > 0 && health >0) 
 			{
 				//something must be added here to prevent corpses to continuosly jump
 				vel.z = max(vel.z, Speed);
@@ -209,7 +209,7 @@ class BlooMBase : Actor
 		else { Species = Default.Species; }
 		}
 	
-	else if (health <= 0 || !bShootable)
+	if (health <= 0 || !bShootable)
 		{
 			ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid);
 		}
