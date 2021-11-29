@@ -165,7 +165,7 @@ class BlooMBase : Actor
 
 	Default
 	{
-		-CASTSPRITESHADOW
+		-CASTSPRITESHADOW //if someone enable Build engine-like shadows, they won't show up for enemies anyway - ozy81
 	}
 
 	States
@@ -193,7 +193,6 @@ class BlooMBase : Actor
 			if (waterlevel > 0 && health >0) 
 			{
 				bFloat = false;
-				//something must be added here to prevent corpses to continuosly jump
 				vel.z = max(vel.z, Speed);
 			}
 		else { bFloat = Default.bFloat; }
@@ -203,13 +202,13 @@ class BlooMBase : Actor
 		{
 			if (waterlevel > 0 && health >0) 
 			{
-				//something must be added here to prevent corpses to continuosly jump
+				//they continuosly jump over water surface, requires a better solution yet
 				vel.z = max(vel.z, Speed);
 			}
 		else { Species = Default.Species; }
 		}
 	
-	if (health <= 0 || !bShootable)
+	if (health <= 0 || !bShootable || floorz <= 64 && !bFloat )
 		{
 			ACS_NamedExecuteAlways("SkyTextureCheck", 0,tid);
 		}
