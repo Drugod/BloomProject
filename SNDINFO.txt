@@ -851,6 +851,14 @@ MotherSpiderPain	MSPIPAIN
 MotherSpiderSee2 	MSPISE2
 $Random MotherSpiderSee { MotherSpiderSee1 MotherSpiderSee2 }
 
+//SHIAL
+WEBHIT1	WEBHIT1
+WEBHIT2	WEBHIT2
+$Random WebHit { WEBHIT1 WEBHIT2 }
+WEBSPI1	WEBSPI1
+WEBSPI2	WEBSPI2
+$Random ShialWeb { WEBSPI1 WEBSPI2 }
+
 //TCHERNOBORG
 TchernobogAct1		TBACT1
 TchernobogAct2		TBACT2
