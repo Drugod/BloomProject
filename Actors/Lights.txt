@@ -156,8 +156,16 @@ ACTOR CeilLamp : SwitchableDecoration
 		VX20 A 1
 		Loop
 	Active:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==1, "Active2")
 		HILM B 1 A_PlaySound("SMSWITCH")
 		HILM B 1
+		Wait
+	Active2:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("LightingVoxel")==0, "Active")
+		VX20 B 1 BRIGHT A_PlaySound("SMSWITCH")
+		VX20 B 1 BRIGHT
 		Wait
 	Inactive:
 		TNT1 A 0

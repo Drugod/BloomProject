@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2021 Drugod, Ozymandias81, Tormentor667
+ * Copyright (c) 2011-2021 Drugod, Ozymandias81, Tormentor667, ZrrionTheInsect
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,7 +20,7 @@
  * SOFTWARE.
 **/
 
-ACTOR RainSpawner : SwitchableDecoration 3249
+ACTOR RainSpawner : SwitchableDecoration
 {
 	//$Category "BlooM Weather"
 	//$Title "Rain Spawner"
@@ -93,7 +93,7 @@ ACTOR RainSpawner : SwitchableDecoration 3249
 	}
 }
 
-ACTOR RainSpawnerUpwards : RainSpawner 23249
+ACTOR RainSpawnerUpwards : RainSpawner
 {
 	//$Title "Rain Spawner, Upwards"
 	-SPAWNCEILING
@@ -228,7 +228,7 @@ ACTOR FlyingBloodrop
 	}
 }
 
-ACTOR SnowSpawner 3250
+ACTOR SnowSpawner
 {
     //$Category "BlooM Weather"
 	//$Title "Snow Spawner"
@@ -325,7 +325,7 @@ ACTOR SnowParticle2
 	}
 }
 
-ACTOR Thunder_GeneratorWhite : SwitchableDecoration 31999
+ACTOR Thunder_GeneratorWhite : SwitchableDecoration
 {
 	//$Category "BlooM Weather"
 	//$Title "Thunder Generator, White"
@@ -370,25 +370,25 @@ ACTOR Thunder_GeneratorWhite : SwitchableDecoration 31999
 	}
 }
 
-ACTOR Thunder_GeneratorTan : Thunder_GeneratorWhite 31998
+ACTOR Thunder_GeneratorTan : Thunder_GeneratorWhite
 {
 	//$Title "Thunder Generator, Tan"
 	Translation "80:111=48:79"
 }
 
-ACTOR Thunder_GeneratorGreen : Thunder_GeneratorWhite 31997
+ACTOR Thunder_GeneratorGreen : Thunder_GeneratorWhite
 {
 	//$Title "Thunder Generator, Green"
 	Translation "80:111=112:127"
 }
 
-ACTOR Thunder_GeneratorRed : Thunder_GeneratorWhite 31996
+ACTOR Thunder_GeneratorRed : Thunder_GeneratorWhite
 {
 	//$Title "Thunder Generator, Red"
 	Translation "80:111=171:191"
 }
 
-ACTOR Thunder_GeneratorBlue : Thunder_GeneratorWhite 31995
+ACTOR Thunder_GeneratorBlue : Thunder_GeneratorWhite
 {
 	//$Title "Thunder Generator, Blue"
 	Translation "80:111=192:207"
@@ -445,12 +445,7 @@ ACTOR Thunder_Smoke
     }
 }
 
-/////////////////////////
-// FOG by TORMENTOR667 //
-//   edits by zrrion   //
-/////////////////////////
-
-ACTOR FogCloud_Generator 3274
+ACTOR FogCloud_Generator
 {
 	//$Category "BlooM Weather"
 	//$Title "Fog Spawner"
@@ -543,7 +538,7 @@ ACTOR FogCloud_V3 : FogCloud_V1
 	}
 }
 
-ACTOR SteamSpawner : SwitchableDecoration 3275
+ACTOR SteamSpawner : SwitchableDecoration
 {
 	//$Category "BlooM Weather"
 	//$Title "Steam Spawner"
@@ -656,7 +651,7 @@ ACTOR SteamParticle
 	}
 }
 
-ACTOR Floorfog 3287
+ACTOR FloorFog
 {
 	//$Category "BlooM Weather"
 	//$Title "Foggy Floor Effect"
@@ -677,7 +672,7 @@ ACTOR Floorfog 3287
 	}
 }
 
-ACTOR GreenFloorfog
+ACTOR GreenFloorFog
 {
 	+FLOORCLIP
 	+NOGRAVITY
@@ -701,10 +696,10 @@ ACTOR GreenFloorfog
 
 ACTOR Raiser : CustomInventory
 {
-   States
-   {
-   Pickup:
-      TNT1 A 0 Thing_Raise(0)
-      Stop
-   }
+	States
+	{
+	Pickup:
+		TNT1 A 0 Thing_Raise(0)
+		Stop
+	}
 }

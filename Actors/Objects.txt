@@ -21,14 +21,14 @@
 **/
 
 //DOOM OBJECTS//
-ACTOR ExplosiveBarrel_ : ExplosiveBarrel 20035
+ACTOR ExplosiveBarrel_ : ExplosiveBarrel
 {
 	//$Category "BlooM Ambient"
 	//$Title Doom Barrel
 }
 
 //BLOOM OBJECTS//
-ACTOR Lavasmoke_ replaces Lavasmoke 3239
+ACTOR Lavasmoke_ replaces Lavasmoke
 {
 	//$Category "BlooM Ambient"
 	//$Title "Lava Smoke"
@@ -63,7 +63,7 @@ ACTOR HazardBase : SwitchableDecoration
 	+SOLID
 }
 
-ACTOR TortureSpike : HazardBase 3240
+ACTOR TortureSpike : HazardBase
 {
 	//$Title Spiked Column, Rotating (switchable)
 	//$Sprite SPIKB0
@@ -89,7 +89,7 @@ ACTOR TortureSpike : HazardBase 3240
 	}
 }
 
-ACTOR TortureSpike2 : HazardBase 3269
+ACTOR TortureSpike2 : HazardBase
 {
 	//$Title Gnarled Spikes, buried
 	+NODAMAGETHRUST
@@ -113,7 +113,7 @@ ACTOR TortureSpike2 : HazardBase 3269
 	}
 }
 
-ACTOR TNTBarrel1 : ExplosiveBarrel 18425
+ACTOR TNTBarrel1 : ExplosiveBarrel
 {
 	//$Category "BlooM Hazard"
 	//$Title TNT Barrel, Explosive
@@ -137,7 +137,7 @@ ACTOR TNTBarrel1 : ExplosiveBarrel 18425
 	}
 }
 
-ACTOR TNTBarrel2 : TNTBarrel1 18426
+ACTOR TNTBarrel2 : TNTBarrel1
 {
 	//$Title TNT Barrel, Filled with Gibs
 	States
@@ -160,7 +160,7 @@ ACTOR TNTBarrel2 : TNTBarrel1 18426
 	}
 }
 
-ACTOR TeslaLab1 : SwitchableDecoration 18612
+ACTOR TeslaLab1 : SwitchableDecoration
 {
 	//$Category "BlooM Hazard"
 	//$Title "Tesla Device, Short"
@@ -192,7 +192,7 @@ ACTOR TeslaLab1 : SwitchableDecoration 18612
 	}
 }
 
-ACTOR TeslaLab2 : TeslaLab1 18613
+ACTOR TeslaLab2 : TeslaLab1
 {
 	//$Title "Tesla Device, Tall"
 	//$Sprite ZESLE0
@@ -216,7 +216,7 @@ ACTOR TeslaLab2 : TeslaLab1 18613
 	}
 }
 
-ACTOR BloodBeer 3177
+ACTOR BloodBeer
 {
 	//$Category "BlooM Ambient"
 	//$Title "Red Bottle, Destroyable"
@@ -236,13 +236,13 @@ ACTOR BloodBeer 3177
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		BOTL A -1
 		Stop
 	Spawn2:
 		VX27 A -1
-		Stop		
+		Stop
 	Death:
 		"####" "#" 0 A_Fall
 		"####" "#" 0 A_Scream
@@ -253,7 +253,7 @@ ACTOR BloodBeer 3177
 	}
 }
 
-ACTOR BrownBottles 24000
+ACTOR BrownBottles
 {
 	//$Category "BlooM Ambient"
 	//$Title "Brown Bottle, random"
@@ -273,22 +273,22 @@ ACTOR BrownBottles 24000
 	States
 	{
 	Spawn:
-		TNT1 A 0 	
+		TNT1 A 0
 		TNT1 A 0 A_Jump(128,"Randomizer")
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		BOTL C -1
 		Stop
 	Spawn2:
 		VX28 A -1
-		Stop		
+		Stop
 	Randomizer:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Randomizer2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Randomizer2")
 		BOTL D -1
 		Stop
 	Randomizer2:
 		VX29 A -1
-		Stop		
+		Stop
 	Death:
 		"####" "#" 0 A_Fall
 		"####" "#" 0 A_Scream
@@ -298,15 +298,15 @@ ACTOR BrownBottles 24000
 	}
 }
 
-ACTOR BigBottle : BrownBottles 24001
+ACTOR BigBottle : BrownBottles
 {
 	//$Title "Big Bottle"
 	Tag "Big Bottle, Destroyable"
 	States
 	{
 	Spawn:
-		TNT1 A 0 	
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		BOTL B -1
 		Stop
 	Spawn2:
@@ -321,7 +321,7 @@ ACTOR BigBottle : BrownBottles 24001
 	}
 }
 
-ACTOR RandomCup : BrownBottles 18614
+ACTOR RandomCup : BrownBottles
 {
 	//$Title "Random Cup, Destroyable"
 	//$Sprite BEAKA0
@@ -329,21 +329,14 @@ ACTOR RandomCup : BrownBottles 18614
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		BEAK A -1
 		Stop
 	Spawn2:
-		TNT1 A 0 
-		TNT1 A 0 //A_Jump(128,1,2,3,4)
+		TNT1 A 0
+		TNT1 A 0
 		VX24 A -1
-		/*Stop				
-		BEAK B -1
-		Stop				
-		BEAK C -1
-		Stop				
-		BEAK D -1
-		Stop		*/
 	Death:
 		"####" "#" 0 A_Fall
 		"####" "#" 0 A_Scream
@@ -353,7 +346,7 @@ ACTOR RandomCup : BrownBottles 18614
 	}
 }
 
-ACTOR KitchenCan : BrownBottles 18615
+ACTOR KitchenCan : BrownBottles
 {
 	//$Title "Random Can, Destroyable"
 	//$Sprite KICNA0
@@ -361,22 +354,22 @@ ACTOR KitchenCan : BrownBottles 18615
 	States
 	{
 	Spawn:
-		TNT1 A 0 	
-		TNT1 A 0 A_Jump(128,"Spawner")			
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_Jump(128,"Spawner")
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		KICN A -1
 		Stop
 	Spawn2:
 		VX35 A -1
 		Stop
 	Spawner:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawner2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawner2")
 		KICN B -1
 		Stop
 	Spawner2:
 		VX35 B -1
-		Stop		
+		Stop
 	Death:
 		"####" "#" 0 A_Fall
 		"####" "#" 0 A_Scream
@@ -386,7 +379,7 @@ ACTOR KitchenCan : BrownBottles 18615
 	}
 }
 
-ACTOR BloodStalags1 : Stalagmite 24002
+ACTOR BloodStalags1 : Stalagmite
 {
 	//$Category "BlooM Ambient"
 	//$Title "Brown Stalagmite, random"
@@ -394,11 +387,11 @@ ACTOR BloodStalags1 : Stalagmite 24002
 	States
 	{
 	Spawn:
-		TNT1 A 0 	
+		TNT1 A 0
 		TNT1 A 0 A_Jump(256,"Stag1", "Stag2")
 	Stag1:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Stag12")				
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Stag12")
 		STGL A -1
 		Stop
 	Stag12:
@@ -410,7 +403,7 @@ ACTOR BloodStalags1 : Stalagmite 24002
 	}
 }
 
-ACTOR BloodStalags2 : BloodStalags1 24003
+ACTOR BloodStalags2 : BloodStalags1
 {
 	//$Title "Brown Stalagtite, random"
 	+NOGRAVITY
@@ -419,19 +412,19 @@ ACTOR BloodStalags2 : BloodStalags1 24003
 	States
 	{
 	Spawn:
-		TNT1 A 0 		
+		TNT1 A 0
 		STGL B 0 A_Jump(256,"Stag1", "Stag2")
 	Stag1:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Stag12")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Stag12")
 		STGL B -1
 		Stop
 	Stag12:
 		VX39 B -1
-		Stop		
+		Stop
 	Stag2:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Stag22")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Stag22")
 		STGL D -1
 		Stop
 	Stag22:
@@ -440,7 +433,7 @@ ACTOR BloodStalags2 : BloodStalags1 24003
 	}
 }
 
-ACTOR BloodStalags3 : BloodStalags1 24004
+ACTOR BloodStalags3 : BloodStalags1
 {
 	//$Title "Green Stalagmite, random"
 	Radius 8
@@ -457,7 +450,7 @@ ACTOR BloodStalags3 : BloodStalags1 24004
 	}
 }
 
-ACTOR BloodStalags4 : BloodStalags1 24005
+ACTOR BloodStalags4 : BloodStalags1
 {
 	//$Title "Green Stalagtite, random"
 	Radius 8
@@ -476,7 +469,7 @@ ACTOR BloodStalags4 : BloodStalags1 24005
 	}
 }
 
-ACTOR Crow : HeartColumn 3246
+ACTOR Crow : HeartColumn
 {
 	//$Category "BlooM Ambient"
 	//$Title Crow, shootable
@@ -513,7 +506,7 @@ ACTOR Crow : HeartColumn 3246
 	}
 }
 
-ACTOR PlateWater 3286
+ACTOR PlateWater
 {
 	//$Category "BlooM Ambient"
 	//$Title Water Plate, shootable
@@ -530,8 +523,8 @@ ACTOR PlateWater 3286
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		PLAT A -1
 		Stop
 	Spawn2:
@@ -547,7 +540,7 @@ ACTOR PlateWater 3286
 	}
 }
 
-ACTOR BlooDonation : HeartColumn 3247
+ACTOR BlooDonation : HeartColumn
 {
 	//$Category "BlooM Ambient"
 	//$Title Laboratory Drip, Blood
@@ -563,16 +556,16 @@ ACTOR BlooDonation : HeartColumn 3247
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		FLUI A -1
 		Stop
 	Spawn2:
 		VX71 A -1
 		Stop
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Death2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Death2")
 		TNT1 A 0 A_Scream
 		FLUI A 5
 		TNT1 A 0 A_Fall
@@ -595,22 +588,22 @@ ACTOR BlooDonation : HeartColumn 3247
 	}
 }
 
-ACTOR PlasmaDonation : BlooDonation 3264
+ACTOR PlasmaDonation : BlooDonation
 {
 	//$Title Laboratory Drip, Plasma
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		FLU2 A -1
 		Stop
 	Spawn2:
 		VX70 A -1
 		Stop
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Death2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Death2")
 		TNT1 A 0 A_Scream
 		FLU2 A 5
 		TNT1 A 0 A_Fall
@@ -629,11 +622,11 @@ ACTOR PlasmaDonation : BlooDonation 3264
 		TNT1 AAAAA 0 A_SpawnDebris("FlyingBlood")
 		TNT1 A 0 A_XScream
 		TNT1 A 0
-		Stop		
+		Stop
 	}
 }
 
-ACTOR WoodImpSkull : HeartColumn 3265
+ACTOR WoodImpSkull : HeartColumn
 {
 	//$Category "BlooM Ambient"
 	//$Title Impaled Imp Skull
@@ -642,8 +635,8 @@ ACTOR WoodImpSkull : HeartColumn 3265
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		IMSK A -1
 		Stop
 	Spawn2:
@@ -652,7 +645,7 @@ ACTOR WoodImpSkull : HeartColumn 3265
 	}
 }
 
-ACTOR WoodImpSkulls : HeartColumn 3266
+ACTOR WoodImpSkulls : HeartColumn
 {
 	//$Category "BlooM Ambient"
 	//$Title Impaled Imp Skulls
@@ -661,8 +654,8 @@ ACTOR WoodImpSkulls : HeartColumn 3266
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		IMSS A -1
 		Stop
 	Spawn2:
@@ -671,7 +664,7 @@ ACTOR WoodImpSkulls : HeartColumn 3266
 	}
 }
 
-ACTOR BloodyChair : HeartColumn 3267
+ACTOR BloodyChair : HeartColumn
 {
 	//$Category "BlooM Ambient"
 	//$Title Blood Chair
@@ -682,18 +675,18 @@ ACTOR BloodyChair : HeartColumn 3267
 	States
 	{
 	Spawn:
-		TNT1 A 0 	
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		CHAI A -1
 		Stop
 	Spawn2:
 		VX32 A -1
 		Stop
-		
+
 	}
 }
 
-ACTOR BloodyTable : HeartColumn 19095
+ACTOR BloodyTable : HeartColumn
 {
 	//$Category "BlooM Ambient"
 	//$Title Blood Table
@@ -703,8 +696,8 @@ ACTOR BloodyTable : HeartColumn 19095
 	States
 	{
 	Spawn:
-		TNT1 A 0 	
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		TABL A -1
 		Stop
 	Spawn2:
@@ -713,7 +706,7 @@ ACTOR BloodyTable : HeartColumn 19095
 	}
 }
 
-ACTOR LovingMemory 3268
+ACTOR LovingMemory
 {
 	//$Category "BlooM Ambient"
 	//$Title In Loving Memory
@@ -731,8 +724,8 @@ ACTOR LovingMemory 3268
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		LOVI A -1
 		Stop
 	Spawn2:
@@ -758,7 +751,7 @@ ACTOR LovingMemory 3268
 	}
 }
 
-ACTOR SkullCrow : HeartColumn 3272
+ACTOR SkullCrow : HeartColumn
 {
 	//$Category "BlooM Ambient"
 	//$Title Decaying Wooden Cross with Skull
@@ -768,8 +761,8 @@ ACTOR SkullCrow : HeartColumn 3272
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		SCRE A -1
 		Stop
 	Spawn2:
@@ -778,7 +771,7 @@ ACTOR SkullCrow : HeartColumn 3272
 	}
 }
 
-ACTOR KnightArmor : HeartColumn 3271
+ACTOR KnightArmor : HeartColumn
 {
 	//$Category "BlooM Ambient"
 	//$Title Knight Armor
@@ -789,8 +782,8 @@ ACTOR KnightArmor : HeartColumn 3271
 	States
 	{
 	Spawn:
-		TNT1 A 0 	
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")	
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		KNIT A -1
 		Stop
 	Spawn2:
@@ -799,7 +792,7 @@ ACTOR KnightArmor : HeartColumn 3271
 	}
 }
 
-ACTOR OldChair : HeartColumn 3273
+ACTOR OldChair : HeartColumn
 {
 	//$Category "BlooM Ambient"
 	//$Title Old Chair
@@ -811,17 +804,17 @@ ACTOR OldChair : HeartColumn 3273
 	States
 	{
 	Spawn:
-		TNT1 A 0 	
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")	
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		CHA2 A -1
 		Stop
 	Spawn2:
 		VX31 A -1
-		Stop		
+		Stop
 	}
 }
 
-ACTOR AnnoyingMallMusic 3181
+ACTOR AnnoyingMallMusic
 {
 	//$Category "BlooM Ambient"
 	//$Title Annoying Mall Music
@@ -854,7 +847,7 @@ ACTOR AnnoyingMallMusic 3181
 	}
 }
 
-ACTOR BloodExBarrel : ExplosiveBarrel 3182
+ACTOR BloodExBarrel : ExplosiveBarrel
 {
 	//$Category "BlooM Ambient"
 	//$Title Explosive Radioactive Barrel
@@ -867,16 +860,16 @@ ACTOR BloodExBarrel : ExplosiveBarrel 3182
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		BBAR A -1
 		Stop
 	Spawn2:
 		VX23 A -1
 		Stop
 	Death:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Death2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Death2")
 		BBAR A 5
 		BBAR A 10 BRIGHT
 		BEXP A 0 A_Scream
@@ -892,11 +885,11 @@ ACTOR BloodExBarrel : ExplosiveBarrel 3182
 		BEXP B 0 A_SpawnItem("Kaboom",0,-15+random(-2,2))
 		TNT1 A 0 A_CustomMissile("FloorKaboom",0,0,0)
 		Stop
-		
+
 	}
 }
 
-ACTOR Mime 3185
+ACTOR Mime
 {
 	//$Category "BlooM Ambient"
 	Health 100
@@ -938,7 +931,7 @@ ACTOR Mime 3185
 	}
 }
 
-ACTOR Balloon : HeadOnAStick 3186
+ACTOR Balloon : HeadOnAStick
 {
 	//$Category "BlooM Ambient"
 	Height 92
@@ -953,13 +946,13 @@ ACTOR Balloon : HeadOnAStick 3186
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		BLON A -1
 		Stop
 	Spawn2:
 		VX26 A -1
-		Stop		
+		Stop
 	Death:
 		BLON A 1 A_Scream
 		BLON A 0 A_SpawnDebris ("BalloonDebris",1)
@@ -967,7 +960,7 @@ ACTOR Balloon : HeadOnAStick 3186
 	}
 }
 
-ACTOR RipSpawner : RandomSpawner 3254
+ACTOR RipSpawner : RandomSpawner
 {
 	//$Category "BlooM Ambient"
 	//$Title "Graves Spawner"
@@ -982,7 +975,7 @@ ACTOR RipSpawner : RandomSpawner 3254
 	DropItem "LapidaDraven"
 }
 
-ACTOR RipSpawnerInverted : RandomSpawner 19134
+ACTOR RipSpawnerInverted : RandomSpawner
 {
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Graves Spawner, UpDown"
@@ -996,7 +989,7 @@ ACTOR RipSpawnerInverted : RandomSpawner 19134
 	DropItem "NoGravLapidaWood"
 }
 
-ACTOR ChurchCross 3193
+ACTOR ChurchCross
 {
 	//$Category "BlooM Ambient"
 	//$Title "Grave, Church Cross"
@@ -1015,8 +1008,8 @@ ACTOR ChurchCross 3193
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		YCRS A -1
 		Stop
 	Spawn2:
@@ -1031,7 +1024,7 @@ ACTOR ChurchCross 3193
 	}
 }
 
-ACTOR NoGravChurchCross : ChurchCross 19110
+ACTOR NoGravChurchCross : ChurchCross
 {
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted Church Cross"
@@ -1051,15 +1044,15 @@ ACTOR NoGravChurchCross : ChurchCross 19110
 	}
 }
 
-ACTOR WoodCross : ChurchCross 3194
+ACTOR WoodCross : ChurchCross
 {
 	//$Sprite YCRWA0
 	//$Title "Grave, Wooden Cross"
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		YCRW A -1
 		Stop
 	Spawn2:
@@ -1068,7 +1061,7 @@ ACTOR WoodCross : ChurchCross 3194
 	}
 }
 
-ACTOR NoGravWoodCross : WoodCross 19111
+ACTOR NoGravWoodCross : WoodCross
 {
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted Wooden Cross"
@@ -1088,15 +1081,15 @@ ACTOR NoGravWoodCross : WoodCross 19111
 	}
 }
 
-ACTOR SkullCross : ChurchCross 3195
+ACTOR SkullCross : ChurchCross
 {
 	//$Sprite YCSSA0
 	//$Title "Grave, Skull Wooden Cross"
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		YCSS A -1
 		Stop
 	Spawn2:
@@ -1105,7 +1098,7 @@ ACTOR SkullCross : ChurchCross 3195
 	}
 }
 
-ACTOR NoGravSkullCross : SkullCross 19056
+ACTOR NoGravSkullCross : SkullCross
 {
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted Skull Wooden Cross"
@@ -1125,7 +1118,7 @@ ACTOR NoGravSkullCross : SkullCross 19056
 	}
 }
 
-ACTOR LapidaBlood 3196
+ACTOR LapidaBlood
 {
 	//$Category "BlooM Ambient"
 	//$Title "Grave, KLK Stone"
@@ -1137,8 +1130,8 @@ ACTOR LapidaBlood 3196
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		YLPB A -1
 		Stop
 	Spawn2:
@@ -1147,7 +1140,7 @@ ACTOR LapidaBlood 3196
 	}
 }
 
-ACTOR NoGravLapidaBlood : LapidaBlood 19112
+ACTOR NoGravLapidaBlood : LapidaBlood
 {
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted KLK Stone"
@@ -1167,15 +1160,15 @@ ACTOR NoGravLapidaBlood : LapidaBlood 19112
 	}
 }
 
-ACTOR LapidaNormal : LapidaBlood 3197
+ACTOR LapidaNormal : LapidaBlood
 {
 	//$Sprite YLPDA0
 	//$Title "Grave, Rip Stone"
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		YLPD A -1
 		Stop
 	Spawn2:
@@ -1184,7 +1177,7 @@ ACTOR LapidaNormal : LapidaBlood 3197
 	}
 }
 
-ACTOR NoGravLapidaNormal : LapidaNormal 19113
+ACTOR NoGravLapidaNormal : LapidaNormal
 {
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted Rip Stone"
@@ -1204,15 +1197,15 @@ ACTOR NoGravLapidaNormal : LapidaNormal 19113
 	}
 }
 
-ACTOR LapidaSkull : LapidaBlood 3198
+ACTOR LapidaSkull : LapidaBlood
 {
 	//$Sprite YLPSA0
 	//$Title "Grave, Skull Stone"
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		YLPS A -1
 		Stop
 	Spawn2:
@@ -1221,7 +1214,7 @@ ACTOR LapidaSkull : LapidaBlood 3198
 	}
 }
 
-ACTOR NoGravLapidaSkull : LapidaSkull 19114
+ACTOR NoGravLapidaSkull : LapidaSkull
 {
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted Skull Stone"
@@ -1241,7 +1234,7 @@ ACTOR NoGravLapidaSkull : LapidaSkull 19114
 	}
 }
 
-ACTOR LapidaWood : LapidaBlood 3199
+ACTOR LapidaWood : LapidaBlood
 {
 	//$Sprite YLPWA0
 	//$Title "Grave, Wood Sign"
@@ -1249,8 +1242,8 @@ ACTOR LapidaWood : LapidaBlood 3199
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		YLPW A -1
 		Stop
 	Spawn2:
@@ -1259,7 +1252,7 @@ ACTOR LapidaWood : LapidaBlood 3199
 	}
 }
 
-ACTOR NoGravLapidaWood : LapidaWood 19115
+ACTOR NoGravLapidaWood : LapidaWood
 {
 	//$Category "BlooM Ambient/NoGravity"
 	//$Title "Grave, NoGrav Inverted Wood Sign"
@@ -1279,15 +1272,15 @@ ACTOR NoGravLapidaWood : LapidaWood 19115
 	}
 }
 
-ACTOR LapidaDraven : LapidaBlood 3200
+ACTOR LapidaDraven : LapidaBlood
 {
 	//$Sprite YLDDA0
 	//$Title "Grave, Eric Draven"
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		YLDD A -1
 		Stop
 	Spawn2:
@@ -1296,7 +1289,7 @@ ACTOR LapidaDraven : LapidaBlood 3200
 	}
 }
 
-ACTOR ShortCol 3203
+ACTOR ShortCol
 {
 	//$Category "BlooM Ambient"
 	//$Title "Decorative Column A"
@@ -1307,8 +1300,8 @@ ACTOR ShortCol 3203
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		WPI1 A -1
 		Stop
 	Spawn2:
@@ -1317,14 +1310,14 @@ ACTOR ShortCol 3203
 	}
 }
 
-ACTOR ShortCol2 : ShortCol 3204
+ACTOR ShortCol2 : ShortCol
 {
 	//$Title "Decorative Column B"
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		WPI2 A -1
 		Stop
 	Spawn2:
@@ -1333,15 +1326,15 @@ ACTOR ShortCol2 : ShortCol 3204
 	}
 }
 
-ACTOR ChildCol : ShortCol 3205
+ACTOR ChildCol : ShortCol
 {
 	//$Title "Child Statue"
 	Scale 1.0
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		WSCH A -1
 		Stop
 	Spawn2:
@@ -1350,7 +1343,7 @@ ACTOR ChildCol : ShortCol 3205
 	}
 }
 
-ACTOR Jar1A 3206
+ACTOR Jar1A
 {
 	//$Category "BlooM Ambient"
 	//$Title "Jar 1 A, breakable"
@@ -1367,8 +1360,8 @@ ACTOR Jar1A 3206
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")			
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		WJA1 A -1
 		Stop
 	Spawn2:
@@ -1383,20 +1376,20 @@ ACTOR Jar1A 3206
 	}
 }
 
-ACTOR Jar1B : Jar1A 24006
+ACTOR Jar1B : Jar1A
 {
 	//$Title "Jar 1 B, breakable"
 	Height 48
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")	
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		WJA1 B -1
 		Stop
 	Spawn2:
 		VX42 B -1
-		Stop		
+		Stop
 	Death:
 		"####" "#" 0 A_Fall
 		"####" "#" 0 A_Scream
@@ -1406,20 +1399,20 @@ ACTOR Jar1B : Jar1A 24006
 	}
 }
 
-ACTOR Jar1C : Jar1A 24007
+ACTOR Jar1C : Jar1A
 {
 	//$Title "Jar 1 C, breakable"
 	Height 27
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")	
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		WJA1 C -1
 		Stop
 	Spawn2:
 		VX42 C -1
-		Stop		
+		Stop
 	Death:
 		"####" "#" 0 A_Fall
 		"####" "#" 0 A_Scream
@@ -1429,7 +1422,7 @@ ACTOR Jar1C : Jar1A 24007
 	}
 }
 
-ACTOR Jar2 : ShortCol 3207
+ACTOR Jar2 : ShortCol
 {
 	//$Category "BlooM Ambient"
 	//$Title "Jar 2"
@@ -1437,17 +1430,17 @@ ACTOR Jar2 : ShortCol 3207
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")	
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		WJA2 A -1
 		Stop
 	Spawn2:
 		VX43 A -1
-		Stop			
+		Stop
 	}
 }
 
-ACTOR Jar3 : ShortCol 3208
+ACTOR Jar3 : ShortCol
 {
 	//$Category "BlooM Ambient"
 	//$Title "Jar 3"
@@ -1455,8 +1448,8 @@ ACTOR Jar3 : ShortCol 3208
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")	
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		WJA3 A -1
 		Stop
 	Spawn2:
@@ -1465,7 +1458,7 @@ ACTOR Jar3 : ShortCol 3208
 	}
 }
 
-ACTOR Mourn : ShortCol 3209
+ACTOR Mourn : ShortCol
 {
 	//$Category "BlooM Ambient"
 	//$Title "Mourn"
@@ -1473,8 +1466,8 @@ ACTOR Mourn : ShortCol 3209
 	States
 	{
 	Spawn:
-		TNT1 A 0 
-		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")
 		WMOU A -1
 		Stop
 	Spawn2:
@@ -1483,7 +1476,7 @@ ACTOR Mourn : ShortCol 3209
 	}
 }
 
-ACTOR BinsSpawner 18600
+ACTOR BinsSpawner
 {
 	//$Category "BlooM Ambient"
 	//$Title "Trashbin Spawner"
@@ -1518,7 +1511,7 @@ ACTOR BinsSpawner 18600
 	}
 }
 
-ACTOR RocksSpawner 18601
+ACTOR RocksSpawner
 {
 	//$Category "BlooM Ambient"
 	//$Title "Rock Spawner, normal"
@@ -1540,10 +1533,10 @@ ACTOR RocksSpawner 18601
 	}
 }
 
-ACTOR RocksSnowy : RocksSpawner 18602
+ACTOR RocksSnowy : RocksSpawner
 {
 	//$Title "Rock Spawner, snowy"
-	Scale 0.5	
+	Scale 0.5
 	States
 	{
 	Spawn:
@@ -1552,7 +1545,7 @@ ACTOR RocksSnowy : RocksSpawner 18602
 	}
 }
 
-ACTOR FishBones 18603
+ACTOR FishBones
 {
 	//$Category "BlooM Ambient"
 	//$Title "Rotten Fish Skeleton"
@@ -1571,7 +1564,7 @@ ACTOR FishBones 18603
 }
 
 //EASTEREGGS//
-ACTOR ActionFigures 24010
+ACTOR ActionFigures
 {
 	//$Category "BlooM Eastereggs"
 	//$Title "Blood Action Figures"
@@ -1586,7 +1579,7 @@ ACTOR ActionFigures 24010
 	}
 }
 
-ACTOR BloodSeven 24008
+ACTOR BloodSeven
 {
 	//$Category "BlooM Eastereggs"
 	//$Title "BloodSeven"
@@ -1601,7 +1594,7 @@ ACTOR BloodSeven 24008
 	}
 }
 
-ACTOR DoomBetaBible : ActionFigures 18610
+ACTOR DoomBetaBible : ActionFigures
 {
 	//$Title "Doom Beta Unholy Bible"
 	Radius 4
@@ -1615,7 +1608,7 @@ ACTOR DoomBetaBible : ActionFigures 18610
 	}
 }
 
-ACTOR DoomBetaHand : ActionFigures 18611
+ACTOR DoomBetaHand : ActionFigures
 {
 	//$Title "Doom Beta Demon Hand"
 	Radius 4
@@ -1629,7 +1622,7 @@ ACTOR DoomBetaHand : ActionFigures 18611
 	}
 }
 
-ACTOR MisteriousSkull : ActionFigures 18609
+ACTOR MisteriousSkull : ActionFigures
 {
 	//$Title "Blood Alpha HUD Skull"
 	Radius 4
@@ -1643,7 +1636,7 @@ ACTOR MisteriousSkull : ActionFigures 18609
 	}
 }
 
-ACTOR Belial 3245
+ACTOR Belial
 {
 	//$Category "BlooM Eastereggs"
 	//$Title Little Belial
@@ -1681,7 +1674,7 @@ ACTOR Belial 3245
 	}
 }
 
-ACTOR GhostGenerator : SwitchableDecoration 3403
+ACTOR GhostGenerator : SwitchableDecoration
 {
 	//$Category "BlooM Eastereggs"
 	//$Title Blood Moron (switchable)
@@ -1710,7 +1703,7 @@ ACTOR GhostGenerator : SwitchableDecoration 3403
 	}
 }
 
-ACTOR GhostGenerator2 : GhostGenerator 3800 //for blm08
+ACTOR GhostGenerator2 : GhostGenerator //for blm08
 {
 	//$Title Fading Blood Moron (switchable)
 	//$Sprite MOBSA8A2
@@ -1727,26 +1720,4 @@ ACTOR GhostGenerator2 : GhostGenerator 3800 //for blm08
 		MOBS A 15 A_FadeOut (0.1)
 		Loop
 	}
-}
-
-ACTOR BurningBarrel_ replaces BurningBarrel
-{
-  //$Sprite FCANA0
-  Radius 16
-  Height 32
-  ProjectilePassHeight -16
-  +SOLID
-  States
-  {
-  Spawn:
-	TNT1 A 0 
-	TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==1, "Spawn2")		
-    FCAN ABC 4 Bright
-    Loop
-  Spawn2:
-	TNT1 A 0 
-	TNT1 A 0 A_JumpIf(CallACS("ObjectVoxel")==0, "Spawn")		
-    VX97 ABC 4 Bright
-    Loop
-  }
 }

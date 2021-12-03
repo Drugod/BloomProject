@@ -21,7 +21,7 @@
 **/
 
 //3d bosses
-Actor ChtonBloom 3405
+Actor ChtonBloom
 {
 	//$Category "Quake Stuff"
 	//$Title Chton
@@ -129,7 +129,7 @@ ACTOR Lavaball
 	}
 }
 
-ACTOR FlameQuake 3406
+ACTOR FlameQuake
 {
 	//$Category "Quake Stuff"
 	//$Title Flame Torch
@@ -148,7 +148,7 @@ ACTOR FlameQuake 3406
 	}
 }
 
-ACTOR QuakeColumns : SwitchingDecoration 3407
+ACTOR QuakeColumns : SwitchingDecoration
 {
 	//$Category "Quake Stuff"
 	//$Title Columns Of Chton (Activateable)
@@ -167,7 +167,7 @@ ACTOR QuakeColumns : SwitchingDecoration 3407
 	}
 }
 
-ACTOR RuneQuake : CustomInventory 3408
+ACTOR RuneQuake : CustomInventory
 {
 	//$Category "Quake Stuff"
 	//$Title Rune

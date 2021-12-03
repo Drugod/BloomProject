@@ -154,7 +154,7 @@ class BlooMBase : Actor
 	bool bird;
 	bool fish;
 	bool spider;
-	int user_count;			//attacks counters
+	int user_count1;		//attacks counters
 	int user_count2;		//attacks counters
 	int user_count3;		//attacks counters
 	int user_count4;		//attacks counters
@@ -163,21 +163,16 @@ class BlooMBase : Actor
 	Property Fish:fish;
 	Property Spider:spider;
 
-	Default
-	{
-		-CASTSPRITESHADOW //if someone enable Build engine-like shadows, they won't show up for enemies anyway - ozy81
-	}
-
 	States
 	{
 		Death.Fade:
-			"####" # 1 A_FadeOut(0.1);
+			"####" # 1 A_FadeOut(0.07);
 			Loop;
 	}
 	
 	override void Tick()
 	{
-	if (fish) // fishes can swim
+	if (Default.bFloat && fish) // fishes can swim
 		{
 			double waterheight = Buoyancy.GetWaterHeight(self);
 			if (waterheight < pos.z + height + 8)

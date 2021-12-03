@@ -21,7 +21,7 @@
 **/
 
 ACTOR -------REFLECTIVESHOOTS---------- {}
-ACTOR ReflectiveShots : CustomInventory 3164
+ACTOR ReflectiveShots : CustomInventory
 {
 	//$Category "BlooM Powerups"
 	//$Title Reflective Shots
@@ -50,7 +50,7 @@ ACTOR SuperReflection : PowerupGiver
 }
 
 ACTOR -------LIFESEED---------- {}
-ACTOR LifeSeed : Health 3165
+ACTOR LifeSeed : Health
 {
 	//$Category "BlooM Powerups"
 	//$Title Life Seed
@@ -70,7 +70,7 @@ ACTOR LifeSeed : Health 3165
 }
 
 ACTOR -------DEATHMASK---------- {}
-ACTOR Deathmask : PowerupGiver 3151
+ACTOR DeathMask : PowerupGiver
 {
 	//$Category "BlooM Powerups"
 	//$Title Death Mask
@@ -92,7 +92,7 @@ ACTOR Deathmask : PowerupGiver 3151
 }
 
 ACTOR -------GUNSAKIMBO---------- {}
-ACTOR GunsAkimbo : CustomInventory 3152
+ACTOR GunsAkimbo : CustomInventory
 {
 	//$Category "BlooM Powerups"
 	//$Title Guns Akimbo
@@ -194,7 +194,7 @@ ACTOR Horror : PowerupGiver
 	PowerUp.Type "Horror"
 }
 
-ACTOR Powerhorror: PowerMorph
+ACTOR PowerHorror: PowerMorph
 {
 	PowerMorph.MorphStyle (MRF_FULLHEALTH|MRF_ADDSTAMINA)
 }

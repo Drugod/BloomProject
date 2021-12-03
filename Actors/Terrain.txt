@@ -62,7 +62,7 @@ ACTOR WaterParticleX : ParticleBase
 	}
 }
 
-ACTOR WaterParticleXFAster: WaterParticleX {Speed 4}
+ACTOR WaterParticleXFaster: WaterParticleX {Speed 4}
 
 ACTOR WaterSplashBase2
 {
@@ -251,7 +251,7 @@ ACTOR SlimeParticleX : WaterParticleX
 	}
 }
 
-ACTOR SlimeParticleXFAster: SlimeParticleX {Speed 4}
+ACTOR SlimeParticleXFaster: SlimeParticleX {Speed 4}
 
 ACTOR SlimeSplashBase
 {
