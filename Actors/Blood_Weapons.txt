@@ -1397,7 +1397,7 @@ ACTOR Dynamite : CalebW
 		TNT1 AAAAAAAA 0 A_Raise
 		DYNU AAA 1 A_Raise
 		DYNU AB 1
-		DYNU C 1 A_PlayWeaponSound ("DSZIPCLS")
+		DYNU C 1 A_PlayWeaponSound("DSZIPCLS")
 		DYNU D 1 A_Raise
 		DYNN AB 1 A_Raise
 		Goto Select+16
@@ -1672,266 +1672,266 @@ ACTOR Dynamite : CalebW
 		TNT1 A 0 A_JumpIfInventory("ThrowPower", 3, "Throw_2")
 		TNT1 A 0 A_JumpIfInventory("ThrowPower", 2, "Throw_1")
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT1")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_1:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_1")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_1")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_1X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_2:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_2")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_2")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_2X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_3:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_3")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_3")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_3X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_4:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_4")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_4")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_4X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_5:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_5")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_5")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_5X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_6:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_6")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_6")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_6X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_7:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_7")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_7")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_7X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_8:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_8")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_8")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_8X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_9:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_9")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_9")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_9X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_10:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_10")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_10")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_10X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_11:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_11")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_11")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_11X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_12:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_12")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_12")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_12X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_13:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_13")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_13")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_13X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_14:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_14")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_14")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_14X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_15:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_15")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_15")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_15X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_16:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_16")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_16")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_16X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_17:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_17")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_17")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_17X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_18:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_18")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_18")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_18X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_19:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_19")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_19")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_19X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_20:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_20")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_20")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_20X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_21:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_21")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_21")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_21X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_22:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_22")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_22")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_22X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_23:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_23")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_23")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_23X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_24:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_24")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_24")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_24X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_25:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_25")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_25")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_25X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_26:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_26")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_26")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_26X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_27:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_27")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_27")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_27X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_28:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_28")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_28")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_28X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_29:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_29")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_29")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_29X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_30:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_30")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_30")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_30X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_31:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_31")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_31")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_31X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_32:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_32")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_32")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_32X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_33:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_33")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_33")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_33X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_34:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_34")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_34")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_34X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_35:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_35")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_35")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("PlayerTNT_35X")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_36:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_35")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_35")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("MidAirTNT")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
 		Goto ThrowFinish
 	Throw_37:
 		TNT1 A 0 A_JumpIfInventory("TNT2", 1, 2)
-		TNT1 A 0 A_FireCustomMissile("PlayerTnT_35")
+		TNT1 A 0 A_FireCustomMissile("PlayerTNT_35")
 		Goto ThrowFinish
 		TNT1 A 0 A_FireCustomMissile("DeathWishKiss")
 		TNT1 A 0 A_TakeInventory("TNT2", 1)
@@ -3034,7 +3034,7 @@ ACTOR NapalmLauncher : CalebW
 		Goto Fire
 		TNT1 A 0 A_TakeInventory("GasolineCan", 11)
 		NLAN F 0 A_PlayWeaponSound("DSnaplm2")
-		NLAN F 0 A_FireCustomMissile ("NapalmRocketAlt1",frandom(-2,2),1,5,3+frandom(-2,2))
+		NLAN F 0 A_FireCustomMissile("NapalmRocketAlt1",frandom(-2,2),1,5,3+frandom(-2,2))
 		TNT1 A 0 A_GiveInventory("RealFlash",1)
 		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_TakeInventory("RealFlash",1)
@@ -3203,11 +3203,11 @@ ACTOR NapalmRocketAlt1
 	Damage 10
 	DamageType "Napalm"
 	RenderStyle "Add"
+	BounceType "Doom"
 	SeeSound "Old/DSNAPALM"
 	DeathSound "Old/DSNAPLM2"
 	PROJECTILE
-	+DONTSPLASH
-	+DOOMBOUNCE
+	+CANBOUNCEWATER
 	+RANDOMIZE
 	+RIPPER
 	+STRIFEDAMAGE
@@ -3293,7 +3293,7 @@ ACTOR NapalmRocketAlt1
 		NAPP F 0 BRIGHT A_SpawnItem ("BFireTrail",8+frandom[Incinerator](-5,5),0+frandom[Incinerator](-5,5),0,0)
 		Goto Death
 	AltFire:
-		MANF AABBCCDDEEFFAABBCCDDEEFFAABBCCDDEEFF 1 BRIGHT A_SpawnItemEx("SmokeTrailSmall",frandom[Incinerator](-5,5),frandom[Incinerator](-5,5),frandom[Incinerator](-5,5),frandom[Incinerator](-1,1),frandom[Incinerator](-1,1),frandom[Incinerator](1,4))
+		NAPP AABBCCDDEEFFAABBCCDDEEFFAABBCCDDEEFF 1 BRIGHT A_SpawnItemEx("SmokeTrailSmall",frandom[Incinerator](-5,5),frandom[Incinerator](-5,5),frandom[Incinerator](-5,5),frandom[Incinerator](-1,1),frandom[Incinerator](-1,1),frandom[Incinerator](1,4))
 		Goto Death
 	Death:
 		NAPP B 0 Radius_Quake(6,12,0,16,0)
@@ -3347,7 +3347,6 @@ ACTOR NapalmRocketAlt3 : NapalmRocketAlt1
 	Damage 5
 	Gravity .7
 	BounceCount 2
-	+DOOMBOUNCE
 	+STRIFEDAMAGE
 	-EXTREMEDEATH
 	-BOUNCEONACTORS
@@ -3380,8 +3379,6 @@ ACTOR NapalmRocketAlt4 : NapalmRocketAlt1
 	DamageType "SpecialFire"
 	Gravity .7
 	BounceCount 2
-	+DOOMBOUNCE
-	+DONTSPLASH
 	+STRIFEDAMAGE
 	-BOUNCEONACTORS
 	-EXTREMEDEATH

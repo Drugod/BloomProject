@@ -26,13 +26,13 @@ ACTOR AerialBase
 	Speed 0
 	Scale 0.5
 	Damage 0
+	BounceType "Doom"
 	BounceFactor 0.5
 	BounceCount 2
 	PROJECTILE
 	+CANNOTPUSH
+	+CANBOUNCEWATER
 	+DONTGIB
-	+DONTSPLASH
-	+DOOMBOUNCE
 	+EXTREMEDEATH
 	+NOBOUNCESOUND
 	+PUSHABLE
@@ -120,6 +120,7 @@ ACTOR RemoteFloor
 	DamageFactor "Napalm",60
 	DamageFactor "TripWire",100
 	+ACTIVATEIMPACT
+	+CANBOUNCEWATER
 	+NOBLOOD
 	+NOTAUTOAIMED
 	+SHOOTABLE
@@ -226,6 +227,7 @@ ACTOR ProximityLandMine
 	Mass 1000000
 	Damage 1
 	DamageType "Dynamite"
+	+CANBOUNCEWATER
 	+DEHEXPLOSION
 	+FORCERADIUSDMG
 	+MISSILE
@@ -266,8 +268,8 @@ ACTOR PlayerTNT
 	Damage (random(100,260))
 	DamageType "Dynamite"
 	PROJECTILE
+	+CANBOUNCEWATER
 	+DONTGIB
-	+DONTSPLASH
 	+NOBOUNCESOUND
 	+NOTAUTOAIMED
 	+PUSHABLE
@@ -731,12 +733,12 @@ ACTOR PlayerTNT1
 	Scale 0.5
 	Reactiontime 49
 	DamageType "Dynamite"
+	BounceType "Doom"
 	BounceFactor 0.5
 	BounceCount 2
 	PROJECTILE
+	+CANBOUNCEWATER
 	+DONTGIB
-	+DONTSPLASH
-	+DOOMBOUNCE
 	+EXTREMEDEATH
 	+NOBOUNCESOUND
 	+PUSHABLE
@@ -806,6 +808,7 @@ ACTOR ClassicoTNT
 	DamageFactor "Normal",0
 	DamageFactor "Dynamite", 60
 	DamageFactor "Napalm",60
+	+CANBOUNCEWATER
 	+NOTAUTOAIMED
 	+SHOOTABLE
 	-NOGRAVITY
