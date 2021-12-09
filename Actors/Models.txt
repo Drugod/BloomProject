@@ -41,7 +41,7 @@ ACTOR Modelcar1 : FloatingModel
 	Mass 1000
 	+NOGRAVITY
 	+SOLID
-	FloatingModel.Buoyancy 0.2
+	//FloatingModel.Buoyancy 0.2
 	States
 	{
 	Spawn:
