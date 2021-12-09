@@ -33,7 +33,7 @@ ACTOR Modelcars : RandomSpawner
 	DropItem "Modelcar5"
 }
 
-ACTOR Modelcar1 : FloatingModel
+ACTOR Modelcar1
 {
 	Radius 52
     Height 52
@@ -41,7 +41,6 @@ ACTOR Modelcar1 : FloatingModel
 	Mass 1000
 	+NOGRAVITY
 	+SOLID
-	//FloatingModel.Buoyancy 0.2
 	States
 	{
 	Spawn:

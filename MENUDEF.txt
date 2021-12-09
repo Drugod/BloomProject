@@ -110,6 +110,10 @@ OptionMenu "BloomOptions"
 {
 	Title  "BlooM Options"
 	Statictext " "
+	StaticText "Custom Controls", 1
+	Slider "FOV",							"fov", 80, 110, 2, 0
+	Control "Toss Grenade (DOOMGUY ONLY)", "pukename GiveGrenade"
+	Statictext " "
 	Submenu "Bloom Shader Options",			"BloomShadersOptions"
 	Statictext " "
 	StaticText "Gameplay Options", 1
@@ -117,7 +121,7 @@ OptionMenu "BloomOptions"
 	Option "Traps on iwad maps? (NOTE: These have not fully implemented)", "blm_traps", "YesOrNo"
 	
 	StaticText " "
-	StaticText "Performance Options (Huge impact on performance, map restart required)", 1
+	StaticText "Performance Options (HUGE IMPACT ON PERFORMANCE, MAP RESTART REQUIRED)", 1
 	Option "Enable Voxels", "blm_voxcnt", "YesOrNo"	
 	Option "(Ultra specs) Enable Voxels for Vegetation?", "blm_voxnat", "YesOrNo", "blm_voxcnt"				
 	Option "(High specs) Enable Voxels for Lighting Props?", "blm_voxlit", "YesOrNo", "blm_voxcnt"					
@@ -129,9 +133,6 @@ OptionMenu "BloomOptions"
 	StaticText " "	
 	StaticText "Draw Distance", 1	
 	Option "Trees Distance (applies both sprites & voxels)","blm_lod","BlmDist"
-	StaticText " "
-	StaticText "Key config for advanced movements", 1
-	Control "Doomguy toss grenade", "grenadetoss"
 	StaticText " "
 	SafeCommand "Set BlooM Default Setup", "bloom_setup"
 }
@@ -161,4 +162,11 @@ OptionValue "BlmDist"
 	512, "Near"
 	2048, "Far"
 	4096, "Unlimited"	
+}
+
+OptionValue PreferBackend //override normal options to avoid unforeseen consequences
+{
+	0, "$OPTVAL_OPENGL"
+	1, "$OPTVAL_VULKAN"
+	//2, "$OPTVAL_SOFTPOLY" // Remove the SoftPoly option, since it will not work well
 }

@@ -1,0 +1,6 @@
+//binds tought for a QWERTY keyboard
+
+bind c +crouch
+bind f +jump
+bind g "pukename GiveGrenade"
+bind space +use
