@@ -10,6 +10,7 @@ server bool blm_voxcrp = FALSE; //Corpse Voxel Control
 server bool blm_voxgbs = FALSE; //Gibs Voxel Control
 server noarchive bool blm_script = FALSE;
 user float blm_uweffectsize = 0.015; //Underwater effect parameter
+server bool blm_shaderoverlayswitch = true; //Heat effect
 user int blm_blood = 1;
 user int blm_lod = 2048;
 

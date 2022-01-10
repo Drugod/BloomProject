@@ -655,6 +655,7 @@ DoomEdNums
 	24007=Jar1C
 	24008=BloodSeven
 	24010=ActionFigures
+	32029=HeatEffectGiver
 	31370=Colt
 	31371=SingleShotgun
 	31995=Thunder_GeneratorBlue

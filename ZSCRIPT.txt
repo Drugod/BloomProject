@@ -1,5 +1,6 @@
-version "3.7.2"
+version "4.2.9"
 
 #include "ZScript/underwater.zs"			// Underwater Distortion Effects
 #include "ZScript/postprocessing.zs"		// Postprocessing Shaders
+#include "ZScript/heateffect.zs"			// Heat Effects
 #include "ZScript/bloombase.zs"				// Base class

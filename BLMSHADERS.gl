@@ -1,3 +1,11 @@
+//HeatEffect shader
+HardwareShader PostProcess scene {
+	Name "heatshader"
+	Shader "shaders/heat.fp" 330
+	Uniform float amount
+	Uniform float timer
+}
+
 //Motion Blur
 HardwareShader PostProcess beforebloom
 {
