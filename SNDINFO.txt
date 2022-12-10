@@ -818,7 +818,7 @@ $Random PodSpit { PodSpit1 PodSpit2 }
 TentacleUp			TENTUP
 TentacleDown		TENTDWN
 TentacleExplode		TENTEXP
-TentacleSwipe		TENTSWP //not present
+TentacleSwipe		TENTSWP
 
 //BEAST
 BeastSee			BSTSEE
