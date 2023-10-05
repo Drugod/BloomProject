@@ -3324,7 +3324,7 @@ Model Lavaball
 {
    Path "Models\Quake"
    Model 0 "Lavaball.md2"
-   Skin 0 "skin0.pcx"
+   Skin 0 "lavab.pcx"
    FrameIndex UNKN A 0 0
    INHERITACTORROLL
    INHERITACTORPITCH
